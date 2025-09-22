@@ -1,206 +1,427 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import {
+  Box,
+  Container,
+  Typography,
+  Button,
+  Stack,
+  Avatar,
+  Chip,
+  useTheme,
+  useMediaQuery,
+  Fade,
+} from '@mui/material';
+import {
+  Download as DownloadIcon,
+  Email as EmailIcon,
+  PlayArrow as PlayIcon,
+  GitHub as GitHubIcon,
+  LinkedIn as LinkedInIcon,
+} from '@mui/icons-material';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from 'react-icons/fa';
-import { personalInfo } from '../data';
+import { useApp } from '../contexts/AppContext';
+import { useCustomTheme } from '../contexts/ThemeContext';
+import { AnimatedButton } from '../common';
+import { analyticsService } from '../services';
+import Hero3DScene from './Hero3DScene';
+
+const MotionBox = motion(Box);
+const MotionTypography = motion(Typography);
 
 const Hero = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { user } = useApp();
+  const { darkMode } = useCustomTheme();
+  
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const titles = [
+    'Software Developer',
+    'React Specialist',
+    'Full Stack Engineer',
+    'Problem Solver',
+  ];
+
+  // Rotating titles effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTitleIndex((prev) => (prev + 1) % titles.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [titles.length]);
+
+  // Component visibility
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const handleDownloadCV = () => {
+    analyticsService.trackDownload('Le_Tri_Trung_CV.pdf', 'pdf');
+    // Implement actual download logic here
+    console.log('Downloading CV...');
+  };
+
+  const handleContactClick = () => {
+    analyticsService.trackInteraction('contact_button_click', 'Hero', 'Contact Me');
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSocialClick = (platform, url) => {
+    analyticsService.trackInteraction('social_click', 'Hero', platform);
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+        duration: 0.8,
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
-      y: 0,
       opacity: 1,
+      y: 0,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    },
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
+      transition: {
+        duration: 0.3,
+      },
+    },
   };
 
   return (
-    <section
+    <Box
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+      sx={{
+        position: 'relative',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        overflow: 'hidden',
+        background: darkMode
+          ? `linear-gradient(135deg, ${theme.palette.grey[900]} 0%, ${theme.palette.grey[800]} 100%)`
+          : `linear-gradient(135deg, ${theme.palette.grey[50]} 0%, ${theme.palette.grey[100]} 100%)`,
+      }}
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -100, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-200/30 dark:bg-primary-800/30 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 100, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-300/30 dark:bg-primary-700/30 rounded-full blur-3xl"
-        />
-      </div>
+      {/* 3D Background Scene */}
+      {!isMobile && (
+        <Hero3DScene darkMode={darkMode} />
+      )}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
+      {/* Content Overlay */}
+      <Container
+        maxWidth="lg"
+        sx={{
+          position: 'relative',
+          zIndex: 2,
+          py: 8,
+        }}
+      >
+        <MotionBox
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
-          className="text-center"
+          animate={isVisible ? 'visible' : 'hidden'}
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: 'center',
+            gap: { xs: 4, md: 8 },
+            minHeight: { xs: 'auto', md: '80vh' },
+          }}
         >
-          {/* Profile Image */}
-          <motion.div
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            className="mb-8"
+          {/* Left Content */}
+          <Box
+            sx={{
+              flex: 1,
+              textAlign: { xs: 'center', md: 'left' },
+              order: { xs: 2, md: 1 },
+            }}
           >
-            <div className="relative inline-block">
-              <motion.img
-                animate={{ 
-                  y: [0, -10, 0],
+            {/* Greeting */}
+            <motion.div variants={itemVariants}>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: 'primary.main',
+                  fontWeight: 'medium',
+                  mb: 1,
+                  textTransform: 'uppercase',
+                  letterSpacing: 1,
                 }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
+              >
+                Hello, I'm
+              </Typography>
+            </motion.div>
+
+            {/* Name */}
+            <motion.div variants={itemVariants}>
+              <Typography
+                variant="h1"
+                sx={{
+                  fontWeight: 'bold',
+                  fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' },
+                  lineHeight: 1.1,
+                  mb: 2,
+                  background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
                 }}
-                src={personalInfo.profileImage}
-                alt={personalInfo.name}
-                className="w-48 h-48 sm:w-56 sm:h-56 rounded-full mx-auto border-4 border-white dark:border-gray-700 shadow-2xl"
-              />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary-400/20 to-primary-600/20"></div>
-            </div>
-          </motion.div>
+              >
+                {user?.name || 'Lê Trí Trung'}
+              </Typography>
+            </motion.div>
 
-          {/* Name */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4"
-          >
-            <span className="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-400 dark:to-primary-600 bg-clip-text text-transparent">
-              {personalInfo.name}
-            </span>
-          </motion.h1>
+            {/* Animated Title */}
+            <Box sx={{ height: 60, display: 'flex', alignItems: 'center', mb: 2 }}>
+              <Typography
+                variant="h4"
+                sx={{
+                  color: 'text.secondary',
+                  fontWeight: 'medium',
+                  fontSize: { xs: '1.5rem', md: '2rem' },
+                }}
+              >
+                I'm a{' '}
+              </Typography>
+              
+              <Box sx={{ ml: 1, position: 'relative', minWidth: 200 }}>
+                <Fade in={true} timeout={500} key={titleIndex}>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      color: 'primary.main',
+                      fontWeight: 'bold',
+                      fontSize: { xs: '1.5rem', md: '2rem' },
+                      position: 'absolute',
+                      left: 0,
+                      top: 0,
+                    }}
+                  >
+                    {titles[titleIndex]}
+                  </Typography>
+                </Fade>
+              </Box>
+            </Box>
 
-          {/* Title */}
-          <motion.h2
-            variants={itemVariants}
-            className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-6 font-medium"
-          >
-            {personalInfo.title}
-          </motion.h2>
+            {/* Description */}
+            <motion.div variants={itemVariants}>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: 'text.secondary',
+                  mb: 4,
+                  lineHeight: 1.6,
+                  maxWidth: 500,
+                  mx: { xs: 'auto', md: 0 },
+                }}
+              >
+                {user?.bio || 'Passionate about creating innovative solutions with modern web technologies. I love turning ideas into reality through clean, efficient code.'}
+              </Typography>
+            </motion.div>
 
-          {/* Description */}
-          <motion.p
-            variants={itemVariants}
-            className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed"
-          >
-            {personalInfo.intro}
-          </motion.p>
+            {/* Skills Tags */}
+            <motion.div variants={itemVariants}>
+              <Stack
+                direction="row"
+                spacing={1}
+                sx={{
+                  mb: 4,
+                  flexWrap: 'wrap',
+                  justifyContent: { xs: 'center', md: 'flex-start' },
+                  gap: 1,
+                }}
+              >
+                {['React', 'JavaScript', 'Node.js', 'Material-UI'].map((skill) => (
+                  <Chip
+                    key={skill}
+                    label={skill}
+                    variant="outlined"
+                    color="primary"
+                    sx={{
+                      fontWeight: 'medium',
+                      '&:hover': {
+                        backgroundColor: 'primary.main',
+                        color: 'primary.contrastText',
+                      },
+                      transition: 'all 0.3s ease',
+                    }}
+                  />
+                ))}
+              </Stack>
+            </motion.div>
 
-          {/* Social Links */}
-          <motion.div
-            variants={itemVariants}
-            className="flex justify-center space-x-6 mb-8"
-          >
-            <motion.a
-              href="https://github.com/letritrung"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              <FaGithub size={24} />
-            </motion.a>
-            <motion.a
-              href="https://linkedin.com/in/letritrung"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              <FaLinkedin size={24} />
-            </motion.a>
-            <motion.a
-              href="https://facebook.com/trung.le"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              <FaFacebook size={24} />
-            </motion.a>
-            <motion.a
-              href={`mailto:${personalInfo.contact.email}`}
-              whileHover={{ scale: 1.2, y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              <FaEnvelope size={24} />
-            </motion.a>
-          </motion.div>
+            {/* Action Buttons */}
+            <motion.div variants={itemVariants}>
+              <Stack
+                direction={{ xs: 'column', sm: 'row' }}
+                spacing={2}
+                sx={{
+                  justifyContent: { xs: 'center', md: 'flex-start' },
+                  mb: 4,
+                }}
+              >
+                <AnimatedButton
+                  variant="contained"
+                  size="large"
+                  startIcon={<DownloadIcon />}
+                  onClick={handleDownloadCV}
+                  animationType="bounce"
+                  sx={{
+                    px: 4,
+                    py: 1.5,
+                    fontSize: '1.1rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Download CV
+                </AnimatedButton>
 
-          {/* CTA Buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+                <AnimatedButton
+                  variant="outlined"
+                  size="large"
+                  startIcon={<EmailIcon />}
+                  onClick={handleContactClick}
+                  animationType="slide"
+                  sx={{
+                    px: 4,
+                    py: 1.5,
+                    fontSize: '1.1rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Contact Me
+                </AnimatedButton>
+              </Stack>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div variants={itemVariants}>
+              <Stack
+                direction="row"
+                spacing={1}
+                sx={{
+                  justifyContent: { xs: 'center', md: 'flex-start' },
+                }}
+              >
+                <AnimatedButton
+                  iconOnly
+                  onClick={() => handleSocialClick('GitHub', user?.social?.github || '#')}
+                  tooltip="GitHub"
+                  animationType="scale"
+                >
+                  <GitHubIcon />
+                </AnimatedButton>
+
+                <AnimatedButton
+                  iconOnly
+                  onClick={() => handleSocialClick('LinkedIn', user?.social?.linkedin || '#')}
+                  tooltip="LinkedIn"
+                  animationType="scale"
+                >
+                  <LinkedInIcon />
+                </AnimatedButton>
+              </Stack>
+            </motion.div>
+          </Box>
+
+          {/* Right Content - Avatar/Image */}
+          <Box
+            sx={{
+              flex: { xs: 'none', md: 1 },
+              display: 'flex',
+              justifyContent: 'center',
+              order: { xs: 1, md: 2 },
+            }}
           >
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Get In Touch
-            </motion.a>
-            <motion.a
-              href="#projects"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 border-2 border-primary-600 text-primary-600 dark:text-primary-400 hover:bg-primary-600 hover:text-white rounded-full font-medium transition-all duration-300"
-            >
-              View Projects
-            </motion.a>
-          </motion.div>
-        </motion.div>
-      </div>
+            <motion.div variants={itemVariants}>
+              <Avatar
+                src={user?.avatar}
+                alt={user?.name}
+                sx={{
+                  width: { xs: 200, md: 300, lg: 350 },
+                  height: { xs: 200, md: 300, lg: 350 },
+                  border: `4px solid ${theme.palette.primary.main}`,
+                  boxShadow: theme.shadows[8],
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
+                  transition: 'transform 0.3s ease',
+                }}
+              >
+                {user?.name?.charAt(0) || 'L'}
+              </Avatar>
+            </motion.div>
+          </Box>
+        </MotionBox>
+      </Container>
 
       {/* Scroll Indicator */}
       <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 0.5 }}
+        style={{
+          position: 'absolute',
+          bottom: 30,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 2,
+        }}
       >
-        <div className="w-6 h-10 border-2 border-primary-600 dark:border-primary-400 rounded-full flex justify-center">
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            cursor: 'pointer',
+            color: 'text.secondary',
+            '&:hover': {
+              color: 'primary.main',
+            },
+            transition: 'color 0.3s ease',
+          }}
+          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          <Typography variant="caption" sx={{ mb: 1 }}>
+            Scroll Down
+          </Typography>
           <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-primary-600 dark:bg-primary-400 rounded-full mt-2"
-          />
-        </div>
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            <PlayIcon sx={{ transform: 'rotate(90deg)' }} />
+          </motion.div>
+        </Box>
       </motion.div>
-    </section>
+    </Box>
   );
 };
 

@@ -1,7 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser } from 'react-icons/fa';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Button,
+  Chip,
+  Divider,
+  Paper,
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { GitHub, Launch, CalendarToday, Person } from '@mui/icons-material';
 import { projects } from '../data';
+
+// Styled components
+const StyledCard = styled(motion.div)(({ theme }) => ({
+  borderRadius: theme.spacing(2),
+  overflow: 'hidden',
+  boxShadow: theme.shadows[4],
+  transition: 'all 0.3s ease-in-out',
+  '&:hover': {
+    boxShadow: theme.shadows[8],
+    transform: 'translateY(-8px)',
+  },
+}));
+
+const StatusChip = styled(Chip)(({ status, theme }) => {
+  const colors = {
+    'Active': {
+      backgroundColor: theme.palette.success.light,
+      color: theme.palette.success.dark,
+    },
+    'In Development': {
+      backgroundColor: theme.palette.warning.light,
+      color: theme.palette.warning.dark,
+    },
+    'Completed': {
+      backgroundColor: theme.palette.info.light,
+      color: theme.palette.info.dark,
+    },
+  };
+  
+  return {
+    position: 'absolute',
+    top: theme.spacing(2),
+    right: theme.spacing(2),
+    zIndex: 1,
+    ...colors[status] || {
+      backgroundColor: theme.palette.grey[300],
+      color: theme.palette.grey[700],
+    },
+  };
+});
+
+const TechChip = styled(Chip)(({ tech, theme }) => {
+  const colors = {
+    'React': { backgroundColor: '#e3f2fd', color: '#1976d2' },
+    'Spring Boot': { backgroundColor: '#e8f5e8', color: '#388e3c' },
+    'MySQL': { backgroundColor: '#fff3e0', color: '#f57c00' },
+    'PostgreSQL': { backgroundColor: '#e3f2fd', color: '#1976d2' },
+    'MongoDB': { backgroundColor: '#e8f5e8', color: '#388e3c' },
+    'Docker': { backgroundColor: '#e3f2fd', color: '#1976d2' },
+    'AWS': { backgroundColor: '#fff3e0', color: '#f57c00' },
+    'Node.js': { backgroundColor: '#e8f5e8', color: '#388e3c' },
+    'Express': { backgroundColor: '#f5f5f5', color: '#616161' },
+    'Redis': { backgroundColor: '#ffebee', color: '#d32f2f' },
+    'Kubernetes': { backgroundColor: '#e3f2fd', color: '#1976d2' },
+    'Stripe API': { backgroundColor: '#f3e5f5', color: '#7b1fa2' },
+  };
+  
+  return {
+    margin: theme.spacing(0.5),
+    fontSize: '0.75rem',
+    height: '24px',
+    ...colors[tech] || {
+      backgroundColor: theme.palette.grey[200],
+      color: theme.palette.grey[700],
+    },
+  };
+});
 
 const Projects = () => {
   const containerVariants = {
@@ -26,41 +108,17 @@ const Projects = () => {
     }
   };
 
-  const getStatusColor = (status) => {
-    switch (status) {
-      case 'Active':
-        return 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400';
-      case 'In Development':
-        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400';
-      case 'Completed':
-        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400';
-      default:
-        return 'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400';
-    }
-  };
-
-  const getTechBadgeColor = (tech) => {
-    const colors = {
-      'React': 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400',
-      'Spring Boot': 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400',
-      'MySQL': 'bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-400',
-      'PostgreSQL': 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400',
-      'MongoDB': 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400',
-      'Docker': 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400',
-      'AWS': 'bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-400',
-      'Node.js': 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400',
-      'Express': 'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400',
-      'Redis': 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400',
-      'Kubernetes': 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400',
-      'Stripe API': 'bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-400',
-      default: 'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400'
-    };
-    return colors[tech] || colors.default;
-  };
-
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Box 
+      component="section" 
+      id="projects" 
+      sx={{ 
+        py: 10,
+        backgroundColor: 'background.default',
+        minHeight: '100vh',
+      }}
+    >
+      <Container maxWidth="xl">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -68,140 +126,199 @@ const Projects = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              My <span className="text-primary-600 dark:text-primary-400">Projects</span>
-            </h2>
-            <div className="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Here are some of the projects I've worked on, showcasing my skills and experience in various technologies.
-            </p>
+          <motion.div variants={itemVariants}>
+            <Box textAlign="center" mb={8}>
+              <Typography
+                variant="h2"
+                component="h2"
+                sx={{
+                  fontWeight: 'bold',
+                  mb: 2,
+                  fontSize: { xs: '2.5rem', sm: '3rem', lg: '3.5rem' },
+                }}
+              >
+                My{' '}
+                <Box component="span" sx={{ color: 'primary.main' }}>
+                  Projects
+                </Box>
+              </Typography>
+              <Divider
+                sx={{
+                  width: 96,
+                  height: 4,
+                  backgroundColor: 'primary.main',
+                  mx: 'auto',
+                  mb: 3,
+                  borderRadius: 2,
+                }}
+              />
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                sx={{ maxWidth: '600px', mx: 'auto', lineHeight: 1.6 }}
+              >
+                Here are some of the projects I've worked on, showcasing my skills and experience in various technologies.
+              </Typography>
+            </Box>
           </motion.div>
 
           {/* Projects Grid */}
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <Grid container spacing={4}>
             {projects.map((project) => (
-              <motion.div
-                key={project.id}
-                variants={itemVariants}
-                whileHover={{ y: -10 }}
-                className="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-              >
-                {/* Project Image */}
-                <div className="relative overflow-hidden">
-                  <motion.img
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(project.status)}`}>
-                      {project.status}
-                    </span>
-                  </div>
-                </div>
+              <Grid item xs={12} md={6} lg={4} key={project.id}>
+                <StyledCard
+                  variants={itemVariants}
+                  whileHover={{ y: -10 }}
+                >
+                  <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    {/* Project Image */}
+                    <Box sx={{ position: 'relative' }}>
+                      <CardMedia
+                        component={motion.img}
+                        image={project.image}
+                        alt={project.title}
+                        sx={{ height: 200 }}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                      <StatusChip
+                        status={project.status}
+                        label={project.status}
+                        size="small"
+                      />
+                    </Box>
 
-                {/* Project Content */}
-                <div className="p-6">
-                  {/* Project Title */}
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    {project.title}
-                  </h3>
+                    {/* Project Content */}
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography variant="h5" component="h3" gutterBottom fontWeight="bold">
+                        {project.title}
+                      </Typography>
 
-                  {/* Project Meta */}
-                  <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 mb-4">
-                    <div className="flex items-center">
-                      <FaUser className="mr-1" size={12} />
-                      <span>{project.role}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <FaCalendarAlt className="mr-1" size={12} />
-                      <span>{project.duration}</span>
-                    </div>
-                  </div>
+                      {/* Project Meta */}
+                      <Box display="flex" justifyContent="space-between" mb={2}>
+                        <Box display="flex" alignItems="center" gap={0.5}>
+                          <Person fontSize="small" color="action" />
+                          <Typography variant="body2" color="text.secondary">
+                            {project.role}
+                          </Typography>
+                        </Box>
+                        <Box display="flex" alignItems="center" gap={0.5}>
+                          <CalendarToday fontSize="small" color="action" />
+                          <Typography variant="body2" color="text.secondary">
+                            {project.duration}
+                          </Typography>
+                        </Box>
+                      </Box>
 
-                  {/* Project Description */}
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
+                      {/* Project Description */}
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        paragraph
+                        sx={{ lineHeight: 1.6 }}
+                      >
+                        {project.description}
+                      </Typography>
 
-                  {/* Tech Stack */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                      Tech Stack:
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.techStack.map((tech, index) => (
-                        <motion.span
-                          key={index}
-                          whileHover={{ scale: 1.05 }}
-                          className={`px-2 py-1 rounded-md text-xs font-medium ${getTechBadgeColor(tech)}`}
-                        >
-                          {tech}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </div>
+                      {/* Tech Stack */}
+                      <Box mb={2}>
+                        <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
+                          Tech Stack:
+                        </Typography>
+                        <Box display="flex" flexWrap="wrap" gap={0.5}>
+                          {project.techStack.map((tech, index) => (
+                            <TechChip
+                              key={index}
+                              tech={tech}
+                              label={tech}
+                              size="small"
+                              component={motion.div}
+                              whileHover={{ scale: 1.05 }}
+                            />
+                          ))}
+                        </Box>
+                      </Box>
+                    </CardContent>
 
-                  {/* Action Buttons */}
-                  <div className="flex gap-3">
-                    <motion.a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex-1 flex items-center justify-center px-4 py-2 bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white rounded-lg transition-colors duration-200 text-sm font-medium"
-                    >
-                      <FaGithub className="mr-2" size={14} />
-                      GitHub
-                    </motion.a>
-                    <motion.a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex-1 flex items-center justify-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium"
-                    >
-                      <FaExternalLinkAlt className="mr-2" size={14} />
-                      Live Demo
-                    </motion.a>
-                  </div>
-                </div>
-              </motion.div>
+                    {/* Action Buttons */}
+                    <CardActions sx={{ p: 2, pt: 0 }}>
+                      <Button
+                        variant="outlined"
+                        startIcon={<GitHub />}
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{ flex: 1 }}
+                        component={motion.a}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        GitHub
+                      </Button>
+                      <Button
+                        variant="contained"
+                        startIcon={<Launch />}
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{ flex: 1 }}
+                        component={motion.a}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        Live Demo
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </StyledCard>
+              </Grid>
             ))}
-          </div>
+          </Grid>
 
           {/* Projects Summary */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 text-center bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 p-8 rounded-xl"
-          >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Want to See More?
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-              These are just a few highlights of my work. I'm always working on new projects and 
-              improving existing ones. Check out my GitHub for more repositories and contributions.
-            </p>
-            <motion.a
-              href="https://github.com/letritrung"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors duration-200"
+          <motion.div variants={itemVariants}>
+            <Paper
+              elevation={2}
+              sx={{
+                mt: 8,
+                p: 4,
+                textAlign: 'center',
+                background: (theme) =>
+                  `linear-gradient(135deg, ${theme.palette.primary.light}15, ${theme.palette.primary.main}20)`,
+                borderRadius: 3,
+              }}
             >
-              <FaGithub className="mr-2" size={18} />
-              View All Projects
-            </motion.a>
+              <Typography variant="h4" component="h3" fontWeight="bold" gutterBottom>
+                Want to See More?
+              </Typography>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                paragraph
+                sx={{ maxWidth: '600px', mx: 'auto', mb: 3 }}
+              >
+                These are just a few highlights of my work. I'm always working on new projects and
+                improving existing ones. Check out my GitHub for more repositories and contributions.
+              </Typography>
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<GitHub />}
+                href="https://github.com/letritrung"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{ px: 4, py: 1.5 }}
+                component={motion.a}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View All Projects
+              </Button>
+            </Paper>
           </motion.div>
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Box>
   );
 };
 

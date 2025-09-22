@@ -1,7 +1,67 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaUsers, FaCalendarAlt, FaHandsHelping, FaMicrophone, FaMusic, FaRunning, FaTheaterMasks, FaUserTie } from 'react-icons/fa';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Paper,
+  Chip,
+  Avatar,
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
+import {
+  Groups,
+  CalendarToday,
+  Handshake,
+  Mic,
+  MusicNote,
+  DirectionsRun,
+  TheaterComedy,
+  Person,
+} from '@mui/icons-material';
 import { activities } from '../data';
+
+// Styled components
+const ActivityCard = styled(motion.div)(({ theme }) => ({
+  borderRadius: theme.spacing(2),
+  padding: theme.spacing(3),
+  backgroundColor: theme.palette.background.paper,
+  boxShadow: theme.shadows[4],
+  border: `1px solid ${theme.palette.grey[200]}`,
+  transition: 'all 0.3s ease-in-out',
+  '&:hover': {
+    boxShadow: theme.shadows[8],
+    transform: 'translateY(-8px) scale(1.02)',
+  },
+  ...(theme.palette.mode === 'dark' && {
+    border: `1px solid ${theme.palette.grey[700]}`,
+  }),
+}));
+
+const ActivityIcon = styled(Avatar)(({ theme }) => ({
+  backgroundColor: `${theme.palette.primary.main}20`,
+  color: theme.palette.primary.main,
+  marginRight: theme.spacing(2),
+  width: 48,
+  height: 48,
+}));
+
+const StatCard = styled(Paper)(({ theme }) => ({
+  textAlign: 'center',
+  padding: theme.spacing(3),
+  borderRadius: theme.spacing(2),
+  backgroundColor: theme.palette.background.paper,
+  boxShadow: theme.shadows[4],
+}));
+
+const PhilosophyBox = styled(Paper)(({ theme }) => ({
+  background: `linear-gradient(135deg, ${theme.palette.primary.light}20, ${theme.palette.primary.main}20)`,
+  padding: theme.spacing(4),
+  borderRadius: theme.spacing(2),
+  textAlign: 'center',
+  marginTop: theme.spacing(8),
+}));
 
 const Activities = () => {
   const containerVariants = {
@@ -27,36 +87,46 @@ const Activities = () => {
   };
 
   const getActivityIcon = (title) => {
-    if (title.includes('Innocode') || title.includes('ResFres')) return FaUsers;
-    if (title.includes('Mic Home')) return FaMicrophone;
-    if (title.includes('FUM')) return FaMusic;
-    if (title.includes('Referee')) return FaRunning;
-    if (title.includes('Ambassador')) return FaUserTie;
-    if (title.includes('Acting')) return FaTheaterMasks;
-    return FaHandsHelping;
+    if (title.includes('Innocode') || title.includes('ResFres')) return Groups;
+    if (title.includes('Mic Home')) return Mic;
+    if (title.includes('FUM')) return MusicNote;
+    if (title.includes('Referee')) return DirectionsRun;
+    if (title.includes('Ambassador')) return Person;
+    if (title.includes('Acting')) return TheaterComedy;
+    return Handshake;
   };
 
-  const getStatusColor = (status) => {
+  const getStatusChipColor = (status) => {
     switch (status) {
       case 'Active':
-        return 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400';
+        return 'success';
       case 'Completed':
-        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400';
+        return 'info';
       default:
-        return 'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400';
+        return 'default';
     }
   };
 
   const getRoleColor = (role) => {
-    if (role === 'Leader') return 'text-purple-600 dark:text-purple-400';
-    if (role === 'Core Member') return 'text-blue-600 dark:text-blue-400';
-    if (role === 'Ambassador') return 'text-green-600 dark:text-green-400';
-    return 'text-gray-600 dark:text-gray-400';
+    if (role === 'Leader') return 'secondary.main';
+    if (role === 'Core Member') return 'info.main';
+    if (role === 'Ambassador') return 'success.main';
+    return 'text.secondary';
   };
 
   return (
-    <section id="activities" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Box
+      id="activities"
+      component="section"
+      sx={{
+        py: 10,
+        backgroundColor: 'grey.50',
+        ...(theme => theme.palette.mode === 'dark' && {
+          backgroundColor: 'grey.900',
+        }),
+      }}
+    >
+      <Container maxWidth="lg">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -64,114 +134,183 @@ const Activities = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              My <span className="text-primary-600 dark:text-primary-400">Activities</span>
-            </h2>
-            <div className="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Active participation in various clubs, organizations, and community initiatives that have shaped my leadership and interpersonal skills.
-            </p>
+          <motion.div variants={itemVariants}>
+            <Box textAlign="center" mb={8}>
+              <Typography
+                variant="h2"
+                component="h2"
+                fontWeight="bold"
+                mb={2}
+                sx={{
+                  fontSize: { xs: '2rem', sm: '2.5rem', lg: '3rem' },
+                  color: 'text.primary',
+                }}
+              >
+                My{' '}
+                <Box component="span" color="primary.main">
+                  Activities
+                </Box>
+              </Typography>
+              <Box
+                sx={{
+                  width: 96,
+                  height: 4,
+                  backgroundColor: 'primary.main',
+                  mx: 'auto',
+                  mb: 3,
+                }}
+              />
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                maxWidth="md"
+                mx="auto"
+              >
+                Active participation in various clubs, organizations, and community initiatives that have shaped my leadership and interpersonal skills.
+              </Typography>
+            </Box>
           </motion.div>
 
           {/* Activities Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Grid container spacing={3} mb={8}>
             {activities.map((activity) => {
-              const ActivityIcon = getActivityIcon(activity.title);
-              const statusColor = getStatusColor(activity.status);
+              const ActivityIconComponent = getActivityIcon(activity.title);
+              const statusChipColor = getStatusChipColor(activity.status);
               const roleColor = getRoleColor(activity.role);
 
               return (
-                <motion.div
-                  key={activity.id}
-                  variants={itemVariants}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
-                >
-                  {/* Activity Header */}
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center">
-                      <div className="p-3 bg-primary-100 dark:bg-primary-900/30 rounded-lg mr-3">
-                        <ActivityIcon className="text-primary-600 dark:text-primary-400" size={20} />
-                      </div>
-                      <div className="flex-1">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${statusColor}`}>
-                          {activity.status}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex items-center text-gray-500 dark:text-gray-400">
-                      <FaCalendarAlt className="mr-1" size={12} />
-                      <span className="text-xs">{activity.duration}</span>
-                    </div>
-                  </div>
+                <Grid item xs={12} md={6} lg={4} key={activity.id}>
+                  <ActivityCard
+                    variants={itemVariants}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                  >
+                    {/* Activity Header */}
+                    <Box display="flex" alignItems="flex-start" justifyContent="space-between" mb={2}>
+                      <Box display="flex" alignItems="center">
+                        <ActivityIcon>
+                          <ActivityIconComponent />
+                        </ActivityIcon>
+                        <Chip
+                          label={activity.status}
+                          color={statusChipColor}
+                          size="small"
+                          variant="outlined"
+                        />
+                      </Box>
+                      <Box display="flex" alignItems="center" color="text.secondary">
+                        <CalendarToday sx={{ mr: 0.5, fontSize: '0.875rem' }} />
+                        <Typography variant="caption">
+                          {activity.duration}
+                        </Typography>
+                      </Box>
+                    </Box>
 
-                  {/* Activity Title */}
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                    {activity.title}
-                  </h3>
+                    {/* Activity Title */}
+                    <Typography
+                      variant="h6"
+                      component="h3"
+                      fontWeight="bold"
+                      mb={1}
+                      color="text.primary"
+                    >
+                      {activity.title}
+                    </Typography>
 
-                  {/* Role and Organization */}
-                  <div className="mb-3">
-                    <p className={`font-semibold ${roleColor} text-sm mb-1`}>
-                      {activity.role}
-                    </p>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">
-                      {activity.organization}
-                    </p>
-                  </div>
+                    {/* Role and Organization */}
+                    <Box mb={2}>
+                      <Typography
+                        variant="subtitle2"
+                        fontWeight="semibold"
+                        sx={{ color: roleColor, mb: 0.5 }}
+                      >
+                        {activity.role}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                      >
+                        {activity.organization}
+                      </Typography>
+                    </Box>
 
-                  {/* Description */}
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                    {activity.description}
-                  </p>
-                </motion.div>
+                    {/* Description */}
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      lineHeight={1.6}
+                    >
+                      {activity.description}
+                    </Typography>
+                  </ActivityCard>
+                </Grid>
               );
             })}
-          </div>
+          </Grid>
 
           {/* Activities Summary */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 grid md:grid-cols-3 gap-8"
-          >
-            <div className="text-center p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg">
-              <FaUsers className="text-primary-600 dark:text-primary-400 mx-auto mb-3" size={32} />
-              <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">7+</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Organizations</div>
-            </div>
-            <div className="text-center p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg">
-              <FaHandsHelping className="text-green-600 dark:text-green-400 mx-auto mb-3" size={32} />
-              <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">4</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Active Roles</div>
-            </div>
-            <div className="text-center p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg">
-              <FaMicrophone className="text-purple-600 dark:text-purple-400 mx-auto mb-3" size={32} />
-              <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">3</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Leadership Positions</div>
-            </div>
+          <motion.div variants={itemVariants}>
+            <Grid container spacing={4} mb={8}>
+              <Grid item xs={12} md={4}>
+                <StatCard elevation={4}>
+                  <Groups sx={{ color: 'primary.main', fontSize: '2rem', mb: 1 }} />
+                  <Typography variant="h4" fontWeight="bold" color="text.primary" mb={0.5}>
+                    7+
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Organizations
+                  </Typography>
+                </StatCard>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <StatCard elevation={4}>
+                  <Handshake sx={{ color: 'success.main', fontSize: '2rem', mb: 1 }} />
+                  <Typography variant="h4" fontWeight="bold" color="text.primary" mb={0.5}>
+                    4
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Active Roles
+                  </Typography>
+                </StatCard>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <StatCard elevation={4}>
+                  <Mic sx={{ color: 'secondary.main', fontSize: '2rem', mb: 1 }} />
+                  <Typography variant="h4" fontWeight="bold" color="text.primary" mb={0.5}>
+                    3
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Leadership Positions
+                  </Typography>
+                </StatCard>
+              </Grid>
+            </Grid>
           </motion.div>
 
           {/* Leadership Philosophy */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 text-center bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 p-8 rounded-xl"
-          >
-            <div className="flex items-center justify-center mb-4">
-              <FaUsers className="text-primary-600 dark:text-primary-400 mr-3" size={32} />
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Leadership & Community
-              </h3>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Through my involvement in various activities and organizations, I've developed strong leadership skills, 
-              learned the importance of teamwork, and discovered the joy of contributing to meaningful causes. 
-              Each experience has enriched my perspective and helped me grow both personally and professionally.
-            </p>
+          <motion.div variants={itemVariants}>
+            <PhilosophyBox elevation={2}>
+              <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
+                <Groups sx={{ color: 'primary.main', mr: 2, fontSize: '2rem' }} />
+                <Typography variant="h4" component="h3" fontWeight="bold">
+                  Leadership & Community
+                </Typography>
+              </Box>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                maxWidth="md"
+                mx="auto"
+                lineHeight={1.7}
+              >
+                Through my involvement in various activities and organizations, I've developed strong leadership skills,
+                learned the importance of teamwork, and discovered the joy of contributing to meaningful causes.
+                Each experience has enriched my perspective and helped me grow both personally and professionally.
+              </Typography>
+            </PhilosophyBox>
           </motion.div>
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Box>
   );
 };
 

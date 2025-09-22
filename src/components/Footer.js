@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaHeart, FaArrowUp } from 'react-icons/fa';
 
@@ -35,10 +36,10 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'About', href: '/about' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Skills', href: '/skills' },
+    { name: 'Contact', href: '/contact' }
   ];
 
   return (
@@ -108,13 +109,14 @@ const Footer = () => {
             >
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <motion.a
-                    href={link.href}
-                    whileHover={{ x: 5 }}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200 text-sm"
-                  >
-                    {link.name}
-                  </motion.a>
+                  <motion.div whileHover={{ x: 5 }}>
+                    <Link
+                      to={link.href}
+                      className="text-gray-300 hover:text-primary-400 transition-colors duration-200 text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 </li>
               ))}
             </motion.ul>

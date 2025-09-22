@@ -1,7 +1,86 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaPaperPlane, FaUser, FaEdit } from 'react-icons/fa';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Paper,
+  TextField,
+  Button,
+  Alert,
+  CircularProgress,
+  Avatar,
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
+import {
+  Email,
+  Phone,
+  LocationOn,
+  Facebook,
+  Send,
+  Person,
+  Edit,
+} from '@mui/icons-material';
 import { personalInfo } from '../data';
+
+// Styled components
+const ContactCard = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(4),
+  borderRadius: theme.spacing(2),
+  backgroundColor: theme.palette.grey[50],
+  height: '100%',
+  ...(theme.palette.mode === 'dark' && {
+    backgroundColor: theme.palette.grey[900],
+  }),
+}));
+
+const ContactListItem = styled(motion.div)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  marginBottom: theme.spacing(3),
+  cursor: 'pointer',
+  '&:hover': {
+    transform: 'translateX(8px)',
+  },
+}));
+
+const ContactIcon = styled(Avatar)(({ color, theme }) => {
+  const colors = {
+    email: theme.palette.error.main,
+    phone: theme.palette.success.main,
+    location: theme.palette.info.main,
+    facebook: theme.palette.primary.main,
+  };
+
+  return {
+    backgroundColor: `${colors[color]}20`,
+    color: colors[color],
+    marginRight: theme.spacing(2),
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      backgroundColor: `${colors[color]}30`,
+    },
+  };
+});
+
+const StatsBox = styled(Paper)(({ theme }) => ({
+  background: `linear-gradient(135deg, ${theme.palette.primary.light}20, ${theme.palette.primary.main}20)`,
+  padding: theme.spacing(3),
+  borderRadius: theme.spacing(2),
+  marginTop: theme.spacing(4),
+})); 
+
+const StyledTextField = styled(TextField)(({ theme }) => ({
+  '& .MuiOutlinedInput-root': {
+    '&:hover fieldset': {
+      borderColor: theme.palette.primary.main,
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: theme.palette.primary.main,
+    },
+  },
+}));
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -59,38 +138,45 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: FaEnvelope,
+      icon: Email,
       label: 'Email',
       value: personalInfo.contact.email,
       href: `mailto:${personalInfo.contact.email}`,
-      color: 'text-red-500'
+      color: 'email'
     },
     {
-      icon: FaPhone,
+      icon: Phone,
       label: 'Phone',
       value: personalInfo.contact.phone,
       href: `tel:${personalInfo.contact.phone}`,
-      color: 'text-green-500'
+      color: 'phone'
     },
     {
-      icon: FaMapMarkerAlt,
+      icon: LocationOn,
       label: 'Location',
       value: personalInfo.contact.location,
       href: '#',
-      color: 'text-blue-500'
+      color: 'location'
     },
     {
-      icon: FaFacebook,
+      icon: Facebook,
       label: 'Facebook',
       value: personalInfo.contact.facebook,
       href: 'https://facebook.com/trung.le',
-      color: 'text-blue-600'
+      color: 'facebook'
     }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Box
+      id="contact"
+      component="section"
+      sx={{
+        py: 10,
+        backgroundColor: 'background.default',
+      }}
+    >
+      <Container maxWidth="lg">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -98,186 +184,251 @@ const Contact = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Get In <span className="text-primary-600 dark:text-primary-400">Touch</span>
-            </h2>
-            <div className="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              I'm always open to discussing new opportunities, collaborations, or just having a friendly chat about technology and development.
-            </p>
+          <motion.div variants={itemVariants}>
+            <Box textAlign="center" mb={8}>
+              <Typography
+                variant="h2"
+                component="h2"
+                fontWeight="bold"
+                mb={2}
+                sx={{
+                  fontSize: { xs: '2rem', sm: '2.5rem', lg: '3rem' },
+                  color: 'text.primary',
+                }}
+              >
+                Get In{' '}
+                <Box component="span" color="primary.main">
+                  Touch
+                </Box>
+              </Typography>
+              <Box
+                sx={{
+                  width: 96,
+                  height: 4,
+                  backgroundColor: 'primary.main',
+                  mx: 'auto',
+                  mb: 3,
+                }}
+              />
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                maxWidth="md"
+                mx="auto"
+              >
+                I'm always open to discussing new opportunities, collaborations, or just having a friendly chat about technology and development.
+              </Typography>
+            </Box>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <Grid container spacing={6}>
             {/* Contact Information */}
-            <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
-                Let's Connect
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                Whether you have a project in mind, want to discuss opportunities, or just want to say hello, 
-                I'd love to hear from you. Feel free to reach out through any of the following channels.
-              </p>
+            <Grid item xs={12} lg={6}>
+              <motion.div variants={itemVariants}>
+                <Typography variant="h4" component="h3" fontWeight="bold" mb={4}>
+                  Let's Connect
+                </Typography>
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  mb={4}
+                  lineHeight={1.7}
+                >
+                  Whether you have a project in mind, want to discuss opportunities, or just want to say hello,
+                  I'd love to hear from you. Feel free to reach out through any of the following channels.
+                </Typography>
 
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ x: 10 }}
-                    className="flex items-center group"
-                  >
-                    <div className={`p-4 rounded-lg bg-gray-100 dark:bg-gray-800 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/20 transition-colors duration-300 ${info.color}`}>
-                      <info.icon size={20} />
-                    </div>
-                    <div className="ml-4">
-                      <p className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                        {info.label}
-                      </p>
-                      <a
-                        href={info.href}
-                        target={info.href.startsWith('http') ? '_blank' : undefined}
-                        rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 font-medium"
-                      >
-                        {info.value}
-                      </a>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+                <Box mb={4}>
+                  {contactInfo.map((info, index) => (
+                    <ContactListItem
+                      key={index}
+                      whileHover={{ x: 8 }}
+                      component="a"
+                      href={info.href}
+                      target={info.href.startsWith('http') ? '_blank' : undefined}
+                      rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      sx={{ textDecoration: 'none' }}
+                    >
+                      <ContactIcon color={info.color}>
+                        <info.icon />
+                      </ContactIcon>
+                      <Box>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          display="block"
+                          sx={{ textTransform: 'uppercase', letterSpacing: 1 }}
+                        >
+                          {info.label}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          color="text.primary"
+                          fontWeight="medium"
+                          sx={{
+                            '&:hover': {
+                              color: 'primary.main',
+                            },
+                          }}
+                        >
+                          {info.value}
+                        </Typography>
+                      </Box>
+                    </ContactListItem>
+                  ))}
+                </Box>
 
-              {/* Quick Stats */}
-              <motion.div
-                variants={itemVariants}
-                className="mt-8 p-6 bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 rounded-xl"
-              >
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                  Response Time
-                </h4>
-                <div className="grid grid-cols-2 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">&lt; 24h</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Email Response</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">Always</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Open to Chat</div>
-                  </div>
-                </div>
+                {/* Quick Stats */}
+                <motion.div variants={itemVariants}>
+                  <StatsBox elevation={2}>
+                    <Typography variant="h6" fontWeight="semibold" mb={2}>
+                      Response Time
+                    </Typography>
+                    <Grid container spacing={2}>
+                      <Grid item xs={6}>
+                        <Box textAlign="center">
+                          <Typography
+                            variant="h4"
+                            fontWeight="bold"
+                            color="primary.main"
+                          >
+                            &lt; 24h
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            Email Response
+                          </Typography>
+                        </Box>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Box textAlign="center">
+                          <Typography
+                            variant="h4"
+                            fontWeight="bold"
+                            color="primary.main"
+                          >
+                            Always
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            Open to Chat
+                          </Typography>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </StatsBox>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </Grid>
 
             {/* Contact Form */}
-            <motion.div variants={itemVariants}>
-              <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                  Send a Message
-                </h3>
+            <Grid item xs={12} lg={6}>
+              <motion.div variants={itemVariants}>
+                <ContactCard elevation={4}>
+                  <Typography variant="h4" component="h3" fontWeight="bold" mb={4}>
+                    Send a Message
+                  </Typography>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name Field */}
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Your Name
-                    </label>
-                    <div className="relative">
-                      <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
-                        placeholder="Enter your name"
-                      />
-                    </div>
-                  </div>
+                  <Box component="form" onSubmit={handleSubmit} sx={{ '& > *': { mb: 3 } }}>
+                    {/* Name Field */}
+                    <StyledTextField
+                      fullWidth
+                      label="Your Name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      variant="outlined"
+                      InputProps={{
+                        startAdornment: (
+                          <Person sx={{ color: 'text.secondary', mr: 1 }} />
+                        ),
+                      }}
+                      placeholder="Enter your name"
+                    />
 
-                  {/* Email Field */}
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Your Email
-                    </label>
-                    <div className="relative">
-                      <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
-                        placeholder="Enter your email"
-                      />
-                    </div>
-                  </div>
+                    {/* Email Field */}
+                    <StyledTextField
+                      fullWidth
+                      label="Your Email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      variant="outlined"
+                      InputProps={{
+                        startAdornment: (
+                          <Email sx={{ color: 'text.secondary', mr: 1 }} />
+                        ),
+                      }}
+                      placeholder="Enter your email"
+                    />
 
-                  {/* Message Field */}
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Your Message
-                    </label>
-                    <div className="relative">
-                      <FaEdit className="absolute left-3 top-4 text-gray-400" size={16} />
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows={4}
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
-                        placeholder="Enter your message..."
-                      />
-                    </div>
-                  </div>
+                    {/* Message Field */}
+                    <StyledTextField
+                      fullWidth
+                      label="Your Message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      multiline
+                      rows={4}
+                      variant="outlined"
+                      InputProps={{
+                        startAdornment: (
+                          <Edit sx={{ color: 'text.secondary', mr: 1, alignSelf: 'flex-start', mt: 1 }} />
+                        ),
+                      }}
+                      placeholder="Enter your message..."
+                    />
 
-                  {/* Submit Button */}
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      isSubmitting
-                        ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-primary-600 hover:bg-primary-700 text-white shadow-lg hover:shadow-xl'
-                    }`}
-                  >
-                    {isSubmitting ? (
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                      />
-                    ) : (
-                      <>
-                        <FaPaperPlane className="mr-2" size={16} />
-                        Send Message
-                      </>
-                    )}
-                  </motion.button>
-
-                  {/* Success Message */}
-                  {submitStatus === 'success' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="p-4 bg-green-100 dark:bg-green-900/20 border border-green-300 dark:border-green-700 rounded-lg text-green-800 dark:text-green-400 text-center"
+                    {/* Submit Button */}
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      size="large"
+                      disabled={isSubmitting}
+                      component={motion.button}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      startIcon={
+                        isSubmitting ? (
+                          <CircularProgress size={20} color="inherit" />
+                        ) : (
+                          <Send />
+                        )
+                      }
+                      sx={{
+                        py: 1.5,
+                        boxShadow: 4,
+                        '&:hover': {
+                          boxShadow: 8,
+                        },
+                      }}
                     >
-                      ✅ Message sent successfully! I'll get back to you soon.
-                    </motion.div>
-                  )}
-                </form>
-              </div>
-            </motion.div>
-          </div>
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                    </Button>
+
+                    {/* Success Message */}
+                    {submitStatus === 'success' && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        <Alert severity="success" sx={{ mt: 2 }}>
+                          ✅ Message sent successfully! I'll get back to you soon.
+                        </Alert>
+                      </motion.div>
+                    )}
+                  </Box>
+                </ContactCard>
+              </motion.div>
+            </Grid>
+          </Grid>
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Box>
   );
 };
 

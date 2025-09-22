@@ -1,7 +1,75 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaCertificate, FaCalendarAlt, FaAward } from 'react-icons/fa';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  Paper,
+  Avatar,
+  Chip,
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { WorkspacePremium, CalendarToday, EmojiEvents } from '@mui/icons-material';
 import { certificates } from '../data';
+
+// Styled components
+const StyledCard = styled(motion.div)(({ theme }) => ({
+  borderRadius: theme.spacing(2),
+  overflow: 'hidden',
+  boxShadow: theme.shadows[4],
+  transition: 'all 0.3s ease-in-out',
+  backgroundColor: theme.palette.background.paper,
+  '&:hover': {
+    boxShadow: theme.shadows[8],
+    transform: 'translateY(-8px) scale(1.02)',
+  },
+}));
+
+const CertificateImage = styled(CardMedia)(({ theme }) => ({
+  height: 192,
+  position: 'relative',
+  overflow: 'hidden',
+  '&::after': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent)',
+  },
+}));
+
+const CertificateIcon = styled(Avatar)(({ theme }) => ({
+  position: 'absolute',
+  top: theme.spacing(2),
+  right: theme.spacing(2),
+  backgroundColor: `${theme.palette.background.paper}90`,
+  backdropFilter: 'blur(10px)',
+  zIndex: 1,
+}));
+
+const DateChip = styled(Chip)(({ theme }) => ({
+  position: 'absolute',
+  bottom: theme.spacing(2),
+  left: theme.spacing(2),
+  backgroundColor: `${theme.palette.background.paper}90`,
+  backdropFilter: 'blur(10px)',
+  color: theme.palette.text.primary,
+  zIndex: 1,
+}));
+
+const SummaryBox = styled(Paper)(({ theme }) => ({
+  background: `linear-gradient(135deg, ${theme.palette.primary.light}20, ${theme.palette.primary.main}20)`,
+  padding: theme.spacing(4),
+  borderRadius: theme.spacing(2),
+  textAlign: 'center',
+  marginTop: theme.spacing(8),
+}));
 
 const Certificates = () => {
   const containerVariants = {
@@ -27,8 +95,18 @@ const Certificates = () => {
   };
 
   return (
-    <section id="certificates" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Box
+      id="certificates"
+      component="section"
+      sx={{
+        py: 10,
+        backgroundColor: 'grey.50',
+        ...(theme => theme.palette.mode === 'dark' && {
+          backgroundColor: 'grey.900',
+        }),
+      }}
+    >
+      <Container maxWidth="lg">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -36,84 +114,131 @@ const Certificates = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              My <span className="text-primary-600 dark:text-primary-400">Certificates</span>
-            </h2>
-            <div className="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Professional certifications and achievements that validate my skills and commitment to continuous learning.
-            </p>
+          <motion.div variants={itemVariants}>
+            <Box textAlign="center" mb={8}>
+              <Typography
+                variant="h2"
+                component="h2"
+                fontWeight="bold"
+                mb={2}
+                sx={{
+                  fontSize: { xs: '2rem', sm: '2.5rem', lg: '3rem' },
+                  color: 'text.primary',
+                }}
+              >
+                My{' '}
+                <Box component="span" color="primary.main">
+                  Certificates
+                </Box>
+              </Typography>
+              <Box
+                sx={{
+                  width: 96,
+                  height: 4,
+                  backgroundColor: 'primary.main',
+                  mx: 'auto',
+                  mb: 3,
+                }}
+              />
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                maxWidth="md"
+                mx="auto"
+              >
+                Professional certifications and achievements that validate my skills and commitment to continuous learning.
+              </Typography>
+            </Box>
           </motion.div>
 
           {/* Certificates Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <Grid container spacing={4}>
             {certificates.map((cert) => (
-              <motion.div
-                key={cert.id}
-                variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                {/* Certificate Image */}
-                <div className="relative overflow-hidden h-48">
-                  <motion.img
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                    src={cert.image}
-                    alt={cert.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute top-4 right-4">
-                    <div className="p-2 bg-white/90 dark:bg-gray-900/90 rounded-full">
-                      <FaCertificate className="text-primary-600 dark:text-primary-400" size={20} />
-                    </div>
-                  </div>
-                  <div className="absolute bottom-4 left-4">
-                    <div className="flex items-center text-white">
-                      <FaCalendarAlt className="mr-2" size={14} />
-                      <span className="text-sm font-medium">{cert.year}</span>
-                    </div>
-                  </div>
-                </div>
+              <Grid item xs={12} md={6} key={cert.id}>
+                <StyledCard
+                  variants={itemVariants}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                >
+                  <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    {/* Certificate Image */}
+                    <Box position="relative">
+                      <CertificateImage
+                        component={motion.div}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                        image={cert.image}
+                        title={cert.name}
+                      />
+                      <CertificateIcon>
+                        <WorkspacePremium color="primary" />
+                      </CertificateIcon>
+                      <DateChip
+                        icon={<CalendarToday />}
+                        label={cert.year}
+                        size="small"
+                      />
+                    </Box>
 
-                {/* Certificate Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    {cert.name}
-                  </h3>
-                  <p className="text-primary-600 dark:text-primary-400 font-semibold mb-3">
-                    {cert.issuer}
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                    {cert.description}
-                  </p>
-                </div>
-              </motion.div>
+                    {/* Certificate Content */}
+                    <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                      <Typography
+                        variant="h6"
+                        component="h3"
+                        fontWeight="bold"
+                        mb={1}
+                        color="text.primary"
+                      >
+                        {cert.name}
+                      </Typography>
+                      <Typography
+                        variant="subtitle1"
+                        color="primary.main"
+                        fontWeight="semibold"
+                        mb={2}
+                      >
+                        {cert.issuer}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        lineHeight={1.6}
+                      >
+                        {cert.description}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </StyledCard>
+              </Grid>
             ))}
-          </div>
+          </Grid>
 
           {/* Certificates Summary */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 text-center bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 p-8 rounded-xl"
-          >
-            <div className="flex items-center justify-center mb-4">
-              <FaAward className="text-primary-600 dark:text-primary-400 mr-3" size={32} />
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Commitment to Excellence
-              </h3>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              These certifications represent my dedication to professional development and mastery of 
-              essential skills. I continuously seek opportunities to validate and expand my knowledge 
-              through recognized programs and assessments.
-            </p>
+          <motion.div variants={itemVariants}>
+            <SummaryBox elevation={2}>
+              <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
+                <EmojiEvents
+                  sx={{ color: 'primary.main', mr: 2, fontSize: '2rem' }}
+                />
+                <Typography variant="h4" component="h3" fontWeight="bold">
+                  Commitment to Excellence
+                </Typography>
+              </Box>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                maxWidth="md"
+                mx="auto"
+                lineHeight={1.7}
+              >
+                These certifications represent my dedication to professional development and mastery of
+                essential skills. I continuously seek opportunities to validate and expand my knowledge
+                through recognized programs and assessments.
+              </Typography>
+            </SummaryBox>
           </motion.div>
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Box>
   );
 };
 

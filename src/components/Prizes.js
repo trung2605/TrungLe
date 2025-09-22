@@ -1,7 +1,81 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaTrophy, FaMedal, FaStar, FaCalendarAlt } from 'react-icons/fa';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Paper,
+  Chip,
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { EmojiEvents, WorkspacePremium, Star, CalendarToday } from '@mui/icons-material';
 import { prizes } from '../data';
+
+// Styled components
+const PrizeCard = styled(motion.div)(({ position, theme }) => {
+  const getGradientColors = () => {
+    if (position.includes('Winner') || position.includes('1st')) {
+      return {
+        background: `linear-gradient(135deg, ${theme.palette.warning.light}20, ${theme.palette.warning.main}20)`,
+        border: `1px solid ${theme.palette.warning.light}`,
+      };
+    }
+    if (position.includes('Runner-up') || position.includes('2nd')) {
+      return {
+        background: `linear-gradient(135deg, ${theme.palette.grey[300]}20, ${theme.palette.grey[400]}20)`,
+        border: `1px solid ${theme.palette.grey[300]}`,
+      };
+    }
+    if (position.includes('Finalist')) {
+      return {
+        background: `linear-gradient(135deg, ${theme.palette.warning.light}20, ${theme.palette.warning.main}20)`,
+        border: `1px solid ${theme.palette.warning.light}`,
+      };
+    }
+    return {
+      background: `linear-gradient(135deg, ${theme.palette.primary.light}20, ${theme.palette.primary.main}20)`,
+      border: `1px solid ${theme.palette.primary.light}`,
+    };
+  };
+
+  return {
+    ...getGradientColors(),
+    borderRadius: theme.spacing(2),
+    padding: theme.spacing(4),
+    boxShadow: theme.shadows[4],
+    transition: 'all 0.3s ease-in-out',
+    '&:hover': {
+      boxShadow: theme.shadows[8],
+      transform: 'translateY(-8px) scale(1.02)',
+    },
+  };
+});
+
+const StatCard = styled(Paper)(({ color, theme }) => {
+  const colors = {
+    gold: { bg: theme.palette.warning.light + '20', color: theme.palette.warning.main },
+    silver: { bg: theme.palette.grey[300] + '20', color: theme.palette.grey[600] },
+    bronze: { bg: '#ffb74d20', color: '#ff9800' },
+    primary: { bg: theme.palette.primary.light + '20', color: theme.palette.primary.main },
+  };
+
+  return {
+    textAlign: 'center',
+    padding: theme.spacing(3),
+    borderRadius: theme.spacing(2),
+    backgroundColor: colors[color]?.bg || colors.primary.bg,
+    color: colors[color]?.color || colors.primary.color,
+  };
+});
+
+const MotivationalBox = styled(Paper)(({ theme }) => ({
+  background: `linear-gradient(135deg, ${theme.palette.primary.light}20, ${theme.palette.primary.main}20)`,
+  padding: theme.spacing(4),
+  borderRadius: theme.spacing(2),
+  textAlign: 'center',
+  marginTop: theme.spacing(8),
+}));
 
 const Prizes = () => {
   const containerVariants = {
@@ -27,32 +101,42 @@ const Prizes = () => {
   };
 
   const getPositionIcon = (position) => {
-    if (position.includes('Winner') || position.includes('1st')) return FaTrophy;
-    if (position.includes('Runner-up') || position.includes('2nd')) return FaMedal;
-    if (position.includes('Finalist')) return FaStar;
-    return FaTrophy;
+    if (position.includes('Winner') || position.includes('1st')) return EmojiEvents;
+    if (position.includes('Runner-up') || position.includes('2nd')) return WorkspacePremium;
+    if (position.includes('Finalist')) return Star;
+    return EmojiEvents;
   };
 
   const getPositionColor = (position) => {
-    if (position.includes('Winner') || position.includes('1st')) return 'text-yellow-500';
-    if (position.includes('Runner-up') || position.includes('2nd')) return 'text-gray-400';
-    if (position.includes('Finalist')) return 'text-orange-500';
-    return 'text-primary-500';
+    if (position.includes('Winner') || position.includes('1st')) return 'warning.main';
+    if (position.includes('Runner-up') || position.includes('2nd')) return 'grey.500';
+    if (position.includes('Finalist')) return 'orange.main';
+    return 'primary.main';
   };
 
-  const getCardGradient = (position) => {
-    if (position.includes('Winner') || position.includes('1st')) 
-      return 'from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/20';
-    if (position.includes('Runner-up') || position.includes('2nd')) 
-      return 'from-gray-50 to-gray-100 dark:from-gray-700/20 dark:to-gray-600/20';
-    if (position.includes('Finalist')) 
-      return 'from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20';
-    return 'from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20';
+  const getAchievementChipProps = (position) => {
+    if (position.includes('Winner') || position.includes('1st')) {
+      return { color: 'warning', label: 'Winner' };
+    }
+    if (position.includes('Runner-up') || position.includes('2nd')) {
+      return { color: 'default', label: 'Runner-up' };
+    }
+    if (position.includes('Finalist')) {
+      return { color: 'secondary', label: 'Finalist' };
+    }
+    return { color: 'primary', label: 'Achievement' };
   };
 
   return (
-    <section id="prizes" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Box
+      id="prizes"
+      component="section"
+      sx={{
+        py: 10,
+        backgroundColor: 'background.default',
+      }}
+    >
+      <Container maxWidth="lg">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -60,126 +144,198 @@ const Prizes = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Awards & <span className="text-primary-600 dark:text-primary-400">Prizes</span>
-            </h2>
-            <div className="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Recognition and achievements earned through competitions, contests, and outstanding performance.
-            </p>
+          <motion.div variants={itemVariants}>
+            <Box textAlign="center" mb={8}>
+              <Typography
+                variant="h2"
+                component="h2"
+                fontWeight="bold"
+                mb={2}
+                sx={{
+                  fontSize: { xs: '2rem', sm: '2.5rem', lg: '3rem' },
+                  color: 'text.primary',
+                }}
+              >
+                Awards &{' '}
+                <Box component="span" color="primary.main">
+                  Prizes
+                </Box>
+              </Typography>
+              <Box
+                sx={{
+                  width: 96,
+                  height: 4,
+                  backgroundColor: 'primary.main',
+                  mx: 'auto',
+                  mb: 3,
+                }}
+              />
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                maxWidth="md"
+                mx="auto"
+              >
+                Recognition and achievements earned through competitions, contests, and outstanding performance.
+              </Typography>
+            </Box>
           </motion.div>
 
           {/* Prizes Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <Grid container spacing={4} mb={8}>
             {prizes.map((prize) => {
               const PositionIcon = getPositionIcon(prize.position);
               const positionColor = getPositionColor(prize.position);
-              const cardGradient = getCardGradient(prize.position);
+              const chipProps = getAchievementChipProps(prize.position);
 
               return (
-                <motion.div
-                  key={prize.id}
-                  variants={itemVariants}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className={`bg-gradient-to-br ${cardGradient} p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700`}
-                >
-                  {/* Prize Header */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                        {prize.title}
-                      </h3>
-                      <div className="flex items-center text-primary-600 dark:text-primary-400 font-semibold mb-2">
-                        <PositionIcon className={`mr-2 ${positionColor}`} size={20} />
-                        {prize.position}
-                      </div>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm">
-                        {prize.organization}
-                      </p>
-                    </div>
-                    <div className="flex items-center text-gray-500 dark:text-gray-400">
-                      <FaCalendarAlt className="mr-1" size={14} />
-                      <span className="text-sm font-medium">{prize.year}</span>
-                    </div>
-                  </div>
+                <Grid item xs={12} md={6} key={prize.id}>
+                  <PrizeCard
+                    position={prize.position}
+                    variants={itemVariants}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                  >
+                    {/* Prize Header */}
+                    <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={3}>
+                      <Box flex={1}>
+                        <Typography
+                          variant="h6"
+                          component="h3"
+                          fontWeight="bold"
+                          mb={1}
+                          color="text.primary"
+                        >
+                          {prize.title}
+                        </Typography>
+                        <Box display="flex" alignItems="center" mb={1}>
+                          <PositionIcon sx={{ color: positionColor, mr: 1 }} />
+                          <Typography
+                            variant="subtitle1"
+                            fontWeight="semibold"
+                            sx={{ color: positionColor }}
+                          >
+                            {prize.position}
+                          </Typography>
+                        </Box>
+                        <Typography variant="body2" color="text.secondary">
+                          {prize.organization}
+                        </Typography>
+                      </Box>
+                      <Box display="flex" alignItems="center" color="text.secondary">
+                        <CalendarToday sx={{ mr: 0.5, fontSize: '1rem' }} />
+                        <Typography variant="caption" fontWeight="medium">
+                          {prize.year}
+                        </Typography>
+                      </Box>
+                    </Box>
 
-                  {/* Prize Description */}
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                    {prize.description}
-                  </p>
-
-                  {/* Achievement Badge */}
-                  <div className="flex items-center justify-between">
-                    <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                      prize.position.includes('Winner') 
-                        ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400'
-                        : prize.position.includes('Runner-up')
-                        ? 'bg-gray-100 text-gray-800 dark:bg-gray-700/20 dark:text-gray-400'
-                        : 'bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-400'
-                    }`}>
-                      <FaStar className="mr-1" size={12} />
-                      Achievement
-                    </div>
-                    <motion.div
-                      animate={{ rotate: [0, 10, -10, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                      className={`text-3xl ${positionColor}`}
+                    {/* Prize Description */}
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      lineHeight={1.6}
+                      mb={3}
                     >
-                      <PositionIcon />
-                    </motion.div>
-                  </div>
-                </motion.div>
+                      {prize.description}
+                    </Typography>
+
+                    {/* Achievement Badge */}
+                    <Box display="flex" alignItems="center" justifyContent="space-between">
+                      <Chip
+                        icon={<Star />}
+                        label={chipProps.label}
+                        color={chipProps.color}
+                        size="small"
+                        variant="outlined"
+                      />
+                      <motion.div
+                        animate={{ rotate: [0, 10, -10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                      >
+                        <PositionIcon sx={{ color: positionColor, fontSize: '2rem' }} />
+                      </motion.div>
+                    </Box>
+                  </PrizeCard>
+                </Grid>
               );
             })}
-          </div>
+          </Grid>
 
           {/* Achievement Stats */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 grid md:grid-cols-4 gap-6"
-          >
-            <div className="text-center p-6 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl">
-              <FaTrophy className="text-yellow-500 mx-auto mb-3" size={32} />
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">1</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Winner</div>
-            </div>
-            <div className="text-center p-6 bg-gray-50 dark:bg-gray-700/20 rounded-xl">
-              <FaMedal className="text-gray-500 mx-auto mb-3" size={32} />
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">1</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Runner-up</div>
-            </div>
-            <div className="text-center p-6 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
-              <FaStar className="text-orange-500 mx-auto mb-3" size={32} />
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">2</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Finalist</div>
-            </div>
-            <div className="text-center p-6 bg-primary-50 dark:bg-primary-900/20 rounded-xl">
-              <FaTrophy className="text-primary-500 mx-auto mb-3" size={32} />
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">4</div>
-              <div className="text-gray-600 dark:text-gray-400 text-sm">Total Awards</div>
-            </div>
+          <motion.div variants={itemVariants}>
+            <Grid container spacing={3} mb={8}>
+              <Grid item xs={6} md={3}>
+                <StatCard color="gold" elevation={2}>
+                  <EmojiEvents sx={{ fontSize: '2rem', mb: 1 }} />
+                  <Typography variant="h4" fontWeight="bold" color="text.primary">
+                    1
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Winner
+                  </Typography>
+                </StatCard>
+              </Grid>
+              <Grid item xs={6} md={3}>
+                <StatCard color="silver" elevation={2}>
+                  <WorkspacePremium sx={{ fontSize: '2rem', mb: 1 }} />
+                  <Typography variant="h4" fontWeight="bold" color="text.primary">
+                    1
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Runner-up
+                  </Typography>
+                </StatCard>
+              </Grid>
+              <Grid item xs={6} md={3}>
+                <StatCard color="bronze" elevation={2}>
+                  <Star sx={{ fontSize: '2rem', mb: 1 }} />
+                  <Typography variant="h4" fontWeight="bold" color="text.primary">
+                    2
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Finalist
+                  </Typography>
+                </StatCard>
+              </Grid>
+              <Grid item xs={6} md={3}>
+                <StatCard color="primary" elevation={2}>
+                  <EmojiEvents sx={{ fontSize: '2rem', mb: 1 }} />
+                  <Typography variant="h4" fontWeight="bold" color="text.primary">
+                    4
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Total Awards
+                  </Typography>
+                </StatCard>
+              </Grid>
+            </Grid>
           </motion.div>
 
           {/* Motivational Quote */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 text-center bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 p-8 rounded-xl"
-          >
-            <div className="flex items-center justify-center mb-4">
-              <FaTrophy className="text-primary-600 dark:text-primary-400 mr-3" size={32} />
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Striving for Excellence
-              </h3>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed italic">
-              "Success is not final, failure is not fatal: it is the courage to continue that counts. 
-              Each competition and challenge has been a stepping stone toward becoming a better developer and leader."
-            </p>
+          <motion.div variants={itemVariants}>
+            <MotivationalBox elevation={2}>
+              <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
+                <EmojiEvents sx={{ color: 'primary.main', mr: 2, fontSize: '2rem' }} />
+                <Typography variant="h4" component="h3" fontWeight="bold">
+                  Striving for Excellence
+                </Typography>
+              </Box>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                maxWidth="md"
+                mx="auto"
+                lineHeight={1.7}
+                fontStyle="italic"
+              >
+                "Success is not final, failure is not fatal: it is the courage to continue that counts.
+                Each competition and challenge has been a stepping stone toward becoming a better developer and leader."
+              </Typography>
+            </MotivationalBox>
           </motion.div>
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Box>
   );
 };
 

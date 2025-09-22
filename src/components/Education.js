@@ -1,34 +1,88 @@
 import React from 'react';
+import {
+  Container,
+  Grid,
+  Typography,
+  Card,
+  CardContent,
+  Box,
+  Chip,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  useTheme,
+  alpha
+} from '@mui/material';
+import {
+  Timeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot
+} from '@mui/lab';
+import {
+  School as SchoolIcon,
+  CalendarToday as CalendarIcon,
+  Star as StarIcon,
+  CheckCircle as CheckIcon
+} from '@mui/icons-material';
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaCalendarAlt, FaStar } from 'react-icons/fa';
+import Section from '../common/Section';
 import { education } from '../data';
 
 const Education = () => {
+  const theme = useTheme();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.3,
+        duration: 0.6,
         staggerChildren: 0.3
       }
     }
   };
 
   const itemVariants = {
-    hidden: { x: -100, opacity: 0 },
+    hidden: { opacity: 0, x: -50 },
     visible: {
-      x: 0,
       opacity: 1,
-      transition: {
-        duration: 0.6
-      }
+      x: 0,
+      transition: { duration: 0.6 }
     }
   };
 
+  const getStatusColor = (status) => {
+    return status === 'Current' ? 'success' : 'primary';
+  };
+
+  const educationHighlights = {
+    'FPT University': [
+      'Active participation in coding competitions',
+      'Leadership roles in student organizations',
+      'Strong foundation in software development'
+    ],
+    'Phan Chau Trinh High School': [
+      'Outstanding academic performance',
+      'Strong mathematics and sciences background',
+      'Active in extracurricular activities'
+    ]
+  };
+
   return (
-    <section id="education" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Section 
+      id="education" 
+      sx={{ 
+        py: { xs: 8, md: 12 },
+        background: theme.palette.mode === 'dark' 
+          ? 'linear-gradient(135deg, rgba(25, 118, 210, 0.05) 0%, rgba(21, 101, 192, 0.1) 100%)'
+          : 'linear-gradient(135deg, rgba(25, 118, 210, 0.03) 0%, rgba(21, 101, 192, 0.05) 100%)'
+      }}
+    >
+      <Container maxWidth="lg">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -36,133 +90,244 @@ const Education = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              My <span className="text-primary-600 dark:text-primary-400">Education</span>
-            </h2>
-            <div className="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              My academic journey and achievements in pursuing knowledge and excellence.
-            </p>
+          <motion.div variants={itemVariants}>
+            <Box textAlign="center" mb={8}>
+              <Typography 
+                variant="h2" 
+                component="h2" 
+                fontWeight="bold" 
+                mb={2}
+                sx={{ fontSize: { xs: '2.5rem', md: '3.5rem' } }}
+              >
+                My{' '}
+                <Box component="span" color="primary.main">
+                  Education
+                </Box>
+              </Typography>
+              <Box 
+                sx={{
+                  width: 60,
+                  height: 4,
+                  backgroundColor: 'primary.main',
+                  mx: 'auto',
+                  mb: 3,
+                  borderRadius: 2
+                }}
+              />
+              <Typography 
+                variant="h6" 
+                color="text.secondary" 
+                maxWidth="600px" 
+                mx="auto"
+              >
+                My academic journey and achievements in pursuing knowledge and excellence.
+              </Typography>
+            </Box>
           </motion.div>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-primary-200 dark:bg-primary-800"></div>
-
-            {education.map((edu, index) => (
-              <motion.div
-                key={edu.id}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                className={`relative flex items-center mb-12 ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
-              >
-                {/* Timeline Dot */}
-                <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 z-10">
-                  <motion.div
-                    whileHover={{ scale: 1.2 }}
-                    className="w-16 h-16 bg-primary-600 dark:bg-primary-400 rounded-full flex items-center justify-center shadow-lg"
-                  >
-                    <FaGraduationCap className="text-white dark:text-gray-900" size={24} />
-                  </motion.div>
-                </div>
-
-                {/* Content Card */}
-                <div className={`w-full md:w-5/12 ml-24 md:ml-0 ${
-                  index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
-                }`}>
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
-                  >
-                    {/* Status Badge */}
-                    <div className="flex items-center justify-between mb-4">
-                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        edu.status === 'Current' 
-                          ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
-                          : 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400'
-                      }`}>
-                        {edu.status}
-                      </span>
-                      <div className="flex items-center text-primary-600 dark:text-primary-400">
-                        <FaCalendarAlt className="mr-2" size={14} />
-                        <span className="text-sm font-medium">{edu.duration}</span>
-                      </div>
-                    </div>
-
-                    {/* School Name */}
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                      {edu.school}
-                    </h3>
-
-                    {/* Degree */}
-                    <h4 className="text-lg font-semibold text-primary-600 dark:text-primary-400 mb-3">
-                      {edu.degree}
-                    </h4>
-
-                    {/* GPA */}
-                    <div className="flex items-center mb-4">
-                      <FaStar className="text-yellow-500 mr-2" size={16} />
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">
-                        GPA: <span className="text-primary-600 dark:text-primary-400 font-bold">{edu.gpa}</span>
-                      </span>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                      {edu.description}
-                    </p>
-
-                    {/* Achievements/Highlights */}
-                    {edu.school === 'FPT University' && (
-                      <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                        <h5 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Key Highlights:</h5>
-                        <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                          <li>• Active participation in coding competitions</li>
-                          <li>• Leadership roles in student organizations</li>
-                          <li>• Strong foundation in software development</li>
-                        </ul>
-                      </div>
+          {/* Education Timeline */}
+          <motion.div variants={itemVariants}>
+            <Timeline 
+              position="alternate"
+              sx={{
+                [`& .MuiTimelineItem-root:before`]: {
+                  flex: 0,
+                  padding: 0,
+                },
+              }}
+            >
+              {education.map((edu, index) => (
+                <TimelineItem key={edu.id}>
+                  <TimelineSeparator>
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <TimelineDot 
+                        sx={{
+                          backgroundColor: 'primary.main',
+                          width: 56,
+                          height: 56,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
+                      >
+                        <SchoolIcon sx={{ fontSize: 28, color: 'white' }} />
+                      </TimelineDot>
+                    </motion.div>
+                    {index < education.length - 1 && (
+                      <TimelineConnector 
+                        sx={{
+                          backgroundColor: 'primary.light',
+                          width: 3
+                        }}
+                      />
                     )}
+                  </TimelineSeparator>
+                  
+                  <TimelineContent sx={{ py: '12px', px: 2 }}>
+                    <motion.div
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Card 
+                        elevation={4}
+                        sx={{
+                          transition: 'all 0.3s ease',
+                          '&:hover': {
+                            boxShadow: 8,
+                            transform: 'translateY(-4px)'
+                          }
+                        }}
+                      >
+                        <CardContent sx={{ p: 4 }}>
+                          {/* Status and Duration */}
+                          <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+                            <Chip 
+                              label={edu.status}
+                              color={getStatusColor(edu.status)}
+                              variant="filled"
+                              sx={{ fontWeight: 600 }}
+                            />
+                            <Box display="flex" alignItems="center" color="text.secondary">
+                              <CalendarIcon sx={{ mr: 1, fontSize: 16 }} />
+                              <Typography variant="body2" fontWeight={500}>
+                                {edu.duration}
+                              </Typography>
+                            </Box>
+                          </Box>
 
-                    {edu.school === 'Phan Chau Trinh High School' && (
-                      <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                        <h5 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Key Highlights:</h5>
-                        <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                          <li>• Outstanding academic performance</li>
-                          <li>• Strong mathematics and sciences background</li>
-                          <li>• Active in extracurricular activities</li>
-                        </ul>
-                      </div>
-                    )}
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                          {/* School Name */}
+                          <Typography 
+                            variant="h4" 
+                            fontWeight="bold" 
+                            color="text.primary"
+                            mb={1}
+                          >
+                            {edu.school}
+                          </Typography>
+
+                          {/* Degree */}
+                          <Typography 
+                            variant="h6" 
+                            color="primary.main"
+                            fontWeight={600}
+                            mb={2}
+                          >
+                            {edu.degree}
+                          </Typography>
+
+                          {/* GPA */}
+                          <Box display="flex" alignItems="center" mb={3}>
+                            <StarIcon sx={{ color: 'warning.main', mr: 1 }} />
+                            <Typography variant="body1" color="text.secondary">
+                              GPA:{' '}
+                              <Box 
+                                component="span" 
+                                color="primary.main" 
+                                fontWeight="bold"
+                                fontSize="1.1rem"
+                              >
+                                {edu.gpa}
+                              </Box>
+                            </Typography>
+                          </Box>
+
+                          {/* Description */}
+                          <Typography 
+                            variant="body1" 
+                            color="text.secondary" 
+                            lineHeight={1.6}
+                            mb={3}
+                          >
+                            {edu.description}
+                          </Typography>
+
+                          {/* Highlights */}
+                          {educationHighlights[edu.school] && (
+                            <Box 
+                              sx={{
+                                mt: 3,
+                                pt: 3,
+                                borderTop: 1,
+                                borderColor: 'divider'
+                              }}
+                            >
+                              <Typography 
+                                variant="subtitle1" 
+                                fontWeight={600} 
+                                color="text.primary"
+                                mb={2}
+                              >
+                                Key Highlights:
+                              </Typography>
+                              <List dense sx={{ pt: 0 }}>
+                                {educationHighlights[edu.school].map((highlight, idx) => (
+                                  <ListItem key={idx} sx={{ py: 0.5, px: 0 }}>
+                                    <ListItemIcon sx={{ minWidth: 32 }}>
+                                      <CheckIcon 
+                                        sx={{ 
+                                          fontSize: 16, 
+                                          color: 'success.main' 
+                                        }} 
+                                      />
+                                    </ListItemIcon>
+                                    <ListItemText 
+                                      primary={highlight}
+                                      primaryTypographyProps={{
+                                        variant: 'body2',
+                                        color: 'text.secondary'
+                                      }}
+                                    />
+                                  </ListItem>
+                                ))}
+                              </List>
+                            </Box>
+                          )}
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  </TimelineContent>
+                </TimelineItem>
+              ))}
+            </Timeline>
+          </motion.div>
 
           {/* Education Summary */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 text-center"
-          >
-            <div className="bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 p-8 rounded-xl">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Academic Excellence
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                Throughout my academic journey, I have maintained a strong commitment to learning and 
-                personal growth. My education has provided me with a solid foundation in computer science 
-                principles and practical skills that I apply in real-world projects.
-              </p>
-            </div>
+          <motion.div variants={itemVariants}>
+            <Box mt={8}>
+              <Card
+                sx={{
+                  background: theme.palette.mode === 'dark'
+                    ? `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.primary.dark, 0.15)} 100%)`
+                    : `linear-gradient(135deg, ${alpha(theme.palette.primary.light, 0.1)} 0%, ${alpha(theme.palette.primary.main, 0.05)} 100%)`,
+                  textAlign: 'center'
+                }}
+              >
+                <CardContent sx={{ p: 6 }}>
+                  <Typography variant="h4" fontWeight="bold" mb={3}>
+                    Academic Excellence
+                  </Typography>
+                  <Typography 
+                    variant="body1" 
+                    color="text.secondary" 
+                    lineHeight={1.7}
+                    maxWidth="800px"
+                    mx="auto"
+                  >
+                    Throughout my academic journey, I have maintained a strong commitment to learning and 
+                    personal growth. My education has provided me with a solid foundation in computer science 
+                    principles and practical skills that I apply in real-world projects.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Box>
           </motion.div>
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 
