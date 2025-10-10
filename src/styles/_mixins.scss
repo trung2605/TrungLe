@@ -1,0 +1,145 @@
+// Common mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin card {
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  transition: box-shadow var(--transition-normal);
+
+  &:hover {
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+@mixin card-style {
+  @include card;
+  padding: var(--spacing-4);
+  border: 1px solid var(--border-color);
+}
+
+@mixin button-primary {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: var(--transition-all);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-primary);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin button-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-all);
+
+  &:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--primary-300);
+    transform: translateY(-1px);
+  }
+}
+
+@mixin text-gradient($gradient: var(--gradient-text)) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: 640px) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+  @if $breakpoint == xl {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+  @if $breakpoint == mobile {
+    @media (min-width: #{$mobile}) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media (min-width: #{$tablet}) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: #{$desktop}) {
+      @content;
+    }
+  }
+  @if $breakpoint == wide {
+    @media (min-width: #{$wide}) {
+      @content;
+    }
+  }
+}
+
+@mixin grid-auto-fit($min-size: 250px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-size, 1fr));
+  gap: var(--spacing-lg);
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin backdrop-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}

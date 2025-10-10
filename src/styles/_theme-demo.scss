@@ -1,0 +1,154 @@
+// =============================================================================
+// THEME DEMO - ALTERNATIVE COLOR SCHEMES
+// =============================================================================
+// Copy và uncomment một trong những theme dưới đây vào file _colors.scss 
+// để thay đổi màu chủ đạo của website
+
+/* 
+// =============================================================================
+// GREEN THEME - NATURE INSPIRED
+// =============================================================================
+:root {
+  --primary-50: #f0fdf4;
+  --primary-100: #dcfce7;
+  --primary-200: #bbf7d0;
+  --primary-300: #86efac;
+  --primary-400: #4ade80;
+  --primary-500: #22c55e;   // Main green
+  --primary-600: #16a34a;
+  --primary-700: #15803d;
+  --primary-800: #166534;
+  --primary-900: #14532d;
+
+  --secondary-50: #ecfdf5;
+  --secondary-100: #d1fae5;
+  --secondary-200: #a7f3d0;
+  --secondary-300: #6ee7b7;
+  --secondary-400: #34d399;
+  --secondary-500: #10b981;   // Emerald
+  --secondary-600: #059669;
+  --secondary-700: #047857;
+  --secondary-800: #065f46;
+  --secondary-900: #064e3b;
+
+  --accent-50: #f0fdfa;
+  --accent-100: #ccfbf1;
+  --accent-200: #99f6e4;
+  --accent-300: #5eead4;
+  --accent-400: #2dd4bf;
+  --accent-500: #14b8a6;    // Teal accent
+  --accent-600: #0d9488;
+  --accent-700: #0f766e;
+  --accent-800: #115e59;
+  --accent-900: #134e4a;
+
+  --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+  --gradient-secondary: linear-gradient(135deg, var(--secondary-400), var(--secondary-600));
+  --gradient-accent: linear-gradient(135deg, var(--accent-500), var(--accent-700));
+  --gradient-text: linear-gradient(135deg, var(--primary-600), var(--accent-600));
+}
+*/
+
+/* 
+// =============================================================================
+// PURPLE THEME - CREATIVE & ARTISTIC
+// =============================================================================
+:root {
+  --primary-50: #faf5ff;
+  --primary-100: #f3e8ff;
+  --primary-200: #e9d5ff;
+  --primary-300: #d8b4fe;
+  --primary-400: #c084fc;
+  --primary-500: #a855f7;   // Main purple
+  --primary-600: #9333ea;
+  --primary-700: #7c2d12;
+  --primary-800: #6b21a8;
+  --primary-900: #581c87;
+
+  --secondary-50: #f8faff;
+  --secondary-100: #e0e7ff;
+  --secondary-200: #c7d2fe;
+  --secondary-300: #a5b4fc;
+  --secondary-400: #818cf8;
+  --secondary-500: #6366f1;   // Indigo
+  --secondary-600: #4f46e5;
+  --secondary-700: #4338ca;
+  --secondary-800: #3730a3;
+  --secondary-900: #312e81;
+
+  --accent-50: #fdf4ff;
+  --accent-100: #fae8ff;
+  --accent-200: #f5d0fe;
+  --accent-300: #f0abfc;
+  --accent-400: #e879f9;
+  --accent-500: #d946ef;    // Fuchsia accent
+  --accent-600: #c026d3;
+  --accent-700: #a21caf;
+  --accent-800: #86198f;
+  --accent-900: #701a75;
+
+  --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+  --gradient-secondary: linear-gradient(135deg, var(--secondary-400), var(--secondary-600));
+  --gradient-accent: linear-gradient(135deg, var(--accent-500), var(--accent-700));
+  --gradient-text: linear-gradient(135deg, var(--primary-600), var(--accent-600));
+}
+*/
+
+/* 
+// =============================================================================
+// ORANGE THEME - WARM & ENERGETIC
+// =============================================================================
+:root {
+  --primary-50: #fff7ed;
+  --primary-100: #ffedd5;
+  --primary-200: #fed7aa;
+  --primary-300: #fdba74;
+  --primary-400: #fb923c;
+  --primary-500: #f97316;   // Main orange
+  --primary-600: #ea580c;
+  --primary-700: #c2410c;
+  --primary-800: #9a3412;
+  --primary-900: #7c2d12;
+
+  --secondary-50: #fefce8;
+  --secondary-100: #fef9c3;
+  --secondary-200: #fef08a;
+  --secondary-300: #fde047;
+  --secondary-400: #facc15;
+  --secondary-500: #eab308;   // Yellow
+  --secondary-600: #ca8a04;
+  --secondary-700: #a16207;
+  --secondary-800: #854d0e;
+  --secondary-900: #713f12;
+
+  --accent-50: #fdf2f8;
+  --accent-100: #fce7f3;
+  --accent-200: #fbcfe8;
+  --accent-300: #f9a8d4;
+  --accent-400: #f472b6;
+  --accent-500: #ec4899;    // Pink accent
+  --accent-600: #db2777;
+  --accent-700: #be185d;
+  --accent-800: #9d174d;
+  --accent-900: #831843;
+
+  --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+  --gradient-secondary: linear-gradient(135deg, var(--secondary-400), var(--secondary-600));
+  --gradient-accent: linear-gradient(135deg, var(--accent-500), var(--accent-700));
+  --gradient-text: linear-gradient(135deg, var(--primary-600), var(--accent-600));
+}
+*/
+
+// =============================================================================
+// HOW TO CHANGE THEME:
+// =============================================================================
+// 1. Copy one of the themes above
+// 2. Uncomment it (remove /* and */)
+// 3. Paste it at the bottom of _colors.scss file
+// 4. Save the file and see your website change instantly!
+// 
+// You can also create your own custom theme by:
+// 1. Going to https://tailwindcss.com/docs/customizing-colors
+// 2. Picking your favorite colors
+// 3. Replacing the --primary-*, --secondary-*, --accent-* values
+// 4. Updating the gradients to match your new colors

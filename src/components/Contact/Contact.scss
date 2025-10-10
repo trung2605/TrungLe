@@ -1,0 +1,211 @@
+﻿@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.contact {
+  &-section {
+    padding: var(--spacing-20) 0;
+    background-color: var(--background-default);
+  }
+
+  &-header {
+    text-align: center;
+    margin-bottom: var(--spacing-16);
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: var(--spacing-4);
+      color: var(--text-primary);
+
+      .highlight {
+        color: var(--primary-500);
+      }
+    }
+
+    .divider {
+      width: 96px;
+      height: 4px;
+      background-color: var(--primary-500);
+      margin: 0 auto var(--spacing-6);
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-12);
+
+    @include responsive(tablet) {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8);
+    }
+  }
+
+  &-info {
+    .connect-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: var(--spacing-8);
+    }
+
+    .connect-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-8);
+    }
+
+    .contact-list {
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--spacing-6);
+        text-decoration: none;
+        transition: transform var(--transition-quick);
+
+        &:hover {
+          transform: translateX(8px);
+        }
+
+        .contact-icon {
+          width: 48px;
+          height: 48px;
+          border-radius: var(--radius-full);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: var(--spacing-4);
+          transition: all var(--transition-quick);
+
+          &.email {
+            background-color: var(--error-100);
+            color: var(--error-500);
+          }
+
+          &.phone {
+            background-color: var(--success-100);
+            color: var(--success-500);
+          }
+
+          &.location {
+            background-color: var(--info-100);
+            color: var(--info-500);
+          }
+
+          &.facebook {
+            background-color: var(--primary-100);
+            color: var(--primary-500);
+          }
+        }
+
+        .contact-details {
+          .contact-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-1);
+          }
+
+          .contact-value {
+            font-weight: 500;
+            color: var(--text-primary);
+
+            &:hover {
+              color: var(--primary-500);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-stats {
+    @include card-style;
+    margin-top: var(--spacing-8);
+    background: linear-gradient(135deg, var(--primary-50), var(--primary-100));
+    border: 1px solid var(--primary-200);
+
+    [data-theme="dark"] & {
+      background: linear-gradient(135deg, var(--primary-900), var(--primary-800));
+      border-color: var(--primary-700);
+    }
+
+    .stats-title {
+      font-weight: 600;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-4);
+
+      .stat-item {
+        text-align: center;
+
+        .stat-value {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--primary-500);
+          margin-bottom: var(--spacing-1);
+        }
+
+        .stat-label {
+          font-size: 0.875rem;
+          color: var(--text-secondary);
+        }
+      }
+    }
+  }
+
+  &-form {
+    @include card-style;
+    background-color: var(--gray-50);
+
+    [data-theme="dark"] & {
+      background-color: var(--gray-900);
+    }
+
+    .form-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: var(--spacing-8);
+    }
+
+    .form-field {
+      margin-bottom: var(--spacing-6);
+
+      .MuiOutlinedInput-root {
+        &:hover fieldset {
+          border-color: var(--primary-500);
+        }
+
+        &.Mui-focused fieldset {
+          border-color: var(--primary-500);
+        }
+      }
+    }
+
+    .submit-button {
+      width: 100%;
+      padding: var(--spacing-3) 0;
+      font-weight: 600;
+      transition: all var(--transition-quick);
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+}

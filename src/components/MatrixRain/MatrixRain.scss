@@ -1,0 +1,50 @@
+// MatrixRain Component Styles
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.15;
+  mix-blend-mode: screen;
+  
+  // Ensure the canvas is behind all content
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 255, 0, 0.03) 0%,
+      rgba(13, 17, 23, 0.1) 70%,
+      rgba(13, 17, 23, 0.2) 100%
+    );
+    pointer-events: none;
+  }
+
+  // Responsive behavior
+  @media (max-width: 768px) {
+    opacity: 0.08;
+  }
+
+  @media (max-width: 480px) {
+    opacity: 0.05;
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 0.05;
+  }
+
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    opacity: 0.1;
+    mix-blend-mode: normal;
+  }
+}

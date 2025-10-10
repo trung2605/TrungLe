@@ -1,0 +1,95 @@
+// Import our custom variables and mixins first
+@import './styles/variables';
+@import './styles/mixins';
+
+// Import Tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Base styles
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @include responsive(mobile) {
+      padding: 0 1.5rem;
+    }
+
+    @include responsive(desktop) {
+      padding: 0 2rem;
+    }
+  }
+}
+
+// Component styles
+@layer components {
+  .btn-primary {
+    @include button-primary;
+  }
+
+  .btn-secondary {
+    @include button-secondary;
+  }
+
+  .card {
+    @include card;
+  }
+
+  .section-padding {
+    padding: 4rem 1rem;
+
+    @include responsive(mobile) {
+      padding: 4rem 1.5rem;
+    }
+
+    @include responsive(desktop) {
+      padding: 4rem 2rem;
+    }
+  }
+}
+
+// Utility styles
+@layer utilities {
+  .text-gradient {
+    @include text-gradient();
+  }
+
+  .container-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @include responsive(mobile) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    @include responsive(desktop) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}

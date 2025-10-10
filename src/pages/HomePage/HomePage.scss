@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.home-page {
+  min-height: 100vh;
+  width: 100%;
+  
+  // Smooth scroll behavior for sections
+  scroll-behavior: smooth;
+}
