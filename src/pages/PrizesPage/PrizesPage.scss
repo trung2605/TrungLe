@@ -1,7 +1,12 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+/* Prizes Page */@import '../../styles/variables';
 
-.prizes-page {
-  min-height: 100vh;
+.prizes-page{ min-height:100vh; padding:4rem 0;@import '../../styles/mixins';
+
+  &__stats{ display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:1rem }
+
+  &__list{ margin-top:1.5rem }.prizes-page {
+
+}  min-height: 100vh;
+
   width: 100%;
 }
