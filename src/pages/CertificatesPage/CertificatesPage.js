@@ -165,13 +165,7 @@ const CertificatesPage = () => {
                   <FaEye />
                   <span>Xem</span>
                 </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300"
-                >
-                  <FaDownload />
-                </motion.button>
+                
               </div>
             </div>
           </motion.div>
@@ -251,16 +245,7 @@ const CertificatesPage = () => {
                 </p>
               </div>
 
-              <div className="flex space-x-4">
-                <button className="flex-1 bg-blue-600 text-white py-3 rounded-lg flex items-center justify-center space-x-2 hover:bg-blue-700 transition-colors">
-                  <FaEye />
-                  <span>Xem chứng chỉ gốc</span>
-                </button>
-                <button className="flex-1 bg-gray-600 text-white py-3 rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-700 transition-colors">
-                  <FaDownload />
-                  <span>Tải xuống</span>
-                </button>
-              </div>
+             
             </div>
           </motion.div>
         </motion.div>

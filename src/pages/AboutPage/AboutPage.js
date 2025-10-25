@@ -1,39 +1,60 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaGraduationCap, FaCode, FaHeart, FaRocket } from 'react-icons/fa';
-import { personalInfo } from '../../data';
-import './AboutPage.scss';
+import React from "react";
+import { motion } from "framer-motion";
+import { FaGraduationCap, FaCode, FaHeart, FaRocket } from "react-icons/fa";
+import { personalInfo } from "../../data";
+import "./AboutPage.scss";
+import Markdown from "react-markdown";
 
 const AboutPage = () => {
   const stats = [
-    { label: 'Years of Study', value: '1+', icon: FaGraduationCap, color: 'text-blue-600' },
-    { label: 'Projects Completed', value: '10+', icon: FaCode, color: 'text-green-600' },
-    { label: 'Technologies', value: '15+', icon: FaRocket, color: 'text-purple-600' },
-    { label: 'Passion Level', value: '100%', icon: FaHeart, color: 'text-red-600' }
+    {
+      label: "Years of Study",
+      value: "1+",
+      icon: FaGraduationCap,
+      color: "text-blue-600",
+    },
+    {
+      label: "Projects Completed",
+      value: "10+",
+      icon: FaCode,
+      color: "text-green-600",
+    },
+    {
+      label: "Technologies",
+      value: "15+",
+      icon: FaRocket,
+      color: "text-purple-600",
+    },
+    {
+      label: "Passion Level",
+      value: "100%",
+      icon: FaHeart,
+      color: "text-red-600",
+    },
   ];
 
   const highlights = [
     {
-      title: 'Backend Development',
-      description: 'Chuyên sâu về Java development với Spring Boot framework',
-      icon: '⚙️'
+      title: "Backend Expertise",
+      description: "Specialized in Java development, particularly with the Spring Boot framework.",
+      icon: "⚙️",
     },
     {
-      title: 'Web Technologies',
-      description: 'Thành thạo ReactJS và các công nghệ web hiện đại',
-      icon: '🌐'
+      title: "Modern Web Technologies",
+      description: "Proficient in ReactJS and various modern web technologies.",
+      icon: "🌐",
     },
     {
-      title: 'Problem Solving',
-      description: 'Đam mê giải quyết các thách thức lập trình phức tạp',
-      icon: '🧩'
+      title: "Complex Problem Solving",
+      description: "Passionate about tackling complex programming challenges and optimizing solutions.",
+      icon: "🧩",
     },
     {
-      title: 'Team Leadership',
-      description: 'Kinh nghiệm dẫn dắt nhóm và quản lý dự án',
-      icon: '👥'
-    }
-  ];
+      title: "Team Leadership & Management",
+      description: "Proven experience in leading development teams and managing project timelines.",
+      icon: "👥",
+    },
+];
 
   return (
     <div className="about-page">
@@ -45,15 +66,6 @@ const AboutPage = () => {
           transition={{ duration: 0.6 }}
           className="hero-content"
         >
-          <h1 className="hero-title">
-            Giới thiệu về{' '}
-            <span className="title-gradient">
-              Lê Trí Trung
-            </span>
-          </h1>
-          <p className="hero-description">
-            {personalInfo.intro}
-          </p>
         </motion.div>
       </section>
 
@@ -68,15 +80,21 @@ const AboutPage = () => {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               className="stat-card"
             >
-              <div className={`stat-icon stat-icon--${stat.color.includes('blue') ? 'blue' : stat.color.includes('green') ? 'green' : stat.color.includes('purple') ? 'purple' : 'red'}`}>
+              <div
+                className={`stat-icon stat-icon--${
+                  stat.color.includes("blue")
+                    ? "blue"
+                    : stat.color.includes("green")
+                    ? "green"
+                    : stat.color.includes("purple")
+                    ? "purple"
+                    : "red"
+                }`}
+              >
                 <stat.icon className="mx-auto" />
               </div>
-              <div className="stat-value">
-                {stat.value}
-              </div>
-              <div className="stat-label">
-                {stat.label}
-              </div>
+              <div className="stat-value">{stat.value}</div>
+              <div className="stat-label">{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -84,7 +102,6 @@ const AboutPage = () => {
 
       {/* Main Content */}
       <div className="about-page__content">
-        
         {/* Personal Story */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -93,26 +110,17 @@ const AboutPage = () => {
           transition={{ duration: 0.6 }}
           className="about-page__story"
         >
-          <h2 className="story-title">
-            Câu chuyện của tôi
-          </h2>
+          <h2 className="story-title">My Story</h2>
           <div className="story-content">
-            <p>
-              Xin chào! Tôi là <strong>Lê Trí Trung</strong>, 
-              một sinh viên năm 2 ngành Khoa học Máy tính tại Đại học FPT Đà Nẵng. 
-              Với niềm đam mê mãnh liệt về công nghệ và lập trình, tôi luôn tìm kiếm 
-              những cơ hội để học hỏi và phát triển bản thân.
-            </p>
-            <p>
-              Hành trình lập trình của tôi bắt đầu từ những dòng code Java đầu tiên, 
-              và từ đó tôi đã không ngừng mở rộng kiến thức sang các công nghệ web hiện đại 
-              như ReactJS, Spring Boot, và nhiều framework khác.
-            </p>
-            <p>
-              Tôi tin rằng công nghệ có thể thay đổi thế giới, và mong muốn của tôi là 
-              đóng góp vào việc xây dựng những sản phẩm có ý nghĩa, giúp ích cho cộng đồng 
-              và xã hội.
-            </p>
+            <Markdown>
+              ## My Story
+
+Hello! I'm **Lê Trí Trung**, a highly motivated Computer Science student at FPT University in Da Nang. My core expertise lies in **Java Spring Boot backend development** and modern web technologies, driven by a deep passion for creating clean, scalable, and impactful applications.
+
+My technical journey began with foundational Java Core and quickly expanded into full-stack development, mastering **JavaScript ES6, React, HTML5/CSS3**. I thrive in collaborative, Agile environments and leverage tools like **Git/GitHub** for version control, demonstrated through various successful team projects.
+
+Beyond coding, I possess strong soft skills, including **team leadership** and **project management**, gained through founding a charity organization and leading competitive coding teams. My goal is to apply my robust technical foundation and collaborative skills in a challenging Web Developer internship, contributing actively to a successful team.
+            </Markdown>
           </div>
         </motion.div>
 
@@ -124,35 +132,37 @@ const AboutPage = () => {
           transition={{ duration: 0.6 }}
           className="about-page__info"
         >
-          <h3 className="info-title">
-            Thông tin cá nhân
-          </h3>
+          <h3 className="info-title">Personal Information</h3>
           <div className="info-list">
             <div className="info-item">
               <span className="info-icon">🎂</span>
               <div>
-                <div className="info-label">Ngày sinh</div>
-                <div className="info-value">{personalInfo.contact.birthday}</div>
+                <div className="info-label">Date of Birth</div>
+                <div className="info-value">
+                  {personalInfo.contact.birthday}
+                </div>
               </div>
             </div>
             <div className="info-item">
               <span className="info-icon">📍</span>
               <div>
-                <div className="info-label">Địa chỉ</div>
-                <div className="info-value">{personalInfo.contact.location}</div>
+                <div className="info-label">Location</div>
+                <div className="info-value">
+                  {personalInfo.contact.location}
+                </div>
               </div>
             </div>
             <div className="info-item">
               <span className="info-icon">📚</span>
               <div>
-                <div className="info-label">Học vấn</div>
-                <div className="info-value">Đại học FPT</div>
+                <div className="info-label">Education</div>
+                <div className="info-value">FPT University</div>
               </div>
             </div>
             <div className="info-item">
               <span className="info-icon">💼</span>
               <div>
-                <div className="info-label">Chuyên môn</div>
+                <div className="info-label">Specialization</div>
                 <div className="info-value">Java Developer</div>
               </div>
             </div>
@@ -168,9 +178,9 @@ const AboutPage = () => {
           viewport={{ once: true }}
           className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
         >
-          Điểm nổi bật
+          My Highlights
         </motion.h2>
-        
+
         <div className="grid md:grid-cols-2 gap-6">
           {highlights.map((highlight, index) => (
             <motion.div

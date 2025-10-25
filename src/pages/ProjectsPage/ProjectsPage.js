@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaCode, FaUser, FaTags } from 'react-icons/fa';
 import { projects } from '../../data';
 import './ProjectsPage.scss';
+import { default as ReactMarkdown } from 'react-markdown';
 
 const ProjectsPage = () => {
   const [filter, setFilter] = useState('all');
@@ -142,7 +143,7 @@ const ProjectsPage = () => {
               </div>
 
               <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
-                {project.description}
+                <ReactMarkdown>{project.description}</ReactMarkdown>
               </p>
 
               {/* Tech Stack */}
@@ -227,7 +228,8 @@ const ProjectsPage = () => {
               </div>
 
               <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                {selectedProject.description}
+                {/* Markdown */}
+                <ReactMarkdown>{selectedProject.description}</ReactMarkdown>
               </p>
 
               <div className="mb-6">

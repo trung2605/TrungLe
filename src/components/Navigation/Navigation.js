@@ -11,15 +11,15 @@ const Navigation = () => {
 
   // Navigation items
   const navItems = [
-    { name: 'Trang chủ', path: '/', icon: '' },
-    { name: 'Giới thiệu', path: '/about', icon: '' },
-    { name: 'Học vấn', path: '/education', icon: '' },
-    { name: 'Kỹ năng', path: '/skills', icon: '' },
-    { name: 'Dự án', path: '/projects', icon: '' },
-    { name: 'Chứng chỉ', path: '/certificates', icon: '' },
-    { name: 'Giải thưởng', path: '/prizes', icon: '' },
-    { name: 'Hoạt động', path: '/activities', icon: '' },
-    { name: 'Liên hệ', path: '/contact', icon: '' },
+    { name: 'Home', path: '/', icon: '' },
+    { name: 'About', path: '/about', icon: '' },
+    { name: 'Education', path: '/education', icon: '' },
+    { name: 'Skills', path: '/skills', icon: '' },
+    { name: 'Projects', path: '/projects', icon: '' },
+    { name: 'Certificates', path: '/certificates', icon: '' },
+    { name: 'Prizes', path: '/prizes', icon: '' },
+    { name: 'Activities', path: '/activities', icon: '' },
+    { name: 'Contact', path: '/contact', icon: '' },
   ];
 
   // Handle scroll effect
