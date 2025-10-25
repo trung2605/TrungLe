@@ -19,6 +19,7 @@ const ProjectsPage = () => {
     ? projects 
     : projects.filter(project => project.status === filter);
 
+    //
   const getStatusColor = (status) => {
     switch (status) {
       case 'Active':
