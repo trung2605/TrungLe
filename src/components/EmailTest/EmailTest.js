@@ -1,5 +1,6 @@
 import React from 'react';
-import emailService from '../services/emailService';
+import emailService from '../../services/emailService';
+import './EmailTest.scss';
 
 const EmailTest = () => {
   const testEmail = async () => {
@@ -29,14 +30,16 @@ const EmailTest = () => {
   };
 
   return (
-    <div style={{ padding: '20px', border: '1px solid #ccc', margin: '20px' }}>
-      <h3>Email Service Test</h3>
-      <button onClick={checkConfig} style={{ margin: '10px', padding: '10px' }}>
-        Check Configuration
-      </button>
-      <button onClick={testEmail} style={{ margin: '10px', padding: '10px' }}>
-        Test Send Email
-      </button>
+    <div className="email-test">
+      <h3 className="email-test__title">Email Service Test</h3>
+      <div className="email-test__buttons">
+        <button onClick={checkConfig} className="email-test__button email-test__button--config">
+          Check Configuration
+        </button>
+        <button onClick={testEmail} className="email-test__button email-test__button--test">
+          Test Send Email
+        </button>
+      </div>
     </div>
   );
 };

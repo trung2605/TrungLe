@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaPaperPlane } from 'react-icons/fa';
 import { personalInfo } from '../../data';
 import emailService from '../../services/emailService';
-import EmailTest from '../../components/EmailTest';
+import EmailTest from '../../components/EmailTest/EmailTest';
 import './ContactPage.scss';
 
 const ContactPage = () => {

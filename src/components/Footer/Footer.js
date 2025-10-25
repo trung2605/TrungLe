@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaHeart, FaArrowUp } from 'react-icons/fa';
+import './Footer.scss';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -43,36 +44,37 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white relative">
+    <footer className="footer">
       {/* Back to Top Button */}
       <motion.button
         onClick={scrollToTop}
         whileHover={{ scale: 1.1, y: -2 }}
         whileTap={{ scale: 0.9 }}
-        className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-full shadow-lg transition-colors duration-300"
+        className="footer__scroll-top"
       >
         <FaArrowUp size={16} />
       </motion.button>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+      <div className="footer__container">
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="footer__content">
           {/* About Section */}
-          <div>
-            <motion.h3 
+          <div className="footer__brand">
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-2xl font-bold mb-4 text-primary-400"
+              className="footer__logo"
             >
-              Lê Trí Trung
-            </motion.h3>
+              <div className="footer__logo-icon">LT</div>
+              <span className="footer__brand-name">Lê Trí Trung</span>
+            </motion.div>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-gray-300 leading-relaxed mb-4"
+              className="footer__brand-description"
             >
               Java Developer & Computer Science Student passionate about creating 
               innovative solutions and contributing to meaningful projects.
@@ -82,53 +84,60 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-sm text-gray-400"
+              className="footer__contact-info"
             >
-              📍 Da Nang, Vietnam<br />
-              🎓 FPT University<br />
-              💼 Available for opportunities
+              <div className="footer__contact-item">
+                <span className="footer__contact-icon">📍</span>
+                <span>Da Nang, Vietnam</span>
+              </div>
+              <div className="footer__contact-item">
+                <span className="footer__contact-icon">🎓</span>
+                <span>FPT University</span>
+              </div>
+              <div className="footer__contact-item">
+                <span className="footer__contact-icon">💼</span>
+                <span>Available for opportunities</span>
+              </div>
             </motion.div>
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="footer__section">
             <motion.h4 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-lg font-semibold mb-4"
+              className="footer__section-title"
             >
               Quick Links
             </motion.h4>
-            <motion.ul 
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="space-y-2"
+              className="footer__links"
             >
               {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <motion.div whileHover={{ x: 5 }}>
-                    <Link
-                      to={link.href}
-                      className="text-gray-300 hover:text-primary-400 transition-colors duration-200 text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                </li>
+                <motion.div key={index} whileHover={{ x: 5 }}>
+                  <Link
+                    to={link.href}
+                    className="footer__link"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
-            </motion.ul>
+            </motion.div>
           </div>
 
           {/* Connect Section */}
-          <div>
+          <div className="footer__section">
             <motion.h4 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-lg font-semibold mb-4"
+              className="footer__section-title"
             >
               Let's Connect
             </motion.h4>
@@ -137,7 +146,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-gray-300 text-sm mb-4"
+              className="footer__brand-description"
             >
               Follow me on social media or send me a message. I'm always excited to connect!
             </motion.p>
@@ -146,7 +155,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="flex space-x-4"
+              className="footer__social"
             >
               {socialLinks.map((social, index) => (
                 <motion.a
@@ -156,7 +165,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, y: -2 }}
                   whileTap={{ scale: 0.9 }}
-                  className={`text-gray-400 ${social.color} transition-colors duration-200`}
+                  className={`footer__social-link footer__social-link--${social.name.toLowerCase()}`}
                 >
                   <social.icon size={20} />
                 </motion.a>
@@ -165,50 +174,33 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
-        <motion.div 
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true }}
-          className="border-t border-gray-700 my-8"
-        />
-
         {/* Bottom Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400"
-        >
-          <div className="flex items-center mb-4 md:mb-0">
+        <div className="footer__bottom">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="footer__copyright"
+          >
             <span>© 2025 Lê Trí Trung | All rights reserved</span>
-          </div>
-          <div className="flex items-center">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="footer__copyright"
+          >
             <span>Made with</span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
-              className="mx-1"
+              className="footer__heart"
             >
-              <FaHeart className="text-red-500" size={14} />
+              <FaHeart size={14} />
             </motion.div>
-            <span>using React & TailwindCSS</span>
-          </div>
-        </motion.div>
-
-        {/* Tech Stack Badge */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="mt-6 text-center"
-        >
-          <div className="inline-flex items-center px-4 py-2 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">
-            <span className="mr-2">⚡</span>
-            Built with ReactJS, TailwindCSS & Framer Motion
-          </div>
-        </motion.div>
+            <span>using React & SCSS</span>
+          </motion.div>
+        </div>
       </div>
     </footer>
   );
