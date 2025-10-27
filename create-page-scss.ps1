@@ -1,8 +1,26 @@
-﻿/* AboutPage Container Styles */
+# Script to create SCSS files for each page container
+
+$pages = @(
+    "AboutPage",
+    "ActivitiesPage", 
+    "CertificatesPage",
+    "ContactPage",
+    "EducationPage",
+    "HomePage",
+    "PrizesPage",
+    "ProjectsPage",
+    "SkillsPage"
+)
+
+foreach ($page in $pages) {
+    $scssPath = "d:\ProjectCode\my-website\src\pages\$page\$page.scss"
+    
+    $content = @"
+/* $page Container Styles */
 /* This file is for page-specific container styling */
 /* The main component styles are in src/components/ */
 
-.aboutpage-container {
+.${page.ToLower()}-container {
   // Container-specific styles can be added here
   // Example: specific layout, spacing, or wrapper styling
   // that only applies to this page container
@@ -20,15 +38,20 @@
 
 // Page-specific responsive breakpoints or container queries
 @media (max-width: 768px) {
-  .aboutpage-container {
+  .${page.ToLower()}-container {
     // Mobile-specific container styles
-    padding: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .aboutpage-container {
+  .${page.ToLower()}-container {
     // Desktop-specific container styles
-    padding: 2rem;
   }
 }
+"@
+    
+    Set-Content -Path $scssPath -Value $content -Encoding UTF8
+    Write-Host "Created: $page.scss"
+}
+
+Write-Host "All page container SCSS files have been created!"

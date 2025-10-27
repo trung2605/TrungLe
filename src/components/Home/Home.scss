@@ -1,0 +1,31 @@
+/* Home page base styles */@import '../../styles/variables';
+
+.home-page{@import '../../styles/mixins';
+
+  min-height:100vh;
+
+  padding:4rem 0;.home-page {
+
+  min-height: 100vh;
+
+  &__hero{  width: 100%;
+
+    text-align:center;  
+
+    margin-bottom:3rem;  // Smooth scroll behavior for sections
+
+  scroll-behavior: smooth;
+
+    .hero-title{font-size:2.25rem;font-weight:700;margin-bottom:1rem}}
+
+    .hero-sub{font-size:1.125rem;color:#6b7280}
+  }
+}
+
+.decorative-stat {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 64px 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+}

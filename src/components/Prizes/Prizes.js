@@ -1,4 +1,4 @@
-// src/pages/PrizesPage/PrizesPage.js
+﻿// src/pages/PrizesPage/PrizesPage.js
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -9,12 +9,12 @@ import {
   FaCalendarAlt,
   FaBuilding,
   FaChevronCircleDown,
-} from "react-icons/fa"; // Import thêm icon nếu cần
+} from "react-icons/fa"; // Import thÃªm icon náº¿u cáº§n
 import { prizes } from "../../data";
-import "./PrizesPage.scss";
+import './Prizes.scss';
 
-const PrizesPage = () => {
-  // ... (Giữ nguyên các hàm getPositionIcon, getPositionColor, containerVariants, itemVariants)
+const Prizes = () => {
+  // ... (Giá»¯ nguyÃªn cÃ¡c hÃ m getPositionIcon, getPositionColor, containerVariants, itemVariants)
 
   const getPositionIcon = (position) => {
     if (
@@ -41,22 +41,22 @@ const PrizesPage = () => {
       position.toLowerCase().includes("winner") ||
       position.toLowerCase().includes("first")
     ) {
-      // Vàng/Vàng Đồng - Dùng làm màu nổi bật nhất (Accent Gold)
+      // VÃ ng/VÃ ng Äá»“ng - DÃ¹ng lÃ m mÃ u ná»•i báº­t nháº¥t (Accent Gold)
       return "from-primary-600 --secondary-900";
     } else if (
       position.toLowerCase().includes("runner-up") ||
       position.toLowerCase().includes("second")
     ) {
-      // Màu Chính (Primary) - Sử dụng tông xanh đậm
-      return "from-primary-600 --secondary-900"; // Ánh xạ tới các class Tailwind tương đương
+      // MÃ u ChÃ­nh (Primary) - Sá»­ dá»¥ng tÃ´ng xanh Ä‘áº­m
+      return "from-primary-600 --secondary-900"; // Ãnh xáº¡ tá»›i cÃ¡c class Tailwind tÆ°Æ¡ng Ä‘Æ°Æ¡ng
     } else if (
       position.toLowerCase().includes("finalist") ||
       position.toLowerCase().includes("final")
     ) {
-      // Màu Phụ (Secondary) - Sử dụng tông xanh nhạt hơn
-      return "from-primary-600 --secondary-900"; // Ánh xạ tới các class Tailwind tương đương
+      // MÃ u Phá»¥ (Secondary) - Sá»­ dá»¥ng tÃ´ng xanh nháº¡t hÆ¡n
+      return "from-primary-600 --secondary-900"; // Ãnh xáº¡ tá»›i cÃ¡c class Tailwind tÆ°Æ¡ng Ä‘Æ°Æ¡ng
     }
-    // Màu mặc định
+    // MÃ u máº·c Ä‘á»‹nh
     return "from-gray-400 to-gray-600";
   };
 
@@ -85,7 +85,7 @@ const PrizesPage = () => {
   return (
     <div className="prizes-page">
       <div className="max-w-6xl mx-auto px-4">
-        {/* Header (Giữ nguyên) */}
+        {/* Header (Giá»¯ nguyÃªn) */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,14 +101,14 @@ const PrizesPage = () => {
           </p>
         </motion.div>
 
-        {/* Statistics (Giữ nguyên) */}
+        {/* Statistics (Giá»¯ nguyÃªn) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
           className="grid md:grid-cols-3 gap-6 mb-12"
         >
-          {/* Stat Cards (Giữ nguyên) */}
+          {/* Stat Cards (Giá»¯ nguyÃªn) */}
           <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
             <div className="flex items-center justify-between">
               <div>
@@ -161,7 +161,7 @@ const PrizesPage = () => {
                 whileHover={{ y: -5, scale: 1.02 }}
                 className={`timeline-item ${isLeft ? "left" : "right"}`}
               >
-                {/* Card Giải Thưởng */}
+                {/* Card Giáº£i ThÆ°á»Ÿng */}
                 <div className="timeline-card-wrapper">
                   <div className="timeline-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                     <div
@@ -209,4 +209,5 @@ const PrizesPage = () => {
   );
 };
 
-export default PrizesPage;
+export default Prizes;
+

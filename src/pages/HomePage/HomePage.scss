@@ -1,31 +1,34 @@
-/* Home page base styles */@import '../../styles/variables';
+﻿/* HomePage Container Styles */
+/* This file is for page-specific container styling */
+/* The main component styles are in src/components/ */
 
-.home-page{@import '../../styles/mixins';
-
-  min-height:100vh;
-
-  padding:4rem 0;.home-page {
-
+.homepage-container {
+  // Container-specific styles can be added here
+  // Example: specific layout, spacing, or wrapper styling
+  // that only applies to this page container
+  
   min-height: 100vh;
+  width: 100%;
+  
+  // You can add page-specific overrides here if needed
+  // Example:
+  // padding: 2rem;
+  // background: var(--page-background);
+  // max-width: 1200px;
+  // margin: 0 auto;
+}
 
-  &__hero{  width: 100%;
-
-    text-align:center;  
-
-    margin-bottom:3rem;  // Smooth scroll behavior for sections
-
-  scroll-behavior: smooth;
-
-    .hero-title{font-size:2.25rem;font-weight:700;margin-bottom:1rem}}
-
-    .hero-sub{font-size:1.125rem;color:#6b7280}
+// Page-specific responsive breakpoints or container queries
+@media (max-width: 768px) {
+  .homepage-container {
+    // Mobile-specific container styles
+    padding: 1rem;
   }
 }
 
-.decorative-stat {
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 64px 0;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
+@media (min-width: 1024px) {
+  .homepage-container {
+    // Desktop-specific container styles
+    padding: 2rem;
+  }
 }

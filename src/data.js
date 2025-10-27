@@ -776,3 +776,51 @@ export const allSkillsData = [
     { name: 'Mục lục các hàm trong code C', icon: '📜', color: 'from-cyan-400 to-blue-500', level: 0 },
     { name: 'Kiến thức khác', icon: '💡', color: 'from-yellow-300 to-yellow-500', level: 0 },
 ];
+
+
+// src/data.js (hoặc file chứa dữ liệu chung của bạn)
+
+export const siteNavigation = [
+    {
+      title: "About Me",
+      desc: "Learn about my journey and passion",
+      icon: "🙋‍♂️", // Biểu tượng đã sửa
+      path: "/about",
+    },
+    {
+      title: "Projects",
+      desc: "Explore the projects I have worked on",
+      icon: "💻", // Biểu tượng đã sửa (Project/Code)
+      path: "/projects",
+    },
+    {
+      title: "Skills",
+      desc: "See the technologies I am proficient in",
+      icon: "🔧", // Biểu tượng đã sửa (Tool/Wrench)
+      path: "/skills",
+    },
+    {
+      title: "Education",
+      desc: "My learning and development journey",
+      icon: "🎓", // Biểu tượng đã sửa (Graduation Cap)
+      path: "/education",
+    },
+    {
+      title: "Certificates",
+      desc: "My certifications and achievements",
+      icon: "🏅", // Biểu tượng đã sửa (Medal/Certificate)
+      path: "/certificates",
+    },
+    {
+      title: "Activities", // Thêm mục Activities
+      desc: "My extracurricular involvement and leadership roles",
+      icon: "👥", // Biểu tượng cho Team/Group
+      path: "/activities",
+    },
+    {
+      title: "Contact",
+      desc: "Let's connect and collaborate",
+      icon: "📧", // Biểu tượng đã sửa (Email)
+      path: "/contact",
+    },
+];

@@ -1,12 +1,12 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaCalendarAlt, FaStar, FaSchool } from 'react-icons/fa';
 import { education } from '../../data';
-import './EducationPage.scss';
+import './Education.scss';
 import Markdown from 'react-markdown';
 
 
-const EducationPage = () => {
+const Education = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -123,4 +123,4 @@ const EducationPage = () => {
   );
 };
 
-export default EducationPage;
+export default Education;

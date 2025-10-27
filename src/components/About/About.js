@@ -2,10 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaCode, FaHeart, FaRocket } from "react-icons/fa";
 import { personalInfo } from "../../data";
-import "./AboutPage.scss";
+import "./About.scss";
 import Markdown from "react-markdown";
 
-const AboutPage = () => {
+const About = () => {
   const stats = [
     {
       label: "Years of Study",
@@ -36,7 +36,8 @@ const AboutPage = () => {
   const highlights = [
     {
       title: "Backend Expertise",
-      description: "Specialized in Java development, particularly with the Spring Boot framework.",
+      description:
+        "Specialized in Java development, particularly with the Spring Boot framework.",
       icon: "⚙️",
     },
     {
@@ -46,15 +47,17 @@ const AboutPage = () => {
     },
     {
       title: "Complex Problem Solving",
-      description: "Passionate about tackling complex programming challenges and optimizing solutions.",
+      description:
+        "Passionate about tackling complex programming challenges and optimizing solutions.",
       icon: "🧩",
     },
     {
       title: "Team Leadership & Management",
-      description: "Proven experience in leading development teams and managing project timelines.",
+      description:
+        "Proven experience in leading development teams and managing project timelines.",
       icon: "👥",
     },
-];
+  ];
 
   return (
     <div className="about-page">
@@ -65,8 +68,7 @@ const AboutPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="hero-content"
-        >
-        </motion.div>
+        ></motion.div>
       </section>
 
       {/* Stats Section */}
@@ -113,13 +115,22 @@ const AboutPage = () => {
           <h2 className="story-title">My Story</h2>
           <div className="story-content">
             <Markdown>
-              ## My Story
-
-Hello! I'm **Lê Trí Trung**, a highly motivated Computer Science student at FPT University in Da Nang. My core expertise lies in **Java Spring Boot backend development** and modern web technologies, driven by a deep passion for creating clean, scalable, and impactful applications.
-
-My technical journey began with foundational Java Core and quickly expanded into full-stack development, mastering **JavaScript ES6, React, HTML5/CSS3**. I thrive in collaborative, Agile environments and leverage tools like **Git/GitHub** for version control, demonstrated through various successful team projects.
-
-Beyond coding, I possess strong soft skills, including **team leadership** and **project management**, gained through founding a charity organization and leading competitive coding teams. My goal is to apply my robust technical foundation and collaborative skills in a challenging Web Developer internship, contributing actively to a successful team.
+              ## My Story Hello! I'm **Lê Trí Trung**, a highly motivated
+              Computer Science student at FPT University in Da Nang. My core
+              expertise lies in **Java Spring Boot backend development** and
+              modern web technologies, driven by a deep passion for creating
+              clean, scalable, and impactful applications. My technical journey
+              began with foundational Java Core and quickly expanded into
+              full-stack development, mastering **JavaScript ES6, React,
+              HTML5/CSS3**. I thrive in collaborative, Agile environments and
+              leverage tools like **Git/GitHub** for version control,
+              demonstrated through various successful team projects. Beyond
+              coding, I possess strong soft skills, including **team
+              leadership** and **project management**, gained through founding a
+              charity organization and leading competitive coding teams. My goal
+              is to apply my robust technical foundation and collaborative
+              skills in a challenging Web Developer internship, contributing
+              actively to a successful team.
             </Markdown>
           </div>
         </motion.div>
@@ -210,4 +221,4 @@ Beyond coding, I possess strong soft skills, including **team leadership** and *
   );
 };
 
-export default AboutPage;
+export default About;

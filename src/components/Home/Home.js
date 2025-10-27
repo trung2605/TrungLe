@@ -1,10 +1,11 @@
-import React from "react";
+﻿import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
-import "./HomePage.scss";
+import "./Home.scss";
+import { siteNavigation } from "../../data";
 
-const HomePage = () => {
+const Home = () => {
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -23,7 +24,7 @@ const HomePage = () => {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white"
             >
-              Xin chào! Tôi là{" "}
+              Xin chào tôi là {" "}
               <span className="text-gradient bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Lê Trí Trung
               </span>
@@ -66,8 +67,8 @@ const HomePage = () => {
               </Link>
 
               <a
-                href="../../assets/pdfs/resume.pdf" 
-                download="Le_Tri_Trung_Java_Developer_CV.pdf" 
+                href="../../assets/pdfs/resume.pdf"
+                download="Le_Tri_Trung_Java_Developer_CV.pdf"
                 className="inline-flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
               >
                 <FaDownload size={16} />
@@ -143,7 +144,7 @@ const HomePage = () => {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="absolute -top-4 -right-4 bg-white dark:bg-gray-800 p-3 rounded-lg shadow-lg"
               >
-                <span className="text-2xl">☕</span>
+                <span className="text-2xl">🛠️</span>
               </motion.div>
 
               <motion.div
@@ -151,7 +152,7 @@ const HomePage = () => {
                 transition={{ duration: 2.5, repeat: Infinity }}
                 className="absolute -bottom-4 -left-4 bg-white dark:bg-gray-800 p-3 rounded-lg shadow-lg"
               >
-                <span className="text-2xl">⚛️</span>
+                <span className="text-2xl">🧑‍💻</span>
               </motion.div>
             </div>
           </motion.div>
@@ -208,46 +209,8 @@ const HomePage = () => {
         >
           Explore More About Me
         </motion.h2>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              title: "About Me",
-              desc: "Learn about my journey and passion",
-              icon: "👤",
-              path: "/about",
-            },
-            {
-              title: "Projects",
-              desc: "Explore the projects I have worked on",
-              icon: "🚀",
-              path: "/projects",
-            },
-            {
-              title: "Skills",
-              desc: "See the technologies I am proficient in",
-              icon: "💼",
-              path: "/skills",
-            },
-            {
-              title: "Education",
-              desc: "My learning and development journey",
-              icon: "🎓",
-              path: "/education",
-            },
-            {
-              title: "Certificates",
-              desc: "My certifications and achievements",
-              icon: "📜",
-              path: "/certificates",
-            },
-            {
-              title: "Contact",
-              desc: "Let's connect and collaborate",
-              icon: "📧",
-              path: "/contact",
-            },
-          ].map((item, index) => (
+          {siteNavigation.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -277,4 +240,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;

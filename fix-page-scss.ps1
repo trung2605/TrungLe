@@ -1,8 +1,27 @@
-﻿/* AboutPage Container Styles */
+# Script to fix SCSS files with correct class names
+
+$pages = @(
+    "AboutPage",
+    "ActivitiesPage", 
+    "CertificatesPage",
+    "ContactPage",
+    "EducationPage",
+    "HomePage",
+    "PrizesPage",
+    "ProjectsPage",
+    "SkillsPage"
+)
+
+foreach ($page in $pages) {
+    $scssPath = "d:\ProjectCode\my-website\src\pages\$page\$page.scss"
+    $className = $page.ToLower()
+    
+    $content = @"
+/* $page Container Styles */
 /* This file is for page-specific container styling */
 /* The main component styles are in src/components/ */
 
-.aboutpage-container {
+.$className-container {
   // Container-specific styles can be added here
   // Example: specific layout, spacing, or wrapper styling
   // that only applies to this page container
@@ -20,15 +39,22 @@
 
 // Page-specific responsive breakpoints or container queries
 @media (max-width: 768px) {
-  .aboutpage-container {
+  .$className-container {
     // Mobile-specific container styles
     padding: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .aboutpage-container {
+  .$className-container {
     // Desktop-specific container styles
     padding: 2rem;
   }
 }
+"@
+    
+    Set-Content -Path $scssPath -Value $content -Encoding UTF8
+    Write-Host "Fixed: $page.scss"
+}
+
+Write-Host "All SCSS files have been fixed with correct class names!"

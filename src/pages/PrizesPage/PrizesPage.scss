@@ -1,165 +1,34 @@
-/* Prizes Page - CẬP NHẬT CỘT DỌC VÀ CĂN CHỈNH */
+﻿/* PrizesPage Container Styles */
+/* This file is for page-specific container styling */
+/* The main component styles are in src/components/ */
 
-@import '../../styles/variables';
-@import '../../styles/mixins';
+.prizespage-container {
+  // Container-specific styles can be added here
+  // Example: specific layout, spacing, or wrapper styling
+  // that only applies to this page container
+  
+  min-height: 100vh;
+  width: 100%;
+  
+  // You can add page-specific overrides here if needed
+  // Example:
+  // padding: 2rem;
+  // background: var(--page-background);
+  // max-width: 1200px;
+  // margin: 0 auto;
+}
 
-.prizes-page {
-    padding: 4rem 0;
-    
-    // --- TIMELINE STRUCTURE ---
-    .prize-timeline {
-        position: relative;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-bottom: 3rem;
-        
-        // Cột dọc chính giữa
-        &::after {
-            content: '';
-            position: absolute;
-            width: 5px; 
-            background-color: #969aa1; // Màu cột nhạt hơn
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); // Shadow nhẹ cho cột
-            top: 0;
-            bottom: 0;
-            left: 10px; // Vị trí trên mobile (trái)
-            z-index: 1;
+// Page-specific responsive breakpoints or container queries
+@media (max-width: 768px) {
+  .prizespage-container {
+    // Mobile-specific container styles
+    padding: 1rem;
+  }
+}
 
-            @media (min-width: 768px) {
-                left: 50%;
-                margin-left: -1.5px; // Căn giữa cột 3px
-            }
-        }
-    }
-
-    .timeline-item {
-        padding: 10px 0;
-        position: relative;
-        width: 100%;
-        margin-bottom: 2.5rem; // Khoảng cách giữa các item
-        
-        @media (min-width: 768px) {
-            width: 50%;
-            padding: 10px 40px; 
-            margin-bottom: 3rem;
-        }
-        
-        // Đặt timeline dot vào giữa
-        .timeline-dot-wrapper {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            z-index: 5; // Đảm bảo icon nằm trên cột dọcc
-            
-            @media (min-width: 768px) {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-
-        .timeline-dot {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            // Vòng ngoài trắng (box-shadow)
-            box-shadow: 0 0 0 4px var(--color-white), 0 2px 5px rgba(0,0,0,0.3);
-            border: 2px solid var(--color-white); // Viền giữa dot và shadow
-        }
-        .timeline-dot-icon {
-            font-size: 16px;
-        }
-
-        .timeline-card-wrapper {
-            margin-left: 30px; // Đẩy card sang phải (mobile)
-            @media (min-width: 768px) {
-                margin-left: 0;
-            }
-        }
-        
-        // --- CĂN CHỈNH LEFT/RIGHT (Desktop) ---
-        &.left {
-            @media (min-width: 768px) {
-                left: 0;
-                // Mũi tên trỏ vào cột dọc (card::after)
-                .timeline-card::after {
-                    content: "";
-                    position: absolute;
-                    top: 25px;
-                    right: -14px; // Vị trí trỏ
-                    border: medium solid transparent;
-                    border-left: 14px solid var(--color-white); // Màu mũi tên
-                    border-width: 14px;
-                    z-index: 3;
-                }
-            }
-        }
-
-        &.right {
-            @media (min-width: 768px) {
-                left: 50%;
-                
-                .timeline-card-wrapper {
-                    margin-left: 40px; // Đẩy card sang phải cột dọc
-                }
-                // Mũi tên trỏ vào cột dọc (card::after)
-                .timeline-card::after {
-                    content: "";
-                    position: absolute;
-                    top: 25px;
-                    left: -14px; // Vị trí trỏ
-                    border: medium solid transparent;
-                    border-right: 14px solid var(--color-white); // Màu mũi tên
-                    border-width: 14px;
-                    z-index: 3;
-                }
-            }
-        }
-    }
-    
-    // --- CARD STYLING ---
-    .timeline-card {
-        position: relative; // Quan trọng cho mũi tên
-        border: 1px solid var(--color-gray-200);
-        
-        .timeline-card-header {
-            padding: 1.5rem; 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-radius: 0.75rem 0.75rem 0 0;
-            
-            // Xóa background-color/border của mũi tên trong dark mode
-            .prizes-page.dark-mode &::after { 
-                 border-left-color: var(--color-gray-800) !important;
-                 border-right-color: var(--color-gray-800) !important;
-            }
-        }
-    }
-
-    // --- DARK MODE ADJUSTMENTS ---
-    .prizes-page.dark-mode & {
-        .prize-timeline::after {
-            background-color: var(--color-gray-700);
-        }
-        .timeline-item .timeline-dot {
-            box-shadow: 0 0 0 4px var(--color-gray-800), 0 2px 5px rgba(0,0,0,0.4);
-            border: 2px solid var(--color-gray-800); 
-        }
-        
-        // Mũi tên trong Dark Mode (Phải được làm lại)
-        .timeline-item.left .timeline-card::after {
-            @media (min-width: 768px) {
-                border-left-color: var(--color-gray-800); // Màu mũi tên trong dark mode
-            }
-        }
-        .timeline-item.right .timeline-card::after {
-            @media (min-width: 768px) {
-                border-right-color: var(--color-gray-800); // Màu mũi tên trong dark mode
-            }
-        }
-    }
+@media (min-width: 1024px) {
+  .prizespage-container {
+    // Desktop-specific container styles
+    padding: 2rem;
+  }
 }
