@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppContextProvider } from './contexts/AppContext';
 import { ThemeContextProvider } from './contexts/ThemeContext';
-import MainLayout from './layout/MainLayout';
+import MainLayout from './layout/MainLayout/MainLayout';
 
 // Import page components
 import HomePage from './pages/HomePage/HomePage';

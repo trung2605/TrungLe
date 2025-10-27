@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { FaGraduationCap, FaCalendarAlt, FaStar, FaSchool } from 'react-icons/fa';
 import { education } from '../../data';
 import './EducationPage.scss';
+import Markdown from 'react-markdown';
+
 
 const EducationPage = () => {
   const containerVariants = {
@@ -107,7 +109,9 @@ const EducationPage = () => {
                   </div>
                   
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {edu.description}
+                      <Markdown>
+                        {edu.description}
+                      </Markdown>
                   </p>
                 </div>
               </div>

@@ -1,30 +1,63 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaTrophy, FaMedal, FaStar, FaCalendarAlt, FaBuilding } from 'react-icons/fa';
-import { prizes } from '../../data';
-import './PrizesPage.scss';
+// src/pages/PrizesPage/PrizesPage.js
+
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  FaTrophy,
+  FaMedal,
+  FaStar,
+  FaCalendarAlt,
+  FaBuilding,
+  FaChevronCircleDown,
+} from "react-icons/fa"; // Import thêm icon nếu cần
+import { prizes } from "../../data";
+import "./PrizesPage.scss";
 
 const PrizesPage = () => {
+  // ... (Giữ nguyên các hàm getPositionIcon, getPositionColor, containerVariants, itemVariants)
+
   const getPositionIcon = (position) => {
-    if (position.toLowerCase().includes('winner') || position.toLowerCase().includes('first')) {
+    if (
+      position.toLowerCase().includes("winner") ||
+      position.toLowerCase().includes("first")
+    ) {
       return FaTrophy;
-    } else if (position.toLowerCase().includes('runner-up') || position.toLowerCase().includes('second')) {
+    } else if (
+      position.toLowerCase().includes("runner-up") ||
+      position.toLowerCase().includes("second")
+    ) {
       return FaMedal;
-    } else if (position.toLowerCase().includes('finalist') || position.toLowerCase().includes('final')) {
+    } else if (
+      position.toLowerCase().includes("finalist") ||
+      position.toLowerCase().includes("final")
+    ) {
       return FaStar;
     }
     return FaTrophy;
   };
 
   const getPositionColor = (position) => {
-    if (position.toLowerCase().includes('winner') || position.toLowerCase().includes('first')) {
-      return 'from-yellow-400 to-yellow-600';
-    } else if (position.toLowerCase().includes('runner-up') || position.toLowerCase().includes('second')) {
-      return 'from-gray-400 to-gray-600';
-    } else if (position.toLowerCase().includes('finalist') || position.toLowerCase().includes('final')) {
-      return 'from-orange-400 to-orange-600';
+    if (
+      position.toLowerCase().includes("winner") ||
+      position.toLowerCase().includes("first")
+    ) {
+      // Vàng/Vàng Đồng - Dùng làm màu nổi bật nhất (Accent Gold)
+      return "from-primary-600 --secondary-900";
+    } else if (
+      position.toLowerCase().includes("runner-up") ||
+      position.toLowerCase().includes("second")
+    ) {
+      // Màu Chính (Primary) - Sử dụng tông xanh đậm
+      return "from-primary-600 --secondary-900"; // Ánh xạ tới các class Tailwind tương đương
+    } else if (
+      position.toLowerCase().includes("finalist") ||
+      position.toLowerCase().includes("final")
+    ) {
+      // Màu Phụ (Secondary) - Sử dụng tông xanh nhạt hơn
+      return "from-primary-600 --secondary-900"; // Ánh xạ tới các class Tailwind tương đương
     }
-    return 'from-blue-400 to-blue-600';
+    // Màu mặc định
+    return "from-gray-400 to-gray-600";
   };
 
   const containerVariants = {
@@ -33,9 +66,9 @@ const PrizesPage = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -44,15 +77,15 @@ const PrizesPage = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   return (
     <div className="prizes-page">
       <div className="max-w-6xl mx-auto px-4">
-        {/* Header */}
+        {/* Header (Giữ nguyên) */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,14 +101,15 @@ const PrizesPage = () => {
           </p>
         </motion.div>
 
-        {/* Statistics */}
+        {/* Statistics (Giữ nguyên) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
           className="grid md:grid-cols-3 gap-6 mb-12"
         >
-          <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg p-6 text-white">
+          {/* Stat Cards (Giữ nguyên) */}
+          <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-yellow-100 text-sm">Total Awards</p>
@@ -84,85 +118,85 @@ const PrizesPage = () => {
               <FaTrophy className="text-4xl text-yellow-200" />
             </div>
           </div>
-
-          <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg p-6 text-white">
+          <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-purple-100 text-sm">Organizations</p>
-                <p className="text-3xl font-bold">{new Set(prizes.map(p => p.organization)).size}</p>
+                <p className="text-3xl font-bold">
+                  {new Set(prizes.map((p) => p.organization)).size}
+                </p>
               </div>
               <FaBuilding className="text-4xl text-purple-200" />
             </div>
           </div>
-
           <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-blue-100 text-sm">Years Active</p>
-                <p className="text-3xl font-bold">{new Set(prizes.map(p => p.year)).size}</p>
+                <p className="text-3xl font-bold">
+                  {new Set(prizes.map((p) => p.year)).size}
+                </p>
               </div>
               <FaCalendarAlt className="text-4xl text-blue-200" />
             </div>
           </div>
         </motion.div>
 
-        {/* Prizes Grid */}
+        {/* Prizes Timeline */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid md:grid-cols-2 lg:grid-cols-2 gap-8"
+          className="prize-timeline" 
         >
-          {prizes.map((prize) => {
+          {prizes.map((prize, index) => {
             const IconComponent = getPositionIcon(prize.position);
             const colorClass = getPositionColor(prize.position);
-            
+            const isLeft = index % 2 === 0;
+
             return (
               <motion.div
                 key={prize.id}
                 variants={itemVariants}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className={`timeline-item ${isLeft ? "left" : "right"}`}
               >
-                {/* Header with gradient */}
-                <div className={`bg-gradient-to-r ${colorClass} p-6 text-white`}>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <IconComponent className="text-2xl" />
-                      <div>
+                {/* Card Giải Thưởng */}
+                <div className="timeline-card-wrapper">
+                  <div className="timeline-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div
+                      className={`timeline-card-header bg-gradient-to-r ${colorClass} text-white`}
+                    >
+                      <div className="flex items-center space-x-3">
                         <h3 className="text-xl font-bold">{prize.title}</h3>
-                        <p className="text-sm opacity-90">{prize.organization}</p>
+                      </div>
+                      <div className="text-right">
+                        <div className="bg-white/20 rounded-lg px-3 py-1">
+                          <span className="text-sm font-medium">
+                            {prize.year}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className="bg-white/20 rounded-lg px-3 py-1">
-                        <span className="text-sm font-medium">{prize.year}</span>
+
+                    {/* Content */}
+                    <div className="p-6">
+                      <div className="mb-4">
+                        <span className="text-lg font-semibold text-gray-900 dark:text-white">
+                          {prize.position}
+                        </span>
                       </div>
-                    </div>
-                  </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${colorClass}`}></div>
-                    <span className="text-lg font-semibold text-gray-900 dark:text-white">
-                      {prize.position}
-                    </span>
-                  </div>
-                  
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {prize.description}
-                  </p>
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                        {prize.description}
+                      </p>
 
-                  <div className="mt-4 flex items-center justify-between">
-                    <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-                      <FaCalendarAlt />
-                      <span>{prize.year}</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-                      <FaBuilding />
-                      <span>{prize.organization}</span>
+                      <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                        <div className="flex items-center space-x-2">
+                          <FaBuilding />
+                          <span>{prize.organization}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

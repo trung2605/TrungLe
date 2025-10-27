@@ -1,7 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { skills } from '../../data';
-import './SkillsPage.scss';
+import React from "react";
+import { motion } from "framer-motion";
+import { skills } from "../../data";
+import "./SkillsPage.scss";
+import { allSkillsData } from "../../data";
 
 const SkillsPage = () => {
   const SkillBar = ({ skill }) => (
@@ -36,13 +37,14 @@ const SkillsPage = () => {
         className="text-center mb-16"
       >
         <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-          Kỹ năng &{' '}
+          Kỹ năng &{" "}
           <span className="text-gradient bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Chuyên môn
           </span>
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-          Tổng hợp các kỹ năng kỹ thuật và soft skills tôi đã phát triển qua quá trình học tập và làm việc
+          Tổng hợp các kỹ năng kỹ thuật và soft skills tôi đã phát triển qua quá
+          trình học tập và làm việc
         </p>
       </motion.div>
 
@@ -60,7 +62,7 @@ const SkillsPage = () => {
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b border-gray-200 dark:border-gray-700">
               {category.category}
             </h2>
-            
+
             <div className="space-y-4">
               {category.items.map((skill, skillIndex) => (
                 <motion.div
@@ -68,7 +70,10 @@ const SkillsPage = () => {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: (categoryIndex * 0.1) + (skillIndex * 0.1), duration: 0.4 }}
+                  transition={{
+                    delay: categoryIndex * 0.1 + skillIndex * 0.1,
+                    duration: 0.4,
+                  }}
                 >
                   <SkillBar skill={skill} />
                 </motion.div>
@@ -91,28 +96,28 @@ const SkillsPage = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { name: 'Java', icon: '☕', color: 'from-orange-500 to-red-500', level: 90 },
-            { name: 'React', icon: '⚛️', color: 'from-blue-500 to-cyan-500', level: 80 },
-            { name: 'Spring Boot', icon: '🍃', color: 'from-green-500 to-green-600', level: 85 },
-            { name: 'JavaScript', icon: '🟨', color: 'from-yellow-400 to-yellow-500', level: 85 }
-          ].map((tech, index) => (
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {" "}
+          {allSkillsData.map((tech, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              transition={{ delay: index * 0.05, duration: 0.5 }} // Giảm delay vì có nhiều mục hơn
               whileHover={{ scale: 1.05 }}
               className="relative group"
             >
-              <div className={`bg-gradient-to-br ${tech.color} rounded-2xl p-6 text-white text-center shadow-lg hover:shadow-xl transition-all duration-300`}>
+              <div
+                className={`bg-gradient-to-br ${tech.color} rounded-2xl p-6 text-white text-center shadow-lg hover:shadow-xl transition-all duration-300`}
+              >
                 <div className="text-4xl mb-3">{tech.icon}</div>
                 <h3 className="text-xl font-bold mb-2">{tech.name}</h3>
-                <div className="text-sm opacity-90">Proficiency: {tech.level}%</div>
-                
-                {/* Progress circle */}
+                {/* ... Phần Progress Circle và Level ... */}
+                <div className="text-sm opacity-90">
+                  Proficiency: {tech.level}%
+                </div>
+
                 <div className="absolute top-4 right-4">
                   <div className="w-8 h-8 rounded-full border-2 border-white/30 flex items-center justify-center">
                     <span className="text-xs font-bold">{tech.level}</span>
