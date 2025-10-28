@@ -1,12 +1,34 @@
-/* Prizes Page */@import '../../styles/variables';
+﻿/* PrizesPage Container Styles */
+/* This file is for page-specific container styling */
+/* The main component styles are in src/components/ */
 
-.prizes-page{ min-height:100vh; padding:4rem 0;@import '../../styles/mixins';
-
-  &__stats{ display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:1rem }
-
-  &__list{ margin-top:1.5rem }.prizes-page {
-
-}  min-height: 100vh;
-
+.prizespage-container {
+  // Container-specific styles can be added here
+  // Example: specific layout, spacing, or wrapper styling
+  // that only applies to this page container
+  
+  min-height: 100vh;
   width: 100%;
+  
+  // You can add page-specific overrides here if needed
+  // Example:
+  // padding: 2rem;
+  // background: var(--page-background);
+  // max-width: 1200px;
+  // margin: 0 auto;
+}
+
+// Page-specific responsive breakpoints or container queries
+@media (max-width: 768px) {
+  .prizespage-container {
+    // Mobile-specific container styles
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .prizespage-container {
+    // Desktop-specific container styles
+    padding: 2rem;
+  }
 }

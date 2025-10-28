@@ -1,14 +1,34 @@
-/* Projects Page */@import '../../styles/variables';
+﻿/* ProjectsPage Container Styles */
+/* This file is for page-specific container styling */
+/* The main component styles are in src/components/ */
 
-.projects-page{ @import '../../styles/mixins';
+.projectspage-container {
+  // Container-specific styles can be added here
+  // Example: specific layout, spacing, or wrapper styling
+  // that only applies to this page container
+  
+  min-height: 100vh;
+  width: 100%;
+  
+  // You can add page-specific overrides here if needed
+  // Example:
+  // padding: 2rem;
+  // background: var(--page-background);
+  // max-width: 1200px;
+  // margin: 0 auto;
+}
 
-  min-height:100vh; padding:4rem 0;
+// Page-specific responsive breakpoints or container queries
+@media (max-width: 768px) {
+  .projectspage-container {
+    // Mobile-specific container styles
+    padding: 1rem;
+  }
+}
 
-  &__grid{ display:grid; gap:2rem; }.projects-page {
-
-  &__filters{ display:flex; gap:0.5rem; justify-content:center; margin-bottom:1.5rem; }  min-height: 100vh;
-
-  .project-card{ border-radius:0.75rem; overflow:hidden; }  width: 100%;
-
-}}
-
+@media (min-width: 1024px) {
+  .projectspage-container {
+    // Desktop-specific container styles
+    padding: 2rem;
+  }
+}

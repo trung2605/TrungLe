@@ -1,0 +1,12 @@
+/* Activities Page */@import '../../styles/variables';
+
+.activities-page{ min-height:100vh; padding:4rem 0;@import '../../styles/mixins';
+
+  &__filters{ display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.25rem }
+
+  &__list{ display:grid; gap:1rem }.activities-page {
+
+}  min-height: 100vh;
+
+  width: 100%;
+}
