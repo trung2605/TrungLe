@@ -137,15 +137,17 @@ const Skills = () => {
               whileHover={{ scale: 1.05 }}
               className="skill-tag"
             >
-              <span className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-base font-medium shadow-sm transition-colors duration-200 hover:bg-gray-200 dark:hover:bg-gray-600">
-                {tech.name}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-    </div>
-  );
+              <div className="skill-item">
+                <span className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-base font-medium shadow-sm transition-colors duration-200 hover:bg-gray-200 dark:hover:bg-gray-600">
+                  {tech.name}
+                </span>
+              </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  </div>
+  )
 };
 
 export default Skills;

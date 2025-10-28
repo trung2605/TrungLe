@@ -1,4 +1,9 @@
-import { FaGraduationCap, FaCode, FaHeart, FaRocket } from "react-icons/fa";
+import {
+  FaGraduationCap,
+  FaCode,
+  FaCertificate,
+  FaTrophy,
+} from "react-icons/fa";
 
 // Project Image Imports
 import JobFinderImage from "./assets/projects/JobFinder.png";
@@ -7,7 +12,6 @@ import TheDreamersOrganizationImage from "./assets/projects/TheDreamers.png";
 import WebFormAutomationImage from "./assets/projects/WebFormAutomation.png";
 import BookShopOutsystemsImage from "./assets/projects/BookShopOutsystems.png";
 import TikTokUIImage from "./assets/projects/ComingSoon.png";
-import DSAImage from "./assets/projects/DSA.png";
 import PortfolioImage from "./assets/projects/Portfolio.png";
 import BakeryManagementImage from "./assets/projects/BakeryManagementSystem.png";
 
@@ -59,6 +63,12 @@ import FPTMemory1 from "./assets/educationMemories/FPT_Memory_1.jpg";
 import MalaysiaMemory from "./assets/educationMemories/Malaysia_Memory.jpg";
 import PCTMemory from "./assets/educationMemories/PCT_Graduation_Memory.jpg";
 
+// About Slider Images Imports
+import SliderImg1 from "./assets/slider/SliderImg1.jpg";
+import SliderImg2 from "./assets/slider/SliderImg2.jpg";
+import SliderImg3 from "./assets/slider/SliderImg3.jpg";
+import SliderImg4 from "./assets/slider/SliderImg4.jpg";
+
 export const personalInfo = {
   name: "Lê Trí Trung",
   title: "Java Developer | Computer Science Student",
@@ -77,6 +87,11 @@ export const personalInfo = {
     github: "https://github.com/trung2605",
     linkedin: "https://www.linkedin.com/in/trung-l%C3%AA-7ba564283/",
   },
+  story: {
+    title: "My Journey",
+    content:
+      "\nHello! I'm **Lê Trí Trung**, a highly motivated Computer Science student at FPT University in Da Nang. My core expertise lies in **Java Spring Boot backend development** and modern web technologies, driven by a deep passion for creating clean, scalable, and impactful applications.\n\nMy technical journey began with foundational Java Core and quickly expanded into full-stack development, mastering **JavaScript ES6, React, HTML5/CSS3**. I thrive in collaborative, Agile environments and leverage tools like **Git/GitHub** for version control, demonstrated through various successful team projects.\n\nBeyond coding, I possess strong soft skills, including **team leadership** and **project management**, gained through founding a charity organization and leading competitive coding teams. My goal is to apply my robust technical foundation and collaborative skills in a challenging Web Developer internship, contributing actively to a successful team.",
+  },
 };
 
 export const navigation = [
@@ -88,33 +103,6 @@ export const navigation = [
   { name: "Certificates", href: "#certificates" },
   { name: "Prizes", href: "#prizes" },
   { name: "Activities", href: "#activities" },
-  { name: "Contact", href: "#contact" },
-];
-export const stats = [
-  {
-    label: "Years of Study",
-    value: "1+",
-    icon: FaGraduationCap,
-    color: "text-blue-600",
-  },
-  {
-    label: "Projects Completed",
-    value: "10+",
-    icon: FaCode,
-    color: "text-green-600",
-  },
-  {
-    label: "Technologies",
-    value: "15+",
-    icon: FaRocket,
-    color: "text-purple-600",
-  },
-  {
-    label: "Passion Level",
-    value: "100%",
-    icon: FaHeart,
-    color: "text-red-600",
-  },
 ];
 
 export const highlights = [
@@ -143,6 +131,92 @@ export const highlights = [
   },
 ];
 
+export const aboutSliderImages = [
+  {
+    id: 1,
+    source: SliderImg1,
+    alt: "FPT University Campus",
+    caption: "",
+  },
+  {
+    id: 2,
+    source: SliderImg2,
+    alt: "Coding Moment",
+    caption: "",
+  },
+  {
+    id: 3,
+    source: SliderImg3,
+    alt: "MC Event Host",
+    caption: "",
+  },
+  {
+    id: 4,
+    source: SliderImg4,
+    alt: "Team Meeting",
+    caption: "",
+  },
+  {
+    id: 5,
+    source: SliderImg1,
+    alt: "FPT University Campus",
+    caption: "",
+  },
+  {
+    id: 6,
+    source: SliderImg2,
+    alt: "Coding Moment",
+    caption: "",
+  },
+  {
+    id: 7,
+    source: SliderImg3,
+    alt: "MC Event Host",
+    caption: "",
+  },
+  {
+    id: 8,
+    source: SliderImg4,
+    alt: "Team Meeting",
+    caption: "",
+  },
+];
+
+export const experienceBlocks = [
+  {
+    id: 1,
+    title: "Competitive Coding & Real-World Exposure",
+    icon: "🏆",
+    description:
+      "Frequent participation in university-level **coding competitions** (e.g., Innocode, ResFes, Code Talent) and **project-based challenges**, ensuring continuous exposure to **algorithmic thinking** and pressurized **development environments**.",
+    color: "from-purple-500 to-indigo-600",
+  },
+  {
+    id: 2,
+    title: "Leadership in Community & Projects",
+    icon: "👑",
+    description:
+      "Proven ability to lead **cross-functional teams**, serving as **Team Leader** for multiple projects, a **student organization founder**, and a manager in **community initiatives**.",
+    color: "from-blue-500 to-cyan-600",
+  },
+  {
+    id: 3,
+    title: "Exceptional Public Speaking Skills",
+    icon: "🗣️",
+    description:
+      "Extensive experience as an **MC/Host** for large university events (**600-1000+ attendees**), developing strong **public speaking**, **improvisation**, and **dynamic event management** capabilities.",
+    color: "from-green-500 to-teal-600",
+  },
+  {
+    id: 4,
+    title: "Versatile Media & Consulting Experience",
+    icon: "🎬",
+    description:
+      "Diverse exposure in **media roles** (Actor, Model, Vlogger) and event **coordination/consulting**, demonstrating **versatility**, **quick adaptability**, and **professional presentation skills**.",
+    color: "from-orange-500 to-red-600",
+  },
+];
+
 export const education = [
   {
     id: 1,
@@ -152,7 +226,7 @@ export const education = [
     gpa: "Passed",
     status: "Current",
     description:
-      "Currently interning at FPT Software, a top-tier technology company in Vietnam. Gaining practical experience by developing applications using **Low-Code platforms, specifically OutSystems**. This role provides invaluable exposure to a professional enterprise environment and modern software development practices.",
+      "Currently interning at FPT Software, a **top-tier technology company in Vietnam**. Gaining **practical experience** by developing applications using **Low-Code platforms**, specifically **OutSystems**. This role provides invaluable exposure to a professional **enterprise environment** and **modern software development practices**.",
   },
   {
     id: 2,
@@ -162,7 +236,7 @@ export const education = [
     gpa: "8.25/10.0",
     status: "Current",
     description:
-      "Currently pursuing a Bachelor of Science in Computer Science. My coursework emphasizes software development, data structures, and algorithms. I am actively focused on backend technologies, particularly Java Spring Boot, and gaining practical experience through team projects and coding competitions.",
+      "Currently pursuing a **Bachelor of Science in Computer Science**. My coursework emphasizes **software development**, **data structures**, and **algorithms**. I am actively focused on **backend technologies**, particularly **Java Spring Boot**, and gaining practical experience through **team projects** and **coding competitions**.",
   },
   {
     id: 3,
@@ -173,7 +247,7 @@ export const education = [
     gpa: "Passed",
     status: "Completed",
     description:
-      "Participation in the FPTU Inbound Mobility Programme in Kuala Lumpur, Malaysia. Gained international exposure to diverse academic and cultural environments, enhancing adaptability and cross-cultural communication skills.",
+      "Participation in the **FPTU Inbound Mobility Programme** in **Kuala Lumpur, Malaysia**. Gained **international exposure** to diverse academic and cultural environments, enhancing **adaptability** and **cross-cultural communication skills**.",
   },
   {
     id: 4,
@@ -183,7 +257,7 @@ export const education = [
     gpa: "9.3/10.0",
     status: "Graduated",
     description:
-      "Graduated with an excellent academic GPA of 9.3/10.0. The curriculum provided a strong foundation in Mathematics, Physics, and analytical skills, which served as a crucial stepping stone for my current Computer Science studies and problem-solving approach.",
+      "Graduated with an **excellent academic GPA of 9.3/10.0**. The curriculum provided a strong foundation in **Mathematics, Physics, and analytical skills**, which served as a crucial stepping stone for my current Computer Science studies and **problem-solving approach**.",
   },
 ];
 
@@ -266,6 +340,10 @@ export const projects = [
       "RESTful APIs",
       "React/JavaScript",
       "Git",
+      "HTML",
+      "CSS",
+      "SQL Server",
+      "AI Chatbot",
     ],
     githubUrl: "https://github.com/trung2605",
     liveUrl: "#",
@@ -343,19 +421,6 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/tiktok-ui-Public",
     liveUrl: "#",
     status: "Completed",
-  },
-  {
-    id: 9,
-    title: "Data Structures and Algorithms (DSA)",
-    role: "Học tập & Thực hành",
-    duration: "09/2025 – Present",
-    image: DSAImage,
-    description:
-      "A repository dedicated to solving and implementing various fundamental **Data Structures and Algorithms** problems, primarily focusing on logical problem-solving and code efficiency.",
-    techStack: ["Java", "Algorithms", "Data Structures"],
-    githubUrl: "https://github.com/trung2605/Data-Structure-and-Algorithm",
-    liveUrl: "#",
-    status: "Active",
   },
   {
     id: 10,
@@ -454,7 +519,7 @@ export const certificates = [
   {
     id: 8,
     name: "HTML and CSS in Depth",
-    issuer: "Tên Tổ chức (Cần xác định)",
+    issuer: "Meta (Coursera/edX)",
     year: "05/2024",
     image: HTMLCSSDepthImage,
     description: "In-depth knowledge and application of HTML5 and CSS.",
@@ -1030,46 +1095,82 @@ export const allSkillsData = [
 
 //Site Navigation Data
 export const siteNavigation = [
+    {
+        title: "Home",
+        desc: "Welcome to my portfolio",
+        icon: "🏠",
+        path: "/",
+    },
+    {
+        title: "About",
+        desc: "Learn about my journey and passion",
+        icon: "🙋‍♂️",
+        path: "/about",
+    },
+    {
+        title: "Projects",
+        desc: "Explore the projects I have worked on",
+        icon: "💻",
+        path: "/projects",
+    },
+    {
+        title: "Skills",
+        desc: "See the technologies I am proficient in",
+        icon: "🔧",
+        path: "/skills",
+    },
+    {
+        title: "Education",
+        desc: "My learning and development journey",
+        icon: "🎓",
+        path: "/education",
+    },
+    {
+        title: "Certificates & Achievements",
+        desc: "My certifications and achievements",
+        icon: "🏅",
+        path: "/certificates",
+    },
+    {
+        title: "Activities",
+        desc: "My extracurricular involvement and leadership roles",
+        icon: "👥",
+        path: "/activities",
+    },
+];
+
+const TOTAL_PROJECTS = projects.length;
+const TOTAL_CERTIFICATES = certificates.length;
+const TOTAL_AWARDS = prizes.length;
+
+// Lấy timestamp
+const timestamp = Date.now();
+const currentYear = new Date(timestamp).getFullYear();
+const YEARS_OF_STUDY = currentYear - 2023 + 1;
+
+export const stats = [
   {
-    title: "About Me",
-    desc: "Learn about my journey and passion",
-    icon: "🙋‍♂️",
-    path: "/about",
+    label: "Years of Study",
+    value: `${YEARS_OF_STUDY}+`,
+    icon: FaGraduationCap,
+    color: "text-blue-600",
   },
   {
-    title: "Projects",
-    desc: "Explore the projects I have worked on",
-    icon: "💻",
-    path: "/projects",
+    label: "Projects Completed",
+    value: `${TOTAL_PROJECTS}+`,
+    icon: FaCode,
+    color: "text-green-600",
   },
   {
-    title: "Skills",
-    desc: "See the technologies I am proficient in",
-    icon: "🔧",
-    path: "/skills",
+    label: "Certifications",
+    value: `${TOTAL_CERTIFICATES}+`,
+    icon: FaCertificate,
+    color: "text-purple-600",
   },
   {
-    title: "Education",
-    desc: "My learning and development journey",
-    icon: "🎓",
-    path: "/education",
-  },
-  {
-    title: "Certificates",
-    desc: "My certifications and achievements",
-    icon: "🏅",
-    path: "/certificates",
-  },
-  {
-    title: "Activities",
-    desc: "My extracurricular involvement and leadership roles",
-    icon: "👥",
-    path: "/activities",
-  },
-  {
-    title: "Contact",
-    desc: "Let's connect and collaborate",
-    icon: "📧",
-    path: "/contact",
+    label: "Awards/Finals",
+    value: `${TOTAL_AWARDS}+`,
+    icon: FaTrophy,
+    color: "text-red-600",
   },
 ];

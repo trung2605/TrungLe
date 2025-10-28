@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32">
+      <section className="lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
@@ -162,7 +162,7 @@ const Home = () => {
       </section>
 
       {/* Quick Stats Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800/50 rounded-2xl">
+      <section className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -170,7 +170,7 @@ const Home = () => {
           transition={{ duration: 0.6 }}
           className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
         >
-          <div className="decorative-stat shadow-md">
+          <div className="decorative-stat shadow-md border-2">
             <div className="text-3xl lg:text-4xl font-bold text-blue-600 dark:text-blue-400">
               10+
             </div>
@@ -178,7 +178,7 @@ const Home = () => {
               Projects
             </div>
           </div>
-          <div className="decorative-stat shadow-md">
+          <div className="decorative-stat shadow-md border-2">
             <div className="text-3xl lg:text-4xl font-bold text-purple-600 dark:text-purple-400">
               5+
             </div>
@@ -186,13 +186,13 @@ const Home = () => {
               Certificates
             </div>
           </div>
-          <div className="decorative-stat shadow-md">
+          <div className="decorative-stat shadow-md border-2">
             <div className="text-3xl lg:text-4xl font-bold text-green-600 dark:text-green-400">
               15+
             </div>
             <div className="text-gray-600 dark:text-gray-400 mt-2">Skills</div>
           </div>
-          <div className="decorative-stat shadow-md">
+          <div className="decorative-stat shadow-md border-2">
             <div className="text-3xl lg:text-4xl font-bold text-orange-600 dark:text-orange-400">
               3+
             </div>
@@ -220,7 +220,7 @@ const Home = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ y: -5 }}
-              className="group"
+              className="navigation-group"
             >
               <Link
                 to={item.path}
