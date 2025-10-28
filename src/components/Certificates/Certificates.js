@@ -87,22 +87,7 @@ const Certificates = () => {
                         />
                     </div>
 
-                    {/* Year Filter */}
-                    <div className="flex flex-wrap gap-2">
-                        {years.map(year => (
-                            <button
-                                key={year}
-                                onClick={() => setSelectedYear(year)}
-                                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                                    selectedYear === year
-                                        ? 'bg-blue-600 text-white shadow-lg'
-                                        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-md'
-                                }`}
-                            >
-                                {year === 'all' ? 'All' : year}
-                            </button>
-                        ))}
-                    </div>
+                    
                 </div>
                 {/* Results Count */}
                 <div className="mt-4 text-gray-600 dark:text-gray-400">

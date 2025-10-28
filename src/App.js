@@ -11,9 +11,7 @@ import EducationPage from './pages/EducationPage';
 import SkillsPage from './pages/SkillsPage';
 import ProjectsPage from './pages/ProjectsPage';
 import CertificatesPage from './pages/CertificatesPage';
-import PrizesPage from './pages/PrizesPage';
 import ActivitiesPage from './pages/ActivitiesPage';
-import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
@@ -29,9 +27,7 @@ function App() {
                 <Route path="skills" element={<SkillsPage />} />
                 <Route path="projects" element={<ProjectsPage />} />
                 <Route path="certificates" element={<CertificatesPage />} />
-                <Route path="prizes" element={<PrizesPage />} />
                 <Route path="activities" element={<ActivitiesPage />} />
-                <Route path="contact" element={<ContactPage />} />
               </Route>
             </Routes>
           </div>

@@ -1,11 +1,31 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaCode, FaHeart, FaRocket } from "react-icons/fa";
-import { personalInfo, stats, highlights } from "../../data";
+import { personalInfo, stats, highlights, experienceBlocks } from "../../data";
+import { useEffect } from "react";
 import "./About.scss";
 import Markdown from "react-markdown";
+import ImageSlider from "./ImageSlider";
 
 const About = () => {
+  useEffect(() => {
+    const titles = document.querySelectorAll('.core-title');
+    if (titles.length === 0) return;
+
+    // 2. Reset chiều cao và tìm chiều cao lớn nhất
+    let maxHeight = 0;
+    titles.forEach(title => {
+        title.style.minHeight = 'auto'; 
+        const height = title.offsetHeight;
+        if (height > maxHeight) {
+            maxHeight = height;
+        }
+    });
+    titles.forEach(title => {
+        title.style.minHeight = `${maxHeight}px`;
+    });
+}, [experienceBlocks]); 
+
 
 
   return (
@@ -61,25 +81,10 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="about-page__story"
         >
-          <h2 className="story-title">My Story</h2>
-          <div className="story-content">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">{personalInfo.story.title}</h2>
+          <div className="story-content dark:text-white text-gray-900">
             <Markdown>
-              ## My Story Hello! I'm **Lê Trí Trung**, a highly motivated
-              Computer Science student at FPT University in Da Nang. My core
-              expertise lies in **Java Spring Boot backend development** and
-              modern web technologies, driven by a deep passion for creating
-              clean, scalable, and impactful applications. My technical journey
-              began with foundational Java Core and quickly expanded into
-              full-stack development, mastering **JavaScript ES6, React,
-              HTML5/CSS3**. I thrive in collaborative, Agile environments and
-              leverage tools like **Git/GitHub** for version control,
-              demonstrated through various successful team projects. Beyond
-              coding, I possess strong soft skills, including **team
-              leadership** and **project management**, gained through founding a
-              charity organization and leading competitive coding teams. My goal
-              is to apply my robust technical foundation and collaborative
-              skills in a challenging Web Developer internship, contributing
-              actively to a successful team.
+              {personalInfo.story.content}
             </Markdown>
           </div>
         </motion.div>
@@ -92,7 +97,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="about-page__info"
         >
-          <h3 className="info-title">Personal Information</h3>
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Personal Information</h3>
           <div className="info-list">
             <div className="info-item">
               <span className="info-icon">🎂</span>
@@ -166,6 +171,55 @@ const About = () => {
           ))}
         </div>
       </section>
+
+      <ImageSlider />
+
+      {/* Experience Blocks */}
+      <section className="mt-20 py-8">
+    <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
+    >
+        My Core Strengths & Experience
+    </motion.h2>
+
+    <div className="max-w mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-4 gap-8 w-auto">
+        {experienceBlocks.map((block, index) => (
+            <motion.div
+                key={block.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+                whileHover={{ y: -3, boxShadow: "0 8px 15px rgba(0, 0, 0, 0.1)" }}
+                
+                className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 border-t-4 
+                border-dark-500 hover:border-blue-500 dark:hover:border-blue-400 h-full flex flex-col"
+            >
+                <div className="flex flex-col items-center text-center">
+                    
+                    <div className={`p-4 mb-4 text-4xl rounded-full text-white ${block.color} shadow-lg`}>
+  
+                        <div className={`bg-gradient-to-r from-blue-600 to-purple-600 rounded-full w-14 h-14 flex items-center justify-center text-3xl`}>
+                            {block.icon}
+                        </div>
+                    </div>
+                    
+                    <h3 className="core-title text-xl font-bold text-gray-900 dark:text-white mb-2">
+                        {block.title}
+                    </h3>
+                    <p className="core-text text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                      <Markdown>
+                        {block.description}
+                      </Markdown>
+                    </p>
+                </div>
+            </motion.div>
+        ))}
+    </div>
+</section>
     </div>
   );
 };
