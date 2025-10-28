@@ -93,6 +93,14 @@ const Contact = () => {
             href: `https://www.facebook.com/${personalInfo.contact.facebook}`, // Sử dụng link Facebook chuẩn
             color: 'text-blue-600',
             bgColor: 'bg-blue-100 dark:bg-blue-900/30'
+        }, 
+        {
+            icon: FaMapMarkerAlt,
+            label: 'Instagram',
+            value: personalInfo.contact.instagram,
+            href: `https://www.instagram.com/${personalInfo.contact.instagram}`, // Sử dụng link Instagram chuẩn
+            color: 'text-pink-500',
+            bgColor: 'bg-pink-100 dark:bg-pink-900/30'
         }
     ];
 

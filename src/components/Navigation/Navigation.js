@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCustomTheme } from '../../contexts/ThemeContext';
 import './Navigation.scss';
+import { personalInfo } from '../../data';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,9 +47,7 @@ const Navigation = () => {
             to="/" 
             className="navigation__brand"
           >
-            <div className="navigation__logo">
-              LT
-            </div>
+            
             <div className="navigation__brand-text">
               <h1 className="navigation__brand-name">
                 Lê Trí Trung

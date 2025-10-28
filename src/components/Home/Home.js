@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
 import "./Home.scss";
 import { siteNavigation } from "../../data";
+import { personalInfo } from "../../data";
+import { p } from "framer-motion/client";
 
 const Home = () => {
   return (
@@ -67,7 +69,7 @@ const Home = () => {
               </Link>
 
               <a
-                href="../../assets/pdfs/resume.pdf"
+                href={personalInfo.cv}
                 download="Le_Tri_Trung_Java_Developer_CV.pdf"
                 className="inline-flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
               >
@@ -88,7 +90,7 @@ const Home = () => {
               </span>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/letritrung"
+                  href={personalInfo.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
@@ -96,7 +98,7 @@ const Home = () => {
                   <FaGithub size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/letritrung"
+                  href={personalInfo.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors duration-200"

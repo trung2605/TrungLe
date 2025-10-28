@@ -36,12 +36,11 @@
         padding: 10px 0;
         position: relative;
         width: 100%;
-        margin-bottom: 2.5rem; // Khoảng cách giữa các item
         
         @media (min-width: 768px) {
             width: 50%;
             padding: 10px 40px; 
-            margin-bottom: 3rem;
+            margin-bottom: -3rem;
         }
         
         // Đặt timeline dot vào giữa

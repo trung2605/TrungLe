@@ -1,63 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaCode, FaHeart, FaRocket } from "react-icons/fa";
-import { personalInfo } from "../../data";
+import { personalInfo, stats, highlights } from "../../data";
 import "./About.scss";
 import Markdown from "react-markdown";
 
 const About = () => {
-  const stats = [
-    {
-      label: "Years of Study",
-      value: "1+",
-      icon: FaGraduationCap,
-      color: "text-blue-600",
-    },
-    {
-      label: "Projects Completed",
-      value: "10+",
-      icon: FaCode,
-      color: "text-green-600",
-    },
-    {
-      label: "Technologies",
-      value: "15+",
-      icon: FaRocket,
-      color: "text-purple-600",
-    },
-    {
-      label: "Passion Level",
-      value: "100%",
-      icon: FaHeart,
-      color: "text-red-600",
-    },
-  ];
 
-  const highlights = [
-    {
-      title: "Backend Expertise",
-      description:
-        "Specialized in Java development, particularly with the Spring Boot framework.",
-      icon: "⚙️",
-    },
-    {
-      title: "Modern Web Technologies",
-      description: "Proficient in ReactJS and various modern web technologies.",
-      icon: "🌐",
-    },
-    {
-      title: "Complex Problem Solving",
-      description:
-        "Passionate about tackling complex programming challenges and optimizing solutions.",
-      icon: "🧩",
-    },
-    {
-      title: "Team Leadership & Management",
-      description:
-        "Proven experience in leading development teams and managing project timelines.",
-      icon: "👥",
-    },
-  ];
 
   return (
     <div className="about-page">

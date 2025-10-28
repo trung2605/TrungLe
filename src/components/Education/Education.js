@@ -4,6 +4,7 @@ import { FaGraduationCap, FaCalendarAlt, FaStar, FaSchool } from 'react-icons/fa
 import { education } from '../../data';
 import './Education.scss';
 import Markdown from 'react-markdown';
+import MemoryGallery from './MemoryGallery';
 
 
 const Education = () => {
@@ -118,6 +119,8 @@ const Education = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        <MemoryGallery />
       </div>
     </div>
   );

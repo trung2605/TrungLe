@@ -9,12 +9,12 @@ import {
   FaCalendarAlt,
   FaBuilding,
   FaChevronCircleDown,
-} from "react-icons/fa"; // Import thÃªm icon náº¿u cáº§n
+} from "react-icons/fa"; 
 import { prizes } from "../../data";
-import './Prizes.scss';
+import "./Prizes.scss";
+import Markdown from "react-markdown";
 
 const Prizes = () => {
-  // ... (Giá»¯ nguyÃªn cÃ¡c hÃ m getPositionIcon, getPositionColor, containerVariants, itemVariants)
 
   const getPositionIcon = (position) => {
     if (
@@ -41,23 +41,23 @@ const Prizes = () => {
       position.toLowerCase().includes("winner") ||
       position.toLowerCase().includes("first")
     ) {
-      // VÃ ng/VÃ ng Äá»“ng - DÃ¹ng lÃ m mÃ u ná»•i báº­t nháº¥t (Accent Gold)
-      return "from-primary-600 --secondary-900";
+      // Gold/Winner (Màu nổi bật: Vàng/Cam)
+      return "from-yellow-400 to-amber-500";
     } else if (
       position.toLowerCase().includes("runner-up") ||
       position.toLowerCase().includes("second")
     ) {
-      // MÃ u ChÃ­nh (Primary) - Sá»­ dá»¥ng tÃ´ng xanh Ä‘áº­m
-      return "from-primary-600 --secondary-900"; // Ãnh xáº¡ tá»›i cÃ¡c class Tailwind tÆ°Æ¡ng Ä‘Æ°Æ¡ng
+      // Silver/Runner-up (Màu Chính - Tông Xanh/Primary)
+      return "from-primary-500 to-primary-700"; // Sử dụng tông xanh chính
     } else if (
       position.toLowerCase().includes("finalist") ||
       position.toLowerCase().includes("final")
     ) {
-      // MÃ u Phá»¥ (Secondary) - Sá»­ dá»¥ng tÃ´ng xanh nháº¡t hÆ¡n
-      return "from-primary-600 --secondary-900"; // Ãnh xáº¡ tá»›i cÃ¡c class Tailwind tÆ°Æ¡ng Ä‘Æ°Æ¡ng
+      // Finalist (Màu Phụ - Tông Tím/Xanh đậm)
+      return "from-purple-500 to-indigo-600";
     }
-    // MÃ u máº·c Ä‘á»‹nh
-    return "from-gray-400 to-gray-600";
+    // Màu mặc định
+    return "from-gray-500 to-gray-700";
   };
 
   const containerVariants = {
@@ -147,7 +147,7 @@ const Prizes = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="prize-timeline" 
+          className="prize-timeline"
         >
           {prizes.map((prize, index) => {
             const IconComponent = getPositionIcon(prize.position);
@@ -188,7 +188,7 @@ const Prizes = () => {
                       </div>
 
                       <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                        {prize.description}
+                        <Markdown>{prize.description}</Markdown>
                       </p>
 
                       <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
@@ -210,4 +210,3 @@ const Prizes = () => {
 };
 
 export default Prizes;
-
