@@ -111,7 +111,7 @@ const Navigation = () => {
                   {item.icon}
                 </span>
                 <span className="navigation__mobile-link-text">
-                  {item.name}
+                  {item.title}
                 </span>
                 {location.pathname === item.path && (
                   <div className="navigation__mobile-link-indicator"></div>
