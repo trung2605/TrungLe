@@ -345,14 +345,14 @@ export const projects = [
       "SQL Server",
       "AI Chatbot",
     ],
-    githubUrl: "https://github.com/trung2605",
-    liveUrl: "#",
+    githubUrl: "https://github.com/SWPGr",
+    liveUrl: "https://fe-jobfinder.vercel.app/",
     status: "In Development",
   },
   {
     id: 2,
     title: "Dola Bakery E-commerce Platform",
-    role: "Full-Stack Developer (Team Project)",
+    role: "Java Developer (Team Project)",
     duration: "01/2023 – 05/2024",
     image: DolaBakeryImage,
     description:
@@ -365,8 +365,8 @@ export const projects = [
       "AI Chatbot",
       "Google APIs",
     ],
-    githubUrl: "https://github.com/trung2605",
-    liveUrl: "#",
+    githubUrl: "https://github.com/trung2605/BakeryManagement",
+    liveUrl: "https://themes.sapo.vn/demo/dola-bakery",
     status: "Completed",
   },
   {
@@ -378,7 +378,7 @@ export const projects = [
     description:
       "Founder of a community-driven charity organization dedicated to fostering positive social impact. Gained hands-on experience in project management, team leadership, and resource allocation through diverse community initiatives. The organization focuses on exposing orphaned children to technology and personal communication skills.",
     techStack: ["Project Management", "Team Leadership", "Community Building"],
-    githubUrl: "#",
+    githubUrl: "https://github.com/trung2605/the_dreamers_backend",
     liveUrl: "#",
     status: "Active",
   },
@@ -391,8 +391,8 @@ export const projects = [
     description:
       "A utility project focused on automating the process of filling out web forms, demonstrating proficiency in web interaction scripting and DOM manipulation.",
     techStack: ["JavaScript", "Node.js", "Web Scraping"],
-    githubUrl: "https://github.com/trung2605/Web-dien-form-tu-dong",
-    liveUrl: "#",
+    githubUrl: "https://github.com/trung2605/Form-Automation-Backend",
+    liveUrl: "https://form-automation-frontend.vercel.app/",
     status: "Completed",
   },
   {
@@ -444,7 +444,7 @@ export const projects = [
     description:
       "A comprehensive system for managing bakery operations, including inventory, sales, and customer management.",
     techStack: ["React", "Spring Boot", "MySQL"],
-    githubUrl: "#",
+    githubUrl: "https://github.com/trung2605/bakery_assginment_fe",
     liveUrl: "https://bakery-assginment-fe.vercel.app/",
     status: "Completed",
   },

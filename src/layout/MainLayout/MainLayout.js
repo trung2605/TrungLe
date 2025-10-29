@@ -26,7 +26,6 @@ const MainLayout = () => {
         <footer className="footer-container text-white">
           <Footer />
         </footer>
-
       </div>
     </div>
   );

@@ -212,7 +212,7 @@ const Home = () => {
           Explore More About Me
         </motion.h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {siteNavigation.map((item, index) => (
+          {siteNavigation.slice(1).map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
