@@ -133,7 +133,7 @@ const Home = () => {
               <div className="absolute inset-8 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 rounded-full flex items-center justify-center">
                 <div className="text-6xl">
                   <img
-                    src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-6/571167866_1338883744350372_5768014356160527082_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=93baGp6ujP4Q7kNvwHm5Vik&_nc_oc=AdnyJBoFguhPy7E909bNBOXKyJFZVTgXvXyee_zWHjrhudSVqvcU2mhTc4uIqQFHtOM&_nc_zt=23&_nc_ht=scontent.fdad3-6.fna&_nc_gid=JCReofCA5JGt4XnsDW-nJQ&oh=00_AfeUdMNnqhAvsHtRTQvtQ-48b-gGz6uT3C8CfCAwb5lKWA&oe=69023692"
+                    src="https://i.imgur.com/5tzmdQ1.png"
                     alt="Profile"
                     className="rounded-full"
                   />
