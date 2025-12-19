@@ -1,90 +1,95 @@
 // =============================================================================
-// COLOR SYSTEM - MAIN THEME COLORS
+// SWISS DESIGN - SOPHISTICATED MINIMALISM
 // =============================================================================
-// Tệp này chứa tất cả các biến màu chính của website
-// Thay đổi các giá trị ở đây để tùy chỉnh theme màu của toàn bộ website
+// Monochromatic color system inspired by Swiss Design principles
+// Focus: Typography, Grid, Negative Space, High Contrast
 
 :root {
   // =============================================================================
-  // PRIMARY COLORS - BLUE THEME (Màu chủ đạo - Xanh dương)
+  // MONOCHROMATIC GRAYSCALE - PRIMARY PALETTE
   // =============================================================================
-  --primary-50: #eff6ff;
-  --primary-100: #dbeafe;
-  --primary-200: #bfdbfe;
-  --primary-300: #93c5fd;
-  --primary-400: #60a5fa;
-  --primary-500: #3b82f6;   // Main primary color
-  --primary-600: #2563eb;
-  --primary-700: #1d4ed8;
-  --primary-800: #1e40af;
-  --primary-900: #1e3a8a;
-  --primary-950: #172554;
+  // Pure blacks and whites with carefully selected grays
+  --primary-50: #fafafa;
+  --primary-100: #f5f5f5;
+  --primary-200: #e5e5e5;
+  --primary-300: #d4d4d4;
+  --primary-400: #a3a3a3;
+  --primary-500: #737373;   // Neutral mid-gray
+  --primary-600: #525252;
+  --primary-700: #404040;
+  --primary-800: #262626;
+  --primary-900: #171717;
+  --primary-950: #0a0a0a;
 
   // =============================================================================
-  // SECONDARY COLORS - COMPLEMENTARY BLUES (Màu phụ - Các tông xanh)
+  // ACCENT - SUBTLE CHARCOAL & WARM GRAY
   // =============================================================================
-  --secondary-50: #f0f9ff;
-  --secondary-100: #e0f2fe;
-  --secondary-200: #bae6fd;
-  --secondary-300: #7dd3fc;
-  --secondary-400: #38bdf8;
-  --secondary-500: #0ea5e9;   // Light blue
-  --secondary-600: #0284c7;
-  --secondary-700: #0369a1;
-  --secondary-800: #075985;
-  --secondary-900: #0c4a6e;
+  --secondary-50: #fafaf9;
+  --secondary-100: #f5f5f4;
+  --secondary-200: #e7e5e4;
+  --secondary-300: #d6d3d1;
+  --secondary-400: #a8a29e;
+  --secondary-500: #78716c;   // Warm gray accent
+  --secondary-600: #57534e;
+  --secondary-700: #44403c;
+  --secondary-800: #292524;
+  --secondary-900: #1c1917;
 
   // =============================================================================
-  // ACCENT COLORS - NAVY & INDIGO (Màu nhấn - Xanh navy & indigo)
+  // DUOTONE ACCENT - MINIMAL COLOR USAGE
   // =============================================================================
-  --accent-50: #eef2ff;
-  --accent-100: #e0e7ff;
-  --accent-200: #c7d2fe;
-  --accent-300: #a5b4fc;
-  --accent-400: #818cf8;
-  --accent-500: #6366f1;    // Indigo accent
-  --accent-600: #4f46e5;
-  --accent-700: #4338ca;
-  --accent-800: #3730a3;
-  --accent-900: #312e81;
+  // Only used for critical UI elements and micro-interactions
+  --accent-50: #fafafa;
+  --accent-100: #f4f4f5;
+  --accent-200: #e4e4e7;
+  --accent-300: #d4d4d8;
+  --accent-400: #a1a1aa;
+  --accent-500: #71717a;    // Subtle zinc accent
+  --accent-600: #52525b;
+  --accent-700: #3f3f46;
+  --accent-800: #27272a;
+  --accent-900: #18181b;
 
   // =============================================================================
-  // LIGHT THEME - BACKGROUND & TEXT
+  // LIGHT THEME - HIGH CONTRAST EDITORIAL
   // =============================================================================
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
-  --bg-quaternary: #e2e8f0;
+  // Cream/off-white background for reduced eye strain
+  --bg-primary: #fafaf9;         // Warm off-white
+  --bg-secondary: #f5f5f4;       // Subtle variation
+  --bg-tertiary: #ffffff;        // Pure white for cards
+  --bg-quaternary: #e7e5e4;      // Subtle borders
   
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-tertiary: #64748b;
-  --text-quaternary: #94a3b8;
+  // High contrast text for readability
+  --text-primary: #0a0a0a;       // Near black
+  --text-secondary: #404040;     // Medium gray
+  --text-tertiary: #737373;      // Light gray
+  --text-quaternary: #a3a3a3;    // Very light gray
   
-  --border-primary: #e2e8f0;
-  --border-secondary: #cbd5e1;
-  --border-tertiary: #94a3b8;
+  // Minimal borders - Swiss style uses whitespace over lines
+  --border-primary: #e7e5e4;     // Barely visible
+  --border-secondary: #d6d3d1;   // Subtle
+  --border-tertiary: #a8a29e;    // More defined
 
   // =============================================================================
-  // STATUS COLORS (Success, Warning, Error, Info)
+  // STATUS COLORS - RESTRAINED & SOPHISTICATED
   // =============================================================================
   --success-50: #f0fdf4;
   --success-100: #dcfce7;
-  --success-500: #22c55e;
-  --success-600: #16a34a;
-  --success-700: #15803d;
+  --success-500: #16a34a;
+  --success-600: #15803d;
+  --success-700: #166534;
 
   --warning-50: #fffbeb;
   --warning-100: #fef3c7;
-  --warning-500: #f59e0b;
-  --warning-600: #d97706;
-  --warning-700: #b45309;
+  --warning-500: #d97706;
+  --warning-600: #b45309;
+  --warning-700: #92400e;
 
   --error-50: #fef2f2;
   --error-100: #fee2e2;
-  --error-500: #ef4444;
-  --error-600: #dc2626;
-  --error-700: #b91c1c;
+  --error-500: #dc2626;
+  --error-600: #b91c1c;
+  --error-700: #991b1b;
 
   --info-50: var(--secondary-50);
   --info-100: var(--secondary-100);
@@ -93,92 +98,98 @@
   --info-700: var(--secondary-700);
 
   // =============================================================================
-  // GRADIENTS - BLUE THEME GRADIENTS
+  // MINIMAL GRADIENTS - SUBTLE SOPHISTICATION
   // =============================================================================
-  --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-700));
-  --gradient-secondary: linear-gradient(135deg, var(--secondary-400), var(--secondary-600));
-  --gradient-accent: linear-gradient(135deg, var(--accent-500), var(--accent-700));
-  --gradient-blue-sky: linear-gradient(135deg, var(--primary-400), var(--secondary-500));
-  --gradient-ocean: linear-gradient(135deg, var(--primary-600), var(--secondary-700));
-  --gradient-navy: linear-gradient(135deg, var(--primary-800), var(--accent-800));
-
-  // Multi-color gradients
-  --gradient-hero: linear-gradient(135deg, var(--primary-500), var(--secondary-500), var(--accent-500));
-  --gradient-card: linear-gradient(135deg, var(--primary-50), var(--secondary-50));
-  --gradient-text: linear-gradient(135deg, var(--primary-600), var(--accent-600));
+  --gradient-primary: linear-gradient(180deg, var(--primary-900), var(--primary-800));
+  --gradient-secondary: linear-gradient(180deg, var(--secondary-900), var(--secondary-800));
+  --gradient-accent: linear-gradient(180deg, var(--accent-900), var(--accent-800));
+  
+  // Text gradient for subtle emphasis
+  --gradient-text: linear-gradient(180deg, var(--primary-900), var(--primary-700));
+  --gradient-card: linear-gradient(180deg, var(--bg-tertiary), var(--bg-secondary));
+  --gradient-hero: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
 
   // =============================================================================
-  // SHADOWS - WITH BLUE TINT
+  // SOPHISTICATED SHADOWS - MINIMAL & CRISP
   // =============================================================================
-  --shadow-sm: 0 1px 2px 0 rgba(59, 130, 246, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(59, 130, 246, 0.1), 0 2px 4px -2px rgba(59, 130, 246, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(59, 130, 246, 0.1), 0 4px 6px -4px rgba(59, 130, 246, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(59, 130, 246, 0.15), 0 8px 10px -6px rgba(59, 130, 246, 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
+  // Subtle shadows - Swiss design uses light, precise shadows
+  --shadow-sm: 0 1px 2px 0 rgba(10, 10, 10, 0.03);
+  --shadow-md: 0 2px 4px -1px rgba(10, 10, 10, 0.06), 0 1px 2px -1px rgba(10, 10, 10, 0.03);
+  --shadow-lg: 0 4px 6px -2px rgba(10, 10, 10, 0.08), 0 2px 4px -2px rgba(10, 10, 10, 0.04);
+  --shadow-xl: 0 8px 12px -4px rgba(10, 10, 10, 0.1), 0 4px 6px -3px rgba(10, 10, 10, 0.05);
+  --shadow-2xl: 0 12px 24px -6px rgba(10, 10, 10, 0.12);
 
-  // Colored shadows
-  --shadow-primary: 0 10px 15px -3px rgba(var(--primary-500), 0.3);
-  --shadow-secondary: 0 10px 15px -3px rgba(var(--secondary-500), 0.3);
-  --shadow-accent: 0 10px 15px -3px rgba(var(--accent-500), 0.3);
+  // Crisp shadows for editorial style
+  --shadow-primary: 0 2px 8px rgba(10, 10, 10, 0.08);
+  --shadow-secondary: 0 4px 16px rgba(10, 10, 10, 0.06);
+  --shadow-accent: 0 1px 3px rgba(10, 10, 10, 0.12);
+
+  --color-blue: #2871e8;
+  --color-green: #22c55e;
+  --color-yellow: #eab308;
+  --color-red: #ef4444;
+  --color-purple: #8b5cf6;
 }
 
 // =============================================================================
-// DARK THEME - BLUE DARK VARIATIONS
+// DARK THEME - SOPHISTICATED DARK MODE
 // =============================================================================
 [data-theme="dark"], 
 .dark {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
-  --bg-quaternary: #475569;
+  // Inverted monochromatic palette
+  --bg-primary: #0a0a0a;         // Near black
+  --bg-secondary: #171717;       // Slightly lighter
+  --bg-tertiary: #262626;        // Cards stand out
+  --bg-quaternary: #404040;      // Elevated elements
   
-  --text-primary: #f8fafc;
-  --text-secondary: #e2e8f0;
-  --text-tertiary: #cbd5e1;
-  --text-quaternary: #94a3b8;
+  --text-primary: #fafaf9;       // Off-white
+  --text-secondary: #d4d4d4;     // Medium light
+  --text-tertiary: #a3a3a3;      // Medium
+  --text-quaternary: #737373;    // Subtle
   
-  --border-primary: #334155;
-  --border-secondary: #475569;
-  --border-tertiary: #64748b;
+  --border-primary: #262626;     // Barely visible
+  --border-secondary: #404040;   // Subtle
+  --border-tertiary: #525252;    // More defined
 
-  // Adjust shadows for dark theme
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  // Refined dark mode shadows
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 2px 4px -1px rgba(0, 0, 0, 0.7), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 4px 6px -2px rgba(0, 0, 0, 0.8), 0 2px 4px -2px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 8px 12px -4px rgba(0, 0, 0, 0.9), 0 4px 6px -3px rgba(0, 0, 0, 0.6);
+  --shadow-2xl: 0 12px 24px -6px rgba(0, 0, 0, 1);
 
-  // Keep primary colors bright in dark mode
-  --gradient-card: linear-gradient(135deg, var(--primary-900), var(--accent-900));
+  // Adjust gradients for dark mode
+  --gradient-primary: linear-gradient(180deg, var(--primary-100), var(--primary-200));
+  --gradient-card: linear-gradient(180deg, var(--bg-tertiary), var(--bg-secondary));
+  --gradient-text: linear-gradient(180deg, var(--text-primary), var(--text-secondary));
 }
 
 // =============================================================================
-// RGB VALUES - For rgba() usage
+// RGB VALUES - For rgba() usage with monochromatic palette
 // =============================================================================
 :root {
-  --primary-500-rgb: 59, 130, 246;
-  --secondary-500-rgb: 14, 165, 233;
-  --accent-500-rgb: 99, 102, 241;
-  --success-500-rgb: 34, 197, 94;
-  --warning-500-rgb: 245, 158, 11;
-  --error-500-rgb: 239, 68, 68;
+  --primary-900-rgb: 10, 10, 10;
+  --primary-500-rgb: 115, 115, 115;
+  --secondary-500-rgb: 120, 113, 108;
+  --success-500-rgb: 22, 163, 74;
+  --warning-500-rgb: 217, 119, 6;
+  --error-500-rgb: 220, 38, 38;
 }
 
 // =============================================================================
-// QUICK THEME CUSTOMIZATION
+// SWISS DESIGN NOTES
 // =============================================================================
-// Để thay đổi theme màu chính của website:
-// 1. Thay đổi các giá trị --primary-* ở trên
-// 2. Thay đổi --secondary-* và --accent-* theo ý muốn
-// 3. Cập nhật --gradient-* để phù hợp với màu mới
-// 4. Website sẽ tự động áp dụng màu mới cho tất cả components
+// This monochromatic system emphasizes:
+// - Typography hierarchy over color
+// - Generous whitespace (negative space)
+// - Precise grid alignment
+// - High contrast for accessibility
+// - Minimal decoration, maximum clarity
+// - Duotone accents only for critical UI elements
 
-// Example: Green theme
-// --primary-500: #22c55e;
-// --primary-600: #16a34a;
-// --primary-700: #15803d;
 
 // Example: Purple theme  
 // --primary-500: #8b5cf6;
 // --primary-600: #7c3aed;
 // --primary-700: #6d28d9;
+

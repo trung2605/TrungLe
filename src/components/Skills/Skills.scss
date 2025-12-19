@@ -1,16 +1,200 @@
-/* Skills Page */@import '../../styles/variables';
+// =============================================================================
+// SKILLS PAGE - ARTISTIC MINIMALISM WITH DECORATIVE ACCENTS
+// =============================================================================
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-.skills-page{ @import '../../styles/mixins';
+.skills-page {
+  min-height: 100vh;
+  padding: var(--spacing-24) 0;
+  position: relative;
+  
+  @include responsive(desktop) {
+    padding: var(--spacing-32) 0;
+  }
+  
+  // Floating geometric shapes
+  &::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--bg-tertiary);
+    border-radius: 50%;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 8%;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--bg-tertiary);
+    transform: rotate(45deg);
+    opacity: 0.2;
+    pointer-events: none;
+  }
 
-  min-height:100vh; padding:4rem 0;
+  &__header {
+    text-align: center;
+    margin-bottom: var(--spacing-20);
+    position: relative;
+    
+    // Decorative line
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--text-primary), transparent);
+    }
+    
+    h1 {
+      @include heading-large;
+      margin-bottom: var(--spacing-6);
+      display: inline-block;
+      position: relative;
+      
+      // Bracket accent
+      &::before {
+        content: '[';
+        position: absolute;
+        left: -30px;
+        color: var(--text-tertiary);
+        font-weight: var(--font-weight-light);
+      }
+      
+      &::after {
+        content: ']';
+        position: absolute;
+        right: -30px;
+        color: var(--text-tertiary);
+        font-weight: var(--font-weight-light);
+      }
+    }
+  }
 
-  &__list{ display:block; max-width:900px; margin:0 auto; }.skills-page {
+  &__list {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
 
-  .skill-item{ margin-bottom:1rem; }  min-height: 100vh;
+  .skill-item {
+    margin-bottom: var(--spacing-8);
+    position: relative;
+    padding-left: var(--spacing-6);
+    
+    // Vertical connector line
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 12px;
+      height: 1px;
+      background: var(--border-primary);
+    }
+    
+    // Animated on hover
+    &:hover {
+      .skill-fill {
+        box-shadow: 0 0 12px rgba(10, 10, 10, 0.3);
+      }
+      
+      .skill-name {
+        transform: translateX(4px);
+      }
+    }
+  }
 
-  .skill-bar{ background:#e6e6e6; height:8px; border-radius:999px; overflow:hidden; }  width: 100%;
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-2);
+    
+    .skill-name {
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-medium);
+      color: var(--text-primary);
+      transition: transform var(--transition-normal);
+      letter-spacing: var(--letter-spacing-tight);
+    }
+    
+    .skill-level {
+      @include caption;
+      color: var(--text-tertiary);
+      font-variant-numeric: tabular-nums;
+    }
+  }
 
-  .skill-fill{ height:100%; background:linear-gradient(90deg,#3b82f6,#8b5cf6); }}
+  .skill-bar {
+    background: var(--bg-quaternary);
+    height: 2px;
+    border-radius: var(--radius-full);
+    overflow: visible;
+    position: relative;
+  }
 
-  .skill-tag{ display:inline-block; margin:8px;}
+  .skill-fill {
+    height: 100%;
+    background: var(--text-primary);
+    transition: all var(--transition-slow);
+    border-radius: var(--radius-full);
+    position: relative;
+    
+    // End dot accent
+    &::after {
+      content: '';
+      position: absolute;
+      right: -3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--text-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px var(--bg-primary);
+    }
+  }
+
+  .skill-category {
+    @include caption;
+    margin-bottom: var(--spacing-12);
+    margin-top: var(--spacing-16);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-secondary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-2);
+    
+    // Underline accent
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--text-primary);
+      transform: scaleX(0.3);
+      transform-origin: left;
+      transition: transform var(--transition-normal);
+    }
+    
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }

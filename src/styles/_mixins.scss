@@ -1,4 +1,8 @@
-// Common mixins
+// =============================================================================
+// SWISS DESIGN MIXINS - SOPHISTICATED MINIMALISM
+// =============================================================================
+
+// Layout mixins
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -23,36 +27,99 @@
   transform: translate(-50%, -50%);
 }
 
+// =============================================================================
+// CARD SYSTEM - MINIMAL & ELEGANT
+// =============================================================================
 @mixin card {
-  background: var(--bg-primary);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-  transition: box-shadow var(--transition-normal);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
 
   &:hover {
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-secondary);
+    transform: translateY(-2px);
   }
 }
 
-@mixin card-style {
-  @include card;
-  padding: var(--spacing-4);
-  border: 1px solid var(--border-color);
-}
-
-@mixin button-primary {
-  background: var(--gradient-primary);
-  color: white;
-  border: none;
+@mixin card-elevated {
+  background: var(--bg-tertiary);
   border-radius: var(--radius-lg);
-  padding: var(--spacing-sm) var(--spacing-lg);
-  font-weight: var(--font-weight-semibold);
-  cursor: pointer;
-  transition: var(--transition-all);
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-8);
+  transition: all var(--transition-normal);
 
   &:hover {
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+  }
+}
+
+@mixin card-flat {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-base);
+  border: 1px solid var(--border-primary);
+  padding: var(--spacing-6);
+  transition: var(--transition-colors);
+}
+
+// =============================================================================
+// BUTTON SYSTEM - SWISS PRECISION
+// =============================================================================
+@mixin button-primary {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius-base);
+  padding: var(--spacing-3) var(--spacing-6);
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+  letter-spacing: var(--letter-spacing-wide);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+
+  &:hover {
+    background: var(--text-secondary);
+    transform: translateY(-1px);
     box-shadow: var(--shadow-primary);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+@mixin button-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  border-radius: var(--radius-base);
+  padding: var(--spacing-3) var(--spacing-6);
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+  letter-spacing: var(--letter-spacing-wide);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+
+  &:hover {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    transform: translateY(-1px);
   }
 
   &:active {
@@ -60,42 +127,100 @@
   }
 }
 
-@mixin button-secondary {
-  background: var(--bg-secondary);
+@mixin button-ghost {
+  background: transparent;
   color: var(--text-primary);
-  border: 1px solid var(--border-primary);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  padding: var(--spacing-3) var(--spacing-4);
   font-weight: var(--font-weight-medium);
   cursor: pointer;
-  transition: var(--transition-all);
+  transition: var(--transition-colors);
+  position: relative;
 
-  &:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--primary-300);
-    transform: translateY(-1px);
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text-primary);
+    transition: width var(--transition-normal);
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 }
 
+// =============================================================================
+// TYPOGRAPHY MIXINS
+// =============================================================================
 @mixin text-gradient($gradient: var(--gradient-text)) {
   background: $gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 }
 
+@mixin heading-large {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tighter);
+  
+  @include responsive(mobile) {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+@mixin heading-medium {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  
+  @include responsive(mobile) {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+@mixin body-large {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-secondary);
+}
+
+@mixin body-base {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+}
+
+@mixin caption {
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-tertiary);
+}
+
+// =============================================================================
+// RESPONSIVE MIXINS - MOBILE FIRST
+// =============================================================================
 @mixin responsive($breakpoint) {
-  @if $breakpoint == sm {
+  @if $breakpoint == sm or $breakpoint == mobile {
     @media (min-width: 640px) {
       @content;
     }
   }
-  @if $breakpoint == md {
+  @if $breakpoint == md or $breakpoint == tablet {
     @media (min-width: 768px) {
       @content;
     }
   }
-  @if $breakpoint == lg {
+  @if $breakpoint == lg or $breakpoint == desktop {
     @media (min-width: 1024px) {
       @content;
     }
@@ -105,32 +230,61 @@
       @content;
     }
   }
-  @if $breakpoint == mobile {
-    @media (min-width: #{$mobile}) {
-      @content;
-    }
-  }
-  @if $breakpoint == tablet {
-    @media (min-width: #{$tablet}) {
-      @content;
-    }
-  }
-  @if $breakpoint == desktop {
-    @media (min-width: #{$desktop}) {
-      @content;
-    }
-  }
-  @if $breakpoint == wide {
-    @media (min-width: #{$wide}) {
+  @if $breakpoint == 2xl {
+    @media (min-width: 1536px) {
       @content;
     }
   }
 }
 
-@mixin grid-auto-fit($min-size: 250px) {
+// =============================================================================
+// MICRO-INTERACTION & UTILITY MIXINS
+// =============================================================================
+@mixin hover-underline {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width var(--transition-normal);
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@mixin hover-lift($distance: 4px) {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  
+  &:hover {
+    transform: translateY(-#{$distance});
+    box-shadow: var(--shadow-lg);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin grid-auto-fit($min-size: 300px) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax($min-size, 1fr));
-  gap: var(--spacing-lg);
+  gap: var(--spacing-6);
+}
+
+@mixin grid-asymmetric {
+  display: grid;
+  gap: var(--grid-gap);
+  
+  @include responsive(desktop) {
+    grid-template-columns: 2fr 3fr;
+  }
 }
 
 @mixin truncate {
@@ -140,6 +294,7 @@
 }
 
 @mixin backdrop-blur {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(var(--bg-primary-rgb, 250, 250, 249), 0.8);
 }

@@ -1,12 +1,202 @@
-/* Certificates Page */@import '../../styles/variables';
+// =============================================================================
+// CERTIFICATES PAGE - GRID GALLERY
+// =============================================================================
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-.certificates-page{ min-height:100vh; padding:4rem 0;@import '../../styles/mixins';
+.certificates-page {
+  min-height: 100vh;
+  padding: var(--spacing-24) 0;
+  position: relative;
+  
+  @include responsive(desktop) {
+    padding: var(--spacing-32) 0;
+  }
+  
+  // Floating rotated square
+  &::before {
+    content: '';
+    position: absolute;
+    top: 120px;
+    left: 5%;
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--border-primary);
+    transform: rotate(15deg);
+    opacity: 0.12;
+    pointer-events: none;
+  }
+  
+  // Floating dashed circle
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 100px;
+    right: 8%;
+    width: 120px;
+    height: 120px;
+    border: 1px dashed var(--border-primary);
+    border-radius: 50%;
+    opacity: 0.1;
+    pointer-events: none;
+    animation: rotate 20s linear infinite;
+  }
 
-  &__grid{ display:grid; gap:1rem; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); }
+  &__header {
+    text-align: center;
+    margin-bottom: var(--spacing-20);
+    position: relative;
+    
+    // Trophy decoration
+    &::before {
+      content: '🏆';
+      position: absolute;
+      top: -60px;
+      right: 20%;
+      font-size: 64px;
+      opacity: 0.15;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    h1 {
+      @include heading-large;
+      margin-bottom: var(--spacing-6);
+      position: relative;
+      display: inline-block;
+      
+      // Badge accent
+      &::after {
+        content: '✓';
+        position: absolute;
+        right: -40px;
+        top: -8px;
+        width: 32px;
+        height: 32px;
+        background: var(--text-primary);
+        color: var(--bg-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+        opacity: 0.2;
+      }
+    }
+  }
 
-  &__filter{ text-align:center; margin-bottom:1.5rem; }.certificates-page {
+  &__filter {
+    display: flex;
+    gap: var(--spacing-3);
+    justify-content: center;
+    margin-bottom: var(--spacing-12);
+    flex-wrap: wrap;
+    position: relative;
+    
+    // Connecting arrows decoration
+    &::after {
+      content: '↓';
+      position: absolute;
+      bottom: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--text-tertiary);
+      opacity: 0.3;
+      font-size: 20px;
+    }
+    
+    button {
+      @include button-ghost;
+      @include caption;
+      position: relative;
+      
+      // Slide-in hover background
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: var(--bg-tertiary);
+        transition: width var(--transition-normal);
+        z-index: -1;
+        border-radius: inherit;
+      }
+      
+      &:hover::before {
+        width: 100%;
+      }
+      
+      &.active {
+        @include button-secondary;
+        
+        // Corner fold indicator
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 0 10px 10px;
+          border-color: transparent transparent var(--text-primary) transparent;
+          opacity: 0.2;
+        }
+      }
+    }
+  }
 
-}  min-height: 100vh;
-
-  width: 100%;
+  &__grid {
+    @include grid-auto-fit(280px);
+    gap: var(--spacing-8);
+  }
+  
+  .certificate-card {
+    @include card-elevated;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    position: relative;
+    
+    // Certificate index number
+    &::before {
+      content: attr(data-index);
+      position: absolute;
+      top: var(--spacing-3);
+      right: var(--spacing-3);
+      width: 32px;
+      height: 32px;
+      background: var(--bg-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--text-primary);
+      opacity: 0;
+      transition: opacity var(--transition-normal);
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    &:hover {
+      &::before {
+        opacity: 0.8;
+      }
+      
+      img {
+        transform: scale(1.05);
+      }
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+      filter: grayscale(10%);
+    }
+  }
 }

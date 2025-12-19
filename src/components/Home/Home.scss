@@ -1,50 +1,232 @@
-/* Home page base styles */
+// =============================================================================
+// HOME PAGE - SWISS DESIGN SOPHISTICATION
+// =============================================================================
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
 .home-page {
-  @import "../../styles/mixins";
-
   min-height: 100vh;
+  padding: var(--spacing-24) 0;
+  
+  @include responsive(desktop) {
+    padding: var(--spacing-32) 0;
+  }
 
-  padding: 4rem 0;
-  .home-page {
-    min-height: 100vh;
+  // =============================================================================
+  // HERO SECTION - ASYMMETRIC EDITORIAL LAYOUT
+  // =============================================================================
+  &__hero {
+    display: grid;
+    gap: var(--spacing-16);
+    margin-bottom: var(--spacing-32);
+    
+    @include responsive(desktop) {
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--spacing-24);
+      align-items: center;
+    }
 
-    &__hero {
-      width: 100%;
-
-      text-align: center;
-
-      margin-bottom: 3rem; // Smooth scroll behavior for sections
-
-      scroll-behavior: smooth;
-
-      .hero-title {
-        font-size: 2.25rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
+    // Main content - left asymmetric
+    .hero-content {
+      @include responsive(desktop) {
+        padding-right: var(--spacing-12);
       }
     }
 
-    .hero-sub {
-      font-size: 1.125rem;
-      color: #6b7280;
+    .hero-caption {
+      @include caption;
+      margin-bottom: var(--spacing-4);
+      opacity: 0.8;
+    }
+
+    .hero-title {
+      @include heading-large;
+      margin-bottom: var(--spacing-6);
+      
+      // Swiss typography - clean and bold
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      
+      .text-gradient {
+        background: var(--gradient-text);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-medium);
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-8);
+      line-height: var(--line-height-snug);
+      
+      @include responsive(desktop) {
+        font-size: var(--font-size-2xl);
+      }
+    }
+
+    .hero-description {
+      @include body-large;
+      max-width: 600px;
+      margin-bottom: var(--spacing-10);
+      line-height: var(--line-height-relaxed);
+    }
+
+    // CTA Buttons - minimal style
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-4);
+      margin-bottom: var(--spacing-10);
+
+      .btn-primary {
+        @include button-primary;
+      }
+
+      .btn-secondary {
+        @include button-secondary;
+        @include hover-underline;
+        border: none;
+        padding: var(--spacing-3) 0;
+        
+        &::after {
+          bottom: 0;
+        }
+      }
+    }
+
+    // Social Links - Editorial style
+    .hero-social {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-6);
+      
+      .social-label {
+        font-size: var(--font-size-sm);
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-wider);
+        color: var(--text-tertiary);
+        font-weight: var(--font-weight-medium);
+      }
+
+      .social-links {
+        display: flex;
+        gap: var(--spacing-4);
+        
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          color: var(--text-secondary);
+          transition: all var(--transition-normal);
+          position: relative;
+          
+          &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--border-primary);
+            border-radius: 50%;
+            transition: all var(--transition-normal);
+          }
+
+          &:hover {
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            
+            &::before {
+              border-color: var(--text-primary);
+            }
+          }
+        }
+      }
     }
   }
+
+  // =============================================================================
+  // DECORATIVE ELEMENTS - MINIMAL ACCENTS
+  // =============================================================================
   .decorative-stat {
-    background-color: #ffffff;
-    border-radius: 1rem;
-    padding: 64px 0;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-16) 0;
+    margin: var(--spacing-32) 0;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+
+    &:hover {
+      box-shadow: var(--shadow-md);
+    }
   }
 
+  // Navigation group - clean spacing
   .navigation-group {
-    display: inline-block;
-    margin: 0 1rem;
-    height: 100%;
-
+    display: inline-flex;
+    margin: 0 var(--spacing-4);
+    
     a {
-      height: 100%;
+      @include hover-underline;
+      font-weight: var(--font-weight-medium);
+      letter-spacing: var(--letter-spacing-wide);
+      text-transform: uppercase;
+      font-size: var(--font-size-sm);
     }
+  }
+}
+
+// =============================================================================
+// SCROLL REVEAL ANIMATIONS
+// =============================================================================
+.home-page {
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp var(--duration-slow) var(--ease-out-expo) forwards;
+  }
+
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: fadeInLeft var(--duration-slow) var(--ease-out-expo) forwards;
+  }
+
+  .fade-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+    animation: fadeInRight var(--duration-slow) var(--ease-out-expo) forwards;
+  }
+
+  // Stagger delays
+  .delay-1 { animation-delay: 100ms; }
+  .delay-2 { animation-delay: 200ms; }
+  .delay-3 { animation-delay: 300ms; }
+  .delay-4 { animation-delay: 400ms; }
+  .delay-5 { animation-delay: 500ms; }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

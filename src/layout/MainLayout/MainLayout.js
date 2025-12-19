@@ -6,24 +6,18 @@ import  './MainLayout.scss';
 
 const MainLayout = () => {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-      {/* Grid Layout: Header | Content | Footer */}
-      <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
-        
-        {/* Fixed Header/Navigation */}
-        <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
-          <Navigation />
-        </header>
+    <div className="main-layout">
+      {/* Fixed Sidebar Navigation */}
+      <Navigation />
 
-        {/* Main Content Area */}
-        <main className="flex-1 w-full">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <Outlet />
-          </div>
+      {/* Main Content Area with Footer */}
+      <div className="main-content-wrapper">
+        <main className="main-content">
+          <Outlet />
         </main>
-
-        {/* Fixed Footer */}
-        <footer className="footer-container text-white">
+        
+        {/* Footer */}
+        <footer className="footer-container">
           <Footer />
         </footer>
       </div>

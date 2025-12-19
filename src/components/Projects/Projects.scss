@@ -1,14 +1,181 @@
-/* Projects Page */@import '../../styles/variables';
+// =============================================================================
+// PROJECTS PAGE - ARTISTIC MASONRY GRID
+// =============================================================================
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-.projects-page{ @import '../../styles/mixins';
+.projects-page {
+  min-height: 100vh;
+  padding: var(--spacing-24) 0;
+  position: relative;
+  
+  @include responsive(desktop) {
+    padding: var(--spacing-32) 0;
+  }
+  
+  // Diagonal line accent
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border-primary), transparent);
+    transform: rotate(-15deg);
+    transform-origin: left;
+    opacity: 0.5;
+  }
 
-  min-height:100vh; padding:4rem 0;
+  &__header {
+    text-align: center;
+    margin-bottom: var(--spacing-20);
+    position: relative;
+    
+    // Floating number
+    &::before {
+      content: attr(data-count);
+      position: absolute;
+      top: -60px;
+      right: 10%;
+      font-size: 120px;
+      font-weight: var(--font-weight-bold);
+      color: var(--bg-tertiary);
+      opacity: 0.3;
+      line-height: 1;
+      pointer-events: none;
+    }
+    
+    h1 {
+      @include heading-large;
+      margin-bottom: var(--spacing-6);
+      position: relative;
+      display: inline-block;
+      
+      // Strikethrough accent
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -60px;
+        right: -60px;
+        height: 1px;
+        background: var(--border-primary);
+        opacity: 0.3;
+        z-index: -1;
+      }
+    }
+    
+    p {
+      @include body-large;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
 
-  &__grid{ display:grid; gap:2rem; }.projects-page {
+  &__filters {
+    display: flex;
+    gap: var(--spacing-3);
+    justify-content: center;
+    margin-bottom: var(--spacing-12);
+    flex-wrap: wrap;
+    position: relative;
+    
+    // Connecting line
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 20px;
+      background: var(--border-primary);
+    }
+    
+    button {
+      @include button-ghost;
+      @include caption;
+      position: relative;
+      overflow: hidden;
+      
+      // Hover effect - fill from left
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-tertiary);
+        transition: left var(--transition-normal);
+        z-index: -1;
+      }
+      
+      &:hover::before {
+        left: 0;
+      }
+      
+      &.active {
+        @include button-secondary;
+        
+        // Corner fold
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 12px 12px 0;
+          border-color: transparent var(--text-primary) transparent transparent;
+          opacity: 0.15;
+        }
+      }
+    }
+  }
 
-  &__filters{ display:flex; gap:0.5rem; justify-content:center; margin-bottom:1.5rem; }  min-height: 100vh;
+  &__grid {
+    @include grid-auto-fit(320px);
+    gap: var(--spacing-8);
+    position: relative;
+  }
 
-  .project-card{ border-radius:0.75rem; overflow:hidden; }  width: 100%;
-
-}}
+  .project-card {
+    @include card-elevated;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+    
+    // Index number
+    &::before {
+      content: attr(data-index);
+      position: absolute;
+      top: var(--spacing-4);
+      left: var(--spacing-4);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--text-tertiary);
+      background: var(--bg-primary);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      opacity: 0.6;
+    }
+    
+    // Staggered hover lift
+    &:nth-child(odd):hover {
+      transform: translateY(-8px) rotate(-1deg);
+    }
+    
+    &:nth-child(even):hover {
+      transform: translateY(-8px) rotate(1deg);
+    }
+  }
+}
 

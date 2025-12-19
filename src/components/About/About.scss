@@ -1,103 +1,130 @@
-// AboutPage Component Styles@import '../../styles/variables';
+// =============================================================================
+// ABOUT PAGE - SWISS MINIMALISM
+// =============================================================================
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-.about-page {@import '../../styles/mixins';
-
+.about-page {
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  @include responsive(desktop) {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
 
-  padding: 4rem 0;.about-page {
+  // Hero Section
+  &__hero {
+    margin-bottom: var(--spacing-16);
+    text-align: center;
+    max-width: 100%;
+    padding: 0 var(--spacing-4);
 
-  min-height: 100vh;
+    @include responsive(desktop) {
+      max-width: 800px;
+      margin: 0 auto var(--spacing-20);
+    }
 
-  // Hero Section  width: 100%;
-
-  &__hero {}
-
-    margin-bottom: 4rem;
-
-    .hero-content {
-      text-align: center;
+    .hero-caption {
+      @include caption;
+      margin-bottom: var(--spacing-4);
     }
 
     .hero-title {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #1f2937;
-      margin-bottom: 1.5rem;
-
-      @media (min-width: 1024px) {
-        font-size: 3rem;
-      }
+      @include heading-large;
+      margin-bottom: var(--spacing-6);
+      color: var(--text-primary);
 
       .title-gradient {
-        background: linear-gradient(to right, #2563eb, #9333ea);
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-      }
-
-      [data-theme="dark"] & {
-        color: white;
+        @include text-gradient();
       }
     }
 
     .hero-description {
-      font-size: 1.25rem;
-      color: #6b7280;
-      max-width: 48rem;
+      @include body-large;
+      max-width: 700px;
       margin: 0 auto;
-      line-height: 1.625;
-
-      [data-theme="dark"] & {
-        color: #9ca3af;
-      }
     }
   }
 
-  // Stats Section
+  // Stats Section - Artistic Cards with Decorative Accents
   &__stats {
-    margin-bottom: 4rem;
+    margin-bottom: var(--spacing-16);
+    position: relative;
+    padding: 0 var(--spacing-2);
+    
+    // Floating decorative dot
+    &::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: 10%;
+      width: 8px;
+      height: 8px;
+      background: var(--text-primary);
+      border-radius: 50%;
+      opacity: 0.3;
+    }
 
     .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-
-      @media (min-width: 1024px) {
-        grid-template-columns: repeat(4, 1fr);
-      }
+      @include grid-auto-fit(200px);
+      gap: var(--spacing-6);
     }
 
     .stat-card {
-      background: white;
-      border-radius: 0.75rem;
-      padding: 1.5rem;
+      @include card;
       text-align: center;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s ease;
-
-      &:hover {
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      padding: var(--spacing-8);
+      position: relative;
+      overflow: hidden;
+      
+      // Artistic corner accent
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, transparent 50%, var(--bg-tertiary) 50%);
+        opacity: 0;
+        transition: opacity var(--transition-normal);
       }
-
-      [data-theme="dark"] & {
-        background: #1f2937;
+      
+      &:hover::after {
+        opacity: 1;
       }
 
       .stat-icon {
-        font-size: 1.875rem;
-        margin-bottom: 0.75rem;
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--spacing-4);
+        opacity: 0.6;
+      }
 
-        &--blue { color: #2563eb; }
-        &--green { color: #16a34a; }
-        &--purple { color: #9333ea; }
-        &--red { color: #dc2626; }
+      .stat-icon--blue {
+        color: var(--color-blue);
+      }
+      .stat-icon--green {
+        color: var(--color-green);
+      }
+      .stat-icon--yellow {
+        color: var(--color-yellow);
+      }
+      .stat-icon--red {
+        color: var(--color-red);
+      }
+      .stat-icon--purple {
+        color: var(--color-purple);
       }
 
       .stat-value {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #1f2937;
-        margin-bottom: 0.5rem;
+        font-size: var(--font-size-4xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-2);
+        letter-spacing: var(--letter-spacing-tight);
 
         [data-theme="dark"] & {
           color: white;
@@ -118,42 +145,87 @@
   // Main Content Grid
   &__content {
     display: grid;
-    gap: 4rem;
-    margin-bottom: 4rem;
+    gap: var(--spacing-12);
+    margin-bottom: var(--spacing-12);
+    padding: 0 var(--spacing-2);
 
     @media (min-width: 1024px) {
       grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-16);
     }
   }
 
-  // Personal Story Section
+  // Personal Story Section - Artistic Typography
   &__story {
+    position: relative;
+    padding-left: var(--spacing-8);
+    
+    // Large decorative quote mark - hidden on small screens
+    &::before {
+      content: '"';
+      position: absolute;
+      top: -30px;
+      left: -10px;
+      font-size: 80px;
+      font-weight: var(--font-weight-bold);
+      color: var(--bg-tertiary);
+      line-height: 1;
+      opacity: 0.4;
+      font-family: Georgia, serif;
+      pointer-events: none;
+      
+      @include responsive(desktop) {
+        font-size: 120px;
+        top: -40px;
+        left: -20px;
+      }
+      font-family: Georgia, serif;
+      pointer-events: none;
+    }
+    
     .story-title {
-      font-size: 1.875rem;
-      font-weight: bold;
-      color: #1f2937;
-      margin-bottom: 1.5rem;
-
-      [data-theme="dark"] & {
-        color: white;
+      @include heading-medium;
+      margin-bottom: var(--spacing-6);
+      position: relative;
+      display: inline-block;
+      
+      // Underline accent
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--text-primary);
+        border-radius: var(--radius-full);
       }
     }
 
     .story-content {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      line-height: 1.625;
-
-      [data-theme="dark"] & {
-        color: white;
-      }
+      gap: var(--spacing-4);
+      @include body-base;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
 
       strong {
+        font-weight: var(--font-weight-semibold);
+        color: var(--text-primary);
+      }
+      
+      p {
+        text-align: justify;
         
-
-        [data-theme="dark"] & {
-          color: white;
+        &:first-child::first-letter {
+          font-size: 3.5em;
+          line-height: 0.8;
+          float: left;
+          margin: 0.1em 0.1em 0 0;
+          font-weight: var(--font-weight-bold);
+          color: var(--text-primary);
         }
       }
     }
@@ -177,28 +249,36 @@
     .info-list {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: var(--spacing-3);
     }
 
     .info-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 1rem;
-      background: #f9fafb;
-      border-radius: 0.75rem;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: #f3f4f6;
-        transform: translateY(-2px);
+      gap: var(--spacing-4);
+      padding: var(--spacing-5);
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition-normal);
+      position: relative;
+      border-left: 3px solid transparent;
+      
+      // Staggered indent for artistic layout
+      &:nth-child(even) {
+        margin-left: var(--spacing-8);
+      }
+      
+      &:nth-child(odd) {
+        margin-right: var(--spacing-8);
       }
 
-      [data-theme="dark"] & {
-        background: #374151;
-
-        &:hover {
-          background: #4b5563;
+      &:hover {
+        background: var(--bg-tertiary);
+        transform: translateX(8px);
+        border-left-color: var(--text-primary);
+        
+        .info-icon {
+          transform: scale(1.2) rotate(5deg);
         }
       }
 
