@@ -8,7 +8,6 @@ import {
   FaStar,
   FaCalendarAlt,
   FaBuilding,
-  FaChevronCircleDown,
 } from "react-icons/fa"; 
 import { prizes } from "../../data";
 import "./Prizes.scss";
@@ -41,23 +40,23 @@ const Prizes = () => {
       position.toLowerCase().includes("winner") ||
       position.toLowerCase().includes("first")
     ) {
-      // Gold/Winner (Màu nổi bật: Vàng/Cam)
-      return "from-yellow-400 to-amber-500";
+      // Winner - Bright Sky/Blue
+      return "from-sky-400 to-blue-500";
     } else if (
       position.toLowerCase().includes("runner-up") ||
       position.toLowerCase().includes("second")
     ) {
-      // Silver/Runner-up (Màu Chính - Tông Xanh/Primary)
-      return "from-primary-500 to-primary-700"; // Sử dụng tông xanh chính
+      // Runner-up - Blue/Sky
+      return "from-blue-500 to-sky-600"; 
     } else if (
       position.toLowerCase().includes("finalist") ||
       position.toLowerCase().includes("final")
     ) {
-      // Finalist (Màu Phụ - Tông Tím/Xanh đậm)
-      return "from-purple-500 to-indigo-600";
+      // Finalist - Sky/Blue (Darker)
+      return "from-sky-600 to-blue-700";
     }
-    // Màu mặc định
-    return "from-gray-500 to-gray-700";
+    // Default - Slate/Gray or Blue-Gray
+    return "from-slate-500 to-slate-700";
   };
 
   const containerVariants = {
@@ -85,7 +84,7 @@ const Prizes = () => {
   return (
     <div className="prizes-page">
       <div className="max-w-6xl mx-auto px-4">
-        {/* Header (Giá»¯ nguyÃªn) */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -93,7 +92,7 @@ const Prizes = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            <FaTrophy className="inline-block mr-4 text-yellow-500" />
+            <FaTrophy className="inline-block mr-4 text-sky-500" />
             Prizes & Awards
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -101,43 +100,43 @@ const Prizes = () => {
           </p>
         </motion.div>
 
-        {/* Statistics (Giá»¯ nguyÃªn) */}
+        {/* Statistics */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
           className="grid md:grid-cols-3 gap-6 mb-12"
         >
-          {/* Stat Cards (Giá»¯ nguyÃªn) */}
-          <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
+          {/* Stat Cards */}
+          <div className="bg-gradient-to-br from-white to-sky-50 dark:from-gray-800 dark:to-gray-900 rounded-lg p-6 border border-sky-100 dark:border-sky-900 shadow-md">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-yellow-100 text-sm">Total Awards</p>
-                <p className="text-3xl font-bold">{prizes.length}</p>
+                <p className="text-gray-500 dark:text-gray-400 text-sm">Total Awards</p>
+                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">{prizes.length}</p>
               </div>
-              <FaTrophy className="text-4xl text-yellow-200" />
+              <FaTrophy className="text-4xl text-sky-200 dark:text-sky-800" />
             </div>
           </div>
-          <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
+          <div className="bg-gradient-to-br from-white to-sky-50 dark:from-gray-800 dark:to-gray-900 rounded-lg p-6 border border-sky-100 dark:border-sky-900 shadow-md">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-purple-100 text-sm">Organizations</p>
-                <p className="text-3xl font-bold">
+                <p className="text-gray-500 dark:text-gray-400 text-sm">Organizations</p>
+                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">
                   {new Set(prizes.map((p) => p.organization)).size}
                 </p>
               </div>
-              <FaBuilding className="text-4xl text-purple-200" />
+              <FaBuilding className="text-4xl text-sky-200 dark:text-sky-800" />
             </div>
           </div>
-          <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
+          <div className="bg-gradient-to-br from-white to-sky-50 dark:from-gray-800 dark:to-gray-900 rounded-lg p-6 border border-sky-100 dark:border-sky-900 shadow-md">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-blue-100 text-sm">Years Active</p>
-                <p className="text-3xl font-bold">
+                <p className="text-gray-500 dark:text-gray-400 text-sm">Years Active</p>
+                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">
                   {new Set(prizes.map((p) => p.year)).size}
                 </p>
               </div>
-              <FaCalendarAlt className="text-4xl text-blue-200" />
+              <FaCalendarAlt className="text-4xl text-sky-200 dark:text-sky-800" />
             </div>
           </div>
         </motion.div>
@@ -161,17 +160,18 @@ const Prizes = () => {
                 whileHover={{ y: -5, scale: 1.02 }}
                 className={`timeline-item ${isLeft ? "left" : "right"}`}
               >
-                {/* Card Giáº£i ThÆ°á»Ÿng */}
+                {/* Card Giải Thưởng */}
                 <div className="timeline-card-wrapper">
-                  <div className="timeline-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                  <div className="timeline-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700">
                     <div
                       className={`timeline-card-header bg-gradient-to-r ${colorClass} text-white`}
                     >
                       <div className="flex items-center space-x-3">
+                        <IconComponent className="text-2xl text-white/90" />
                         <h3 className="text-xl font-bold">{prize.title}</h3>
                       </div>
                       <div className="text-right">
-                        <div className="bg-white/20 rounded-lg px-3 py-1">
+                        <div className="bg-white/20 rounded-lg px-3 py-1 backdrop-blur-sm">
                           <span className="text-sm font-medium">
                             {prize.year}
                           </span>
@@ -193,7 +193,7 @@ const Prizes = () => {
 
                       <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                         <div className="flex items-center space-x-2">
-                          <FaBuilding />
+                          <FaBuilding className="text-sky-500" />
                           <span>{prize.organization}</span>
                         </div>
                       </div>

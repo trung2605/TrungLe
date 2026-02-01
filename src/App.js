@@ -8,7 +8,6 @@ import MainLayout from './layout/MainLayout/MainLayout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import EducationPage from './pages/EducationPage';
-import SkillsPage from './pages/SkillsPage';
 import ProjectsPage from './pages/ProjectsPage';
 import CertificatesPage from './pages/CertificatesPage';
 import ActivitiesPage from './pages/ActivitiesPage';
@@ -24,7 +23,7 @@ function App() {
                 <Route index element={<HomePage />} />
                 <Route path="about" element={<AboutPage />} />
                 <Route path="education" element={<EducationPage />} />
-                <Route path="skills" element={<SkillsPage />} />
+
                 <Route path="projects" element={<ProjectsPage />} />
                 <Route path="certificates" element={<CertificatesPage />} />
                 <Route path="activities" element={<ActivitiesPage />} />

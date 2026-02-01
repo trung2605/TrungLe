@@ -8,29 +8,27 @@ import {
     FaStar,
     FaPlay,
     FaCheck,
-    FaChevronLeft, // Thêm icon điều hướng
-    FaChevronRight, // Thêm icon điều hướng
+    FaChevronLeft,
+    FaChevronRight,
     FaUser,
 } from "react-icons/fa";
 import { activities } from "../../data";
 import './Activities.scss';
 import Markdown from "react-markdown";
 
-const ITEMS_PER_PAGE = 9; // Giới hạn 9 mục mỗi trang
+const ITEMS_PER_PAGE = 9;
 
 const Activities = () => {
     const [selectedStatus, setSelectedStatus] = useState("all");
     const [selectedOrganization, setSelectedOrganization] = useState("all");
-    const [currentPage, setCurrentPage] = useState(1); // State theo dõi trang hiện tại
+    const [currentPage, setCurrentPage] = useState(1);
 
-    // Get unique organizations and statuses for filter
     const organizations = [
         "all",
         ...new Set(activities.map((activity) => activity.organization)),
     ];
-    const statuses = ["all", "Active", "Completed", "Various", "In Progress"]; // Bổ sung statuses đầy đủ
+    const statuses = ["all", "Active", "Completed", "Various", "In Progress"];
 
-    // 1. Lọc hoạt động
     const preliminaryFilteredActivities = activities.filter((activity) => {
         const matchesStatus =
             selectedStatus === "all" || activity.status === selectedStatus;
@@ -40,24 +38,19 @@ const Activities = () => {
         return matchesStatus && matchesOrg;
     });
 
-    // 2. TÍNH TOÁN PHÂN TRANG
     const totalPages = Math.ceil(preliminaryFilteredActivities.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     
-    // 3. Lấy dữ liệu cho trang hiện tại
     const filteredActivities = preliminaryFilteredActivities.slice(startIndex, endIndex);
 
-    // Xử lý chuyển trang
     const handlePageChange = (pageNumber) => {
         if (pageNumber >= 1 && pageNumber <= totalPages) {
             setCurrentPage(pageNumber);
-            // Đặt lại trạng thái cuộn lên đầu trang (tùy chọn)
             window.scrollTo({ top: 0, behavior: 'smooth' }); 
         }
     };
 
-    // Hàm logic Icon và Color (Giữ nguyên)
     const getRoleIcon = (role) => {
         if (role.toLowerCase().includes("leader")) return FaCrown;
         if (role.toLowerCase().includes("core")) return FaStar;
@@ -67,11 +60,11 @@ const Activities = () => {
 
     const getRoleColor = (role) => {
         if (role.toLowerCase().includes("leader"))
-            return "from-purple-500 to-purple-700";
-        if (role.toLowerCase().includes("core")) return "from-blue-500 to-blue-700";
+            return "from-blue-600 to-blue-800"; // Leader: Deep Blue
+        if (role.toLowerCase().includes("core")) return "from-sky-500 to-sky-700"; // Core: Sky Blue
         if (role.toLowerCase().includes("ambassador"))
-            return "from-green-500 to-green-700";
-        return "from-gray-500 to-gray-700";
+            return "from-cyan-500 to-cyan-700"; // Ambassador: Cyan (Blue-ish)
+        return "from-slate-500 to-slate-700";
     };
 
     const getStatusIcon = (status) => {
@@ -80,8 +73,8 @@ const Activities = () => {
 
     const getStatusColor = (status) => {
         return status === "Active" || status === "In Progress"
-            ? "from-green-400 to-green-600"
-            : "from-blue-400 to-blue-600";
+            ? "from-cyan-400 to-cyan-600" // Active: Cyan
+            : "from-blue-400 to-blue-600"; // Completed: Blue
     };
 
     const containerVariants = {
@@ -109,8 +102,7 @@ const Activities = () => {
     return (
         <div className="activities-page">
             <div className="max-w-7xl mx-auto px-4">
-                {/* Header (Giữ nguyên) */}
-                {/* ... */}
+                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -118,7 +110,7 @@ const Activities = () => {
                     className="text-center mb-16"
                 >
                     <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                        <FaUsers className="inline-block mr-4 text-purple-600" />
+                        <FaUsers className="inline-block mr-4 text-blue-600" />
                         Activities & Participation
                     </h1>
                     <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -127,66 +119,64 @@ const Activities = () => {
                     </p>
                 </motion.div>
 
-                {/* Statistics (Giữ nguyên) */}
-                {/* ... */}
+                {/* Statistics */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1, duration: 0.6 }}
                     className="grid md:grid-cols-4 gap-6 mb-12"
                 >
-                    <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
+                    <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white shadow-lg">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-purple-100 text-sm">Total Activities</p>
+                                <p className="text-sky-100 text-sm">Total Activities</p>
                                 <p className="text-3xl font-bold">{activities.length}</p>
                             </div>
-                            <FaUsers className="text-4xl text-purple-200" />
+                            <FaUsers className="text-4xl text-sky-200" />
                         </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
+                    <div className="bg-gradient-to-br from-cyan-500 to-cyan-700 rounded-lg p-6 text-white shadow-lg">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-green-100 text-sm">Active</p>
+                                <p className="text-cyan-100 text-sm">Active</p>
                                 <p className="text-3xl font-bold">
                                     {activities.filter((a) => a.status === "Active" || a.status === "In Progress").length}
                                 </p>
                             </div>
-                            <FaPlay className="text-4xl text-green-200" />
+                            <FaPlay className="text-4xl text-cyan-200" />
                         </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
+                    <div className="bg-gradient-to-br from-sky-500 to-sky-700 rounded-lg p-6 text-white shadow-lg">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-blue-100 text-sm">Completed</p>
+                                <p className="text-sky-100 text-sm">Completed</p>
                                 <p className="text-3xl font-bold">
                                     {activities.filter((a) => a.status === "Completed").length}
                                 </p>
                             </div>
-                            <FaCheck className="text-4xl text-blue-200" />
+                            <FaCheck className="text-4xl text-sky-200" />
                         </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white">
+                    <div className="bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-lg p-6 text-white shadow-lg">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-orange-100 text-sm">Organizations</p>
+                                <p className="text-indigo-100 text-sm">Organizations</p>
                                 <p className="text-3xl font-bold">{organizations.length - 1}</p>
                             </div>
-                            <FaBuilding className="text-4xl text-orange-200" />
+                            <FaBuilding className="text-4xl text-indigo-200" />
                         </div>
                     </div>
                 </motion.div>
 
-                {/* Filters (Giữ nguyên) */}
-                {/* ... */}
+                {/* Filters */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
-                    className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-12"
+                    className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-12 border border-gray-100 dark:border-gray-700"
                 >
                     <div className="grid md:grid-cols-2 gap-6">
                         <div>
@@ -195,8 +185,8 @@ const Activities = () => {
                             </label>
                             <select
                                 value={selectedStatus}
-                                onChange={(e) => { setSelectedStatus(e.target.value); setCurrentPage(1); }} // Reset trang
-                                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                                onChange={(e) => { setSelectedStatus(e.target.value); setCurrentPage(1); }}
+                                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                             >
                                 {statuses.map((status) => (
                                     <option key={status} value={status}>
@@ -212,8 +202,8 @@ const Activities = () => {
                             </label>
                             <select
                                 value={selectedOrganization}
-                                onChange={(e) => { setSelectedOrganization(e.target.value); setCurrentPage(1); }} // Reset trang
-                                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                                onChange={(e) => { setSelectedOrganization(e.target.value); setCurrentPage(1); }}
+                                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                             >
                                 {organizations.map((org) => (
                                     <option key={org} value={org}>
@@ -232,7 +222,7 @@ const Activities = () => {
                     animate="visible"
                     className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
-                    {filteredActivities.map((activity, index) => { // SỬ DỤNG filteredActivities.map
+                    {filteredActivities.map((activity, index) => {
                         const RoleIcon = getRoleIcon(activity.role);
                         const StatusIcon = getStatusIcon(activity.status);
                         const roleColorClass = getRoleColor(activity.role);
@@ -247,9 +237,8 @@ const Activities = () => {
                                 key={activity.id}
                                 variants={itemVariants}
                                 whileHover={{ y: -8, scale: 1.02 }}
-                                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group"
+                                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-gray-100 dark:border-gray-700"
                             >
-                                {/* ... (Nội dung Card - Giữ nguyên) ... */}
                                 <div className="relative overflow-hidden h-56">
                                     <img
                                         src={ActivityImage}
@@ -266,7 +255,7 @@ const Activities = () => {
                                                 <div
                                                     className={`flex items-center space-x-2 text-sm mt-1 text-gray-300`}
                                                 >
-                                                    <RoleIcon className={`text-base ${roleColorClass}`} />
+                                                    <RoleIcon className={`text-base ${roleColorClass.replace('bg-', 'text-').split(' ')[0]}`} />
                                                     <span className="font-medium">{activity.role}</span>
                                                 </div>
                                             </div>
@@ -291,18 +280,18 @@ const Activities = () => {
                                             </span>
                                         </div>
                                         <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
-                                            <FaCalendarAlt className="text-green-600 dark:text-green-400 text-base flex-shrink-0" />
+                                            <FaCalendarAlt className="text-sky-600 dark:text-sky-400 text-base flex-shrink-0" />
                                             <span className="text-sm font-medium">
                                                 {activity.duration}
                                             </span>
                                         </div>
                                     </div>
 
-                                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed line-clamp-3">
+                                    <div className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed line-clamp-3">
                                         <Markdown>
                                             {activity.description}
                                         </Markdown>
-                                    </p>
+                                    </div>
                                 </div>
                             </motion.div>
                         );
@@ -320,14 +309,13 @@ const Activities = () => {
                             <FaChevronLeft />
                         </button>
 
-                        {/* Hiển thị các nút số trang */}
                         {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
                             <button
                                 key={page}
                                 onClick={() => handlePageChange(page)}
                                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                                     currentPage === page
-                                        ? 'bg-purple-600 text-white shadow-md'
+                                        ? 'bg-blue-600 text-white shadow-md'
                                         : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                                 }`}
                             >

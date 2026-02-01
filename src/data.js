@@ -4,77 +4,82 @@ import {
   FaCertificate,
   FaTrophy,
 } from "react-icons/fa";
+import NewAvatar from './assets/information/image.png';
 
 // Project Image Imports
-import JobFinderImage from "./assets/projects/JobFinder.png";
-import DolaBakeryImage from "./assets/projects/DolaBakery.png";
-import TheDreamersOrganizationImage from "./assets/projects/TheDreamers.png";
-import WebFormAutomationImage from "./assets/projects/WebFormAutomation.png";
-import BookShopOutsystemsImage from "./assets/projects/BookShopOutsystems.png";
-import TikTokUIImage from "./assets/projects/ComingSoon.png";
-import PortfolioImage from "./assets/projects/Portfolio.png";
-import BakeryManagementImage from "./assets/projects/BakeryManagementSystem.png";
+const JobFinderImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962629/my-website/assets/projects/JobFinder.png";
+const DolaBakeryImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962632/my-website/assets/projects/DolaBakery.png";
+const TheDreamersOrganizationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962634/my-website/assets/projects/TheDreamers.png";
+const WebFormAutomationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962635/my-website/assets/projects/WebFormAutomation.png";
+const BookShopOutsystemsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962636/my-website/assets/projects/BookShopOutsystems.png";
+const TikTokUIImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962637/my-website/assets/projects/ComingSoon.png";
+const PortfolioImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962639/my-website/assets/projects/Portfolio.png";
+const BakeryManagementImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962640/my-website/assets/projects/BakeryManagementSystem.png";
 
 //Certificate Imports
-import IELTS_6_0_Image from "./assets/Certificate/Language/TrungLeTri_Linear_certificate_IELTS_6.0.png";
-import HiraganaImage from "./assets/Certificate/Language/Completion_Hiragana.png";
-import KataganaImage from "./assets/Certificate/Language/Completion_katagana.png";
-import DreamersResfresImage from "./assets/Certificate/Event/DreamersResfres.png";
-import NonXanhNuocBiecImage from "./assets/Certificate/Event/NonXanhNuocBiec.png";
-import DreamerOfHonorImage from "./assets/Certificate/Other/DreamerOfHonor.png";
-import AcademicSkillsImage from "./assets/Certificate/TechnologyCertificates/AcademicSkills for University Success-1.png";
-import WebDevBasicsImage from "./assets/Certificate/TechnologyCertificates/Basics of web development & coding _ Michigan-1.png";
-import AIAgentsImage from "./assets/Certificate/TechnologyCertificates/CertificateOfCompletion_Build AI Agents and Automate Workflows with n8n-1.png";
-import CSS3Image from "./assets/Certificate/TechnologyCertificates/CSS3＿Michigan-1.png";
-import DataVisualizationImage from "./assets/Certificate/TechnologyCertificates/Data Visualization.png";
-import GraphicDesignImage from "./assets/Certificate/TechnologyCertificates/Fundamentals of Graphic Design-1.png";
-import HTMLCSSDepthImage from "./assets/Certificate/TechnologyCertificates/HTML and CSS in depth-1.png";
-import HTML5Image from "./assets/Certificate/TechnologyCertificates/Html5_Michigan-1.png";
-import ITOnboardingImage from "./assets/Certificate/TechnologyCertificates/Information Technology Onboarding-1.png";
-import InteractivityJSImage from "./assets/Certificate/TechnologyCertificates/Interactivity with JavaScript _ Michigan-1.png";
-import IntroFrontEndImage from "./assets/Certificate/TechnologyCertificates/Introduction to Front-End Development-1.png";
-import JSAlgorithmsImage from "./assets/Certificate/TechnologyCertificates/JavaScript Algorithms.png";
-import ProgrammingJSImage from "./assets/Certificate/TechnologyCertificates/Programming with JavaScript-1.png";
-import ResponsiveImage from "./assets/Certificate/TechnologyCertificates/Reponsive_ Michigan-1.png";
-import RoboticsImage from "./assets/Certificate/TechnologyCertificates/Robotics.jpg";
+const IELTS_6_0_Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962641/my-website/assets/Certificate/Language/TrungLeTri_Linear_certificate_IELTS_6.0.png";
+const HiraganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962642/my-website/assets/Certificate/Language/Completion_Hiragana.png";
+const KataganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962643/my-website/assets/Certificate/Language/Completion_katagana.png";
+const DreamersResfresImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962644/my-website/assets/Certificate/Event/DreamersResfres.png";
+const NonXanhNuocBiecImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962645/my-website/assets/Certificate/Event/NonXanhNuocBiec.png";
+const DreamerOfHonorImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962646/my-website/assets/Certificate/Other/DreamerOfHonor.png";
+const AcademicSkillsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962647/my-website/assets/Certificate/TechnologyCertificates/AcademicSkills_for_University_Success-1.png";
+const WebDevBasicsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962649/my-website/assets/Certificate/TechnologyCertificates/Basics_of_web_development_coding___Michigan-1.png";
+const AIAgentsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962650/my-website/assets/Certificate/TechnologyCertificates/CertificateOfCompletion_Build_AI_Agents_and_Automate_Workflows_with_n8n-1.png";
+const CSS3Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962651/my-website/assets/Certificate/TechnologyCertificates/CSS3_Michigan-1.png";
+const DataVisualizationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962653/my-website/assets/Certificate/TechnologyCertificates/Data_Visualization.png";
+const GraphicDesignImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962654/my-website/assets/Certificate/TechnologyCertificates/Fundamentals_of_Graphic_Design-1.png";
+const HTMLCSSDepthImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962656/my-website/assets/Certificate/TechnologyCertificates/HTML_and_CSS_in_depth-1.png";
+const HTML5Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962657/my-website/assets/Certificate/TechnologyCertificates/Html5_Michigan-1.png";
+const ITOnboardingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962658/my-website/assets/Certificate/TechnologyCertificates/Information_Technology_Onboarding-1.png";
+const InteractivityJSImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962660/my-website/assets/Certificate/TechnologyCertificates/Interactivity_with_JavaScript___Michigan-1.png";
+const IntroFrontEndImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962661/my-website/assets/Certificate/TechnologyCertificates/Introduction_to_Front-End_Development-1.png";
+const JSAlgorithmsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962662/my-website/assets/Certificate/TechnologyCertificates/JavaScript_Algorithms.png";
+const ProgrammingJSImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962663/my-website/assets/Certificate/TechnologyCertificates/Programming_with_JavaScript-1.png";
+const ResponsiveImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962664/my-website/assets/Certificate/TechnologyCertificates/Reponsive__Michigan-1.png";
+const RoboticsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962666/my-website/assets/Certificate/TechnologyCertificates/Robotics.jpg";
 
 //Activity Imports
-import InnocodeCampActivityImage from "./assets/activities/Dreamers_Innocode_Camp.png";
-import MicHomeFUMClubImage from "./assets/activities/Mic_Home_FUM_Club.jpg";
-import ResFresActivityImage from "./assets/Certificate/Event/DreamersResfres.png";
-import CharityFundraisingImage from "./assets/activities/Dreamers_Charity_Fundraising.jpg";
-import MediaRolesImage from "./assets/activities/Student_Actor_Model.jpg";
-import GalaHonTanDatVietImage from "./assets/activities/Gala_HonTanDatViet.jpg";
-import CharityMissionsImage from "./assets/activities/TuThien_Missions_Group.jpg";
-import WorkshopMakeImageBetterImage from "./assets/activities/Workshop_MakeImageBetter_MC.jpg";
-import GenderEqualityMCImage from "./assets/activities/Gender_Equality_Workshop_MC.jpg";
-import CollaborationEventsImage from "./assets/activities/Collaboration_Events_Group.jpg";
-import TuyenThanhVienDreamersImage from "./assets/activities/Tuyen_Thanh_Vien_Dreamers.jpg";
-import DuAnDreamHighImage from "./assets/activities/Du_An_Dream_High.jpg";
-import TotHyVongImage from "./assets/activities/Tet_Hy_Vong_Event.jpg";
-import VongVaoMongMoImage from "./assets/activities/Vong_Vao_Mong_Mo.jpg";
-import AIRoboticsImage from "./assets/activities/AI_Robotics_Referee.jpg";
-import DienNhacTuThienImage from "./assets/activities/Dien_Nhac_Tu_Thien.png";
-import BoAnhKyNiemImage from "./assets/activities/Bo_Anh_Ky_Niem.jpg";
-import AlumniGuidanceImage from "./assets/activities/Alumni_Career_Guidance_Talk.jpg";
+const InnocodeCampActivityImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962667/my-website/assets/activities/Dreamers_Innocode_Camp.png";
+const MicHomeFUMClubImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962668/my-website/assets/activities/Mic_Home_FUM_Club.jpg";
+const ResFresActivityImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962644/my-website/assets/Certificate/Event/DreamersResfres.png";
+const CharityFundraisingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962670/my-website/assets/activities/Dreamers_Charity_Fundraising.jpg";
+const MediaRolesImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962671/my-website/assets/activities/Student_Actor_Model.jpg";
+const GalaHonTanDatVietImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962672/my-website/assets/activities/Gala_HonTanDatViet.jpg";
+const CharityMissionsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962673/my-website/assets/activities/TuThien_Missions_Group.jpg";
+const WorkshopMakeImageBetterImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962674/my-website/assets/activities/Workshop_MakeImageBetter_MC.jpg";
+const GenderEqualityMCImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962676/my-website/assets/activities/Gender_Equality_Workshop_MC.jpg";
+const CollaborationEventsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962677/my-website/assets/activities/Collaboration_Events_Group.jpg";
+const TuyenThanhVienDreamersImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962678/my-website/assets/activities/Tuyen_Thanh_Vien_Dreamers.jpg";
+const DuAnDreamHighImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962681/my-website/assets/activities/Du_An_Dream_High.jpg";
+const TotHyVongImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962682/my-website/assets/activities/Tet_Hy_Vong_Event.jpg";
+const VongVaoMongMoImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962684/my-website/assets/activities/Vong_Vao_Mong_Mo.jpg";
+const AIRoboticsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962685/my-website/assets/activities/AI_Robotics_Referee.jpg";
+const DienNhacTuThienImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962688/my-website/assets/activities/Dien_Nhac_Tu_Thien.png";
+const BoAnhKyNiemImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962689/my-website/assets/activities/Bo_Anh_Ky_Niem.jpg";
+const AlumniGuidanceImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962690/my-website/assets/activities/Alumni_Career_Guidance_Talk.jpg";
 
 //eudcation Memories Imports
-import FPTMemory1 from "./assets/educationMemories/FPT_Memory_1.jpg";
-import MalaysiaMemory from "./assets/educationMemories/Malaysia_Memory.jpg";
-import PCTMemory from "./assets/educationMemories/PCT_Graduation_Memory.jpg";
+const FPTMemory1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962692/my-website/assets/educationMemories/FPT_Memory_1.jpg";
+const MalaysiaMemory = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962693/my-website/assets/educationMemories/Malaysia_Memory.jpg";
+const PCTMemory = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962694/my-website/assets/educationMemories/PCT_Graduation_Memory.jpg";
 
 // About Slider Images Imports
-import SliderImg1 from "./assets/slider/SliderImg1.jpg";
-import SliderImg2 from "./assets/slider/SliderImg2.jpg";
-import SliderImg3 from "./assets/slider/SliderImg3.jpg";
-import SliderImg4 from "./assets/slider/SliderImg4.jpg";
+const SliderImg1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962695/my-website/assets/slider/SliderImg1.jpg";
+const SliderImg2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962696/my-website/assets/slider/SliderImg2.jpg";
+const SliderImg3 = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962697/my-website/assets/slider/SliderImg3.jpg";
+const SliderImg4 = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962699/my-website/assets/slider/SliderImg4.jpg";
+
+// Local Image Import
+// moved to top
+
 
 export const personalInfo = {
   name: "Lê Trí Trung",
   title: "Java Developer | Computer Science Student",
-  profileImage: "./assets/information/avatar.png",
+  profileImage: NewAvatar,
   cv: "./assets/information/Le_Tri_Trung_CV.pdf",
-  logo: "./assets/information/avatar.png",
+  logo: NewAvatar,
   intro:
     "Highly motivated Computer Science student with a strong foundation in web development. Proficient in Java Spring Boot, JavaScript, React, HTML/CSS, and passionate about creating clean, scalable applications. Seeking a Web Developer internship to apply my skills and contribute to a collaborative team.",
   contact: {
@@ -98,7 +103,6 @@ export const navigation = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Education", href: "#education" },
-  { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Certificates", href: "#certificates" },
   { name: "Prizes", href: "#prizes" },
@@ -454,7 +458,7 @@ export const certificates = [
   {
     id: 1,
     name: "IELTS 6.0 (Linear)",
-    issuer: "Tên Tổ chức IELTS 6.0",
+    issuer: "IELTS Organization",
     year: "2024",
     image: IELTS_6_0_Image,
     description:
@@ -535,7 +539,7 @@ export const certificates = [
   {
     id: 10,
     name: "Introduction to Front-End Development",
-    issuer: "Tên Tổ chức (Cần xác định)",
+    issuer: "Organization Name (To be determined)",
     year: "05/2024",
     image: IntroFrontEndImage,
     description: "Foundational concepts of Front-End Web Development.",
@@ -543,7 +547,7 @@ export const certificates = [
   {
     id: 11,
     name: "Data Visualization",
-    issuer: "Tên Tổ chức (Cần xác định)",
+    issuer: "Organization Name (To be determined)",
     year: "04/2024",
     image: DataVisualizationImage,
     description:
@@ -576,7 +580,7 @@ export const certificates = [
   {
     id: 15,
     name: "Academic Skills for University Success",
-    issuer: "Tên Tổ chức (Cần xác định)",
+    issuer: "Organization Name (To be determined)",
     year: "05/2024",
     image: AcademicSkillsImage,
     description:
@@ -585,7 +589,7 @@ export const certificates = [
   {
     id: 16,
     name: "Fundamentals of Graphic Design",
-    issuer: "Tên Tổ chức (Cần xác định)",
+    issuer: "Organization Name (To be determined)",
     year: "05/2024",
     image: GraphicDesignImage,
     description:
@@ -594,7 +598,7 @@ export const certificates = [
   {
     id: 17,
     name: "Information Technology Onboarding",
-    issuer: "Tên Tổ chức (Cần xác định)",
+    issuer: "Organization Name (To be determined)",
     year: "05/2024",
     image: ITOnboardingImage,
     description:
@@ -603,7 +607,7 @@ export const certificates = [
   {
     id: 18,
     name: "Robotics",
-    issuer: "Tên Tổ chức (Cần xác định)",
+    issuer: "Organization Name (To be determined)",
     year: "09/2025",
     image: RoboticsImage,
     description: "Course covering basic concepts and applications in Robotics.",
@@ -611,7 +615,7 @@ export const certificates = [
   {
     id: 23,
     name: "JavaScript Algorithms",
-    issuer: "Tên Tổ chức (Cần xác định)",
+    issuer: "Organization Name (To be determined)",
     year: "03/2024",
     image: JSAlgorithmsImage,
     description:
@@ -620,7 +624,7 @@ export const certificates = [
   {
     id: 24,
     name: "Completion Hiragana",
-    issuer: "Tên Tổ chức Tiếng Nhật",
+    issuer: "Japanese Language Organization",
     year: "2024",
     image: HiraganaImage,
     description: "Certificate of completion for the Hiragana module.",
@@ -628,7 +632,7 @@ export const certificates = [
   {
     id: 25,
     name: "Completion Katagana",
-    issuer: "Tên Tổ chức Tiếng Nhật",
+    issuer: "Japanese Language Organization",
     year: "2024",
     image: KataganaImage,
     description: "Certificate of completion for the Katagana module.",
@@ -636,7 +640,7 @@ export const certificates = [
   {
     id: 26,
     name: "Non Xanh Nước Biếc",
-    issuer: "Tên Tổ chức/Sự kiện",
+    issuer: "Organization/Event Name",
     year: "2024",
     image: NonXanhNuocBiecImage,
     description:
@@ -775,32 +779,32 @@ export const activities = [
   },
   {
     id: 5,
-    title: "Gala Hòn Tán Đất Việt",
-    role: "Ban đối ngoại / Điều phối viên chính",
+    title: "Gala Hồn Thiên Đất Việt",
+    role: "External Relations / Main Coordinator",
     duration: "June 22, 2024 – July 2, 2024",
-    organization: "Đại học FPT",
+    organization: "FPT University",
     image: GalaHonTanDatVietImage,
     description:
-      "Served as the main coordinator and external relations member for the 'Gala Hòn Tán Đất Việt' event, focusing on diplomacy and logistics.",
+      "Served as the main coordinator and external relations member for the 'Gala Hồn Thiên Đất Việt' event, focusing on diplomacy and logistics.",
     status: "Completed",
   },
   {
     id: 6,
     title: "The Dreamers Charity Campaign (Fundraising & Logistics)",
-    role: "Project Leader / Quỹ",
+    role: "Project Leader / Treasurer",
     duration: "Dec 1, 2024 – Dec 31, 2024 (Fundraising) & Ongoing",
-    organization: "The Dreamers Organization / Various",
+    organization: "The Dreamers Organization",
     image: CharityFundraisingImage,
     description:
-      "Led the Dreamers fundraising sales campaign (Thủ quỹ), achieving internal revenue goals. Managed resource allocation and led charity missions to orphanages, focusing on social impact.",
+      "Led the Dreamers fundraising sales campaign, achieving internal revenue goals. Managed resource allocation and led charity missions to orphanages, focusing on social impact.",
     status: "Active",
   },
   {
     id: 7,
-    title: "Tổ chức Tình nguyện (Mốc khác)",
-    role: "Thành viên tham gia / Tổ chức",
+    title: "Volunteering Organization (Other Milestones)",
+    role: "Participant / Organizer",
     duration: "Various",
-    organization: "ocean.zero6 / Trung tâm nuôi dạy trẻ mồ côi / Công ty AHT",
+    organization: "AHT Cooperation",
     image: CharityMissionsImage,
     description:
       "Participated as a member and organizer in multiple charity missions, including 'Hành trình từ thiện ocean.zero6,' visiting orphanages, and fundraising projects.",
@@ -811,7 +815,7 @@ export const activities = [
     title: "Workshop: 'Make Your Image Better' (MC)",
     role: "MC",
     duration: "October 4, 2025",
-    organization: "Đại học FPT",
+    organization: "FPT University",
     image: WorkshopMakeImageBetterImage,
     description:
       "Served as the Master of Ceremonies (MC) for the university workshop aimed at improving personal image and presence.",
@@ -819,10 +823,10 @@ export const activities = [
   },
   {
     id: 9,
-    title: "Dự án Nữ quyền (Gender Equality Workshop)",
-    role: "MC Chương trình",
+    title: "Feminism Project (Gender Equality Workshop)",
+    role: "Program MC",
     duration: "March 2, 2024",
-    organization: "Đại học FPT",
+    organization: "FPT University",
     image: GenderEqualityMCImage,
     description:
       "Served as the MC for the workshop on 'Gender Equality in working environment,' gaining experience in organizing and leading sensitive topics.",
@@ -830,10 +834,10 @@ export const activities = [
   },
   {
     id: 10,
-    title: "Cộng tác viên Sự kiện Hàng tuần",
-    role: "Cộng tác viên / Hướng dẫn viên",
+    title: "Weekly Event Collaborator",
+    role: "Collaborator / Guide",
     duration: "Various",
-    organization: "Đại học FPT",
+    organization: "FPT University",
     image: CollaborationEventsImage,
     description:
       "Assisted in student admission events, acted as a student representative, and provided guidance for various university activities (Dự án High, Tuyển tình nguyện đợt 2, v.v.).",
@@ -842,7 +846,7 @@ export const activities = [
   {
     id: 11,
     title: "Student Actor/Model/Vlogger",
-    role: "Diễn viên / Model / Vlogger",
+    role: "Actor / Model / Vlogger",
     duration: "Feb 2024 – Present",
     organization: "Honda Tiến Thu / LenDoan Bridal / FPT",
     image: MediaRolesImage,
@@ -852,7 +856,7 @@ export const activities = [
   },
   {
     id: 12,
-    title: "Tuyển thành viên The DREAMERS",
+    title: "Hiring members for The DREAMERS",
     role: "Leader",
     duration: "October 13, 2024 – October 27, 2024",
     organization: "The DREAMER",
@@ -863,7 +867,7 @@ export const activities = [
   },
   {
     id: 13,
-    title: "Tốt Hy Vọng (Tổ Chức Sự Kiện)",
+    title: "Organization and Execution of Tot Hy Vong Event",
     role: "Leader",
     duration: "January 10, 2025",
     organization: "The DREAMER",
@@ -874,7 +878,7 @@ export const activities = [
   },
   {
     id: 14,
-    title: "Vòng vào Mộng mơ (Sự Kiện Tổ Chức)",
+    title: "Organization and Execution of Vòng vào Mộng mơ Event",
     role: "Leader",
     duration: "March 9, 2025 – March 16, 2025",
     organization: "The DREAMER",
@@ -884,7 +888,7 @@ export const activities = [
   },
   {
     id: 15,
-    title: "Dự án Dream High",
+    title: "Organization and Execution of Dream High Project",
     role: "Leader",
     duration: "November 27, 2024 – May 22, 2025",
     organization: "The DREAMER",
@@ -895,9 +899,9 @@ export const activities = [
   {
     id: 16,
     title: "AI & Robotics Competition",
-    role: "Trọng tài chính (Referee)",
+    role: "Main Referee",
     duration: "July 5, 2025 – July 8, 2025",
-    organization: "Đại học FPT",
+    organization: "FPT University",
     image: AIRoboticsImage,
     description:
       "Served as the main referee/official for the AI & Robotics Competition, ensuring fair play and adherence to competition rules.",
@@ -905,21 +909,21 @@ export const activities = [
   },
   {
     id: 17,
-    title: "Diễn nhạc từ thiện",
+    title: "Organization and Execution of Charity Music Performance Event",
     role: "Manager",
     duration: "July 5, 2025 – July 31, 2025",
     organization: "The DREAMER",
     image: DienNhacTuThienImage,
     description:
-      "Managed the charity music performance event (Diễn nhạc từ thiện) organized by The DREAMER.",
+      "Managed the charity music performance event organized by The DREAMER.",
     status: "Completed",
   },
   {
     id: 18,
-    title: "Bộ ảnh kỷ niệm cách mạng tháng 8",
-    role: "Mẫu ảnh",
+    title: "August Revolution Commemorative Photoshoot",
+    role: "Photo Model",
     duration: "August 27, 2025",
-    organization: "Đại học FPT",
+    organization: "FPT University",
     image: BoAnhKyNiemImage,
     description:
       "Worked as a photo model for the commemorative photo set celebrating the August Revolution (Cách mạng tháng 8).",
@@ -1113,12 +1117,7 @@ export const siteNavigation = [
         icon: "💻",
         path: "/projects",
     },
-    {
-        title: "Skills",
-        desc: "See the technologies I am proficient in",
-        icon: "🔧",
-        path: "/skills",
-    },
+
     {
         title: "Education",
         desc: "My learning and development journey",

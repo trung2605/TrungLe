@@ -11,6 +11,8 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.12.2",
+    "cloudinary": "^2.9.0",
+    "dotenv": "^17.2.3",
     "emailjs": "^4.0.3",
     "framer-motion": "^12.23.16",
     "react": "^19.1.1",

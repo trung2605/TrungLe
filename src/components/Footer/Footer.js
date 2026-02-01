@@ -2,192 +2,123 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaHeart, FaArrowUp } from 'react-icons/fa';
-import { socialLinks, siteNavigation } from '../../data';
-import './Footer.scss';
+import { socialLinks, siteNavigation, personalInfo } from '../../data';
 
 const Footer = () => {
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Hàm ánh xạ icon từ tên social (Cần thiết vì socialLinks dùng tên component icon)
     const getSocialIcon = (name) => {
-        switch (name.toLowerCase()) {
-            case 'facebook': return FaFacebook;
-            case 'github': return FaGithub;
-            case 'linkedin': return FaLinkedin;
-            case 'email': return FaEnvelope;
-            default: return FaEnvelope;
-        }
+        const icons = {
+            facebook: FaFacebook,
+            github: FaGithub,
+            linkedin: FaLinkedin,
+            email: FaEnvelope
+        };
+        return icons[name.toLowerCase()] || FaEnvelope;
     };
 
     return (
-        <footer className="footer">
-            {/* Back to Top Button */}
-            <motion.button
-                onClick={scrollToTop}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.9 }}
-                className="footer__scroll-top"
-            >
-                <FaArrowUp size={16} />
-            </motion.button>
+        <footer className="relative bg-white dark:bg-slate-950 pt-20 pb-10 overflow-hidden border-t border-slate-200 dark:border-slate-800">
+            {/* Decorative Background Mesh - Blue Theme */}
+            <div className="absolute inset-0 opacity-50 dark:opacity-20 pointer-events-none">
+                <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
+            </div>
 
-            <div className="footer__container">
-                {/* Main Footer Content */}
-                <div className="footer__content">
-                    
-                    {/* About Section (Giữ nguyên) */}
-                    <div className="footer__brand">
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="footer__logo"
-                        >
-                            <div className="footer__logo-icon">LT</div>
-                            <span className="footer__brand-name">Lê Trí Trung</span>
-                        </motion.div>
-                        <motion.p 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="footer__brand-description"
-                        >
-                            Java Developer & Computer Science Student passionate about creating 
-                            innovative solutions and contributing to meaningful projects.
-                        </motion.p>
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="footer__contact-info"
-                        >
-                            <div className="footer__contact-item">
-                                <span className="footer__contact-icon">📍</span>
-                                <span>Da Nang, Vietnam</span>
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                    {/* Brand Section */}
+                    <div className="md:col-span-5 space-y-6">
+                        <Link to="/" className="flex items-center space-x-3 group">
+                            <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white font-bold text-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform duration-300">
+                                LT
                             </div>
-                            <div className="footer__contact-item">
-                                <span className="footer__contact-icon">🎓</span>
-                                <span>FPT University</span>
+                            <div>
+                                <h3 className="font-heading font-bold text-2xl text-slate-900 dark:text-white">Lê Trí Trung</h3>
+                                <p className="text-sm text-sky-500 dark:text-sky-400 font-medium">Full Stack Developer</p>
                             </div>
-                            <div className="footer__contact-item">
-                                <span className="footer__contact-icon">💼</span>
-                                <span>Available for opportunities</span>
-                            </div>
-                        </motion.div>
-                    </div>
-
-                    {/* Quick Links - SỬ DỤNG siteNavigation */}
-                    <div className="footer__section">
-                        <motion.h4 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="footer__section-title"
-                        >
-                            Quick Links
-                        </motion.h4>
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="footer__links"
-                        >
-                            {/* Dùng siteNavigation.map và các trường title, path */}
-                            {siteNavigation.map((link, index) => (
-                                <motion.div key={index} whileHover={{ x: 5 }}>
-                                    <Link
-                                        to={link.path} // Lấy từ path
-                                        className="footer__link"
-                                    >
-                                        {link.title} {/* Lấy từ title */}
-                                    </Link>
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    </div>
-
-                    {/* Connect Section - SỬ DỤNG socialLinks */}
-                    <div className="footer__section">
-                        <motion.h4 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="footer__section-title"
-                        >
-                            Let's Connect
-                        </motion.h4>
-                        <motion.p 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="footer__brand-description"
-                        >
-                            Follow me on social media or send me a message. I'm always excited to connect!
-                        </motion.p>
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="footer__social"
-                        >
-                            {/* Dùng socialLinks.map */}
+                        </Link>
+                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed max-w-md">
+                            Passionate about building scalable applications and crafting intuitive user experiences. 
+                            Always learning, always coding.
+                        </p>
+                        <div className="flex space-x-4">
                             {socialLinks.map((social, index) => {
-                                const IconComponent = getSocialIcon(social.name);
-
+                                const Icon = getSocialIcon(social.name);
                                 return (
                                     <motion.a
                                         key={index}
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        whileHover={{ scale: 1.2, y: -2 }}
-                                        whileTap={{ scale: 0.9 }}
-                                        // Ánh xạ FaIcon component vào social link
-                                        className={`footer__social-link footer__social-link--${social.name.toLowerCase()}`}
+                                        whileHover={{ y: -3 }}
+                                        className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-sky-500/30"
                                     >
-                                        <IconComponent size={20} />
+                                        <Icon size={18} />
                                     </motion.a>
                                 );
                             })}
-                        </motion.div>
+                        </div>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div className="md:col-span-3 md:col-start-7">
+                        <h4 className="font-heading font-bold text-slate-900 dark:text-white mb-6">Explore</h4>
+                        <ul className="space-y-3">
+                            {siteNavigation.map((item) => (
+                                <li key={item.path}>
+                                    <Link 
+                                        to={item.path} 
+                                        className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center group"
+                                    >
+                                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-sky-500 mr-3 transition-colors" />
+                                        {item.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Contact Info */}
+                    <div className="md:col-span-3">
+                        <h4 className="font-heading font-bold text-slate-900 dark:text-white mb-6">Contact</h4>
+                        <ul className="space-y-4">
+                            <li className="flex items-start space-x-3 text-slate-600 dark:text-slate-400">
+                                <span className="mt-1 text-sky-500">📍</span>
+                                <span>{personalInfo.contact.location}</span>
+                            </li>
+                            <li className="flex items-center space-x-3 text-slate-600 dark:text-slate-400">
+                                <span className="text-sky-500">📧</span>
+                                <a href={`mailto:${personalInfo.contact.email}`} className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                                    {personalInfo.contact.email}
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                {/* Bottom Section (Giữ nguyên) */}
-                <div className="footer__bottom">
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="footer__copyright"
-                    >
-                        <span>© 2025 Lê Trí Trung | All rights reserved</span>
-                    </motion.div>
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="footer__copyright"
-                    >
+                {/* Bottom Bar */}
+                <div className="pt-8 border-t border-slate-100 dark:border-slate-800/50 flex flex-col md:flex-row items-center justify-between">
+                    <p className="text-slate-500 dark:text-slate-500 text-sm mb-4 md:mb-0">
+                        © {new Date().getFullYear()} Lê Trí Trung. All rights reserved.
+                    </p>
+                    <div className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-500">
                         <span>Made with</span>
-                        <motion.div
-                            animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 1, repeat: Infinity }}
-                            className="footer__heart"
-                        >
-                            <FaHeart size={14} />
-                        </motion.div>
-                        <span>using React & SCSS</span>
-                    </motion.div>
+                        <FaHeart className="text-rose-500 animate-pulse" />
+                        <span>and React</span>
+                    </div>
                 </div>
             </div>
+
+            {/* Scroll to Top */}
+            <motion.button
+                onClick={scrollToTop}
+                className="absolute bottom-8 right-8 p-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors z-20"
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.9 }}
+            >
+                <FaArrowUp />
+            </motion.button>
         </footer>
     );
 };

@@ -9,8 +9,8 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.1, // Bắt đầu hiệu ứng trễ 0.1s
-        staggerChildren: 0.05, // Mỗi thẻ con sẽ bắt đầu trễ 0.05s so với thẻ trước
+        delayChildren: 0.1,
+        staggerChildren: 0.05,
       },
     },
   };
@@ -45,7 +45,7 @@ const Skills = () => {
           whileInView={{ width: `${skill.level}%` }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full"
+          className="bg-gradient-to-r from-sky-400 to-blue-500 h-2 rounded-full"
         />
       </div>
     </div>
@@ -62,7 +62,7 @@ const Skills = () => {
       >
         <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
           Skills &{" "}
-          <span className="text-gradient bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span className="text-gradient bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
             Expertise
           </span>
         </h1>
@@ -121,33 +121,31 @@ const Skills = () => {
         </motion.div>
 
         <motion.div
-          // Giữ nguyên containerVariants
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible" // Chạy khi cuộn tới
+          whileInView="visible"
           viewport={{ once: true }}
           className="flex flex-wrap justify-center gap-3"
         >
           {allSkillsData.map((tech, index) => (
             <motion.div
               key={index}
-              // >>> ÁP DỤNG HÀM getItemVariants CHO MỖI ITEM <<<
               variants={getItemVariants(index)}
               transition={{ duration: 0.4 }}
               whileHover={{ scale: 1.05 }}
               className="skill-tag"
             >
               <div className="skill-item">
-                <span className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-base font-medium shadow-sm transition-colors duration-200 hover:bg-gray-200 dark:hover:bg-gray-600">
+                <span className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-base font-medium shadow-sm transition-colors duration-200 hover:bg-sky-100 dark:hover:bg-sky-900/30 hover:text-sky-700 dark:hover:text-sky-300">
                   {tech.name}
                 </span>
               </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
-  </div>
-  )
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+    </div>
+  );
 };
 
 export default Skills;
