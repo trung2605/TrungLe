@@ -11,17 +11,12 @@ class EmailService {
     this.templateId = emailConfig.templateId;
     this.publicKey = emailConfig.publicKey;
     
-    // Debug log để kiểm tra configuration
-    console.log('EmailJS Service Initialized with Config:', {
-      serviceId: this.serviceId,
-      templateId: this.templateId,
-      publicKey: this.publicKey ? `${this.publicKey.substring(0, 5)}...` : 'undefined'
-    });
+
     
     // Initialize EmailJS
     if (this.publicKey) {
       emailjs.init(this.publicKey);
-      console.log('EmailJS initialized successfully');
+
     } else {
       console.error('EmailJS initialization failed: publicKey is missing');
     }

@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+﻿import { useState } from "react";
 import { motion } from "framer-motion";
 import {
     FaUsers,
@@ -11,10 +11,15 @@ import {
     FaChevronLeft,
     FaChevronRight,
     FaUser,
+    FaTimes,
+    FaEye,
 } from "react-icons/fa";
 import { activities } from "../../data";
 import './Activities.scss';
 import Markdown from "react-markdown";
+import SpotlightCard from "../../animations/SpotlightCard";
+import BlurText from "../../animations/BlurText";
+import ShinyText from "../../animations/ShinyText";
 
 const ITEMS_PER_PAGE = 9;
 
@@ -22,6 +27,7 @@ const Activities = () => {
     const [selectedStatus, setSelectedStatus] = useState("all");
     const [selectedOrganization, setSelectedOrganization] = useState("all");
     const [currentPage, setCurrentPage] = useState(1);
+    const [selectedActivity, setSelectedActivity] = useState(null);
 
     const organizations = [
         "all",
@@ -110,8 +116,28 @@ const Activities = () => {
                     className="text-center mb-16"
                 >
                     <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                        <FaUsers className="inline-block mr-4 text-blue-600" />
-                        Activities & Participation
+                        <motion.span
+                            className="inline-block mr-4 text-blue-600"
+                            animate={{ rotate: [0, 10, -5, 0] }}
+                            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                        >
+                            <FaUsers />
+                        </motion.span>
+                        <BlurText
+                            text="Activities &"
+                            delay={50}
+                            animateBy="words"
+                            direction="bottom"
+                            className="inline"
+                        />
+                        {' '}
+                        <ShinyText
+                            text="Participation"
+                            color="#38bdf8"
+                            shineColor="#ffffff"
+                            speed={3}
+                            className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
+                        />
                     </h1>
                     <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                         Extracurricular activities and leadership roles I have undertaken
@@ -237,8 +263,12 @@ const Activities = () => {
                                 key={activity.id}
                                 variants={itemVariants}
                                 whileHover={{ y: -8, scale: 1.02 }}
-                                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-gray-100 dark:border-gray-700"
+                                className="h-full"
                             >
+                                <SpotlightCard
+                                    spotlightColor="rgba(56, 189, 248, 0.15)"
+                                    className="rounded-xl h-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 group border border-gray-100 dark:border-gray-700 overflow-hidden"
+                                >
                                 <div className="relative overflow-hidden h-56">
                                     <img
                                         src={ActivityImage}
@@ -246,12 +276,14 @@ const Activities = () => {
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white translate-y-0 transition-transform duration-300 group-hover:-translate-y-12">
                                         <div className="flex items-start justify-between mb-2">
                                             <div>
-                                                <h3 className="text-xl font-bold line-clamp-2">
-                                                    {activity.title}
-                                                </h3>
+                                                <div className="h-[3.5rem] flex items-center">
+                                                    <h3 className="text-xl font-bold line-clamp-2">
+                                                        {activity.title}
+                                                    </h3>
+                                                </div>
                                                 <div
                                                     className={`flex items-center space-x-2 text-sm mt-1 text-gray-300`}
                                                 >
@@ -269,13 +301,23 @@ const Activities = () => {
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                     <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100 flex justify-center z-10">
+                                        <button
+                                            onClick={() => setSelectedActivity(activity)}
+                                            className="bg-white/20 backdrop-blur-md text-white py-2 px-6 rounded-full flex items-center space-x-2 hover:bg-white/30 transition-all border border-white/30"
+                                        >
+                                            <FaEye />
+                                            <span>View Details</span>
+                                        </button>
+                                    </div>
                                 </div>
 
-                                <div className="p-4">
-                                    <div className="space-y-3 mb-4 border-b border-gray-100 dark:border-gray-700 pb-3">
+                                    <div className="p-4 flex flex-col h-full">
+                                    <div className="space-y-3 mb-4 border-b border-gray-100 dark:border-gray-700 pb-3 flex-shrink-0">
                                         <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
                                             <FaBuilding className="text-blue-600 dark:text-blue-400 text-base flex-shrink-0" />
-                                            <span className="text-sm font-medium">
+                                            <span className="text-sm font-medium truncate">
                                                 {activity.organization}
                                             </span>
                                         </div>
@@ -287,12 +329,22 @@ const Activities = () => {
                                         </div>
                                     </div>
 
-                                    <div className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed line-clamp-3">
+                                    <div className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed line-clamp-3 h-[4.5rem] overflow-hidden flex-shrink-0">
                                         <Markdown>
                                             {activity.description}
                                         </Markdown>
                                     </div>
+                                    
+                                    <motion.button
+                                        onClick={() => setSelectedActivity(activity)}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="w-full bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-3 rounded-xl font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:shadow-md mt-auto"
+                                    >
+                                        <span>View Details</span>
+                                        <FaEye className="text-xs" />
+                                    </motion.button>
                                 </div>
+                                </SpotlightCard>
                             </motion.div>
                         );
                     })}
@@ -355,6 +407,83 @@ const Activities = () => {
                             </p>
                         </motion.div>
                     )
+                )}
+                {/* Activity Details Modal */}
+                {selectedActivity && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="fixed inset-0 bg-black/60 backdrop-blur-md z-[100] flex items-center justify-center p-4"
+                        onClick={() => setSelectedActivity(null)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.8, opacity: 0, y: 50 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            className="bg-white dark:bg-gray-800 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 dark:border-gray-700"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="relative bg-gray-100 dark:bg-gray-900 rounded-t-3xl flex items-center justify-center overflow-hidden">
+                                <img
+                                    src={selectedActivity.image || "https://via.placeholder.com/400x250?text=Activity+Image"}
+                                    alt={selectedActivity.title}
+                                    className="w-full h-auto max-h-[60vh] object-cover"
+                                />
+                                
+                                <button
+                                    onClick={() => setSelectedActivity(null)}
+                                    className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all backdrop-blur-sm border border-white/20 z-10"
+                                >
+                                    <FaTimes className="text-lg" />
+                                </button>
+                                
+                                <div className="absolute top-4 left-4">
+                                     <div className={`backdrop-blur-md bg-white/20 text-white px-3 py-1.5 rounded-full text-xs font-bold border border-white/30 flex items-center gap-2`}>
+                                         {(() => {
+                                             const StatusIcon = getStatusIcon(selectedActivity.status);
+                                             return <StatusIcon className="text-xs" />;
+                                         })()}
+                                         {selectedActivity.status}
+                                     </div>
+                                </div>
+                            </div>
+
+                            <div className="p-8">
+                                <div className="mb-6">
+                                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                                        {selectedActivity.title}
+                                    </h2>
+                                    <div className="flex flex-wrap gap-4 mt-3">
+                                        <div className="flex items-center space-x-2 text-blue-600 dark:text-blue-400 font-medium">
+                                            <FaBuilding />
+                                            <span>{selectedActivity.organization}</span>
+                                        </div>
+                                         <div className="flex items-center space-x-2 text-gray-500 dark:text-gray-400">
+                                            <FaCalendarAlt />
+                                            <span>{selectedActivity.duration}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="mb-8 p-6 bg-gray-50 dark:bg-gray-700/30 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                    <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-200 dark:border-gray-600">
+                                         {(() => {
+                                             const RoleIcon = getRoleIcon(selectedActivity.role);
+                                             const roleColorClass = getRoleColor(selectedActivity.role);
+                                             return <RoleIcon className={`text-2xl ${roleColorClass.replace('bg-', 'text-').split(' ')[0]}`} />
+                                         })()}
+                                        <div>
+                                            <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block">Role</span>
+                                            <span className="text-lg font-bold text-gray-800 dark:text-gray-200">{selectedActivity.role}</span>
+                                        </div>
+                                    </div>
+                                    
+                                     <div className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg markdown-content">
+                                        <Markdown>{selectedActivity.description}</Markdown>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
                 )}
             </div>
         </div>

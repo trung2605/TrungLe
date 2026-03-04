@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { FaSun, FaMoon } from "react-icons/fa";
 import { useCustomTheme } from "../../contexts/ThemeContext";
 import { personalInfo, siteNavigation } from "../../data";
 import { motion, AnimatePresence } from "framer-motion";
@@ -81,7 +82,7 @@ const Navigation = () => {
               className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-sky-100 dark:hover:bg-slate-700 hover:text-sky-600 dark:hover:text-amber-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sky-500/50"
               aria-label="Toggle theme"
             >
-              {isDarkMode ? "☀️" : "🌙"}
+              {isDarkMode ? <FaSun className="text-amber-500 text-xl" /> : <FaMoon className="text-sky-600 text-xl" />}
             </button>
 
             {/* Mobile Hamburger */}

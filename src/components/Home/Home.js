@@ -1,46 +1,19 @@
-﻿import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
 import "./Home.scss";
 import { siteNavigation } from "../../data";
 import { personalInfo } from "../../data";
 import { skills, allSkillsData } from "../../data";
-
-const Typewriter = ({ text, delay = 0 }) => {
-    const [currentText, setCurrentText] = useState('');
-    const [started, setStarted] = useState(false);
-
-    useEffect(() => {
-        const startTimeout = setTimeout(() => {
-            setStarted(true);
-        }, delay);
-        return () => clearTimeout(startTimeout);
-    }, [delay]);
-
-    useEffect(() => {
-        if (!started) return;
-
-        let currentIndex = 0;
-        const interval = setInterval(() => {
-            if (currentIndex <= text.length) {
-                setCurrentText(text.slice(0, currentIndex));
-                currentIndex++;
-            } else {
-                clearInterval(interval);
-            }
-        }, 50); // Typing speed
-
-        return () => clearInterval(interval);
-    }, [text, started]);
-
-    return (
-        <span>
-            {currentText}
-            <span className="cursor"></span>
-        </span>
-    );
-};
+import BlurText from "../../animations/BlurText";
+import ShinyText from "../../animations/ShinyText";
+import CountUp from "../../animations/CountUp";
+import RotatingText from "../../animations/RotatingText";
+import DecryptedText from "../../animations/DecryptedText";
+import Aurora from "../../animations/Aurora";
+import Particles from "../../animations/Particles";
+import SpotlightCard from "../../animations/SpotlightCard";
+import Waves from "../../animations/Waves";
 
 const Home = () => {
     // Skills Animation Variants
@@ -88,7 +61,19 @@ const Home = () => {
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <section className="lg:py-32">
+      <section className="lg:py-32 relative">
+        <div 
+          className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[100vw] -z-10 opacity-30 dark:opacity-50 pointer-events-none" 
+          style={{ minHeight: '120%' }}
+        >
+          <Aurora
+            colorStops={['#38bdf8', '#818cf8', '#60a5fa']}
+            amplitude={1.2}
+            blend={0.8}
+            speed={0.8}
+          />
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
@@ -97,15 +82,41 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 text-sm font-medium mb-4 border border-sky-200 dark:border-sky-800">
+                <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
+                Available for opportunities
+              </span>
+            </motion.div>
+
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white"
             >
-              Xin chào tôi là{" "}
-              <span className="block mt-2 text-gradient bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent glitch-wrapper">
-                 <span className="glitch" data-text="Lê Trí Trung">Lê Trí Trung</span>
+              <BlurText
+                text="Xin chào tôi là"
+                delay={60}
+                animateBy="words"
+                direction="top"
+                className="block"
+              />
+              <span className="block mt-2 text-gradient bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
+                <DecryptedText
+                  text="Lê Trí Trung"
+                  speed={100}
+                  maxIterations={15}
+                  sequential={true}
+                  revealDirection="start"
+                  animateOn="view"
+                  characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+                  className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
+                />
               </span>
             </motion.h1>
 
@@ -113,9 +124,25 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium h-8"
+              className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium flex items-center gap-3 flex-wrap"
             >
-              <Typewriter text="Java Developer & Computer Science Student" delay={1000} />
+              <span>I am a</span>
+              <RotatingText
+                texts={[
+                  "Java Developer",
+                  "CS Student",
+                  "Problem Solver",
+                  "Backend Engineer",
+                ]}
+                mainClassName="inline-flex items-center px-4 py-1 bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-300 rounded-lg font-semibold text-xl"
+                rotationInterval={2500}
+                staggerDuration={0.025}
+                staggerFrom="last"
+                transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+                initial={{ y: '110%', opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: '-110%', opacity: 0 }}
+              />
             </motion.h2>
 
             <motion.p
@@ -139,16 +166,19 @@ const Home = () => {
             >
               <Link
                 to="/projects"
-                className="btn-primary inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-blue-500/50"
+                className="btn-primary inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-blue-500/50 hover:-translate-y-0.5 active:scale-95"
               >
                 <span>View Projects</span>
-                <span>🚀</span>
+                <motion.span
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                >🚀</motion.span>
               </Link>
 
               <a
                 href={personalInfo.cv}
                 download="Le_Tri_Trung_Java_Developer_CV.pdf"
-                className="inline-flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+                className="inline-flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
               >
                 <FaDownload size={16} />
                 <span>Download CV</span>
@@ -162,26 +192,28 @@ const Home = () => {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="flex items-center space-x-6 pt-4"
             >
-              <span className="text-gray-600 dark:text-gray-400">
-                Connect with me:
-              </span>
+              <span className="text-gray-600 dark:text-gray-400">Connect with me:</span>
               <div className="flex space-x-4">
-                <a
+                <motion.a
                   href={personalInfo.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   <FaGithub size={24} />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href={personalInfo.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                   className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors duration-200"
                 >
                   <FaLinkedin size={24} />
-                </a>
+                </motion.a>
               </div>
             </motion.div>
           </motion.div>
@@ -212,7 +244,11 @@ const Home = () => {
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 className="absolute -inset-10 rounded-full border border-sky-500/10"
               >
-                  <motion.div className="absolute top-0 left-1/2 w-4 h-4 bg-sky-500 rounded-full blur-[2px]" />
+                  <motion.div
+                    animate={{ scale: [1, 1.5, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="absolute top-0 left-1/2 w-4 h-4 bg-sky-500 rounded-full blur-[2px]"
+                  />
               </motion.div>
 
               {/* Main content area */}
@@ -249,42 +285,49 @@ const Home = () => {
       </section>
 
       {/* Quick Stats Section */}
-      <section className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700/50">
+      <section className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700/50 overflow-hidden relative">
+        {/* Subtle particles background */}
+        <div className="absolute inset-0 opacity-30">
+          <Particles
+            particleCount={30}
+            speed={0.3}
+            particleColors={['#38bdf8', '#818cf8', '#60a5fa']}
+            moveParticlesOnHover={false}
+            particleBaseSize={1.5}
+          />
+        </div>
+
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10"
         >
-          <div className="decorative-stat bg-transparent shadow-none border-none">
-            <div className="text-3xl lg:text-4xl font-bold text-blue-600 dark:text-blue-400">
-              10+
-            </div>
-            <div className="text-gray-600 dark:text-gray-400 mt-2 font-medium">
-              Projects
-            </div>
-          </div>
-          <div className="decorative-stat bg-transparent shadow-none border-none">
-            <div className="text-3xl lg:text-4xl font-bold text-sky-600 dark:text-sky-400">
-              5+
-            </div>
-            <div className="text-gray-600 dark:text-gray-400 mt-2 font-medium">
-              Certificates
-            </div>
-          </div>
-          <div className="decorative-stat bg-transparent shadow-none border-none">
-            <div className="text-3xl lg:text-4xl font-bold text-cyan-600 dark:text-cyan-400">
-              15+
-            </div>
-            <div className="text-gray-600 dark:text-gray-400 mt-2 font-medium">Skills</div>
-          </div>
-          <div className="decorative-stat bg-transparent shadow-none border-none">
-            <div className="text-3xl lg:text-4xl font-bold text-indigo-600 dark:text-indigo-400">
-              3+
-            </div>
-            <div className="text-gray-600 dark:text-gray-400 mt-2 font-medium">Awards</div>
-          </div>
+          {[
+            { value: 10, suffix: '+', label: 'Projects', color: 'text-blue-600 dark:text-blue-400' },
+            { value: 5, suffix: '+', label: 'Certificates', color: 'text-sky-600 dark:text-sky-400' },
+            { value: 15, suffix: '+', label: 'Skills', color: 'text-cyan-600 dark:text-cyan-400' },
+            { value: 3, suffix: '+', label: 'Awards', color: 'text-indigo-600 dark:text-indigo-400' },
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              className="decorative-stat bg-transparent shadow-none border-none"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              <div className={`text-3xl lg:text-4xl font-bold ${stat.color}`}>
+                <CountUp
+                  to={stat.value}
+                  from={0}
+                  duration={2}
+                  delay={index * 0.1}
+                  suffix={stat.suffix}
+                />
+              </div>
+              <div className="text-gray-600 dark:text-gray-400 mt-2 font-medium">{stat.label}</div>
+            </motion.div>
+          ))}
         </motion.div>
       </section>
 
@@ -297,10 +340,21 @@ const Home = () => {
             className="text-center mb-16"
         >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Skills &{" "}
-            <span className="text-gradient bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-                Expertise
-            </span>
+              <BlurText
+                text="Skills &"
+                delay={50}
+                animateBy="words"
+                direction="bottom"
+                className="inline"
+              />
+              {" "}
+              <ShinyText
+                text="Expertise"
+                color="#38bdf8"
+                shineColor="#ffffff"
+                speed={3}
+                className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
+              />
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             A comprehensive overview of the technical and soft skills I've
@@ -364,7 +418,7 @@ const Home = () => {
               className="skill-tag cursor-default"
             >
               <div className="skill-item">
-                <span className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full text-base font-medium shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-200 hover:border-sky-500 hover:text-sky-600 dark:hover:text-sky-400">
+                <span className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full text-base font-medium shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-200 hover:border-sky-500 hover:text-sky-600 dark:hover:text-sky-400 inline-block">
                   {tech.name}
                 </span>
               </div>
@@ -374,44 +428,79 @@ const Home = () => {
       </section>
 
       {/* Quick Navigation */}
-      <section className="py-16 pt-0">
+      <section className="py-24 relative overflow-visible">
+        {/* Full-width Waves Background */}
+        <div 
+          className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[100vw] -z-10 opacity-30 dark:opacity-40 pointer-events-none"
+        >
+          <Waves 
+            lineColor="rgba(56, 189, 248, 0.4)"
+            backgroundColor="transparent"
+            waveSpeedX={0.015}
+            waveSpeedY={0.01}
+            waveAmpX={35}
+            waveAmpY={20}
+            friction={0.93}
+            tension={0.01}
+            xGap={12}
+            yGap={34}
+          />
+        </div>
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
+          className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16"
         >
-          Explore More About Me
+          <BlurText
+            text="Explore More About Me"
+            delay={40}
+            animateBy="words"
+            direction="bottom"
+          />
         </motion.h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {siteNavigation.slice(1).filter(item => item.title !== "Skills").map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="navigation-group"
-            >
-              <Link
-                to={item.path}
-                className="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group relative overflow-hidden"
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {siteNavigation.slice(1).filter(item => item.title !== "Skills").map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="navigation-group"
               >
-                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-sky-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300 inline-block">
-                    {item.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
-                  {item.desc}
-                </p>
-              </Link>
-            </motion.div>
-          ))}
+                <SpotlightCard
+                  spotlightColor="rgba(56, 189, 248, 0.14)"
+                  className="rounded-xl h-full"
+                >
+                  <Link
+                    to={item.path}
+                    className="block p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group relative overflow-hidden h-full"
+                  >
+                    <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-sky-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    <motion.div
+                      className="text-4xl mb-6 inline-block"
+                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                    >
+                        {item.icon}
+                    </motion.div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-base">
+                      {item.desc}
+                    </p>
+                  </Link>
+                </SpotlightCard>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

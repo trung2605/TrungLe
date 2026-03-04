@@ -1,7 +1,7 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaHeart, FaArrowUp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaHeart, FaArrowUp, FaMapMarkerAlt } from 'react-icons/fa';
 import { socialLinks, siteNavigation, personalInfo } from '../../data';
 
 const Footer = () => {
@@ -84,11 +84,11 @@ const Footer = () => {
                         <h4 className="font-heading font-bold text-slate-900 dark:text-white mb-6">Contact</h4>
                         <ul className="space-y-4">
                             <li className="flex items-start space-x-3 text-slate-600 dark:text-slate-400">
-                                <span className="mt-1 text-sky-500">📍</span>
+                                <span className="mt-1 text-sky-500"><FaMapMarkerAlt /></span>
                                 <span>{personalInfo.contact.location}</span>
                             </li>
                             <li className="flex items-center space-x-3 text-slate-600 dark:text-slate-400">
-                                <span className="text-sky-500">📧</span>
+                                <span className="text-sky-500"><FaEnvelope /></span>
                                 <a href={`mailto:${personalInfo.contact.email}`} className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
                                     {personalInfo.contact.email}
                                 </a>

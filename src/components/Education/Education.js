@@ -1,10 +1,13 @@
-﻿import React from 'react';
+﻿
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaCalendarAlt, FaStar, FaSchool } from 'react-icons/fa';
 import { education } from '../../data';
 import './Education.scss';
 import Markdown from 'react-markdown';
 import MemoryGallery from './MemoryGallery';
+import BlurText from '../../animations/BlurText';
+import ShinyText from '../../animations/ShinyText';
+import SpotlightCard from '../../animations/SpotlightCard';
 
 
 const Education = () => {
@@ -44,13 +47,28 @@ const Education = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            <FaGraduationCap className="inline-block mr-4 text-blue-600 animate-bounce" />
-            <span className="text-gradient bg-gradient-to-r from-blue-600 via-sky-500 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-textShine">
-                Education
-            </span>
+            <motion.span
+              className="inline-block mr-4 text-blue-600"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <FaGraduationCap />
+            </motion.span>
+            <ShinyText
+              text="Education"
+              color="#3b82f6"
+              shineColor="#93c5fd"
+              speed={4}
+              className="bg-gradient-to-r from-blue-600 via-sky-500 to-blue-600 bg-clip-text text-transparent"
+            />
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            My educational journey and academic achievements
+            <BlurText
+              text="My educational journey and academic achievements"
+              delay={30}
+              animateBy="words"
+              direction="bottom"
+            />
           </p>
         </motion.div>
 
@@ -80,15 +98,19 @@ const Education = () => {
                 </div>
                 
                 {/* Content */}
-                <motion.div 
-                    whileHover={{ 
-                        scale: 1.02, 
-                        rotateY: 2, 
-                        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" 
+                <motion.div
+                    whileHover={{
+                        scale: 1.02,
+                        rotateY: 2,
+                        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
                     }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    className="flex-1 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-colors duration-300 transform-gpu"
+                    className="flex-1 transform-gpu"
                 >
+                  <SpotlightCard
+                    spotlightColor="rgba(59, 130, 246, 0.14)"
+                    className="rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-colors duration-300 bg-white dark:bg-gray-800"
+                  >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                     <div>
                       <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
@@ -98,10 +120,10 @@ const Education = () => {
                         {edu.degree}
                       </p>
                     </div>
-                    
+
                     <div className="mt-4 md:mt-0">
                       <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-bold tracking-wide shadow-sm ${
-                        edu.status === 'Current' 
+                        edu.status === 'Current'
                           ? 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300 ring-2 ring-green-500/20'
                           : 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 ring-2 ring-blue-500/20'
                       }`}>
@@ -109,7 +131,7 @@ const Education = () => {
                       </span>
                     </div>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-6 mb-6 p-4 bg-gray-50 dark:bg-gray-700/30 rounded-xl">
                     <div className="flex items-center space-x-3">
                       <div className="p-2 bg-blue-100 dark:bg-blue-900/50 rounded-lg text-blue-600 dark:text-blue-400">
@@ -117,7 +139,7 @@ const Education = () => {
                       </div>
                       <span className="text-gray-700 dark:text-gray-300 font-medium">{edu.duration}</span>
                     </div>
-                    
+
                     <div className="flex items-center space-x-3">
                       <div className="p-2 bg-yellow-100 dark:bg-yellow-900/50 rounded-lg text-yellow-600 dark:text-yellow-400">
                         <FaStar />
@@ -125,12 +147,13 @@ const Education = () => {
                       <span className="text-gray-700 dark:text-gray-300 font-bold">GPA: {edu.gpa}</span>
                     </div>
                   </div>
-                  
+
                   <div className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
                       <Markdown>
                         {edu.description}
                       </Markdown>
                   </div>
+                  </SpotlightCard>
                 </motion.div>
               </div>
             </motion.div>
@@ -139,8 +162,16 @@ const Education = () => {
 
         <div className="mt-20">
             <h2 className="text-3xl font-bold text-center mb-10 text-gray-900 dark:text-white flex items-center justify-center gap-3">
-                <span>📸</span> 
-                <span>Campus Memories</span>
+                <motion.span
+                  animate={{ rotate: [0, 15, -5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                >📸</motion.span>
+                <BlurText
+                  text="Campus Memories"
+                  delay={40}
+                  animateBy="words"
+                  direction="top"
+                />
             </h2>
             <MemoryGallery />
         </div>

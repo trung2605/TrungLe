@@ -1,7 +1,10 @@
-﻿import React from "react";
+﻿
 import { motion } from "framer-motion";
 import { skills, allSkillsData } from "../../data";
 import "./Skills.scss";
+import BlurText from "../../animations/BlurText";
+import ShinyText from "../../animations/ShinyText";
+import DecryptedText from "../../animations/DecryptedText";
 
 const Skills = () => {
   const containerVariants = {
@@ -61,10 +64,21 @@ const Skills = () => {
         className="text-center mb-16"
       >
         <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-          Skills &{" "}
-          <span className="text-gradient bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-            Expertise
-          </span>
+          <BlurText
+            text="Skills &"
+            delay={50}
+            animateBy="words"
+            direction="bottom"
+            className="inline"
+          />
+          {" "}
+          <ShinyText
+            text="Expertise"
+            color="#38bdf8"
+            shineColor="#ffffff"
+            speed={3}
+            className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
+          />
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
           A comprehensive overview of the technical and soft skills I've
@@ -132,13 +146,19 @@ const Skills = () => {
               key={index}
               variants={getItemVariants(index)}
               transition={{ duration: 0.4 }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1, rotate: 2 }}
               className="skill-tag"
             >
               <div className="skill-item">
-                <span className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-base font-medium shadow-sm transition-colors duration-200 hover:bg-sky-100 dark:hover:bg-sky-900/30 hover:text-sky-700 dark:hover:text-sky-300">
-                  {tech.name}
-                </span>
+                <DecryptedText
+                  text={tech.name}
+                  speed={30}
+                  maxIterations={8}
+                  sequential={false}
+                  animateOn="hover"
+                  encryptedClassName="text-sky-500 dark:text-sky-400"
+                  className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-base font-medium shadow-sm transition-colors duration-200 hover:bg-sky-100 dark:hover:bg-sky-900/30 hover:text-sky-700 dark:hover:text-sky-300 inline-block"
+                />
               </div>
             </motion.div>
           ))}

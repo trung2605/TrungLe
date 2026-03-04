@@ -1,8 +1,20 @@
+
 import {
   FaGraduationCap,
   FaCode,
   FaCertificate,
   FaTrophy,
+  FaServer,
+  FaGlobe,
+  FaPuzzlePiece,
+  FaUsers,
+  FaCrown,
+  FaMicrophone,
+  FaVideo,
+  FaHome,
+  FaUser,
+  FaLaptopCode,
+  FaMedal,
 } from "react-icons/fa";
 import NewAvatar from './assets/information/image.png';
 
@@ -114,24 +126,24 @@ export const highlights = [
     title: "Backend Expertise",
     description:
       "Specialized in Java development, particularly with the Spring Boot framework.",
-    icon: "⚙️",
+    icon: <FaServer className="w-8 h-8 text-blue-500" />,
   },
   {
     title: "Modern Web Technologies",
     description: "Proficient in ReactJS and various modern web technologies.",
-    icon: "🌐",
+    icon: <FaGlobe className="w-8 h-8 text-green-500" />,
   },
   {
     title: "Complex Problem Solving",
     description:
       "Passionate about tackling complex programming challenges and optimizing solutions.",
-    icon: "🧩",
+    icon: <FaPuzzlePiece className="w-8 h-8 text-purple-500" />,
   },
   {
     title: "Team Leadership & Management",
     description:
       "Proven experience in leading development teams and managing project timelines.",
-    icon: "👥",
+    icon: <FaUsers className="w-8 h-8 text-orange-500" />,
   },
 ];
 
@@ -190,7 +202,7 @@ export const experienceBlocks = [
   {
     id: 1,
     title: "Competitive Coding & Real-World Exposure",
-    icon: "🏆",
+    icon: <FaTrophy fontSize={30} />,
     description:
       "Frequent participation in university-level **coding competitions** (e.g., Innocode, ResFes, Code Talent) and **project-based challenges**, ensuring continuous exposure to **algorithmic thinking** and pressurized **development environments**.",
     color: "from-purple-500 to-indigo-600",
@@ -198,7 +210,7 @@ export const experienceBlocks = [
   {
     id: 2,
     title: "Leadership in Community & Projects",
-    icon: "👑",
+    icon: <FaCrown fontSize={30} />,
     description:
       "Proven ability to lead **cross-functional teams**, serving as **Team Leader** for multiple projects, a **student organization founder**, and a manager in **community initiatives**.",
     color: "from-blue-500 to-cyan-600",
@@ -206,7 +218,7 @@ export const experienceBlocks = [
   {
     id: 3,
     title: "Exceptional Public Speaking Skills",
-    icon: "🗣️",
+    icon: <FaMicrophone fontSize={30} />,
     description:
       "Extensive experience as an **MC/Host** for large university events (**600-1000+ attendees**), developing strong **public speaking**, **improvisation**, and **dynamic event management** capabilities.",
     color: "from-green-500 to-teal-600",
@@ -214,7 +226,7 @@ export const experienceBlocks = [
   {
     id: 4,
     title: "Versatile Media & Consulting Experience",
-    icon: "🎬",
+    icon: <FaVideo fontSize={30} />,
     description:
       "Diverse exposure in **media roles** (Actor, Model, Vlogger) and event **coordination/consulting**, demonstrating **versatility**, **quick adaptability**, and **professional presentation skills**.",
     color: "from-orange-500 to-red-600",
@@ -1102,38 +1114,38 @@ export const siteNavigation = [
     {
         title: "Home",
         desc: "Welcome to my portfolio",
-        icon: "🏠",
+        icon: <FaHome />,
         path: "/",
     },
     {
         title: "About",
         desc: "Learn about my journey and passion",
-        icon: "🙋‍♂️",
+        icon: <FaUser />,
         path: "/about",
     },
     {
         title: "Projects",
         desc: "Explore the projects I have worked on",
-        icon: "💻",
+        icon: <FaLaptopCode />,
         path: "/projects",
     },
 
     {
         title: "Education",
         desc: "My learning and development journey",
-        icon: "🎓",
+        icon: <FaGraduationCap />,
         path: "/education",
     },
     {
         title: "Certificates & Achievements",
         desc: "My certifications and achievements",
-        icon: "🏅",
+        icon: <FaCertificate />,
         path: "/certificates",
     },
     {
         title: "Activities",
-        desc: "My extracurricular involvement and leadership roles",
-        icon: "👥",
+        desc: "My extracurricular involvement and leadership",
+        icon: <FaUsers />,
         path: "/activities",
     },
 ];

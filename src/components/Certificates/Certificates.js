@@ -1,8 +1,11 @@
-﻿import React, { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaCalendarAlt, FaCertificate, FaEye, FaSearch, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaCalendarAlt, FaCertificate, FaEye, FaSearch, FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 import { certificates } from '../../data';
 import './Certificates.scss';
+import BlurText from '../../animations/BlurText';
+import ShinyText from '../../animations/ShinyText';
+import SpotlightCard from '../../animations/SpotlightCard';
 
 const ITEMS_PER_PAGE = 9;
 
@@ -49,10 +52,21 @@ const Certificates = () => {
                 className="text-center mb-16"
             >
                 <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                    Certificates &{' '}
-                    <span className="text-gradient bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent glitch-wrapper">
-                         Achievements
-                    </span>
+                    <BlurText
+                      text="Certificates &"
+                      delay={50}
+                      animateBy="words"
+                      direction="bottom"
+                      className="inline"
+                    />
+                    {' '}
+                    <ShinyText
+                      text="Achievements"
+                      color="#38bdf8"
+                      shineColor="#ffffff"
+                      speed={3}
+                      className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
+                    />
                 </h1>
                 <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
                     A comprehensive list of certifications and achievements gained throughout my learning and development journey.
@@ -117,14 +131,17 @@ const Certificates = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1, duration: 0.6 }}
-                        whileHover={{ 
+                        whileHover={{
                             y: -10,
                             rotateX: 5,
                             scale: 1.02,
-                            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
                         }}
-                        className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group perspective-1000 border border-gray-100 dark:border-gray-700"
+                        className="perspective-1000 h-full"
                     >
+                        <SpotlightCard
+                            spotlightColor="rgba(34, 211, 238, 0.15)"
+                            className="rounded-2xl h-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 group border border-gray-100 dark:border-gray-700 flex flex-col overflow-hidden"
+                        >
                         <div className="relative overflow-hidden h-52">
                             <img
                                 src={certificate.image}
@@ -150,37 +167,40 @@ const Certificates = () => {
                             </div>
                         </div>
 
-                        <div className="p-6">
-                            <div className="flex items-start justify-between mb-3">
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                                    {certificate.name}
-                                </h3>
+                        <div className="p-6 flex flex-col h-full">
+                            <div className="flex items-start justify-between mb-3 flex-shrink-0">
+                                <div className="h-[3.5rem] flex items-center pr-2">
+                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                                        {certificate.name}
+                                    </h3>
+                                </div>
                                 <FaCertificate className="text-blue-600 dark:text-blue-400 text-xl flex-shrink-0 ml-2 group-hover:rotate-12 transition-transform duration-300" />
                             </div>
 
-                            <div className="flex items-center space-x-2 mb-3 text-gray-600 dark:text-gray-400 text-sm">
+                            <div className="flex items-center space-x-2 mb-3 text-gray-600 dark:text-gray-400 text-sm flex-shrink-0">
                                 <span className="font-semibold text-gray-400 uppercase tracking-wider text-xs">Issued by</span>
-                                <span className="font-medium text-gray-800 dark:text-gray-200">{certificate.issuer}</span>
+                                <span className="font-medium text-gray-800 dark:text-gray-200 truncate">{certificate.issuer}</span>
                             </div>
 
-                            <div className="flex items-center space-x-2 mb-4 text-gray-500 dark:text-gray-500 text-sm">
+                            <div className="flex items-center space-x-2 mb-4 text-gray-500 dark:text-gray-500 text-sm flex-shrink-0">
                                 <FaCalendarAlt />
                                 <span>{certificate.year}</span>
                             </div>
 
-                            <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4 h-10">
+                            <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4 h-[3rem] overflow-hidden flex-grow-0">
                                 {certificate.description}
                             </p>
 
                             <motion.button
                                 onClick={() => setSelectedCertificate(certificate)}
                                 whileTap={{ scale: 0.95 }}
-                                className="w-full bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-3 rounded-xl font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:shadow-md"
+                                className="w-full bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-3 rounded-xl font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:shadow-md mt-auto"
                             >
                                 <span>Learn More</span>
                                 <FaChevronRight className="text-xs" />
                             </motion.button>
                         </div>
+                        </SpotlightCard>
                     </motion.div>
                 ))}
             </div>
@@ -247,7 +267,7 @@ const Certificates = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4"
+                    className="fixed inset-0 bg-black/60 backdrop-blur-md z-[100] flex items-center justify-center p-4"
                     onClick={() => setSelectedCertificate(null)}
                 >
                     <motion.div
@@ -256,24 +276,19 @@ const Certificates = () => {
                         className="bg-white dark:bg-gray-800 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 dark:border-gray-700"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="relative">
+                        <div className="relative bg-gray-100 dark:bg-gray-900 rounded-t-3xl flex items-center justify-center overflow-hidden">
                             <img
                                 src={selectedCertificate.image}
                                 alt={selectedCertificate.name}
-                                className="w-full h-72 object-cover rounded-t-3xl"
+                                className="w-full h-auto max-h-[70vh] object-contain"
                             />
-                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                            
                             <button
                                 onClick={() => setSelectedCertificate(null)}
-                                className="absolute top-4 right-4 bg-black/30 backdrop-blur-md text-white p-2 rounded-full hover:bg-black/50 transition-colors border border-white/20"
+                                className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all backdrop-blur-sm border border-white/20 z-10"
                             >
-                                &times;
+                                <FaTimes className="text-lg" />
                             </button>
-                            <div className="absolute bottom-6 left-6">
-                                <span className="bg-blue-600 text-white px-4 py-1.5 rounded-full font-bold text-sm shadow-lg">
-                                    {selectedCertificate.year}
-                                </span>
-                            </div>
                         </div>
 
                         <div className="p-8">

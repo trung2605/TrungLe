@@ -1,9 +1,12 @@
-﻿import React, { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaCode, FaUser, FaTags } from 'react-icons/fa';
 import { projects } from '../../data';
 import './Projects.scss';
 import { default as ReactMarkdown } from 'react-markdown';
+import BlurText from '../../animations/BlurText';
+import ShinyText from '../../animations/ShinyText';
+import SpotlightCard from '../../animations/SpotlightCard';
 
 // 3D Tilt Card Component
 const ProjectCard = ({ project, onClick }) => {
@@ -47,102 +50,107 @@ const ProjectCard = ({ project, onClick }) => {
             style={{
                 rotateX: rotateX,
                 rotateY: rotateY,
-                transformStyle: "preserve-3d",
+                transformStyle: 'preserve-3d',
             }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="relative perspective-1000"
+            className="relative perspective-1000 h-full"
         >
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                style={{ transformStyle: "preserve-3d" }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group h-full flex flex-col border border-gray-100 dark:border-gray-700"
+            <SpotlightCard
+                spotlightColor="rgba(56, 189, 248, 0.18)"
+                className="h-full rounded-2xl"
             >
-                {/* Project Image */}
-                <div className="relative overflow-hidden h-48 flex-shrink-0 transform-gpu z-10">
-                    <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
-                    <div className="absolute top-4 right-4 translate-z-10">
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md shadow-sm ${getStatusColor(project.status)}`}>
-                            {project.status}
-                        </span>
-                    </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    style={{ transformStyle: 'preserve-3d' }}
+                    className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group h-full flex flex-col border border-gray-100 dark:border-gray-700"
+                >
+                    {/* Project Image */}
+                    <div className="relative overflow-hidden h-48 flex-shrink-0 transform-gpu z-10">
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                    <div className="absolute bottom-4 left-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">
-                        <a
-                            href={project.githubUrl}
-                            className="flex-1 bg-white/20 backdrop-blur-md text-white py-2 px-4 rounded-lg flex items-center justify-center space-x-2 hover:bg-white/30 transition-colors border border-white/20"
-                        >
-                            <FaGithub />
-                            <span className="text-sm">Code</span>
-                        </a>
-                        <a
-                            href={project.liveUrl}
-                            className="flex-1 bg-blue-600/80 backdrop-blur-md text-white py-2 px-4 rounded-lg flex items-center justify-center space-x-2 hover:bg-blue-600 transition-colors border border-white/10"
-                        >
-                            <FaExternalLinkAlt />
-                            <span className="text-sm">Demo</span>
-                        </a>
-                    </div>
-                </div>
-
-                {/* Project Content */}
-                <div className="p-6 flex-grow flex flex-col bg-white dark:bg-gray-800 transform-gpu z-20">
-                    <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                            {project.title}
-                        </h3>
-                    </div>
-
-                    <div className="flex items-center space-x-4 mb-4 text-sm text-gray-600 dark:text-gray-400">
-                        <div className="flex items-center space-x-1">
-                            <FaUser />
-                            <span>{project.role}</span>
+                        <div className="absolute top-4 right-4">
+                            <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md shadow-sm ${getStatusColor(project.status)}`}>
+                                {project.status}
+                            </span>
                         </div>
-                        <div className="flex items-center space-x-1">
-                            <FaCalendarAlt />
-                            <span>{project.duration}</span>
-                        </div>
-                    </div>
 
-                    <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 flex-grow">
-                        <ReactMarkdown>{project.description}</ReactMarkdown>
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        {project.techStack.slice(0, 3).map((tech, techIndex) => (
-                            <span
-                                key={techIndex}
-                                className="px-3 py-1 bg-sky-100 dark:bg-sky-900/30 text-sky-800 dark:text-sky-400 rounded-full text-xs font-medium border border-sky-100 dark:border-sky-800"
+                        <div className="absolute bottom-4 left-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">
+                            <a
+                                href={project.githubUrl}
+                                className="flex-1 bg-white/20 backdrop-blur-md text-white py-2 px-4 rounded-lg flex items-center justify-center space-x-2 hover:bg-white/30 transition-colors border border-white/20"
                             >
-                                {tech}
-                            </span>
-                        ))}
-                        {project.techStack.length > 3 && (
-                            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-xs border border-gray-200 dark:border-gray-600">
-                                +{project.techStack.length - 3}
-                            </span>
-                        )}
+                                <FaGithub />
+                                <span className="text-sm">Code</span>
+                            </a>
+                            <a
+                                href={project.liveUrl}
+                                className="flex-1 bg-blue-600/80 backdrop-blur-md text-white py-2 px-4 rounded-lg flex items-center justify-center space-x-2 hover:bg-blue-600 transition-colors border border-white/10"
+                            >
+                                <FaExternalLinkAlt />
+                                <span className="text-sm">Demo</span>
+                            </a>
+                        </div>
                     </div>
 
-                    <motion.button
-                        onClick={() => onClick(project)}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white py-3 rounded-lg font-medium hover:from-sky-600 hover:to-blue-700 transition-all duration-300 flex items-center justify-center space-x-2 shadow-md hover:shadow-lg shadow-blue-500/20"
-                    >
-                        <FaCode />
-                        <span>View Details</span>
-                    </motion.button>
-                </div>
-            </motion.div>
+                    {/* Project Content */}
+                    <div className="p-6 flex-grow flex flex-col bg-white dark:bg-gray-800 transform-gpu">
+                        <div className="flex items-center justify-between mb-3 h-[3.5rem]">
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                                {project.title}
+                            </h3>
+                        </div>
+
+                        <div className="flex items-center space-x-4 mb-4 text-sm text-gray-600 dark:text-gray-400 flex-shrink-0">
+                            <div className="flex items-center space-x-1">
+                                <FaUser />
+                                <span>{project.role}</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                                <FaCalendarAlt />
+                                <span>{project.duration}</span>
+                            </div>
+                        </div>
+
+                        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 h-[3rem] overflow-hidden flex-shrink-0">
+                            <ReactMarkdown>{project.description}</ReactMarkdown>
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 mb-4 flex-grow h-[2rem] overflow-y-hidden content-start">
+                            {project.techStack.slice(0, 3).map((tech, techIndex) => (
+                                <span
+                                    key={techIndex}
+                                    className="px-3 py-1 bg-sky-100 dark:bg-sky-900/30 text-sky-800 dark:text-sky-400 rounded-full text-xs font-medium border border-sky-100 dark:border-sky-800 flex-shrink-0"
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                            {project.techStack.length > 3 && (
+                                <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-xs border border-gray-200 dark:border-gray-600 flex-shrink-0">
+                                    +{project.techStack.length - 3}
+                                </span>
+                            )}
+                        </div>
+
+                        <motion.button
+                            onClick={() => onClick(project)}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white py-3 rounded-lg font-medium hover:from-sky-600 hover:to-blue-700 transition-all duration-300 flex items-center justify-center space-x-2 shadow-md hover:shadow-lg shadow-blue-500/20 mt-auto"
+                        >
+                            <FaCode />
+                            <span>View Details</span>
+                        </motion.button>
+                    </div>
+                </motion.div>
+            </SpotlightCard>
         </motion.div>
     );
 };
@@ -185,10 +193,21 @@ const Projects = () => {
                 className="text-center mb-16"
             >
                 <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
-                    Featured{" "}
-                    <span className="text-gradient bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent underline decoration-blue-500/30 underline-offset-8">
-                        Projects
-                    </span>
+                    <BlurText
+                      text="Featured"
+                      delay={50}
+                      animateBy="words"
+                      direction="bottom"
+                      className="inline"
+                    />
+                    {' '}
+                    <ShinyText
+                      text="Projects"
+                      color="#38bdf8"
+                      shineColor="#ffffff"
+                      speed={3}
+                      className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
+                    />
                 </h1>
                 <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
                     A showcase of my technical journey through code, architecture, and design.
@@ -238,7 +257,7 @@ const Projects = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4"
+                    className="fixed inset-0 bg-black/60 backdrop-blur-md z-[100] flex items-center justify-center p-4"
                     onClick={() => setSelectedProject(null)}
                 >
                     <motion.div
