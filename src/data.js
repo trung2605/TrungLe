@@ -99,8 +99,8 @@ export const personalInfo = {
     phone: "(+84) 912 158 715",
     birthday: "26/05/2005",
     location: "Hai Chau district, Da Nang city, Viet Nam",
-    facebook: "Trung Lê",
-    instagram: "trung.le.2605",
+    facebook: "https://www.facebook.com/trung.le.2605",
+    instagram: "https://www.instagram.com/trung.le.2605/?hl=en",
     github: "https://github.com/trung2605",
     linkedin: "https://www.linkedin.com/in/trung-l%C3%AA-7ba564283/",
   },
@@ -963,6 +963,11 @@ export const socialLinks = [
     name: "Email",
     url: "mailto:letritrung2605@gmail.com",
     icon: "FaEnvelope",
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/trung.le.2605/?hl=en",
+    icon: "FaInstagram",
   },
 ];
 

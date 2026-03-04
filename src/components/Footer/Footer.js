@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaHeart, FaArrowUp, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaHeart, FaArrowUp, FaMapMarkerAlt, FaInstagram } from 'react-icons/fa';
 import { socialLinks, siteNavigation, personalInfo } from '../../data';
 
 const Footer = () => {
@@ -12,7 +12,8 @@ const Footer = () => {
             facebook: FaFacebook,
             github: FaGithub,
             linkedin: FaLinkedin,
-            email: FaEnvelope
+            email: FaEnvelope,
+            instagram: FaInstagram
         };
         return icons[name.toLowerCase()] || FaEnvelope;
     };

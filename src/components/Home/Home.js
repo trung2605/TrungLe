@@ -1,6 +1,6 @@
 ﻿import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaDownload, FaGithub, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
 import "./Home.scss";
 import { siteNavigation } from "../../data";
 import { personalInfo } from "../../data";
@@ -213,6 +213,26 @@ const Home = () => {
                   className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors duration-200"
                 >
                   <FaLinkedin size={24} />
+                </motion.a>
+                <motion.a
+                  href={personalInfo.contact.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-gray-600 dark:text-gray-400 hover:text-pink-600 transition-colors duration-200"
+                >
+                  <FaInstagram size={24} />
+                </motion.a>
+                <motion.a
+                  href={personalInfo.contact.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-200"
+                >
+                  <FaFacebook size={24} />
                 </motion.a>
               </div>
             </motion.div>

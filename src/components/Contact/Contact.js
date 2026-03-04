@@ -1,6 +1,6 @@
 ﻿import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaPaperPlane } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaPaperPlane, FaInstagram } from 'react-icons/fa';
 import { personalInfo } from '../../data';
 import emailService from '../../services/emailService';
 import './Contact.scss';
@@ -89,16 +89,16 @@ const Contact = () => {
         {
             icon: FaFacebook,
             label: 'Facebook',
-            value: personalInfo.contact.facebook,
-            href: `https://www.facebook.com/${personalInfo.contact.facebook}`, // Sử dụng link Facebook chuẩn
+            value: 'Trung Lê',
+            href: personalInfo.contact.facebook, // Sử dụng link Facebook chuẩn
             color: 'text-blue-600',
             bgColor: 'bg-blue-100 dark:bg-blue-900/30'
         }, 
         {
-            icon: FaMapMarkerAlt,
+            icon: FaInstagram,
             label: 'Instagram',
-            value: personalInfo.contact.instagram,
-            href: `https://www.instagram.com/${personalInfo.contact.instagram}`, // Sử dụng link Instagram chuẩn
+            value: 'trung.le.2605',
+            href: personalInfo.contact.instagram, 
             color: 'text-pink-500',
             bgColor: 'bg-pink-100 dark:bg-pink-900/30'
         }
