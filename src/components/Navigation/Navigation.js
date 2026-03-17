@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { useCustomTheme } from "../../contexts/ThemeContext";
@@ -21,6 +21,13 @@ const Navigation = () => {
     setIsMenuOpen(false);
   }, [location]);
 
+  const handleLinkClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -32,7 +39,11 @@ const Navigation = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="group flex items-center space-x-3">
+          <Link 
+            to="/" 
+            className="group flex items-center space-x-3"
+            onClick={handleLinkClick}
+          >
             <div className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-tr from-sky-500 to-blue-600 text-white font-bold font-heading text-lg shadow-lg group-hover:shadow-sky-500/30 transition-shadow duration-300">
               LT
               <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -55,6 +66,7 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
+                  onClick={handleLinkClick}
                   className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     isActive
                       ? "text-sky-600 dark:text-sky-400"
@@ -126,6 +138,7 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
+                  onClick={handleLinkClick}
                   className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
                     location.pathname === item.path
                       ? "bg-sky-50 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400"

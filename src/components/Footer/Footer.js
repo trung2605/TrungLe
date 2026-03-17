@@ -1,5 +1,4 @@
-
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaHeart, FaArrowUp, FaMapMarkerAlt, FaInstagram } from 'react-icons/fa';
 import { socialLinks, siteNavigation, personalInfo } from '../../data';
@@ -30,7 +29,11 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
                     {/* Brand Section */}
                     <div className="md:col-span-5 space-y-6">
-                        <Link to="/" className="flex items-center space-x-3 group">
+                        <Link 
+                            to="/" 
+                            className="flex items-center space-x-3 group"
+                            onClick={scrollToTop}
+                        >
                             <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white font-bold text-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform duration-300">
                                 LT
                             </div>
@@ -70,6 +73,7 @@ const Footer = () => {
                                 <li key={item.path}>
                                     <Link 
                                         to={item.path} 
+                                        onClick={scrollToTop}
                                         className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center group"
                                     >
                                         <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-sky-500 mr-3 transition-colors" />
@@ -86,12 +90,12 @@ const Footer = () => {
                         <ul className="space-y-4">
                             <li className="flex items-start space-x-3 text-slate-600 dark:text-slate-400">
                                 <span className="mt-1 text-sky-500"><FaMapMarkerAlt /></span>
-                                <span>{personalInfo.contact.location}</span>
+                                <span>Ho Chi Minh City, Vietnam</span>
                             </li>
                             <li className="flex items-center space-x-3 text-slate-600 dark:text-slate-400">
                                 <span className="text-sky-500"><FaEnvelope /></span>
-                                <a href={`mailto:${personalInfo.contact.email}`} className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
-                                    {personalInfo.contact.email}
+                                <a href="mailto:letritrung2605@gmail.com" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                                    letritrung2605@gmail.com
                                 </a>
                             </li>
                         </ul>

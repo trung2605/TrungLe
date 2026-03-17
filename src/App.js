@@ -1,5 +1,4 @@
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+﻿import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppContextProvider } from './contexts/AppContext';
 import { ThemeContextProvider } from './contexts/ThemeContext';
 import MainLayout from './layout/MainLayout/MainLayout';
@@ -11,12 +10,14 @@ import EducationPage from './pages/EducationPage';
 import ProjectsPage from './pages/ProjectsPage';
 import CertificatesPage from './pages/CertificatesPage';
 import ActivitiesPage from './pages/ActivitiesPage';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <ThemeContextProvider>
       <AppContextProvider>
         <Router>
+          <ScrollToTop />
           <div className="App">
             <Routes>
               <Route path="/" element={<MainLayout />}>
