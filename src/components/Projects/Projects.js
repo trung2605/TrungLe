@@ -1,6 +1,6 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaCode, FaUser, FaTags } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaCode, FaUser, FaTags, FaChevronRight } from 'react-icons/fa';
 import { projects } from '../../data';
 import './Projects.scss';
 import { default as ReactMarkdown } from 'react-markdown';
@@ -8,7 +8,7 @@ import BlurText from '../../animations/BlurText';
 import ShinyText from '../../animations/ShinyText';
 import SpotlightCard from '../../animations/SpotlightCard';
 
-// 3D Tilt Card Component
+// Cinematic Film-Frame Project Card Component
 const ProjectCard = ({ project, onClick }) => {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -29,19 +29,15 @@ const ProjectCard = ({ project, onClick }) => {
         y.set(0);
     }
 
-    const rotateX = useTransform(mouseY, [-200, 200], [5, -5]); // Reduced rotation for subtlety
+    const rotateX = useTransform(mouseY, [-200, 200], [5, -5]);
     const rotateY = useTransform(mouseX, [-200, 200], [-5, 5]);
 
     const getStatusColor = (status) => {
         switch (status) {
-            case 'Active':
-                return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400';
-            case 'In Development':
-                return 'bg-sky-100 text-sky-800 dark:bg-sky-900/30 dark:text-sky-400';
-            case 'Completed':
-                return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400';
-            default:
-                return 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400';
+            case 'Active': return 'bg-emerald-500';
+            case 'In Development': return 'bg-amber-500';
+            case 'Completed': return 'bg-blue-600';
+            default: return 'bg-slate-500';
         }
     };
 
@@ -54,103 +50,97 @@ const ProjectCard = ({ project, onClick }) => {
             }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="relative perspective-1000 h-full"
+            className="relative perspective-1000 h-full group"
         >
-            <SpotlightCard
-                spotlightColor="rgba(56, 189, 248, 0.18)"
-                className="h-full rounded-2xl"
-            >
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    style={{ transformStyle: 'preserve-3d' }}
-                    className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group h-full flex flex-col border border-gray-100 dark:border-gray-700"
-                >
-                    {/* Project Image */}
-                    <div className="relative overflow-hidden h-48 flex-shrink-0 transform-gpu z-10">
+            <div className="h-full flex flex-col bg-transparent relative">
+                {/* ── THE ARTISTIC FRAME (FILM STYLE) ── */}
+                <div className="p-4 pb-12 bg-white dark:bg-slate-900 rounded-[2.5rem] rounded-b-none border border-gray-100 dark:border-slate-800 shadow-xl relative transition-all duration-700 group-hover:-rotate-2">
+                    {/* Status Badge */}
+                    <div className="absolute top-8 right-8 z-20">
+                        <span className={`px-3 py-1 rounded-lg text-[9px] font-black text-white uppercase tracking-widest shadow-xl backdrop-blur-md ${getStatusColor(project.status)}/90`}>
+                            {project.status}
+                        </span>
+                    </div>
+
+                    <div className="relative rounded-[2rem] overflow-hidden aspect-[16/10] bg-slate-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-800 shadow-inner">
                         <img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            className="w-full h-full object-cover transition-all duration-1000 ease-out group-hover:scale-110 group-hover:blur-[1px]"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                        <div className="absolute top-4 right-4">
-                            <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md shadow-sm ${getStatusColor(project.status)}`}>
-                                {project.status}
-                            </span>
-                        </div>
-
-                        <div className="absolute bottom-4 left-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">
-                            <a
-                                href={project.githubUrl}
-                                className="flex-1 bg-white/20 backdrop-blur-md text-white py-2 px-4 rounded-lg flex items-center justify-center space-x-2 hover:bg-white/30 transition-colors border border-white/20"
-                            >
-                                <FaGithub />
-                                <span className="text-sm">Code</span>
-                            </a>
-                            <a
-                                href={project.liveUrl}
-                                className="flex-1 bg-blue-600/80 backdrop-blur-md text-white py-2 px-4 rounded-lg flex items-center justify-center space-x-2 hover:bg-blue-600 transition-colors border border-white/10"
-                            >
-                                <FaExternalLinkAlt />
-                                <span className="text-sm">Demo</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    {/* Project Content */}
-                    <div className="p-6 flex-grow flex flex-col bg-white dark:bg-gray-800 transform-gpu">
-                        <div className="flex items-center justify-between mb-3 h-[3.5rem]">
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                                {project.title}
-                            </h3>
-                        </div>
-
-                        <div className="flex items-center space-x-4 mb-4 text-sm text-gray-600 dark:text-gray-400 flex-shrink-0">
-                            <div className="flex items-center space-x-1">
-                                <FaUser />
-                                <span>{project.role}</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                                <FaCalendarAlt />
-                                <span>{project.duration}</span>
-                            </div>
-                        </div>
-
-                        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 h-[3rem] overflow-hidden flex-shrink-0">
-                            <ReactMarkdown>{project.description}</ReactMarkdown>
-                        </p>
-
-                        <div className="flex flex-wrap gap-2 mb-4 flex-grow h-[2rem] overflow-y-hidden content-start">
-                            {project.techStack.slice(0, 3).map((tech, techIndex) => (
-                                <span
-                                    key={techIndex}
-                                    className="px-3 py-1 bg-sky-100 dark:bg-sky-900/30 text-sky-800 dark:text-sky-400 rounded-full text-xs font-medium border border-sky-100 dark:border-sky-800 flex-shrink-0"
+                        
+                        {/* Cinematic Overlay & Actions */}
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[2px] flex items-center justify-center">
+                            <div className="flex gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                <a
+                                    href={project.githubUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/30 transition-all"
                                 >
-                                    {tech}
-                                </span>
-                            ))}
-                            {project.techStack.length > 3 && (
-                                <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-xs border border-gray-200 dark:border-gray-600 flex-shrink-0">
-                                    +{project.techStack.length - 3}
-                                </span>
-                            )}
+                                    <FaGithub className="text-2xl" />
+                                </a>
+                                <a
+                                    href={project.liveUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-14 h-14 rounded-full bg-blue-600/80 border border-blue-400/30 flex items-center justify-center text-white hover:bg-blue-600 transition-all"
+                                >
+                                    <FaExternalLinkAlt className="text-xl" />
+                                </a>
+                            </div>
                         </div>
-
-                        <motion.button
-                            onClick={() => onClick(project)}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white py-3 rounded-lg font-medium hover:from-sky-600 hover:to-blue-700 transition-all duration-300 flex items-center justify-center space-x-2 shadow-md hover:shadow-lg shadow-blue-500/20 mt-auto"
-                        >
-                            <FaCode />
-                            <span>View Details</span>
-                        </motion.button>
                     </div>
-                </motion.div>
-            </SpotlightCard>
+
+                    {/* Film Metadata Decoration */}
+                    <div className="mt-6 flex justify-center opacity-30 select-none">
+                        <span className="text-[10px] font-mono font-black uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
+                             PROJECT • REF_{project.id || 'N01'} • MNT_2025
+                        </span>
+                    </div>
+                </div>
+
+                {/* ── CONTENT AREA ── */}
+                <div 
+                    className="flex-1 p-8 md:p-10 bg-white dark:bg-slate-900 rounded-b-[2.5rem] border border-gray-100 dark:border-slate-800 border-t-0 shadow-2xl relative z-10"
+                    style={{ transform: 'translateZ(60px)' }}
+                >
+                    <div className="flex items-center gap-2 mb-4">
+                        {project.techStack?.slice(0, 1).map((tech, i) => (
+                           <span key={i} className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-[10px] uppercase font-black tracking-widest rounded-full border border-blue-100 dark:border-blue-900/50">
+                               {tech}
+                           </span> 
+                        ))}
+                    </div>
+
+                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-500">
+                        {project.title}
+                    </h3>
+
+                    <div className="flex items-center gap-4 mb-4 text-slate-400 dark:text-slate-500 text-xs font-bold">
+                        <div className="flex items-center gap-1.5">
+                            <FaUser className="text-[10px]" />
+                            {project.role}
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                            <FaCalendarAlt className="text-[10px]" />
+                            {project.duration}
+                        </div>
+                    </div>
+
+                    <div className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">
+                        <ReactMarkdown>{project.description}</ReactMarkdown>
+                    </div>
+
+                    <button
+                        onClick={() => onClick(project)}
+                        className="w-full py-4 bg-slate-900 dark:bg-slate-800 text-white dark:text-slate-200 hover:bg-blue-600 dark:hover:bg-blue-600 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-3 shadow-xl active:scale-95 border border-white/10"
+                    >
+                        <span>View Details</span>
+                        <FaChevronRight className="text-[8px]" />
+                    </button>
+                </div>
+            </div>
         </motion.div>
     );
 };

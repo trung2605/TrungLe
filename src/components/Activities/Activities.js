@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
     FaUsers,
@@ -262,89 +262,80 @@ const Activities = () => {
                             <motion.div
                                 key={activity.id}
                                 variants={itemVariants}
-                                whileHover={{ y: -8, scale: 1.02 }}
-                                className="h-full"
+                                className="group h-full"
                             >
-                                <SpotlightCard
-                                    spotlightColor="rgba(56, 189, 248, 0.15)"
-                                    className="rounded-xl h-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 group border border-gray-100 dark:border-gray-700 overflow-hidden"
-                                >
-                                <div className="relative overflow-hidden h-56">
-                                    <img
-                                        src={ActivityImage}
-                                        alt={activity.title}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white translate-y-0 transition-transform duration-300 group-hover:-translate-y-12">
-                                        <div className="flex items-start justify-between mb-2">
-                                            <div>
-                                                <div className="h-[3.5rem] flex items-center">
-                                                    <h3 className="text-xl font-bold line-clamp-2">
-                                                        {activity.title}
-                                                    </h3>
-                                                </div>
-                                                <div
-                                                    className={`flex items-center space-x-2 text-sm mt-1 text-gray-300`}
-                                                >
-                                                    <RoleIcon className={`text-base ${roleColorClass.replace('bg-', 'text-').split(' ')[0]}`} />
-                                                    <span className="font-medium">{activity.role}</span>
-                                                </div>
-                                            </div>
-                                            <div
-                                                className={`flex-shrink-0 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-1 border-2 border-white/50`}
-                                            >
-                                                <StatusIcon className="text-xs" />
-                                                <span className="text-xs font-semibold">
-                                                    {activity.status}
-                                                </span>
+                                <div className="h-full flex flex-col bg-transparent relative">
+                                    {/* ── THE ARTISTIC FRAME (FILM STYLE) ── */}
+                                    <div className="p-4 pb-12 bg-white dark:bg-slate-900 rounded-[2.5rem] rounded-b-none border border-gray-100 dark:border-slate-800 shadow-xl relative transition-all duration-700 group-hover:-rotate-2">
+                                        {/* Status Badge */}
+                                        <div className="absolute top-8 right-8 z-20">
+                                            <div className={`px-3 py-1 rounded-lg text-[9px] font-black text-white uppercase tracking-widest shadow-xl backdrop-blur-md bg-gradient-to-r ${getStatusColor(activity.status)}`}>
+                                                {activity.status}
                                             </div>
                                         </div>
+
+                                        <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] bg-slate-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-800 shadow-inner">
+                                            <img
+                                                src={ActivityImage}
+                                                alt={activity.title}
+                                                className="w-full h-full object-cover transition-all duration-1000 ease-out group-hover:scale-110 group-hover:blur-[1px]"
+                                            />
+                                            
+                                            {/* Cinematic Overlay & Actions */}
+                                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[2px] flex items-center justify-center">
+                                                <button
+                                                    onClick={() => setSelectedActivity(activity)}
+                                                    className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/30 transition-all transform scale-90 group-hover:scale-100 duration-500 shadow-2xl"
+                                                >
+                                                    <FaEye className="text-2xl" />
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        {/* Film Metadata Decoration */}
+                                        <div className="mt-6 flex justify-center opacity-30 select-none">
+                                            <span className="text-[10px] font-mono font-black uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
+                                                ACT_{activity.id || 'N01'} • {activity.organization?.substring(0, 10).toUpperCase()} • 2025
+                                            </span>
+                                        </div>
                                     </div>
-                                    
-                                     <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100 flex justify-center z-10">
+
+                                    {/* ── CONTENT AREA ── */}
+                                    <div className="flex-1 p-8 bg-white dark:bg-slate-900 rounded-b-[2.5rem] border border-gray-100 dark:border-slate-800 border-t-0 shadow-2xl relative z-10 transition-transform duration-500 group-hover:translate-z-10 flex flex-col">
+                                        <div className="flex items-center gap-2 mb-4">
+                                            <div className={`px-3 py-1 bg-gradient-to-r ${getRoleColor(activity.role)} text-white text-[9px] uppercase font-black tracking-widest rounded-full shadow-sm`}>
+                                                {activity.role}
+                                            </div>
+                                        </div>
+
+                                        <h3 className="text-xl font-black text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-500 line-clamp-2 mb-4">
+                                            {activity.title}
+                                        </h3>
+
+                                        <div className="space-y-3 mb-6 flex-grow">
+                                            <div className="flex items-center gap-3 text-slate-500 dark:text-slate-400 text-xs font-bold">
+                                                <FaBuilding className="text-blue-500" />
+                                                <span className="truncate">{activity.organization}</span>
+                                            </div>
+                                            <div className="flex items-center gap-3 text-slate-500 dark:text-slate-400 text-xs font-bold">
+                                                <FaCalendarAlt className="text-sky-500" />
+                                                <span>{activity.duration}</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3 italic">
+                                            <Markdown>{activity.description}</Markdown>
+                                        </div>
+
                                         <button
                                             onClick={() => setSelectedActivity(activity)}
-                                            className="bg-white/20 backdrop-blur-md text-white py-2 px-6 rounded-full flex items-center space-x-2 hover:bg-white/30 transition-all border border-white/30"
+                                            className="w-full py-4 bg-slate-900 dark:bg-slate-800 text-white hover:bg-blue-600 dark:hover:bg-blue-600 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg active:scale-95 border border-white/5"
                                         >
-                                            <FaEye />
-                                            <span>View Details</span>
+                                            <span>Details</span>
+                                            <FaChevronRight className="text-[8px]" />
                                         </button>
                                     </div>
                                 </div>
-
-                                    <div className="p-4 flex flex-col h-full">
-                                    <div className="space-y-3 mb-4 border-b border-gray-100 dark:border-gray-700 pb-3 flex-shrink-0">
-                                        <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
-                                            <FaBuilding className="text-blue-600 dark:text-blue-400 text-base flex-shrink-0" />
-                                            <span className="text-sm font-medium truncate">
-                                                {activity.organization}
-                                            </span>
-                                        </div>
-                                        <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
-                                            <FaCalendarAlt className="text-sky-600 dark:text-sky-400 text-base flex-shrink-0" />
-                                            <span className="text-sm font-medium">
-                                                {activity.duration}
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <div className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed line-clamp-3 h-[4.5rem] overflow-hidden flex-shrink-0">
-                                        <Markdown>
-                                            {activity.description}
-                                        </Markdown>
-                                    </div>
-                                    
-                                    <motion.button
-                                        onClick={() => setSelectedActivity(activity)}
-                                        whileTap={{ scale: 0.95 }}
-                                        className="w-full bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-3 rounded-xl font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:shadow-md mt-auto"
-                                    >
-                                        <span>View Details</span>
-                                        <FaEye className="text-xs" />
-                                    </motion.button>
-                                </div>
-                                </SpotlightCard>
                             </motion.div>
                         );
                     })}

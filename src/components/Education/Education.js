@@ -1,4 +1,3 @@
-﻿
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaCalendarAlt, FaStar, FaSchool } from 'react-icons/fa';
 import { education } from '../../data';
@@ -8,7 +7,6 @@ import MemoryGallery from './MemoryGallery';
 import BlurText from '../../animations/BlurText';
 import ShinyText from '../../animations/ShinyText';
 import SpotlightCard from '../../animations/SpotlightCard';
-
 
 const Education = () => {
   const containerVariants = {
@@ -149,9 +147,7 @@ const Education = () => {
                   </div>
 
                   <div className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                      <Markdown>
-                        {edu.description}
-                      </Markdown>
+                      <Markdown children={edu.description} />
                   </div>
                   </SpotlightCard>
                 </motion.div>

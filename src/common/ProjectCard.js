@@ -1,209 +1,124 @@
 import React from 'react';
-import { Card, CardContent, CardActions, CardMedia, Typography, Chip, Box } from '@mui/material';
 import { motion } from 'framer-motion';
-
-const MotionCard = motion(Card);
+import { useNavigate } from 'react-router-dom';
 
 const ProjectCard = ({
-  project,
-  onClick,
-  variant = 'standard',
-  showActions = true,
-  elevation = 2,
-  ...props
+    project,
+    onClick,
+    id
 }) => {
-  const {
-    title,
-    description,
-    technologies = [],
-    image,
-    category,
-    featured = false,
-    status,
-  } = project;
+    const navigate = useNavigate();
+    const {
+        title,
+        description,
+        technologies = [],
+        image,
+        category,
+        featured = false,
+    } = project;
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-    hover: {
-      y: -8,
-      transition: {
-        duration: 0.3,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  return (
-    <MotionCard
-      variants={cardVariants}
-      initial="hidden"
-      animate="visible"
-      whileHover="hover"
-      elevation={elevation}
-      sx={{
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        cursor: onClick ? 'pointer' : 'default',
-        position: 'relative',
-        overflow: 'hidden',
-        '&:hover': {
-          boxShadow: (theme) => theme.shadows[8],
-        },
-        ...props.sx,
-      }}
-      onClick={onClick}
-      {...props}
-    >
-      {/* Featured Badge */}
-      {featured && (
-        <Chip
-          label="Featured"
-          color="primary"
-          size="small"
-          sx={{
-            position: 'absolute',
-            top: 12,
-            right: 12,
-            zIndex: 1,
-            fontWeight: 'bold',
-          }}
-        />
-      )}
-
-      {/* Status Badge */}
-      {status && (
-        <Chip
-          label={status}
-          color={status === 'Completed' ? 'success' : 'warning'}
-          size="small"
-          sx={{
-            position: 'absolute',
-            top: 12,
-            left: 12,
-            zIndex: 1,
-          }}
-        />
-      )}
-
-      {/* Project Image */}
-      {image && (
-        <CardMedia
-          component="img"
-          height={variant === 'compact' ? 120 : 200}
-          image={image}
-          alt={title}
-          sx={{
-            objectFit: 'cover',
-            transition: 'transform 0.3s ease',
-            '&:hover': {
-              transform: 'scale(1.05)',
+    const cardVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
             },
-          }}
-        />
-      )}
+        },
+        hover: {
+            y: -12,
+            rotate: 0.5,
+            transition: {
+                duration: 0.4,
+                ease: 'easeOut',
+            },
+        },
+    };
 
-      <CardContent sx={{ flexGrow: 1, p: 2 }}>
-        {/* Category */}
-        {category && (
-          <Typography
-            variant="caption"
-            color="text.secondary"
-            sx={{
-              display: 'block',
-              mb: 1,
-              fontWeight: 'medium',
-              textTransform: 'uppercase',
-              letterSpacing: 0.5,
-            }}
-          >
-            {category}
-          </Typography>
-        )}
+    const handleNavigate = () => {
+        if (onClick) onClick();
+        else navigate(`/portfolio/${id || project.id}`);
+    };
 
-        {/* Title */}
-        <Typography
-          variant={variant === 'compact' ? 'h6' : 'h5'}
-          component="h3"
-          gutterBottom
-          sx={{
-            fontWeight: 'bold',
-            lineHeight: 1.2,
-            mb: 1,
-          }}
+    return (
+        <motion.div
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            whileHover="hover"
+            viewport={{ once: true, margin: '-50px' }}
+            className="h-full flex flex-col cursor-pointer bg-transparent group relative"
+            onClick={handleNavigate}
         >
-          {title}
-        </Typography>
+            {/* ── THE ARTISTIC FRAME (FILM STYLE) ── */}
+            <div className="p-4 pb-10 bg-white dark:bg-slate-900 rounded-[2.5rem] rounded-b-none border border-gray-100 dark:border-slate-800 shadow-lg relative transition-transform duration-500 group-hover:-rotate-1">
+                {/* Status & Featured Badges */}
+                <div className="absolute top-8 right-8 z-10 flex gap-2">
+                    {featured && (
+                        <span className="px-3 py-1 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-lg shadow-xl">
+                            Featured
+                        </span>
+                    )}
+                </div>
 
-        {/* Description */}
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{
-            mb: 2,
-            display: '-webkit-box',
-            WebkitLineClamp: variant === 'compact' ? 2 : 3,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-            lineHeight: 1.5,
-          }}
-        >
-          {description}
-        </Typography>
+                <div className="relative rounded-[1.5rem] overflow-hidden aspect-[16/10] bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-800 shadow-inner">
+                    {image ? (
+                        <img
+                            src={image}
+                            alt={title}
+                            className="w-full h-full object-cover transition-all duration-1000 ease-out group-hover:scale-110"
+                            loading="lazy"
+                        />
+                    ) : (
+                        <div className="h-full flex items-center justify-center opacity-20 grayscale">
+                            <span className="text-6xl">🖼️</span>
+                        </div>
+                    )}
 
-        {/* Technologies */}
-        {technologies.length > 0 && (
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mt: 'auto' }}>
-            {technologies.slice(0, variant === 'compact' ? 3 : 5).map((tech, index) => (
-              <Chip
-                key={index}
-                label={tech}
-                size="small"
-                variant="outlined"
-                sx={{
-                  fontSize: '0.75rem',
-                  height: 24,
-                  '& .MuiChip-label': {
-                    px: 1,
-                  },
-                }}
-              />
-            ))}
-            {technologies.length > (variant === 'compact' ? 3 : 5) && (
-              <Chip
-                label={`+${technologies.length - (variant === 'compact' ? 3 : 5)}`}
-                size="small"
-                variant="outlined"
-                sx={{
-                  fontSize: '0.75rem',
-                  height: 24,
-                  '& .MuiChip-label': {
-                    px: 1,
-                  },
-                }}
-              />
-            )}
-          </Box>
-        )}
-      </CardContent>
+                    {/* Cinematic Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
 
-      {/* Actions */}
-      {showActions && (
-        <CardActions sx={{ px: 2, pb: 2 }}>
-          {/* Action buttons would be passed as children or props */}
-          {props.children}
-        </CardActions>
-      )}
-    </MotionCard>
-  );
+                {/* Film Metadata Decoration */}
+                <div className="mt-5 flex justify-center opacity-30 select-none">
+                    <span className="text-[9px] font-mono font-black uppercase tracking-[0.4em] text-gray-500 dark:text-gray-400">
+                        {category?.replace(' & ', ' • ') || 'PROJECT'} • REF_{id || '00'}{Math.floor(Math.random() * 89) + 10}
+                    </span>
+                </div>
+            </div>
+
+            {/* ── CONTENT AREA ── */}
+            <div className="flex-1 p-8 bg-white dark:bg-slate-900 rounded-b-[2.5rem] border border-gray-100 dark:border-slate-800 border-t-0 shadow-2xl relative z-10">
+                <div className="mb-4">
+                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 text-[10px] uppercase font-black tracking-widest rounded-full border border-blue-200 dark:border-blue-800">
+                        {category}
+                    </span>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-pink-400 transition-colors duration-300">
+                    {title}
+                </h3>
+
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                    {description}
+                </p>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2">
+                    {technologies.slice(0, 4).map((tech, index) => (
+                        <span
+                            key={index}
+                            className="px-2.5 py-1 bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-[10px] font-bold rounded-md border border-slate-100 dark:border-slate-700"
+                        >
+                            #{tech}
+                        </span>
+                    ))}
+                </div>
+            </div>
+        </motion.div>
+    );
 };
 
 export default ProjectCard;

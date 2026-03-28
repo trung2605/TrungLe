@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaCalendarAlt, FaCertificate, FaEye, FaSearch, FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 import { certificates } from '../../data';
@@ -129,78 +129,74 @@ const Certificates = () => {
                     <motion.div
                         key={certificate.id}
                         initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1, duration: 0.6 }}
-                        whileHover={{
-                            y: -10,
-                            rotateX: 5,
-                            scale: 1.02,
-                        }}
-                        className="perspective-1000 h-full"
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.05, duration: 0.6 }}
+                        className="group h-full"
                     >
-                        <SpotlightCard
-                            spotlightColor="rgba(34, 211, 238, 0.15)"
-                            className="rounded-2xl h-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 group border border-gray-100 dark:border-gray-700 flex flex-col overflow-hidden"
-                        >
-                        <div className="relative overflow-hidden h-52">
-                            <img
-                                src={certificate.image}
-                                alt={certificate.name}
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            
-                            <div className="absolute top-4 right-4 translate-y-[-10px] group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                                <span className="bg-blue-600/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                                    {certificate.year}
-                                </span>
+                        <div className="h-full flex flex-col bg-transparent relative">
+                            {/* ── THE ARTISTIC FRAME (FILM STYLE) ── */}
+                            <div className="p-4 pb-12 bg-white dark:bg-slate-900 rounded-[2.5rem] rounded-b-none border border-gray-100 dark:border-slate-800 shadow-xl relative transition-all duration-700 group-hover:-rotate-2">
+                                {/* Year Badge */}
+                                <div className="absolute top-8 right-8 z-20">
+                                    <span className="bg-blue-600 px-3 py-1 rounded-lg text-[9px] font-black text-white uppercase tracking-widest shadow-xl">
+                                        {certificate.year}
+                                    </span>
+                                </div>
+
+                                <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] bg-slate-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-800 shadow-inner">
+                                    <img
+                                        src={certificate.image}
+                                        alt={certificate.name}
+                                        className="w-full h-full object-cover transition-all duration-1000 ease-out group-hover:scale-110 group-hover:blur-[1px]"
+                                    />
+                                    
+                                    {/* Cinematic Overlay & Actions */}
+                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[2px] flex items-center justify-center">
+                                        <button
+                                            onClick={() => setSelectedCertificate(certificate)}
+                                            className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/30 transition-all transform scale-90 group-hover:scale-100 duration-500 shadow-2xl"
+                                        >
+                                            <FaEye className="text-2xl" />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Film Metadata Decoration */}
+                                <div className="mt-6 flex justify-center opacity-30 select-none">
+                                    <span className="text-[10px] font-mono font-black uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
+                                        CERT_{certificate.id || 'N01'} • VERIFIED • {certificate.year}
+                                    </span>
+                                </div>
                             </div>
 
-                            <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100 flex justify-center">
+                            {/* ── CONTENT AREA ── */}
+                            <div className="flex-1 p-8 bg-white dark:bg-slate-900 rounded-b-[2.5rem] border border-gray-100 dark:border-slate-800 border-t-0 shadow-2xl relative z-10 transition-transform duration-500 group-hover:translate-z-10 flex flex-col">
+                                <div className="flex items-start justify-between mb-4">
+                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-500 line-clamp-2 pr-2">
+                                        {certificate.name}
+                                    </h3>
+                                    <FaCertificate className="text-blue-600 dark:text-blue-400 text-xl flex-shrink-0 group-hover:rotate-12 transition-transform duration-300" />
+                                </div>
+
+                                <div className="flex items-center gap-2 mb-4">
+                                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500">Issued by:</span>
+                                    <span className="text-sm font-bold text-slate-700 dark:text-slate-300 truncate">{certificate.issuer}</span>
+                                </div>
+
+                                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 line-clamp-2 italic">
+                                    {certificate.description}
+                                </p>
+
                                 <button
                                     onClick={() => setSelectedCertificate(certificate)}
-                                    className="bg-white/20 backdrop-blur-md text-white py-2 px-6 rounded-full flex items-center space-x-2 hover:bg-white/30 transition-all border border-white/30"
+                                    className="mt-auto w-full py-4 bg-slate-900 dark:bg-slate-800 text-white hover:bg-blue-600 dark:hover:bg-blue-600 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg active:scale-95"
                                 >
-                                    <FaEye />
-                                    <span>View Details</span>
+                                    <span>Learn More</span>
+                                    <FaChevronRight className="text-[8px]" />
                                 </button>
                             </div>
                         </div>
-
-                        <div className="p-6 flex flex-col h-full">
-                            <div className="flex items-start justify-between mb-3 flex-shrink-0">
-                                <div className="h-[3.5rem] flex items-center pr-2">
-                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                                        {certificate.name}
-                                    </h3>
-                                </div>
-                                <FaCertificate className="text-blue-600 dark:text-blue-400 text-xl flex-shrink-0 ml-2 group-hover:rotate-12 transition-transform duration-300" />
-                            </div>
-
-                            <div className="flex items-center space-x-2 mb-3 text-gray-600 dark:text-gray-400 text-sm flex-shrink-0">
-                                <span className="font-semibold text-gray-400 uppercase tracking-wider text-xs">Issued by</span>
-                                <span className="font-medium text-gray-800 dark:text-gray-200 truncate">{certificate.issuer}</span>
-                            </div>
-
-                            <div className="flex items-center space-x-2 mb-4 text-gray-500 dark:text-gray-500 text-sm flex-shrink-0">
-                                <FaCalendarAlt />
-                                <span>{certificate.year}</span>
-                            </div>
-
-                            <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4 h-[3rem] overflow-hidden flex-grow-0">
-                                {certificate.description}
-                            </p>
-
-                            <motion.button
-                                onClick={() => setSelectedCertificate(certificate)}
-                                whileTap={{ scale: 0.95 }}
-                                className="w-full bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-3 rounded-xl font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:shadow-md mt-auto"
-                            >
-                                <span>Learn More</span>
-                                <FaChevronRight className="text-xs" />
-                            </motion.button>
-                        </div>
-                        </SpotlightCard>
                     </motion.div>
                 ))}
             </div>
