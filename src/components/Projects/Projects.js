@@ -1,358 +1,441 @@
 import { useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaCode, FaUser, FaTags, FaChevronRight } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaTags, FaTimes } from 'react-icons/fa';
 import { projects } from '../../data';
-import './Projects.scss';
 import { default as ReactMarkdown } from 'react-markdown';
-import BlurText from '../../animations/BlurText';
-import ShinyText from '../../animations/ShinyText';
-import SpotlightCard from '../../animations/SpotlightCard';
+const STATUS_COLORS = {
+  'Active':         { bg: '#c8e6cd', color: '#000000' },
+  'In Development': { bg: '#dceeb1', color: '#000000' },
+  'Completed':      { bg: '#e6e6e6', color: '#000000' },
+};
 
-// Cinematic Film-Frame Project Card Component
-const ProjectCard = ({ project, onClick }) => {
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
+const ProjectCard = ({ project, onClick, index }) => {
+  const status = STATUS_COLORS[project.status] || { bg: '#f7f7f5', color: '#000000' };
 
-    const mouseX = useSpring(x, { stiffness: 500, damping: 100 });
-    const mouseY = useSpring(y, { stiffness: 500, damping: 100 });
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ y: -4 }}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: '#ffffff',
+        border: '1px solid #e6e6e6',
+        borderRadius: '24px',
+        overflow: 'hidden',
+        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+        cursor: 'pointer',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.borderColor = '#000000';
+        e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)';
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.borderColor = '#e6e6e6';
+        e.currentTarget.style.boxShadow = 'none';
+      }}
+    >
+      {/* Image */}
+      <div style={{ position: 'relative', aspectRatio: '16/10', overflow: 'hidden', backgroundColor: '#f7f7f5' }}>
+        <img
+          src={project.image}
+          alt={project.title}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+          onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
+          onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+        />
+        {/* Status badge */}
+        <div style={{
+          position: 'absolute', top: '16px', right: '16px',
+          padding: '4px 12px',
+          borderRadius: '50px',
+          fontSize: '11px',
+          fontFamily: 'JetBrains Mono, monospace',
+          fontWeight: '400',
+          letterSpacing: '0.4px',
+          textTransform: 'uppercase',
+          backgroundColor: status.bg,
+          color: status.color,
+        }}>
+          {project.status}
+        </div>
+      </div>
 
-    function handleMouseMove({ currentTarget, clientX, clientY }) {
-        const { left, top, width, height } = currentTarget.getBoundingClientRect();
-        const xPct = clientX - left - width / 2;
-        const yPct = clientY - top - height / 2;
-        x.set(xPct);
-        y.set(yPct);
-    }
+      {/* Content */}
+      <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+        {/* Primary tech tag */}
+        {project.techStack?.[0] && (
+          <span style={{
+            display: 'inline-block',
+            padding: '3px 10px',
+            borderRadius: '50px',
+            fontSize: '11px',
+            fontFamily: 'JetBrains Mono, monospace',
+            letterSpacing: '0.4px',
+            textTransform: 'uppercase',
+            color: '#000000',
+            backgroundColor: '#f7f7f5',
+            border: '1px solid #e6e6e6',
+            marginBottom: '12px',
+            width: 'fit-content',
+          }}>
+            {project.techStack[0]}
+          </span>
+        )}
 
-    function handleMouseLeave() {
-        x.set(0);
-        y.set(0);
-    }
+        <h3 style={{
+          fontSize: '20px',
+          fontWeight: '540',
+          lineHeight: '1.35',
+          letterSpacing: '-0.2px',
+          color: '#000000',
+          margin: '0 0 8px 0',
+        }}>
+          {project.title}
+        </h3>
 
-    const rotateX = useTransform(mouseY, [-200, 200], [5, -5]);
-    const rotateY = useTransform(mouseX, [-200, 200], [-5, 5]);
+        <div style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
+          <span style={{ fontSize: '13px', color: '#666666', display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <FaUser size={11} /> {project.role}
+          </span>
+          <span style={{ fontSize: '13px', color: '#666666', display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <FaCalendarAlt size={11} /> {project.duration}
+          </span>
+        </div>
 
-    const getStatusColor = (status) => {
-        switch (status) {
-            case 'Active': return 'bg-emerald-500';
-            case 'In Development': return 'bg-amber-500';
-            case 'Completed': return 'bg-blue-600';
-            default: return 'bg-slate-500';
-        }
-    };
+        <div style={{
+          fontSize: '15px',
+          fontWeight: '330',
+          lineHeight: '1.55',
+          color: '#555555',
+          marginBottom: '20px',
+          flex: 1,
+          overflow: 'hidden',
+          display: '-webkit-box',
+          WebkitLineClamp: 3,
+          WebkitBoxOrient: 'vertical',
+        }}>
+          <ReactMarkdown>{project.description}</ReactMarkdown>
+        </div>
 
-    return (
-        <motion.div
+        {/* Actions */}
+        <div style={{ display: 'flex', gap: '8px', marginTop: 'auto' }}>
+          <button
+            onClick={() => onClick(project)}
             style={{
-                rotateX: rotateX,
-                rotateY: rotateY,
-                transformStyle: 'preserve-3d',
+              flex: 1,
+              padding: '10px 20px',
+              borderRadius: '50px',
+              fontSize: '14px',
+              fontWeight: '480',
+              color: '#ffffff',
+              backgroundColor: '#000000',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'background-color 0.15s ease',
             }}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className="relative perspective-1000 h-full group"
-        >
-            <div className="h-full flex flex-col bg-transparent relative">
-                {/* ── THE ARTISTIC FRAME (FILM STYLE) ── */}
-                <div className="p-4 pb-12 bg-white dark:bg-slate-900 rounded-[2.5rem] rounded-b-none border border-gray-100 dark:border-slate-800 shadow-xl relative transition-all duration-700 group-hover:-rotate-2">
-                    {/* Status Badge */}
-                    <div className="absolute top-8 right-8 z-20">
-                        <span className={`px-3 py-1 rounded-lg text-[9px] font-black text-white uppercase tracking-widest shadow-xl backdrop-blur-md ${getStatusColor(project.status)}/90`}>
-                            {project.status}
-                        </span>
-                    </div>
-
-                    <div className="relative rounded-[2rem] overflow-hidden aspect-[16/10] bg-slate-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-800 shadow-inner">
-                        <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-full object-cover transition-all duration-1000 ease-out group-hover:scale-110 group-hover:blur-[1px]"
-                        />
-                        
-                        {/* Cinematic Overlay & Actions */}
-                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[2px] flex items-center justify-center">
-                            <div className="flex gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                <a
-                                    href={project.githubUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/30 transition-all"
-                                >
-                                    <FaGithub className="text-2xl" />
-                                </a>
-                                <a
-                                    href={project.liveUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-14 h-14 rounded-full bg-blue-600/80 border border-blue-400/30 flex items-center justify-center text-white hover:bg-blue-600 transition-all"
-                                >
-                                    <FaExternalLinkAlt className="text-xl" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Film Metadata Decoration */}
-                    <div className="mt-6 flex justify-center opacity-30 select-none">
-                        <span className="text-[10px] font-mono font-black uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
-                             PROJECT • REF_{project.id || 'N01'} • MNT_2025
-                        </span>
-                    </div>
-                </div>
-
-                {/* ── CONTENT AREA ── */}
-                <div 
-                    className="flex-1 p-8 md:p-10 bg-white dark:bg-slate-900 rounded-b-[2.5rem] border border-gray-100 dark:border-slate-800 border-t-0 shadow-2xl relative z-10"
-                    style={{ transform: 'translateZ(60px)' }}
-                >
-                    <div className="flex items-center gap-2 mb-4">
-                        {project.techStack?.slice(0, 1).map((tech, i) => (
-                           <span key={i} className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-[10px] uppercase font-black tracking-widest rounded-full border border-blue-100 dark:border-blue-900/50">
-                               {tech}
-                           </span> 
-                        ))}
-                    </div>
-
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-500">
-                        {project.title}
-                    </h3>
-
-                    <div className="flex items-center gap-4 mb-4 text-slate-400 dark:text-slate-500 text-xs font-bold">
-                        <div className="flex items-center gap-1.5">
-                            <FaUser className="text-[10px]" />
-                            {project.role}
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                            <FaCalendarAlt className="text-[10px]" />
-                            {project.duration}
-                        </div>
-                    </div>
-
-                    <div className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">
-                        <ReactMarkdown>{project.description}</ReactMarkdown>
-                    </div>
-
-                    <button
-                        onClick={() => onClick(project)}
-                        className="w-full py-4 bg-slate-900 dark:bg-slate-800 text-white dark:text-slate-200 hover:bg-blue-600 dark:hover:bg-blue-600 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-3 shadow-xl active:scale-95 border border-white/10"
-                    >
-                        <span>View Details</span>
-                        <FaChevronRight className="text-[8px]" />
-                    </button>
-                </div>
-            </div>
-        </motion.div>
-    );
+            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
+            onMouseLeave={e => e.currentTarget.style.backgroundColor = '#000000'}
+          >
+            View Details
+          </button>
+          {project.githubUrl && project.githubUrl !== '#' && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: '40px', height: '40px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                borderRadius: '9999px',
+                backgroundColor: '#f7f7f5',
+                color: '#000000',
+                border: '1px solid #e6e6e6',
+                transition: 'background-color 0.15s ease',
+                textDecoration: 'none',
+              }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#e6e6e6'}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
+              onClick={e => e.stopPropagation()}
+            >
+              <FaGithub size={16} />
+            </a>
+          )}
+          {project.liveUrl && project.liveUrl !== '#' && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: '40px', height: '40px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                borderRadius: '9999px',
+                backgroundColor: '#f7f7f5',
+                color: '#000000',
+                border: '1px solid #e6e6e6',
+                transition: 'background-color 0.15s ease',
+                textDecoration: 'none',
+              }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#e6e6e6'}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
+              onClick={e => e.stopPropagation()}
+            >
+              <FaExternalLinkAlt size={14} />
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
 };
 
 const Projects = () => {
-    const [filter, setFilter] = useState('all');
-    const [selectedProject, setSelectedProject] = useState(null);
+  const [filter, setFilter] = useState('all');
+  const [selectedProject, setSelectedProject] = useState(null);
 
-    const statusOptions = [
-        { value: 'all', label: 'All Projects', count: projects.length },
-        { value: 'Active', label: 'Active', count: projects.filter(p => p.status === 'Active').length },
-        { value: 'In Development', label: 'In Dev', count: projects.filter(p => p.status === 'In Development').length },
-        { value: 'Completed', label: 'Completed', count: projects.filter(p => p.status === 'Completed').length }
-    ];
+  const statusOptions = [
+    { value: 'all',            label: 'All',          count: projects.length },
+    { value: 'Active',         label: 'Active',        count: projects.filter(p => p.status === 'Active').length },
+    { value: 'In Development', label: 'In Development', count: projects.filter(p => p.status === 'In Development').length },
+    { value: 'Completed',      label: 'Completed',     count: projects.filter(p => p.status === 'Completed').length },
+  ];
 
-    const filteredProjects = filter === 'all' 
-        ? projects 
-        : projects.filter(project => project.status === filter);
+  const filteredProjects = filter === 'all'
+    ? projects
+    : projects.filter(p => p.status === filter);
 
-    const getStatusColor = (status) => {
-        switch (status) {
-            case 'Active':
-                return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400';
-            case 'In Development':
-                return 'bg-sky-100 text-sky-800 dark:bg-sky-900/30 dark:text-sky-400';
-            case 'Completed':
-                return 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400';
-            default:
-                return 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400';
-        }
-    };
+  return (
+    <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
 
-    return (
-        <div className="projects-page min-h-screen">
-            {/* Header */}
+      {/* Filter — pill tabs */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.15, duration: 0.5 }}
+        style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '48px' }}
+      >
+        {statusOptions.map((opt) => (
+          <button
+            key={opt.value}
+            onClick={() => setFilter(opt.value)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '8px 18px',
+              borderRadius: '50px',
+              fontSize: '15px',
+              fontWeight: filter === opt.value ? '480' : '400',
+              color: filter === opt.value ? '#ffffff' : '#000000',
+              backgroundColor: filter === opt.value ? '#000000' : '#ffffff',
+              border: '1.5px solid',
+              borderColor: filter === opt.value ? '#000000' : '#e6e6e6',
+              cursor: 'pointer',
+              transition: 'all 0.15s ease',
+            }}
+          >
+            {opt.label}
+            <span style={{
+              fontSize: '11px',
+              fontFamily: 'JetBrains Mono, monospace',
+              padding: '1px 6px',
+              borderRadius: '50px',
+              backgroundColor: filter === opt.value ? 'rgba(255,255,255,0.2)' : '#f7f7f5',
+              color: filter === opt.value ? '#ffffff' : '#666666',
+            }}>
+              {opt.count}
+            </span>
+          </button>
+        ))}
+      </motion.div>
+
+      {/* Grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
+        {filteredProjects.map((project, i) => (
+          <ProjectCard key={project.id} project={project} onClick={setSelectedProject} index={i} />
+        ))}
+      </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: 'fixed', inset: 0,
+              backgroundColor: 'rgba(0,0,0,0.6)',
+              zIndex: 100,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '24px',
+            }}
+            onClick={() => setSelectedProject(null)}
+          >
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-center mb-16"
+              initial={{ scale: 0.92, opacity: 0, y: 30 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', damping: 30, stiffness: 350 }}
+              style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '24px',
+                maxWidth: '860px',
+                width: '100%',
+                maxHeight: '90vh',
+                overflowY: 'auto',
+              }}
+              onClick={e => e.stopPropagation()}
             >
-                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
-                    <BlurText
-                      text="Featured"
-                      delay={50}
-                      animateBy="words"
-                      direction="bottom"
-                      className="inline"
-                    />
-                    {' '}
-                    <ShinyText
-                      text="Projects"
-                      color="#38bdf8"
-                      shineColor="#ffffff"
-                      speed={3}
-                      className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
-                    />
-                </h1>
-                <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                    A showcase of my technical journey through code, architecture, and design.
-                </p>
-            </motion.div>
-
-            {/* Filter Buttons */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="flex flex-wrap justify-center gap-4 mb-16"
-            >
-                {statusOptions.map((option, index) => (
-                    <button
-                        key={option.value}
-                        onClick={() => setFilter(option.value)}
-                        className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform ${
-                            filter === option.value
-                                ? 'bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-lg scale-105 shadow-blue-500/25'
-                                : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-md hover:shadow-lg border border-gray-100 dark:border-gray-700'
-                        }`}
-                    >
-                        {option.label}
-                        <span className={`ml-2 text-xs py-0.5 px-2 rounded-full ${
-                            filter === option.value ? 'bg-white/20 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-500'
-                        }`}>
-                            {option.count}
-                        </span>
-                    </button>
-                ))}
-            </motion.div>
-
-            {/* Projects Grid */}
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 px-4">
-                {filteredProjects.map((project, index) => (
-                    <ProjectCard 
-                        key={project.id} 
-                        project={project} 
-                        onClick={setSelectedProject} 
-                    />
-                ))}
-            </div>
-
-            {/* Project Details Modal */}
-            {selectedProject && (
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="fixed inset-0 bg-black/60 backdrop-blur-md z-[100] flex items-center justify-center p-4"
-                    onClick={() => setSelectedProject(null)}
+              {/* Modal image */}
+              <div style={{ position: 'relative', height: '280px', overflow: 'hidden', borderRadius: '24px 24px 0 0', backgroundColor: '#f7f7f5' }}>
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)' }} />
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  style={{
+                    position: 'absolute', top: '16px', right: '16px',
+                    width: '36px', height: '36px',
+                    borderRadius: '9999px',
+                    backgroundColor: 'rgba(0,0,0,0.4)',
+                    color: '#ffffff',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    cursor: 'pointer',
+                    fontSize: '16px',
+                  }}
                 >
-                    <motion.div
-                        initial={{ scale: 0.8, opacity: 0, y: 50 }}
-                        animate={{ scale: 1, opacity: 1, y: 0 }}
-                        transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className="bg-white dark:bg-gray-800 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 dark:border-gray-700"
-                        onClick={(e) => e.stopPropagation()}
+                  <FaTimes />
+                </button>
+                <div style={{ position: 'absolute', bottom: '24px', left: '24px' }}>
+                  <h2 style={{ fontSize: '28px', fontWeight: '540', color: '#ffffff', margin: 0, letterSpacing: '-0.3px' }}>
+                    {selectedProject.title}
+                  </h2>
+                  <span style={{
+                    display: 'inline-block', marginTop: '8px',
+                    padding: '4px 12px',
+                    borderRadius: '50px',
+                    fontSize: '11px',
+                    fontFamily: 'JetBrains Mono, monospace',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.4px',
+                    backgroundColor: (STATUS_COLORS[selectedProject.status] || {}).bg || '#e6e6e6',
+                    color: '#000000',
+                  }}>
+                    {selectedProject.status}
+                  </span>
+                </div>
+              </div>
+
+              {/* Modal body */}
+              <div style={{ padding: '32px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '32px' }}
+                  className="block md:grid"
+                >
+                  <div>
+                    <h3 style={{ fontSize: '16px', fontWeight: '540', color: '#000000', marginBottom: '12px' }}>About</h3>
+                    <div style={{ fontSize: '16px', fontWeight: '330', lineHeight: '1.6', color: '#444444' }}>
+                      <ReactMarkdown>{selectedProject.description}</ReactMarkdown>
+                    </div>
+                  </div>
+                  <div style={{ minWidth: '180px' }}>
+                    <div style={{ padding: '16px', backgroundColor: '#f7f7f5', borderRadius: '12px', marginBottom: '12px' }}>
+                      <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.5px', textTransform: 'uppercase', color: '#666666', marginBottom: '6px' }}>Role</p>
+                      <p style={{ fontSize: '14px', fontWeight: '400', color: '#000000', margin: 0 }}>{selectedProject.role}</p>
+                    </div>
+                    <div style={{ padding: '16px', backgroundColor: '#f7f7f5', borderRadius: '12px' }}>
+                      <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.5px', textTransform: 'uppercase', color: '#666666', marginBottom: '6px' }}>Timeline</p>
+                      <p style={{ fontSize: '14px', fontWeight: '400', color: '#000000', margin: 0 }}>{selectedProject.duration}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tech stack */}
+                <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid #e6e6e6' }}>
+                  <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.5px', textTransform: 'uppercase', color: '#666666', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <FaTags size={10} /> Tech Stack
+                  </p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                    {selectedProject.techStack.map((tech, i) => (
+                      <span key={i} style={{
+                        padding: '6px 14px',
+                        borderRadius: '50px',
+                        fontSize: '13px',
+                        fontWeight: '400',
+                        color: '#000000',
+                        backgroundColor: '#f7f7f5',
+                        border: '1px solid #e6e6e6',
+                      }}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CTA row */}
+                <div style={{ display: 'flex', gap: '12px', marginTop: '24px', paddingTop: '24px', borderTop: '1px solid #e6e6e6', flexWrap: 'wrap' }}>
+                  {selectedProject.githubUrl && selectedProject.githubUrl !== '#' && (
+                    <a
+                      href={selectedProject.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '8px',
+                        padding: '12px 24px',
+                        borderRadius: '50px',
+                        fontSize: '15px',
+                        fontWeight: '480',
+                        color: '#ffffff',
+                        backgroundColor: '#000000',
+                        textDecoration: 'none',
+                        transition: 'background-color 0.15s ease',
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
+                      onMouseLeave={e => e.currentTarget.style.backgroundColor = '#000000'}
                     >
-                        <div className="relative">
-                            <img
-                                src={selectedProject.image}
-                                alt={selectedProject.title}
-                                className="w-full h-72 lg:h-96 object-cover rounded-t-3xl"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                            
-                            <button
-                                onClick={() => setSelectedProject(null)}
-                                className="absolute top-6 right-6 bg-black/30 backdrop-blur-md text-white p-3 rounded-full hover:bg-black/50 transition-colors border border-white/20"
-                            >
-                                &times;
-                            </button>
-
-                            <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                                <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-shadow-lg">
-                                    {selectedProject.title}
-                                </h2>
-                                <div className="flex flex-wrap gap-3">
-                                    <span className={`px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-md ${getStatusColor(selectedProject.status).replace('text-green-800', 'text-white bg-green-500/80').replace('text-sky-800', 'text-white bg-sky-500/80').replace('text-blue-800', 'text-white bg-blue-500/80').replace('text-gray-800', 'text-white bg-gray-500/80')}`}>
-                                        {selectedProject.status}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="p-8 lg:p-10">
-                            <div className="grid md:grid-cols-3 gap-8 mb-8">
-                                <div className="md:col-span-2">
-                                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">About Project</h3>
-                                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                                        <ReactMarkdown>{selectedProject.description}</ReactMarkdown>
-                                    </p>
-                                </div>
-                                <div className="space-y-6">
-                                    <div className="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-2xl border border-gray-100 dark:border-gray-600">
-                                        <div className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 mb-3">
-                                            <FaUser className="text-blue-500" />
-                                            <span className="font-semibold">Role</span>
-                                        </div>
-                                        <p className="text-gray-600 dark:text-gray-400 pl-7">{selectedProject.role}</p>
-                                    </div>
-                                    <div className="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-2xl border border-gray-100 dark:border-gray-600">
-                                        <div className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 mb-3">
-                                            <FaCalendarAlt className="text-blue-500" />
-                                            <span className="font-semibold">Timeline</span>
-                                        </div>
-                                        <p className="text-gray-600 dark:text-gray-400 pl-7">{selectedProject.duration}</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="mb-10">
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center space-x-2">
-                                    <FaTags className="text-blue-500" />
-                                    <span>Technology Stack</span>
-                                </h3>
-                                <div className="flex flex-wrap gap-2">
-                                    {selectedProject.techStack.map((tech, index) => (
-                                        <span
-                                            key={index}
-                                            className="px-4 py-2 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg text-sm font-medium border border-gray-200 dark:border-gray-600 shadow-sm hover:border-blue-400 transition-colors"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-100 dark:border-gray-700">
-                                <a
-                                    href={selectedProject.githubUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex-1 bg-gray-900 dark:bg-black text-white py-4 rounded-xl flex items-center justify-center space-x-2 hover:bg-gray-800 dark:hover:bg-gray-900 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
-                                >
-                                    <FaGithub size={20} />
-                                    <span className="font-semibold">View Source</span>
-                                </a>
-                                <a
-                                    href={selectedProject.liveUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex-1 bg-gradient-to-r from-blue-600 to-sky-600 text-white py-4 rounded-xl flex items-center justify-center space-x-2 hover:from-blue-700 hover:to-sky-700 transition-all shadow-lg hover:shadow-xl shadow-blue-500/30 hover:-translate-y-1"
-                                >
-                                    <FaExternalLinkAlt size={18} />
-                                    <span className="font-semibold">Live Demo</span>
-                                </a>
-                            </div>
-                        </div>
-                    </motion.div>
-                </motion.div>
-            )}
-        </div>
-    );
+                      <FaGithub size={15} /> View Source
+                    </a>
+                  )}
+                  {selectedProject.liveUrl && selectedProject.liveUrl !== '#' && (
+                    <a
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '8px',
+                        padding: '12px 24px',
+                        borderRadius: '50px',
+                        fontSize: '15px',
+                        fontWeight: '480',
+                        color: '#000000',
+                        backgroundColor: '#ffffff',
+                        border: '1.5px solid #e6e6e6',
+                        textDecoration: 'none',
+                        transition: 'background-color 0.15s ease',
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
+                      onMouseLeave={e => e.currentTarget.style.backgroundColor = '#ffffff'}
+                    >
+                      <FaExternalLinkAlt size={13} /> Live Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 };
 
 export default Projects;

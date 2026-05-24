@@ -1,140 +1,123 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaDownload, FaGithub, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
-import "./Home.scss";
-import { siteNavigation } from "../../data";
-import { personalInfo } from "../../data";
-import { skills, allSkillsData } from "../../data";
+import { FaDownload, FaGithub, FaLinkedin, FaInstagram, FaFacebook, FaArrowRight } from "react-icons/fa";
+import { siteNavigation, personalInfo, skills, allSkillsData } from "../../data";
 import BlurText from "../../animations/BlurText";
-import ShinyText from "../../animations/ShinyText";
 import CountUp from "../../animations/CountUp";
 import RotatingText from "../../animations/RotatingText";
 import DecryptedText from "../../animations/DecryptedText";
-import Aurora from "../../animations/Aurora";
-import Particles from "../../animations/Particles";
-import SpotlightCard from "../../animations/SpotlightCard";
-import Waves from "../../animations/Waves";
+
+const TECH_MARQUEE = [
+  "Java Spring Boot", "React", "JavaScript", "Node.js",
+  "MongoDB", "SQL Server", "Docker", "Git", "REST APIs",
+  "React Native", "Tailwind CSS", "Spring Security",
+  "Java Spring Boot", "React", "JavaScript", "Node.js",
+  "MongoDB", "SQL Server", "Docker", "Git", "REST APIs",
+  "React Native", "Tailwind CSS", "Spring Security",
+];
+
+const SkillBar = ({ skill }) => (
+  <div style={{ marginBottom: '16px' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
+      <span style={{ fontSize: '15px', fontWeight: '400', color: '#000000' }}>{skill.name}</span>
+      <span style={{ fontSize: '13px', fontFamily: 'JetBrains Mono, monospace', color: '#666666' }}>{skill.level}%</span>
+    </div>
+    <div style={{ width: '100%', height: '3px', backgroundColor: '#e6e6e6', borderRadius: '2px' }}>
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: `${skill.level}%` }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
+        style={{ height: '3px', backgroundColor: '#000000', borderRadius: '2px' }}
+      />
+    </div>
+  </div>
+);
 
 const Home = () => {
-    // Skills Animation Variants
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                delayChildren: 0.1,
-                staggerChildren: 0.05,
-            },
-        },
-    };
-
-    const getItemVariants = (index) => {
-        const direction = index % 2 === 0 ? -100 : 100;
-        return {
-            hidden: { x: direction, opacity: 0 },
-            visible: { x: 0, opacity: 1, transition: { duration: 0.6 } },
-        };
-    };
-
-    const SkillBar = ({ skill }) => (
-        <div className="mb-4">
-            <div className="flex justify-between items-center mb-2">
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                    {skill.name}
-                </span>
-                <span className="text-sm text-gray-500 dark:text-gray-400">
-                    {skill.level}%
-                </span>
-            </div>
-            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.2 }}
-                    className="bg-gradient-to-r from-sky-400 to-blue-500 h-2 rounded-full"
-                />
-            </div>
-        </div>
-    );
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { delay, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  });
 
   return (
-    <div className="home-page">
-      {/* Hero Section */}
-      <section className="lg:py-32 relative">
-        <div 
-          className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[100vw] -z-10 opacity-30 dark:opacity-50 pointer-events-none" 
-          style={{ minHeight: '120%' }}
+    <div>
+      {/* ── HERO ── */}
+      <section style={{ paddingTop: '64px', paddingBottom: '80px' }}>
+        <div
+          className="hero-grid"
+          style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center' }}
         >
-          <Aurora
-            colorStops={['#38bdf8', '#818cf8', '#60a5fa']}
-            amplitude={1.2}
-            blend={0.8}
-            speed={0.8}
-          />
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-            >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 text-sm font-medium mb-4 border border-sky-200 dark:border-sky-800">
-                <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
+          {/* Text */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <motion.div {...fadeUp(0)}>
+              <span style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '6px 14px',
+                borderRadius: '50px',
+                backgroundColor: '#dceeb1',
+                fontSize: '13px',
+                fontFamily: 'JetBrains Mono, monospace',
+                fontWeight: '400',
+                letterSpacing: '0.4px',
+                textTransform: 'uppercase',
+                color: '#000000',
+              }}>
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#1ea64a', display: 'inline-block' }} />
                 Available for opportunities
               </span>
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white"
+              {...fadeUp(0.1)}
+              style={{
+                fontSize: 'clamp(36px, 6vw, 86px)',
+                fontWeight: '340',
+                lineHeight: '1.00',
+                letterSpacing: '-1.72px',
+                color: '#000000',
+                margin: 0,
+              }}
             >
               <BlurText
-                text="Xin chào tôi là"
-                delay={60}
+                text="Xin chào,"
+                delay={50}
                 animateBy="words"
                 direction="top"
                 className="block"
               />
-              <span className="block mt-2 text-gradient bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
+              <span style={{ display: 'block', marginTop: '4px' }}>
                 <DecryptedText
                   text="Lê Trí Trung"
-                  speed={100}
-                  maxIterations={15}
+                  speed={80}
+                  maxIterations={12}
                   sequential={true}
                   revealDirection="start"
                   animateOn="view"
                   characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-                  className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
                 />
               </span>
             </motion.h1>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium flex items-center gap-3 flex-wrap"
+            <motion.div
+              {...fadeUp(0.2)}
+              style={{
+                fontSize: 'clamp(16px, 3vw, 22px)',
+                fontWeight: '330',
+                color: '#000000',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                flexWrap: 'wrap',
+              }}
             >
-              <span>I am a</span>
+              <span>I'm a</span>
               <RotatingText
-                texts={[
-                  "Java Developer",
-                  "CS Student",
-                  "Problem Solver",
-                  "Backend Engineer",
-                ]}
-                mainClassName="inline-flex items-center px-4 py-1 bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-300 rounded-lg font-semibold text-xl"
+                texts={["Java Developer", "CS Student", "Backend Engineer", "Problem Solver"]}
+                mainClassName="inline-flex items-center px-4 py-1 rounded-lg font-semibold"
                 rotationInterval={2500}
                 staggerDuration={0.025}
                 staggerFrom="last"
@@ -142,386 +125,385 @@ const Home = () => {
                 initial={{ y: '110%', opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: '-110%', opacity: 0 }}
+                style={{ backgroundColor: '#f7f7f5', color: '#000000', borderRadius: '8px', padding: '4px 14px' }}
               />
-            </motion.h2>
+            </motion.div>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl"
+              {...fadeUp(0.3)}
+              style={{
+                fontSize: 'clamp(15px, 2.5vw, 20px)',
+                fontWeight: '330',
+                lineHeight: '1.55',
+                letterSpacing: '-0.14px',
+                color: '#444444',
+                maxWidth: '520px',
+                margin: 0,
+              }}
             >
-              I am a Computer Science student at FPT University with a passion
-              for software development and technology. Specializing in Java
-              development, I am always seeking opportunities to learn and
-              contribute to meaningful projects.
+              Computer Science student at FPT University. Specializing in Java Spring Boot
+              and modern web development — building clean, scalable applications.
             </motion.p>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex flex-wrap gap-4"
-            >
+            {/* CTAs */}
+            <motion.div {...fadeUp(0.4)} style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <Link
                 to="/projects"
-                className="btn-primary inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-blue-500/50 hover:-translate-y-0.5 active:scale-95"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  padding: '11px 22px',
+                  borderRadius: '50px',
+                  fontSize: '16px',
+                  fontWeight: '480',
+                  color: '#ffffff',
+                  backgroundColor: '#000000',
+                  textDecoration: 'none',
+                  transition: 'background-color 0.15s ease',
+                }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#000000'}
               >
-                <span>View Projects</span>
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                >🚀</motion.span>
+                View Projects <FaArrowRight size={14} />
               </Link>
-
               <a
                 href={personalInfo.cv}
-                download="Le_Tri_Trung_Java_Developer_CV.pdf"
-                className="inline-flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
+                download="Le_Tri_Trung_CV.pdf"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  padding: '11px 22px',
+                  borderRadius: '50px',
+                  fontSize: '16px',
+                  fontWeight: '480',
+                  color: '#000000',
+                  backgroundColor: '#ffffff',
+                  border: '1.5px solid #e6e6e6',
+                  textDecoration: 'none',
+                  transition: 'background-color 0.15s ease',
+                }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#ffffff'}
               >
-                <FaDownload size={16} />
-                <span>Download CV</span>
+                <FaDownload size={14} /> Download CV
               </a>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="flex items-center space-x-6 pt-4"
-            >
-              <span className="text-gray-600 dark:text-gray-400">Connect with me:</span>
-              <div className="flex space-x-4">
+            {/* Social links */}
+            <motion.div {...fadeUp(0.5)} style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingTop: '8px' }}>
+              {[
+                { href: personalInfo.contact?.github, icon: <FaGithub size={18} /> },
+                { href: personalInfo.contact?.linkedin, icon: <FaLinkedin size={18} /> },
+                { href: personalInfo.contact?.instagram, icon: <FaInstagram size={18} /> },
+                { href: personalInfo.contact?.facebook, icon: <FaFacebook size={18} /> },
+              ].filter(s => s.href).map((social, i) => (
                 <motion.a
-                  href={personalInfo.contact.github}
+                  key={i}
+                  href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+                  whileHover={{ y: -2 }}
+                  style={{
+                    width: '40px', height: '40px',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    borderRadius: '9999px',
+                    backgroundColor: '#f7f7f5',
+                    color: '#000000',
+                    transition: 'background-color 0.15s ease',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.backgroundColor = '#e6e6e6'}
+                  onMouseLeave={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
                 >
-                  <FaGithub size={24} />
+                  {social.icon}
                 </motion.a>
-                <motion.a
-                  href={personalInfo.contact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors duration-200"
-                >
-                  <FaLinkedin size={24} />
-                </motion.a>
-                <motion.a
-                  href={personalInfo.contact.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="text-gray-600 dark:text-gray-400 hover:text-pink-600 transition-colors duration-200"
-                >
-                  <FaInstagram size={24} />
-                </motion.a>
-                <motion.a
-                  href={personalInfo.contact.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-200"
-                >
-                  <FaFacebook size={24} />
-                </motion.a>
-              </div>
+              ))}
             </motion.div>
-          </motion.div>
+          </div>
 
-          {/* Image/Animation Side */}
+          {/* Profile image — hidden on mobile via CSS */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="relative"
+            transition={{ delay: 0.3, duration: 0.7 }}
+            className="hidden lg:flex"
+            style={{ justifyContent: 'center', alignItems: 'center' }}
           >
-            <div className="relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
-              {/* Floating background shapes */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border-2 border-sky-200 dark:border-sky-800 opacity-30 border-dashed"
-              />
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-4 rounded-full border-2 border-blue-200 dark:border-blue-800 opacity-20 border-dotted"
-              />
-
-               {/* Tech Orbit Ring */}
-               <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-10 rounded-full border border-sky-500/10"
-              >
-                  <motion.div
-                    animate={{ scale: [1, 1.5, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute top-0 left-1/2 w-4 h-4 bg-sky-500 rounded-full blur-[2px]"
-                  />
-              </motion.div>
-
-              {/* Main content area */}
-              <div className="absolute inset-8 bg-gradient-to-br from-sky-100 to-blue-100 dark:from-sky-900/20 dark:to-blue-900/20 rounded-full flex items-center justify-center overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
-                <div className="text-6xl w-full h-full relative group">
-                  <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300 z-10" />
-                  <img
-                    src={personalInfo.profileImage}
-                    alt="Profile"
-                    className="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
+            <div style={{ position: 'relative', width: '360px', height: '360px' }}>
+              <div style={{
+                position: 'absolute', inset: '-24px',
+                backgroundColor: '#dceeb1', borderRadius: '32px', zIndex: 0,
+              }} />
+              <div style={{
+                position: 'relative', zIndex: 1,
+                width: '100%', height: '100%',
+                borderRadius: '24px', overflow: 'hidden',
+                border: '4px solid #ffffff',
+              }}>
+                <img
+                  src={personalInfo.profileImage}
+                  alt="Lê Trí Trung"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
               </div>
-
-              {/* Floating tech icons */}
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 bg-white dark:bg-gray-800 p-3 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
-              >
-                <span className="text-2xl">🛠️</span>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [10, -10, 10] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-4 -left-4 bg-white dark:bg-gray-800 p-3 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
-              >
-                <span className="text-2xl">🧑‍💻</span>
-              </motion.div>
+              <div style={{
+                position: 'absolute', bottom: '-16px', right: '-16px',
+                backgroundColor: '#000000', color: '#ffffff',
+                borderRadius: '50px', padding: '8px 18px',
+                fontSize: '12px', fontFamily: 'JetBrains Mono, monospace',
+                letterSpacing: '0.4px', textTransform: 'uppercase', zIndex: 2,
+              }}>
+                FPT University · Đà Nẵng
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Quick Stats Section */}
-      <section className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700/50 overflow-hidden relative">
-        {/* Subtle particles background */}
-        <div className="absolute inset-0 opacity-30">
-          <Particles
-            particleCount={30}
-            speed={0.3}
-            particleColors={['#38bdf8', '#818cf8', '#60a5fa']}
-            moveParticlesOnHover={false}
-            particleBaseSize={1.5}
-          />
+      {/* ── MARQUEE STRIP ── */}
+      <div style={{
+        marginLeft: 'calc(-50vw + 50%)',
+        marginRight: 'calc(-50vw + 50%)',
+        backgroundColor: '#000000',
+        color: '#ffffff',
+        height: '40px',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+      }}>
+        <div style={{ display: 'flex', gap: '48px', animation: 'marqueeScroll 25s linear infinite', whiteSpace: 'nowrap' }}>
+          {TECH_MARQUEE.map((t, i) => (
+            <span key={i} style={{ fontSize: '12px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', opacity: 0.8 }}>
+              {t} <span style={{ opacity: 0.3, margin: '0 12px' }}>·</span>
+            </span>
+          ))}
         </div>
+      </div>
 
+      {/* ── STATS — LIME BLOCK ── */}
+      <section style={{ padding: '72px 0' }}>
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10"
+          style={{ backgroundColor: '#dceeb1', borderRadius: '24px', padding: '40px 36px' }}
         >
-          {[
-            { value: 10, suffix: '+', label: 'Projects', color: 'text-blue-600 dark:text-blue-400' },
-            { value: 5, suffix: '+', label: 'Certificates', color: 'text-sky-600 dark:text-sky-400' },
-            { value: 15, suffix: '+', label: 'Skills', color: 'text-cyan-600 dark:text-cyan-400' },
-            { value: 3, suffix: '+', label: 'Awards', color: 'text-indigo-600 dark:text-indigo-400' },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              className="decorative-stat bg-transparent shadow-none border-none"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              <div className={`text-3xl lg:text-4xl font-bold ${stat.color}`}>
-                <CountUp
-                  to={stat.value}
-                  from={0}
-                  duration={2}
-                  delay={index * 0.1}
-                  suffix={stat.suffix}
-                />
-              </div>
-              <div className="text-gray-600 dark:text-gray-400 mt-2 font-medium">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="py-20 lg:py-32">
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-        >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              <BlurText
-                text="Skills &"
-                delay={50}
-                animateBy="words"
-                direction="bottom"
-                className="inline"
-              />
-              {" "}
-              <ShinyText
-                text="Expertise"
-                color="#38bdf8"
-                shineColor="#ffffff"
-                speed={3}
-                className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
-              />
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            A comprehensive overview of the technical and soft skills I've
-            developed through academic studies and professional projects.
-            </p>
-        </motion.div>
-
-        {/* Skills Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-            {skills.map((category, categoryIndex) => (
-            <motion.div
-                key={categoryIndex}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
-                whileHover={{ y: -5 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
-            >
-                <div className="flex items-center space-x-3 mb-6 pb-3 border-b border-gray-200 dark:border-gray-700">
-                     <span className="text-2xl">{category.icon}</span>
-                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                        {category.category}
-                     </h3>
+          <p style={{
+            fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
+            letterSpacing: '0.60px', textTransform: 'uppercase',
+            color: '#444444', marginBottom: '28px',
+          }}>By the numbers</p>
+          <div
+            className="stats-grid"
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}
+          >
+            {[
+              { value: 11, suffix: '+', label: 'Projects Built' },
+              { value: 27, suffix: '+', label: 'Certificates' },
+              { value: 7,  suffix: '+', label: 'Awards & Prizes' },
+              { value: 18, suffix: '+', label: 'Activities' },
+            ].map((stat, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5 }}>
+                <div style={{ fontSize: 'clamp(30px, 4vw, 52px)', fontWeight: '340', lineHeight: '1.0', letterSpacing: '-1px', color: '#000000' }}>
+                  <CountUp to={stat.value} from={0} duration={2} delay={i * 0.1} suffix={stat.suffix} />
                 </div>
-
-                <div className="space-y-4">
-                {category.items.map((skill, skillIndex) => (
-                    <motion.div
-                    key={skillIndex}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                        delay: categoryIndex * 0.1 + skillIndex * 0.1,
-                        duration: 0.4,
-                    }}
-                    >
-                    <SkillBar skill={skill} />
-                    </motion.div>
-                ))}
-                </div>
-            </motion.div>
-            ))}
-        </div>
-
-        {/* Tech Stack Highlights */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-5 max-w-5xl mx-auto"
-        >
-          {allSkillsData.map((tech, index) => (
-            <motion.div
-              key={index}
-              variants={getItemVariants(index)}
-              transition={{ duration: 0.4 }}
-              whileHover={{ scale: 1.1, rotate: 2 }}
-              className="skill-tag cursor-default"
-            >
-              <div className="skill-item">
-                <span className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full text-base font-medium shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-200 hover:border-sky-500 hover:text-sky-600 dark:hover:text-sky-400 inline-block">
-                  {tech.name}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* Quick Navigation */}
-      <section className="py-24 relative overflow-visible">
-        {/* Full-width Waves Background */}
-        <div 
-          className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[100vw] -z-10 opacity-30 dark:opacity-40 pointer-events-none"
-        >
-          <Waves 
-            lineColor="rgba(56, 189, 248, 0.4)"
-            backgroundColor="transparent"
-            waveSpeedX={0.015}
-            waveSpeedY={0.01}
-            waveAmpX={35}
-            waveAmpY={20}
-            friction={0.93}
-            tension={0.01}
-            xGap={12}
-            yGap={34}
-          />
-        </div>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16"
-        >
-          <BlurText
-            text="Explore More About Me"
-            delay={40}
-            animateBy="words"
-            direction="bottom"
-          />
-        </motion.h2>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {siteNavigation.slice(1).filter(item => item.title !== "Skills").map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="navigation-group"
-              >
-                <SpotlightCard
-                  spotlightColor="rgba(56, 189, 248, 0.14)"
-                  className="rounded-xl h-full"
-                >
-                  <Link
-                    to={item.path}
-                    className="block p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group relative overflow-hidden h-full"
-                  >
-                    <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-sky-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                    <motion.div
-                      className="text-4xl mb-6 inline-block"
-                      whileHover={{ scale: 1.2, rotate: 10 }}
-                      transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-                    >
-                        {item.icon}
-                    </motion.div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-base">
-                      {item.desc}
-                    </p>
-                  </Link>
-                </SpotlightCard>
+                <div style={{ fontSize: '14px', fontWeight: '400', color: '#444444', marginTop: '6px' }}>{stat.label}</div>
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
+      </section>
+
+      {/* ── SKILLS — LILAC BLOCK ── */}
+      <section style={{ paddingBottom: '72px' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          style={{ backgroundColor: '#c5b0f4', borderRadius: '24px', padding: '40px 36px' }}
+        >
+          <p style={{
+            fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
+            letterSpacing: '0.60px', textTransform: 'uppercase',
+            color: '#444444', marginBottom: '12px',
+          }}>Skills & Expertise</p>
+          <h2 style={{
+            fontSize: 'clamp(26px, 4vw, 48px)', fontWeight: '340',
+            lineHeight: '1.10', letterSpacing: '-0.72px',
+            color: '#000000', marginBottom: '40px',
+          }}>
+            <BlurText text="What I work with" delay={40} animateBy="words" direction="bottom" className="inline" />
+          </h2>
+
+          <div
+            className="skills-grid"
+            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}
+          >
+            {skills.map((category, ci) => (
+              <motion.div
+                key={ci}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: ci * 0.1, duration: 0.5 }}
+                style={{
+                  backgroundColor: 'rgba(255,255,255,0.5)',
+                  borderRadius: '16px', padding: '24px',
+                  border: '1px solid rgba(0,0,0,0.06)',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', paddingBottom: '14px', borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
+                  <span style={{ fontSize: '20px' }}>{category.icon}</span>
+                  <h3 style={{ fontSize: '17px', fontWeight: '540', color: '#000000', margin: 0 }}>{category.category}</h3>
+                </div>
+                {category.items.map((skill, si) => (
+                  <motion.div key={si} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: ci * 0.1 + si * 0.07, duration: 0.4 }}>
+                    <SkillBar skill={skill} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Tech tags */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '28px' }}>
+            {allSkillsData.map((tech, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.02, duration: 0.3 }}
+                whileHover={{ scale: 1.05 }}
+                style={{
+                  padding: '5px 12px', borderRadius: '50px',
+                  fontSize: '13px', fontWeight: '400', color: '#000000',
+                  backgroundColor: 'rgba(255,255,255,0.6)',
+                  border: '1px solid rgba(0,0,0,0.1)',
+                  cursor: 'default', transition: 'background-color 0.15s ease',
+                }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#ffffff'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.6)'}
+              >
+                {tech.name}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ── EXPLORE — CREAM BLOCK ── */}
+      <section style={{ paddingBottom: '72px' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          style={{ backgroundColor: '#f4ecd6', borderRadius: '24px', padding: '40px 36px' }}
+        >
+          <p style={{
+            fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
+            letterSpacing: '0.60px', textTransform: 'uppercase',
+            color: '#666666', marginBottom: '12px',
+          }}>More About Me</p>
+          <h2 style={{
+            fontSize: 'clamp(24px, 3.5vw, 48px)', fontWeight: '340',
+            lineHeight: '1.10', letterSpacing: '-0.72px',
+            color: '#000000', marginBottom: '36px',
+          }}>Explore my journey</h2>
+
+          <div
+            className="grid-3col"
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '14px' }}
+          >
+            {siteNavigation.slice(1).map((item, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5 }} whileHover={{ y: -4 }}>
+                <Link
+                  to={item.path}
+                  style={{
+                    display: 'block', padding: '22px',
+                    backgroundColor: '#ffffff', borderRadius: '16px',
+                    border: '1px solid rgba(0,0,0,0.06)',
+                    textDecoration: 'none', color: '#000000',
+                    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.06)'; e.currentTarget.style.boxShadow = 'none'; }}
+                >
+                  <div style={{ fontSize: '26px', marginBottom: '12px' }}>{item.icon}</div>
+                  <h3 style={{ fontSize: '17px', fontWeight: '540', color: '#000000', margin: '0 0 6px 0' }}>{item.title}</h3>
+                  <p style={{ fontSize: '14px', fontWeight: '330', color: '#555555', margin: 0, lineHeight: '1.5' }}>{item.desc}</p>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ── CONTACT CTA — NAVY BLOCK ── */}
+      <section style={{ paddingBottom: '72px' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="cta-navy"
+          style={{
+            backgroundColor: '#1f1d3d', borderRadius: '24px',
+            padding: '56px 48px',
+            display: 'flex', alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '32px', flexWrap: 'wrap',
+          }}
+        >
+          <div>
+            <p style={{
+              fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
+              letterSpacing: '0.60px', textTransform: 'uppercase',
+              color: 'rgba(255,255,255,0.5)', marginBottom: '12px',
+            }}>Let's build something</p>
+            <h2 style={{
+              fontSize: 'clamp(22px, 3.5vw, 44px)', fontWeight: '340',
+              lineHeight: '1.15', letterSpacing: '-0.72px',
+              color: '#ffffff', margin: 0,
+            }}>
+              Open to internship &<br />collaboration opportunities
+            </h2>
+          </div>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <a
+              href={`mailto:${personalInfo.contact?.email || 'letritrung2605@gmail.com'}`}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                padding: '11px 22px', borderRadius: '50px',
+                fontSize: '16px', fontWeight: '480',
+                color: '#000000', backgroundColor: '#ffffff',
+                textDecoration: 'none', transition: 'background-color 0.15s ease',
+              }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#f0f0f0'}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#ffffff'}
+            >
+              Get in touch <FaArrowRight size={14} />
+            </a>
+            <a
+              href={personalInfo.contact?.github || 'https://github.com/trung2605'}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                padding: '11px 22px', borderRadius: '50px',
+                fontSize: '16px', fontWeight: '480',
+                color: '#ffffff',
+                backgroundColor: 'rgba(255,255,255,0.12)',
+                border: '1.5px solid rgba(255,255,255,0.2)',
+                textDecoration: 'none', transition: 'background-color 0.15s ease',
+              }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)'}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)'}
+            >
+              <FaGithub size={16} /> GitHub
+            </a>
+          </div>
+        </motion.div>
       </section>
     </div>
   );

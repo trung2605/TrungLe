@@ -1,177 +1,109 @@
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaCalendarAlt, FaStar, FaSchool } from 'react-icons/fa';
+import { FaGraduationCap, FaCalendarAlt, FaStar } from 'react-icons/fa';
 import { education } from '../../data';
-import './Education.scss';
 import Markdown from 'react-markdown';
 import MemoryGallery from './MemoryGallery';
-import BlurText from '../../animations/BlurText';
-import ShinyText from '../../animations/ShinyText';
-import SpotlightCard from '../../animations/SpotlightCard';
+const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd'];
 
 const Education = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0, rotateX: -10 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      rotateX: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
-
   return (
-    <div className="education-page">
-      <div className="max-w-6xl mx-auto px-4">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            <motion.span
-              className="inline-block mr-4 text-blue-600"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <FaGraduationCap />
-            </motion.span>
-            <ShinyText
-              text="Education"
-              color="#3b82f6"
-              shineColor="#93c5fd"
-              speed={4}
-              className="bg-gradient-to-r from-blue-600 via-sky-500 to-blue-600 bg-clip-text text-transparent"
-            />
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            <BlurText
-              text="My educational journey and academic achievements"
-              delay={30}
-              animateBy="words"
-              direction="bottom"
-            />
-          </p>
-        </motion.div>
+    <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
 
-        {/* Education Timeline */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-12"
-        >
-          {education.map((edu, index) => (
-            <motion.div
-              key={edu.id}
-              variants={itemVariants}
-              className="relative perspective-1000"
-            >
-              {/* Timeline line */}
-              {index < education.length - 1 && (
-                <div className="absolute left-8 top-20 bottom-[-48px] w-0.5 bg-gradient-to-b from-blue-500 to-sky-300 dark:to-sky-900 z-0"></div>
-              )}
-              
-              {/* Education card */}
-              <div className="flex items-start space-x-8 group">
-                {/* Timeline dot */}
-                <div className="relative z-10 flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-sky-600 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform duration-300 border-4 border-white dark:border-gray-900">
-                  <FaSchool className="text-white text-2xl" />
-                </div>
-                
-                {/* Content */}
-                <motion.div
-                    whileHover={{
-                        scale: 1.02,
-                        rotateY: 2,
-                        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-                    }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    className="flex-1 transform-gpu"
-                >
-                  <SpotlightCard
-                    spotlightColor="rgba(59, 130, 246, 0.14)"
-                    className="rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-colors duration-300 bg-white dark:bg-gray-800"
-                  >
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                    <div>
-                      <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                        {edu.school}
-                      </h3>
-                      <p className="text-xl text-blue-600 dark:text-blue-400 font-medium">
-                        {edu.degree}
-                      </p>
-                    </div>
-
-                    <div className="mt-4 md:mt-0">
-                      <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-bold tracking-wide shadow-sm ${
-                        edu.status === 'Current'
-                          ? 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300 ring-2 ring-green-500/20'
-                          : 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 ring-2 ring-blue-500/20'
-                      }`}>
-                        {edu.status}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6 mb-6 p-4 bg-gray-50 dark:bg-gray-700/30 rounded-xl">
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2 bg-blue-100 dark:bg-blue-900/50 rounded-lg text-blue-600 dark:text-blue-400">
-                        <FaCalendarAlt />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">{edu.duration}</span>
-                    </div>
-
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2 bg-yellow-100 dark:bg-yellow-900/50 rounded-lg text-yellow-600 dark:text-yellow-400">
-                        <FaStar />
-                      </div>
-                      <span className="text-gray-700 dark:text-gray-300 font-bold">GPA: {edu.gpa}</span>
-                    </div>
-                  </div>
-
-                  <div className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                      <Markdown children={edu.description} />
-                  </div>
-                  </SpotlightCard>
-                </motion.div>
+      {/* Timeline */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', marginBottom: '72px' }}>
+        {education.map((edu, i) => (
+          <motion.div
+            key={edu.id}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="edu-timeline-row"
+            style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}
+          >
+            {/* Timeline indicator */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
+              <div style={{
+                width: '44px', height: '44px', borderRadius: '9999px',
+                backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length],
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                border: '1px solid rgba(0,0,0,0.08)',
+              }}>
+                <FaGraduationCap size={18} style={{ color: '#000000' }} />
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              {i < education.length - 1 && (
+                <div style={{ width: '1px', flex: 1, minHeight: '32px', backgroundColor: '#e6e6e6', marginTop: '8px' }} />
+              )}
+            </div>
 
-        <div className="mt-20">
-            <h2 className="text-3xl font-bold text-center mb-10 text-gray-900 dark:text-white flex items-center justify-center gap-3">
-                <motion.span
-                  animate={{ rotate: [0, 15, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                >📸</motion.span>
-                <BlurText
-                  text="Campus Memories"
-                  delay={40}
-                  animateBy="words"
-                  direction="top"
-                />
-            </h2>
-            <MemoryGallery />
-        </div>
+            {/* Card */}
+            <motion.div
+              whileHover={{ y: -4 }}
+              style={{
+                flex: 1, backgroundColor: '#ffffff',
+                border: '1px solid #e6e6e6', borderRadius: '20px',
+                padding: '24px 28px',
+                transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.07)'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
+                <div>
+                  <h3 style={{ fontSize: 'clamp(17px, 2.5vw, 22px)', fontWeight: '540', letterSpacing: '-0.2px', color: '#000000', margin: '0 0 4px 0' }}>
+                    {edu.school}
+                  </h3>
+                  <p style={{ fontSize: '15px', fontWeight: '400', color: '#444444', margin: 0 }}>{edu.degree}</p>
+                </div>
+                <span style={{
+                  display: 'inline-block', padding: '4px 12px', borderRadius: '50px',
+                  fontSize: '11px', fontFamily: 'JetBrains Mono, monospace',
+                  letterSpacing: '0.4px', textTransform: 'uppercase',
+                  backgroundColor: edu.status === 'Current' ? '#c8e6cd' : '#f7f7f5',
+                  color: '#000000', border: '1px solid rgba(0,0,0,0.08)',
+                  flexShrink: 0,
+                }}>
+                  {edu.status}
+                </span>
+              </div>
+
+              <div style={{ display: 'flex', gap: '16px', marginBottom: '14px', flexWrap: 'wrap' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: '#666666' }}>
+                  <FaCalendarAlt size={11} /> {edu.duration}
+                </span>
+                {edu.gpa && (
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: '#666666' }}>
+                    <FaStar size={11} /> GPA: {edu.gpa}
+                  </span>
+                )}
+              </div>
+
+              {edu.description && (
+                <div style={{ fontSize: '14px', fontWeight: '330', lineHeight: '1.65', color: '#555555', borderTop: '1px solid #f1f1f1', paddingTop: '14px' }}>
+                  <Markdown>{edu.description}</Markdown>
+                </div>
+              )}
+            </motion.div>
+          </motion.div>
+        ))}
       </div>
+
+      {/* Campus Memories — CORAL BLOCK */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        style={{ backgroundColor: '#f3c9b6', borderRadius: '24px', padding: '40px 32px' }}
+      >
+        <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.6px', textTransform: 'uppercase', color: '#444444', marginBottom: '10px' }}>
+          Campus Memories
+        </p>
+        <h2 style={{ fontSize: 'clamp(22px, 3vw, 40px)', fontWeight: '340', lineHeight: '1.15', letterSpacing: '-0.5px', color: '#000000', marginBottom: '28px' }}>
+          Moments worth remembering
+        </h2>
+        <MemoryGallery />
+      </motion.div>
     </div>
   );
 };

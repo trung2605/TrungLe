@@ -464,6 +464,36 @@ export const projects = [
     liveUrl: "https://bakery-assginment-fe.vercel.app/",
     status: "Completed",
   },
+  {
+    id: 11,
+    title: "The MC Hub",
+    role: "Full-Stack Developer (Team Project)",
+    duration: "09/2025 – Present",
+    image: PortfolioImage,
+    description:
+      "A platform connecting **Clients** and **MCs (Masters of Ceremony)** — clients can search, compare, and book professional MCs for events (weddings, galas, conferences), while MCs manage their schedules, receive bookings, communicate with clients, track revenue, and sharpen skills via an **AI Script Reader**. Built with **Java Spring Boot 3.3 + Java 21** (Virtual Threads) for the backend, **React 19 + Vite** for the web app, and **React Native + Expo** for the mobile app. Features include realtime chat via **WebSocket/STOMP**, integrated **PayOS** payments, push notifications, KYC verification, coupon system, and an admin dashboard with full analytics.",
+    techStack: [
+      "Java Spring Boot 3.3",
+      "Java 21 (Virtual Threads)",
+      "Spring Security + JWT",
+      "MongoDB Atlas",
+      "WebSocket (STOMP)",
+      "React 19",
+      "Vite 7",
+      "TailwindCSS v4",
+      "Zustand",
+      "React Native",
+      "Expo",
+      "Node.js",
+      "PayOS",
+      "Cloudinary",
+      "MapStruct",
+      "Swagger / OpenAPI 3",
+    ],
+    githubUrl: "https://github.com/The-MC-Hub",
+    liveUrl: "#",
+    status: "In Development",
+  },
 ];
 
 export const certificates = [

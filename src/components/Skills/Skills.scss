@@ -1,16 +1,43 @@
-/* Skills Page */@import '../../styles/variables';
+/* Skills Page */
+@import '../../styles/variables';
 
-.skills-page{ @import '../../styles/mixins';
+.skills-page {
+  @import '../../styles/mixins';
 
-  min-height:100vh; padding:4rem 0;
+  min-height: 100vh;
+  padding: 4rem 0;
 
-  &__list{ display:block; max-width:900px; margin:0 auto; }.skills-page {
+  &__list {
+    display: block;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
-  .skill-item{ margin-bottom:1rem; }  min-height: 100vh;
+  .skills-page {
 
-  .skill-bar{ background:#e6e6e6; height:8px; border-radius:999px; overflow:hidden; }  width: 100%;
+    .skill-item {
+      margin-bottom: 1rem;
+    }
 
-  .skill-fill{ height:100%; background:linear-gradient(90deg,#3b82f6,#8b5cf6); }}
+    min-height: 100vh;
 
-  .skill-tag{ display:inline-block; margin:8px;}
+    .skill-bar {
+      background: #e6e6e6;
+      height: 8px;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    width: 100%;
+
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    }
+  }
+
+  .skill-tag {
+    display: inline-block;
+    margin: 8px;
+  }
 }

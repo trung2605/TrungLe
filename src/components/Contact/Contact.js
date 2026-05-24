@@ -1,294 +1,223 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaPaperPlane, FaInstagram } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaPaperPlane, FaInstagram, FaArrowRight } from 'react-icons/fa';
 import { personalInfo } from '../../data';
 import emailService from '../../services/emailService';
-import './Contact.scss';
+import BlurText from '../../animations/BlurText';
+
+const inputStyle = (focused) => ({
+    width: '100%',
+    padding: '11px 14px',
+    borderRadius: '8px',
+    border: '1px solid',
+    borderColor: focused ? '#000000' : '#e6e6e6',
+    fontSize: '15px',
+    fontWeight: '330',
+    color: '#000000',
+    backgroundColor: '#ffffff',
+    outline: 'none',
+    transition: 'border-color 0.15s ease',
+    boxSizing: 'border-box',
+});
+
+const labelStyle = {
+    display: 'block',
+    fontFamily: 'JetBrains Mono, monospace',
+    fontSize: '11px',
+    letterSpacing: '0.4px',
+    textTransform: 'uppercase',
+    color: '#666666',
+    marginBottom: '8px',
+};
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-    });
+    const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null);
+    const [focused, setFocused] = useState('');
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
+    const handleChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus(null);
-        
         try {
-            // Validate form data
-            if (!formData.name || !formData.email || !formData.message) {
-                throw new Error('Please fill in all required fields (Name, Email, Message).');
-            }
-            
-            // Email format validation
+            if (!formData.name || !formData.email || !formData.message) throw new Error('Fill in all required fields.');
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(formData.email)) {
-                throw new Error('Please enter a valid email address.');
-            }
-            
-            // Send email via EmailJS
-            // Giả định emailService.sendContactEmail đã được cấu hình đúng
+            if (!emailRegex.test(formData.email)) throw new Error('Invalid email address.');
             const result = await emailService.sendContactEmail(formData);
-            
             if (result.success) {
                 setSubmitStatus('success');
                 setFormData({ name: '', email: '', subject: '', message: '' });
             } else {
                 setSubmitStatus('error');
-                console.error('Email sending failed:', result.message);
             }
-        } catch (error) {
-            console.error('Form submission error:', error);
+        } catch {
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
-            
-            // Reset status after 5 seconds
             setTimeout(() => setSubmitStatus(null), 5000);
         }
     };
 
-    const contactMethods = [
-        {
-            icon: FaEnvelope,
-            label: 'Email',
-            value: personalInfo.contact.email,
-            href: `mailto:${personalInfo.contact.email}`,
-            color: 'text-red-500',
-            bgColor: 'bg-red-100 dark:bg-red-900/30'
-        },
-        {
-            icon: FaPhone,
-            label: 'Phone',
-            value: personalInfo.contact.phone,
-            href: `tel:${personalInfo.contact.phone}`,
-            color: 'text-green-500',
-            bgColor: 'bg-green-100 dark:bg-green-900/30'
-        },
-        {
-            icon: FaMapMarkerAlt,
-            label: 'Location',
-            value: personalInfo.contact.location,
-            href: '#',
-            color: 'text-blue-500',
-            bgColor: 'bg-blue-100 dark:bg-blue-900/30'
-        },
-        {
-            icon: FaFacebook,
-            label: 'Facebook',
-            value: 'Trung Lê',
-            href: personalInfo.contact.facebook, // Sử dụng link Facebook chuẩn
-            color: 'text-blue-600',
-            bgColor: 'bg-blue-100 dark:bg-blue-900/30'
-        }, 
-        {
-            icon: FaInstagram,
-            label: 'Instagram',
-            value: 'trung.le.2605',
-            href: personalInfo.contact.instagram, 
-            color: 'text-pink-500',
-            bgColor: 'bg-pink-100 dark:bg-pink-900/30'
-        }
-    ];
+    const methods = [
+        { icon: FaEnvelope, label: 'Email', value: personalInfo.contact?.email, href: `mailto:${personalInfo.contact?.email}` },
+        { icon: FaPhone, label: 'Phone', value: personalInfo.contact?.phone, href: `tel:${personalInfo.contact?.phone}` },
+        { icon: FaMapMarkerAlt, label: 'Location', value: personalInfo.contact?.location, href: '#' },
+        { icon: FaFacebook, label: 'Facebook', value: 'Trung Lê', href: personalInfo.contact?.facebook },
+        { icon: FaInstagram, label: 'Instagram', value: 'trung.le.2605', href: personalInfo.contact?.instagram },
+    ].filter(m => m.value);
 
     return (
-        <div className="contact-page">
+        <div style={{ paddingTop: '64px', paddingBottom: '96px' }}>
+
             {/* Header */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-center mb-16"
-            >
-                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                    Contact{" "}
-                    <span className="text-gradient bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                        Me
-                    </span>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} style={{ marginBottom: '56px' }}>
+                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.60px', textTransform: 'uppercase', color: '#666666', marginBottom: '12px' }}>
+                    Get in touch
+                </p>
+                <h1 style={{ fontSize: 'clamp(32px, 5vw, 64px)', fontWeight: '340', lineHeight: '1.10', letterSpacing: '-0.96px', color: '#000000', margin: 0 }}>
+                    <BlurText text="Contact Me" delay={40} animateBy="words" direction="bottom" className="inline" />
                 </h1>
-                <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                    I'm always open to discussing new project collaborations, internship opportunities, or simply chatting about technology.
+                <p style={{ fontSize: 'clamp(15px, 2.5vw, 20px)', fontWeight: '330', lineHeight: '1.5', color: '#555555', marginTop: '16px', maxWidth: '540px' }}>
+                    Open to internship opportunities, collaborations, or a chat about technology.
                 </p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-12">
-                
-                {/* Contact Information */}
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="space-y-8"
+            {/* LIME BLOCK */}
+            <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                style={{ backgroundColor: '#dceeb1', borderRadius: '24px', padding: '40px 32px', marginBottom: '48px' }}
+            >
+                <div
+                    className="grid-2col"
+                    style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}
                 >
+                    {/* Info */}
                     <div>
-                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                            Contact Information
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Feel free to reach out via the methods below. I typically respond to emails within 24 hours.
+                        <h2 style={{ fontSize: 'clamp(18px, 2.5vw, 26px)', fontWeight: '540', letterSpacing: '-0.26px', color: '#000000', marginBottom: '16px' }}>Contact Information</h2>
+                        <p style={{ fontSize: '15px', fontWeight: '330', lineHeight: '1.65', color: '#444444', marginBottom: '24px' }}>
+                            Feel free to reach out. I typically respond within 24 hours.
                         </p>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                            {methods.map((m, i) => (
+                                <motion.a
+                                    key={i}
+                                    href={m.href}
+                                    whileHover={{ x: 6 }}
+                                    style={{
+                                        display: 'flex', alignItems: 'center', gap: '12px',
+                                        padding: '12px 16px',
+                                        backgroundColor: '#ffffff', borderRadius: '12px',
+                                        border: '1px solid rgba(0,0,0,0.06)',
+                                        textDecoration: 'none', color: '#000000',
+                                        transition: 'box-shadow 0.15s ease',
+                                    }}
+                                    onMouseEnter={e => e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'}
+                                    onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
+                                >
+                                    <div style={{ width: '34px', height: '34px', borderRadius: '9999px', backgroundColor: '#f7f7f5', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                        <m.icon size={14} />
+                                    </div>
+                                    <div style={{ minWidth: 0 }}>
+                                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#888888', marginBottom: '2px' }}>{m.label}</div>
+                                        <div style={{ fontSize: '13px', fontWeight: '400', color: '#000000', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{m.value}</div>
+                                    </div>
+                                    <FaArrowRight size={10} style={{ marginLeft: 'auto', color: '#888888', flexShrink: 0 }} />
+                                </motion.a>
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Contact Methods */}
-                    <div className="space-y-4">
-                        {contactMethods.map((method, index) => (
-                            <motion.a
-                                key={index}
-                                href={method.href}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1, duration: 0.6 }}
-                                whileHover={{ x: 8 }}
-                                className="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group"
+                    {/* Form */}
+                    <div style={{ backgroundColor: '#ffffff', borderRadius: '16px', padding: '28px', border: '1px solid rgba(0,0,0,0.06)' }}>
+                        <h2 style={{ fontSize: '20px', fontWeight: '540', color: '#000000', marginBottom: '20px' }}>Send a Message</h2>
+
+                        {submitStatus === 'success' && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }}
+                                style={{ marginBottom: '16px', padding: '12px 16px', backgroundColor: '#c8e6cd', borderRadius: '8px', fontSize: '14px', color: '#000000' }}
                             >
-                                <div className={`p-3 rounded-lg ${method.bgColor}`}>
-                                    <method.icon className={`text-xl ${method.color}`} />
+                                ✓ Message sent! I'll respond as soon as possible.
+                            </motion.div>
+                        )}
+                        {submitStatus === 'error' && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }}
+                                style={{ marginBottom: '16px', padding: '12px 16px', backgroundColor: '#efd4d4', borderRadius: '8px', fontSize: '14px', color: '#000000' }}
+                            >
+                                ✗ Error sending message. Please email me directly.
+                            </motion.div>
+                        )}
+
+                        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                            <div
+                                className="form-row-2col"
+                                style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}
+                            >
+                                <div>
+                                    <label style={labelStyle}>Full Name *</label>
+                                    <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Your name"
+                                        style={inputStyle(focused === 'name')}
+                                        onFocus={() => setFocused('name')} onBlur={() => setFocused('')}
+                                    />
                                 </div>
                                 <div>
-                                    <div className="font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                                        {method.label}
-                                    </div>
-                                    <div className="text-gray-600 dark:text-gray-400 text-sm">
-                                        {method.value}
-                                    </div>
+                                    <label style={labelStyle}>Email *</label>
+                                    <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="your@email.com"
+                                        style={inputStyle(focused === 'email')}
+                                        onFocus={() => setFocused('email')} onBlur={() => setFocused('')}
+                                    />
                                 </div>
-                            </motion.a>
-                        ))}
+                            </div>
+                            <div>
+                                <label style={labelStyle}>Subject</label>
+                                <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="What is this about?"
+                                    style={inputStyle(focused === 'subject')}
+                                    onFocus={() => setFocused('subject')} onBlur={() => setFocused('')}
+                                />
+                            </div>
+                            <div>
+                                <label style={labelStyle}>Message *</label>
+                                <textarea name="message" value={formData.message} onChange={handleChange} required rows={5} placeholder="Your message..."
+                                    style={{ ...inputStyle(focused === 'message'), resize: 'none' }}
+                                    onFocus={() => setFocused('message')} onBlur={() => setFocused('')}
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                style={{
+                                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                                    padding: '13px 28px', borderRadius: '50px',
+                                    fontSize: '15px', fontWeight: '480',
+                                    color: '#ffffff',
+                                    backgroundColor: isSubmitting ? '#888888' : '#000000',
+                                    border: 'none',
+                                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                                    transition: 'background-color 0.15s ease',
+                                    width: '100%',
+                                }}
+                                onMouseEnter={e => { if (!isSubmitting) e.currentTarget.style.backgroundColor = '#1a1a1a'; }}
+                                onMouseLeave={e => { if (!isSubmitting) e.currentTarget.style.backgroundColor = '#000000'; }}
+                            >
+                                {isSubmitting ? (
+                                    <>
+                                        <div style={{ width: '15px', height: '15px', border: '2px solid rgba(255,255,255,0.3)', borderTopColor: '#ffffff', borderRadius: '9999px', animation: 'spin 0.8s linear infinite' }} />
+                                        Sending...
+                                    </>
+                                ) : (
+                                    <><FaPaperPlane size={13} /> Send Message</>
+                                )}
+                            </button>
+                        </form>
                     </div>
-                </motion.div>
-
-                {/* Contact Form */}
-                <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg"
-                >
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                        Send a Message
-                    </h2>
-
-                    {submitStatus === 'success' && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="mb-6 p-4 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 rounded-lg"
-                        >
-                            ✅ Message sent successfully! I will respond as soon as possible.
-                        </motion.div>
-                    )}
-
-                    {submitStatus === 'error' && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="mb-6 p-4 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400 rounded-lg"
-                        >
-                            ❌ An error occurred while sending the message. Please try again or contact me directly via email.
-                        </motion.div>
-                    )}
-
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                    Full Name *
-                                </label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    required
-                                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200"
-                                    placeholder="Enter your full name"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                    Email *
-                                </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    required
-                                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200"
-                                    placeholder="your@email.com"
-                                />
-                            </div>
-                        </div>
-
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Subject *
-                            </label>
-                            <input
-                                type="text"
-                                name="subject"
-                                value={formData.subject}
-                                onChange={handleChange}
-                                required
-                                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200"
-                                placeholder="Subject of your message"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Message *
-                            </label>
-                            <textarea
-                                name="message"
-                                value={formData.message}
-                                onChange={handleChange}
-                                required
-                                rows={5}
-                                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none transition-colors duration-200"
-                                placeholder="Enter your message here..."
-                            />
-                        </div>
-
-                        <motion.button
-                            type="submit"
-                            disabled={isSubmitting}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            className={`w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
-                                isSubmitting
-                                    ? 'bg-gray-400 cursor-not-allowed'
-                                    : 'bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800'
-                            } text-white`}
-                        >
-                            {isSubmitting ? (
-                                <>
-                                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                                    <span>Sending...</span>
-                                </>
-                            ) : (
-                                <>
-                                    <FaPaperPlane />
-                                    <span>Send Message</span>
-                                </>
-                            )}
-                        </motion.button>
-                    </form>
-                </motion.div>
-            </div>
+                </div>
+            </motion.div>
         </div>
     );
 };

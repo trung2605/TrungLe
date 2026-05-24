@@ -1,482 +1,211 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import {
-    FaUsers,
-    FaCalendarAlt,
-    FaBuilding,
-    FaCrown,
-    FaStar,
-    FaPlay,
-    FaCheck,
-    FaChevronLeft,
-    FaChevronRight,
-    FaUser,
-    FaTimes,
-    FaEye,
-} from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaUsers, FaCalendarAlt, FaBuilding, FaPlay, FaCheck, FaTimes, FaEye } from "react-icons/fa";
 import { activities } from "../../data";
-import './Activities.scss';
 import Markdown from "react-markdown";
-import SpotlightCard from "../../animations/SpotlightCard";
-import BlurText from "../../animations/BlurText";
-import ShinyText from "../../animations/ShinyText";
-
 const ITEMS_PER_PAGE = 9;
+const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
+
+const STATUS_STYLE = {
+    'Active':      { bg: '#c8e6cd', color: '#000000' },
+    'In Progress': { bg: '#dceeb1', color: '#000000' },
+    'Completed':   { bg: '#e6e6e6', color: '#000000' },
+    'Various':     { bg: '#c5b0f4', color: '#000000' },
+};
 
 const Activities = () => {
-    const [selectedStatus, setSelectedStatus] = useState("all");
-    const [selectedOrganization, setSelectedOrganization] = useState("all");
-    const [currentPage, setCurrentPage] = useState(1);
+    const [selectedStatus, setSelectedStatus]   = useState("all");
+    const [selectedOrg, setSelectedOrg]         = useState("all");
+    const [currentPage, setCurrentPage]         = useState(1);
     const [selectedActivity, setSelectedActivity] = useState(null);
 
-    const organizations = [
-        "all",
-        ...new Set(activities.map((activity) => activity.organization)),
-    ];
-    const statuses = ["all", "Active", "Completed", "Various", "In Progress"];
+    const organizations = ["all", ...new Set(activities.map(a => a.organization))];
+    const statuses = ["all", "Active", "In Progress", "Completed", "Various"];
 
-    const preliminaryFilteredActivities = activities.filter((activity) => {
-        const matchesStatus =
-            selectedStatus === "all" || activity.status === selectedStatus;
-        const matchesOrg =
-            selectedOrganization === "all" ||
-            activity.organization === selectedOrganization;
-        return matchesStatus && matchesOrg;
+    const filtered = activities.filter(a => {
+        const matchStatus = selectedStatus === "all" || a.status === selectedStatus;
+        const matchOrg    = selectedOrg === "all" || a.organization === selectedOrg;
+        return matchStatus && matchOrg;
     });
 
-    const totalPages = Math.ceil(preliminaryFilteredActivities.length / ITEMS_PER_PAGE);
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    const endIndex = startIndex + ITEMS_PER_PAGE;
-    
-    const filteredActivities = preliminaryFilteredActivities.slice(startIndex, endIndex);
+    const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+    const current = filtered.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
-    const handlePageChange = (pageNumber) => {
-        if (pageNumber >= 1 && pageNumber <= totalPages) {
-            setCurrentPage(pageNumber);
-            window.scrollTo({ top: 0, behavior: 'smooth' }); 
-        }
-    };
-
-    const getRoleIcon = (role) => {
-        if (role.toLowerCase().includes("leader")) return FaCrown;
-        if (role.toLowerCase().includes("core")) return FaStar;
-        if (role.toLowerCase().includes("ambassador")) return FaUser;
-        return FaUsers;
-    };
-
-    const getRoleColor = (role) => {
-        if (role.toLowerCase().includes("leader"))
-            return "from-blue-600 to-blue-800"; // Leader: Deep Blue
-        if (role.toLowerCase().includes("core")) return "from-sky-500 to-sky-700"; // Core: Sky Blue
-        if (role.toLowerCase().includes("ambassador"))
-            return "from-cyan-500 to-cyan-700"; // Ambassador: Cyan (Blue-ish)
-        return "from-slate-500 to-slate-700";
-    };
-
-    const getStatusIcon = (status) => {
-        return status === "Active" || status === "In Progress" ? FaPlay : FaCheck;
-    };
-
-    const getStatusColor = (status) => {
-        return status === "Active" || status === "In Progress"
-            ? "from-cyan-400 to-cyan-600" // Active: Cyan
-            : "from-blue-400 to-blue-600"; // Completed: Blue
-    };
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                delayChildren: 0.3,
-                staggerChildren: 0.1,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { y: 50, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-            },
-        },
+    const changePage = p => {
+        if (p >= 1 && p <= totalPages) { setCurrentPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }
     };
 
     return (
-        <div className="activities-page">
-            <div className="max-w-7xl mx-auto px-4">
-                {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
-                >
-                    <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                        <motion.span
-                            className="inline-block mr-4 text-blue-600"
-                            animate={{ rotate: [0, 10, -5, 0] }}
-                            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                        >
-                            <FaUsers />
-                        </motion.span>
-                        <BlurText
-                            text="Activities &"
-                            delay={50}
-                            animateBy="words"
-                            direction="bottom"
-                            className="inline"
-                        />
-                        {' '}
-                        <ShinyText
-                            text="Participation"
-                            color="#38bdf8"
-                            shineColor="#ffffff"
-                            speed={3}
-                            className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
-                        />
-                    </h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                        Extracurricular activities and leadership roles I have undertaken
-                        during my academic journey
-                    </p>
-                </motion.div>
+        <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
 
-                {/* Statistics */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1, duration: 0.6 }}
-                    className="grid md:grid-cols-4 gap-6 mb-12"
-                >
-                    <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-6 text-white shadow-lg">
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <p className="text-sky-100 text-sm">Total Activities</p>
-                                <p className="text-3xl font-bold">{activities.length}</p>
+            {/* Stats — mint block */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                style={{ backgroundColor: '#c8e6cd', borderRadius: '24px', padding: '32px 28px', marginBottom: '48px' }}
+            >
+                <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
+                    {[
+                        { label: 'Total Activities', value: activities.length, icon: <FaUsers /> },
+                        { label: 'Active', value: activities.filter(a => a.status === 'Active' || a.status === 'In Progress').length, icon: <FaPlay /> },
+                        { label: 'Completed', value: activities.filter(a => a.status === 'Completed').length, icon: <FaCheck /> },
+                        { label: 'Organizations', value: organizations.length - 1, icon: <FaBuilding /> },
+                    ].map((s, i) => (
+                        <div key={i}>
+                            <div style={{ fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: '340', lineHeight: '1.0', color: '#000000' }}>{s.value}</div>
+                            <div style={{ fontSize: '14px', fontWeight: '400', color: '#444444', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                {s.icon} {s.label}
                             </div>
-                            <FaUsers className="text-4xl text-sky-200" />
                         </div>
-                    </div>
+                    ))}
+                </div>
+            </motion.div>
 
-                    <div className="bg-gradient-to-br from-cyan-500 to-cyan-700 rounded-lg p-6 text-white shadow-lg">
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <p className="text-cyan-100 text-sm">Active</p>
-                                <p className="text-3xl font-bold">
-                                    {activities.filter((a) => a.status === "Active" || a.status === "In Progress").length}
-                                </p>
-                            </div>
-                            <FaPlay className="text-4xl text-cyan-200" />
-                        </div>
-                    </div>
-
-                    <div className="bg-gradient-to-br from-sky-500 to-sky-700 rounded-lg p-6 text-white shadow-lg">
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <p className="text-sky-100 text-sm">Completed</p>
-                                <p className="text-3xl font-bold">
-                                    {activities.filter((a) => a.status === "Completed").length}
-                                </p>
-                            </div>
-                            <FaCheck className="text-4xl text-sky-200" />
-                        </div>
-                    </div>
-
-                    <div className="bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-lg p-6 text-white shadow-lg">
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <p className="text-indigo-100 text-sm">Organizations</p>
-                                <p className="text-3xl font-bold">{organizations.length - 1}</p>
-                            </div>
-                            <FaBuilding className="text-4xl text-indigo-200" />
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* Filters */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.6 }}
-                    className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-12 border border-gray-100 dark:border-gray-700"
+            {/* Filters */}
+            <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.5 }}
+                style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px', alignItems: 'center' }}
+            >
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#888888', alignSelf: 'center' }}>Status:</span>
+                    {statuses.map(s => (
+                        <button key={s} onClick={() => { setSelectedStatus(s); setCurrentPage(1); }}
+                            style={{ padding: '6px 14px', borderRadius: '50px', fontSize: '13px', fontWeight: selectedStatus === s ? '480' : '330', color: selectedStatus === s ? '#ffffff' : '#000000', backgroundColor: selectedStatus === s ? '#000000' : '#ffffff', border: '1.5px solid', borderColor: selectedStatus === s ? '#000000' : '#e6e6e6', cursor: 'pointer', transition: 'all 0.15s ease' }}>
+                            {s === 'all' ? 'All' : s}
+                        </button>
+                    ))}
+                </div>
+                <select
+                    value={selectedOrg}
+                    onChange={e => { setSelectedOrg(e.target.value); setCurrentPage(1); }}
+                    style={{ padding: '8px 16px', borderRadius: '50px', border: '1.5px solid #e6e6e6', fontSize: '14px', color: '#000000', backgroundColor: '#ffffff', outline: 'none', cursor: 'pointer' }}
                 >
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Filter by Status
-                            </label>
-                            <select
-                                value={selectedStatus}
-                                onChange={(e) => { setSelectedStatus(e.target.value); setCurrentPage(1); }}
-                                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
-                            >
-                                {statuses.map((status) => (
-                                    <option key={status} value={status}>
-                                        {status === "all" ? "All Status" : status}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+                    {organizations.map(org => (
+                        <option key={org} value={org}>{org === 'all' ? 'All Organizations' : org}</option>
+                    ))}
+                </select>
+            </motion.div>
 
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Filter by Organization
-                            </label>
-                            <select
-                                value={selectedOrganization}
-                                onChange={(e) => { setSelectedOrganization(e.target.value); setCurrentPage(1); }}
-                                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
-                            >
-                                {organizations.map((org) => (
-                                    <option key={org} value={org}>
-                                        {org === "all" ? "All Organizations" : org}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* Activities Grid */}
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {filteredActivities.map((activity, index) => {
-                        const RoleIcon = getRoleIcon(activity.role);
-                        const StatusIcon = getStatusIcon(activity.status);
-                        const roleColorClass = getRoleColor(activity.role);
-                        const statusColorClass = getStatusColor(activity.status);
-
-                        const ActivityImage =
-                            activity.image ||
-                            "https://via.placeholder.com/400x250?text=Activity+Image";
-
+            {/* Grid */}
+            {current.length > 0 ? (
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px', marginBottom: '48px' }}>
+                    {current.map((act, i) => {
+                        const statusStyle = STATUS_STYLE[act.status] || { bg: '#f7f7f5', color: '#000000' };
                         return (
                             <motion.div
-                                key={activity.id}
-                                variants={itemVariants}
-                                className="group h-full"
+                                key={act.id || i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.05, duration: 0.5 }}
+                                whileHover={{ y: -4 }}
+                                style={{
+                                    backgroundColor: '#ffffff',
+                                    border: '1px solid #e6e6e6',
+                                    borderRadius: '20px',
+                                    padding: '24px',
+                                    cursor: 'pointer',
+                                    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                                    position: 'relative',
+                                    overflow: 'hidden',
+                                }}
+                                onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
+                                onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
+                                onClick={() => setSelectedActivity(act)}
                             >
-                                <div className="h-full flex flex-col bg-transparent relative">
-                                    {/* ── THE ARTISTIC FRAME (FILM STYLE) ── */}
-                                    <div className="p-4 pb-12 bg-white dark:bg-slate-900 rounded-[2.5rem] rounded-b-none border border-gray-100 dark:border-slate-800 shadow-xl relative transition-all duration-700 group-hover:-rotate-2">
-                                        {/* Status Badge */}
-                                        <div className="absolute top-8 right-8 z-20">
-                                            <div className={`px-3 py-1 rounded-lg text-[9px] font-black text-white uppercase tracking-widest shadow-xl backdrop-blur-md bg-gradient-to-r ${getStatusColor(activity.status)}`}>
-                                                {activity.status}
-                                            </div>
-                                        </div>
+                                {/* Color accent top bar */}
+                                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length], borderRadius: '20px 20px 0 0' }} />
 
-                                        <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] bg-slate-50 dark:bg-slate-800 border border-gray-100 dark:border-slate-800 shadow-inner">
-                                            <img
-                                                src={ActivityImage}
-                                                alt={activity.title}
-                                                className="w-full h-full object-cover transition-all duration-1000 ease-out group-hover:scale-110 group-hover:blur-[1px]"
-                                            />
-                                            
-                                            {/* Cinematic Overlay & Actions */}
-                                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[2px] flex items-center justify-center">
-                                                <button
-                                                    onClick={() => setSelectedActivity(activity)}
-                                                    className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/30 transition-all transform scale-90 group-hover:scale-100 duration-500 shadow-2xl"
-                                                >
-                                                    <FaEye className="text-2xl" />
-                                                </button>
-                                            </div>
-                                        </div>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px', marginTop: '8px' }}>
+                                    <span style={{ padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: statusStyle.bg, color: statusStyle.color }}>
+                                        {act.status}
+                                    </span>
+                                    <FaEye size={14} style={{ color: '#aaaaaa' }} />
+                                </div>
 
-                                        {/* Film Metadata Decoration */}
-                                        <div className="mt-6 flex justify-center opacity-30 select-none">
-                                            <span className="text-[10px] font-mono font-black uppercase tracking-[0.4em] text-slate-500 dark:text-slate-400">
-                                                ACT_{activity.id || 'N01'} • {activity.organization?.substring(0, 10).toUpperCase()} • 2025
-                                            </span>
-                                        </div>
-                                    </div>
+                                <h3 style={{ fontSize: '17px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0', lineHeight: '1.35' }}>{act.title}</h3>
 
-                                    {/* ── CONTENT AREA ── */}
-                                    <div className="flex-1 p-8 bg-white dark:bg-slate-900 rounded-b-[2.5rem] border border-gray-100 dark:border-slate-800 border-t-0 shadow-2xl relative z-10 transition-transform duration-500 group-hover:translate-z-10 flex flex-col">
-                                        <div className="flex items-center gap-2 mb-4">
-                                            <div className={`px-3 py-1 bg-gradient-to-r ${getRoleColor(activity.role)} text-white text-[9px] uppercase font-black tracking-widest rounded-full shadow-sm`}>
-                                                {activity.role}
-                                            </div>
-                                        </div>
+                                <div style={{ fontSize: '13px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.3px', textTransform: 'uppercase', color: '#666666', marginBottom: '8px' }}>
+                                    {act.organization}
+                                </div>
 
-                                        <h3 className="text-xl font-black text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors duration-500 line-clamp-2 mb-4">
-                                            {activity.title}
-                                        </h3>
-
-                                        <div className="space-y-3 mb-6 flex-grow">
-                                            <div className="flex items-center gap-3 text-slate-500 dark:text-slate-400 text-xs font-bold">
-                                                <FaBuilding className="text-blue-500" />
-                                                <span className="truncate">{activity.organization}</span>
-                                            </div>
-                                            <div className="flex items-center gap-3 text-slate-500 dark:text-slate-400 text-xs font-bold">
-                                                <FaCalendarAlt className="text-sky-500" />
-                                                <span>{activity.duration}</span>
-                                            </div>
-                                        </div>
-
-                                        <div className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3 italic">
-                                            <Markdown>{activity.description}</Markdown>
-                                        </div>
-
-                                        <button
-                                            onClick={() => setSelectedActivity(activity)}
-                                            className="w-full py-4 bg-slate-900 dark:bg-slate-800 text-white hover:bg-blue-600 dark:hover:bg-blue-600 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg active:scale-95 border border-white/5"
-                                        >
-                                            <span>Details</span>
-                                            <FaChevronRight className="text-[8px]" />
-                                        </button>
-                                    </div>
+                                <div style={{ display: 'flex', gap: '16px', fontSize: '13px', color: '#888888', flexWrap: 'wrap' }}>
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                                        <FaCalendarAlt size={11} /> {act.duration}
+                                    </span>
+                                    {act.role && (
+                                        <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                                            {act.role}
+                                        </span>
+                                    )}
                                 </div>
                             </motion.div>
                         );
                     })}
-                </motion.div>
-                
-                {/* Pagination Controls */}
-                {totalPages > 1 && (
-                    <div className="flex justify-center items-center space-x-4 mt-12">
-                        <button
-                            onClick={() => handlePageChange(currentPage - 1)}
-                            disabled={currentPage === 1}
-                            className="p-3 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 disabled:opacity-50 transition-colors"
-                        >
-                            <FaChevronLeft />
+                </div>
+            ) : (
+                <div style={{ textAlign: 'center', padding: '64px 0', color: '#888888' }}>No activities found.</div>
+            )}
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
+                        <button key={p} onClick={() => changePage(p)}
+                            style={{ width: '36px', height: '36px', borderRadius: '9999px', border: '1.5px solid', borderColor: currentPage === p ? '#000000' : '#e6e6e6', backgroundColor: currentPage === p ? '#000000' : '#ffffff', color: currentPage === p ? '#ffffff' : '#000000', cursor: 'pointer', fontSize: '14px', fontWeight: currentPage === p ? '480' : '330' }}>
+                            {p}
                         </button>
+                    ))}
+                </div>
+            )}
 
-                        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                            <button
-                                key={page}
-                                onClick={() => handlePageChange(page)}
-                                className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                                    currentPage === page
-                                        ? 'bg-blue-600 text-white shadow-md'
-                                        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                                }`}
-                            >
-                                {page}
-                            </button>
-                        ))}
-
-                        <button
-                            onClick={() => handlePageChange(currentPage + 1)}
-                            disabled={currentPage === totalPages}
-                            className="p-3 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 disabled:opacity-50 transition-colors"
-                        >
-                            <FaChevronRight />
-                        </button>
-                    </div>
-                )}
-
-
-                {/* No results message */}
-                {(filteredActivities.length === 0 && preliminaryFilteredActivities.length > 0) ? (
-                    <div className="text-center py-16 text-gray-500 dark:text-gray-400">
-                        No items on this page. Please navigate back or adjust the filters.
-                    </div>
-                ) : (
-                    preliminaryFilteredActivities.length === 0 && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="text-center py-16"
-                        >
-                            <FaUsers className="text-6xl text-gray-400 dark:text-gray-600 mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold text-gray-500 dark:text-gray-400 mb-2">
-                                No activities found
-                            </h3>
-                            <p className="text-gray-400 dark:text-gray-500">
-                                Try adjusting your filters to see more results
-                            </p>
-                        </motion.div>
-                    )
-                )}
-                {/* Activity Details Modal */}
+            {/* Modal */}
+            <AnimatePresence>
                 {selectedActivity && (
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="fixed inset-0 bg-black/60 backdrop-blur-md z-[100] flex items-center justify-center p-4"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}
                         onClick={() => setSelectedActivity(null)}
                     >
                         <motion.div
-                            initial={{ scale: 0.8, opacity: 0, y: 50 }}
-                            animate={{ scale: 1, opacity: 1, y: 0 }}
-                            className="bg-white dark:bg-gray-800 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 dark:border-gray-700"
-                            onClick={(e) => e.stopPropagation()}
+                            initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
+                            transition={{ type: 'spring', damping: 30, stiffness: 350 }}
+                            style={{ backgroundColor: '#ffffff', borderRadius: '24px', maxWidth: '640px', width: '100%', maxHeight: '85vh', overflowY: 'auto' }}
+                            onClick={e => e.stopPropagation()}
                         >
-                            <div className="relative bg-gray-100 dark:bg-gray-900 rounded-t-3xl flex items-center justify-center overflow-hidden">
-                                <img
-                                    src={selectedActivity.image || "https://via.placeholder.com/400x250?text=Activity+Image"}
-                                    alt={selectedActivity.title}
-                                    className="w-full h-auto max-h-[60vh] object-cover"
-                                />
-                                
-                                <button
-                                    onClick={() => setSelectedActivity(null)}
-                                    className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all backdrop-blur-sm border border-white/20 z-10"
-                                >
-                                    <FaTimes className="text-lg" />
+                            <div style={{ padding: '32px', borderBottom: '1px solid #e6e6e6', position: 'relative' }}>
+                                <button onClick={() => setSelectedActivity(null)}
+                                    style={{ position: 'absolute', top: '24px', right: '24px', width: '32px', height: '32px', borderRadius: '9999px', backgroundColor: '#f7f7f5', border: '1px solid #e6e6e6', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                                    <FaTimes size={12} />
                                 </button>
-                                
-                                <div className="absolute top-4 left-4">
-                                     <div className={`backdrop-blur-md bg-white/20 text-white px-3 py-1.5 rounded-full text-xs font-bold border border-white/30 flex items-center gap-2`}>
-                                         {(() => {
-                                             const StatusIcon = getStatusIcon(selectedActivity.status);
-                                             return <StatusIcon className="text-xs" />;
-                                         })()}
-                                         {selectedActivity.status}
-                                     </div>
-                                </div>
+                                <span style={{ display: 'inline-block', padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: (STATUS_STYLE[selectedActivity.status] || {}).bg || '#f7f7f5', marginBottom: '12px' }}>
+                                    {selectedActivity.status}
+                                </span>
+                                <h2 style={{ fontSize: '22px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0' }}>{selectedActivity.title}</h2>
+                                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#666666', margin: 0 }}>{selectedActivity.organization}</p>
                             </div>
-
-                            <div className="p-8">
-                                <div className="mb-6">
-                                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
-                                        {selectedActivity.title}
-                                    </h2>
-                                    <div className="flex flex-wrap gap-4 mt-3">
-                                        <div className="flex items-center space-x-2 text-blue-600 dark:text-blue-400 font-medium">
-                                            <FaBuilding />
-                                            <span>{selectedActivity.organization}</span>
-                                        </div>
-                                         <div className="flex items-center space-x-2 text-gray-500 dark:text-gray-400">
-                                            <FaCalendarAlt />
-                                            <span>{selectedActivity.duration}</span>
-                                        </div>
-                                    </div>
+                            <div style={{ padding: '24px 32px 32px' }}>
+                                <div style={{ display: 'flex', gap: '16px', marginBottom: '20px', flexWrap: 'wrap' }}>
+                                    <span style={{ fontSize: '14px', color: '#666666', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                        <FaCalendarAlt size={12} /> {selectedActivity.duration}
+                                    </span>
+                                    {selectedActivity.role && (
+                                        <span style={{ fontSize: '14px', color: '#666666' }}>{selectedActivity.role}</span>
+                                    )}
                                 </div>
-
-                                <div className="mb-8 p-6 bg-gray-50 dark:bg-gray-700/30 rounded-2xl border border-gray-100 dark:border-gray-700">
-                                    <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-200 dark:border-gray-600">
-                                         {(() => {
-                                             const RoleIcon = getRoleIcon(selectedActivity.role);
-                                             const roleColorClass = getRoleColor(selectedActivity.role);
-                                             return <RoleIcon className={`text-2xl ${roleColorClass.replace('bg-', 'text-').split(' ')[0]}`} />
-                                         })()}
-                                        <div>
-                                            <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block">Role</span>
-                                            <span className="text-lg font-bold text-gray-800 dark:text-gray-200">{selectedActivity.role}</span>
-                                        </div>
-                                    </div>
-                                    
-                                     <div className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg markdown-content">
+                                {selectedActivity.description && (
+                                    <div style={{ fontSize: '15px', fontWeight: '330', lineHeight: '1.7', color: '#444444' }}>
                                         <Markdown>{selectedActivity.description}</Markdown>
                                     </div>
-                                </div>
+                                )}
                             </div>
                         </motion.div>
                     </motion.div>
                 )}
-            </div>
+            </AnimatePresence>
         </div>
     );
 };

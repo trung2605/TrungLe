@@ -1,82 +1,101 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaHeart, FaArrowUp, FaMapMarkerAlt, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaArrowUp, FaMapMarkerAlt, FaInstagram } from 'react-icons/fa';
 import { socialLinks, siteNavigation, personalInfo } from '../../data';
+
+const getSocialIcon = (name) => {
+    const icons = { facebook: FaFacebook, github: FaGithub, linkedin: FaLinkedin, email: FaEnvelope, instagram: FaInstagram };
+    return icons[name.toLowerCase()] || FaEnvelope;
+};
 
 const Footer = () => {
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    const getSocialIcon = (name) => {
-        const icons = {
-            facebook: FaFacebook,
-            github: FaGithub,
-            linkedin: FaLinkedin,
-            email: FaEnvelope,
-            instagram: FaInstagram
-        };
-        return icons[name.toLowerCase()] || FaEnvelope;
-    };
-
     return (
-        <footer className="relative bg-white dark:bg-slate-950 pt-20 pb-10 overflow-hidden border-t border-slate-200 dark:border-slate-800">
-            {/* Decorative Background Mesh - Blue Theme */}
-            <div className="absolute inset-0 opacity-50 dark:opacity-20 pointer-events-none">
-                <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
-            </div>
-
-            <div className="container mx-auto px-4 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-                    {/* Brand Section */}
-                    <div className="md:col-span-5 space-y-6">
-                        <Link 
-                            to="/" 
-                            className="flex items-center space-x-3 group"
+        <footer style={{
+            backgroundColor: '#ffffff',
+            borderTop: '1px solid #e6e6e6',
+            padding: '56px 32px',
+            marginTop: '0',
+        }}>
+            <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+                <div
+                    className="footer-grid"
+                    style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '48px', marginBottom: '40px' }}
+                >
+                    {/* Brand */}
+                    <div>
+                        <Link
+                            to="/"
                             onClick={scrollToTop}
+                            style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', marginBottom: '16px' }}
                         >
-                            <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white font-bold text-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform duration-300">
-                                LT
-                            </div>
-                            <div>
-                                <h3 className="font-heading font-bold text-2xl text-slate-900 dark:text-white">Lê Trí Trung</h3>
-                                <p className="text-sm text-sky-500 dark:text-sky-400 font-medium">Full Stack Developer</p>
-                            </div>
+                            <div style={{
+                                width: '32px', height: '32px', borderRadius: '6px',
+                                backgroundColor: '#000000', color: '#ffffff',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                fontSize: '13px', fontWeight: '700', letterSpacing: '-0.5px',
+                            }}>LT</div>
+                            <span style={{ fontSize: '16px', fontWeight: '540', color: '#000000', letterSpacing: '-0.2px' }}>
+                                Lê Trí Trung
+                            </span>
                         </Link>
-                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed max-w-md">
-                            Passionate about building scalable applications and crafting intuitive user experiences. 
-                            Always learning, always coding.
+                        <p style={{
+                            fontSize: '15px', fontWeight: '330', lineHeight: '1.6',
+                            color: '#555555', maxWidth: '320px', marginBottom: '20px',
+                        }}>
+                            Computer Science student at FPT University. Passionate about building clean, scalable applications with Java Spring Boot and React.
                         </p>
-                        <div className="flex space-x-4">
-                            {socialLinks.map((social, index) => {
+                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                            {socialLinks.map((social, i) => {
                                 const Icon = getSocialIcon(social.name);
                                 return (
                                     <motion.a
-                                        key={index}
+                                        key={i}
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        whileHover={{ y: -3 }}
-                                        className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-sky-500/30"
+                                        whileHover={{ y: -2 }}
+                                        style={{
+                                            width: '36px', height: '36px',
+                                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                            borderRadius: '9999px',
+                                            backgroundColor: '#f7f7f5', color: '#000000',
+                                            border: '1px solid #e6e6e6',
+                                            transition: 'background-color 0.15s ease',
+                                            textDecoration: 'none',
+                                        }}
+                                        onMouseEnter={e => e.currentTarget.style.backgroundColor = '#e6e6e6'}
+                                        onMouseLeave={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
                                     >
-                                        <Icon size={18} />
+                                        <Icon size={15} />
                                     </motion.a>
                                 );
                             })}
                         </div>
                     </div>
 
-                    {/* Quick Links */}
-                    <div className="md:col-span-3 md:col-start-7">
-                        <h4 className="font-heading font-bold text-slate-900 dark:text-white mb-6">Explore</h4>
-                        <ul className="space-y-3">
+                    {/* Explore links */}
+                    <div>
+                        <p style={{
+                            fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
+                            letterSpacing: '0.60px', textTransform: 'uppercase',
+                            color: '#666666', marginBottom: '16px',
+                        }}>Explore</p>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
                             {siteNavigation.map((item) => (
                                 <li key={item.path}>
-                                    <Link 
-                                        to={item.path} 
+                                    <Link
+                                        to={item.path}
                                         onClick={scrollToTop}
-                                        className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center group"
+                                        style={{
+                                            fontSize: '15px', fontWeight: '330',
+                                            color: '#555555', textDecoration: 'none',
+                                            transition: 'color 0.15s ease',
+                                        }}
+                                        onMouseEnter={e => e.currentTarget.style.color = '#000000'}
+                                        onMouseLeave={e => e.currentTarget.style.color = '#555555'}
                                     >
-                                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-sky-500 mr-3 transition-colors" />
                                         {item.title}
                                     </Link>
                                 </li>
@@ -84,17 +103,26 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Contact Info */}
-                    <div className="md:col-span-3">
-                        <h4 className="font-heading font-bold text-slate-900 dark:text-white mb-6">Contact</h4>
-                        <ul className="space-y-4">
-                            <li className="flex items-start space-x-3 text-slate-600 dark:text-slate-400">
-                                <span className="mt-1 text-sky-500"><FaMapMarkerAlt /></span>
-                                <span>Ho Chi Minh City, Vietnam</span>
+                    {/* Contact */}
+                    <div>
+                        <p style={{
+                            fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
+                            letterSpacing: '0.60px', textTransform: 'uppercase',
+                            color: '#666666', marginBottom: '16px',
+                        }}>Contact</p>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', color: '#555555' }}>
+                                <FaMapMarkerAlt size={13} style={{ marginTop: '2px', flexShrink: 0 }} />
+                                Đà Nẵng, Vietnam
                             </li>
-                            <li className="flex items-center space-x-3 text-slate-600 dark:text-slate-400">
-                                <span className="text-sky-500"><FaEnvelope /></span>
-                                <a href="mailto:letritrung2605@gmail.com" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
+                                <FaEnvelope size={13} style={{ flexShrink: 0 }} />
+                                <a
+                                    href="mailto:letritrung2605@gmail.com"
+                                    style={{ color: '#555555', textDecoration: 'none', transition: 'color 0.15s ease', wordBreak: 'break-all' }}
+                                    onMouseEnter={e => e.currentTarget.style.color = '#000000'}
+                                    onMouseLeave={e => e.currentTarget.style.color = '#555555'}
+                                >
                                     letritrung2605@gmail.com
                                 </a>
                             </li>
@@ -102,27 +130,38 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Bottom Bar */}
-                <div className="pt-8 border-t border-slate-100 dark:border-slate-800/50 flex flex-col md:flex-row items-center justify-between">
-                    <p className="text-slate-500 dark:text-slate-500 text-sm mb-4 md:mb-0">
-                        © {new Date().getFullYear()} Lê Trí Trung. All rights reserved.
+                {/* Bottom bar */}
+                <div style={{
+                    paddingTop: '20px',
+                    borderTop: '1px solid #e6e6e6',
+                    display: 'flex', alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap', gap: '10px',
+                }}>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', color: '#888888', margin: 0 }}>
+                        © {new Date().getFullYear()} LÊ TRÍ TRUNG — ALL RIGHTS RESERVED
                     </p>
-                    <div className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-500">
-                        <span>Made with</span>
-                        <FaHeart className="text-rose-500 animate-pulse" />
-                        <span>and React</span>
-                    </div>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', color: '#888888', margin: 0 }}>
+                        BUILT WITH REACT + FIGMA DESIGN SYSTEM
+                    </p>
                 </div>
             </div>
 
-            {/* Scroll to Top */}
+            {/* Scroll to top */}
             <motion.button
                 onClick={scrollToTop}
-                className="absolute bottom-8 right-8 p-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors z-20"
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.9 }}
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                    position: 'fixed', bottom: '28px', right: '28px',
+                    width: '44px', height: '44px', borderRadius: '9999px',
+                    backgroundColor: '#000000', color: '#ffffff',
+                    border: 'none', display: 'flex', alignItems: 'center',
+                    justifyContent: 'center', cursor: 'pointer',
+                    zIndex: 40, boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
+                }}
             >
-                <FaArrowUp />
+                <FaArrowUp size={14} />
             </motion.button>
         </footer>
     );

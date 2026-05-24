@@ -1,212 +1,177 @@
-﻿// src/pages/PrizesPage/PrizesPage.js
-
-
-import { motion } from "framer-motion";
-import {
-  FaTrophy,
-  FaMedal,
-  FaStar,
-  FaCalendarAlt,
-  FaBuilding,
-} from "react-icons/fa"; 
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaTrophy, FaMedal, FaStar, FaCalendarAlt, FaBuilding, FaTimes } from "react-icons/fa";
 import { prizes } from "../../data";
-import "./Prizes.scss";
 import Markdown from "react-markdown";
+const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
+
+const getPositionIcon = (position) => {
+    const p = position.toLowerCase();
+    if (p.includes('winner') || p.includes('first')) return FaTrophy;
+    if (p.includes('runner-up') || p.includes('second')) return FaMedal;
+    return FaStar;
+};
+
+const getPositionBadge = (position) => {
+    const p = position.toLowerCase();
+    if (p.includes('winner') || p.includes('first')) return { bg: '#dceeb1', label: 'Winner' };
+    if (p.includes('runner-up') || p.includes('second')) return { bg: '#c5b0f4', label: 'Runner-up' };
+    if (p.includes('finalist') || p.includes('final')) return { bg: '#f4ecd6', label: 'Finalist' };
+    return { bg: '#e6e6e6', label: 'Participant' };
+};
 
 const Prizes = () => {
+    const [selectedPrize, setSelectedPrize] = useState(null);
 
-  const getPositionIcon = (position) => {
-    if (
-      position.toLowerCase().includes("winner") ||
-      position.toLowerCase().includes("first")
-    ) {
-      return FaTrophy;
-    } else if (
-      position.toLowerCase().includes("runner-up") ||
-      position.toLowerCase().includes("second")
-    ) {
-      return FaMedal;
-    } else if (
-      position.toLowerCase().includes("finalist") ||
-      position.toLowerCase().includes("final")
-    ) {
-      return FaStar;
-    }
-    return FaTrophy;
-  };
+    const totalOrgs = new Set(prizes.map(p => p.organization)).size;
+    const totalYears = new Set(prizes.map(p => p.year)).size;
 
-  const getPositionColor = (position) => {
-    if (
-      position.toLowerCase().includes("winner") ||
-      position.toLowerCase().includes("first")
-    ) {
-      // Winner - Bright Sky/Blue
-      return "from-sky-400 to-blue-500";
-    } else if (
-      position.toLowerCase().includes("runner-up") ||
-      position.toLowerCase().includes("second")
-    ) {
-      // Runner-up - Blue/Sky
-      return "from-blue-500 to-sky-600"; 
-    } else if (
-      position.toLowerCase().includes("finalist") ||
-      position.toLowerCase().includes("final")
-    ) {
-      // Finalist - Sky/Blue (Darker)
-      return "from-sky-600 to-blue-700";
-    }
-    // Default - Slate/Gray or Blue-Gray
-    return "from-slate-500 to-slate-700";
-  };
+    return (
+        <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
-  return (
-    <div className="prizes-page">
-      <div className="max-w-6xl mx-auto px-4">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            <FaTrophy className="inline-block mr-4 text-sky-500" />
-            Prizes & Awards
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Recognition and achievements in various competitions and contests
-          </p>
-        </motion.div>
-
-        {/* Statistics */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="grid md:grid-cols-3 gap-6 mb-12"
-        >
-          {/* Stat Cards */}
-          <div className="bg-gradient-to-br from-white to-sky-50 dark:from-gray-800 dark:to-gray-900 rounded-lg p-6 border border-sky-100 dark:border-sky-900 shadow-md">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">Total Awards</p>
-                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">{prizes.length}</p>
-              </div>
-              <FaTrophy className="text-4xl text-sky-200 dark:text-sky-800" />
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-white to-sky-50 dark:from-gray-800 dark:to-gray-900 rounded-lg p-6 border border-sky-100 dark:border-sky-900 shadow-md">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">Organizations</p>
-                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">
-                  {new Set(prizes.map((p) => p.organization)).size}
-                </p>
-              </div>
-              <FaBuilding className="text-4xl text-sky-200 dark:text-sky-800" />
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-white to-sky-50 dark:from-gray-800 dark:to-gray-900 rounded-lg p-6 border border-sky-100 dark:border-sky-900 shadow-md">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">Years Active</p>
-                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">
-                  {new Set(prizes.map((p) => p.year)).size}
-                </p>
-              </div>
-              <FaCalendarAlt className="text-4xl text-sky-200 dark:text-sky-800" />
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Prizes Timeline */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="prize-timeline"
-        >
-          {prizes.map((prize, index) => {
-            const IconComponent = getPositionIcon(prize.position);
-            const colorClass = getPositionColor(prize.position);
-            const isLeft = index % 2 === 0;
-
-            return (
-              <motion.div
-                key={prize.id}
-                variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className={`timeline-item ${isLeft ? "left" : "right"}`}
-              >
-                {/* Card Giải Thưởng */}
-                <div className="timeline-card-wrapper">
-                  <div className="timeline-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700">
-                    <div
-                      className={`timeline-card-header bg-gradient-to-r ${colorClass} text-white`}
-                    >
-                      <div className="flex items-center space-x-3">
-                        <IconComponent className="text-2xl text-white/90" />
-                        <h3 className="text-xl font-bold">{prize.title}</h3>
-                      </div>
-                      <div className="text-right">
-                        <div className="bg-white/20 rounded-lg px-3 py-1 backdrop-blur-sm">
-                          <span className="text-sm font-medium">
-                            {prize.year}
-                          </span>
+            {/* Stats — lime block */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                style={{ backgroundColor: '#dceeb1', borderRadius: '24px', padding: '32px 40px', marginBottom: '56px' }}
+            >
+                <div className="stats-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+                    {[
+                        { label: 'Total Awards', value: prizes.length, icon: <FaTrophy /> },
+                        { label: 'Organizations', value: totalOrgs, icon: <FaBuilding /> },
+                        { label: 'Years Active', value: totalYears, icon: <FaCalendarAlt /> },
+                    ].map((s, i) => (
+                        <div key={i}>
+                            <div style={{ fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: '340', lineHeight: '1.0', color: '#000000' }}>{s.value}</div>
+                            <div style={{ fontSize: '14px', fontWeight: '400', color: '#444444', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                {s.icon} {s.label}
+                            </div>
                         </div>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6">
-                      <div className="mb-4">
-                        <span className="text-lg font-semibold text-gray-900 dark:text-white">
-                          {prize.position}
-                        </span>
-                      </div>
-
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                        <Markdown>{prize.description}</Markdown>
-                      </p>
-
-                      <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-                        <div className="flex items-center space-x-2">
-                          <FaBuilding className="text-sky-500" />
-                          <span>{prize.organization}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    ))}
                 </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </div>
-  );
+            </motion.div>
+
+            {/* Prizes Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px' }}>
+                {prizes.map((prize, i) => {
+                    const Icon = getPositionIcon(prize.position);
+                    const badge = getPositionBadge(prize.position);
+                    return (
+                        <motion.div
+                            key={prize.id || i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.06, duration: 0.5 }}
+                            whileHover={{ y: -4 }}
+                            onClick={() => setSelectedPrize(prize)}
+                            style={{
+                                backgroundColor: '#ffffff',
+                                border: '1px solid #e6e6e6',
+                                borderRadius: '20px',
+                                overflow: 'hidden',
+                                cursor: 'pointer',
+                                transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                                position: 'relative',
+                            }}
+                            onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
+                        >
+                            {/* Color top bar */}
+                            <div style={{ height: '4px', backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length] }} />
+
+                            <div style={{ padding: '24px' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+                                    <span style={{
+                                        padding: '4px 12px', borderRadius: '50px',
+                                        fontSize: '11px', fontFamily: 'JetBrains Mono, monospace',
+                                        letterSpacing: '0.4px', textTransform: 'uppercase',
+                                        backgroundColor: badge.bg, color: '#000000',
+                                    }}>
+                                        {badge.label}
+                                    </span>
+                                    <span style={{
+                                        fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
+                                        color: '#888888', letterSpacing: '0.3px',
+                                    }}>{prize.year}</span>
+                                </div>
+
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                                    <div style={{
+                                        width: '40px', height: '40px', borderRadius: '9999px',
+                                        backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length],
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                                    }}>
+                                        <Icon size={16} style={{ color: '#000000' }} />
+                                    </div>
+                                    <h3 style={{ fontSize: '17px', fontWeight: '540', color: '#000000', margin: 0, lineHeight: '1.35' }}>
+                                        {prize.title}
+                                    </h3>
+                                </div>
+
+                                <p style={{ fontSize: '14px', fontWeight: '480', color: '#333333', marginBottom: '8px' }}>{prize.position}</p>
+
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: '#888888' }}>
+                                    <FaBuilding size={11} /> {prize.organization}
+                                </div>
+                            </div>
+                        </motion.div>
+                    );
+                })}
+            </div>
+
+            {/* Modal */}
+            <AnimatePresence>
+                {selectedPrize && (
+                    <motion.div
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}
+                        onClick={() => setSelectedPrize(null)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
+                            transition={{ type: 'spring', damping: 30, stiffness: 350 }}
+                            style={{ backgroundColor: '#ffffff', borderRadius: '24px', maxWidth: '560px', width: '100%', overflow: 'hidden' }}
+                            onClick={e => e.stopPropagation()}
+                        >
+                            {/* Modal header bar */}
+                            <div style={{ height: '6px', backgroundColor: BLOCK_COLORS[prizes.indexOf(selectedPrize) % BLOCK_COLORS.length] }} />
+
+                            <div style={{ padding: '32px', position: 'relative' }}>
+                                <button onClick={() => setSelectedPrize(null)}
+                                    style={{ position: 'absolute', top: '24px', right: '24px', width: '32px', height: '32px', borderRadius: '9999px', backgroundColor: '#f7f7f5', border: '1px solid #e6e6e6', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                                    <FaTimes size={12} />
+                                </button>
+
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
+                                    <div style={{ width: '48px', height: '48px', borderRadius: '9999px', backgroundColor: getPositionBadge(selectedPrize.position).bg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                        {(() => { const I = getPositionIcon(selectedPrize.position); return <I size={20} />; })()}
+                                    </div>
+                                    <div>
+                                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#888888', marginBottom: '4px' }}>{selectedPrize.year}</div>
+                                        <h2 style={{ fontSize: '22px', fontWeight: '540', color: '#000000', margin: 0 }}>{selectedPrize.title}</h2>
+                                    </div>
+                                </div>
+
+                                <div style={{ borderTop: '1px solid #f1f1f1', paddingTop: '20px' }}>
+                                    <p style={{ fontSize: '15px', fontWeight: '540', color: '#000000', marginBottom: '8px' }}>{selectedPrize.position}</p>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '14px', color: '#666666', marginBottom: '16px' }}>
+                                        <FaBuilding size={12} /> {selectedPrize.organization}
+                                    </div>
+                                    {selectedPrize.description && (
+                                        <div style={{ fontSize: '15px', fontWeight: '330', lineHeight: '1.7', color: '#444444' }}>
+                                            <Markdown>{selectedPrize.description}</Markdown>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
 };
 
 export default Prizes;

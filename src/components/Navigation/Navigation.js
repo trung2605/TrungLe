@@ -1,14 +1,11 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaSun, FaMoon } from "react-icons/fa";
-import { useCustomTheme } from "../../contexts/ThemeContext";
 import { personalInfo, siteNavigation } from "../../data";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isDarkMode, toggleTheme } = useCustomTheme(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -22,44 +19,67 @@ const Navigation = () => {
   }, [location]);
 
   const handleLinkClick = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-sky-100 dark:border-sky-900/30 shadow-sm"
-          : "bg-transparent py-4"
-      }`}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        backgroundColor: '#ffffff',
+        borderBottom: isScrolled ? '1px solid #e6e6e6' : '1px solid transparent',
+        transition: 'border-color 0.2s ease',
+        height: '56px',
+        display: 'flex',
+        alignItems: 'center',
+      }}
     >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px', width: '100%' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
           {/* Logo */}
-          <Link 
-            to="/" 
-            className="group flex items-center space-x-3"
+          <Link
+            to="/"
             onClick={handleLinkClick}
+            style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
           >
-            <div className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-tr from-sky-500 to-blue-600 text-white font-bold font-heading text-lg shadow-lg group-hover:shadow-sky-500/30 transition-shadow duration-300">
+            <div style={{
+              width: '32px',
+              height: '32px',
+              borderRadius: '6px',
+              backgroundColor: '#000000',
+              color: '#ffffff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '13px',
+              fontWeight: '700',
+              letterSpacing: '-0.5px',
+            }}>
               LT
-              <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <div className="hidden sm:block">
-              <h1 className="font-heading font-bold text-slate-900 dark:text-white text-lg leading-tight">
-                {personalInfo.name}
-              </h1>
-              <p className="text-xs text-sky-500 dark:text-sky-400 font-medium tracking-wide">
-                PORTFOLIO
-              </p>
-            </div>
+            <span style={{
+              fontSize: '15px',
+              fontWeight: '540',
+              color: '#000000',
+              letterSpacing: '-0.2px',
+              display: 'none',
+            }}
+              className="sm:block"
+            >
+              {personalInfo.name}
+            </span>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-1 p-1 bg-white/50 dark:bg-slate-800/50 backdrop-blur-md rounded-full border border-white/20 dark:border-slate-700/50 shadow-sm">
+          {/* Desktop Nav */}
+          <div
+            className="hidden lg:flex"
+            style={{ alignItems: 'center', gap: '4px' }}
+          >
             {siteNavigation.map((item) => {
               const isActive = location.pathname === item.path;
               return (
@@ -67,91 +87,178 @@ const Navigation = () => {
                   key={item.path}
                   to={item.path}
                   onClick={handleLinkClick}
-                  className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    isActive
-                      ? "text-sky-600 dark:text-sky-400"
-                      : "text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300"
-                  }`}
+                  style={{
+                    position: 'relative',
+                    padding: '6px 16px',
+                    borderRadius: '50px',
+                    fontSize: '15px',
+                    fontWeight: isActive ? '540' : '400',
+                    color: isActive ? '#000000' : '#555555',
+                    textDecoration: 'none',
+                    transition: 'color 0.15s ease',
+                    backgroundColor: isActive ? '#f7f7f5' : 'transparent',
+                  }}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="nav-pill"
-                      className="absolute inset-0 bg-sky-50 dark:bg-sky-900/30 rounded-full"
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        backgroundColor: '#f7f7f5',
+                        borderRadius: '50px',
+                      }}
                       initial={false}
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
                   )}
-                  <span className="relative z-10">{item.title}</span>
+                  <span style={{ position: 'relative', zIndex: 1 }}>{item.title}</span>
                 </Link>
               );
             })}
           </div>
 
-          {/* Controls */}
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={toggleTheme}
-              className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-sky-100 dark:hover:bg-slate-700 hover:text-sky-600 dark:hover:text-amber-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sky-500/50"
-              aria-label="Toggle theme"
+          {/* CTA pair */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <a
+              href={personalInfo.cv}
+              download="Le_Tri_Trung_CV.pdf"
+              className="hidden lg:inline-flex"
+              style={{
+                padding: '8px 18px 10px',
+                borderRadius: '50px',
+                fontSize: '15px',
+                fontWeight: '480',
+                color: '#000000',
+                backgroundColor: '#ffffff',
+                border: '1.5px solid #e6e6e6',
+                textDecoration: 'none',
+                transition: 'background-color 0.15s ease',
+              }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#ffffff'}
             >
-              {isDarkMode ? <FaSun className="text-amber-500 text-xl" /> : <FaMoon className="text-sky-600 text-xl" />}
-            </button>
+              Download CV
+            </a>
+            <Link
+              to="/projects"
+              onClick={handleLinkClick}
+              className="hidden lg:inline-flex"
+              style={{
+                padding: '10px 20px',
+                borderRadius: '50px',
+                fontSize: '15px',
+                fontWeight: '480',
+                color: '#ffffff',
+                backgroundColor: '#000000',
+                textDecoration: 'none',
+                transition: 'background-color 0.15s ease',
+              }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#000000'}
+            >
+              View Projects
+            </Link>
 
-            {/* Mobile Hamburger */}
+            {/* Hamburger */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 text-slate-600 dark:text-slate-300 focus:outline-none"
+              className="lg:hidden"
+              style={{
+                padding: '8px',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                color: '#000000',
+              }}
+              aria-label="Toggle menu"
             >
-              <div className="w-6 h-5 relative flex flex-col justify-between">
-                <span
-                  className={`w-full h-0.5 bg-current rounded-full transition-all duration-300 ${
-                    isMenuOpen ? "rotate-45 translate-y-2.5" : ""
-                  }`}
-                />
-                <span
-                  className={`w-full h-0.5 bg-current rounded-full transition-all duration-300 ${
-                    isMenuOpen ? "opacity-0" : "opacity-100"
-                  }`}
-                />
-                <span
-                  className={`w-full h-0.5 bg-current rounded-full transition-all duration-300 ${
-                    isMenuOpen ? "-rotate-45 -translate-y-2" : ""
-                  }`}
-                />
+              <div style={{ width: '22px', height: '18px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <span style={{
+                  display: 'block', width: '100%', height: '1.5px',
+                  backgroundColor: '#000',
+                  transition: 'all 0.25s ease',
+                  transform: isMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
+                }} />
+                <span style={{
+                  display: 'block', width: '100%', height: '1.5px',
+                  backgroundColor: '#000',
+                  transition: 'all 0.25s ease',
+                  opacity: isMenuOpen ? 0 : 1,
+                }} />
+                <span style={{
+                  display: 'block', width: '100%', height: '1.5px',
+                  backgroundColor: '#000',
+                  transition: 'all 0.25s ease',
+                  transform: isMenuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
+                }} />
               </div>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 shadow-xl overflow-hidden"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            style={{
+              position: 'absolute',
+              top: '56px',
+              left: 0,
+              right: 0,
+              backgroundColor: '#ffffff',
+              borderBottom: '1px solid #e6e6e6',
+              padding: '16px 24px 24px',
+              zIndex: 49,
+            }}
           >
-            <div className="container mx-auto px-4 py-4 space-y-2">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '16px' }}>
               {siteNavigation.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={handleLinkClick}
-                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
-                    location.pathname === item.path
-                      ? "bg-sky-50 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400"
-                      : "text-slate-600 dark:text-slate-400 hover:bg-sky-50 dark:hover:bg-sky-900/20"
-                  }`}
+                  style={{
+                    padding: '10px 16px',
+                    borderRadius: '8px',
+                    fontSize: '16px',
+                    fontWeight: location.pathname === item.path ? '540' : '400',
+                    color: '#000000',
+                    textDecoration: 'none',
+                    backgroundColor: location.pathname === item.path ? '#f7f7f5' : 'transparent',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                  }}
                 >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-xl opacity-80">{item.icon}</span>
-                    <span>{item.title}</span>
-                  </div>
+                  <span style={{ opacity: 0.7 }}>{item.icon}</span>
+                  {item.title}
                 </Link>
               ))}
             </div>
+            <Link
+              to="/projects"
+              onClick={handleLinkClick}
+              style={{
+                display: 'block',
+                width: '100%',
+                padding: '12px 24px',
+                borderRadius: '50px',
+                fontSize: '16px',
+                fontWeight: '480',
+                color: '#ffffff',
+                backgroundColor: '#000000',
+                textAlign: 'center',
+                textDecoration: 'none',
+              }}
+            >
+              View Projects
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
