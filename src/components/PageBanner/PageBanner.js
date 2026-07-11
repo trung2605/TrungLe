@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaChevronRight } from 'react-icons/fa';
 
@@ -43,14 +43,15 @@ const PAGE_CONFIG = {
 const PageBanner = () => {
     const { pathname } = useLocation();
     const config = PAGE_CONFIG[pathname];
+    const prefersReducedMotion = useReducedMotion();
     if (!config) return null;
 
     return (
         <motion.div
             key={pathname}
-            initial={{ opacity: 0, y: -12 }}
+            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : -12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: prefersReducedMotion ? 0.01 : 0.5, ease: [0.16, 1, 0.3, 1] }}
             style={{
                 backgroundColor: config.color,
                 borderRadius: '0 0 32px 32px',

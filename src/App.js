@@ -1,4 +1,6 @@
-﻿import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+﻿import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Lenis from 'lenis';
 import { AppContextProvider } from './contexts/AppContext';
 import { ThemeContextProvider } from './contexts/ThemeContext';
 import MainLayout from './layout/MainLayout/MainLayout';
@@ -13,6 +15,29 @@ import ActivitiesPage from './pages/ActivitiesPage';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    let rafId;
+    const raf = (time) => {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <ThemeContextProvider>
       <AppContextProvider>

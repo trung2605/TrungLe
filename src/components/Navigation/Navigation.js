@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { FaSun, FaMoon } from "react-icons/fa";
 import { personalInfo, siteNavigation } from "../../data";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCustomTheme } from "../../contexts/ThemeContext";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { isDarkMode, toggleTheme } = useCustomTheme();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -30,8 +33,8 @@ const Navigation = () => {
         left: 0,
         right: 0,
         zIndex: 50,
-        backgroundColor: '#ffffff',
-        borderBottom: isScrolled ? '1px solid #e6e6e6' : '1px solid transparent',
+        backgroundColor: 'var(--color-canvas)',
+        borderBottom: isScrolled ? '1px solid var(--color-hairline)' : '1px solid transparent',
         transition: 'border-color 0.2s ease',
         height: '56px',
         display: 'flex',
@@ -65,7 +68,7 @@ const Navigation = () => {
             <span style={{
               fontSize: '15px',
               fontWeight: '540',
-              color: '#000000',
+              color: 'var(--color-ink)',
               letterSpacing: '-0.2px',
               display: 'none',
             }}
@@ -93,10 +96,10 @@ const Navigation = () => {
                     borderRadius: '50px',
                     fontSize: '15px',
                     fontWeight: isActive ? '540' : '400',
-                    color: isActive ? '#000000' : '#555555',
+                    color: isActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
                     textDecoration: 'none',
                     transition: 'color 0.15s ease',
-                    backgroundColor: isActive ? '#f7f7f5' : 'transparent',
+                    backgroundColor: isActive ? 'var(--color-surface-soft)' : 'transparent',
                   }}
                 >
                   {isActive && (
@@ -105,7 +108,7 @@ const Navigation = () => {
                       style={{
                         position: 'absolute',
                         inset: 0,
-                        backgroundColor: '#f7f7f5',
+                        backgroundColor: 'var(--color-surface-soft)',
                         borderRadius: '50px',
                       }}
                       initial={false}
@@ -120,23 +123,48 @@ const Navigation = () => {
 
           {/* CTA pair */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <button
+              onClick={toggleTheme}
+              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="hover-surface"
+              style={{
+                width: '36px', height: '36px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                borderRadius: '9999px',
+                backgroundColor: 'var(--color-surface-soft)',
+                color: 'var(--color-ink)',
+                border: 'none', cursor: 'pointer',
+                transition: 'background-color 0.15s ease',
+              }}
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={isDarkMode ? 'sun' : 'moon'}
+                  initial={{ opacity: 0, rotate: -60, scale: 0.6 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 60, scale: 0.6 }}
+                  transition={{ duration: 0.2 }}
+                  style={{ display: 'flex' }}
+                >
+                  {isDarkMode ? <FaSun size={14} /> : <FaMoon size={14} />}
+                </motion.span>
+              </AnimatePresence>
+            </button>
             <a
               href={personalInfo.cv}
               download="Le_Tri_Trung_CV.pdf"
-              className="hidden lg:inline-flex"
+              className="hidden lg:inline-flex hover-surface"
               style={{
                 padding: '8px 18px 10px',
                 borderRadius: '50px',
                 fontSize: '15px',
                 fontWeight: '480',
-                color: '#000000',
-                backgroundColor: '#ffffff',
-                border: '1.5px solid #e6e6e6',
+                color: 'var(--color-ink)',
+                backgroundColor: 'var(--color-canvas)',
+                border: '1.5px solid var(--color-hairline)',
                 textDecoration: 'none',
                 transition: 'background-color 0.15s ease',
               }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#ffffff'}
             >
               Download CV
             </a>
@@ -169,26 +197,26 @@ const Navigation = () => {
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',
-                color: '#000000',
+                color: 'var(--color-ink)',
               }}
               aria-label="Toggle menu"
             >
               <div style={{ width: '22px', height: '18px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <span style={{
                   display: 'block', width: '100%', height: '1.5px',
-                  backgroundColor: '#000',
+                  backgroundColor: 'var(--color-ink)',
                   transition: 'all 0.25s ease',
                   transform: isMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
                 }} />
                 <span style={{
                   display: 'block', width: '100%', height: '1.5px',
-                  backgroundColor: '#000',
+                  backgroundColor: 'var(--color-ink)',
                   transition: 'all 0.25s ease',
                   opacity: isMenuOpen ? 0 : 1,
                 }} />
                 <span style={{
                   display: 'block', width: '100%', height: '1.5px',
-                  backgroundColor: '#000',
+                  backgroundColor: 'var(--color-ink)',
                   transition: 'all 0.25s ease',
                   transform: isMenuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
                 }} />
@@ -211,8 +239,8 @@ const Navigation = () => {
               top: '56px',
               left: 0,
               right: 0,
-              backgroundColor: '#ffffff',
-              borderBottom: '1px solid #e6e6e6',
+              backgroundColor: 'var(--color-canvas)',
+              borderBottom: '1px solid var(--color-hairline)',
               padding: '16px 24px 24px',
               zIndex: 49,
             }}
@@ -228,9 +256,9 @@ const Navigation = () => {
                     borderRadius: '8px',
                     fontSize: '16px',
                     fontWeight: location.pathname === item.path ? '540' : '400',
-                    color: '#000000',
+                    color: 'var(--color-ink)',
                     textDecoration: 'none',
-                    backgroundColor: location.pathname === item.path ? '#f7f7f5' : 'transparent',
+                    backgroundColor: location.pathname === item.path ? 'var(--color-surface-soft)' : 'transparent',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '12px',
