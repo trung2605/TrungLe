@@ -74,13 +74,13 @@ const Contact = () => {
 
             {/* Header */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} style={{ marginBottom: '56px' }}>
-                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.60px', textTransform: 'uppercase', color: '#666666', marginBottom: '12px' }}>
+                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.60px', textTransform: 'uppercase', color: 'var(--color-ink-soft)', marginBottom: '12px' }}>
                     Get in touch
                 </p>
-                <h1 style={{ fontSize: 'clamp(32px, 5vw, 64px)', fontWeight: '340', lineHeight: '1.10', letterSpacing: '-0.96px', color: '#000000', margin: 0 }}>
+                <h1 style={{ fontSize: 'clamp(32px, 5vw, 64px)', fontWeight: '340', lineHeight: '1.10', letterSpacing: '-0.96px', color: 'var(--color-ink)', margin: 0 }}>
                     <BlurText text="Contact Me" delay={40} animateBy="words" direction="bottom" className="inline" />
                 </h1>
-                <p style={{ fontSize: 'clamp(15px, 2.5vw, 20px)', fontWeight: '330', lineHeight: '1.5', color: '#555555', marginTop: '16px', maxWidth: '540px' }}>
+                <p style={{ fontSize: 'clamp(15px, 2.5vw, 20px)', fontWeight: '330', lineHeight: '1.5', color: 'var(--color-ink-soft)', marginTop: '16px', maxWidth: '540px' }}>
                     Open to internship opportunities, collaborations, or a chat about technology.
                 </p>
             </motion.div>

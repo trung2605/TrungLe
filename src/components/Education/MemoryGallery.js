@@ -42,6 +42,7 @@ const MemoryGallery = () => {
                             <img
                                 src={memory.source}
                                 alt={memory.alt}
+                                loading="lazy"
                                 style={{
                                     width: '100%', height: '100%', objectFit: 'cover',
                                     transition: 'transform 0.4s ease',
@@ -77,7 +78,7 @@ const MemoryGallery = () => {
                             style={{ backgroundColor: '#ffffff', borderRadius: '20px', overflow: 'hidden', maxWidth: '600px', width: '100%' }}
                             onClick={e => e.stopPropagation()}
                         >
-                            <img src={selectedMemory.source} alt={selectedMemory.alt} style={{ width: '100%', maxHeight: '400px', objectFit: 'cover' }} />
+                            <img src={selectedMemory.source} alt={selectedMemory.alt} loading="lazy" style={{ width: '100%', maxHeight: '400px', objectFit: 'cover' }} />
                             <div style={{ padding: '20px 24px' }}>
                                 <p style={{ fontSize: '16px', fontWeight: '480', color: '#000000', margin: '0 0 6px 0' }}>{selectedMemory.caption}</p>
                                 {selectedMemory.year && (

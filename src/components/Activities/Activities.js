@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaUsers, FaCalendarAlt, FaBuilding, FaPlay, FaCheck, FaTimes, FaEye } from "react-icons/fa";
 import { activities } from "../../data";
 import Markdown from "react-markdown";
+import useSpotlight from '../../hooks/useSpotlight';
+import '../../animations/SpotlightCard.css';
 const ITEMS_PER_PAGE = 9;
 const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
 
@@ -11,6 +13,64 @@ const STATUS_STYLE = {
     'In Progress': { bg: '#dceeb1', color: '#000000' },
     'Completed':   { bg: '#e6e6e6', color: '#000000' },
     'Various':     { bg: '#c5b0f4', color: '#000000' },
+};
+
+const ActivityCard = ({ act, index, onSelect }) => {
+    const spotlight = useSpotlight();
+    const statusStyle = STATUS_STYLE[act.status] || { bg: '#f7f7f5', color: '#000000' };
+
+    return (
+        <motion.div
+            ref={spotlight.ref}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.05, duration: 0.5 }}
+            whileHover={{ y: -4 }}
+            className="card-spotlight"
+            style={{
+                backgroundColor: '#ffffff',
+                border: '1px solid #e6e6e6',
+                borderRadius: '20px',
+                padding: '24px',
+                cursor: 'pointer',
+                transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                position: 'relative',
+                overflow: 'hidden',
+            }}
+            onMouseMove={spotlight.onMouseMove}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
+            onClick={() => onSelect(act)}
+        >
+            {/* Color accent top bar */}
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: BLOCK_COLORS[index % BLOCK_COLORS.length], borderRadius: '20px 20px 0 0' }} />
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px', marginTop: '8px' }}>
+                <span style={{ padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: statusStyle.bg, color: statusStyle.color }}>
+                    {act.status}
+                </span>
+                <FaEye size={14} style={{ color: '#aaaaaa' }} />
+            </div>
+
+            <h3 style={{ fontSize: '17px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0', lineHeight: '1.35' }}>{act.title}</h3>
+
+            <div style={{ fontSize: '13px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.3px', textTransform: 'uppercase', color: '#666666', marginBottom: '8px' }}>
+                {act.organization}
+            </div>
+
+            <div style={{ display: 'flex', gap: '16px', fontSize: '13px', color: '#888888', flexWrap: 'wrap' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                    <FaCalendarAlt size={11} /> {act.duration}
+                </span>
+                {act.role && (
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                        {act.role}
+                    </span>
+                )}
+            </div>
+        </motion.div>
+    );
 };
 
 const Activities = () => {
@@ -70,7 +130,7 @@ const Activities = () => {
                 style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px', alignItems: 'center' }}
             >
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#888888', alignSelf: 'center' }}>Status:</span>
+                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: 'var(--color-ink-soft)', alignSelf: 'center' }}>Status:</span>
                     {statuses.map(s => (
                         <button key={s} onClick={() => { setSelectedStatus(s); setCurrentPage(1); }}
                             style={{ padding: '6px 14px', borderRadius: '50px', fontSize: '13px', fontWeight: selectedStatus === s ? '480' : '330', color: selectedStatus === s ? '#ffffff' : '#000000', backgroundColor: selectedStatus === s ? '#000000' : '#ffffff', border: '1.5px solid', borderColor: selectedStatus === s ? '#000000' : '#e6e6e6', cursor: 'pointer', transition: 'all 0.15s ease' }}>
@@ -92,62 +152,12 @@ const Activities = () => {
             {/* Grid */}
             {current.length > 0 ? (
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px', marginBottom: '48px' }}>
-                    {current.map((act, i) => {
-                        const statusStyle = STATUS_STYLE[act.status] || { bg: '#f7f7f5', color: '#000000' };
-                        return (
-                            <motion.div
-                                key={act.id || i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.05, duration: 0.5 }}
-                                whileHover={{ y: -4 }}
-                                style={{
-                                    backgroundColor: '#ffffff',
-                                    border: '1px solid #e6e6e6',
-                                    borderRadius: '20px',
-                                    padding: '24px',
-                                    cursor: 'pointer',
-                                    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-                                    position: 'relative',
-                                    overflow: 'hidden',
-                                }}
-                                onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
-                                onClick={() => setSelectedActivity(act)}
-                            >
-                                {/* Color accent top bar */}
-                                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length], borderRadius: '20px 20px 0 0' }} />
-
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px', marginTop: '8px' }}>
-                                    <span style={{ padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: statusStyle.bg, color: statusStyle.color }}>
-                                        {act.status}
-                                    </span>
-                                    <FaEye size={14} style={{ color: '#aaaaaa' }} />
-                                </div>
-
-                                <h3 style={{ fontSize: '17px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0', lineHeight: '1.35' }}>{act.title}</h3>
-
-                                <div style={{ fontSize: '13px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.3px', textTransform: 'uppercase', color: '#666666', marginBottom: '8px' }}>
-                                    {act.organization}
-                                </div>
-
-                                <div style={{ display: 'flex', gap: '16px', fontSize: '13px', color: '#888888', flexWrap: 'wrap' }}>
-                                    <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                                        <FaCalendarAlt size={11} /> {act.duration}
-                                    </span>
-                                    {act.role && (
-                                        <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                                            {act.role}
-                                        </span>
-                                    )}
-                                </div>
-                            </motion.div>
-                        );
-                    })}
+                    {current.map((act, i) => (
+                        <ActivityCard key={act.id || i} act={act} index={i} onSelect={setSelectedActivity} />
+                    ))}
                 </div>
             ) : (
-                <div style={{ textAlign: 'center', padding: '64px 0', color: '#888888' }}>No activities found.</div>
+                <div style={{ textAlign: 'center', padding: '64px 0', color: 'var(--color-ink-soft)' }}>No activities found.</div>
             )}
 
             {/* Pagination */}

@@ -58,6 +58,7 @@ const ProjectCard = ({ project, onClick, index, featured = false }) => {
         <img
           src={project.image}
           alt={project.title}
+          loading="lazy"
           style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
           onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
           onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
@@ -333,6 +334,7 @@ const Projects = () => {
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}
+                  loading="lazy"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)' }} />

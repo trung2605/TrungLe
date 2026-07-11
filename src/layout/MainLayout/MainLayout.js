@@ -19,6 +19,27 @@ const MainLayout = () => {
             overflowX: 'hidden',
         }}>
             <CustomCursor />
+            <a
+                href="#main-content"
+                style={{
+                    position: 'absolute',
+                    left: '16px',
+                    top: '-60px',
+                    zIndex: 1000,
+                    padding: '10px 18px',
+                    borderRadius: '8px',
+                    backgroundColor: '#000000',
+                    color: '#ffffff',
+                    fontSize: '14px',
+                    fontWeight: '480',
+                    textDecoration: 'none',
+                    transition: 'top 0.15s ease',
+                }}
+                onFocus={e => e.currentTarget.style.top = '16px'}
+                onBlur={e => e.currentTarget.style.top = '-60px'}
+            >
+                Bỏ qua tới nội dung chính
+            </a>
             <Navigation />
 
             {/* PageBanner sits full-bleed below nav, above main content */}
@@ -28,7 +49,7 @@ const MainLayout = () => {
                 </div>
             )}
 
-            <main style={{
+            <main id="main-content" style={{
                 maxWidth: '1280px',
                 margin: '0 auto',
                 padding: isHome ? '56px 32px 0' : '0 32px',

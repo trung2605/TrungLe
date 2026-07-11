@@ -12,6 +12,7 @@ import EducationPage from './pages/EducationPage';
 import ProjectsPage from './pages/ProjectsPage';
 import CertificatesPage from './pages/CertificatesPage';
 import ActivitiesPage from './pages/ActivitiesPage';
+import NotFoundPage from './pages/NotFoundPage';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
                 <Route path="projects" element={<ProjectsPage />} />
                 <Route path="certificates" element={<CertificatesPage />} />
                 <Route path="activities" element={<ActivitiesPage />} />
+                <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Routes>
           </div>

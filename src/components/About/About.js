@@ -24,10 +24,10 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 style={{ fontSize: 'clamp(20px, 2.5vw, 26px)', fontWeight: '540', letterSpacing: '-0.26px', color: '#000000', marginBottom: '20px' }}>
+          <h2 style={{ fontSize: 'clamp(20px, 2.5vw, 26px)', fontWeight: '540', letterSpacing: '-0.26px', color: 'var(--color-ink)', marginBottom: '20px' }}>
             {personalInfo.story?.title || 'My Journey'}
           </h2>
-          <div style={{ fontSize: '16px', fontWeight: '330', lineHeight: '1.7', color: '#444444' }}>
+          <div style={{ fontSize: '16px', fontWeight: '330', lineHeight: '1.7', color: 'var(--color-ink-soft)' }}>
             <Markdown>{personalInfo.story?.content || personalInfo.bio}</Markdown>
           </div>
         </motion.div>
@@ -38,12 +38,12 @@ const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          style={{ backgroundColor: '#f7f7f5', borderRadius: '24px', padding: '28px', alignSelf: 'start' }}
+          style={{ backgroundColor: 'var(--color-surface-soft)', borderRadius: '24px', padding: '28px', alignSelf: 'start' }}
         >
           <p style={{
             fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
             letterSpacing: '0.5px', textTransform: 'uppercase',
-            color: '#666666', marginBottom: '20px',
+            color: 'var(--color-ink-soft)', marginBottom: '20px',
           }}>Personal Info</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {[

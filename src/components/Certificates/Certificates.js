@@ -32,7 +32,7 @@ const CertificateCard = ({ cert, index, onSelect }) => {
             onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
         >
             <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden', backgroundColor: '#f7f7f5' }}>
-                <img src={cert.image} alt={cert.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
+                <img src={cert.image} alt={cert.name} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
                     onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
                     onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
                 />
@@ -104,13 +104,13 @@ const Certificates = () => {
                 <div style={{
                     display: 'flex', alignItems: 'center', gap: '10px',
                     padding: '12px 16px',
-                    backgroundColor: '#f7f7f5',
+                    backgroundColor: 'var(--color-surface-soft)',
                     borderRadius: '50px',
-                    border: '1px solid #e6e6e6',
+                    border: '1px solid var(--color-hairline)',
                     marginBottom: '16px',
                     maxWidth: '480px',
                 }}>
-                    <FaSearch size={14} style={{ color: '#888888', flexShrink: 0 }} />
+                    <FaSearch size={14} style={{ color: 'var(--color-ink-soft)', flexShrink: 0 }} />
                     <input
                         type="text"
                         placeholder="Search certificates..."
@@ -119,10 +119,10 @@ const Certificates = () => {
                         style={{
                             flex: 1, border: 'none', outline: 'none',
                             backgroundColor: 'transparent',
-                            fontSize: '15px', fontWeight: '330', color: '#000000',
+                            fontSize: '15px', fontWeight: '330', color: 'var(--color-ink)',
                         }}
                     />
-                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: '#888888', flexShrink: 0 }}>
+                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--color-ink-soft)', flexShrink: 0 }}>
                         {filtered.length}
                     </span>
                 </div>
@@ -160,7 +160,7 @@ const Certificates = () => {
                     ))}
                 </div>
             ) : (
-                <div style={{ textAlign: 'center', padding: '64px 0', color: '#888888', fontSize: '16px' }}>
+                <div style={{ textAlign: 'center', padding: '64px 0', color: 'var(--color-ink-soft)', fontSize: '16px' }}>
                     No certificates found.
                 </div>
             )}
@@ -200,7 +200,7 @@ const Certificates = () => {
                             onClick={e => e.stopPropagation()}
                         >
                             <div style={{ position: 'relative' }}>
-                                <img src={selectedCert.image} alt={selectedCert.name} style={{ width: '100%', maxHeight: '360px', objectFit: 'cover' }} />
+                                <img src={selectedCert.image} alt={selectedCert.name} loading="lazy" style={{ width: '100%', maxHeight: '360px', objectFit: 'cover' }} />
                                 <button onClick={() => setSelectedCert(null)}
                                     style={{ position: 'absolute', top: '16px', right: '16px', width: '36px', height: '36px', borderRadius: '9999px', backgroundColor: 'rgba(0,0,0,0.4)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', fontSize: '16px' }}>
                                     <FaTimes />
