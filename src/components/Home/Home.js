@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaDownload, FaGithub, FaLinkedin, FaInstagram, FaFacebook, FaArrowRight } from "react-icons/fa";
 import { siteNavigation, personalInfo, skills, allSkillsData } from "../../data";
@@ -6,6 +7,10 @@ import BlurText from "../../animations/BlurText";
 import CountUp from "../../animations/CountUp";
 import RotatingText from "../../animations/RotatingText";
 import DecryptedText from "../../animations/DecryptedText";
+import Aurora from "../../animations/Aurora";
+import useMagnetic from "../../hooks/useMagnetic";
+
+const MotionLink = motion(Link);
 
 const TECH_MARQUEE = [
   "Java Spring Boot", "React", "JavaScript", "Node.js",
@@ -35,19 +40,56 @@ const SkillBar = ({ skill }) => (
 );
 
 const Home = () => {
+  const prefersReducedMotion = useReducedMotion();
+  const heroRef = useRef(null);
+
   const fadeUp = (delay = 0) => ({
-    initial: { opacity: 0, y: 20 },
+    initial: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { delay, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay: prefersReducedMotion ? 0 : delay, duration: prefersReducedMotion ? 0.01 : 0.6, ease: [0.16, 1, 0.3, 1] },
   });
+
+  // Magnetic pull on the primary CTA
+  const magnetic = useMagnetic({ strength: 0.3 });
+
+  // Gentle parallax on the profile image as the hero scrolls out of view
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 60]);
+
+  // Mouse-tilt on the profile image card
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+  const springTiltX = useSpring(tiltX, { stiffness: 150, damping: 15 });
+  const springTiltY = useSpring(tiltY, { stiffness: 150, damping: 15 });
+  const handleTiltMove = (e) => {
+    if (prefersReducedMotion) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const relX = (e.clientX - rect.left) / rect.width - 0.5;
+    const relY = (e.clientY - rect.top) / rect.height - 0.5;
+    tiltY.set(relX * 14);
+    tiltX.set(relY * -14);
+  };
+  const handleTiltLeave = () => {
+    tiltX.set(0);
+    tiltY.set(0);
+  };
 
   return (
     <div>
       {/* ── HERO ── */}
-      <section style={{ paddingTop: '64px', paddingBottom: '80px' }}>
+      <section ref={heroRef} style={{ paddingTop: '64px', paddingBottom: '80px', position: 'relative', overflow: 'hidden' }}>
+        {!prefersReducedMotion && (
+          <Aurora
+            colorStops={['#dceeb1', '#c5b0f4', '#f4ecd6']}
+            amplitude={0.6}
+            blend={0.4}
+            speed={0.35}
+            className="hero-aurora"
+          />
+        )}
         <div
           className="hero-grid"
-          style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center' }}
+          style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center', position: 'relative', zIndex: 1 }}
         >
           {/* Text */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -78,7 +120,7 @@ const Home = () => {
                 fontWeight: '340',
                 lineHeight: '1.00',
                 letterSpacing: '-1.72px',
-                color: '#000000',
+                color: 'var(--color-ink)',
                 margin: 0,
               }}
             >
@@ -107,7 +149,7 @@ const Home = () => {
               style={{
                 fontSize: 'clamp(16px, 3vw, 22px)',
                 fontWeight: '330',
-                color: '#000000',
+                color: 'var(--color-ink)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '12px',
@@ -125,7 +167,7 @@ const Home = () => {
                 initial={{ y: '110%', opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: '-110%', opacity: 0 }}
-                style={{ backgroundColor: '#f7f7f5', color: '#000000', borderRadius: '8px', padding: '4px 14px' }}
+                style={{ backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)', borderRadius: '8px', padding: '4px 14px' }}
               />
             </motion.div>
 
@@ -136,7 +178,7 @@ const Home = () => {
                 fontWeight: '330',
                 lineHeight: '1.55',
                 letterSpacing: '-0.14px',
-                color: '#444444',
+                color: 'var(--color-ink-soft)',
                 maxWidth: '520px',
                 margin: 0,
               }}
@@ -147,7 +189,8 @@ const Home = () => {
 
             {/* CTAs */}
             <motion.div {...fadeUp(0.4)} style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <Link
+              <MotionLink
+                ref={magnetic.ref}
                 to="/projects"
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
@@ -159,29 +202,31 @@ const Home = () => {
                   backgroundColor: '#000000',
                   textDecoration: 'none',
                   transition: 'background-color 0.15s ease',
+                  x: magnetic.x,
+                  y: magnetic.y,
                 }}
+                onMouseMove={magnetic.handleMouseMove}
                 onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
-                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#000000'}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#000000'; magnetic.handleMouseLeave(); }}
               >
                 View Projects <FaArrowRight size={14} />
-              </Link>
+              </MotionLink>
               <a
                 href={personalInfo.cv}
                 download="Le_Tri_Trung_CV.pdf"
+                className="hover-surface"
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
                   padding: '11px 22px',
                   borderRadius: '50px',
                   fontSize: '16px',
                   fontWeight: '480',
-                  color: '#000000',
-                  backgroundColor: '#ffffff',
-                  border: '1.5px solid #e6e6e6',
+                  color: 'var(--color-ink)',
+                  backgroundColor: 'var(--color-canvas)',
+                  border: '1.5px solid var(--color-hairline)',
                   textDecoration: 'none',
                   transition: 'background-color 0.15s ease',
                 }}
-                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
-                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#ffffff'}
               >
                 <FaDownload size={14} /> Download CV
               </a>
@@ -201,16 +246,15 @@ const Home = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -2 }}
+                  className="hover-surface"
                   style={{
                     width: '40px', height: '40px',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     borderRadius: '9999px',
-                    backgroundColor: '#f7f7f5',
-                    color: '#000000',
+                    backgroundColor: 'var(--color-surface-soft)',
+                    color: 'var(--color-ink)',
                     transition: 'background-color 0.15s ease',
                   }}
-                  onMouseEnter={e => e.currentTarget.style.backgroundColor = '#e6e6e6'}
-                  onMouseLeave={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
                 >
                   {social.icon}
                 </motion.a>
@@ -220,13 +264,21 @@ const Home = () => {
 
           {/* Profile image — hidden on mobile via CSS */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.7 }}
+            transition={{ delay: prefersReducedMotion ? 0 : 0.3, duration: prefersReducedMotion ? 0.01 : 0.7 }}
             className="hidden lg:flex"
-            style={{ justifyContent: 'center', alignItems: 'center' }}
+            style={{ justifyContent: 'center', alignItems: 'center', y: parallaxY }}
           >
-            <div style={{ position: 'relative', width: '360px', height: '360px' }}>
+            <motion.div
+              onMouseMove={handleTiltMove}
+              onMouseLeave={handleTiltLeave}
+              style={{
+                position: 'relative', width: '360px', height: '360px',
+                rotateX: springTiltX, rotateY: springTiltY,
+                transformPerspective: 800,
+              }}
+            >
               <div style={{
                 position: 'absolute', inset: '-24px',
                 backgroundColor: '#dceeb1', borderRadius: '32px', zIndex: 0,
@@ -252,13 +304,13 @@ const Home = () => {
               }}>
                 FPT University · Đà Nẵng
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* ── MARQUEE STRIP ── */}
-      <div style={{
+      <div className="marquee-strip" style={{
         marginLeft: 'calc(-50vw + 50%)',
         marginRight: 'calc(-50vw + 50%)',
         backgroundColor: '#000000',
@@ -268,7 +320,7 @@ const Home = () => {
         display: 'flex',
         alignItems: 'center',
       }}>
-        <div style={{ display: 'flex', gap: '48px', animation: 'marqueeScroll 25s linear infinite', whiteSpace: 'nowrap' }}>
+        <div className="marquee-track" style={{ display: 'flex', gap: '48px', animation: 'marqueeScroll 25s linear infinite', whiteSpace: 'nowrap' }}>
           {TECH_MARQUEE.map((t, i) => (
             <span key={i} style={{ fontSize: '12px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', opacity: 0.8 }}>
               {t} <span style={{ opacity: 0.3, margin: '0 12px' }}>·</span>

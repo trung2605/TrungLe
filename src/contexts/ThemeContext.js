@@ -22,12 +22,18 @@ export const ThemeContextProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('theme-mode', JSON.stringify(isDarkMode));
-    
+
     // Apply dark mode class to document
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
+    }
+
+    // Keep the mobile browser chrome (address bar) in sync with the canvas
+    const themeColorTag = document.querySelector('meta[name="theme-color"]');
+    if (themeColorTag) {
+      themeColorTag.setAttribute('content', isDarkMode ? '#0e0e10' : '#ffffff');
     }
   }, [isDarkMode]);
 

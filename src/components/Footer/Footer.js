@@ -13,8 +13,8 @@ const Footer = () => {
 
     return (
         <footer style={{
-            backgroundColor: '#ffffff',
-            borderTop: '1px solid #e6e6e6',
+            backgroundColor: 'var(--color-canvas)',
+            borderTop: '1px solid var(--color-hairline)',
             padding: '56px 32px',
             marginTop: '0',
         }}>
@@ -36,13 +36,13 @@ const Footer = () => {
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 fontSize: '13px', fontWeight: '700', letterSpacing: '-0.5px',
                             }}>LT</div>
-                            <span style={{ fontSize: '16px', fontWeight: '540', color: '#000000', letterSpacing: '-0.2px' }}>
+                            <span style={{ fontSize: '16px', fontWeight: '540', color: 'var(--color-ink)', letterSpacing: '-0.2px' }}>
                                 Lê Trí Trung
                             </span>
                         </Link>
                         <p style={{
                             fontSize: '15px', fontWeight: '330', lineHeight: '1.6',
-                            color: '#555555', maxWidth: '320px', marginBottom: '20px',
+                            color: 'var(--color-ink-soft)', maxWidth: '320px', marginBottom: '20px',
                         }}>
                             Computer Science student at FPT University. Passionate about building clean, scalable applications with Java Spring Boot and React.
                         </p>
@@ -56,17 +56,16 @@ const Footer = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         whileHover={{ y: -2 }}
+                                        className="hover-surface"
                                         style={{
                                             width: '36px', height: '36px',
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                                             borderRadius: '9999px',
-                                            backgroundColor: '#f7f7f5', color: '#000000',
-                                            border: '1px solid #e6e6e6',
+                                            backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)',
+                                            border: '1px solid var(--color-hairline)',
                                             transition: 'background-color 0.15s ease',
                                             textDecoration: 'none',
                                         }}
-                                        onMouseEnter={e => e.currentTarget.style.backgroundColor = '#e6e6e6'}
-                                        onMouseLeave={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
                                     >
                                         <Icon size={15} />
                                     </motion.a>
@@ -80,7 +79,7 @@ const Footer = () => {
                         <p style={{
                             fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
                             letterSpacing: '0.60px', textTransform: 'uppercase',
-                            color: '#666666', marginBottom: '16px',
+                            color: 'var(--color-ink-soft)', marginBottom: '16px',
                         }}>Explore</p>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
                             {siteNavigation.map((item) => (
@@ -88,13 +87,12 @@ const Footer = () => {
                                     <Link
                                         to={item.path}
                                         onClick={scrollToTop}
+                                        className="hover-ink"
                                         style={{
                                             fontSize: '15px', fontWeight: '330',
-                                            color: '#555555', textDecoration: 'none',
+                                            color: 'var(--color-ink-soft)', textDecoration: 'none',
                                             transition: 'color 0.15s ease',
                                         }}
-                                        onMouseEnter={e => e.currentTarget.style.color = '#000000'}
-                                        onMouseLeave={e => e.currentTarget.style.color = '#555555'}
                                     >
                                         {item.title}
                                     </Link>
@@ -108,10 +106,10 @@ const Footer = () => {
                         <p style={{
                             fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
                             letterSpacing: '0.60px', textTransform: 'uppercase',
-                            color: '#666666', marginBottom: '16px',
+                            color: 'var(--color-ink-soft)', marginBottom: '16px',
                         }}>Contact</p>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', color: '#555555' }}>
+                            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', color: 'var(--color-ink-soft)' }}>
                                 <FaMapMarkerAlt size={13} style={{ marginTop: '2px', flexShrink: 0 }} />
                                 Đà Nẵng, Vietnam
                             </li>
@@ -119,9 +117,8 @@ const Footer = () => {
                                 <FaEnvelope size={13} style={{ flexShrink: 0 }} />
                                 <a
                                     href="mailto:letritrung2605@gmail.com"
-                                    style={{ color: '#555555', textDecoration: 'none', transition: 'color 0.15s ease', wordBreak: 'break-all' }}
-                                    onMouseEnter={e => e.currentTarget.style.color = '#000000'}
-                                    onMouseLeave={e => e.currentTarget.style.color = '#555555'}
+                                    className="hover-ink"
+                                    style={{ color: 'var(--color-ink-soft)', textDecoration: 'none', transition: 'color 0.15s ease', wordBreak: 'break-all' }}
                                 >
                                     letritrung2605@gmail.com
                                 </a>
@@ -133,15 +130,15 @@ const Footer = () => {
                 {/* Bottom bar */}
                 <div style={{
                     paddingTop: '20px',
-                    borderTop: '1px solid #e6e6e6',
+                    borderTop: '1px solid var(--color-hairline)',
                     display: 'flex', alignItems: 'center',
                     justifyContent: 'space-between',
                     flexWrap: 'wrap', gap: '10px',
                 }}>
-                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', color: '#888888', margin: 0 }}>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', color: 'var(--color-ink-soft)', margin: 0 }}>
                         © {new Date().getFullYear()} LÊ TRÍ TRUNG — ALL RIGHTS RESERVED
                     </p>
-                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', color: '#888888', margin: 0 }}>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', color: 'var(--color-ink-soft)', margin: 0 }}>
                         BUILT WITH REACT + FIGMA DESIGN SYSTEM
                     </p>
                 </div>

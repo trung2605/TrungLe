@@ -3,32 +3,40 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaTags, FaTimes } from 'react-icons/fa';
 import { projects } from '../../data';
 import { default as ReactMarkdown } from 'react-markdown';
+import useSpotlight from '../../hooks/useSpotlight';
+import '../../animations/SpotlightCard.css';
+
 const STATUS_COLORS = {
   'Active':         { bg: '#c8e6cd', color: '#000000' },
   'In Development': { bg: '#dceeb1', color: '#000000' },
   'Completed':      { bg: '#e6e6e6', color: '#000000' },
 };
 
-const ProjectCard = ({ project, onClick, index }) => {
+const ProjectCard = ({ project, onClick, index, featured = false }) => {
   const status = STATUS_COLORS[project.status] || { bg: '#f7f7f5', color: '#000000' };
+  const spotlight = useSpotlight();
 
   return (
     <motion.div
+      ref={spotlight.ref}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -4 }}
+      className={featured ? 'card-spotlight bento-featured' : 'card-spotlight'}
       style={{
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: featured ? 'row' : 'column',
         backgroundColor: '#ffffff',
         border: '1px solid #e6e6e6',
         borderRadius: '24px',
         overflow: 'hidden',
         transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
         cursor: 'pointer',
+        gridColumn: featured ? 'span 2' : undefined,
       }}
+      onMouseMove={spotlight.onMouseMove}
       onMouseEnter={e => {
         e.currentTarget.style.borderColor = '#000000';
         e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)';
@@ -39,10 +47,18 @@ const ProjectCard = ({ project, onClick, index }) => {
       }}
     >
       {/* Image */}
-      <div style={{ position: 'relative', aspectRatio: '16/10', overflow: 'hidden', backgroundColor: '#f7f7f5' }}>
+      <div style={{
+        position: 'relative',
+        overflow: 'hidden',
+        backgroundColor: '#f7f7f5',
+        ...(featured
+          ? { width: '46%', flexShrink: 0 }
+          : { aspectRatio: '16/10' }),
+      }}>
         <img
           src={project.image}
           alt={project.title}
+          loading="lazy"
           style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
           onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
           onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
@@ -62,10 +78,25 @@ const ProjectCard = ({ project, onClick, index }) => {
         }}>
           {project.status}
         </div>
+        {featured && (
+          <div style={{
+            position: 'absolute', top: '16px', left: '16px',
+            padding: '4px 12px',
+            borderRadius: '50px',
+            fontSize: '11px',
+            fontFamily: 'JetBrains Mono, monospace',
+            letterSpacing: '0.4px',
+            textTransform: 'uppercase',
+            backgroundColor: '#000000',
+            color: '#ffffff',
+          }}>
+            Featured
+          </div>
+        )}
       </div>
 
       {/* Content */}
-      <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+      <div style={{ padding: featured ? '28px' : '24px', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: featured ? 'center' : 'flex-start' }}>
         {/* Primary tech tag */}
         {project.techStack?.[0] && (
           <span style={{
@@ -252,10 +283,16 @@ const Projects = () => {
         ))}
       </motion.div>
 
-      {/* Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
+      {/* Grid — the first project gets a wider "bento" tile when unfiltered */}
+      <div className="projects-bento-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
         {filteredProjects.map((project, i) => (
-          <ProjectCard key={project.id} project={project} onClick={setSelectedProject} index={i} />
+          <ProjectCard
+            key={project.id}
+            project={project}
+            onClick={setSelectedProject}
+            index={i}
+            featured={filter === 'all' && i === 0}
+          />
         ))}
       </div>
 
@@ -297,6 +334,7 @@ const Projects = () => {
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}
+                  loading="lazy"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)' }} />

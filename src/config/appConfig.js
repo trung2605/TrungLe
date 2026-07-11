@@ -21,12 +21,9 @@ const config = {
       { id: 'home', label: 'Home', path: '/' },
       { id: 'about', label: 'About', path: '/about' },
       { id: 'education', label: 'Education', path: '/education' },
-      { id: 'skills', label: 'Skills', path: '/skills' },
       { id: 'projects', label: 'Projects', path: '/projects' },
       { id: 'certificates', label: 'Certificates', path: '/certificates' },
-      { id: 'prizes', label: 'Prizes', path: '/prizes' },
       { id: 'activities', label: 'Activities', path: '/activities' },
-      { id: 'contact', label: 'Contact', path: '/contact' },
     ],
   },
 };

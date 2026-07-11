@@ -11,21 +11,60 @@
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
     --border: 0 0% 90%;
+
+    /* Shell theme tokens — light (default) */
+    --color-canvas: #ffffff;
+    --color-ink: #000000;
+    --color-ink-soft: #555555;
+    --color-surface-soft: #f7f7f5;
+    --color-hairline: #e6e6e6;
+  }
+
+  html.dark {
+    /* Shell theme tokens — dark. Saturated pastel content blocks stay
+       as-is (they read like sticky notes on a dark desk instead of a
+       light one), only the canvas/nav/footer shell inverts. */
+    --color-canvas: #0e0e10;
+    --color-ink: #f5f5f5;
+    --color-ink-soft: #a8a8ac;
+    --color-surface-soft: #19191c;
+    --color-hairline: #2a2a2e;
   }
 
   html {
-    scroll-behavior: smooth;
+    /* Smooth scrolling is handled by Lenis (see App.js); native
+       scroll-behavior is intentionally left out to avoid the two
+       easing systems fighting each other. */
     font-feature-settings: "kern" 1;
   }
 
   body {
-    @apply font-sans antialiased bg-white text-black;
+    @apply font-sans antialiased;
     font-size: 18px;
     font-weight: 320;
     line-height: 1.45;
     letter-spacing: -0.26px;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  /* Custom cursor: hide the native pointer only where our cursor dot
+     actually renders (fine pointer + hover-capable devices) */
+  @media (hover: hover) and (pointer: fine) {
+    body, a, button, [role="button"] {
+      cursor: none;
+    }
+  }
+
+  /* Respect OS-level reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   /* Figma typography scale using Inter as figmaSans substitute */
@@ -78,10 +117,6 @@
     outline: 2px solid #000000;
     outline-offset: 3px;
     border-radius: 4px;
-  }
-
-  * {
-    scroll-behavior: smooth;
   }
 }
 
@@ -386,4 +421,52 @@
     grid-template-columns: 1fr !important;
     gap: 16px !important;
   }
+}
+
+/* ============================================================
+   GRAIN OVERLAY — softens the flat white/dark canvas
+   ============================================================ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Theme-aware hover utilities (for elements that used inline JS hex hovers) */
+.hover-ink:hover {
+  color: var(--color-ink) !important;
+}
+.hover-surface:hover {
+  background-color: var(--color-hairline) !important;
+}
+
+/* Bento-style featured project tile — falls back to a normal
+   stacked card below the breakpoint where a 2-column span exists */
+@media (max-width: 767px) {
+  .bento-featured {
+    grid-column: span 1 !important;
+    flex-direction: column !important;
+  }
+  .bento-featured > div:first-child {
+    width: 100% !important;
+    aspect-ratio: 16/10;
+  }
+}
+
+/* Hero aurora background — kept subtle behind the hero copy */
+.hero-aurora {
+  opacity: 0.4;
+}
+
+/* Marquee: pause while the pointer is over the strip */
+.marquee-track {
+  animation-play-state: running;
+}
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
 }
