@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser } from 'react-icons/fa';
-import { projects } from '../../data';
+import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaInbox } from 'react-icons/fa';
+import { projects, skillTaxonomy } from '../../data';
+import SkillChart from './SkillChart';
 import { default as ReactMarkdown } from 'react-markdown';
 import useSpotlight from '../../hooks/useSpotlight';
 import '../../animations/SpotlightCard.css';
@@ -13,6 +14,13 @@ const STATUS_COLORS = {
   'Active':         { bg: '#c8e6cd', color: '#000000' },
   'In Development': { bg: '#dceeb1', color: '#000000' },
   'Completed':      { bg: '#e6e6e6', color: '#000000' },
+};
+
+const CATEGORY_COLORS = {
+  'Full-Stack': '#c5b0f4',
+  'Frontend':   '#c8e6cd',
+  'Automation': '#f4ecd6',
+  'Low-Code':   '#efd4d4',
 };
 
 const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
@@ -100,28 +108,44 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
 
       {/* Content */}
       <div style={{ padding: featured ? '28px' : '24px', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: featured ? 'center' : 'flex-start' }}>
-        {/* Primary tech tag */}
-        {project.techStack?.[0] && (
-          <span style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '6px',
-            padding: '3px 10px',
-            borderRadius: '50px',
-            fontSize: '11px',
-            fontFamily: 'JetBrains Mono, monospace',
-            letterSpacing: '0.4px',
-            textTransform: 'uppercase',
-            color: '#000000',
-            backgroundColor: '#f7f7f5',
-            border: '1px solid #e6e6e6',
-            marginBottom: '12px',
-            width: 'fit-content',
-          }}>
-            <TechIcon tech={project.techStack[0]} size={11} />
-            {project.techStack[0]}
-          </span>
-        )}
+        {/* Category + primary tech tag */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
+          {project.category && (
+            <span style={{
+              padding: '3px 10px',
+              borderRadius: '6px',
+              fontSize: '11px',
+              fontFamily: 'JetBrains Mono, monospace',
+              letterSpacing: '0.4px',
+              textTransform: 'uppercase',
+              color: '#000000',
+              backgroundColor: CATEGORY_COLORS[project.category] || '#e6e6e6',
+              width: 'fit-content',
+            }}>
+              {project.category}
+            </span>
+          )}
+          {project.techStack?.[0] && (
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '3px 10px',
+              borderRadius: '50px',
+              fontSize: '11px',
+              fontFamily: 'JetBrains Mono, monospace',
+              letterSpacing: '0.4px',
+              textTransform: 'uppercase',
+              color: '#000000',
+              backgroundColor: '#f7f7f5',
+              border: '1px solid #e6e6e6',
+              width: 'fit-content',
+            }}>
+              <TechIcon tech={project.techStack[0]} size={11} />
+              {project.techStack[0]}
+            </span>
+          )}
+        </div>
 
         <h3 style={{
           fontFamily: 'Outfit, system-ui, sans-serif',
@@ -231,6 +255,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
+  const [selectedSkill, setSelectedSkill] = useState(null);
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -241,9 +266,13 @@ const Projects = () => {
     { value: 'Completed',      label: t('projects.filterCompleted'),     count: projects.filter(p => p.status === 'Completed').length },
   ];
 
-  const filteredProjects = filter === 'all'
-    ? projects
-    : projects.filter(p => p.status === filter);
+  const skillProjectIds = selectedSkill
+    ? new Set(skillTaxonomy.find(s => s.id === selectedSkill)?.projectIds || [])
+    : null;
+
+  const filteredProjects = projects
+    .filter(p => filter === 'all' || p.status === filter)
+    .filter(p => !skillProjectIds || skillProjectIds.has(p.id));
 
   return (
     <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
@@ -287,19 +316,28 @@ const Projects = () => {
         </Tabs>
       </motion.div>
 
+      <SkillChart selectedSkill={selectedSkill} onSelectSkill={setSelectedSkill} />
+
       {/* Grid — the first project gets a wider "bento" tile when unfiltered */}
-      <div className="projects-bento-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
-        {filteredProjects.map((project, i) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            onClick={p => navigate(`/projects/${p.id}`)}
-            index={i}
-            t={t}
-            featured={filter === 'all' && i === 0}
-          />
-        ))}
-      </div>
+      {filteredProjects.length > 0 ? (
+        <div className="projects-bento-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
+          {filteredProjects.map((project, i) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onClick={p => navigate(`/projects/${p.id}`)}
+              index={i}
+              t={t}
+              featured={filter === 'all' && i === 0 && !selectedSkill}
+            />
+          ))}
+        </div>
+      ) : (
+        <div style={{ textAlign: 'center', padding: '64px 0', color: 'var(--color-ink-soft)' }}>
+          <FaInbox size={32} aria-hidden="true" style={{ marginBottom: '12px', opacity: 0.4 }} />
+          <div>{t('projects.noResults')}</div>
+        </div>
+      )}
     </div>
   );
 };

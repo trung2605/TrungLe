@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaCodeBranch, FaUsers, FaStar, FaExternalLinkAlt } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import { fetchGitHubProfile, fetchRecentRepo } from '../../services/githubService';
+import { fetchGitHubStats } from '../../services/githubService';
 
 const GitHubStats = () => {
     const { t } = useTranslation();
@@ -12,8 +12,8 @@ const GitHubStats = () => {
 
     useEffect(() => {
         let cancelled = false;
-        Promise.all([fetchGitHubProfile(), fetchRecentRepo()])
-            .then(([profileData, repoData]) => {
+        fetchGitHubStats()
+            .then(({ profile: profileData, recentRepo: repoData }) => {
                 if (cancelled) return;
                 setProfile(profileData);
                 setRecentRepo(repoData);

@@ -1,5 +1,6 @@
+import { useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaTags, FaArrowLeft } from 'react-icons/fa';
 import { projects } from '../../data';
 import ReactMarkdown from 'react-markdown';
@@ -19,6 +20,12 @@ const ProjectDetail = () => {
   const navigate = useNavigate();
   const project = projects.find(p => String(p.id) === id);
   const { t } = useTranslation();
+
+  const heroRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const heroSpring = { stiffness: 200, damping: 30 };
+  const heroImgY = useSpring(useTransform(heroScroll, [0, 1], [0, prefersReducedMotion ? 0 : 60]), heroSpring);
 
   if (!project) {
     return (
@@ -68,6 +75,7 @@ const ProjectDetail = () => {
 
       {/* Hero image */}
       <motion.div
+        ref={heroRef}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -80,10 +88,10 @@ const ProjectDetail = () => {
           aspectRatio: '21/9',
         }}
       >
-        <img
+        <motion.img
           src={project.image}
           alt={project.title}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ width: '100%', height: '112%', objectFit: 'cover', y: heroImgY }}
         />
         <div style={{
           position: 'absolute', inset: 0,
@@ -136,6 +144,71 @@ const ProjectDetail = () => {
           }}>
             <ReactMarkdown>{project.description}</ReactMarkdown>
           </div>
+
+          {/* Challenge */}
+          {project.challenge && (
+            <div style={{ marginTop: '32px', padding: '20px 24px', backgroundColor: accentColor, borderRadius: '16px' }}>
+              <p style={{
+                fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
+                letterSpacing: '0.5px', textTransform: 'uppercase',
+                color: 'rgba(0,0,0,0.55)', marginBottom: '8px',
+              }}>
+                {t('projects.challenge')}
+              </p>
+              <p style={{ fontSize: '15px', fontWeight: '400', lineHeight: '1.6', color: '#000000', margin: 0 }}>
+                {project.challenge}
+              </p>
+            </div>
+          )}
+
+          {/* Highlights */}
+          {project.highlights && project.highlights.length > 0 && (
+            <div style={{ marginTop: '32px' }}>
+              <p style={{
+                fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
+                letterSpacing: '0.5px', textTransform: 'uppercase',
+                color: '#888888', marginBottom: '16px',
+              }}>
+                {t('projects.highlights')}
+              </p>
+              <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {project.highlights.map((h, i) => (
+                  <li key={i} style={{ display: 'flex', gap: '10px', fontSize: '15px', lineHeight: '1.6', color: '#444444' }}>
+                    <span style={{ color: accentColor, filter: 'brightness(0.6)', flexShrink: 0 }}>●</span>
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Screenshots gallery */}
+          {project.screenshots && project.screenshots.length > 0 && (
+            <div style={{ marginTop: '40px', paddingTop: '32px', borderTop: '1px solid #e6e6e6' }}>
+              <p style={{
+                fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
+                letterSpacing: '0.5px', textTransform: 'uppercase',
+                color: '#888888', marginBottom: '16px',
+              }}>
+                {t('projects.gallery')}
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+                {project.screenshots.map((src, i) => (
+                  <motion.img
+                    key={i}
+                    src={src}
+                    alt={`${project.title} screenshot ${i + 1}`}
+                    loading="lazy"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.06, duration: 0.4 }}
+                    style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', borderRadius: '12px', border: '1px solid #e6e6e6' }}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Tech stack */}
           <div style={{ marginTop: '40px', paddingTop: '32px', borderTop: '1px solid #e6e6e6' }}>

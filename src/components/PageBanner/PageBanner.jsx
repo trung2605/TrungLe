@@ -1,18 +1,19 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaChevronRight } from 'react-icons/fa';
+import { FiCircle, FiCode, FiBookOpen, FiAward, FiUsers, FiEdit3, FiFileText, FiMail, FiStar } from 'react-icons/fi';
 import { projects, posts } from '../../data';
 import { useTranslation } from 'react-i18next';
 
 const PAGE_META = {
-    '/about':        { color: '#dceeb1', decoration: '◐',  key: 'about' },
-    '/projects':     { color: '#c5b0f4', decoration: '◈',  key: 'projects' },
-    '/education':    { color: '#f3c9b6', decoration: '◉',  key: 'education' },
-    '/certificates': { color: '#c8e6cd', decoration: '◆',  key: 'certificates' },
-    '/activities':   { color: '#f4ecd6', decoration: '◇',  key: 'activities' },
-    '/blog':         { color: '#c8e6cd', decoration: '✎',  key: 'blog' },
-    '/resume':       { color: '#dceeb1', decoration: '▤',  key: 'resume' },
-    '/contact':      { color: '#efd4d4', decoration: '◎',  key: 'contact' },
+    '/about':        { color: '#dceeb1', decoration: FiCircle,          key: 'about' },
+    '/projects':     { color: '#c5b0f4', decoration: FiCode,            key: 'projects' },
+    '/education':    { color: '#f3c9b6', decoration: FiBookOpen,        key: 'education' },
+    '/certificates': { color: '#c8e6cd', decoration: FiAward,           key: 'certificates' },
+    '/activities':   { color: '#f4ecd6', decoration: FiUsers,           key: 'activities' },
+    '/blog':         { color: '#c8e6cd', decoration: FiEdit3,           key: 'blog' },
+    '/resume':       { color: '#dceeb1', decoration: FiFileText,        key: 'resume' },
+    '/contact':      { color: '#efd4d4', decoration: FiMail,            key: 'contact' },
 };
 
 const PageBanner = () => {

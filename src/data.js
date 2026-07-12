@@ -34,6 +34,12 @@ const TikTokUIImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,
 const PortfolioImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962639/my-website/assets/projects/Portfolio.png";
 const BakeryManagementImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962640/my-website/assets/projects/BakeryManagementSystem.png";
 
+// Live screenshots captured via Playwright from each project's deployed liveUrl
+const JobFinderShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870959/my-website/assets/projects/screenshots/1-job-finder.png";
+const DolaBakeryShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870962/my-website/assets/projects/screenshots/2-dola-bakery.png";
+const WebFormAutomationShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870966/my-website/assets/projects/screenshots/4-web-form-automation.png";
+const BakeryManagementShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870969/my-website/assets/projects/screenshots/7-bakery-management.png";
+
 //Certificate Imports
 const HiraganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962642/my-website/assets/Certificate/Language/Completion_Hiragana.png";
 const KataganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962643/my-website/assets/Certificate/Language/Completion_katagana.png";
@@ -387,6 +393,15 @@ export const projects = [
     githubUrl: "https://github.com/SWPGr",
     liveUrl: "https://fe-jobfinder.vercel.app/",
     status: "In Development",
+    category: "Full-Stack",
+    challenge: "Cần một nền tảng tìm việc cho phép job seeker vừa tìm kiếm/ứng tuyển vừa nhận hỗ trợ AI (resume tips, job matching), trong khi team 6 người phải phối hợp Agile trên cùng một codebase suốt 4 tháng mà không dẫm chân nhau.",
+    highlights: [
+      "Thiết kế và triển khai toàn bộ RESTful API bằng Java Spring Boot, quản lý dữ liệu quan hệ trên SQL Server",
+      "Xây dựng hệ thống xác thực JWT-based (login/register) từ đầu",
+      "Thiết lập Git branching strategy (feature branch + pull request) giữ team 6 người làm việc sạch trong 4 tháng",
+      "Tích hợp AI chatbot hỗ trợ resume tips và job matching cho job seeker",
+    ],
+    screenshots: [JobFinderShot1],
   },
   {
     id: 2,
@@ -407,6 +422,15 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/BakeryManagement",
     liveUrl: "https://themes.sapo.vn/demo/dola-bakery",
     status: "Completed",
+    category: "Full-Stack",
+    challenge: "Dự án nhóm đầu tiên của tôi — cần dựng một nền tảng thương mại điện tử đầy đủ (catalog, giỏ hàng, đơn hàng, tài khoản khách) cho một tiệm bánh, với đội 4 người và deadline cố định, mà không có kinh nghiệm phối hợp team trước đó.",
+    highlights: [
+      "Kiến trúc backend bằng Java Servlets, tự thiết kế schema database SQL Server",
+      "Dẫn dắt team 4 người, chia task theo sprint hàng tuần",
+      "Tích hợp AI chatbot hỗ trợ khách hàng, Google Maps API cho vị trí cửa hàng, Google OAuth cho đăng nhập mạng xã hội",
+      "Học cách giải quyết merge conflict dưới áp lực deadline và giao sản phẩm hoàn chỉnh end-to-end",
+    ],
+    screenshots: [DolaBakeryShot1],
   },
   {
     id: 3,
@@ -420,6 +444,14 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/the_dreamers_backend",
     liveUrl: "#",
     status: "Active",
+    category: "Full-Stack",
+    challenge: "Xây dựng một tổ chức thiện nguyện sinh viên bền vững — không chỉ tổ chức sự kiện đơn lẻ mà cần vận hành liên tục: tuyển thành viên, gây quỹ, và giờ đây là số hoá việc quản lý hoạt động/thành viên bằng một nền tảng backend riêng.",
+    highlights: [
+      "Sáng lập và điều hành toàn bộ hoạt động: tuyển thành viên, roadmap dự án, gây quỹ cho nhiều chiến dịch thiện nguyện",
+      "Tổ chức end-to-end 4 sự kiện lớn: Tốt Hy Vọng, Vòng vào Mộng mơ, Dream High, Charity Music Performance",
+      "Đang phát triển backend quản lý hoạt động và hồ sơ thành viên bằng Java Spring Boot",
+    ],
+    screenshots: [],
   },
   {
     id: 4,
@@ -433,6 +465,15 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/Form-Automation-Backend",
     liveUrl: "https://form-automation-frontend.vercel.app/",
     status: "Completed",
+    category: "Automation",
+    challenge: "Loại bỏ việc nhập liệu thủ công lặp lại cho các form web có khối lượng lớn, trong thời hạn gấp 10 ngày — cần xử lý được các trường hợp khó như field render động và form có CAPTCHA.",
+    highlights: [
+      "Xây dựng engine điều khiển DOM bằng Node.js để tự động hoá tương tác form",
+      "Frontend React cho phép upload CSV/JSON, xem trước dữ liệu, và submit hàng loạt chỉ với 1 click",
+      "Xử lý các edge case: độ trễ validation, field render động, form có CAPTCHA",
+      "Hoàn thành toàn bộ solo trong 10 ngày",
+    ],
+    screenshots: [WebFormAutomationShot1],
   },
   {
     id: 5,
@@ -446,6 +487,14 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/Book-Shop-Outsystems-Public",
     liveUrl: "https://personal-fu4tft5e.outsystemscloud.com/BookShopCore/BookStore",
     status: "Completed",
+    category: "Low-Code",
+    challenge: "Học và triển khai một ứng dụng thương mại điện tử đầy đủ hoàn toàn trong môi trường visual development (OutSystems) — kỹ năng trực tiếp áp dụng cho các dự án enterprise rapid-delivery tại FPT Software.",
+    highlights: [
+      "Xây dựng đầy đủ luồng e-commerce: catalog có search/filter, giỏ hàng, quản lý đơn hàng, admin panel quản lý tồn kho",
+      "Học cách tư duy data model, UI logic, và tích hợp API trong môi trường low-code",
+      "Demo live công khai trên OutSystems Cloud",
+    ],
+    screenshots: [],
   },
   {
     id: 6,
@@ -459,6 +508,14 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/tiktok-ui-Public",
     liveUrl: "#",
     status: "Completed",
+    category: "Frontend",
+    challenge: "Củng cố nền tảng React trước khi áp dụng vào các dự án production (Job Finder, The MC Hub) — bằng cách tái tạo chính xác một giao diện phức tạp, nhiều component tương tác thật (TikTok web).",
+    highlights: [
+      "Tách UI thành các component tái sử dụng: Sidebar, VideoFeed, UserCard, ActionBar với props/state/effect quản lý đúng chuẩn",
+      "Thực hành custom hooks, React Router cho điều hướng đa trang, CSS Modules cho styling có phạm vi",
+      "Xây dựng responsive layout hoàn toàn không dùng UI library",
+    ],
+    screenshots: [],
   },
   {
     id: 10,
@@ -472,6 +529,15 @@ export const projects = [
     githubUrl: "#",
     liveUrl: "#",
     status: "In Development",
+    category: "Frontend",
+    challenge: "Xây một portfolio thể hiện đúng chất lượng thật — tránh cảm giác template, tối ưu hiệu năng (code-splitting, lazy image), và giữ nội dung dễ cập nhật qua một data layer trung tâm thay vì sửa trực tiếp component.",
+    highlights: [
+      "Thiết kế hệ thống màu monochrome + pastel block riêng, không dùng theme có sẵn",
+      "Kiến trúc data-driven: toàn bộ nội dung điều khiển bởi data.js, tách biệt khỏi component logic",
+      "Route-level code-splitting, tối ưu ảnh qua Cloudinary, i18n song ngữ Anh/Việt",
+      "Animation nhất quán toàn site bằng Framer Motion, tôn trọng prefers-reduced-motion",
+    ],
+    screenshots: [],
   },
   {
     id: 7,
@@ -485,6 +551,14 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/bakery_assginment_fe",
     liveUrl: "https://bakery-assginment-fe.vercel.app/",
     status: "Completed",
+    category: "Full-Stack",
+    challenge: "Bài tập môn học yêu cầu phạm vi thật (inventory, sales, order, customer database) nhưng làm solo — buộc phải tự thiết kế và triển khai toàn bộ hệ thống từ database đến deployment mà không có ai chia việc.",
+    highlights: [
+      "Tự thiết kế API và schema database, không phụ thuộc teammate",
+      "Backend Java Spring Boot + MySQL, frontend React deploy trên Vercel",
+      "Tự vận hành toàn bộ pipeline: API design → database → component structure → deployment",
+    ],
+    screenshots: [BakeryManagementShot1],
   },
   {
     id: 11,
@@ -515,6 +589,15 @@ export const projects = [
     githubUrl: "https://github.com/The-MC-Hub",
     liveUrl: "#",
     status: "In Development",
+    category: "Full-Stack",
+    challenge: "Xây một marketplace 2 chiều (Client ↔ MC) cần xử lý concurrency cao (nhiều người đặt lịch cùng lúc), thanh toán thật, chat real-time, và cả web lẫn mobile app — dự án kỹ thuật phức tạp nhất tôi từng tham gia.",
+    highlights: [
+      "Backend Spring Boot 3.3 + Java 21 Virtual Threads cho khả năng xử lý đồng thời cao",
+      "Real-time chat qua WebSocket/STOMP, MongoDB Atlas cho dữ liệu linh hoạt",
+      "Tích hợp thanh toán PayOS, xác thực KYC, hệ thống coupon/discount, admin analytics dashboard",
+      "AI Script Reader hỗ trợ MC luyện tập kịch bản, web (React 19 + Vite 7) và mobile (React Native + Expo) song song",
+    ],
+    screenshots: [],
   },
   {
     id: 12,
@@ -528,6 +611,15 @@ export const projects = [
     githubUrl: "https://github.com/SwiftBid-MultiThreats/SwiftBid-Backend",
     liveUrl: "#",
     status: "In Development",
+    category: "Full-Stack",
+    challenge: "Nền tảng đấu giá real-time cần cập nhật trạng thái bid độ trễ thấp khi nhiều người cùng đấu giá một sản phẩm — bài toán concurrency và cache-backed state kinh điển.",
+    highlights: [
+      "Spring Data Redis theo dõi trạng thái bid live và cache cho cập nhật độ trễ thấp",
+      "Schema MySQL quan hệ cho user, listing, lịch sử giao dịch",
+      "Tích hợp Cloudinary cho upload ảnh sản phẩm, Spring Mail/EmailJS cho thông báo outbid",
+      "Đào sâu kinh nghiệm quản lý state real-time và pattern concurrency cache-backed",
+    ],
+    screenshots: [],
   },
   {
     id: 13,
@@ -541,6 +633,14 @@ export const projects = [
     githubUrl: "https://github.com/AgriLinkVN/agrilink-backend",
     liveUrl: "#",
     status: "Active",
+    category: "Full-Stack",
+    challenge: "Bắt đầu là đồ án học thuật (PRM393) nhưng đội ngũ quyết định nâng cấp thành kiến trúc production-grade hướng tới khả năng khởi nghiệp thật — đòi hỏi thiết kế lại từ mobile-only sang full-stack đa nền tảng có khả năng mở rộng.",
+    highlights: [
+      "Track 1 (học thuật): mobile app Flutter + backend Express.js/MongoDB xác thực JWT",
+      "Track 2 (production-grade song song): frontend Next.js + TypeScript (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo cho bản đồ nông trại) + backend NestJS + TypeORM",
+      "Soạn thảo đề xuất khởi nghiệp chính thức bằng tiếng Việt cho mô hình sản phẩm",
+    ],
+    screenshots: [],
   },
   {
     id: 14,
@@ -554,6 +654,14 @@ export const projects = [
     githubUrl: "https://github.com/BrandHubOrganization",
     liveUrl: "#",
     status: "Active",
+    category: "Full-Stack",
+    challenge: "Đăng nội dung đồng thời lên nhiều mạng xã hội (Facebook, Instagram, TikTok, Threads, Zalo) một cách đáng tin cậy — cần kiến trúc chịu lỗi (retry/backoff) và tách biệt rõ giữa domain logic, việc publish, và AI content generation.",
+    highlights: [
+      "Kiến trúc microservices: API Gateway (Spring Cloud Gateway, WebFlux, JWT+Redis auth), business-service (Spring Boot 3.3.5), publisher-service (RabbitMQ với retry/backoff), AI service (Python FastAPI + RAG)",
+      "Toàn bộ hệ thống orchestrate qua Docker Compose",
+      "Frontend dashboard React 18 + TypeScript + Vite, kèm mobile app Expo/React Native",
+    ],
+    screenshots: [],
   },
   {
     id: 16,
@@ -567,6 +675,15 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/Yarnia-Backend",
     liveUrl: "#",
     status: "Active",
+    category: "Full-Stack",
+    challenge: "Xây một nền tảng đọc/nghe truyện cho trẻ 3-12 tuổi với chấm điểm phát âm — đòi hỏi kết hợp backend chuẩn Clean Architecture, web/mobile app, animation 3D cho landing page, và cả một pipeline AI xử lý giọng nói riêng.",
+    highlights: [
+      "Backend .NET 9/10 theo Clean Architecture, test bằng xUnit/NSubstitute",
+      "Auth JWT + Google OAuth, media qua Cloudinary + AWS S3/CloudFront, thanh toán subscription qua PayOS",
+      "Landing page dùng Three.js/react-three-fiber, PixiJS, GSAP cho animation phong phú",
+      "Pipeline AI riêng (GPT-SoVITS-based TTS + chấm điểm phát âm) — dự án đa dạng kỹ thuật nhất tôi từng góp mặt",
+    ],
+    screenshots: [],
   },
   {
     id: 17,
@@ -580,6 +697,15 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/DienBienPhu_Travel-",
     liveUrl: "#",
     status: "Completed",
+    category: "Frontend",
+    challenge: "Chuyển đổi một site tĩnh HTML lỗi thời thành một trải nghiệm React hiện đại — vừa giữ nội dung du lịch phong phú, vừa đảm bảo render markdown an toàn và hiệu năng tải nhanh cho ảnh nhiều.",
+    highlights: [
+      "Migrate từ static HTML sang React 19 + Vite, lazy-load ảnh toàn site",
+      "Render markdown an toàn qua DOMPurify, tránh XSS từ nội dung động",
+      "Thêm điểm nhấn 3D nhẹ ở hero bằng Three.js/React Three Fiber",
+      "Page transition mượt bằng Framer Motion, styling Tailwind CSS 4",
+    ],
+    screenshots: [],
   },
   {
     id: 18,
@@ -593,6 +719,14 @@ export const projects = [
     githubUrl: "#",
     liveUrl: "#",
     status: "Active",
+    category: "Full-Stack",
+    challenge: "Sinh viên FPT cần một nơi tập trung tài liệu môn học kèm công cụ ôn tập chủ động (flashcard, quiz) thay vì tài liệu rời rạc — và bản thân dự án cũng cần duy trì kỷ luật kỹ thuật tốt (log cải tiến, sửa lỗi thật) chứ không chỉ là demo.",
+    highlights: [
+      "REST API Spring Boot 3.4.3 + MongoDB với middleware logging request, seed nội dung môn học thật (vd MLN111)",
+      "Duy trì improvement log ghi lại các fix thật: loại bỏ mock user ID hardcode, giải quyết N+1 query",
+      "Frontend React 18 + TypeScript với Monaco Editor, sơ đồ Mermaid, dashboard Recharts, export PDF",
+    ],
+    screenshots: [],
   },
   {
     id: 19,
@@ -606,6 +740,13 @@ export const projects = [
     githubUrl: "https://github.com/Yarnia0805/Instagram_ChatBot",
     liveUrl: "#",
     status: "In Development",
+    category: "Frontend",
+    challenge: "Tái tạo chính xác ngôn ngữ thiết kế của Instagram (gradient, color token) làm nền tảng UI trước khi mở rộng thành công cụ tự động hoá chatbot messaging thật.",
+    highlights: [
+      "Scaffold React nhẹ, tái tạo chuẩn xác brand gradient và color token của Instagram",
+      "Thiết kế làm nền tảng cho tính năng tự động hoá chatbot messaging trong tương lai",
+    ],
+    screenshots: [],
   },
   {
     id: 21,
@@ -619,6 +760,14 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/Study_Post_Graduate_Sydney",
     liveUrl: "#",
     status: "Completed",
+    category: "Frontend",
+    challenge: "Trình bày thông tin so sánh chương trình học sau đại học phức tạp (học phí, thời lượng, yêu cầu) theo cách dễ hiểu cho học sinh, thay vì bảng dữ liệu khô khan.",
+    highlights: [
+      "Trực quan hoá dữ liệu so sánh chương trình học bằng Recharts",
+      "Giao diện MUI + Tailwind CSS 4, animation mượt bằng Framer Motion",
+      "Luồng đặt lịch tư vấn tích hợp trực tiếp trong trải nghiệm duyệt chương trình",
+    ],
+    screenshots: [],
   },
   {
     id: 22,
@@ -632,6 +781,14 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/PapaSteak_Website",
     liveUrl: "#",
     status: "Completed",
+    category: "Frontend",
+    challenge: "Xây dựng landing page nhà hàng cao cấp cần truyền tải cảm giác 'premium' qua visual, đồng thời giải quyết bài toán thực tế: nhà hàng có nhiều chi nhánh nên khách cần chuyển đổi bản đồ chỉ đường dễ dàng.",
+    highlights: [
+      "Thiết kế theme dark/amber cao cấp phù hợp thương hiệu steakhouse",
+      "Tích hợp Google Maps đa chi nhánh với chuyển đổi chỉ đường một chạm",
+      "Form đặt bàn có validate đầy đủ bằng React Hook Form, menu overlay động",
+    ],
+    screenshots: [],
   },
 ];
 
@@ -1549,16 +1706,10 @@ export const siteNavigation = [
     },
 
     {
-        title: "Education",
-        desc: "My learning and development journey",
+        title: "Education & Certificates",
+        desc: "My academic journey and verified skills",
         icon: <FaGraduationCap />,
         path: "/education",
-    },
-    {
-        title: "Certificates & Achievements",
-        desc: "My certifications and achievements",
-        icon: <FaCertificate />,
-        path: "/certificates",
     },
     {
         title: "Activities",
@@ -1770,26 +1921,62 @@ So sánh trực tiếp: \`fs.appendFile(logPath, data)\` qua regex tokenizer ra 
 
 ## Kết quả — và vì sao fine-tuning quan trọng hơn RAG
 
-Đánh giá trên 20 test case thủ công phủ 8 loại lỗi concurrency (race condition, event loop blocking, unhandled rejection, callback hell, zalgo, context loss...), chấm bằng cách kiểm tra output có chứa đúng pattern-fix hay không (ví dụ có \`Promise.all(\` hoặc \`await Promise.all\`), thay vì so khớp cứng với một "đáp án mẫu":
+Đánh giá trên 20 test case thủ công phủ 8 loại lỗi concurrency (race condition, event loop blocking, unhandled rejection, callback hell, zalgo, context loss...), chấm bằng Fix-Pattern Scoring (kiểm tra output chứa pattern fix đúng, không so khớp cứng với đáp án mẫu):
 
-| Phương pháp | Pass Rate |
-|---|---|
-| GPT-3.5-turbo zero-shot | 30% |
-| Qwen2.5-Coder-1.5B (chưa fine-tune) | 40% |
-| ThreadLearn — chỉ fine-tune, không RAG | 70% |
-| ThreadLearn — fine-tune + RAG | **75%** |
+| Phương pháp | Pass | Partial | Fail | Pass Rate |
+|---|---|---|---|---|
+| GPT-3.5-turbo zero-shot | 6 | 11 | 3 | 30% |
+| Qwen2.5-Coder-1.5B (base, chưa fine-tune) | 8 | 9 | 3 | 40% |
+| ThreadLearn RAW (fine-tune, không RAG) | 14 | 6 | 0 | 70% |
+| **ThreadLearn + RAG** | **15** | **5** | **0** | **75%** |
 
-Điều bất ngờ nhất không phải con số 75% so với GPT-3.5, mà là khoảng cách +30 điểm phần trăm đến từ fine-tuning so với chỉ +5 điểm từ RAG. 783 mẫu training đã đủ để model học đúng các pattern fix cụ thể — RAG chỉ đóng vai trò dọn nốt các case khó, nơi model cần thêm ngữ cảnh nó chưa từng thấy trong lúc train. Và không có case nào FAIL hoàn toàn — model luôn sinh ra code đọc được, kể cả khi sai.
+![Ablation chart](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871855/my-website/assets/blog/threadlearn/fig_ablation.png)
 
-## Bài học rút ra
+### Benchmark 2 — 30 case real-world (từ npm packages thật trên GitHub Issues)
 
-Domain hẹp, dữ liệu chất lượng, và một model nhỏ được fine-tune đúng cách có thể vượt một model tổng quát lớn hơn ~125 lần — không phải vì model nhỏ "giỏi hơn", mà vì nó không phải gánh kiến thức không liên quan. Đây cũng là lý do tôi tin kiến trúc retrieval-augmented vẫn đáng đầu tư ở scale nhỏ: BM25 rẻ, nhanh, chạy offline, và khi ghép đúng với AST-based keyword extraction thay vì regex tokenizer thô, nó đóng góp thật — dù không lớn bằng phần fine-tuning.
+ThreadLearn + pipeline đạt **73.3% (22/30)**, vượt GPT-3.5-turbo + pipeline **65.0%** (19.5/30). Chi tiết tại \`server/tests/real_world/README.md\`.
 
-Code đầy đủ, dataset, và bài nghiên cứu chi tiết: [github.com/ThreadLearn/ThreadLearn_AI_Trainning](https://github.com/ThreadLearn/ThreadLearn_AI_Trainning).`,
+### Phân tích
+
+Fine-tuning đóng góp **+30pp** (40% → 70%), RAG **+5pp** (70% → 75%). 783 mẫu training đủ để model học pattern fix cụ thể; RAG giúp các case khó cần thêm ngữ cảnh ngoài training data. Không có case nào FAIL hoàn toàn — model luôn sinh ra code đọc được.
+
+**3 category còn yếu**: Zalgo (0/1), Double Callback (0/1), Buffer Leak (0/1) — pattern rất đặc thù, ít xuất hiện trong dataset.
+
+Event Loop Blocking đạt **100% (5/5)** — training data phủ tốt nhất.
+
+![Per-category chi tiết](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871858/my-website/assets/blog/threadlearn/fig_category.png)
+
+## Bài học
+
+Model nhỏ (~1.5B), fine-tune trên domain hẹp, **vượt GPT-3.5 (175B) dù nhỏ hơn 125 lần** — không phải vì "giỏi hơn", mà vì không phải gánh kiến thức không liên quan. BM25 + AST extraction rẻ, nhanh, offline. Khi thiết kế retrieval cho code, exact keyword match quan trọng hơn semantic similarity.
+
+---
+
+*Vai trò nhóm: **Lê Trí Trung** (AI2 — RAG Pipeline, FastAPI Server, Race Detector) · Hà Văn Ân (AI1 — Dataset Collection, QLoRA Fine-tuning) · Nguyễn Thị Thúy Hoài (Đánh giá mô hình & viết báo cáo). FPT University, Da Nang.*
+
+Code, dataset, và bài nghiên cứu: [github.com/ThreadLearn/ThreadLearn_AI_Trainning](https://github.com/ThreadLearn/ThreadLearn_AI_Trainning). Bản PDF đầy đủ: \`/d/FPT/threadlearn_paper-full.pdf\`. Visual demo site: [github.com/ThreadLearn/ThreadLearn-AI-Visual](https://github.com/ThreadLearn/ThreadLearn-AI-Visual).`,
   },
 ];
 
 export const testimonials = [
   // Để trống — điền lời nhận xét thật (mentor/giảng viên/đồng đội) vào đây theo shape:
   // { id: 1, name: "...", role: "...", company: "...", quote: "...", avatar: "..." }
+];
+
+// proficiency (0-100) suy luận từ số lượng + độ sâu sử dụng qua các project — tự tinh chỉnh lại nếu muốn phản ánh đúng hơn cảm nhận thật
+export const skillTaxonomy = [
+  { id: "react", label: "React", category: "Frontend", proficiency: 90, projectIds: [1, 4, 6, 7, 10, 11, 12, 16, 17, 18, 19, 21, 22] },
+  { id: "spring-boot", label: "Java Spring Boot", category: "Backend", proficiency: 85, projectIds: [1, 2, 3, 7, 11, 12, 14, 18] },
+  { id: "typescript", label: "TypeScript", category: "Language", proficiency: 70, projectIds: [13, 14, 16, 18] },
+  { id: "mongodb", label: "MongoDB", category: "Database", proficiency: 70, projectIds: [11, 13, 14, 16, 18] },
+  { id: "sql", label: "MySQL / SQL Server", category: "Database", proficiency: 75, projectIds: [1, 2, 7, 12] },
+  { id: "tailwind", label: "Tailwind CSS", category: "Frontend", proficiency: 80, projectIds: [10, 11, 16, 17, 19, 21, 22] },
+  { id: "framer-motion", label: "Framer Motion", category: "Frontend", proficiency: 75, projectIds: [10, 17, 21, 22] },
+  { id: "node", label: "Node.js / Express.js", category: "Backend", proficiency: 60, projectIds: [4, 11, 13] },
+  { id: "redis", label: "Redis", category: "Backend", proficiency: 55, projectIds: [11, 12, 14] },
+  { id: "docker", label: "Docker", category: "DevOps", proficiency: 50, projectIds: [14] },
+  { id: "threejs", label: "Three.js", category: "Frontend", proficiency: 45, projectIds: [16, 17] },
+  { id: "outsystems", label: "OutSystems", category: "Low-Code", proficiency: 65, projectIds: [5] },
+  { id: "google-maps", label: "Google Maps API", category: "Integration", proficiency: 60, projectIds: [2, 22] },
+  { id: "leadership", label: "Project & Team Leadership", category: "Soft Skill", proficiency: 80, projectIds: [1, 2, 3] },
 ];
