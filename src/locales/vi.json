@@ -343,8 +343,8 @@
   "siteNavigation": [
     { "title": "Trang chủ", "desc": "Chào mừng đến với portfolio của tôi" },
     { "title": "Giới thiệu", "desc": "Tìm hiểu về hành trình và đam mê của tôi" },
-    { "title": "Học vấn", "desc": "Con đường học tập và thành tích học thuật" },
     { "title": "Dự án", "desc": "Phần mềm tôi đã xây dựng và ra mắt" },
+    { "title": "Học vấn", "desc": "Con đường học tập và thành tích học thuật" },
     { "title": "Chứng chỉ", "desc": "Kỹ năng được xác nhận và khóa học đã hoàn thành" },
     { "title": "Hoạt động", "desc": "Sự kiện, cuộc thi và công việc cộng đồng" },
     { "title": "Liên hệ", "desc": "Liên lạc với tôi" }
@@ -381,7 +381,8 @@
     { "description": "Được chọn làm **người mẫu ảnh** cho bộ ảnh kỷ niệm chính thức của Đại học FPT đánh dấu ngày kỷ niệm Cách mạng Tháng Tám. Cùng nhóm truyền thông của trường thực hiện chân dung trang trọng và bố cục nhóm được sử dụng trong truyền thông chính thức và trưng bày trong khuôn viên." }
   ],
   "certificateItems": [
-    { "description": "Đạt **band score 6.0** trong kỳ thi IELTS (Linear) — chứng minh khả năng tiếng Anh học thuật thành thạo qua 4 kỹ năng Nghe, Đọc, Viết và Nói. Điểm này đáp ứng yêu cầu đầu vào của các chương trình đại học quốc tế và môi trường làm việc chuyên nghiệp." },
+    { "description": "Đạt **tổng điểm 6.0** (Nghe 5.5, Đọc 6.5, Viết 5.5, Nói 6.0 · CEFR B2) trong kỳ thi IELTS Academic chính thức — thể hiện năng lực tiếng Anh học thuật vững vàng trên cả 4 kỹ năng. Được tổ chức và xác nhận chính thức bởi British Council / IDP." },
+    { "description": "Chứng nhận Linear Certificate từ **khóa IELTS 6.0 tại DOL English**, đánh dấu việc hoàn thành khóa học và tiến bộ hướng tới mục tiêu điểm số — cột mốc ôn luyện trước khi thi IELTS Academic chính thức." },
     { "description": "Hoàn thành **Chương trình Trao đổi Sinh viên Quốc tế** của Đại học FPT tại Đại học Quản lý và Công nghệ Tunku Abdul Rahman (**TAR UMT**), **Kuala Lumpur, Malaysia**. Tích lũy kinh nghiệm học thuật quốc tế, giao tiếp đa văn hóa và mở rộng góc nhìn về giáo dục công nghệ khu vực Đông Nam Á." },
     { "description": "Chứng nhận tham gia và vào **vòng chung kết** Innocode Camp SU25 — cuộc thi lập trình theo dự án do FPT Education tổ chức dành cho sinh viên đại học. Nhóm xây dựng nền tảng tìm kiếm việc làm và cạnh tranh với các đội từ nhiều cơ sở FPT." },
     { "description": "Chứng nhận tham gia và đạt thành tích tại **Hội nghị Nghiên cứu Khoa học FPT (ResFres 2024)** — cuộc thi học thuật nhiều vòng bao gồm nghiên cứu gốc, báo cáo có cấu trúc và thuyết trình trước hội đồng. Đội The Dreamers vào vòng chung kết liên cơ sở." },
@@ -397,12 +398,16 @@
     { "description": "Hoàn thành khóa **Thiết kế Web Responsive** của Đại học Michigan — bao gồm media query, lưới linh hoạt, hình ảnh co giãn và nguyên tắc thiết kế mobile-first để xây dựng giao diện thích nghi trên mọi kích thước màn hình." },
     { "description": "Hoàn thành chuyên ngành **Kỹ năng Học thuật cho Đại học** của Đại học Auckland — bao gồm đọc phân tích, viết học thuật, phương pháp nghiên cứu và chiến lược quản lý thời gian cho bậc đại học." },
     { "description": "Hoàn thành khóa **Cơ bản về Thiết kế Đồ họa** của CalArts trên Coursera — bao gồm nguyên tắc thiết kế trực quan: typography, lý thuyết màu sắc, bố cục và sáng tạo hình ảnh. Ứng dụng vào tạo tài liệu truyền thông cho The Dreamers và các hoạt động FPT." },
-    { "description": "Hoàn thành chương trình **Đào tạo Hội nhập IT** của FPT Software — giới thiệu quy trình IT doanh nghiệp, công cụ nội bộ, quy trình phát triển phần mềm và tiêu chuẩn chuyên nghiệp tại FPT." },
-    { "description": "Hoàn thành khóa **Robotics** tại Đại học FPT — bao gồm các khái niệm cơ bản về robot: cảm biến, cơ cấu chấp hành, hệ thống điều khiển và thực hành lập trình robot trong phòng lab. Liên quan đến vai trò trọng tài trưởng tại cuộc thi FPT AI & Robotics." },
+    { "description": "Hoàn thành khóa **Information Technology Onboarding** tại F8 — giới thiệu các khái niệm CNTT cốt lõi, quy trình phát triển phần mềm và nền tảng cơ bản cho sinh viên mới bắt đầu học lập trình." },
+    { "description": "Tham gia **Ban Tổ Chức** cuộc thi FPTU AI & Robotics Challenge 2025 — cuộc thi kỹ thuật nơi các đội sinh viên lập trình robot và hệ thống AI để hoàn thành thử thách. Chứng nhận đóng góp trong công tác tổ chức và vận hành cuộc thi." },
+    { "description": "Chứng nhận hoàn thành chính thức chương trình **Thực tập Sinh (On-the-Job Training)** tại Công ty TNHH Phần mềm FPT Miền Trung (FPT Software), diễn ra từ tháng 9 đến tháng 12/2025 — đợt thực tập được nhà trường công nhận, gắn với vai trò Thực tập sinh Software Developer." },
+    { "description": "Hoàn thành dự án Coursera của IBM về xây dựng **ứng dụng Generative AI sử dụng Retrieval-Augmented Generation (RAG) và LangChain** — bao gồm truy xuất vector, điều phối prompt và neo kết quả LLM vào nguồn dữ liệu bên ngoài." },
+    { "description": "Được công nhận là **Đại sứ Sinh viên** vì tích cực quảng bá sự kiện Mini Leadership Conference 2025 của AIESEC — hỗ trợ truyền thông và chiến dịch cho sự kiện lãnh đạo trẻ khu vực tại Đà Nẵng." },
+    { "description": "Nhận **học bổng 10%** ngành Công nghệ Thông tin (chuyên ngành Kỹ thuật Phần mềm) tại Đại học FPT, dựa trên kỳ thi học bổng năm 2023 (Điểm trắc nghiệm 44/90, Điểm luận 8/15 — Tổng điểm 52/105)." },
     { "description": "Hoàn thành chứng chỉ **Thuật toán và Cấu trúc Dữ liệu JavaScript** của freeCodeCamp — bao gồm các thuật toán cơ bản (sắp xếp, tìm kiếm), cấu trúc dữ liệu (mảng, đối tượng, danh sách liên kết, ngăn xếp, hàng đợi) và giải quyết bài toán bằng JavaScript." },
-    { "description": "Hoàn thành học phần **Hiragana** — thành thạo bảng chữ cái âm tiết tiếng Nhật gồm 46 ký tự dùng cho từ gốc Nhật. Một phần trong nỗ lực tự học tiếng Nhật song song với chương trình CNTT và thực tập." },
-    { "description": "Hoàn thành học phần **Katakana** — thành thạo 46 ký tự dùng cho từ vay mượn và thuật ngữ kỹ thuật trong tiếng Nhật. Kết hợp với Hiragana, tạo nền tảng đọc hiểu cho người học tiếng Nhật sơ cấp." },
-    { "description": "Chứng nhận tham gia sự kiện **'Nón Xanh Nước Biếc'** do Đoàn Sinh viên Đại học FPT tổ chức — hoạt động cộng đồng nâng cao nhận thức về môi trường, lối sống xanh và gắn kết sinh viên trong khuôn viên." },
-    { "description": "Nhận danh hiệu **'Dreamer of Honor'** từ Tổ chức The Dreamers — trao cho thành viên thể hiện sự cống hiến, lãnh đạo và đóng góp xuất sắc cho sứ mệnh tổ chức trong năm. Đây là một trong những danh hiệu nội bộ cao nhất của tổ chức." }
+    { "description": "Hoàn thành **khóa tự học Hiragana A1** trên JF Japanese e-Learning Minato của Quỹ Giao lưu Quốc tế Nhật Bản (Japan Foundation) — thành thạo bảng chữ cái âm tiết tiếng Nhật gồm 46 ký tự dùng cho từ gốc Nhật." },
+    { "description": "Hoàn thành **khóa tự học Katakana A1** trên JF Japanese e-Learning Minato của Quỹ Giao lưu Quốc tế Nhật Bản (Japan Foundation) — thành thạo 46 ký tự dùng cho từ vay mượn và thuật ngữ kỹ thuật trong tiếng Nhật." },
+    { "description": "Chứng nhận tham gia sự kiện **'Non Xanh Nước Biếc'** do Đoàn Sinh viên Đại học FPT tổ chức — hoạt động cộng đồng nâng cao nhận thức về môi trường, lối sống xanh và gắn kết sinh viên trong khuôn viên." },
+    { "description": "Nhận **Giấy Chứng nhận Danh dự** từ The Dreamers, ghi nhận sâu sắc tầm nhìn lãnh đạo và sự cống hiến với vai trò **Người sáng lập và Chủ tịch** của The Dreamers — tôn vinh đam mê và tâm huyết đã đặt nền móng cho hành trình của tổ chức." }
   ]
 }

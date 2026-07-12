@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaCertificate, FaEye, FaSearch, FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaCertificate, FaEye, FaSearch, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import useSpotlight from '../../hooks/useSpotlight';
 import '../../animations/SpotlightCard.css';
 import { useTranslation } from 'react-i18next';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import Markdown from 'react-markdown';
+import { Dialog } from '../ui/Dialog';
+import { Tabs, TabsList, TabsTrigger } from '../ui/Tabs';
 const ITEMS_PER_PAGE = 9;
 
 const CertificateCard = ({ cert, index, onSelect }) => {
@@ -149,28 +151,15 @@ const Certificates = () => {
                 </div>
 
                 {/* Year pills */}
-                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                    {years.map(yr => (
-                        <button
-                            key={yr}
-                            onClick={() => { setSelectedYear(yr); setCurrentPage(1); }}
-                            style={{
-                                padding: '6px 16px',
-                                borderRadius: '50px',
-                                fontSize: '14px',
-                                fontWeight: selectedYear === yr ? '480' : '330',
-                                color: selectedYear === yr ? '#ffffff' : '#000000',
-                                backgroundColor: selectedYear === yr ? '#000000' : '#ffffff',
-                                border: '1.5px solid',
-                                borderColor: selectedYear === yr ? '#000000' : '#e6e6e6',
-                                cursor: 'pointer',
-                                transition: 'all 0.15s ease',
-                            }}
-                        >
-                            {yr === 'all' ? t('certificates.allYears') : yr}
-                        </button>
-                    ))}
-                </div>
+                <Tabs value={selectedYear} onValueChange={(yr) => { setSelectedYear(yr); setCurrentPage(1); }}>
+                    <TabsList>
+                        {years.map(yr => (
+                            <TabsTrigger key={yr} value={yr}>
+                                {yr === 'all' ? t('certificates.allYears') : yr}
+                            </TabsTrigger>
+                        ))}
+                    </TabsList>
+                </Tabs>
             </motion.div>
 
             {/* Grid */}
@@ -207,42 +196,31 @@ const Certificates = () => {
             )}
 
             {/* Modal */}
-            <AnimatePresence>
+            <Dialog
+                open={!!selectedCert}
+                onOpenChange={(open) => !open && setSelectedCert(null)}
+                title={selectedCert?.name || 'Certificate'}
+            >
                 {selectedCert && (
-                    <motion.div
-                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                        style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}
-                        onClick={() => setSelectedCert(null)}
-                    >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
-                            transition={{ type: 'spring', damping: 30, stiffness: 350 }}
-                            style={{ backgroundColor: '#ffffff', borderRadius: '24px', maxWidth: '680px', width: '100%', overflow: 'hidden' }}
-                            onClick={e => e.stopPropagation()}
-                        >
-                            <div style={{ position: 'relative' }}>
-                                <img src={selectedCert.image} alt={selectedCert.name} loading="lazy" style={{ width: '100%', maxHeight: '360px', objectFit: 'cover' }} />
-                                <button onClick={() => setSelectedCert(null)}
-                                    style={{ position: 'absolute', top: '16px', right: '16px', width: '36px', height: '36px', borderRadius: '9999px', backgroundColor: 'rgba(0,0,0,0.4)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', fontSize: '16px' }}>
-                                    <FaTimes />
-                                </button>
-                            </div>
-                            <div style={{ padding: '28px' }}>
-                                <span style={{ display: 'inline-block', padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', backgroundColor: '#dceeb1', marginBottom: '12px' }}>
-                                    {selectedCert.year}
-                                </span>
-                                <h2 style={{ fontSize: '22px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0' }}>{selectedCert.name}</h2>
-                                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#666666', marginBottom: '16px' }}>
-                                    {t('certificates.issuedBy')} {selectedCert.issuer}
-                                </p>
-                                {selectedCert.description && (
-                                    <div style={{ fontSize: '16px', fontWeight: '330', lineHeight: '1.6', color: '#444444' }}><Markdown>{selectedCert.description}</Markdown></div>
-                                )}
-                            </div>
-                        </motion.div>
-                    </motion.div>
+                    <>
+                        <div style={{ position: 'relative' }}>
+                            <img src={selectedCert.image} alt={selectedCert.name} loading="lazy" style={{ width: '100%', maxHeight: '360px', objectFit: 'cover' }} />
+                        </div>
+                        <div style={{ padding: '28px' }}>
+                            <span style={{ display: 'inline-block', padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', backgroundColor: '#dceeb1', marginBottom: '12px' }}>
+                                {selectedCert.year}
+                            </span>
+                            <h2 style={{ fontSize: '22px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0' }}>{selectedCert.name}</h2>
+                            <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#666666', marginBottom: '16px' }}>
+                                {t('certificates.issuedBy')} {selectedCert.issuer}
+                            </p>
+                            {selectedCert.description && (
+                                <div style={{ fontSize: '16px', fontWeight: '330', lineHeight: '1.6', color: '#444444' }}><Markdown>{selectedCert.description}</Markdown></div>
+                            )}
+                        </div>
+                    </>
                 )}
-            </AnimatePresence>
+            </Dialog>
         </div>
     );
 };

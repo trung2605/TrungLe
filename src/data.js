@@ -23,68 +23,73 @@ import {
 import NewAvatar from './assets/information/image.png';
 
 // Project Image Imports
-const JobFinderImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962629/my-website/assets/projects/JobFinder.png";
-const DolaBakeryImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962632/my-website/assets/projects/DolaBakery.png";
-const TheDreamersOrganizationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962634/my-website/assets/projects/TheDreamers.png";
-const WebFormAutomationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962635/my-website/assets/projects/WebFormAutomation.png";
-const BookShopOutsystemsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962636/my-website/assets/projects/BookShopOutsystems.png";
-const TikTokUIImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962637/my-website/assets/projects/ComingSoon.png";
-const PortfolioImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962639/my-website/assets/projects/Portfolio.png";
-const BakeryManagementImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962640/my-website/assets/projects/BakeryManagementSystem.png";
+const JobFinderImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962629/my-website/assets/projects/JobFinder.png";
+const DolaBakeryImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962632/my-website/assets/projects/DolaBakery.png";
+const TheDreamersOrganizationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962634/my-website/assets/projects/TheDreamers.png";
+const WebFormAutomationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962635/my-website/assets/projects/WebFormAutomation.png";
+const BookShopOutsystemsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962636/my-website/assets/projects/BookShopOutsystems.png";
+const TikTokUIImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962637/my-website/assets/projects/ComingSoon.png";
+const PortfolioImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962639/my-website/assets/projects/Portfolio.png";
+const BakeryManagementImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962640/my-website/assets/projects/BakeryManagementSystem.png";
 
 //Certificate Imports
-const IELTS_6_0_Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962641/my-website/assets/Certificate/Language/TrungLeTri_Linear_certificate_IELTS_6.0.png";
-const HiraganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962642/my-website/assets/Certificate/Language/Completion_Hiragana.png";
-const KataganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962643/my-website/assets/Certificate/Language/Completion_katagana.png";
-const DreamersResfresImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962644/my-website/assets/Certificate/Event/DreamersResfres.png";
-const NonXanhNuocBiecImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962645/my-website/assets/Certificate/Event/NonXanhNuocBiec.png";
-const DreamerOfHonorImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962646/my-website/assets/Certificate/Other/DreamerOfHonor.png";
-const AcademicSkillsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962647/my-website/assets/Certificate/TechnologyCertificates/AcademicSkills_for_University_Success-1.png";
-const WebDevBasicsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962649/my-website/assets/Certificate/TechnologyCertificates/Basics_of_web_development_coding___Michigan-1.png";
-const AIAgentsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962650/my-website/assets/Certificate/TechnologyCertificates/CertificateOfCompletion_Build_AI_Agents_and_Automate_Workflows_with_n8n-1.png";
-const CSS3Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962651/my-website/assets/Certificate/TechnologyCertificates/CSS3_Michigan-1.png";
-const DataVisualizationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962653/my-website/assets/Certificate/TechnologyCertificates/Data_Visualization.png";
-const GraphicDesignImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962654/my-website/assets/Certificate/TechnologyCertificates/Fundamentals_of_Graphic_Design-1.png";
-const HTMLCSSDepthImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962656/my-website/assets/Certificate/TechnologyCertificates/HTML_and_CSS_in_depth-1.png";
-const HTML5Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962657/my-website/assets/Certificate/TechnologyCertificates/Html5_Michigan-1.png";
-const ITOnboardingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962658/my-website/assets/Certificate/TechnologyCertificates/Information_Technology_Onboarding-1.png";
-const InteractivityJSImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962660/my-website/assets/Certificate/TechnologyCertificates/Interactivity_with_JavaScript___Michigan-1.png";
-const IntroFrontEndImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962661/my-website/assets/Certificate/TechnologyCertificates/Introduction_to_Front-End_Development-1.png";
-const JSAlgorithmsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962662/my-website/assets/Certificate/TechnologyCertificates/JavaScript_Algorithms.png";
-const ProgrammingJSImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962663/my-website/assets/Certificate/TechnologyCertificates/Programming_with_JavaScript-1.png";
-const ResponsiveImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962664/my-website/assets/Certificate/TechnologyCertificates/Reponsive__Michigan-1.png";
-const RoboticsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962666/my-website/assets/Certificate/TechnologyCertificates/Robotics.jpg";
+const HiraganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962642/my-website/assets/Certificate/Language/Completion_Hiragana.png";
+const KataganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962643/my-website/assets/Certificate/Language/Completion_katagana.png";
+const DreamersResfresImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962644/my-website/assets/Certificate/Event/DreamersResfres.png";
+const NonXanhNuocBiecImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962645/my-website/assets/Certificate/Event/NonXanhNuocBiec.png";
+const DreamerOfHonorImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838572/my-website/assets/Certificate/Event/DreamersHonor-1.png";
+const AcademicSkillsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962647/my-website/assets/Certificate/TechnologyCertificates/AcademicSkills_for_University_Success-1.png";
+const WebDevBasicsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962649/my-website/assets/Certificate/TechnologyCertificates/Basics_of_web_development_coding___Michigan-1.png";
+const AIAgentsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962650/my-website/assets/Certificate/TechnologyCertificates/CertificateOfCompletion_Build_AI_Agents_and_Automate_Workflows_with_n8n-1.png";
+const CSS3Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962651/my-website/assets/Certificate/TechnologyCertificates/CSS3_Michigan-1.png";
+const DataVisualizationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962653/my-website/assets/Certificate/TechnologyCertificates/Data_Visualization.png";
+const GraphicDesignImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962654/my-website/assets/Certificate/TechnologyCertificates/Fundamentals_of_Graphic_Design-1.png";
+const HTMLCSSDepthImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962656/my-website/assets/Certificate/TechnologyCertificates/HTML_and_CSS_in_depth-1.png";
+const HTML5Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962657/my-website/assets/Certificate/TechnologyCertificates/Html5_Michigan-1.png";
+const ITOnboardingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962658/my-website/assets/Certificate/TechnologyCertificates/Information_Technology_Onboarding-1.png";
+const InteractivityJSImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962660/my-website/assets/Certificate/TechnologyCertificates/Interactivity_with_JavaScript___Michigan-1.png";
+const IntroFrontEndImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962661/my-website/assets/Certificate/TechnologyCertificates/Introduction_to_Front-End_Development-1.png";
+const JSAlgorithmsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962662/my-website/assets/Certificate/TechnologyCertificates/JavaScript_Algorithms.png";
+const ProgrammingJSImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962663/my-website/assets/Certificate/TechnologyCertificates/Programming_with_JavaScript-1.png";
+const ResponsiveImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962664/my-website/assets/Certificate/TechnologyCertificates/Reponsive__Michigan-1.png";
+const RoboticsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962666/my-website/assets/Certificate/TechnologyCertificates/Robotics.jpg";
+const IELTSRealImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838534/my-website/assets/Certificate/Language/IELTS_Real.png";
+const DOLLinearImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838530/my-website/assets/Certificate/Language/DOL_Linear.png";
+const FsoftOJTImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838532/my-website/assets/Certificate/Language/FPT_OJT.png";
+const HocBong2023Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838533/my-website/assets/Certificate/Language/HocBong2023.png";
+const AIESECLeadershipImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838569/my-website/assets/Certificate/Event/Leadership_Conference_2025.png";
+const IBMRAGLangChainImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838587/my-website/assets/Certificate/TechnologyCertificates/IBM_RAG_LangChain-1.png";
 
 //Activity Imports
-const InnocodeCampActivityImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962667/my-website/assets/activities/Dreamers_Innocode_Camp.png";
-const MicHomeFUMClubImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962668/my-website/assets/activities/Mic_Home_FUM_Club.jpg";
-const ResFresActivityImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962644/my-website/assets/Certificate/Event/DreamersResfres.png";
-const CharityFundraisingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962670/my-website/assets/activities/Dreamers_Charity_Fundraising.jpg";
-const MediaRolesImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962671/my-website/assets/activities/Student_Actor_Model.jpg";
-const GalaHonTanDatVietImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962672/my-website/assets/activities/Gala_HonTanDatViet.jpg";
-const CharityMissionsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962673/my-website/assets/activities/TuThien_Missions_Group.jpg";
-const WorkshopMakeImageBetterImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962674/my-website/assets/activities/Workshop_MakeImageBetter_MC.jpg";
-const GenderEqualityMCImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962676/my-website/assets/activities/Gender_Equality_Workshop_MC.jpg";
-const CollaborationEventsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962677/my-website/assets/activities/Collaboration_Events_Group.jpg";
-const TuyenThanhVienDreamersImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962678/my-website/assets/activities/Tuyen_Thanh_Vien_Dreamers.jpg";
-const DuAnDreamHighImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962681/my-website/assets/activities/Du_An_Dream_High.jpg";
-const TotHyVongImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962682/my-website/assets/activities/Tet_Hy_Vong_Event.jpg";
-const VongVaoMongMoImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962684/my-website/assets/activities/Vong_Vao_Mong_Mo.jpg";
-const AIRoboticsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962685/my-website/assets/activities/AI_Robotics_Referee.jpg";
-const DienNhacTuThienImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962688/my-website/assets/activities/Dien_Nhac_Tu_Thien.png";
-const BoAnhKyNiemImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962689/my-website/assets/activities/Bo_Anh_Ky_Niem.jpg";
-const AlumniGuidanceImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962690/my-website/assets/activities/Alumni_Career_Guidance_Talk.jpg";
+const InnocodeCampActivityImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962667/my-website/assets/activities/Dreamers_Innocode_Camp.png";
+const MicHomeFUMClubImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962668/my-website/assets/activities/Mic_Home_FUM_Club.jpg";
+const ResFresActivityImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962644/my-website/assets/Certificate/Event/DreamersResfres.png";
+const CharityFundraisingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962670/my-website/assets/activities/Dreamers_Charity_Fundraising.jpg";
+const MediaRolesImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962671/my-website/assets/activities/Student_Actor_Model.jpg";
+const GalaHonTanDatVietImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962672/my-website/assets/activities/Gala_HonTanDatViet.jpg";
+const CharityMissionsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962673/my-website/assets/activities/TuThien_Missions_Group.jpg";
+const WorkshopMakeImageBetterImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962674/my-website/assets/activities/Workshop_MakeImageBetter_MC.jpg";
+const GenderEqualityMCImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962676/my-website/assets/activities/Gender_Equality_Workshop_MC.jpg";
+const CollaborationEventsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962677/my-website/assets/activities/Collaboration_Events_Group.jpg";
+const TuyenThanhVienDreamersImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962678/my-website/assets/activities/Tuyen_Thanh_Vien_Dreamers.jpg";
+const DuAnDreamHighImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962681/my-website/assets/activities/Du_An_Dream_High.jpg";
+const TotHyVongImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962682/my-website/assets/activities/Tet_Hy_Vong_Event.jpg";
+const VongVaoMongMoImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962684/my-website/assets/activities/Vong_Vao_Mong_Mo.jpg";
+const AIRoboticsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962685/my-website/assets/activities/AI_Robotics_Referee.jpg";
+const DienNhacTuThienImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962688/my-website/assets/activities/Dien_Nhac_Tu_Thien.png";
+const BoAnhKyNiemImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962689/my-website/assets/activities/Bo_Anh_Ky_Niem.jpg";
+const AlumniGuidanceImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962690/my-website/assets/activities/Alumni_Career_Guidance_Talk.jpg";
 
 //eudcation Memories Imports
-const FPTMemory1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962692/my-website/assets/educationMemories/FPT_Memory_1.jpg";
-const MalaysiaMemory = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962693/my-website/assets/educationMemories/Malaysia_Memory.jpg";
-const PCTMemory = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962694/my-website/assets/educationMemories/PCT_Graduation_Memory.jpg";
+const FPTMemory1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962692/my-website/assets/educationMemories/FPT_Memory_1.jpg";
+const MalaysiaMemory = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962693/my-website/assets/educationMemories/Malaysia_Memory.jpg";
+const PCTMemory = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962694/my-website/assets/educationMemories/PCT_Graduation_Memory.jpg";
 
 // About Slider Images Imports
-const SliderImg1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962695/my-website/assets/slider/SliderImg1.jpg";
-const SliderImg2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962696/my-website/assets/slider/SliderImg2.jpg";
-const SliderImg3 = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962697/my-website/assets/slider/SliderImg3.jpg";
-const SliderImg4 = "https://res.cloudinary.com/dvwt6npcl/image/upload/v1769962699/my-website/assets/slider/SliderImg4.jpg";
+const SliderImg1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962695/my-website/assets/slider/SliderImg1.jpg";
+const SliderImg2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962696/my-website/assets/slider/SliderImg2.jpg";
+const SliderImg3 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962697/my-website/assets/slider/SliderImg3.jpg";
+const SliderImg4 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962699/my-website/assets/slider/SliderImg4.jpg";
 
 // Local Image Import
 // moved to top
@@ -618,12 +623,21 @@ export const projects = [
 export const certificates = [
   {
     id: 1,
-    name: "IELTS 6.0 (Linear)",
+    name: "IELTS Academic 6.0",
     issuer: "British Council / IDP",
-    year: "2024",
-    image: IELTS_6_0_Image,
+    year: "04/2026",
+    image: IELTSRealImage,
     description:
-      "Achieved a **band score of 6.0** on the International English Language Testing System (IELTS) — demonstrating proficient academic English across Listening, Reading, Writing, and Speaking. This score meets the English proficiency requirement for international university programs and professional environments.",
+      "Achieved an **overall band score of 6.0** (Listening 5.5, Reading 6.5, Writing 5.5, Speaking 6.0 · CEFR B2) on the Academic IELTS — demonstrating proficient academic English across all four skills. Officially administered and verified by the British Council / IDP.",
+  },
+  {
+    id: 28,
+    name: "IELTS 6.0 (Linear Certificate)",
+    issuer: "DOL English",
+    year: "10/2025",
+    image: DOLLinearImage,
+    description:
+      "Linear Certificate from **DOL English's IELTS 6.0 course**, marking course completion and progress toward the target band score — a preparatory milestone ahead of sitting the official IELTS Academic test.",
   },
   {
     id: 2,
@@ -763,20 +777,56 @@ export const certificates = [
   {
     id: 17,
     name: "Information Technology Onboarding",
-    issuer: "FPT Software",
-    year: "05/2024",
+    issuer: "F8 (Fullstack.edu.vn)",
+    year: "07/2023",
     image: ITOnboardingImage,
     description:
-      "Completed FPT Software's **IT Onboarding** program — an introduction to enterprise IT practices, internal tools, software development workflows, and professional standards used within FPT's technology organization.",
+      "Completed F8's **Information Technology Onboarding** course — an introduction to core IT concepts, development workflows, and foundational practices for students starting out in software development.",
   },
   {
     id: 18,
-    name: "Robotics",
+    name: "FPTU AI & Robotics Challenge 2025 — Organizing Committee",
     issuer: "FPT University",
-    year: "09/2025",
+    year: "08/2025",
     image: RoboticsImage,
     description:
-      "Completed a **Robotics** course at FPT University — covering foundational robotics concepts including sensors, actuators, basic control systems, and hands-on experience with robot programming in a lab environment. Related to serving as head referee at the FPT AI & Robotics Competition.",
+      "Served on the **Organizing Committee** of the FPTU AI & Robotics Challenge 2025 — a technical competition where student teams program robots and AI systems to complete engineering challenges. Certificate awarded for contribution to competition organization and operations.",
+  },
+  {
+    id: 29,
+    name: "On-the-Job Training",
+    issuer: "FPT University / FPT Software Miền Trung",
+    year: "01/2026",
+    image: FsoftOJTImage,
+    description:
+      "Officially certified completion of the **On-the-Job Training program** at Công ty TNHH Phần mềm FPT Miền Trung (FPT Software), covering September–December 2025 — the university-recognized internship placement underlying the FPT Software Developer Intern role.",
+  },
+  {
+    id: 30,
+    name: "Project: Generative AI Applications with RAG and LangChain",
+    issuer: "IBM – Coursera",
+    year: "07/2026",
+    image: IBMRAGLangChainImage,
+    description:
+      "Completed an IBM-authored Coursera project building **Generative AI applications using Retrieval-Augmented Generation (RAG) and LangChain** — covering vector retrieval, prompt orchestration, and grounding LLM outputs in external data sources.",
+  },
+  {
+    id: 31,
+    name: "Mini Leadership Conference 2025 — Student Ambassador",
+    issuer: "AIESEC in Vietnam, Da Nang",
+    year: "11/2025",
+    image: AIESECLeadershipImage,
+    description:
+      "Recognized as a **Student Ambassador** for actively promoting AIESEC's Mini Leadership Conference 2025 — supporting outreach and campaign efforts for the regional youth leadership event in Da Nang.",
+  },
+  {
+    id: 32,
+    name: "FPT University Scholarship 2023",
+    issuer: "FPT University",
+    year: "05/2023",
+    image: HocBong2023Image,
+    description:
+      "Awarded a **10% scholarship** for the Information Technology program (Software Engineering major) at FPT University, based on the university's 2023 scholarship examination (Điểm trắc nghiệm 44/90, Điểm luận 8/15 — Tổng điểm 52/105).",
   },
   {
     id: 23,
@@ -789,21 +839,21 @@ export const certificates = [
   },
   {
     id: 24,
-    name: "Hiragana – Japanese Script Completion",
-    issuer: "JapanesePod101 / Online Language Platform",
-    year: "2024",
+    name: "Hiragana A1 Self-Study Course",
+    issuer: "JF Japanese e-Learning Minato (Japan Foundation)",
+    year: "09/2024",
     image: HiraganaImage,
     description:
-      "Completed the **Hiragana** module — mastering the full 46-character Japanese phonetic alphabet used for native Japanese words. Part of an ongoing self-directed effort to learn Japanese language fundamentals alongside technical studies.",
+      "Completed the **Hiragana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — mastering the full 46-character Japanese phonetic alphabet used for native Japanese words.",
   },
   {
     id: 25,
-    name: "Katakana – Japanese Script Completion",
-    issuer: "JapanesePod101 / Online Language Platform",
-    year: "2024",
+    name: "Katakana A1 Self-Study Course",
+    issuer: "JF Japanese e-Learning Minato (Japan Foundation)",
+    year: "09/2024",
     image: KataganaImage,
     description:
-      "Completed the **Katakana** module — mastering the 46-character syllabary used for foreign loanwords and technical terminology in Japanese. Combined with Hiragana completion, provides a reading foundation for beginner Japanese texts.",
+      "Completed the **Katakana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — mastering the 46-character syllabary used for foreign loanwords and technical terminology in Japanese.",
   },
   {
     id: 26,
@@ -816,12 +866,12 @@ export const certificates = [
   },
   {
     id: 27,
-    name: "Dreamer of Honor Award",
+    name: "Certificate of Honor — Founder & President",
     issuer: "The Dreamers Organization",
     year: "2024",
     image: DreamerOfHonorImage,
     description:
-      "Received the **'Dreamer of Honor'** recognition from The Dreamers Organization — awarded to members who demonstrated exceptional dedication, leadership, and contribution to the organization's mission throughout the year. One of the highest internal recognitions within the organization.",
+      "Presented with **The Dreamers' Certificate of Honor** in profound recognition of visionary leadership and dedication as **Founder and President** of The Dreamers — honoring the passion and commitment that laid the foundation for the organization's journey.",
   },
 ];
 

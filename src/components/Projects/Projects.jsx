@@ -8,6 +8,7 @@ import useSpotlight from '../../hooks/useSpotlight';
 import '../../animations/SpotlightCard.css';
 import { useTranslation } from 'react-i18next';
 import TechIcon from '../../common/TechIcon';
+import { Tabs, TabsList, TabsTrigger } from '../ui/Tabs';
 const STATUS_COLORS = {
   'Active':         { bg: '#c8e6cd', color: '#000000' },
   'In Development': { bg: '#dceeb1', color: '#000000' },
@@ -267,42 +268,22 @@ const Projects = () => {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15, duration: 0.5 }}
-        style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '48px' }}
+        style={{ marginBottom: '48px' }}
       >
-        {statusOptions.map((opt) => (
-          <button
-            key={opt.value}
-            onClick={() => setFilter(opt.value)}
-            data-testid={`project-filter-${opt.value.toLowerCase().replace(/\s+/g, '-')}`}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '8px 18px',
-              borderRadius: '50px',
-              fontSize: '15px',
-              fontWeight: filter === opt.value ? '480' : '400',
-              color: filter === opt.value ? '#ffffff' : '#000000',
-              backgroundColor: filter === opt.value ? '#000000' : '#ffffff',
-              border: '1.5px solid',
-              borderColor: filter === opt.value ? '#000000' : '#e6e6e6',
-              cursor: 'pointer',
-              transition: 'all 0.15s ease',
-            }}
-          >
-            {opt.label}
-            <span style={{
-              fontSize: '11px',
-              fontFamily: 'JetBrains Mono, monospace',
-              padding: '1px 6px',
-              borderRadius: '50px',
-              backgroundColor: filter === opt.value ? 'rgba(255,255,255,0.2)' : '#f7f7f5',
-              color: filter === opt.value ? '#ffffff' : '#666666',
-            }}>
-              {opt.count}
-            </span>
-          </button>
-        ))}
+        <Tabs value={filter} onValueChange={setFilter}>
+          <TabsList>
+            {statusOptions.map((opt) => (
+              <TabsTrigger
+                key={opt.value}
+                value={opt.value}
+                count={opt.count}
+                data-testid={`project-filter-${opt.value.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                {opt.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
       </motion.div>
 
       {/* Grid — the first project gets a wider "bento" tile when unfiltered */}

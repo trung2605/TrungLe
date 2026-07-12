@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaUsers, FaCalendarAlt, FaBuilding, FaPlay, FaCheck, FaTimes, FaEye } from "react-icons/fa";
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 import useSpotlight from '../../hooks/useSpotlight';
 import '../../animations/SpotlightCard.css';
+import { Dialog } from '../ui/Dialog';
+import { Tabs, TabsList, TabsTrigger } from '../ui/Tabs';
 const ITEMS_PER_PAGE = 9;
 const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
 
@@ -140,14 +142,17 @@ const Activities = () => {
                 transition={{ delay: 0.15, duration: 0.5 }}
                 style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px', alignItems: 'center' }}
             >
-                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: 'var(--color-ink-soft)', alignSelf: 'center' }}>{t('activities.statusLabel')}</span>
-                    {statuses.map(s => (
-                        <button key={s} onClick={() => { setSelectedStatus(s); setCurrentPage(1); }}
-                            style={{ padding: '6px 14px', borderRadius: '50px', fontSize: '13px', fontWeight: selectedStatus === s ? '480' : '330', color: selectedStatus === s ? '#ffffff' : '#000000', backgroundColor: selectedStatus === s ? '#000000' : '#ffffff', border: '1.5px solid', borderColor: selectedStatus === s ? '#000000' : '#e6e6e6', cursor: 'pointer', transition: 'all 0.15s ease' }}>
-                            {s === 'all' ? t('activities.all') : s}
-                        </button>
-                    ))}
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: 'var(--color-ink-soft)' }}>{t('activities.statusLabel')}</span>
+                    <Tabs value={selectedStatus} onValueChange={(s) => { setSelectedStatus(s); setCurrentPage(1); }}>
+                        <TabsList>
+                            {statuses.map(s => (
+                                <TabsTrigger key={s} value={s} className="!py-1.5 !px-3.5 !text-[13px]">
+                                    {s === 'all' ? t('activities.all') : s}
+                                </TabsTrigger>
+                            ))}
+                        </TabsList>
+                    </Tabs>
                 </div>
                 <select
                     value={selectedOrg}
@@ -184,49 +189,44 @@ const Activities = () => {
             )}
 
             {/* Modal */}
-            <AnimatePresence>
+            <Dialog
+                open={!!selectedActivity}
+                onOpenChange={(open) => !open && setSelectedActivity(null)}
+                title={selectedActivity?.title || 'Activity'}
+                showClose={false}
+                contentClassName="!max-w-[640px] !max-h-[85vh]"
+            >
                 {selectedActivity && (
-                    <motion.div
-                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                        style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}
-                        onClick={() => setSelectedActivity(null)}
-                    >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
-                            transition={{ type: 'spring', damping: 30, stiffness: 350 }}
-                            style={{ backgroundColor: '#ffffff', borderRadius: '24px', maxWidth: '640px', width: '100%', maxHeight: '85vh', overflowY: 'auto' }}
-                            onClick={e => e.stopPropagation()}
-                        >
-                            <div style={{ padding: '32px', borderBottom: '1px solid #e6e6e6', position: 'relative' }}>
-                                <button onClick={() => setSelectedActivity(null)}
-                                    style={{ position: 'absolute', top: '24px', right: '24px', width: '32px', height: '32px', borderRadius: '9999px', backgroundColor: '#f7f7f5', border: '1px solid #e6e6e6', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-                                    <FaTimes size={12} />
-                                </button>
-                                <span style={{ display: 'inline-block', padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: (STATUS_STYLE[selectedActivity.status] || {}).bg || '#f7f7f5', marginBottom: '12px' }}>
-                                    {selectedActivity.status}
+                    <>
+                        <div style={{ padding: '32px', borderBottom: '1px solid #e6e6e6', position: 'relative' }}>
+                            <button onClick={() => setSelectedActivity(null)}
+                                style={{ position: 'absolute', top: '24px', right: '24px', width: '32px', height: '32px', borderRadius: '9999px', backgroundColor: '#f7f7f5', border: '1px solid #e6e6e6', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                                <FaTimes size={12} />
+                            </button>
+                            <span style={{ display: 'inline-block', padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: (STATUS_STYLE[selectedActivity.status] || {}).bg || '#f7f7f5', marginBottom: '12px' }}>
+                                {selectedActivity.status}
+                            </span>
+                            <h2 style={{ fontSize: '22px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0' }}>{selectedActivity.title}</h2>
+                            <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#666666', margin: 0 }}>{selectedActivity.organization}</p>
+                        </div>
+                        <div style={{ padding: '24px 32px 32px' }}>
+                            <div style={{ display: 'flex', gap: '16px', marginBottom: '20px', flexWrap: 'wrap' }}>
+                                <span style={{ fontSize: '14px', color: '#666666', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                    <FaCalendarAlt size={12} /> {selectedActivity.duration}
                                 </span>
-                                <h2 style={{ fontSize: '22px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0' }}>{selectedActivity.title}</h2>
-                                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#666666', margin: 0 }}>{selectedActivity.organization}</p>
-                            </div>
-                            <div style={{ padding: '24px 32px 32px' }}>
-                                <div style={{ display: 'flex', gap: '16px', marginBottom: '20px', flexWrap: 'wrap' }}>
-                                    <span style={{ fontSize: '14px', color: '#666666', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                        <FaCalendarAlt size={12} /> {selectedActivity.duration}
-                                    </span>
-                                    {selectedActivity.role && (
-                                        <span style={{ fontSize: '14px', color: '#666666' }}>{selectedActivity.role}</span>
-                                    )}
-                                </div>
-                                {selectedActivity.description && (
-                                    <div style={{ fontSize: '15px', fontWeight: '330', lineHeight: '1.7', color: '#444444' }}>
-                                        <Markdown>{selectedActivity.description}</Markdown>
-                                    </div>
+                                {selectedActivity.role && (
+                                    <span style={{ fontSize: '14px', color: '#666666' }}>{selectedActivity.role}</span>
                                 )}
                             </div>
-                        </motion.div>
-                    </motion.div>
+                            {selectedActivity.description && (
+                                <div style={{ fontSize: '15px', fontWeight: '330', lineHeight: '1.7', color: '#444444' }}>
+                                    <Markdown>{selectedActivity.description}</Markdown>
+                                </div>
+                            )}
+                        </div>
+                    </>
                 )}
-            </AnimatePresence>
+            </Dialog>
         </div>
     );
 };

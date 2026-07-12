@@ -4,6 +4,7 @@ test.describe('Certificates page', () => {
   test('search filters the certificate grid', async ({ page }) => {
     await page.goto('/certificates');
     const cardHeadings = page.locator('h3');
+    await cardHeadings.first().waitFor(); // lazy-loaded route chunk — wait for the grid to mount
     const totalCount = await cardHeadings.count();
     const searchInput = page.getByPlaceholder(/Search certificates|Tìm kiếm chứng chỉ/i);
     await searchInput.fill('IELTS');
@@ -34,9 +35,11 @@ test.describe('Certificates page', () => {
     const firstTitle = (await page.locator('h3').first().textContent()).trim();
     await page.locator('h3').first().click();
     await expect(page.getByText('Issued by', { exact: false })).toBeVisible();
-    await expect(page.getByRole('heading', { level: 2, name: firstTitle })).toBeVisible();
+    // Radix Dialog renders a visually-hidden (but not display:none) a11y title in addition
+    // to the visible <h2> — exclude the sr-only one explicitly rather than relying on :visible.
+    await expect(page.getByRole('heading', { level: 2, name: firstTitle }).and(page.locator(':not(.sr-only)'))).toBeVisible();
 
-    await page.locator('div[style*="position: fixed"][style*="inset: 0"]').click({ position: { x: 10, y: 10 } });
+    await page.locator('.fixed.inset-0').click({ position: { x: 10, y: 10 } });
     await expect(page.getByText('Issued by', { exact: false })).toBeHidden();
   });
 

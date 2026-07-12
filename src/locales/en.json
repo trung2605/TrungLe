@@ -343,8 +343,8 @@
   "siteNavigation": [
     { "title": "Home", "desc": "Welcome to my portfolio" },
     { "title": "About", "desc": "Learn about my journey and passion" },
-    { "title": "Education", "desc": "My academic path and achievements" },
     { "title": "Projects", "desc": "Software I've built and shipped" },
+    { "title": "Education", "desc": "My academic path and achievements" },
     { "title": "Certificates", "desc": "Verified skills and completed courses" },
     { "title": "Activities", "desc": "Events, competitions, and community work" },
     { "title": "Contact", "desc": "Get in touch with me" }
@@ -381,7 +381,8 @@
     { "description": "Selected as **photo model** for FPT University's official commemorative photo series marking the anniversary of the August Revolution. Worked with the university's media team to produce formal portraits and group compositions used in official communications and campus displays. Part of an ongoing involvement in FPT's visual media and branding activities." }
   ],
   "certificateItems": [
-    { "description": "Achieved a **band score of 6.0** on the International English Language Testing System (IELTS) — demonstrating proficient academic English across Listening, Reading, Writing, and Speaking. This score meets the English proficiency requirement for international university programs and professional environments." },
+    { "description": "Achieved an **overall band score of 6.0** (Listening 5.5, Reading 6.5, Writing 5.5, Speaking 6.0 · CEFR B2) on the Academic IELTS — demonstrating proficient academic English across all four skills. Officially administered and verified by the British Council / IDP." },
+    { "description": "Linear Certificate from **DOL English's IELTS 6.0 course**, marking course completion and progress toward the target band score — a preparatory milestone ahead of sitting the official IELTS Academic test." },
     { "description": "Completed the **FPT University Inbound Mobility Programme** hosted at Tunku Abdul Rahman University of Management and Technology in **Kuala Lumpur, Malaysia**. Gained international academic exposure, cross-cultural communication experience, and a broader perspective on technology education across Southeast Asia." },
     { "description": "Certificate recognizing participation and advancement to the **final round** of Innocode Camp SU25 — a project-based coding competition organized by FPT Education for university students. Our team built a job search platform and competed against finalists from multiple FPT campuses." },
     { "description": "Certificate of participation and achievement in the **FPT Research Festival (ResFres 2024)** — a multi-stage academic competition covering original research, structured reporting, and formal panel presentation. Advanced to the multi-campus final round representing The Dreamers team." },
@@ -397,12 +398,16 @@
     { "description": "Completed the University of Michigan's **Responsive Web Design** course — covering media queries, fluid grids, flexible images, and mobile-first design principles to build layouts that adapt seamlessly across all screen sizes." },
     { "description": "Completed the University of Auckland's **Academic Skills for University Success** specialization — covering critical reading, academic writing, research methodology, and time management strategies for university-level study." },
     { "description": "Completed CalArts' **Fundamentals of Graphic Design** course on Coursera — covering visual design principles including typography, color theory, composition, and image-making. Applied to creating visual materials for The Dreamers events and FPT activities." },
-    { "description": "Completed FPT Software's **IT Onboarding** program — an introduction to enterprise IT practices, internal tools, software development workflows, and professional standards used within FPT's technology organization." },
-    { "description": "Completed a **Robotics** course at FPT University — covering foundational robotics concepts including sensors, actuators, basic control systems, and hands-on experience with robot programming in a lab environment. Related to serving as head referee at the FPT AI & Robotics Competition." },
+    { "description": "Completed F8's **Information Technology Onboarding** course — an introduction to core IT concepts, development workflows, and foundational practices for students starting out in software development." },
+    { "description": "Served on the **Organizing Committee** of the FPTU AI & Robotics Challenge 2025 — a technical competition where student teams program robots and AI systems to complete engineering challenges. Certificate awarded for contribution to competition organization and operations." },
+    { "description": "Officially certified completion of the **On-the-Job Training program** at Công ty TNHH Phần mềm FPT Miền Trung (FPT Software), covering September–December 2025 — the university-recognized internship placement underlying the FPT Software Developer Intern role." },
+    { "description": "Completed an IBM-authored Coursera project building **Generative AI applications using Retrieval-Augmented Generation (RAG) and LangChain** — covering vector retrieval, prompt orchestration, and grounding LLM outputs in external data sources." },
+    { "description": "Recognized as a **Student Ambassador** for actively promoting AIESEC's Mini Leadership Conference 2025 — supporting outreach and campaign efforts for the regional youth leadership event in Da Nang." },
+    { "description": "Awarded a **10% scholarship** for the Information Technology program (Software Engineering major) at FPT University, based on the university's 2023 scholarship examination (Điểm trắc nghiệm 44/90, Điểm luận 8/15 — Tổng điểm 52/105)." },
     { "description": "Completed freeCodeCamp's **JavaScript Algorithms and Data Structures** certification — covering fundamental algorithms (sorting, searching), data structures (arrays, objects, linked lists, stacks, queues), and algorithmic problem solving in pure JavaScript." },
-    { "description": "Completed the **Hiragana** module — mastering the full 46-character Japanese phonetic alphabet used for native Japanese words. Part of an ongoing self-directed effort to learn Japanese language fundamentals alongside technical studies." },
-    { "description": "Completed the **Katakana** module — mastering the 46-character syllabary used for foreign loanwords and technical terminology in Japanese. Combined with Hiragana completion, provides a reading foundation for beginner Japanese texts." },
+    { "description": "Completed the **Hiragana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — mastering the full 46-character Japanese phonetic alphabet used for native Japanese words." },
+    { "description": "Completed the **Katakana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — mastering the 46-character syllabary used for foreign loanwords and technical terminology in Japanese." },
     { "description": "Certificate of participation in the **'Non Xanh Nuoc Biec'** environmental awareness event organized by FPT University's Student Union — a campus initiative promoting sustainability, green living, and student community engagement." },
-    { "description": "Received the **'Dreamer of Honor'** recognition from The Dreamers Organization — awarded to members who demonstrated exceptional dedication, leadership, and contribution to the organization's mission throughout the year. One of the highest internal recognitions within the organization." }
+    { "description": "Presented with **The Dreamers' Certificate of Honor** in profound recognition of visionary leadership and dedication as **Founder and President** of The Dreamers — honoring the passion and commitment that laid the foundation for the organization's journey." }
   ]
 }

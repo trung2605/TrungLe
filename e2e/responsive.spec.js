@@ -52,6 +52,8 @@ test.describe('Responsive layout', () => {
   test('projects grid reflows to fewer columns on mobile', async ({ page }) => {
     await page.goto('/projects');
     await page.setViewportSize({ width: 1280, height: 800 });
+    // Route is lazy-loaded — wait for the grid to actually mount before reading its layout
+    await page.waitForSelector('[style*="grid-template-columns"]');
     const desktopCols = await page
       .evaluate(() => {
         const grid = document.querySelector('[style*="grid-template-columns"]');

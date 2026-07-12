@@ -9,7 +9,8 @@ test.describe('Activities page', () => {
 
   test('status filter narrows the list', async ({ page }) => {
     await page.goto('/activities');
-    const completedBtn = page.getByRole('button', { name: /^Completed$|^Đã hoàn thành$/ }).first();
+    // Filter pills are Radix Tabs — semantic role is "tab", not "button"
+    const completedBtn = page.getByRole('tab', { name: /^Completed$|^Đã hoàn thành$/ }).first();
     await completedBtn.click();
     await expect(page.locator('h3').first()).toBeVisible();
   });
@@ -30,11 +31,13 @@ test.describe('Activities page', () => {
     await page.goto('/activities');
     const firstTitle = (await page.locator('h3').first().textContent()).trim();
     await page.locator('h3').first().click();
-    const modalHeading = page.getByRole('heading', { level: 2, name: firstTitle });
+    // Radix Dialog renders a visually-hidden (but not display:none) a11y title in addition
+    // to the visible <h2> — exclude the sr-only one explicitly rather than relying on :visible.
+    const modalHeading = page.getByRole('heading', { level: 2, name: firstTitle }).and(page.locator(':not(.sr-only)'));
     await expect(modalHeading).toBeVisible();
 
     // click the fixed full-screen backdrop (not the modal panel) to close
-    await page.locator('div[style*="position: fixed"][style*="inset: 0"]').click({ position: { x: 10, y: 10 } });
+    await page.locator('.fixed.inset-0').click({ position: { x: 10, y: 10 } });
     await expect(modalHeading).toBeHidden();
   });
 });

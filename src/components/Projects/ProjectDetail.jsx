@@ -354,7 +354,7 @@ const OtherProjects = ({ current }) => {
             >
               <div style={{ height: '4px', backgroundColor: BLOCK_COLORS[(p.id - 1) % BLOCK_COLORS.length] }} />
               <div style={{ aspectRatio: '16/10', overflow: 'hidden', backgroundColor: '#f7f7f5' }}>
-                <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={p.image} alt={p.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ padding: '16px 20px' }}>
                 <span style={{

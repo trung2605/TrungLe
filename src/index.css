@@ -491,3 +491,8 @@ body::before {
 .marquee-strip:hover .marquee-track {
   animation-play-state: paused;
 }
+
+/* Shared spin animation — page loader, submit-button spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

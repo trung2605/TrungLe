@@ -4,6 +4,7 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaPaperPlane, FaInstag
 import { personalInfo } from '../../data';
 import { useTranslation } from 'react-i18next';
 import emailService from '../../services/emailService';
+import { Button } from '../ui/Button';
 
 const inputStyle = (focused) => ({
     width: '100%',
@@ -182,23 +183,13 @@ const Contact = () => {
                                     onFocus={() => setFocused('message')} onBlur={() => setFocused('')}
                                 />
                             </div>
-                            <button
+                            <Button
                                 type="submit"
                                 data-testid="contact-submit"
                                 disabled={isSubmitting}
-                                style={{
-                                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-                                    padding: '13px 28px', borderRadius: '50px',
-                                    fontSize: '15px', fontWeight: '480',
-                                    color: '#ffffff',
-                                    backgroundColor: isSubmitting ? '#888888' : '#000000',
-                                    border: 'none',
-                                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                                    transition: 'background-color 0.15s ease',
-                                    width: '100%',
-                                }}
-                                onMouseEnter={e => { if (!isSubmitting) e.currentTarget.style.backgroundColor = '#1a1a1a'; }}
-                                onMouseLeave={e => { if (!isSubmitting) e.currentTarget.style.backgroundColor = '#000000'; }}
+                                variant="primary"
+                                size="lg"
+                                className="w-full"
                             >
                                 {isSubmitting ? (
                                     <>
@@ -208,7 +199,7 @@ const Contact = () => {
                                 ) : (
                                     <><FaPaperPlane size={13} /> {t('contact.submit')}</>
                                 )}
-                            </button>
+                            </Button>
                         </form>
                     </div>
                 </div>
