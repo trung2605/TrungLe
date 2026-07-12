@@ -163,6 +163,14 @@
     "searchPlaceholder": "Tìm kiếm chứng chỉ...",
     "all": "Tất cả",
     "allYears": "Tất cả năm",
+    "allCategories": "Tất cả danh mục",
+    "categoryLabel": "Danh mục:",
+    "categories": {
+      "Technology": "Công nghệ",
+      "Language": "Ngôn ngữ",
+      "Event": "Sự kiện",
+      "Other": "Khác"
+    },
     "noResults": "Không tìm thấy chứng chỉ.",
     "issuedBy": "Cấp bởi",
     "viewCertificate": "Xem chứng chỉ",
@@ -401,6 +409,8 @@
     { "description": "Hoàn thành khóa **Information Technology Onboarding** tại F8 — giới thiệu các khái niệm CNTT cốt lõi, quy trình phát triển phần mềm và nền tảng cơ bản cho sinh viên mới bắt đầu học lập trình." },
     { "description": "Tham gia **Ban Tổ Chức** cuộc thi FPTU AI & Robotics Challenge 2025 — cuộc thi kỹ thuật nơi các đội sinh viên lập trình robot và hệ thống AI để hoàn thành thử thách. Chứng nhận đóng góp trong công tác tổ chức và vận hành cuộc thi." },
     { "description": "Chứng nhận hoàn thành chính thức chương trình **Thực tập Sinh (On-the-Job Training)** tại Công ty TNHH Phần mềm FPT Miền Trung (FPT Software), diễn ra từ tháng 9 đến tháng 12/2025 — đợt thực tập được nhà trường công nhận, gắn với vai trò Thực tập sinh Software Developer." },
+    { "description": "Hoàn thành khóa **Build RAG Applications: Get Started** của IBM trên Coursera — giới thiệu nền tảng Retrieval-Augmented Generation (RAG) để xây dựng ứng dụng AI có khả năng neo câu trả lời vào nguồn tri thức bên ngoài." },
+    { "description": "Hoàn thành khóa **Fundamentals of AI Agents Using RAG and LangChain** của IBM trên Coursera — bao gồm các khái niệm cốt lõi về thiết kế AI agent, retrieval-augmented generation và điều phối LangChain để xây dựng agent thông minh, có ngữ cảnh." },
     { "description": "Hoàn thành dự án Coursera của IBM về xây dựng **ứng dụng Generative AI sử dụng Retrieval-Augmented Generation (RAG) và LangChain** — bao gồm truy xuất vector, điều phối prompt và neo kết quả LLM vào nguồn dữ liệu bên ngoài." },
     { "description": "Được công nhận là **Đại sứ Sinh viên** vì tích cực quảng bá sự kiện Mini Leadership Conference 2025 của AIESEC — hỗ trợ truyền thông và chiến dịch cho sự kiện lãnh đạo trẻ khu vực tại Đà Nẵng." },
     { "description": "Nhận **học bổng 10%** ngành Công nghệ Thông tin (chuyên ngành Kỹ thuật Phần mềm) tại Đại học FPT, dựa trên kỳ thi học bổng năm 2023 (Điểm trắc nghiệm 44/90, Điểm luận 8/15 — Tổng điểm 52/105)." },
@@ -408,6 +418,17 @@
     { "description": "Hoàn thành **khóa tự học Hiragana A1** trên JF Japanese e-Learning Minato của Quỹ Giao lưu Quốc tế Nhật Bản (Japan Foundation) — thành thạo bảng chữ cái âm tiết tiếng Nhật gồm 46 ký tự dùng cho từ gốc Nhật." },
     { "description": "Hoàn thành **khóa tự học Katakana A1** trên JF Japanese e-Learning Minato của Quỹ Giao lưu Quốc tế Nhật Bản (Japan Foundation) — thành thạo 46 ký tự dùng cho từ vay mượn và thuật ngữ kỹ thuật trong tiếng Nhật." },
     { "description": "Chứng nhận tham gia sự kiện **'Non Xanh Nước Biếc'** do Đoàn Sinh viên Đại học FPT tổ chức — hoạt động cộng đồng nâng cao nhận thức về môi trường, lối sống xanh và gắn kết sinh viên trong khuôn viên." },
-    { "description": "Nhận **Giấy Chứng nhận Danh dự** từ The Dreamers, ghi nhận sâu sắc tầm nhìn lãnh đạo và sự cống hiến với vai trò **Người sáng lập và Chủ tịch** của The Dreamers — tôn vinh đam mê và tâm huyết đã đặt nền móng cho hành trình của tổ chức." }
+    { "description": "Nhận **Giấy Chứng nhận Danh dự** từ The Dreamers, ghi nhận sâu sắc tầm nhìn lãnh đạo và sự cống hiến với vai trò **Người sáng lập và Chủ tịch** của The Dreamers — tôn vinh đam mê và tâm huyết đã đặt nền móng cho hành trình của tổ chức." },
+    { "description": "Hoàn thành khóa **Create and Lead an Ethical Data-Driven Organization** của CertNexus trên Coursera — thuộc chuyên đề về xây dựng năng lực quản trị và lãnh đạo có đạo đức cho các đội nhóm dữ liệu." },
+    { "description": "Hoàn thành khóa **Detect and Mitigate Ethical Risks** của CertNexus trên Coursera — bao gồm phương pháp nhận diện, đánh giá và giảm thiểu rủi ro đạo đức trong hệ thống dữ liệu và AI." },
+    { "description": "Hoàn thành khóa **Promote the Ethical Use of Data-Driven Technologies** của CertNexus trên Coursera — bao gồm chiến lược thúc đẩy việc sử dụng có trách nhiệm và đạo đức các công nghệ dữ liệu và AI trong tổ chức." },
+    { "description": "Hoàn thành khóa **Turn Ethical Frameworks into Actionable Steps** của CertNexus trên Coursera — chuyển hóa các nguyên tắc đạo đức cấp cao thành thực hành cụ thể, khả thi cho tổ chức dựa trên dữ liệu." },
+    { "description": "Hoàn thành khóa **Communicate Effectively about Ethical Challenges in Data-Driven Technologies** của CertNexus trên Coursera — xây dựng kỹ năng trao đổi rõ ràng về các vấn đề đạo đức trong công nghệ AI và dữ liệu với nhiều bên liên quan." },
+    { "description": "Hoàn thành khóa **Preparing for Your CertNexus Certification Exam** của CertNexus trên Coursera — khóa tổng kết của chuyên đề đạo đức dữ liệu CertNexus, ôn tập các khái niệm chính và chiến lược ôn thi." },
+    { "description": "Hoàn thành khóa **Ethics of Artificial Intelligence** của Politecnico di Milano trên Coursera — tìm hiểu các khía cạnh triết học, xã hội và kỹ thuật của việc thiết kế và triển khai AI có đạo đức." },
+    { "description": "Hoàn thành khóa **Initiating and Planning Projects** của UC Irvine trên Coursera — thuộc chuyên đề Quản lý Dự án, bao gồm điều lệ dự án, xác định phạm vi và các nguyên tắc lập kế hoạch giai đoạn đầu." },
+    { "description": "Hoàn thành khóa **Budgeting and Scheduling Projects** của UC Irvine trên Coursera — bao gồm ước tính chi phí, lập ngân sách và kỹ thuật xây dựng lịch trình cho quản lý dự án." },
+    { "description": "Hoàn thành khóa **Managing Project Risks and Changes** của UC Irvine trên Coursera — bao gồm nhận diện rủi ro, lập kế hoạch giảm thiểu và quản lý thay đổi xuyên suốt vòng đời dự án." },
+    { "description": "Hoàn thành dự án tổng kết **Project Management Project** của chuyên đề Quản lý Dự án UC Irvine trên Coursera — áp dụng kỹ năng khởi tạo, lập kế hoạch, lập ngân sách, lên lịch trình và quản lý rủi ro vào một mô phỏng dự án hoàn chỉnh." }
   ]
 }

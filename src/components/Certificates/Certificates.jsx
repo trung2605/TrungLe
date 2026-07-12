@@ -10,7 +10,14 @@ import { Dialog } from '../ui/Dialog';
 import { Tabs, TabsList, TabsTrigger } from '../ui/Tabs';
 const ITEMS_PER_PAGE = 9;
 
-const CertificateCard = ({ cert, index, onSelect }) => {
+const CATEGORY_COLORS = {
+    Technology: '#c5b0f4',
+    Language: '#c8e6cd',
+    Event: '#f4ecd6',
+    Other: '#efd4d4',
+};
+
+const CertificateCard = ({ cert, index, onSelect, t }) => {
     const spotlight = useSpotlight();
 
     return (
@@ -41,8 +48,13 @@ const CertificateCard = ({ cert, index, onSelect }) => {
                     onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
                 />
                 <div style={{ position: 'absolute', top: '12px', right: '12px', padding: '4px 10px', borderRadius: '50px', backgroundColor: '#dceeb1', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px' }}>
-                    {cert.year}
+                    {cert.dateIssued || cert.year}
                 </div>
+                {cert.category && (
+                    <div style={{ position: 'absolute', top: '12px', left: '12px', padding: '4px 10px', borderRadius: '50px', backgroundColor: CATEGORY_COLORS[cert.category] || '#e6e6e6', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px' }}>
+                        {t(`certificates.categories.${cert.category}`)}
+                    </div>
+                )}
                 <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)', opacity: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'opacity 0.2s ease' }}
                     onMouseEnter={e => e.currentTarget.style.opacity = '1'}
                     onMouseLeave={e => e.currentTarget.style.opacity = '0'}
@@ -68,9 +80,12 @@ const CertificateCard = ({ cert, index, onSelect }) => {
     );
 };
 
+const CATEGORY_ORDER = ['all', 'Technology', 'Language', 'Event', 'Other'];
+
 const Certificates = () => {
     const [searchTerm, setSearchTerm]           = useState('');
     const [selectedYear, setSelectedYear]       = useState('all');
+    const [selectedCategory, setSelectedCategory] = useState('all');
     const [selectedCert, setSelectedCert]       = useState(null);
     const [currentPage, setCurrentPage]         = useState(1);
     const { t } = useTranslation();
@@ -82,11 +97,14 @@ const Certificates = () => {
         return b - a;
     });
 
+    const categories = CATEGORY_ORDER.filter(c => c === 'all' || certificates.some(cert => cert.category === c));
+
     const filtered = certificates.filter(c => {
         const matchSearch = c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             c.issuer.toLowerCase().includes(searchTerm.toLowerCase());
         const matchYear = selectedYear === 'all' || c.year === selectedYear;
-        return matchSearch && matchYear;
+        const matchCategory = selectedCategory === 'all' || c.category === selectedCategory;
+        return matchSearch && matchYear && matchCategory;
     });
 
     const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
@@ -150,23 +168,39 @@ const Certificates = () => {
                     </span>
                 </div>
 
-                {/* Year pills */}
-                <Tabs value={selectedYear} onValueChange={(yr) => { setSelectedYear(yr); setCurrentPage(1); }}>
-                    <TabsList>
-                        {years.map(yr => (
-                            <TabsTrigger key={yr} value={yr}>
-                                {yr === 'all' ? t('certificates.allYears') : yr}
-                            </TabsTrigger>
-                        ))}
-                    </TabsList>
-                </Tabs>
+                {/* Category pills */}
+                <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '12px' }}>
+                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: 'var(--color-ink-soft)' }}>
+                        {t('certificates.categoryLabel')}
+                    </span>
+                    <Tabs value={selectedCategory} onValueChange={(cat) => { setSelectedCategory(cat); setCurrentPage(1); }}>
+                        <TabsList>
+                            {categories.map(cat => (
+                                <TabsTrigger key={cat} value={cat}>
+                                    {cat === 'all' ? t('certificates.allCategories') : t(`certificates.categories.${cat}`)}
+                                </TabsTrigger>
+                            ))}
+                        </TabsList>
+                    </Tabs>
+                </div>
+
+                {/* Year dropdown */}
+                <select
+                    value={selectedYear}
+                    onChange={e => { setSelectedYear(e.target.value); setCurrentPage(1); }}
+                    style={{ padding: '8px 16px', borderRadius: '50px', border: '1.5px solid var(--color-hairline)', fontSize: '14px', color: 'var(--color-ink)', backgroundColor: 'var(--color-canvas)', outline: 'none', cursor: 'pointer' }}
+                >
+                    {years.map(yr => (
+                        <option key={yr} value={yr}>{yr === 'all' ? t('certificates.allYears') : yr}</option>
+                    ))}
+                </select>
             </motion.div>
 
             {/* Grid */}
             {current.length > 0 ? (
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginBottom: '48px' }}>
                     {current.map((cert, i) => (
-                        <CertificateCard key={cert.id} cert={cert} index={i} onSelect={setSelectedCert} />
+                        <CertificateCard key={cert.id} cert={cert} index={i} onSelect={setSelectedCert} t={t} />
                     ))}
                 </div>
             ) : (
@@ -208,7 +242,7 @@ const Certificates = () => {
                         </div>
                         <div style={{ padding: '28px' }}>
                             <span style={{ display: 'inline-block', padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', backgroundColor: '#dceeb1', marginBottom: '12px' }}>
-                                {selectedCert.year}
+                                {selectedCert.dateIssued || selectedCert.year}
                             </span>
                             <h2 style={{ fontSize: '22px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0' }}>{selectedCert.name}</h2>
                             <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#666666', marginBottom: '16px' }}>

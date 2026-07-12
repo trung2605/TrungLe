@@ -59,6 +59,19 @@ const FsoftOJTImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,
 const HocBong2023Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838533/my-website/assets/Certificate/Language/HocBong2023.png";
 const AIESECLeadershipImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838569/my-website/assets/Certificate/Event/Leadership_Conference_2025.png";
 const IBMRAGLangChainImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838587/my-website/assets/Certificate/TechnologyCertificates/IBM_RAG_LangChain-1.png";
+const RAGGetStartedImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783839672/my-website/assets/Certificate/TechnologyCertificates/RAG_GetStarted-1.png";
+const AIAgentsRAGLangChainImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783839671/my-website/assets/Certificate/TechnologyCertificates/AIAgents_RAG_LangChain-1.png";
+const EthicalOrgImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840247/my-website/assets/Certificate/TechnologyCertificates/EthicalOrg-1.png";
+const EthicalRisksImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840249/my-website/assets/Certificate/TechnologyCertificates/EthicalRisks-1.png";
+const EthicalPromoteImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840248/my-website/assets/Certificate/TechnologyCertificates/EthicalPromote-1.png";
+const EthicalActionableImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840244/my-website/assets/Certificate/TechnologyCertificates/EthicalActionable-1.png";
+const EthicalCommunicateImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840246/my-website/assets/Certificate/TechnologyCertificates/EthicalCommunicate-1.png";
+const CertNexusExamPrepImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840243/my-website/assets/Certificate/TechnologyCertificates/CertNexusExamPrep-1.png";
+const EthicsOfAIImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840250/my-website/assets/Certificate/TechnologyCertificates/EthicsOfAI-1.png";
+const PMInitiatingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840252/my-website/assets/Certificate/TechnologyCertificates/PMInitiating-1.png";
+const PMBudgetingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840250/my-website/assets/Certificate/TechnologyCertificates/PMBudgeting-1.png";
+const PMRisksImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840253/my-website/assets/Certificate/TechnologyCertificates/PMRisks-1.png";
+const PMCapstoneImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840251/my-website/assets/Certificate/TechnologyCertificates/PMCapstone-1.png";
 
 //Activity Imports
 const InnocodeCampActivityImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962667/my-website/assets/activities/Dreamers_Innocode_Camp.png";
@@ -623,255 +636,454 @@ export const projects = [
 export const certificates = [
   {
     id: 1,
+    category: "Language",
     name: "IELTS Academic 6.0",
     issuer: "British Council / IDP",
-    year: "04/2026",
+    year: "2026",
+    dateIssued: "04/2026",
     image: IELTSRealImage,
     description:
       "Achieved an **overall band score of 6.0** (Listening 5.5, Reading 6.5, Writing 5.5, Speaking 6.0 · CEFR B2) on the Academic IELTS — demonstrating proficient academic English across all four skills. Officially administered and verified by the British Council / IDP.",
   },
   {
     id: 28,
+    category: "Language",
     name: "IELTS 6.0 (Linear Certificate)",
     issuer: "DOL English",
-    year: "10/2025",
+    year: "2025",
+    dateIssued: "10/2025",
     image: DOLLinearImage,
     description:
       "Linear Certificate from **DOL English's IELTS 6.0 course**, marking course completion and progress toward the target band score — a preparatory milestone ahead of sitting the official IELTS Academic test.",
   },
   {
     id: 2,
+    category: "Event",
     name: "FPTU Inbound Mobility Programme",
     issuer: "Tunku Abdul Rahman University (TAR UMT), Malaysia",
-    year: "12/2023",
+    year: "2023",
+    dateIssued: "12/2023",
     image: RoboticsImage,
     description:
       "Completed the **FPT University Inbound Mobility Programme** hosted at Tunku Abdul Rahman University of Management and Technology in **Kuala Lumpur, Malaysia**. Gained international academic exposure, cross-cultural communication experience, and a broader perspective on technology education across Southeast Asia.",
   },
   {
     id: 3,
+    category: "Event",
     name: "Innocode Camp – Participation Certificate",
     issuer: "FPT Education",
-    year: "07/2025",
+    year: "2025",
+    dateIssued: "07/2025",
     image: RoboticsImage,
     description:
       "Certificate recognizing participation and advancement to the **final round** of Innocode Camp SU25 — a project-based coding competition organized by FPT Education for university students. Our team built a job search platform and competed against finalists from multiple FPT campuses.",
   },
   {
     id: 4,
+    category: "Event",
     name: "ResFres Research Festival",
     issuer: "FPT Education",
     year: "2024",
+    dateIssued: "2024",
     image: DreamersResfresImage,
     description:
       "Certificate of participation and achievement in the **FPT Research Festival (ResFres 2024)** — a multi-stage academic competition covering original research, structured reporting, and formal panel presentation. Advanced to the multi-campus final round representing The Dreamers team.",
   },
   {
     id: 5,
+    category: "Technology",
     name: "Build AI Agents & Automate Workflows with n8n",
     issuer: "LinkedIn Learning / FPT Software Training",
-    year: "09/2025",
+    year: "2025",
+    dateIssued: "09/2025",
     image: AIAgentsImage,
     description:
       "Completed training on building **AI-powered automation workflows** using n8n — covering agent design, API chaining, conditional logic, and integration with external services. Applied directly to workflow automation tasks during the FPT Software internship.",
   },
   {
     id: 6,
+    category: "Technology",
     name: "Programming with JavaScript",
     issuer: "Meta – Coursera",
-    year: "05/2024",
+    year: "2024",
+    dateIssued: "05/2024",
     image: ProgrammingJSImage,
     description:
       "Completed Meta's **Programming with JavaScript** course on Coursera — part of the Meta Front-End Developer Professional Certificate. Covers ES6+ syntax, functions, objects, arrays, error handling, and testing fundamentals with Jest.",
   },
   {
     id: 7,
+    category: "Technology",
     name: "Basics of Web Development & Coding",
     issuer: "University of Michigan – Coursera",
-    year: "10/2024",
+    year: "2024",
+    dateIssued: "10/2024",
     image: WebDevBasicsImage,
     description:
       "Completed the University of Michigan's **Basics of Web Development & Coding** course — an introduction to how the web works, covering HTML structure, CSS styling, basic JavaScript interactivity, and browser rendering concepts.",
   },
   {
     id: 8,
+    category: "Technology",
     name: "HTML and CSS in Depth",
     issuer: "Meta – Coursera",
-    year: "05/2024",
+    year: "2024",
+    dateIssued: "05/2024",
     image: HTMLCSSDepthImage,
     description:
       "Completed Meta's **HTML and CSS in Depth** course — part of the Front-End Developer certificate. Deep coverage of semantic HTML5, advanced CSS selectors, the box model, Flexbox, Grid, and accessibility best practices.",
   },
   {
     id: 9,
+    category: "Technology",
     name: "Interactivity with JavaScript",
     issuer: "University of Michigan – Coursera",
-    year: "10/2024",
+    year: "2024",
+    dateIssued: "10/2024",
     image: InteractivityJSImage,
     description:
       "Completed the University of Michigan's **Interactivity with JavaScript** course — focusing on DOM manipulation, event listeners, form validation, and dynamic content rendering to build responsive, interactive web pages.",
   },
   {
     id: 10,
+    category: "Technology",
     name: "Introduction to Front-End Development",
     issuer: "Meta – Coursera",
-    year: "05/2024",
+    year: "2024",
+    dateIssued: "05/2024",
     image: IntroFrontEndImage,
     description:
       "Completed Meta's **Introduction to Front-End Development** — the foundational course of the Meta Front-End Developer Professional Certificate. Covers the role of front-end developers, core web technologies, and an introduction to React.",
   },
   {
     id: 11,
+    category: "Technology",
     name: "Data Visualization",
     issuer: "IBM – Coursera",
-    year: "04/2024",
+    year: "2024",
+    dateIssued: "04/2024",
     image: DataVisualizationImage,
     description:
       "Completed IBM's **Data Visualization** course on Coursera — covering principles of effective data communication, chart selection, and hands-on practice with visualization tools to transform raw data into clear, actionable insights.",
   },
   {
     id: 12,
+    category: "Technology",
     name: "CSS3",
     issuer: "University of Michigan – Coursera",
-    year: "09/2024",
+    year: "2024",
+    dateIssued: "09/2024",
     image: CSS3Image,
     description:
       "Completed the University of Michigan's **CSS3** course — advanced coverage of CSS3 features including transitions, animations, custom properties (CSS variables), pseudo-elements, and responsive design techniques.",
   },
   {
     id: 13,
+    category: "Technology",
     name: "HTML5",
     issuer: "University of Michigan – Coursera",
-    year: "09/2024",
+    year: "2024",
+    dateIssued: "09/2024",
     image: HTML5Image,
     description:
       "Completed the University of Michigan's **HTML5** course — in-depth study of HTML5 semantic elements, multimedia embedding, forms, accessibility attributes, and best practices for structuring modern web documents.",
   },
   {
     id: 14,
+    category: "Technology",
     name: "Responsive Web Design",
     issuer: "University of Michigan – Coursera",
-    year: "10/2024",
+    year: "2024",
+    dateIssued: "10/2024",
     image: ResponsiveImage,
     description:
       "Completed the University of Michigan's **Responsive Web Design** course — covering media queries, fluid grids, flexible images, and mobile-first design principles to build layouts that adapt seamlessly across all screen sizes.",
   },
   {
     id: 15,
+    category: "Technology",
     name: "Academic Skills for University Success",
     issuer: "University of Auckland – Coursera",
-    year: "05/2024",
+    year: "2024",
+    dateIssued: "05/2024",
     image: AcademicSkillsImage,
     description:
       "Completed the University of Auckland's **Academic Skills for University Success** specialization — covering critical reading, academic writing, research methodology, and time management strategies for university-level study.",
   },
   {
     id: 16,
+    category: "Technology",
     name: "Fundamentals of Graphic Design",
     issuer: "California Institute of the Arts – Coursera",
-    year: "05/2024",
+    year: "2024",
+    dateIssued: "05/2024",
     image: GraphicDesignImage,
     description:
       "Completed CalArts' **Fundamentals of Graphic Design** course on Coursera — covering visual design principles including typography, color theory, composition, and image-making. Applied to creating visual materials for The Dreamers events and FPT activities.",
   },
   {
     id: 17,
+    category: "Technology",
     name: "Information Technology Onboarding",
     issuer: "F8 (Fullstack.edu.vn)",
-    year: "07/2023",
+    year: "2023",
+    dateIssued: "07/2023",
     image: ITOnboardingImage,
     description:
       "Completed F8's **Information Technology Onboarding** course — an introduction to core IT concepts, development workflows, and foundational practices for students starting out in software development.",
   },
   {
     id: 18,
+    category: "Event",
     name: "FPTU AI & Robotics Challenge 2025 — Organizing Committee",
     issuer: "FPT University",
-    year: "08/2025",
+    year: "2025",
+    dateIssued: "08/2025",
     image: RoboticsImage,
     description:
       "Served on the **Organizing Committee** of the FPTU AI & Robotics Challenge 2025 — a technical competition where student teams program robots and AI systems to complete engineering challenges. Certificate awarded for contribution to competition organization and operations.",
   },
   {
     id: 29,
+    category: "Other",
     name: "On-the-Job Training",
     issuer: "FPT University / FPT Software Miền Trung",
-    year: "01/2026",
+    year: "2026",
+    dateIssued: "01/2026",
     image: FsoftOJTImage,
     description:
       "Officially certified completion of the **On-the-Job Training program** at Công ty TNHH Phần mềm FPT Miền Trung (FPT Software), covering September–December 2025 — the university-recognized internship placement underlying the FPT Software Developer Intern role.",
   },
   {
+    id: 33,
+    category: "Technology",
+    name: "Build RAG Applications: Get Started",
+    issuer: "IBM – Coursera",
+    year: "2026",
+    dateIssued: "07/2026",
+    image: RAGGetStartedImage,
+    description:
+      "Completed IBM's **Build RAG Applications: Get Started** course on Coursera — an introduction to Retrieval-Augmented Generation (RAG) fundamentals for building AI applications that ground responses in external knowledge sources.",
+  },
+  {
+    id: 34,
+    category: "Technology",
+    name: "Fundamentals of AI Agents Using RAG and LangChain",
+    issuer: "IBM – Coursera",
+    year: "2026",
+    dateIssued: "07/2026",
+    image: AIAgentsRAGLangChainImage,
+    description:
+      "Completed IBM's **Fundamentals of AI Agents Using RAG and LangChain** course on Coursera — covering core concepts of AI agent design, retrieval-augmented generation, and LangChain orchestration for building intelligent, context-aware agents.",
+  },
+  {
     id: 30,
+    category: "Technology",
     name: "Project: Generative AI Applications with RAG and LangChain",
     issuer: "IBM – Coursera",
-    year: "07/2026",
+    year: "2026",
+    dateIssued: "07/2026",
     image: IBMRAGLangChainImage,
     description:
       "Completed an IBM-authored Coursera project building **Generative AI applications using Retrieval-Augmented Generation (RAG) and LangChain** — covering vector retrieval, prompt orchestration, and grounding LLM outputs in external data sources.",
   },
   {
     id: 31,
+    category: "Event",
     name: "Mini Leadership Conference 2025 — Student Ambassador",
     issuer: "AIESEC in Vietnam, Da Nang",
-    year: "11/2025",
+    year: "2025",
+    dateIssued: "11/2025",
     image: AIESECLeadershipImage,
     description:
       "Recognized as a **Student Ambassador** for actively promoting AIESEC's Mini Leadership Conference 2025 — supporting outreach and campaign efforts for the regional youth leadership event in Da Nang.",
   },
   {
     id: 32,
+    category: "Other",
     name: "FPT University Scholarship 2023",
     issuer: "FPT University",
-    year: "05/2023",
+    year: "2023",
+    dateIssued: "05/2023",
     image: HocBong2023Image,
     description:
       "Awarded a **10% scholarship** for the Information Technology program (Software Engineering major) at FPT University, based on the university's 2023 scholarship examination (Điểm trắc nghiệm 44/90, Điểm luận 8/15 — Tổng điểm 52/105).",
   },
   {
     id: 23,
+    category: "Technology",
     name: "JavaScript Algorithms & Data Structures",
     issuer: "freeCodeCamp",
-    year: "03/2024",
+    year: "2024",
+    dateIssued: "03/2024",
     image: JSAlgorithmsImage,
     description:
       "Completed freeCodeCamp's **JavaScript Algorithms and Data Structures** certification — covering fundamental algorithms (sorting, searching), data structures (arrays, objects, linked lists, stacks, queues), and algorithmic problem solving in pure JavaScript.",
   },
   {
     id: 24,
+    category: "Language",
     name: "Hiragana A1 Self-Study Course",
     issuer: "JF Japanese e-Learning Minato (Japan Foundation)",
-    year: "09/2024",
+    year: "2024",
+    dateIssued: "09/2024",
     image: HiraganaImage,
     description:
       "Completed the **Hiragana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — mastering the full 46-character Japanese phonetic alphabet used for native Japanese words.",
   },
   {
     id: 25,
+    category: "Language",
     name: "Katakana A1 Self-Study Course",
     issuer: "JF Japanese e-Learning Minato (Japan Foundation)",
-    year: "09/2024",
+    year: "2024",
+    dateIssued: "09/2024",
     image: KataganaImage,
     description:
       "Completed the **Katakana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — mastering the 46-character syllabary used for foreign loanwords and technical terminology in Japanese.",
   },
   {
     id: 26,
+    category: "Event",
     name: "Non Xanh Nuoc Biec – Participation",
     issuer: "FPT University / Student Union",
     year: "2024",
+    dateIssued: "2024",
     image: NonXanhNuocBiecImage,
     description:
       "Certificate of participation in the **'Non Xanh Nuoc Biec'** environmental awareness event organized by FPT University's Student Union — a campus initiative promoting sustainability, green living, and student community engagement.",
   },
   {
     id: 27,
+    category: "Event",
     name: "Certificate of Honor — Founder & President",
     issuer: "The Dreamers Organization",
     year: "2024",
+    dateIssued: "2024",
     image: DreamerOfHonorImage,
     description:
       "Presented with **The Dreamers' Certificate of Honor** in profound recognition of visionary leadership and dedication as **Founder and President** of The Dreamers — honoring the passion and commitment that laid the foundation for the organization's journey.",
+  },
+  {
+    id: 35,
+    category: "Technology",
+    name: "Create and Lead an Ethical Data-Driven Organization",
+    issuer: "CertNexus – Coursera",
+    year: "2026",
+    dateIssued: "05/2026",
+    image: EthicalOrgImage,
+    description:
+      "Completed CertNexus's **Create and Lead an Ethical Data-Driven Organization** course on Coursera — part of a specialization on building ethical governance and leadership practices for data-driven teams.",
+  },
+  {
+    id: 36,
+    category: "Technology",
+    name: "Detect and Mitigate Ethical Risks",
+    issuer: "CertNexus – Coursera",
+    year: "2026",
+    dateIssued: "05/2026",
+    image: EthicalRisksImage,
+    description:
+      "Completed CertNexus's **Detect and Mitigate Ethical Risks** course on Coursera — covering methods to identify, assess, and reduce ethical risks in data-driven and AI-powered systems.",
+  },
+  {
+    id: 37,
+    category: "Technology",
+    name: "Promote the Ethical Use of Data-Driven Technologies",
+    issuer: "CertNexus – Coursera",
+    year: "2026",
+    dateIssued: "05/2026",
+    image: EthicalPromoteImage,
+    description:
+      "Completed CertNexus's **Promote the Ethical Use of Data-Driven Technologies** course on Coursera — covering strategies for advocating responsible, ethical adoption of data and AI technologies within organizations.",
+  },
+  {
+    id: 38,
+    category: "Technology",
+    name: "Turn Ethical Frameworks into Actionable Steps",
+    issuer: "CertNexus – Coursera",
+    year: "2026",
+    dateIssued: "05/2026",
+    image: EthicalActionableImage,
+    description:
+      "Completed CertNexus's **Turn Ethical Frameworks into Actionable Steps** course on Coursera — translating high-level ethical principles into concrete, implementable practices for data-driven organizations.",
+  },
+  {
+    id: 39,
+    category: "Technology",
+    name: "Communicate Effectively about Ethical Challenges in Data-Driven Technologies",
+    issuer: "CertNexus – Coursera",
+    year: "2026",
+    dateIssued: "05/2026",
+    image: EthicalCommunicateImage,
+    description:
+      "Completed CertNexus's **Communicate Effectively about Ethical Challenges in Data-Driven Technologies** course on Coursera — building skills to clearly discuss and navigate ethical issues in AI and data technologies with diverse stakeholders.",
+  },
+  {
+    id: 40,
+    category: "Technology",
+    name: "Preparing for Your CertNexus Certification Exam",
+    issuer: "CertNexus – Coursera",
+    year: "2026",
+    dateIssued: "05/2026",
+    image: CertNexusExamPrepImage,
+    description:
+      "Completed CertNexus's **Preparing for Your CertNexus Certification Exam** course on Coursera — the capstone course of the CertNexus ethical data specialization, reviewing key concepts and exam preparation strategies.",
+  },
+  {
+    id: 41,
+    category: "Technology",
+    name: "Ethics of Artificial Intelligence",
+    issuer: "Politecnico di Milano – Coursera",
+    year: "2026",
+    dateIssued: "05/2026",
+    image: EthicsOfAIImage,
+    description:
+      "Completed Politecnico di Milano's **Ethics of Artificial Intelligence** course on Coursera — examining the philosophical, social, and technical dimensions of ethical AI design and deployment.",
+  },
+  {
+    id: 42,
+    category: "Technology",
+    name: "Initiating and Planning Projects",
+    issuer: "University of California, Irvine – Coursera",
+    year: "2026",
+    dateIssued: "01/2026",
+    image: PMInitiatingImage,
+    description:
+      "Completed UC Irvine's **Initiating and Planning Projects** course on Coursera — part of a Project Management specialization, covering project charters, scope definition, and early-stage planning fundamentals.",
+  },
+  {
+    id: 43,
+    category: "Technology",
+    name: "Budgeting and Scheduling Projects",
+    issuer: "University of California, Irvine – Coursera",
+    year: "2026",
+    dateIssued: "01/2026",
+    image: PMBudgetingImage,
+    description:
+      "Completed UC Irvine's **Budgeting and Scheduling Projects** course on Coursera — covering cost estimation, budget planning, and schedule development techniques for managing projects.",
+  },
+  {
+    id: 44,
+    category: "Technology",
+    name: "Managing Project Risks and Changes",
+    issuer: "University of California, Irvine – Coursera",
+    year: "2026",
+    dateIssued: "01/2026",
+    image: PMRisksImage,
+    description:
+      "Completed UC Irvine's **Managing Project Risks and Changes** course on Coursera — covering risk identification, mitigation planning, and change management practices throughout the project lifecycle.",
+  },
+  {
+    id: 45,
+    category: "Technology",
+    name: "Project Management Project",
+    issuer: "University of California, Irvine – Coursera",
+    year: "2026",
+    dateIssued: "01/2026",
+    image: PMCapstoneImage,
+    description:
+      "Completed the capstone **Project Management Project** for UC Irvine's Project Management specialization on Coursera — applying initiation, planning, budgeting, scheduling, and risk management skills to a full project simulation.",
   },
 ];
 

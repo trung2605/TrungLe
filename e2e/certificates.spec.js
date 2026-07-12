@@ -21,12 +21,13 @@ test.describe('Certificates page', () => {
     await expect(page.getByText(/No certificates found|Không tìm thấy chứng chỉ/i)).toBeVisible();
   });
 
-  test('year pill filters results', async ({ page }) => {
+  test('year dropdown filters results', async ({ page }) => {
     await page.goto('/certificates');
-    const yearPills = page.locator('button', { hasText: /^\d{4}$/ });
-    const count = await yearPills.count();
-    test.skip(count === 0, 'no year pills rendered');
-    await yearPills.first().click();
+    const yearSelect = page.locator('select').first();
+    const options = await yearSelect.locator('option').allTextContents();
+    const yearOption = options.find(o => /^\d{4}$/.test(o.trim()));
+    test.skip(!yearOption, 'no year options rendered');
+    await yearSelect.selectOption({ label: yearOption });
     await expect(page.locator('h3').first()).toBeVisible();
   });
 
