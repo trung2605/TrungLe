@@ -31,7 +31,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
       style={{
         display: 'flex',
         flexDirection: featured ? 'row' : 'column',
-        backgroundColor: '#ffffff',
+        backgroundColor: 'var(--color-canvas)',
         border: '1px solid #e6e6e6',
         borderRadius: '24px',
         overflow: 'hidden',
@@ -41,7 +41,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
       }}
       onMouseMove={spotlight.onMouseMove}
       onMouseEnter={e => {
-        e.currentTarget.style.borderColor = '#000000';
+        e.currentTarget.style.borderColor = 'var(--color-ink)';
         e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)';
       }}
       onMouseLeave={e => {
@@ -124,11 +124,12 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         )}
 
         <h3 style={{
+          fontFamily: 'Outfit, system-ui, sans-serif',
           fontSize: '20px',
           fontWeight: '540',
           lineHeight: '1.35',
           letterSpacing: '-0.2px',
-          color: '#000000',
+          color: 'var(--color-ink)',
           margin: '0 0 8px 0',
         }}>
           {project.title}

@@ -4,6 +4,9 @@ import Navigation from '../../components/Navigation/Navigation';
 import Footer from '../../components/Footer/Footer';
 import PageBanner from '../../components/PageBanner/PageBanner';
 import CustomCursor from '../../common/CustomCursor';
+import ScrollProgressBar from '../../common/ScrollProgressBar';
+import CommandPalette from '../../components/ui/CommandPalette';
+import InstallPrompt from '../../common/InstallPrompt';
 
 const MainLayout = () => {
     const { pathname } = useLocation();
@@ -19,6 +22,9 @@ const MainLayout = () => {
             overflowX: 'hidden',
         }}>
             <CustomCursor />
+            <ScrollProgressBar />
+            <CommandPalette />
+            <InstallPrompt />
             <a
                 href="#main-content"
                 style={{

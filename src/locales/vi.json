@@ -20,6 +20,12 @@
     "viewProjects": "Xem dự án",
     "downloadCV": "Tải CV",
     "statsByNumbers": "Những con số",
+    "githubLabel": "Trực tiếp từ GitHub",
+    "githubRepos": "Repo công khai",
+    "githubFollowers": "Người theo dõi",
+    "githubRecent": "Cập nhật gần nhất",
+    "testimonialsLabel": "Lời nhận xét",
+    "testimonialsTitle": "Mọi người nói gì",
     "stats": [
       { "label": "Dự án đã xây dựng" },
       { "label": "Chứng chỉ" },
@@ -115,8 +121,34 @@
       "title": "Kết nối với tôi",
       "subtitle": "Có câu hỏi hoặc muốn hợp tác? Hãy liên hệ nhé."
     },
+    "blog": {
+      "eyebrow": "Bài viết",
+      "title": "Blog",
+      "subtitle": "Bài viết kỹ thuật và phân tích chuyên sâu từ các dự án tôi đã làm."
+    },
+    "resume": {
+      "eyebrow": "Resume",
+      "title": "Resume",
+      "subtitle": "Xem CV trực tuyến, hoặc tải file PDF."
+    },
     "projectDetail": "Chi tiết dự án",
     "home": "Trang chủ"
+  },
+  "resume": {
+    "loading": "Đang tải CV…",
+    "page": "Trang",
+    "download": "Tải PDF",
+    "prevPage": "Trang trước",
+    "nextPage": "Trang sau",
+    "viewerFailed": "Không thể tải bản xem trước.",
+    "openInNewTab": "Mở PDF ở tab mới"
+  },
+  "blog": {
+    "postsFound": "bài viết",
+    "readMore": "Đọc tiếp",
+    "noPosts": "Chưa có bài viết nào.",
+    "notFound": "Không tìm thấy bài viết.",
+    "backToBlog": "Quay lại Blog"
   },
   "education": {
     "label": "Hành trình học vấn",
@@ -355,6 +387,8 @@
     { "title": "Học vấn", "desc": "Con đường học tập và thành tích học thuật" },
     { "title": "Chứng chỉ", "desc": "Kỹ năng được xác nhận và khóa học đã hoàn thành" },
     { "title": "Hoạt động", "desc": "Sự kiện, cuộc thi và công việc cộng đồng" },
+    { "title": "Blog", "desc": "Bài viết kỹ thuật và phân tích chuyên sâu dự án" },
+    { "title": "Resume", "desc": "Xem CV trực tuyến" },
     { "title": "Liên hệ", "desc": "Liên lạc với tôi" }
   ],
   "educationItems": [

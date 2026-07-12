@@ -9,7 +9,7 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['JetBrains Mono', 'SF Mono', 'Menlo', 'monospace'],
-        heading: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Outfit', 'system-ui', 'sans-serif'],
       },
       colors: {
         border:      "hsl(var(--border))",

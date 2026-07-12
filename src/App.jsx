@@ -17,8 +17,18 @@ const ActivitiesPage = lazy(() => import('./pages/ActivitiesPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const ResumePage = lazy(() => import('./pages/ResumePage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 
 function App() {
+  useEffect(() => {
+    console.log(
+      '%cHey, curious dev 👋 — this portfolio is built with React + Framer Motion.\nCheck the source: https://github.com/trung2605',
+      'font-family: monospace; font-size: 13px; color: #ff3d8b;'
+    );
+  }, []);
+
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
@@ -62,6 +72,9 @@ function App() {
                   <Route path="certificates" element={<CertificatesPage />} />
                   <Route path="activities" element={<ActivitiesPage />} />
                   <Route path="contact" element={<ContactPage />} />
+                  <Route path="resume" element={<ResumePage />} />
+                  <Route path="blog" element={<BlogPage />} />
+                  <Route path="blog/:slug" element={<BlogPostPage />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Route>
               </Routes>

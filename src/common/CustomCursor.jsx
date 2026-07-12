@@ -19,8 +19,19 @@ const CustomCursor = () => {
         if (!canHover) return;
 
         const handleMove = (e) => {
-            cursorX.set(e.clientX);
-            cursorY.set(e.clientY);
+            const target = e.target.closest && e.target.closest(INTERACTIVE_SELECTOR);
+            if (target) {
+                const rect = target.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                // Pull cursor toward the hovered element's center (magnetic feel), capped so it doesn't stray far from the pointer
+                const pull = 0.25;
+                cursorX.set(e.clientX + (centerX - e.clientX) * pull);
+                cursorY.set(e.clientY + (centerY - e.clientY) * pull);
+            } else {
+                cursorX.set(e.clientX);
+                cursorY.set(e.clientY);
+            }
             if (!isVisible) setIsVisible(true);
         };
         const handleOver = (e) => {
@@ -51,6 +62,7 @@ const CustomCursor = () => {
         <>
             <motion.div
                 aria-hidden="true"
+                className="print-hide"
                 style={{
                     position: 'fixed',
                     top: 0,
@@ -71,6 +83,7 @@ const CustomCursor = () => {
             />
             <motion.div
                 aria-hidden="true"
+                className="print-hide"
                 style={{
                     position: 'fixed',
                     top: 0,

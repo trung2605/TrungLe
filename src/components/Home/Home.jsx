@@ -13,6 +13,8 @@ import RotatingText from "../../animations/RotatingText";
 import DecryptedText from "../../animations/DecryptedText";
 import Aurora from "../../animations/Aurora";
 import useMagnetic from "../../hooks/useMagnetic";
+import GitHubStats from "./GitHubStats";
+import Testimonials from "./Testimonials";
 
 const MotionLink = motion(Link);
 
@@ -229,6 +231,7 @@ const Home = () => {
             <motion.h1
               {...fadeUp(0.1)}
               style={{
+                fontFamily: 'Outfit, system-ui, sans-serif',
                 fontSize: 'clamp(36px, 6vw, 86px)',
                 fontWeight: '340',
                 lineHeight: '1.00',
@@ -427,7 +430,7 @@ const Home = () => {
           }}>{t('home.statsByNumbers')}</p>
           <div
             className="stats-grid"
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}
+            style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr 1fr 1fr', gap: '24px' }}
           >
             {[
               { value: 11, suffix: '+', labelKey: 'home.stats.0.label' },
@@ -446,6 +449,8 @@ const Home = () => {
         </motion.div>
       </section>
 
+      <GitHubStats />
+
       {/* ── SKILLS — LILAC BLOCK ── */}
       <section style={{ paddingBottom: '72px' }}>
         <motion.div
@@ -461,6 +466,7 @@ const Home = () => {
             color: '#444444', marginBottom: '12px',
           }}>{t('home.skillsLabel')}</p>
           <h2 style={{
+            fontFamily: 'Outfit, system-ui, sans-serif',
             fontSize: 'clamp(26px, 4vw, 48px)', fontWeight: '340',
             lineHeight: '1.10', letterSpacing: '-0.72px',
             color: '#000000', marginBottom: '40px',
@@ -527,6 +533,8 @@ const Home = () => {
         </motion.div>
       </section>
 
+      <Testimonials />
+
       {/* ── EXPLORE — CREAM BLOCK ── */}
       <section style={{ paddingBottom: '72px' }}>
         <motion.div
@@ -542,6 +550,7 @@ const Home = () => {
             color: '#666666', marginBottom: '12px',
           }}>{t('home.exploreLabel')}</p>
           <h2 style={{
+            fontFamily: 'Outfit, system-ui, sans-serif',
             fontSize: 'clamp(24px, 3.5vw, 48px)', fontWeight: '340',
             lineHeight: '1.10', letterSpacing: '-0.72px',
             color: '#000000', marginBottom: '36px',
@@ -551,7 +560,15 @@ const Home = () => {
             style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '14px' }}
           >
             {siteNavigation.slice(1).map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, scale: 0.9, rotate: i % 2 === 0 ? -1 : 1 }} whileInView={{ opacity: 1, scale: 1, rotate: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }} whileHover={{ y: -4 }}>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9, rotate: i % 2 === 0 ? -1 : 1 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -4 }}
+                style={{ marginTop: i % 3 === 1 ? '18px' : 0 }}
+              >
                 <Link
                   to={item.path}
                   style={{
@@ -565,7 +582,7 @@ const Home = () => {
                   onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.06)'; e.currentTarget.style.boxShadow = 'none'; }}
                 >
                   <div style={{ fontSize: '26px', marginBottom: '12px' }}>{item.icon}</div>
-                  <h3 style={{ fontSize: '17px', fontWeight: '540', color: '#000000', margin: '0 0 6px 0' }}>{item.title}</h3>
+                  <h3 style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', fontWeight: '540', color: '#000000', margin: '0 0 6px 0' }}>{item.title}</h3>
                   <p style={{ fontSize: '14px', fontWeight: '330', color: '#555555', margin: 0, lineHeight: '1.5' }}>{item.desc}</p>
                 </Link>
               </motion.div>
@@ -597,6 +614,7 @@ const Home = () => {
               color: 'rgba(255,255,255,0.5)', marginBottom: '12px',
             }}>{t('home.ctaLabel')}</p>
             <h2 style={{
+              fontFamily: 'Outfit, system-ui, sans-serif',
               fontSize: 'clamp(22px, 3.5vw, 44px)', fontWeight: '340',
               lineHeight: '1.15', letterSpacing: '-0.72px',
               color: '#ffffff', margin: 0,

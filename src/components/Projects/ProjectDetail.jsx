@@ -104,6 +104,7 @@ const ProjectDetail = () => {
         {/* Title overlay */}
         <div style={{ position: 'absolute', bottom: '32px', left: '36px', right: '36px' }}>
           <h1 style={{
+            fontFamily: 'Outfit, system-ui, sans-serif',
             fontSize: 'clamp(24px, 4vw, 52px)',
             fontWeight: '540',
             lineHeight: '1.1',

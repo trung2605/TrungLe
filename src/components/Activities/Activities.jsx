@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaUsers, FaCalendarAlt, FaBuilding, FaPlay, FaCheck, FaTimes, FaEye } from "react-icons/fa";
+import { FaUsers, FaCalendarAlt, FaBuilding, FaPlay, FaCheck, FaEye, FaInbox } from "react-icons/fa";
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
@@ -32,9 +32,9 @@ const ActivityCard = ({ act, index, onSelect }) => {
             whileHover={{ y: -4 }}
             className="card-spotlight"
             style={{
-                backgroundColor: '#ffffff',
+                backgroundColor: 'var(--color-canvas)',
                 border: '1px solid #e6e6e6',
-                borderRadius: '20px',
+                borderRadius: '24px',
                 padding: '24px',
                 cursor: 'pointer',
                 transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
@@ -42,12 +42,12 @@ const ActivityCard = ({ act, index, onSelect }) => {
                 overflow: 'hidden',
             }}
             onMouseMove={spotlight.onMouseMove}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
             onClick={() => onSelect(act)}
         >
             {/* Color accent top bar */}
-            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: BLOCK_COLORS[index % BLOCK_COLORS.length], borderRadius: '20px 20px 0 0' }} />
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: BLOCK_COLORS[index % BLOCK_COLORS.length], borderRadius: '24px 24px 0 0' }} />
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px', marginTop: '8px' }}>
                 <span style={{ padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: statusStyle.bg, color: statusStyle.color }}>
@@ -56,7 +56,7 @@ const ActivityCard = ({ act, index, onSelect }) => {
                 <FaEye size={14} style={{ color: '#aaaaaa' }} />
             </div>
 
-            <h3 style={{ fontSize: '17px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0', lineHeight: '1.35' }}>{act.title}</h3>
+            <h3 style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', fontWeight: '540', color: 'var(--color-ink)', margin: '0 0 8px 0', lineHeight: '1.35' }}>{act.title}</h3>
 
             <div style={{ fontSize: '13px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.3px', textTransform: 'uppercase', color: '#666666', marginBottom: '8px' }}>
                 {act.organization}
@@ -173,14 +173,19 @@ const Activities = () => {
                     ))}
                 </div>
             ) : (
-                <div style={{ textAlign: 'center', padding: '64px 0', color: 'var(--color-ink-soft)' }}>No activities found.</div>
+                <div style={{ textAlign: 'center', padding: '64px 0', color: 'var(--color-ink-soft)' }}>
+                    <FaInbox size={32} aria-hidden="true" style={{ marginBottom: '12px', opacity: 0.4 }} />
+                    <div>No activities found.</div>
+                </div>
             )}
 
             {/* Pagination */}
             {totalPages > 1 && (
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                <div role="navigation" aria-label="Pagination" style={{ display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap' }}>
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
                         <button key={p} onClick={() => changePage(p)}
+                            aria-label={`Page ${p}`}
+                            aria-current={currentPage === p ? 'page' : undefined}
                             style={{ width: '36px', height: '36px', borderRadius: '9999px', border: '1.5px solid', borderColor: currentPage === p ? '#000000' : '#e6e6e6', backgroundColor: currentPage === p ? '#000000' : '#ffffff', color: currentPage === p ? '#ffffff' : '#000000', cursor: 'pointer', fontSize: '14px', fontWeight: currentPage === p ? '480' : '330' }}>
                             {p}
                         </button>
@@ -193,16 +198,11 @@ const Activities = () => {
                 open={!!selectedActivity}
                 onOpenChange={(open) => !open && setSelectedActivity(null)}
                 title={selectedActivity?.title || 'Activity'}
-                showClose={false}
                 contentClassName="!max-w-[640px] !max-h-[85vh]"
             >
                 {selectedActivity && (
                     <>
                         <div style={{ padding: '32px', borderBottom: '1px solid #e6e6e6', position: 'relative' }}>
-                            <button onClick={() => setSelectedActivity(null)}
-                                style={{ position: 'absolute', top: '24px', right: '24px', width: '32px', height: '32px', borderRadius: '9999px', backgroundColor: '#f7f7f5', border: '1px solid #e6e6e6', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-                                <FaTimes size={12} />
-                            </button>
                             <span style={{ display: 'inline-block', padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: (STATUS_STYLE[selectedActivity.status] || {}).bg || '#f7f7f5', marginBottom: '12px' }}>
                                 {selectedActivity.status}
                             </span>

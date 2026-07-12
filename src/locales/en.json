@@ -20,6 +20,12 @@
     "viewProjects": "View Projects",
     "downloadCV": "Download CV",
     "statsByNumbers": "By the numbers",
+    "githubLabel": "Live from GitHub",
+    "githubRepos": "Public repos",
+    "githubFollowers": "Followers",
+    "githubRecent": "Recently updated",
+    "testimonialsLabel": "Kind words",
+    "testimonialsTitle": "What people say",
     "stats": [
       { "label": "Projects Built" },
       { "label": "Certificates" },
@@ -115,8 +121,34 @@
       "title": "Get In Touch",
       "subtitle": "Have a question or want to work together? Let's talk."
     },
+    "blog": {
+      "eyebrow": "Writing",
+      "title": "Blog",
+      "subtitle": "Technical write-ups and deep-dives from projects I've built."
+    },
+    "resume": {
+      "eyebrow": "Resume",
+      "title": "Resume",
+      "subtitle": "View my resume online, or download the PDF."
+    },
     "projectDetail": "Project Detail",
     "home": "Home"
+  },
+  "resume": {
+    "loading": "Loading resume…",
+    "page": "Page",
+    "download": "Download PDF",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "viewerFailed": "Couldn't load the preview.",
+    "openInNewTab": "Open PDF in a new tab"
+  },
+  "blog": {
+    "postsFound": "posts found",
+    "readMore": "Read more",
+    "noPosts": "No posts yet.",
+    "notFound": "Post not found.",
+    "backToBlog": "Back to Blog"
   },
   "education": {
     "label": "Academic Journey",
@@ -355,6 +387,8 @@
     { "title": "Education", "desc": "My academic path and achievements" },
     { "title": "Certificates", "desc": "Verified skills and completed courses" },
     { "title": "Activities", "desc": "Events, competitions, and community work" },
+    { "title": "Blog", "desc": "Technical writing and project deep-dives" },
+    { "title": "Resume", "desc": "View my resume online" },
     { "title": "Contact", "desc": "Get in touch with me" }
   ],
   "educationItems": [

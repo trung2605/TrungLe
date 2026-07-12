@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaCertificate, FaEye, FaSearch, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaCertificate, FaEye, FaSearch, FaChevronLeft, FaChevronRight, FaInbox } from 'react-icons/fa';
 import useSpotlight from '../../hooks/useSpotlight';
 import '../../animations/SpotlightCard.css';
 import { useTranslation } from 'react-i18next';
@@ -31,15 +31,15 @@ const CertificateCard = ({ cert, index, onSelect, t }) => {
             onClick={() => onSelect(cert)}
             className="card-spotlight"
             style={{
-                backgroundColor: '#ffffff',
+                backgroundColor: 'var(--color-canvas)',
                 border: '1px solid #e6e6e6',
-                borderRadius: '20px',
+                borderRadius: '24px',
                 overflow: 'hidden',
                 cursor: 'pointer',
                 transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
             }}
             onMouseMove={spotlight.onMouseMove}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
         >
             <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden', backgroundColor: '#f7f7f5' }}>
@@ -51,7 +51,7 @@ const CertificateCard = ({ cert, index, onSelect, t }) => {
                     {cert.dateIssued || cert.year}
                 </div>
                 {cert.category && (
-                    <div style={{ position: 'absolute', top: '12px', left: '12px', padding: '4px 10px', borderRadius: '50px', backgroundColor: CATEGORY_COLORS[cert.category] || '#e6e6e6', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px' }}>
+                    <div style={{ position: 'absolute', top: '12px', left: '12px', padding: '4px 10px', borderRadius: '6px', backgroundColor: CATEGORY_COLORS[cert.category] || '#e6e6e6', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px' }}>
                         {t(`certificates.categories.${cert.category}`)}
                     </div>
                 )}
@@ -64,7 +64,7 @@ const CertificateCard = ({ cert, index, onSelect, t }) => {
             </div>
             <div style={{ padding: '20px' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px', marginBottom: '8px' }}>
-                    <h3 style={{ fontSize: '16px', fontWeight: '540', color: '#000000', margin: 0, lineHeight: '1.4' }}>{cert.name}</h3>
+                    <h3 style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '16px', fontWeight: '540', color: 'var(--color-ink)', margin: 0, lineHeight: '1.4' }}>{cert.name}</h3>
                     <FaCertificate size={16} style={{ color: '#888888', flexShrink: 0, marginTop: '2px' }} />
                 </div>
                 <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#666666', margin: '0 0 8px 0' }}>
@@ -205,26 +205,31 @@ const Certificates = () => {
                 </div>
             ) : (
                 <div style={{ textAlign: 'center', padding: '64px 0', color: 'var(--color-ink-soft)', fontSize: '16px' }}>
-                    {t('certificates.noResults')}
+                    <FaInbox size={32} aria-hidden="true" style={{ marginBottom: '12px', opacity: 0.4 }} />
+                    <div>{t('certificates.noResults')}</div>
                 </div>
             )}
 
             {/* Pagination */}
             {totalPages > 1 && (
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+                <div role="navigation" aria-label="Pagination" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
                     <button onClick={() => changePage(currentPage - 1)} disabled={currentPage === 1}
+                        aria-label="Previous page"
                         style={{ width: '36px', height: '36px', borderRadius: '9999px', border: '1.5px solid #e6e6e6', backgroundColor: '#ffffff', cursor: currentPage === 1 ? 'not-allowed' : 'pointer', opacity: currentPage === 1 ? 0.4 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <FaChevronLeft size={12} />
+                        <FaChevronLeft size={12} aria-hidden="true" />
                     </button>
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
                         <button key={p} onClick={() => changePage(p)}
+                            aria-label={`Page ${p}`}
+                            aria-current={currentPage === p ? 'page' : undefined}
                             style={{ width: '36px', height: '36px', borderRadius: '9999px', border: '1.5px solid', borderColor: currentPage === p ? '#000000' : '#e6e6e6', backgroundColor: currentPage === p ? '#000000' : '#ffffff', color: currentPage === p ? '#ffffff' : '#000000', cursor: 'pointer', fontSize: '14px', fontWeight: currentPage === p ? '480' : '330' }}>
                             {p}
                         </button>
                     ))}
                     <button onClick={() => changePage(currentPage + 1)} disabled={currentPage === totalPages}
+                        aria-label="Next page"
                         style={{ width: '36px', height: '36px', borderRadius: '9999px', border: '1.5px solid #e6e6e6', backgroundColor: '#ffffff', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer', opacity: currentPage === totalPages ? 0.4 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <FaChevronRight size={12} />
+                        <FaChevronRight size={12} aria-hidden="true" />
                     </button>
                 </div>
             )}

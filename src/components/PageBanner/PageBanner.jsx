@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaChevronRight } from 'react-icons/fa';
-import { projects } from '../../data';
+import { projects, posts } from '../../data';
 import { useTranslation } from 'react-i18next';
 
 const PAGE_META = {
@@ -10,6 +10,8 @@ const PAGE_META = {
     '/education':    { color: '#f3c9b6', decoration: '◉',  key: 'education' },
     '/certificates': { color: '#c8e6cd', decoration: '◆',  key: 'certificates' },
     '/activities':   { color: '#f4ecd6', decoration: '◇',  key: 'activities' },
+    '/blog':         { color: '#c8e6cd', decoration: '✎',  key: 'blog' },
+    '/resume':       { color: '#dceeb1', decoration: '▤',  key: 'resume' },
     '/contact':      { color: '#efd4d4', decoration: '◎',  key: 'contact' },
 };
 
@@ -26,6 +28,25 @@ const PageBanner = () => {
         color: meta.color,
         decoration: meta.decoration,
     } : null;
+
+    // Dynamic blog post pages: /blog/:slug
+    if (!config) {
+        const blogMatch = pathname.match(/^\/blog\/([^/]+)$/);
+        if (blogMatch) {
+            const post = posts.find(p => p.slug === blogMatch[1]);
+            if (post) {
+                config = {
+                    eyebrow: t('pageBanner.blog.eyebrow'),
+                    title: post.title,
+                    subtitle: post.excerpt,
+                    color: '#c8e6cd',
+                    decoration: '✎',
+                    parentPath: '/blog',
+                    parentLabel: t('pageBanner.blog.title'),
+                };
+            }
+        }
+    }
 
     // Dynamic project detail pages: /projects/:id
     if (!config) {
@@ -140,6 +161,7 @@ const PageBanner = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.18, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                             style={{
+                                fontFamily: 'Outfit, system-ui, sans-serif',
                                 fontSize: 'clamp(32px, 5vw, 64px)',
                                 fontWeight: '340',
                                 lineHeight: '1.05',

@@ -19,6 +19,8 @@ import {
   FaLightbulb,
   FaFilm,
   FaEnvelope,
+  FaFileAlt,
+  FaNewspaper,
 } from "react-icons/fa";
 import NewAvatar from './assets/information/image.png';
 
@@ -112,7 +114,7 @@ export const personalInfo = {
   name: "Lê Trí Trung",
   title: "Java Developer | Computer Science Student",
   profileImage: NewAvatar,
-  cv: "./assets/information/Le_Tri_Trung_CV.pdf",
+  cv: "/Le_Tri_Trung_CV.pdf",
   logo: NewAvatar,
   intro:
     "Highly motivated Computer Science student with a strong foundation in web development. Proficient in Java Spring Boot, JavaScript, React, HTML/CSS, and passionate about creating clean, scalable applications. Seeking a Web Developer internship to apply my skills and contribute to a collaborative team.",
@@ -1565,6 +1567,18 @@ export const siteNavigation = [
         path: "/activities",
     },
     {
+        title: "Blog",
+        desc: "Technical writing and project deep-dives",
+        icon: <FaNewspaper />,
+        path: "/blog",
+    },
+    {
+        title: "Resume",
+        desc: "View my resume online",
+        icon: <FaFileAlt />,
+        path: "/resume",
+    },
+    {
         title: "Contact",
         desc: "Get in touch with me",
         icon: <FaEnvelope />,
@@ -1708,4 +1722,74 @@ export const stats = [
     icon: FaTrophy,
     color: "text-red-600",
   },
+];
+
+export const posts = [
+  {
+    id: 1,
+    slug: "threadlearn-javascript-concurrency-bugs",
+    title: "Dạy một model 1.5B tham số sửa lỗi concurrency JavaScript",
+    excerpt: "Bên trong ThreadLearn: fine-tune Qwen2.5-Coder-1.5B bằng QLoRA, ghép RAG pipeline dựa trên BM25, và vì sao model nhỏ lại thắng GPT-3.5-turbo trên một domain hẹp.",
+    date: "2026-06-11",
+    tags: ["AI", "RAG", "Fine-tuning", "JavaScript", "FastAPI"],
+    readTime: "9 min read",
+    content: `JavaScript chạy trên một luồng duy nhất — single-threaded event loop — nhưng lại xử lý hàng loạt tác vụ bất đồng bộ cùng lúc qua callback, Promise, async/await. Chính khoảng cách giữa "một luồng" và "nhiều tác vụ chồng lấp" đó tạo ra một lớp lỗi rất khó chịu: **concurrency bugs**. Theo nghiên cứu NodeCB (ASE 2017) phân tích 57 lỗi thực tế trên 53 dự án Node.js, 93% trong số đó gây hậu quả nghiêm trọng — crash server, sai dữ liệu, hoặc treo vĩnh viễn. Và chúng gần như không bao giờ lộ diện khi chạy test đơn lẻ.
+
+Ví dụ kinh điển — hai request cùng đọc rồi cùng ghi:
+
+\`\`\`javascript
+const stock = await db.getStock(productId);   // cả 2 request đọc được stock = 1
+await db.setStock(productId, stock - 1);       // cả 2 request đặt stock = 0
+// bán được 2 sản phẩm, kho chỉ có 1 — race condition
+\`\`\`
+
+Công cụ tĩnh như ESLint chỉ báo lỗi, không sửa. Gọi GPT-4 thì tốn phí, cần internet, và không chuyên biệt cho domain này. **ThreadLearn** — đồ án môn WDP301 tại FPT University tôi làm cùng hai bạn cùng nhóm — thử một hướng khác: fine-tune một model nhỏ (Qwen2.5-Coder-1.5B) để chuyên trị đúng một loại lỗi, rồi bù kiến thức còn thiếu bằng RAG.
+
+## Vì sao model nhỏ, không phải GPT-4
+
+Ba lý do thực dụng: chi phí, độ trễ, và khả năng chạy offline trong môi trường doanh nghiệp có firewall. Nhóm chọn **Qwen2.5-Coder-1.5B** — đủ nhỏ để chạy trên GPU 8GB, đủ mạnh vì đã pretrain trên hàng trăm tỷ token code — rồi fine-tune bằng **QLoRA** (load model 4-bit NF4, chỉ train một adapter LoRA rank 16, tức khoảng 0.5% tổng tham số). Toàn bộ quá trình chạy trên 2×T4 miễn phí của Kaggle, khoảng 2 giờ.
+
+Phần fine-tuning (783 cặp code lỗi/đã sửa, dataset thu thập từ GitHub + viết tay) là công của bạn cùng nhóm Hà Văn Ân. Phần tôi trực tiếp phụ trách là **RAG pipeline và API server** — chỗ đáng kể nhất về mặt kỹ thuật, nên đây là phần tôi kể chi tiết.
+
+## RAG: vì sao BM25, không phải vector search
+
+Với JavaScript, người lập trình biết chính xác tên API cần tìm — \`Promise.all\`, \`setTimeout\`, \`appendFile\`. Đó là bài toán exact-keyword-match, không phải semantic similarity. Vector search (FAISS, Chroma) cần GPU để embed, cần model 500MB+, và đôi khi bỏ sót match chính xác vì tối ưu cho "ý nghĩa gần giống" chứ không phải "đúng từ khóa". **BM25** — thuật toán tìm kiếm dựa trên tần suất từ, cải tiến từ TF-IDF — build index cho 2050 tài liệu trong dưới 500ms, không cần GPU, và cho kết quả tốt hơn trên domain code.
+
+Vấn đề là BM25 mặc định tokenize kém với code: \`setTimeout\` bị vỡ thành \`["set", "timeout"]\`, \`fetchAllUsers\` thành \`["fetch", "all", "users"]\`. Khi query chứa \`setTimeout\` nguyên vẹn, nó khớp yếu hơn với tài liệu đã bị tách vụn. Bản đầu tôi viết regex tokenizer để tách CamelCase — chạy được nhưng vẫn làm vỡ tên API khi trích keyword từ code đầu vào.
+
+Bản sửa sau dùng **esprima parse code thành AST**, rồi chỉ lấy token loại \`Identifier\` — tên hàm/biến do lập trình viên đặt — bỏ qua keyword ngôn ngữ (\`async\`, \`await\`, \`for\`):
+
+\`\`\`python
+script = esprima.parseScript(code, options={"tolerant": True, "tokens": True})
+for tok in script.tokens:
+    if tok.type == "Identifier" and tok.value not in _JS_STOPWORDS:
+        result.append(tok.value)
+\`\`\`
+
+So sánh trực tiếp: \`fs.appendFile(logPath, data)\` qua regex tokenizer ra \`"fs append file path data"\` — appendFile bị vỡ. Qua AST extraction ra \`"fs appendFile logPath data"\` — nguyên vẹn. Tên API giữ nguyên nghĩa là BM25 score cao hơn với đúng tài liệu, và top-3 doc trả về chính xác hơn đáng kể.
+
+## Kết quả — và vì sao fine-tuning quan trọng hơn RAG
+
+Đánh giá trên 20 test case thủ công phủ 8 loại lỗi concurrency (race condition, event loop blocking, unhandled rejection, callback hell, zalgo, context loss...), chấm bằng cách kiểm tra output có chứa đúng pattern-fix hay không (ví dụ có \`Promise.all(\` hoặc \`await Promise.all\`), thay vì so khớp cứng với một "đáp án mẫu":
+
+| Phương pháp | Pass Rate |
+|---|---|
+| GPT-3.5-turbo zero-shot | 30% |
+| Qwen2.5-Coder-1.5B (chưa fine-tune) | 40% |
+| ThreadLearn — chỉ fine-tune, không RAG | 70% |
+| ThreadLearn — fine-tune + RAG | **75%** |
+
+Điều bất ngờ nhất không phải con số 75% so với GPT-3.5, mà là khoảng cách +30 điểm phần trăm đến từ fine-tuning so với chỉ +5 điểm từ RAG. 783 mẫu training đã đủ để model học đúng các pattern fix cụ thể — RAG chỉ đóng vai trò dọn nốt các case khó, nơi model cần thêm ngữ cảnh nó chưa từng thấy trong lúc train. Và không có case nào FAIL hoàn toàn — model luôn sinh ra code đọc được, kể cả khi sai.
+
+## Bài học rút ra
+
+Domain hẹp, dữ liệu chất lượng, và một model nhỏ được fine-tune đúng cách có thể vượt một model tổng quát lớn hơn ~125 lần — không phải vì model nhỏ "giỏi hơn", mà vì nó không phải gánh kiến thức không liên quan. Đây cũng là lý do tôi tin kiến trúc retrieval-augmented vẫn đáng đầu tư ở scale nhỏ: BM25 rẻ, nhanh, chạy offline, và khi ghép đúng với AST-based keyword extraction thay vì regex tokenizer thô, nó đóng góp thật — dù không lớn bằng phần fine-tuning.
+
+Code đầy đủ, dataset, và bài nghiên cứu chi tiết: [github.com/ThreadLearn/ThreadLearn_AI_Trainning](https://github.com/ThreadLearn/ThreadLearn_AI_Trainning).`,
+  },
+];
+
+export const testimonials = [
+  // Để trống — điền lời nhận xét thật (mentor/giảng viên/đồng đội) vào đây theo shape:
+  // { id: 1, name: "...", role: "...", company: "...", quote: "...", avatar: "..." }
 ];

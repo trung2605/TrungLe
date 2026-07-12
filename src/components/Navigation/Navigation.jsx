@@ -93,7 +93,7 @@ const Navigation = () => {
             className="hidden lg:flex"
             style={{ alignItems: 'center', gap: '4px' }}
           >
-            {siteNavigation.map((item) => {
+            {siteNavigation.filter((item) => item.path !== '/blog').map((item) => {
               const isActive = location.pathname === item.path;
               return (
                 <Link

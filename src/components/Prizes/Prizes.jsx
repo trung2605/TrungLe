@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaTrophy, FaMedal, FaStar, FaCalendarAlt, FaBuilding, FaTimes } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaTrophy, FaMedal, FaStar, FaCalendarAlt, FaBuilding } from "react-icons/fa";
 import { prizes } from "../../data";
 import Markdown from "react-markdown";
+import { Dialog } from "../ui/Dialog";
 const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
 
 const getPositionIcon = (position) => {
@@ -131,54 +132,42 @@ const Prizes = () => {
             </div>
 
             {/* Modal */}
-            <AnimatePresence>
+            <Dialog
+                open={!!selectedPrize}
+                onOpenChange={(open) => !open && setSelectedPrize(null)}
+                title={selectedPrize?.title || 'Prize'}
+            >
                 {selectedPrize && (
-                    <motion.div
-                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                        style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}
-                        onClick={() => setSelectedPrize(null)}
-                    >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
-                            transition={{ type: 'spring', damping: 30, stiffness: 350 }}
-                            style={{ backgroundColor: '#ffffff', borderRadius: '24px', maxWidth: '560px', width: '100%', overflow: 'hidden' }}
-                            onClick={e => e.stopPropagation()}
-                        >
-                            {/* Modal header bar */}
-                            <div style={{ height: '6px', backgroundColor: BLOCK_COLORS[prizes.indexOf(selectedPrize) % BLOCK_COLORS.length] }} />
+                    <>
+                        {/* Modal header bar */}
+                        <div style={{ height: '6px', backgroundColor: BLOCK_COLORS[prizes.indexOf(selectedPrize) % BLOCK_COLORS.length] }} />
 
-                            <div style={{ padding: '32px', position: 'relative' }}>
-                                <button onClick={() => setSelectedPrize(null)}
-                                    style={{ position: 'absolute', top: '24px', right: '24px', width: '32px', height: '32px', borderRadius: '9999px', backgroundColor: '#f7f7f5', border: '1px solid #e6e6e6', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-                                    <FaTimes size={12} />
-                                </button>
-
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
-                                    <div style={{ width: '48px', height: '48px', borderRadius: '9999px', backgroundColor: getPositionBadge(selectedPrize.position).bg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                                        {(() => { const I = getPositionIcon(selectedPrize.position); return <I size={20} />; })()}
-                                    </div>
-                                    <div>
-                                        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#888888', marginBottom: '4px' }}>{selectedPrize.year}</div>
-                                        <h2 style={{ fontSize: '22px', fontWeight: '540', color: '#000000', margin: 0 }}>{selectedPrize.title}</h2>
-                                    </div>
+                        <div style={{ padding: '32px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
+                                <div style={{ width: '48px', height: '48px', borderRadius: '9999px', backgroundColor: getPositionBadge(selectedPrize.position).bg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                    {(() => { const I = getPositionIcon(selectedPrize.position); return <I size={20} />; })()}
                                 </div>
-
-                                <div style={{ borderTop: '1px solid #f1f1f1', paddingTop: '20px' }}>
-                                    <p style={{ fontSize: '15px', fontWeight: '540', color: '#000000', marginBottom: '8px' }}>{selectedPrize.position}</p>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '14px', color: '#666666', marginBottom: '16px' }}>
-                                        <FaBuilding size={12} /> {selectedPrize.organization}
-                                    </div>
-                                    {selectedPrize.description && (
-                                        <div style={{ fontSize: '15px', fontWeight: '330', lineHeight: '1.7', color: '#444444' }}>
-                                            <Markdown>{selectedPrize.description}</Markdown>
-                                        </div>
-                                    )}
+                                <div>
+                                    <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#888888', marginBottom: '4px' }}>{selectedPrize.year}</div>
+                                    <h2 style={{ fontSize: '22px', fontWeight: '540', color: '#000000', margin: 0 }}>{selectedPrize.title}</h2>
                                 </div>
                             </div>
-                        </motion.div>
-                    </motion.div>
+
+                            <div style={{ borderTop: '1px solid #f1f1f1', paddingTop: '20px' }}>
+                                <p style={{ fontSize: '15px', fontWeight: '540', color: '#000000', marginBottom: '8px' }}>{selectedPrize.position}</p>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '14px', color: '#666666', marginBottom: '16px' }}>
+                                    <FaBuilding size={12} /> {selectedPrize.organization}
+                                </div>
+                                {selectedPrize.description && (
+                                    <div style={{ fontSize: '15px', fontWeight: '330', lineHeight: '1.7', color: '#444444' }}>
+                                        <Markdown>{selectedPrize.description}</Markdown>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </>
                 )}
-            </AnimatePresence>
+            </Dialog>
         </div>
     );
 };
