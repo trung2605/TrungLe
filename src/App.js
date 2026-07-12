@@ -13,6 +13,8 @@ import ProjectsPage from './pages/ProjectsPage';
 import CertificatesPage from './pages/CertificatesPage';
 import ActivitiesPage from './pages/ActivitiesPage';
 import NotFoundPage from './pages/NotFoundPage';
+import ProjectDetailPage from './pages/ProjectDetailPage';
+import ContactPage from './pages/ContactPage';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
+    window.__lenis = lenis;
 
     let rafId;
     const raf = (time) => {
@@ -36,6 +39,7 @@ function App() {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      window.__lenis = null;
     };
   }, []);
 
@@ -52,8 +56,10 @@ function App() {
                 <Route path="education" element={<EducationPage />} />
 
                 <Route path="projects" element={<ProjectsPage />} />
+                <Route path="projects/:id" element={<ProjectDetailPage />} />
                 <Route path="certificates" element={<CertificatesPage />} />
                 <Route path="activities" element={<ActivitiesPage />} />
+                <Route path="contact" element={<ContactPage />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Routes>

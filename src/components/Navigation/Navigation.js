@@ -1,15 +1,25 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { personalInfo, siteNavigation } from "../../data";
+import { personalInfo } from "../../data";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCustomTheme } from "../../contexts/ThemeContext";
+import { useTranslation } from "react-i18next";
+import { useTranslatedData } from "../../hooks/useTranslatedData";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const { isDarkMode, toggleTheme } = useCustomTheme();
+  const { t, i18n } = useTranslation();
+  const { siteNavigation } = useTranslatedData();
+
+  const toggleLang = () => {
+    const next = i18n.language === 'en' ? 'vi' : 'en';
+    i18n.changeLanguage(next);
+    localStorage.setItem('lang', next);
+  };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -150,6 +160,54 @@ const Navigation = () => {
                 </motion.span>
               </AnimatePresence>
             </button>
+
+            {/* Language toggle — sliding switch */}
+            <button
+              onClick={toggleLang}
+              data-testid="lang-toggle"
+              style={{
+                position: 'relative',
+                width: '64px',
+                height: '28px',
+                borderRadius: '50px',
+                backgroundColor: '#f7f7f5',
+                border: '1.5px solid #e6e6e6',
+                cursor: 'pointer',
+                padding: 0,
+                flexShrink: 0,
+                overflow: 'hidden',
+              }}
+              aria-label="Toggle language"
+            >
+              {/* Labels */}
+              <span style={{
+                position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)',
+                fontSize: '10px', fontFamily: 'JetBrains Mono, monospace', fontWeight: '600',
+                letterSpacing: '0.4px', color: i18n.language === 'en' ? '#ffffff' : '#aaaaaa',
+                transition: 'color 0.2s ease', userSelect: 'none', zIndex: 3,
+              }}>EN</span>
+              <span style={{
+                position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)',
+                fontSize: '10px', fontFamily: 'JetBrains Mono, monospace', fontWeight: '600',
+                letterSpacing: '0.4px', color: i18n.language === 'vi' ? '#ffffff' : '#aaaaaa',
+                transition: 'color 0.2s ease', userSelect: 'none', zIndex: 3,
+              }}>VI</span>
+              {/* Thumb */}
+              <motion.div
+                animate={{ x: i18n.language === 'en' ? 1 : 33 }}
+                transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                style={{
+                  position: 'absolute',
+                  top: '2px',
+                  width: '28px',
+                  height: '20px',
+                  borderRadius: '50px',
+                  backgroundColor: '#000000',
+                  zIndex: 2,
+                }}
+              />
+            </button>
+
             <a
               href={personalInfo.cv}
               download="Le_Tri_Trung_CV.pdf"
@@ -166,7 +224,7 @@ const Navigation = () => {
                 transition: 'background-color 0.15s ease',
               }}
             >
-              Download CV
+              {t('nav.downloadCV')}
             </a>
             <Link
               to="/projects"
@@ -185,13 +243,14 @@ const Navigation = () => {
               onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
               onMouseLeave={e => e.currentTarget.style.backgroundColor = '#000000'}
             >
-              View Projects
+              {t('nav.viewProjects')}
             </Link>
 
             {/* Hamburger */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden"
+              data-testid="mobile-menu-toggle"
               style={{
                 padding: '8px',
                 background: 'none',
@@ -230,6 +289,7 @@ const Navigation = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            data-testid="mobile-menu"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
@@ -285,7 +345,7 @@ const Navigation = () => {
                 textDecoration: 'none',
               }}
             >
-              View Projects
+              {t('nav.viewProjects')}
             </Link>
           </motion.div>
         )}

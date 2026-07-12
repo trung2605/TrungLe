@@ -1,8 +1,12 @@
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaDownload, FaGithub, FaLinkedin, FaInstagram, FaFacebook, FaArrowRight } from "react-icons/fa";
-import { siteNavigation, personalInfo, skills, allSkillsData } from "../../data";
+import { personalInfo, allSkillsData } from "../../data";
+import TechIcon from "../../common/TechIcon";
+import NewAvatar from "../../assets/information/image.png";
+import { useTranslatedData } from "../../hooks/useTranslatedData";
+import { useTranslation } from "react-i18next";
 import BlurText from "../../animations/BlurText";
 import CountUp from "../../animations/CountUp";
 import RotatingText from "../../animations/RotatingText";
@@ -20,6 +24,122 @@ const TECH_MARQUEE = [
   "MongoDB", "SQL Server", "Docker", "Git", "REST APIs",
   "React Native", "Tailwind CSS", "Spring Security",
 ];
+
+
+
+const TerminalCard = () => {
+  const cardRef = useRef(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotX = useSpring(useTransform(mouseY, [-1, 1], [12, -12]), { stiffness: 180, damping: 22 });
+  const rotY = useSpring(useTransform(mouseX, [-1, 1], [-12, 12]), { stiffness: 180, damping: 22 });
+  const glowX = useSpring(useTransform(mouseX, [-1, 1], [0, 100]), { stiffness: 180, damping: 22 });
+  const glowY = useSpring(useTransform(mouseY, [-1, 1], [0, 100]), { stiffness: 180, damping: 22 });
+
+  const handleMouseMove = useCallback((e) => {
+    const el = cardRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    mouseX.set(((e.clientX - rect.left) / rect.width) * 2 - 1);
+    mouseY.set(((e.clientY - rect.top) / rect.height) * 2 - 1);
+  }, [mouseX, mouseY]);
+
+  const handleMouseLeave = useCallback(() => {
+    mouseX.set(0);
+    mouseY.set(0);
+  }, [mouseX, mouseY]);
+
+  return (
+    <div style={{ perspective: '900px', width: '100%' }}>
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX: rotX,
+        rotateY: rotY,
+        transformStyle: 'preserve-3d',
+        backgroundColor: '#0d1117',
+        borderRadius: '16px',
+        overflow: 'hidden',
+        border: '1px solid #30363d',
+        fontFamily: 'JetBrains Mono, monospace',
+        fontSize: '13px',
+        boxShadow: '0 24px 48px rgba(0,0,0,0.4)',
+        width: '100%',
+        cursor: 'default',
+      }}
+    >
+      {/* Title bar */}
+      <div style={{ backgroundColor: '#161b22', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid #30363d' }}>
+        <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ff5f57', display: 'inline-block' }} />
+        <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ffbd2e', display: 'inline-block' }} />
+        <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#28c840', display: 'inline-block' }} />
+        <span style={{ marginLeft: '8px', fontSize: '12px', color: '#8b949e' }}>trung@portfolio ~ </span>
+        <span style={{ marginLeft: 'auto', fontSize: '11px', color: '#30363d' }}>image.png</span>
+      </div>
+
+      {/* Avatar with code overlay */}
+      <div style={{ position: 'relative' }}>
+        {/* Mouse-tracking glare */}
+        <motion.div
+          style={{
+            position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none', borderRadius: 0,
+            background: useTransform(
+              [glowX, glowY],
+              ([x, y]) => `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.08) 0%, transparent 60%)`
+            ),
+          }}
+        />
+        <img
+          src={NewAvatar}
+          alt="Le Tri Trung"
+          style={{ width: '100%', display: 'block', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'top' }}
+        />
+
+        {/* Top-left: file path badge */}
+        <div style={{
+          position: 'absolute', top: '14px', left: '14px',
+          backgroundColor: 'rgba(13,17,23,0.85)',
+          border: '1px solid #30363d',
+          borderRadius: '6px',
+          padding: '5px 10px',
+          fontSize: '11px', color: '#8b949e',
+          backdropFilter: 'blur(4px)',
+        }}>
+          <span style={{ color: '#1ea64a' }}>$ </span>open <span style={{ color: '#93c5fd' }}>le-tri-trung.jpg</span>
+        </div>
+
+        {/* Bottom overlay: code info strip */}
+        <div style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0,
+          backgroundColor: 'rgba(13,17,23,0.88)',
+          borderTop: '1px solid #30363d',
+          padding: '14px 16px',
+          backdropFilter: 'blur(8px)',
+          display: 'flex', flexDirection: 'column', gap: '5px',
+        }}>
+          <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+            <span style={{ color: '#1ea64a' }}>$</span>
+            <span style={{ color: '#ffffff' }}>whoami</span>
+          </div>
+          <div style={{ color: '#e2e8f0', paddingLeft: '14px' }}>le-tri-trung</div>
+          <div style={{ display: 'flex', gap: '6px', alignItems: 'center', marginTop: '4px' }}>
+            <span style={{ color: '#1ea64a' }}>$</span>
+            <span style={{ color: '#ffffff' }}>echo $ROLE</span>
+          </div>
+          <div style={{ color: '#93c5fd', paddingLeft: '14px', fontSize: '12px' }}>Software Developer Intern @ FPT Software</div>
+          <div style={{ display: 'flex', gap: '6px', alignItems: 'center', marginTop: '2px' }}>
+            <span style={{ color: '#4ade80' }}>✓</span>
+            <span style={{ color: '#4ade80', fontSize: '12px' }}>open_to_work: true</span>
+            <span style={{ display: 'inline-block', width: '7px', height: '13px', backgroundColor: '#1ea64a', animation: 'blink 1s step-end infinite', marginLeft: '4px' }} />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+    </div>
+  );
+};
 
 const SkillBar = ({ skill }) => (
   <div style={{ marginBottom: '16px' }}>
@@ -41,7 +161,22 @@ const SkillBar = ({ skill }) => (
 
 const Home = () => {
   const prefersReducedMotion = useReducedMotion();
+  const { t } = useTranslation();
+  const { skills, siteNavigation } = useTranslatedData();
+
   const heroRef = useRef(null);
+  const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const heroSpring = { stiffness: 60, damping: 18, mass: 0.6 };
+
+  const badgeY   = useSpring(useTransform(heroScroll, [0, 1], [0, -60]),  heroSpring);
+  const badgeOp  = useSpring(useTransform(heroScroll, [0, 0.5], [1, 0]),  heroSpring);
+  const h1Y      = useSpring(useTransform(heroScroll, [0, 1], [0, -40]),  heroSpring);
+  const h1Op     = useSpring(useTransform(heroScroll, [0, 0.6], [1, 0]),  heroSpring);
+  const roleY    = useSpring(useTransform(heroScroll, [0, 1], [0, -25]),  heroSpring);
+  const descY    = useSpring(useTransform(heroScroll, [0, 1], [0, -15]),  heroSpring);
+  const ctaY     = useSpring(useTransform(heroScroll, [0, 1], [0, -8]),   heroSpring);
+  const imgX     = useSpring(useTransform(heroScroll, [0, 1], [0, 60]),   heroSpring);
+  const imgOp    = useSpring(useTransform(heroScroll, [0, 0.7], [1, 0]),  heroSpring);
 
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
@@ -51,28 +186,6 @@ const Home = () => {
 
   // Magnetic pull on the primary CTA
   const magnetic = useMagnetic({ strength: 0.3 });
-
-  // Gentle parallax on the profile image as the hero scrolls out of view
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 60]);
-
-  // Mouse-tilt on the profile image card
-  const tiltX = useMotionValue(0);
-  const tiltY = useMotionValue(0);
-  const springTiltX = useSpring(tiltX, { stiffness: 150, damping: 15 });
-  const springTiltY = useSpring(tiltY, { stiffness: 150, damping: 15 });
-  const handleTiltMove = (e) => {
-    if (prefersReducedMotion) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const relX = (e.clientX - rect.left) / rect.width - 0.5;
-    const relY = (e.clientY - rect.top) / rect.height - 0.5;
-    tiltY.set(relX * 14);
-    tiltX.set(relY * -14);
-  };
-  const handleTiltLeave = () => {
-    tiltX.set(0);
-    tiltY.set(0);
-  };
 
   return (
     <div>
@@ -93,7 +206,7 @@ const Home = () => {
         >
           {/* Text */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <motion.div {...fadeUp(0)}>
+            <motion.div style={{ y: badgeY, opacity: badgeOp }}>
               <span style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -109,7 +222,7 @@ const Home = () => {
                 color: '#000000',
               }}>
                 <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#1ea64a', display: 'inline-block' }} />
-                Available for opportunities
+                {t('home.badge')}
               </span>
             </motion.div>
 
@@ -122,10 +235,12 @@ const Home = () => {
                 letterSpacing: '-1.72px',
                 color: 'var(--color-ink)',
                 margin: 0,
+                y: h1Y,
+                opacity: h1Op,
               }}
             >
               <BlurText
-                text="Xin chào,"
+                text={t('home.greeting')}
                 delay={50}
                 animateBy="words"
                 direction="top"
@@ -154,11 +269,12 @@ const Home = () => {
                 alignItems: 'center',
                 gap: '12px',
                 flexWrap: 'wrap',
+                y: roleY,
               }}
             >
-              <span>I'm a</span>
+              <span>{t('home.iAm')}</span>
               <RotatingText
-                texts={["Java Developer", "CS Student", "Backend Engineer", "Problem Solver"]}
+                texts={t('home.roles', { returnObjects: true })}
                 mainClassName="inline-flex items-center px-4 py-1 rounded-lg font-semibold"
                 rotationInterval={2500}
                 staggerDuration={0.025}
@@ -181,14 +297,14 @@ const Home = () => {
                 color: 'var(--color-ink-soft)',
                 maxWidth: '520px',
                 margin: 0,
+                y: descY,
               }}
             >
-              Computer Science student at FPT University. Specializing in Java Spring Boot
-              and modern web development — building clean, scalable applications.
+              {t('home.heroDesc')}
             </motion.p>
 
             {/* CTAs */}
-            <motion.div {...fadeUp(0.4)} style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <motion.div {...fadeUp(0.4)} style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', y: ctaY }}>
               <MotionLink
                 ref={magnetic.ref}
                 to="/projects"
@@ -209,7 +325,7 @@ const Home = () => {
                 onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
                 onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#000000'; magnetic.handleMouseLeave(); }}
               >
-                View Projects <FaArrowRight size={14} />
+                {t('home.viewProjects')} <FaArrowRight size={14} />
               </MotionLink>
               <a
                 href={personalInfo.cv}
@@ -228,12 +344,12 @@ const Home = () => {
                   transition: 'background-color 0.15s ease',
                 }}
               >
-                <FaDownload size={14} /> Download CV
+                <FaDownload size={14} /> {t('home.downloadCV')}
               </a>
             </motion.div>
 
             {/* Social links */}
-            <motion.div {...fadeUp(0.5)} style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingTop: '8px' }}>
+            <motion.div {...fadeUp(0.5)} style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingTop: '8px', y: ctaY }}>
               {[
                 { href: personalInfo.contact?.github, icon: <FaGithub size={18} /> },
                 { href: personalInfo.contact?.linkedin, icon: <FaLinkedin size={18} /> },
@@ -262,49 +378,15 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Profile image — hidden on mobile via CSS */}
+          {/* Terminal card — hidden on mobile */}
           <motion.div
+            className="hidden lg:block"
             initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: prefersReducedMotion ? 0 : 0.3, duration: prefersReducedMotion ? 0.01 : 0.7 }}
-            className="hidden lg:flex"
-            style={{ justifyContent: 'center', alignItems: 'center', y: parallaxY }}
+            style={{ x: imgX, opacity: imgOp }}
           >
-            <motion.div
-              onMouseMove={handleTiltMove}
-              onMouseLeave={handleTiltLeave}
-              style={{
-                position: 'relative', width: '360px', height: '360px',
-                rotateX: springTiltX, rotateY: springTiltY,
-                transformPerspective: 800,
-              }}
-            >
-              <div style={{
-                position: 'absolute', inset: '-24px',
-                backgroundColor: '#dceeb1', borderRadius: '32px', zIndex: 0,
-              }} />
-              <div style={{
-                position: 'relative', zIndex: 1,
-                width: '100%', height: '100%',
-                borderRadius: '24px', overflow: 'hidden',
-                border: '4px solid #ffffff',
-              }}>
-                <img
-                  src={personalInfo.profileImage}
-                  alt="Lê Trí Trung"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-              </div>
-              <div style={{
-                position: 'absolute', bottom: '-16px', right: '-16px',
-                backgroundColor: '#000000', color: '#ffffff',
-                borderRadius: '50px', padding: '8px 18px',
-                fontSize: '12px', fontFamily: 'JetBrains Mono, monospace',
-                letterSpacing: '0.4px', textTransform: 'uppercase', zIndex: 2,
-              }}>
-                FPT University · Đà Nẵng
-              </div>
-            </motion.div>
+            <TerminalCard />
           </motion.div>
         </div>
       </section>
@@ -332,32 +414,32 @@ const Home = () => {
       {/* ── STATS — LIME BLOCK ── */}
       <section style={{ padding: '72px 0' }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95, rotate: -0.8 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           style={{ backgroundColor: '#dceeb1', borderRadius: '24px', padding: '40px 36px' }}
         >
           <p style={{
             fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
             letterSpacing: '0.60px', textTransform: 'uppercase',
             color: '#444444', marginBottom: '28px',
-          }}>By the numbers</p>
+          }}>{t('home.statsByNumbers')}</p>
           <div
             className="stats-grid"
             style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}
           >
             {[
-              { value: 11, suffix: '+', label: 'Projects Built' },
-              { value: 27, suffix: '+', label: 'Certificates' },
-              { value: 7,  suffix: '+', label: 'Awards & Prizes' },
-              { value: 18, suffix: '+', label: 'Activities' },
+              { value: 11, suffix: '+', labelKey: 'home.stats.0.label' },
+              { value: 27, suffix: '+', labelKey: 'home.stats.1.label' },
+              { value: 7,  suffix: '+', labelKey: 'home.stats.2.label' },
+              { value: 18, suffix: '+', labelKey: 'home.stats.3.label' },
             ].map((stat, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5 }}>
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.6, y: 12 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
                 <div style={{ fontSize: 'clamp(30px, 4vw, 52px)', fontWeight: '340', lineHeight: '1.0', letterSpacing: '-1px', color: '#000000' }}>
                   <CountUp to={stat.value} from={0} duration={2} delay={i * 0.1} suffix={stat.suffix} />
                 </div>
-                <div style={{ fontSize: '14px', fontWeight: '400', color: '#444444', marginTop: '6px' }}>{stat.label}</div>
+                <div style={{ fontSize: '14px', fontWeight: '400', color: '#444444', marginTop: '6px' }}>{t(stat.labelKey)}</div>
               </motion.div>
             ))}
           </div>
@@ -367,23 +449,23 @@ const Home = () => {
       {/* ── SKILLS — LILAC BLOCK ── */}
       <section style={{ paddingBottom: '72px' }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           style={{ backgroundColor: '#c5b0f4', borderRadius: '24px', padding: '40px 36px' }}
         >
           <p style={{
             fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
             letterSpacing: '0.60px', textTransform: 'uppercase',
             color: '#444444', marginBottom: '12px',
-          }}>Skills & Expertise</p>
+          }}>{t('home.skillsLabel')}</p>
           <h2 style={{
             fontSize: 'clamp(26px, 4vw, 48px)', fontWeight: '340',
             lineHeight: '1.10', letterSpacing: '-0.72px',
             color: '#000000', marginBottom: '40px',
           }}>
-            <BlurText text="What I work with" delay={40} animateBy="words" direction="bottom" className="inline" />
+            <BlurText text={t('home.skillsTitle')} delay={40} animateBy="words" direction="bottom" className="inline" />
           </h2>
 
           <div
@@ -393,10 +475,10 @@ const Home = () => {
             {skills.map((category, ci) => (
               <motion.div
                 key={ci}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 28, rotateX: 10 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: ci * 0.1, duration: 0.5 }}
+                transition={{ delay: ci * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   backgroundColor: 'rgba(255,255,255,0.5)',
                   borderRadius: '16px', padding: '24px',
@@ -421,12 +503,13 @@ const Home = () => {
             {allSkillsData.map((tech, i) => (
               <motion.span
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.75, y: 8 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.02, duration: 0.3 }}
+                transition={{ delay: i * 0.025, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ scale: 1.05 }}
                 style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '7px',
                   padding: '5px 12px', borderRadius: '50px',
                   fontSize: '13px', fontWeight: '400', color: '#000000',
                   backgroundColor: 'rgba(255,255,255,0.6)',
@@ -436,6 +519,7 @@ const Home = () => {
                 onMouseEnter={e => e.currentTarget.style.backgroundColor = '#ffffff'}
                 onMouseLeave={e => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.6)'}
               >
+                <TechIcon tech={tech.name} size={13} />
                 {tech.name}
               </motion.span>
             ))}
@@ -446,29 +530,28 @@ const Home = () => {
       {/* ── EXPLORE — CREAM BLOCK ── */}
       <section style={{ paddingBottom: '72px' }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           style={{ backgroundColor: '#f4ecd6', borderRadius: '24px', padding: '40px 36px' }}
         >
           <p style={{
             fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
             letterSpacing: '0.60px', textTransform: 'uppercase',
             color: '#666666', marginBottom: '12px',
-          }}>More About Me</p>
+          }}>{t('home.exploreLabel')}</p>
           <h2 style={{
             fontSize: 'clamp(24px, 3.5vw, 48px)', fontWeight: '340',
             lineHeight: '1.10', letterSpacing: '-0.72px',
             color: '#000000', marginBottom: '36px',
-          }}>Explore my journey</h2>
+          }}>{t('home.exploreTitle')}</h2>
 
           <div
-            className="grid-3col"
             style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '14px' }}
           >
             {siteNavigation.slice(1).map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5 }} whileHover={{ y: -4 }}>
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.9, rotate: i % 2 === 0 ? -1 : 1 }} whileInView={{ opacity: 1, scale: 1, rotate: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }} whileHover={{ y: -4 }}>
                 <Link
                   to={item.path}
                   style={{
@@ -494,10 +577,10 @@ const Home = () => {
       {/* ── CONTACT CTA — NAVY BLOCK ── */}
       <section style={{ paddingBottom: '72px' }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.96, y: 24 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="cta-navy"
           style={{
             backgroundColor: '#1f1d3d', borderRadius: '24px',
@@ -512,18 +595,18 @@ const Home = () => {
               fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
               letterSpacing: '0.60px', textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.5)', marginBottom: '12px',
-            }}>Let's build something</p>
+            }}>{t('home.ctaLabel')}</p>
             <h2 style={{
               fontSize: 'clamp(22px, 3.5vw, 44px)', fontWeight: '340',
               lineHeight: '1.15', letterSpacing: '-0.72px',
               color: '#ffffff', margin: 0,
             }}>
-              Open to internship &<br />collaboration opportunities
+              {t('home.ctaTitle')}
             </h2>
           </div>
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            <a
-              href={`mailto:${personalInfo.contact?.email || 'letritrung2605@gmail.com'}`}
+            <Link
+              to="/contact"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
                 padding: '11px 22px', borderRadius: '50px',
@@ -534,8 +617,8 @@ const Home = () => {
               onMouseEnter={e => e.currentTarget.style.backgroundColor = '#f0f0f0'}
               onMouseLeave={e => e.currentTarget.style.backgroundColor = '#ffffff'}
             >
-              Get in touch <FaArrowRight size={14} />
-            </a>
+              {t('home.getInTouch')} <FaArrowRight size={14} />
+            </Link>
             <a
               href={personalInfo.contact?.github || 'https://github.com/trung2605'}
               target="_blank"

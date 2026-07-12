@@ -1,0 +1,408 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "education": "Học vấn",
+    "projects": "Dự án",
+    "certificates": "Chứng chỉ",
+    "prizes": "Giải thưởng",
+    "activities": "Hoạt động",
+    "contact": "Liên hệ",
+    "downloadCV": "Tải CV",
+    "viewProjects": "Xem dự án"
+  },
+  "home": {
+    "badge": "Sẵn sàng cho cơ hội mới",
+    "greeting": "Xin chào,",
+    "roles": ["Java Developer", "Sinh viên CNTT", "Backend Engineer", "Problem Solver"],
+    "iAm": "Tôi là",
+    "heroDesc": "Sinh viên Khoa học Máy tính tại Đại học FPT. Chuyên sâu về Java Spring Boot và phát triển web hiện đại — xây dựng ứng dụng sạch, có khả năng mở rộng.",
+    "viewProjects": "Xem dự án",
+    "downloadCV": "Tải CV",
+    "statsByNumbers": "Những con số",
+    "stats": [
+      { "label": "Dự án đã xây dựng" },
+      { "label": "Chứng chỉ" },
+      { "label": "Giải thưởng" },
+      { "label": "Hoạt động" }
+    ],
+    "skillsLabel": "Kỹ năng & Chuyên môn",
+    "skillsTitle": "Những gì tôi làm việc cùng",
+    "exploreLabel": "Tìm hiểu thêm",
+    "exploreTitle": "Khám phá hành trình của tôi",
+    "ctaLabel": "Hãy cùng tạo ra điều gì đó",
+    "ctaTitle": "Sẵn sàng cho thực tập & cơ hội hợp tác",
+    "getInTouch": "Liên hệ ngay"
+  },
+  "about": {
+    "personalInfoLabel": "Thông tin cá nhân",
+    "dateOfBirth": "Ngày sinh",
+    "location": "Địa chỉ",
+    "education": "Học vấn",
+    "specialization": "Chuyên môn",
+    "educationValue": "Đại học FPT",
+    "specializationValue": "Java Developer",
+    "atAGlance": "Tóm lược",
+    "experienceLabel": "Kinh nghiệm",
+    "experienceTitle": "Nơi tôi đã làm việc & dẫn dắt",
+    "highlightsLabel": "Điểm nổi bật",
+    "highlightsTitle": "Những gì làm nên con người tôi",
+    "skillsLabel": "Kỹ năng kỹ thuật",
+    "skillsTitle": "Công cụ & công nghệ tôi sử dụng",
+    "languagesLabel": "Ngôn ngữ",
+    "languagesTitle": "Cách tôi giao tiếp",
+    "funFactsLabel": "Ngoài CV",
+    "funFactsTitle": "Những điều bạn sẽ không thấy trong CV",
+    "galleryLabel": "Thư viện ảnh"
+  },
+  "contact": {
+    "label": "Liên hệ",
+    "title": "Liên hệ với tôi",
+    "desc": "Sẵn sàng cho cơ hội thực tập, hợp tác, hoặc chỉ là một cuộc trò chuyện về công nghệ.",
+    "infoTitle": "Thông tin liên hệ",
+    "infoDesc": "Hãy liên lạc. Tôi thường phản hồi trong vòng 24 giờ.",
+    "formTitle": "Gửi tin nhắn",
+    "namePlaceholder": "Họ và tên của bạn",
+    "emailPlaceholder": "email@cuaban.com",
+    "subjectPlaceholder": "Chủ đề là gì?",
+    "messagePlaceholder": "Nội dung tin nhắn...",
+    "nameLabel": "Họ và tên",
+    "emailLabel": "Email",
+    "subjectLabel": "Chủ đề",
+    "messageLabel": "Tin nhắn",
+    "submit": "Gửi tin nhắn",
+    "submitting": "Đang gửi...",
+    "successMsg": "Đã gửi thành công! Tôi sẽ phản hồi sớm nhất có thể.",
+    "errorMsg": "Gửi thất bại. Vui lòng email trực tiếp cho tôi.",
+    "errorRequired": "Vui lòng điền đầy đủ các trường bắt buộc.",
+    "errorEmail": "Địa chỉ email không hợp lệ.",
+    "methods": {
+      "email": "Email",
+      "phone": "Điện thoại",
+      "location": "Địa chỉ",
+      "facebook": "Facebook",
+      "instagram": "Instagram"
+    }
+  },
+  "pageBanner": {
+    "about": {
+      "eyebrow": "Về tôi",
+      "title": "Con người tôi",
+      "subtitle": "Một cái nhìn về nền tảng, kỹ năng và điều thúc đẩy tôi tiến về phía trước."
+    },
+    "projects": {
+      "eyebrow": "Danh mục dự án",
+      "title": "Dự án",
+      "subtitle": "Những gì tôi đã xây dựng — từ dự án cá nhân đến ứng dụng thực tế."
+    },
+    "education": {
+      "eyebrow": "Hành trình học vấn",
+      "title": "Học vấn",
+      "subtitle": "Nơi tôi học, điều tôi học được, và những khoảnh khắc đáng nhớ."
+    },
+    "certificates": {
+      "eyebrow": "Bằng cấp & Chứng nhận",
+      "title": "Chứng chỉ & Giải thưởng",
+      "subtitle": "Kỹ năng được xác nhận và ghi nhận trên con đường phát triển."
+    },
+    "activities": {
+      "eyebrow": "Tham gia",
+      "title": "Hoạt động",
+      "subtitle": "Câu lạc bộ, cuộc thi và cộng đồng tôi đã là một phần."
+    },
+    "contact": {
+      "eyebrow": "Liên hệ",
+      "title": "Kết nối với tôi",
+      "subtitle": "Có câu hỏi hoặc muốn hợp tác? Hãy liên hệ nhé."
+    },
+    "projectDetail": "Chi tiết dự án",
+    "home": "Trang chủ"
+  },
+  "education": {
+    "label": "Hành trình học vấn",
+    "title": "Học vấn & Đào tạo",
+    "memoriesLabel": "Kỷ niệm",
+    "memoriesTitle": "Những khoảnh khắc trên hành trình",
+    "current": "Đang học",
+    "completed": "Đã hoàn thành",
+    "graduated": "Đã tốt nghiệp"
+  },
+  "projects": {
+    "label": "Danh mục dự án",
+    "title": "Dự án",
+    "all": "Tất cả",
+    "filterLabel": "Lọc",
+    "filterAll": "Tất cả",
+    "filterActive": "Đang hoạt động",
+    "filterInDev": "Đang phát triển",
+    "filterCompleted": "Đã hoàn thành",
+    "viewDetails": "Xem chi tiết",
+    "aboutProject": "Về dự án này",
+    "techStack": "Công nghệ sử dụng",
+    "viewCode": "Xem code",
+    "viewSource": "Xem mã nguồn",
+    "liveDemo": "Xem demo",
+    "backToProjects": "Quay lại dự án",
+    "otherProjects": "Dự án khác",
+    "notFound": "Không tìm thấy dự án.",
+    "role": "Vai trò",
+    "timeline": "Thời gian",
+    "duration": "Thời gian",
+    "status": "Trạng thái",
+    "links": "Liên kết",
+    "githubRepo": "GitHub Repository",
+    "statuses": {
+      "inDevelopment": "Đang phát triển",
+      "completed": "Đã hoàn thành",
+      "active": "Đang hoạt động"
+    }
+  },
+  "certificates": {
+    "label": "Bằng cấp",
+    "title": "Chứng chỉ & Giải thưởng",
+    "searchPlaceholder": "Tìm kiếm chứng chỉ...",
+    "all": "Tất cả",
+    "allYears": "Tất cả năm",
+    "noResults": "Không tìm thấy chứng chỉ.",
+    "issuedBy": "Cấp bởi",
+    "viewCertificate": "Xem chứng chỉ",
+    "close": "Đóng",
+    "prev": "Trước",
+    "next": "Tiếp"
+  },
+  "prizes": {
+    "label": "Ghi nhận",
+    "title": "Giải thưởng & Thành tích",
+    "finalist": "Vào chung kết",
+    "winner": "Giải nhất",
+    "runnerUp": "Á quân"
+  },
+  "activities": {
+    "label": "Tham gia",
+    "title": "Hoạt động",
+    "totalActivities": "Tổng hoạt động",
+    "active": "Đang hoạt động",
+    "completed": "Đã hoàn thành",
+    "organizations": "Tổ chức",
+    "statusLabel": "Trạng thái:",
+    "orgLabel": "Tổ chức:",
+    "all": "Tất cả",
+    "allOrgs": "Tất cả tổ chức",
+    "viewDetails": "Xem chi tiết",
+    "close": "Đóng",
+    "statuses": {
+      "active": "Đang hoạt động",
+      "inProgress": "Đang tiến hành",
+      "completed": "Đã hoàn thành",
+      "various": "Đa dạng"
+    }
+  },
+  "footer": {
+    "quickLinks": "Liên kết nhanh",
+    "contactInfo": "Thông tin liên hệ",
+    "letsConnect": "Kết nối với tôi",
+    "builtWith": "Xây dựng bằng React & Framer Motion",
+    "backToTop": "Về đầu trang"
+  },
+  "common": {
+    "readMore": "Đọc thêm",
+    "learnMore": "Tìm hiểu thêm",
+    "required": "bắt buộc"
+  },
+  "personalInfo": {
+    "storyTitle": "Hành trình của tôi",
+    "storyContent": "Tôi là **Lê Trí Trung** — sinh viên Khoa học Máy tính tại **Đại học FPT Đà Nẵng**, hiện đang thực tập tại **FPT Software** với vị trí Software Developer. Tôi chuyên sâu về **Java Spring Boot** và thích xây dựng các ứng dụng full-stack sạch sẽ, có khả năng mở rộng và thực sự hữu ích.\n\nHành trình của tôi bắt đầu từ sự tò mò về cách mọi thứ hoạt động bên trong. Điều đó dẫn tôi từ nền tảng Java đến thiết kế RESTful API, tích hợp cơ sở dữ liệu, làm việc trong các nhóm Agile thực sự, và cuối cùng là cùng xây dựng các nền tảng như **The MC Hub** — một marketplace kết nối MC sự kiện với khách hàng, có chat thời gian thực, tích hợp thanh toán và ứng dụng di động.\n\nNgoài lập trình, tôi đã làm **MC cho các sự kiện trường với 600–1000+ khán giả**, sáng lập **The Dreamers** — tổ chức từ thiện sinh viên tập trung mang giáo dục công nghệ đến trẻ em mồ côi — và tham gia nhiều cuộc thi lập trình cấp quốc gia, lọt vào vòng chung kết **FPT Code Talent** và **Innocode Camp**.\n\nTôi tin rằng những lập trình viên giỏi nhất là những người biết giao tiếp, dẫn dắt và thích nghi — không chỉ viết code. Đó là con người tôi đang hướng tới.",
+    "title": "Java Developer | Sinh viên Khoa học Máy tính",
+    "intro": "Sinh viên Khoa học Máy tính năng động với nền tảng vững chắc về phát triển web. Thành thạo Java Spring Boot, JavaScript, React, HTML/CSS và đam mê tạo ra các ứng dụng sạch sẽ, có khả năng mở rộng. Đang tìm kiếm vị trí thực tập Web Developer để áp dụng kỹ năng và đóng góp cho đội nhóm."
+  },
+  "highlights": [
+    {
+      "title": "Tư duy Backend-First",
+      "description": "Thế mạnh cốt lõi với Java Spring Boot — thiết kế RESTful API, bảo mật dịch vụ với JWT, quản lý cơ sở dữ liệu quan hệ và tài liệu, xây dựng hệ thống backend production-ready với kiến trúc sạch."
+    },
+    {
+      "title": "Năng lực Full-Stack",
+      "description": "Thoải mái trên toàn bộ stack — từ React 19 + Vite frontend đến Spring Boot backend, với kinh nghiệm thực tế triển khai trên Vercel và tích hợp dịch vụ bên thứ ba như PayOS và Cloudinary."
+    },
+    {
+      "title": "Lập trình viên thi đấu",
+      "description": "Lọt vào vòng chung kết FPT Code Talent, Innocode Camp và ResFes — rèn luyện tư duy thuật toán và hiệu suất dưới áp lực qua việc tham gia cuộc thi đều đặn."
+    },
+    {
+      "title": "Lãnh đạo & Xây dựng cộng đồng",
+      "description": "Sáng lập tổ chức từ thiện The Dreamers, lãnh đạo nhóm phát triển 5 người, tổ chức sự kiện trường cho 600–1000+ người tham dự — chứng minh rằng lập trình viên giỏi cũng biết giao tiếp và truyền cảm hứng."
+    }
+  ],
+  "funFacts": [
+    {
+      "title": "MC cho hơn 1.000 khán giả",
+      "description": "Dẫn chương trình các sự kiện trường với khán giả trực tiếp lên đến 1.000 người — quản lý luồng chương trình, diễn giả và những tình huống bất ngờ trên sân khấu."
+    },
+    {
+      "title": "Diễn viên quảng cáo & Model",
+      "description": "Xuất hiện trong các clip quảng cáo cho đại lý Honda Tiến Thủ và làm mẫu ảnh cho ảnh chính thức của Đại học FPT và thương hiệu váy cưới LenDoan."
+    },
+    {
+      "title": "5 lần vào chung kết cuộc thi",
+      "description": "Lọt vào vòng chung kết FPT Code Talent, Innocode Camp, ResFes (×2) và Code Mosaic — trong khi vẫn cân bằng thực tập và công việc tổ chức."
+    },
+    {
+      "title": "Sáng lập tổ chức từ thiện năm 19 tuổi",
+      "description": "Thành lập The Dreamers Organization năm 19 tuổi, phát triển lên 15+ thành viên và tổ chức 6+ sự kiện cộng đồng tập trung vào giáo dục công nghệ cho trẻ mồ côi."
+    },
+    {
+      "title": "Tự học tiếng Nhật",
+      "description": "Tự học tiếng Nhật từ đầu — đã hoàn thành Hiragana và Katakana song song với học toàn thời gian và thực tập. Vì sao không."
+    },
+    {
+      "title": "Thức dậy lúc 5:30 sáng",
+      "description": "Chạy bộ và đá bóng trước 7 giờ sáng hầu hết các ngày. Kỷ luật thể chất định hình cách tôi đối mặt với deadline và áp lực."
+    }
+  ],
+  "experience": [
+    {
+      "role": "Thực tập sinh Software Developer",
+      "company": "FPT Software",
+      "type": "Thực tập",
+      "duration": "09/2025 – Hiện tại",
+      "status": "Hiện tại",
+      "description": "Làm việc với tư cách **Thực tập sinh Software Developer** tại FPT Software — một trong những công ty công nghệ lớn nhất Việt Nam. Phát triển ứng dụng doanh nghiệp bằng **nền tảng low-code OutSystems**, cộng tác với kỹ sư senior trong các dự án thực tế, và tiếp xúc với quy trình Agile chuyên nghiệp, code review và tiêu chuẩn giao sản phẩm doanh nghiệp."
+    },
+    {
+      "role": "Người sáng lập & Trưởng dự án",
+      "company": "The Dreamers Organization",
+      "type": "Tình nguyện",
+      "duration": "06/2024 – Hiện tại",
+      "status": "Hiện tại",
+      "description": "Sáng lập và dẫn dắt **The Dreamers** — tổ chức từ thiện sinh viên tại Đại học FPT. Quản lý 15+ thành viên tích cực, phối hợp tổ chức sự kiện cộng đồng, giám sát các chuyến từ thiện đến trại trẻ mồ côi và điều hành chương trình giáo dục công nghệ cho trẻ em có hoàn cảnh khó khăn. Đồng thời xây dựng nền tảng quản lý backend bằng **Java Spring Boot**."
+    },
+    {
+      "role": "Trưởng nhóm & Backend Developer",
+      "company": "Nhóm dự án Đại học FPT",
+      "type": "Học thuật",
+      "duration": "09/2023 – Hiện tại",
+      "status": "Hiện tại",
+      "description": "Dẫn dắt nhiều nhóm dự án đa chức năng qua toàn bộ vòng đời phát triển — từ thu thập yêu cầu và thiết kế hệ thống đến triển khai. Các dự án chính gồm **Job Finder** (nhóm Agile 6 người), **Dola Bakery** (trưởng nhóm + kiến trúc backend) và **The MC Hub** (full-stack + mobile). Tập trung nhất quán vào **Java Spring Boot** backend, thiết kế RESTful API và quy trình Git cộng tác."
+    }
+  ],
+  "skills": [
+    {
+      "category": "Ngôn ngữ lập trình",
+      "items": [
+        { "name": "Java Core & Spring Boot" },
+        { "name": "Javascript ES6" },
+        { "name": "HTML5 & CSS3" },
+        { "name": "API Development (RESTful)" }
+      ]
+    },
+    {
+      "category": "Framework & Thư viện",
+      "items": [
+        { "name": "Spring Boot" },
+        { "name": "ReactJS (Hooks, API, JSX)" },
+        { "name": "Java Servlets" },
+        { "name": "React Hooks" }
+      ]
+    },
+    {
+      "category": "Công cụ & Công nghệ",
+      "items": [
+        { "name": "Git/GitHub/GitLab" },
+        { "name": "SQL Server Management Studio (SSMS)" },
+        { "name": "Docker" },
+        { "name": "Quản lý dự án" }
+      ]
+    },
+    {
+      "category": "Kỹ năng mềm",
+      "items": [
+        { "name": "Kỹ năng giao tiếp" },
+        { "name": "Lãnh đạo nhóm" },
+        { "name": "Giải quyết vấn đề" },
+        { "name": "Làm việc Agile" }
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "name": "Tiếng Việt",
+      "level": "Bản ngữ",
+      "description": "Tiếng mẹ đẻ — thành thạo hoàn toàn trong giao tiếp và chuyên nghiệp"
+    },
+    {
+      "name": "Tiếng Anh",
+      "level": "Chuyên nghiệp (IELTS 6.0)",
+      "description": "Thành thạo làm việc — đọc, viết, thuyết trình và giao tiếp hàng ngày"
+    },
+    {
+      "name": "Tiếng Nhật",
+      "level": "Sơ cấp",
+      "description": "Đã hoàn thành Hiragana & Katakana — đang tự học"
+    }
+  ],
+  "siteNavigation": [
+    { "title": "Trang chủ", "desc": "Chào mừng đến với portfolio của tôi" },
+    { "title": "Giới thiệu", "desc": "Tìm hiểu về hành trình và đam mê của tôi" },
+    { "title": "Học vấn", "desc": "Con đường học tập và thành tích học thuật" },
+    { "title": "Dự án", "desc": "Phần mềm tôi đã xây dựng và ra mắt" },
+    { "title": "Chứng chỉ", "desc": "Kỹ năng được xác nhận và khóa học đã hoàn thành" },
+    { "title": "Hoạt động", "desc": "Sự kiện, cuộc thi và công việc cộng đồng" },
+    { "title": "Liên hệ", "desc": "Liên lạc với tôi" }
+  ],
+  "educationItems": [
+    { "description": "Hiện đang thực tập tại FPT Software — một trong những **công ty công nghệ hàng đầu Việt Nam**. Tích lũy **kinh nghiệm thực tế** bằng cách phát triển ứng dụng trên **nền tảng Low-Code**, cụ thể là **OutSystems**. Vai trò này mang lại tiếp xúc quý giá với **môi trường doanh nghiệp chuyên nghiệp** và **quy trình phát triển phần mềm hiện đại**." },
+    { "description": "Đang theo học **Cử nhân Khoa học Máy tính** tại Đại học FPT. Chương trình học chú trọng **phát triển phần mềm**, **cấu trúc dữ liệu** và **giải thuật**. Tập trung vào **công nghệ backend**, đặc biệt là **Java Spring Boot**, và tích lũy kinh nghiệm qua **dự án nhóm** và **các cuộc thi lập trình**." },
+    { "description": "Tham gia **Chương trình Trao đổi Sinh viên Quốc tế** của Đại học FPT tại **Kuala Lumpur, Malaysia**. Thu được **kinh nghiệm học thuật quốc tế** trong môi trường đa dạng, nâng cao **khả năng thích nghi** và **kỹ năng giao tiếp đa văn hóa**." },
+    { "description": "Tốt nghiệp với **GPA xuất sắc 9.3/10.0**. Chương trình học tạo nền tảng vững chắc về **Toán, Lý và tư duy phân tích**, là bước đệm quan trọng cho hành trình học Khoa học Máy tính và rèn luyện **khả năng giải quyết vấn đề** sau này." }
+  ],
+  "memoryItems": [
+    { "caption": "Học tập và phát triển tại Đại học FPT." },
+    { "caption": "Trải nghiệm quốc tế trong chương trình trao đổi tại Kuala Lumpur." },
+    { "caption": "Nền tảng vững chắc được xây dựng trong những năm học phổ thông." }
+  ],
+  "activityItems": [
+    { "description": "Được mời về trường cũ với vai trò **diễn giả khách mời** để định hướng cho học sinh lớp 12 về con đường đại học và ngành công nghệ. Chia sẻ hành trình từ phổ thông đến Đại học FPT và thực tập tại FPT Software — bao gồm chương trình Khoa học Máy tính, lộ trình lập trình Java và những điều thực sự quan trọng trong năm đầu của sự nghiệp công nghệ. Giải đáp câu hỏi trực tiếp từ hơn 50 học sinh." },
+    { "description": "Dẫn dắt **đội 5 thành viên đa năng** qua toàn bộ vòng đời phát triển của Innocode Camp SU25 — từ phân tích bài toán, thiết kế hệ thống đến triển khai và thuyết trình chung kết. Nhóm xây dựng prototype nền tảng tìm kiếm việc làm sử dụng **React, Java Spring Boot, MySQL và Docker**. Điều phối sprint planning, quyết định kiến trúc backend và đảm bảo tiến độ theo deadline thi đấu. Nhóm vào **vòng chung kết**." },
+    { "description": "Thành viên nòng cốt của hai câu lạc bộ sự kiện và diễn thuyết nổi bật nhất FPT University Đà Nẵng. Thường xuyên đảm nhận vai trò **MC và người dẫn chương trình** cho các sự kiện cấp trường — bao gồm lễ khai giảng, lễ hội văn hóa, và các cuộc thi học thuật — với khán giả trực tiếp **600 đến 1000+ người**. Phát triển sự tự tin trên sân khấu, kỹ năng xử lý tình huống và khả năng điều hướng đám đông qua nhiều giờ chương trình." },
+    { "description": "Dẫn đội The Dreamers tham gia **Hội nghị Nghiên cứu Khoa học FPT (ResFres)** — cuộc thi học thuật nhiều vòng yêu cầu nghiên cứu gốc, viết báo cáo có cấu trúc và thuyết trình trước hội đồng chính thức. Phân công nhiệm vụ, duy trì tiến độ nghiên cứu và huấn luyện thành viên trình bày kết quả kỹ thuật rõ ràng trước ban giám khảo không chuyên. Đội vào **vòng chung kết liên cơ sở**." },
+    { "description": "Đảm nhận vai trò **điều phối viên chính và phụ trách đối ngoại** cho gala văn hóa 'Hồn Thiên Đất Việt' — sự kiện đại học quy mô lớn tôn vinh di sản Việt Nam. Nhiệm vụ bao gồm liên hệ đối tác và nhà tài trợ bên ngoài, điều phối hậu cần giữa các bộ phận, quản lý tiến trình sự kiện trong ngày và xử lý sự cố trực tiếp. Tích lũy kinh nghiệm thực tế trong ngoại giao sự kiện và phối hợp đa bên liên quan." },
+    { "description": "Thiết kế và dẫn dắt chiến dịch gây quỹ cuối năm của The Dreamers — điều phối hoạt động bán hàng, theo dõi đóng góp và quản lý ngân sách với vai trò **thủ quỹ**. Toàn bộ số tiền gây được chuyển trực tiếp vào các chuyến từ thiện đến trại trẻ mồ côi địa phương, bao gồm bữa ăn, tài liệu học tập và workshop công nghệ. Chiến dịch đạt mục tiêu doanh thu nội bộ trong tháng và thiết lập mô hình gây quỹ tái sử dụng cho các chu kỳ sau." },
+    { "description": "Tham gia và hỗ trợ tổ chức nhiều chuyến từ thiện thực địa qua AHT Cooperation — bao gồm thăm trại trẻ mồ côi, các chiến dịch gây quỹ cộng đồng và sáng kiến 'Hành trình từ thiện ocean.zero6'. Hoạt động từ tình nguyện trực tiếp (phân phát đồ dùng, tổ chức mini-workshop cho trẻ em) đến hậu cần (điều phối vận chuyển, lập tài liệu và báo cáo sau sự kiện)." },
+    { "description": "Dẫn chương trình **workshop 'Make Your Image Better'** — buổi chia sẻ về xây dựng thương hiệu cá nhân, ngoại hình và phong thái chuyên nghiệp cho sinh viên chuẩn bị ra trường. Quản lý luồng chương trình, giới thiệu diễn giả, tương tác với khán giả và duy trì năng lượng qua nhiều phần của sự kiện. Đây là một trong nhiều workshop tôi đã dẫn, xây dựng hồ sơ MC sự kiện chuyên nghiệp nhất quán." },
+    { "description": "Đảm nhận vai trò MC cho **workshop 'Bình Đẳng Giới tại Nơi Làm Việc'** — chủ đề nhạy cảm và quan trọng đòi hỏi giọng điệu thận trọng, ngôn ngữ bao gồm và khả năng điều hành thảo luận mở. Giới thiệu diễn giả, điều phối Q&A và đảm bảo môi trường tôn trọng xuyên suốt. Trải nghiệm này mở rộng khả năng dẫn chương trình vượt ra ngoài giải trí sang lĩnh vực giáo dục xã hội." },
+    { "description": "Tham gia thường xuyên với vai trò **đại diện sinh viên và hướng dẫn viên sự kiện** trong nhiều hoạt động của Đại học FPT — bao gồm lễ nhập học, ngày hội tuyển sinh, đợt tuyển tình nguyện viên và sự kiện hợp tác liên khoa. Luôn được tin tưởng đại diện trực tiếp cho trường với sinh viên tiềm năng và gia đình, đòi hỏi giao tiếp rõ ràng, kiên nhẫn và hiểu biết về campus." },
+    { "description": "Tích lũy kinh nghiệm truyền thông đa dạng qua ba vai trò: **Diễn viên quảng cáo** cho nội dung khuyến mãi của đại lý Honda Tiến Thủ; **Người mẫu** cho LenDoan Bridal và vật liệu ảnh chính thức cùng tài liệu sự kiện của Đại học FPT; và **Vlogger/Content Creator** sản xuất và biên tập video cho nền tảng mạng xã hội. Những trải nghiệm này phát triển tính linh hoạt, sự tự tin trước camera và kỹ năng sản xuất sáng tạo — một chiều cạnh khác biệt nhưng bổ sung cho công việc kỹ thuật." },
+    { "description": "Thiết kế và dẫn dắt **chiến dịch tuyển thành viên vòng 2** của The Dreamers — soạn thảo tiêu chí tuyển dụng, tạo tài liệu ứng tuyển, tổ chức phỏng vấn và lựa chọn ứng viên phù hợp sứ mệnh và văn hóa tổ chức. Thành công đưa vào một nhóm thành viên mới, những người sau đó đóng góp cho dự án Dream High và các chuyến từ thiện." },
+    { "description": "Dẫn dắt toàn bộ quá trình lên kế hoạch và thực thi **'Tốt Hy Vọng'** — sự kiện từ thiện do The Dreamers tổ chức mang niềm vui, quà tặng và các hoạt động giáo dục đến trẻ em có hoàn cảnh khó khăn. Phân công tình nguyện viên, quản lý lịch trong ngày, xử lý tình huống bất ngờ tại chỗ và giám sát tài liệu sau sự kiện." },
+    { "description": "Dẫn dắt đội tổ chức **'Vòng Vào Mộng Mơ'** — sáng kiến kéo dài một tuần của The Dreamers nhằm khơi dậy khát vọng và niềm tin vào bản thân cho các bạn trẻ thông qua kể chuyện, buổi mentoring và workshop tương tác. Quản lý toàn bộ vòng đời sự kiện: phát triển ý tưởng, hậu cần, điều phối tình nguyện viên và tổng kết." },
+    { "description": "Dẫn dắt **Dream High** — dự án dài hạn chủ lực của The Dreamers kéo dài 6 tháng, tập trung mang kiến thức công nghệ và phát triển bản thân đến trẻ em mồ côi qua các buổi học có cấu trúc hàng tuần. Giám sát thiết kế chương trình học, lịch tình nguyện, điều phối đối tác và theo dõi tiến độ. Dự án tổ chức workshop hai tuần một lần về khái niệm lập trình cơ bản, kỹ năng giao tiếp và đặt mục tiêu cho trẻ em 8–15 tuổi." },
+    { "description": "Được chọn làm **trọng tài trưởng** tại Cuộc thi AI & Robotics của Đại học FPT — cuộc thi kỹ thuật nơi các đội sinh viên lập trình robot và hệ thống AI để hoàn thành các thử thách. Trách nhiệm bao gồm thực thi quy tắc công bằng, đánh giá sự tuân thủ kỹ thuật của thiết kế robot, quản lý thời gian trong các vòng thi và giải quyết tranh chấp. Được chọn vào vai trò này thể hiện sự tin tưởng của giảng viên về cả hiểu biết kỹ thuật lẫn ứng xử chuyên nghiệp." },
+    { "description": "Quản lý **sự kiện biểu diễn âm nhạc từ thiện** của The Dreamers từ khâu lên kế hoạch đến thực hiện — điều phối nghệ sĩ biểu diễn, đặt địa điểm, xử lý hậu cần vé/quyên góp và quản lý đội tình nguyện viên. Buổi hòa nhạc gây quỹ hỗ trợ chương trình trại trẻ mồ côi. Đây là sản xuất lớn nhất The Dreamers từng tổ chức, đòi hỏi chuẩn bị nhiều tuần và giải quyết vấn đề thời gian thực trong sự kiện trực tiếp." },
+    { "description": "Được chọn làm **người mẫu ảnh** cho bộ ảnh kỷ niệm chính thức của Đại học FPT đánh dấu ngày kỷ niệm Cách mạng Tháng Tám. Cùng nhóm truyền thông của trường thực hiện chân dung trang trọng và bố cục nhóm được sử dụng trong truyền thông chính thức và trưng bày trong khuôn viên." }
+  ],
+  "certificateItems": [
+    { "description": "Đạt **band score 6.0** trong kỳ thi IELTS (Linear) — chứng minh khả năng tiếng Anh học thuật thành thạo qua 4 kỹ năng Nghe, Đọc, Viết và Nói. Điểm này đáp ứng yêu cầu đầu vào của các chương trình đại học quốc tế và môi trường làm việc chuyên nghiệp." },
+    { "description": "Hoàn thành **Chương trình Trao đổi Sinh viên Quốc tế** của Đại học FPT tại Đại học Quản lý và Công nghệ Tunku Abdul Rahman (**TAR UMT**), **Kuala Lumpur, Malaysia**. Tích lũy kinh nghiệm học thuật quốc tế, giao tiếp đa văn hóa và mở rộng góc nhìn về giáo dục công nghệ khu vực Đông Nam Á." },
+    { "description": "Chứng nhận tham gia và vào **vòng chung kết** Innocode Camp SU25 — cuộc thi lập trình theo dự án do FPT Education tổ chức dành cho sinh viên đại học. Nhóm xây dựng nền tảng tìm kiếm việc làm và cạnh tranh với các đội từ nhiều cơ sở FPT." },
+    { "description": "Chứng nhận tham gia và đạt thành tích tại **Hội nghị Nghiên cứu Khoa học FPT (ResFres 2024)** — cuộc thi học thuật nhiều vòng bao gồm nghiên cứu gốc, báo cáo có cấu trúc và thuyết trình trước hội đồng. Đội The Dreamers vào vòng chung kết liên cơ sở." },
+    { "description": "Hoàn thành khóa đào tạo xây dựng **quy trình tự động hóa với AI** sử dụng n8n — bao gồm thiết kế agent, kết nối API, logic có điều kiện và tích hợp dịch vụ ngoài. Ứng dụng trực tiếp vào công việc tự động hóa trong thời gian thực tập tại FPT Software." },
+    { "description": "Hoàn thành khóa **Lập trình với JavaScript** của Meta trên Coursera — thuộc chương trình Chứng chỉ Chuyên nghiệp Front-End Developer của Meta. Bao gồm cú pháp ES6+, hàm, đối tượng, mảng, xử lý lỗi và kiểm thử với Jest." },
+    { "description": "Hoàn thành khóa **Cơ bản về Phát triển Web & Lập trình** của Đại học Michigan — giới thiệu cách web hoạt động, cấu trúc HTML, CSS, JavaScript cơ bản và cách trình duyệt hiển thị trang web." },
+    { "description": "Hoàn thành khóa **HTML và CSS Chuyên sâu** của Meta — phần trong chứng chỉ Front-End Developer. Bao gồm HTML5 ngữ nghĩa, CSS selectors nâng cao, box model, Flexbox, Grid và các thực hành tốt về accessibility." },
+    { "description": "Hoàn thành khóa **Tương tác với JavaScript** của Đại học Michigan — tập trung vào thao tác DOM, event listener, kiểm tra form và hiển thị nội dung động để xây dựng trang web phản hồi và tương tác." },
+    { "description": "Hoàn thành khóa **Giới thiệu về Phát triển Front-End** của Meta — khóa nền tảng của chứng chỉ chuyên nghiệp Front-End Developer Meta. Bao gồm vai trò của lập trình viên front-end, công nghệ web cốt lõi và giới thiệu React." },
+    { "description": "Hoàn thành khóa **Trực quan hóa Dữ liệu** của IBM trên Coursera — bao gồm nguyên tắc truyền đạt dữ liệu hiệu quả, lựa chọn biểu đồ và thực hành với các công cụ visualization để biến dữ liệu thô thành thông tin hữu ích." },
+    { "description": "Hoàn thành khóa **CSS3** của Đại học Michigan — bao gồm các tính năng nâng cao của CSS3: transition, animation, CSS custom properties, pseudo-element và kỹ thuật responsive design." },
+    { "description": "Hoàn thành khóa **HTML5** của Đại học Michigan — nghiên cứu sâu về các phần tử ngữ nghĩa HTML5, nhúng đa phương tiện, biểu mẫu, thuộc tính accessibility và các thực hành tốt nhất cho tài liệu web hiện đại." },
+    { "description": "Hoàn thành khóa **Thiết kế Web Responsive** của Đại học Michigan — bao gồm media query, lưới linh hoạt, hình ảnh co giãn và nguyên tắc thiết kế mobile-first để xây dựng giao diện thích nghi trên mọi kích thước màn hình." },
+    { "description": "Hoàn thành chuyên ngành **Kỹ năng Học thuật cho Đại học** của Đại học Auckland — bao gồm đọc phân tích, viết học thuật, phương pháp nghiên cứu và chiến lược quản lý thời gian cho bậc đại học." },
+    { "description": "Hoàn thành khóa **Cơ bản về Thiết kế Đồ họa** của CalArts trên Coursera — bao gồm nguyên tắc thiết kế trực quan: typography, lý thuyết màu sắc, bố cục và sáng tạo hình ảnh. Ứng dụng vào tạo tài liệu truyền thông cho The Dreamers và các hoạt động FPT." },
+    { "description": "Hoàn thành chương trình **Đào tạo Hội nhập IT** của FPT Software — giới thiệu quy trình IT doanh nghiệp, công cụ nội bộ, quy trình phát triển phần mềm và tiêu chuẩn chuyên nghiệp tại FPT." },
+    { "description": "Hoàn thành khóa **Robotics** tại Đại học FPT — bao gồm các khái niệm cơ bản về robot: cảm biến, cơ cấu chấp hành, hệ thống điều khiển và thực hành lập trình robot trong phòng lab. Liên quan đến vai trò trọng tài trưởng tại cuộc thi FPT AI & Robotics." },
+    { "description": "Hoàn thành chứng chỉ **Thuật toán và Cấu trúc Dữ liệu JavaScript** của freeCodeCamp — bao gồm các thuật toán cơ bản (sắp xếp, tìm kiếm), cấu trúc dữ liệu (mảng, đối tượng, danh sách liên kết, ngăn xếp, hàng đợi) và giải quyết bài toán bằng JavaScript." },
+    { "description": "Hoàn thành học phần **Hiragana** — thành thạo bảng chữ cái âm tiết tiếng Nhật gồm 46 ký tự dùng cho từ gốc Nhật. Một phần trong nỗ lực tự học tiếng Nhật song song với chương trình CNTT và thực tập." },
+    { "description": "Hoàn thành học phần **Katakana** — thành thạo 46 ký tự dùng cho từ vay mượn và thuật ngữ kỹ thuật trong tiếng Nhật. Kết hợp với Hiragana, tạo nền tảng đọc hiểu cho người học tiếng Nhật sơ cấp." },
+    { "description": "Chứng nhận tham gia sự kiện **'Nón Xanh Nước Biếc'** do Đoàn Sinh viên Đại học FPT tổ chức — hoạt động cộng đồng nâng cao nhận thức về môi trường, lối sống xanh và gắn kết sinh viên trong khuôn viên." },
+    { "description": "Nhận danh hiệu **'Dreamer of Honor'** từ Tổ chức The Dreamers — trao cho thành viên thể hiện sự cống hiến, lãnh đạo và đóng góp xuất sắc cho sứ mệnh tổ chức trong năm. Đây là một trong những danh hiệu nội bộ cao nhất của tổ chức." }
+  ]
+}

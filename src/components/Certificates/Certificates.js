@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaCertificate, FaEye, FaSearch, FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
-import { certificates } from '../../data';
 import useSpotlight from '../../hooks/useSpotlight';
 import '../../animations/SpotlightCard.css';
+import { useTranslation } from 'react-i18next';
+import { useTranslatedData } from '../../hooks/useTranslatedData';
+import Markdown from 'react-markdown';
 const ITEMS_PER_PAGE = 9;
 
 const CertificateCard = ({ cert, index, onSelect }) => {
@@ -55,9 +57,9 @@ const CertificateCard = ({ cert, index, onSelect }) => {
                     {cert.issuer}
                 </p>
                 {cert.description && (
-                    <p style={{ fontSize: '14px', fontWeight: '330', color: '#666666', margin: 0, lineHeight: '1.5', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
-                        {cert.description}
-                    </p>
+                    <div style={{ fontSize: '14px', fontWeight: '330', color: '#666666', lineHeight: '1.5', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                        <Markdown>{cert.description}</Markdown>
+                    </div>
                 )}
             </div>
         </motion.div>
@@ -69,6 +71,8 @@ const Certificates = () => {
     const [selectedYear, setSelectedYear]       = useState('all');
     const [selectedCert, setSelectedCert]       = useState(null);
     const [currentPage, setCurrentPage]         = useState(1);
+    const { t } = useTranslation();
+    const { certificates } = useTranslatedData();
 
     const years = ['all', ...new Set(certificates.map(c => c.year))].sort((a, b) => {
         if (a === 'all') return -1;
@@ -93,6 +97,23 @@ const Certificates = () => {
     return (
         <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
 
+            {/* Fetch prompt */}
+            <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                style={{
+                    fontFamily: 'JetBrains Mono, monospace', fontSize: '13px',
+                    color: '#888888', marginBottom: '16px',
+                    display: 'flex', gap: '8px', alignItems: 'center',
+                }}
+            >
+                <span style={{ color: '#1ea64a' }}>const</span>
+                <span style={{ color: '#93c5fd' }}> certs</span>
+                <span> = await fetchCertificates()</span>
+                <span style={{ color: '#fbbf24', marginLeft: '8px' }}>// {certificates.length} loaded</span>
+            </motion.div>
+
             {/* Search + Year filter */}
             <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -113,7 +134,7 @@ const Certificates = () => {
                     <FaSearch size={14} style={{ color: 'var(--color-ink-soft)', flexShrink: 0 }} />
                     <input
                         type="text"
-                        placeholder="Search certificates..."
+                        placeholder={t('certificates.searchPlaceholder')}
                         value={searchTerm}
                         onChange={e => { setSearchTerm(e.target.value); setCurrentPage(1); }}
                         style={{
@@ -146,7 +167,7 @@ const Certificates = () => {
                                 transition: 'all 0.15s ease',
                             }}
                         >
-                            {yr === 'all' ? 'All Years' : yr}
+                            {yr === 'all' ? t('certificates.allYears') : yr}
                         </button>
                     ))}
                 </div>
@@ -161,7 +182,7 @@ const Certificates = () => {
                 </div>
             ) : (
                 <div style={{ textAlign: 'center', padding: '64px 0', color: 'var(--color-ink-soft)', fontSize: '16px' }}>
-                    No certificates found.
+                    {t('certificates.noResults')}
                 </div>
             )}
 
@@ -212,10 +233,10 @@ const Certificates = () => {
                                 </span>
                                 <h2 style={{ fontSize: '22px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0' }}>{selectedCert.name}</h2>
                                 <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#666666', marginBottom: '16px' }}>
-                                    Issued by {selectedCert.issuer}
+                                    {t('certificates.issuedBy')} {selectedCert.issuer}
                                 </p>
                                 {selectedCert.description && (
-                                    <p style={{ fontSize: '16px', fontWeight: '330', lineHeight: '1.6', color: '#444444' }}>{selectedCert.description}</p>
+                                    <div style={{ fontSize: '16px', fontWeight: '330', lineHeight: '1.6', color: '#444444' }}><Markdown>{selectedCert.description}</Markdown></div>
                                 )}
                             </div>
                         </motion.div>

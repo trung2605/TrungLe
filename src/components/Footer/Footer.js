@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaArrowUp, FaMapMarkerAlt, FaInstagram } from 'react-icons/fa';
-import { socialLinks, siteNavigation, personalInfo } from '../../data';
+import { socialLinks } from '../../data';
+import { useTranslatedData } from '../../hooks/useTranslatedData';
+import { useTranslation } from 'react-i18next';
 
 const getSocialIcon = (name) => {
     const icons = { facebook: FaFacebook, github: FaGithub, linkedin: FaLinkedin, email: FaEnvelope, instagram: FaInstagram };
@@ -9,7 +11,16 @@ const getSocialIcon = (name) => {
 };
 
 const Footer = () => {
-    const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    const { t } = useTranslation();
+    const { siteNavigation } = useTranslatedData();
+    const scrollToTop = () => {
+        // Lenis (see App.js) hijacks scroll, so window.scrollTo alone won't reach 0 — use its API when active.
+        if (window.__lenis) {
+            window.__lenis.scrollTo(0, { duration: 1.1 });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
 
     return (
         <footer style={{
@@ -80,7 +91,7 @@ const Footer = () => {
                             fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
                             letterSpacing: '0.60px', textTransform: 'uppercase',
                             color: 'var(--color-ink-soft)', marginBottom: '16px',
-                        }}>Explore</p>
+                        }}>{t('footer.quickLinks')}</p>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
                             {siteNavigation.map((item) => (
                                 <li key={item.path}>
@@ -107,7 +118,7 @@ const Footer = () => {
                             fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
                             letterSpacing: '0.60px', textTransform: 'uppercase',
                             color: 'var(--color-ink-soft)', marginBottom: '16px',
-                        }}>Contact</p>
+                        }}>{t('footer.contactInfo')}</p>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', color: 'var(--color-ink-soft)' }}>
                                 <FaMapMarkerAlt size={13} style={{ marginTop: '2px', flexShrink: 0 }} />
@@ -139,7 +150,7 @@ const Footer = () => {
                         © {new Date().getFullYear()} LÊ TRÍ TRUNG — ALL RIGHTS RESERVED
                     </p>
                     <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', color: 'var(--color-ink-soft)', margin: 0 }}>
-                        BUILT WITH REACT + FIGMA DESIGN SYSTEM
+                        {t('footer.builtWith').toUpperCase()}
                     </p>
                 </div>
             </div>

@@ -399,10 +399,31 @@
     gap: 16px !important;
   }
 
+  /* Project detail: sidebar stacks below content */
+  .project-detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   /* Color block padding */
   [style*="padding: '48px'"],
   [style*='padding: "48px"'] {
     padding: 28px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-4col {
+    grid-template-columns: 1fr !important;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .project-detail-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 

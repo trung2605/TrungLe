@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaGraduationCap, FaCalendarAlt } from 'react-icons/fa';
 
 const EducationCard = ({
     education,
@@ -27,9 +28,10 @@ const EducationCard = ({
 
     return (
         <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -32, scale: 0.97 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ scale: 1.02 }}
             className="h-full bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 shadow-xl border border-gray-100 dark:border-slate-800 relative group overflow-hidden"
         >
@@ -42,7 +44,7 @@ const EducationCard = ({
                     {logo ? (
                         <img src={logo} alt={institution} className="w-full h-full object-contain p-2" />
                     ) : (
-                        <span className="text-3xl">🎓</span>
+                        <FaGraduationCap size={28} className="text-blue-500" />
                     )}
                 </div>
 
@@ -68,7 +70,7 @@ const EducationCard = ({
                             {degree}{field && <span className="text-slate-400 font-medium"> in {field}</span>}
                         </p>
                         <div className="flex items-center gap-2 text-slate-400 dark:text-slate-500 text-xs font-mono font-bold">
-                            <span>📅</span>
+                            <FaCalendarAlt size={11} />
                             {formatDate(startDate)} — {formatDate(endDate)}
                         </div>
                     </div>

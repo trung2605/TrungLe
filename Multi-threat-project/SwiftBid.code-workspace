@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "SwiftBid"
+		},
+		{
+			"path": "swiftbid-frontend"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaUsers, FaCalendarAlt, FaBuilding, FaPlay, FaCheck, FaTimes, FaEye } from "react-icons/fa";
-import { activities } from "../../data";
+import { useTranslatedData } from '../../hooks/useTranslatedData';
+import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 import useSpotlight from '../../hooks/useSpotlight';
 import '../../animations/SpotlightCard.css';
@@ -74,6 +75,8 @@ const ActivityCard = ({ act, index, onSelect }) => {
 };
 
 const Activities = () => {
+    const { t } = useTranslation();
+    const { activities } = useTranslatedData();
     const [selectedStatus, setSelectedStatus]   = useState("all");
     const [selectedOrg, setSelectedOrg]         = useState("all");
     const [currentPage, setCurrentPage]         = useState(1);
@@ -105,12 +108,20 @@ const Activities = () => {
                 transition={{ delay: 0.1, duration: 0.5 }}
                 style={{ backgroundColor: '#c8e6cd', borderRadius: '24px', padding: '32px 28px', marginBottom: '48px' }}
             >
+                <div style={{
+                    fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
+                    color: '#444444', marginBottom: '20px',
+                }}>
+                    <span style={{ color: '#1ea64a' }}>{'> '}</span>
+                    <span>activities.filter(a =&gt; a.isActive).length</span>
+                    <span style={{ color: '#555555', marginLeft: '8px' }}>// {activities.filter(a => a.status === 'Active' || a.status === 'In Progress').length} running</span>
+                </div>
                 <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
                     {[
-                        { label: 'Total Activities', value: activities.length, icon: <FaUsers /> },
-                        { label: 'Active', value: activities.filter(a => a.status === 'Active' || a.status === 'In Progress').length, icon: <FaPlay /> },
-                        { label: 'Completed', value: activities.filter(a => a.status === 'Completed').length, icon: <FaCheck /> },
-                        { label: 'Organizations', value: organizations.length - 1, icon: <FaBuilding /> },
+                        { label: t('activities.totalActivities'), value: activities.length, icon: <FaUsers /> },
+                        { label: t('activities.active'), value: activities.filter(a => a.status === 'Active' || a.status === 'In Progress').length, icon: <FaPlay /> },
+                        { label: t('activities.completed'), value: activities.filter(a => a.status === 'Completed').length, icon: <FaCheck /> },
+                        { label: t('activities.organizations'), value: organizations.length - 1, icon: <FaBuilding /> },
                     ].map((s, i) => (
                         <div key={i}>
                             <div style={{ fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: '340', lineHeight: '1.0', color: '#000000' }}>{s.value}</div>
@@ -130,11 +141,11 @@ const Activities = () => {
                 style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px', alignItems: 'center' }}
             >
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: 'var(--color-ink-soft)', alignSelf: 'center' }}>Status:</span>
+                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: 'var(--color-ink-soft)', alignSelf: 'center' }}>{t('activities.statusLabel')}</span>
                     {statuses.map(s => (
                         <button key={s} onClick={() => { setSelectedStatus(s); setCurrentPage(1); }}
                             style={{ padding: '6px 14px', borderRadius: '50px', fontSize: '13px', fontWeight: selectedStatus === s ? '480' : '330', color: selectedStatus === s ? '#ffffff' : '#000000', backgroundColor: selectedStatus === s ? '#000000' : '#ffffff', border: '1.5px solid', borderColor: selectedStatus === s ? '#000000' : '#e6e6e6', cursor: 'pointer', transition: 'all 0.15s ease' }}>
-                            {s === 'all' ? 'All' : s}
+                            {s === 'all' ? t('activities.all') : s}
                         </button>
                     ))}
                 </div>
@@ -144,7 +155,7 @@ const Activities = () => {
                     style={{ padding: '8px 16px', borderRadius: '50px', border: '1.5px solid #e6e6e6', fontSize: '14px', color: '#000000', backgroundColor: '#ffffff', outline: 'none', cursor: 'pointer' }}
                 >
                     {organizations.map(org => (
-                        <option key={org} value={org}>{org === 'all' ? 'All Organizations' : org}</option>
+                        <option key={org} value={org}>{org === 'all' ? t('activities.allOrgs') : org}</option>
                     ))}
                 </select>
             </motion.div>

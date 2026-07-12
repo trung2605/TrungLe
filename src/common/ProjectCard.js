@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { FaImage } from 'react-icons/fa';
 
 const ProjectCard = ({
     project,
@@ -18,13 +19,14 @@ const ProjectCard = ({
     } = project;
 
     const cardVariants = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, scale: 0.88, rotate: -1.5 },
         visible: {
             opacity: 1,
-            y: 0,
+            scale: 1,
+            rotate: 0,
             transition: {
                 duration: 0.6,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.16, 1, 0.3, 1],
             },
         },
         hover: {
@@ -73,7 +75,7 @@ const ProjectCard = ({
                         />
                     ) : (
                         <div className="h-full flex items-center justify-center opacity-20 grayscale">
-                            <span className="text-6xl">🖼️</span>
+                            <FaImage size={56} />
                         </div>
                     )}
 

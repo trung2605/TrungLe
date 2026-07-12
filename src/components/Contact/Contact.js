@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaPaperPlane, FaInstagram, FaArrowRight } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaPaperPlane, FaInstagram, FaGithub, FaLinkedin, FaArrowRight, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import { personalInfo } from '../../data';
+import { useTranslation } from 'react-i18next';
 import emailService from '../../services/emailService';
-import BlurText from '../../animations/BlurText';
 
 const inputStyle = (focused) => ({
     width: '100%',
@@ -31,6 +31,7 @@ const labelStyle = {
 };
 
 const Contact = () => {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null);
@@ -43,9 +44,9 @@ const Contact = () => {
         setIsSubmitting(true);
         setSubmitStatus(null);
         try {
-            if (!formData.name || !formData.email || !formData.message) throw new Error('Fill in all required fields.');
+            if (!formData.name || !formData.email || !formData.message) throw new Error(t('contact.errorRequired'));
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(formData.email)) throw new Error('Invalid email address.');
+            if (!emailRegex.test(formData.email)) throw new Error(t('contact.errorEmail'));
             const result = await emailService.sendContactEmail(formData);
             if (result.success) {
                 setSubmitStatus('success');
@@ -62,28 +63,17 @@ const Contact = () => {
     };
 
     const methods = [
-        { icon: FaEnvelope, label: 'Email', value: personalInfo.contact?.email, href: `mailto:${personalInfo.contact?.email}` },
-        { icon: FaPhone, label: 'Phone', value: personalInfo.contact?.phone, href: `tel:${personalInfo.contact?.phone}` },
-        { icon: FaMapMarkerAlt, label: 'Location', value: personalInfo.contact?.location, href: '#' },
-        { icon: FaFacebook, label: 'Facebook', value: 'Trung Lê', href: personalInfo.contact?.facebook },
-        { icon: FaInstagram, label: 'Instagram', value: 'trung.le.2605', href: personalInfo.contact?.instagram },
+        { icon: FaEnvelope,    label: t('contact.methods.email'),    value: personalInfo.contact?.email,    href: `mailto:${personalInfo.contact?.email}`, external: false },
+        { icon: FaPhone,       label: t('contact.methods.phone'),    value: personalInfo.contact?.phone,    href: `tel:${personalInfo.contact?.phone}`,    external: false },
+        { icon: FaMapMarkerAlt,label: t('contact.methods.location'), value: personalInfo.contact?.location, href: '#',                                     external: false },
+        { icon: FaGithub,      label: 'GitHub',                      value: 'github.com/trung2605',         href: personalInfo.contact?.github,            external: true },
+        { icon: FaLinkedin,    label: 'LinkedIn',                    value: 'Lê Trí Trung',                 href: personalInfo.contact?.linkedin,          external: true },
+        { icon: FaFacebook,    label: t('contact.methods.facebook'), value: 'Trung Lê',                    href: personalInfo.contact?.facebook,          external: true },
+        { icon: FaInstagram,   label: t('contact.methods.instagram'),value: 'trung.le.2605',               href: personalInfo.contact?.instagram,         external: true },
     ].filter(m => m.value);
 
     return (
-        <div style={{ paddingTop: '64px', paddingBottom: '96px' }}>
-
-            {/* Header */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} style={{ marginBottom: '56px' }}>
-                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.60px', textTransform: 'uppercase', color: 'var(--color-ink-soft)', marginBottom: '12px' }}>
-                    Get in touch
-                </p>
-                <h1 style={{ fontSize: 'clamp(32px, 5vw, 64px)', fontWeight: '340', lineHeight: '1.10', letterSpacing: '-0.96px', color: 'var(--color-ink)', margin: 0 }}>
-                    <BlurText text="Contact Me" delay={40} animateBy="words" direction="bottom" className="inline" />
-                </h1>
-                <p style={{ fontSize: 'clamp(15px, 2.5vw, 20px)', fontWeight: '330', lineHeight: '1.5', color: 'var(--color-ink-soft)', marginTop: '16px', maxWidth: '540px' }}>
-                    Open to internship opportunities, collaborations, or a chat about technology.
-                </p>
-            </motion.div>
+        <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
 
             {/* LIME BLOCK */}
             <motion.div
@@ -99,15 +89,17 @@ const Contact = () => {
                 >
                     {/* Info */}
                     <div>
-                        <h2 style={{ fontSize: 'clamp(18px, 2.5vw, 26px)', fontWeight: '540', letterSpacing: '-0.26px', color: '#000000', marginBottom: '16px' }}>Contact Information</h2>
+                        <h2 style={{ fontSize: 'clamp(18px, 2.5vw, 26px)', fontWeight: '540', letterSpacing: '-0.26px', color: '#000000', marginBottom: '16px' }}>{t('contact.infoTitle')}</h2>
                         <p style={{ fontSize: '15px', fontWeight: '330', lineHeight: '1.65', color: '#444444', marginBottom: '24px' }}>
-                            Feel free to reach out. I typically respond within 24 hours.
+                            {t('contact.infoDesc')}
                         </p>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                             {methods.map((m, i) => (
                                 <motion.a
                                     key={i}
                                     href={m.href}
+                                    target={m.external ? '_blank' : undefined}
+                                    rel={m.external ? 'noopener noreferrer' : undefined}
                                     whileHover={{ x: 6 }}
                                     style={{
                                         display: 'flex', alignItems: 'center', gap: '12px',
@@ -135,61 +127,64 @@ const Contact = () => {
 
                     {/* Form */}
                     <div style={{ backgroundColor: '#ffffff', borderRadius: '16px', padding: '28px', border: '1px solid rgba(0,0,0,0.06)' }}>
-                        <h2 style={{ fontSize: '20px', fontWeight: '540', color: '#000000', marginBottom: '20px' }}>Send a Message</h2>
+                        <h2 style={{ fontSize: '20px', fontWeight: '540', color: '#000000', marginBottom: '20px' }}>{t('contact.formTitle')}</h2>
 
                         {submitStatus === 'success' && (
                             <motion.div
+                                data-testid="contact-status-success"
                                 initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }}
                                 style={{ marginBottom: '16px', padding: '12px 16px', backgroundColor: '#c8e6cd', borderRadius: '8px', fontSize: '14px', color: '#000000' }}
                             >
-                                ✓ Message sent! I'll respond as soon as possible.
+                                <FaCheckCircle style={{ display: 'inline', marginRight: '6px' }} /> {t('contact.successMsg')}
                             </motion.div>
                         )}
                         {submitStatus === 'error' && (
                             <motion.div
+                                data-testid="contact-status-error"
                                 initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }}
                                 style={{ marginBottom: '16px', padding: '12px 16px', backgroundColor: '#efd4d4', borderRadius: '8px', fontSize: '14px', color: '#000000' }}
                             >
-                                ✗ Error sending message. Please email me directly.
+                                <FaTimesCircle style={{ display: 'inline', marginRight: '6px' }} /> {t('contact.errorMsg')}
                             </motion.div>
                         )}
 
-                        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                        <form onSubmit={handleSubmit} data-testid="contact-form" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                             <div
                                 className="form-row-2col"
                                 style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}
                             >
                                 <div>
-                                    <label style={labelStyle}>Full Name *</label>
-                                    <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Your name"
+                                    <label style={labelStyle}>{t('contact.nameLabel')} *</label>
+                                    <input type="text" name="name" data-testid="contact-name" value={formData.name} onChange={handleChange} required placeholder={t('contact.namePlaceholder')}
                                         style={inputStyle(focused === 'name')}
                                         onFocus={() => setFocused('name')} onBlur={() => setFocused('')}
                                     />
                                 </div>
                                 <div>
-                                    <label style={labelStyle}>Email *</label>
-                                    <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="your@email.com"
+                                    <label style={labelStyle}>{t('contact.emailLabel')} *</label>
+                                    <input type="email" name="email" data-testid="contact-email" value={formData.email} onChange={handleChange} required placeholder={t('contact.emailPlaceholder')}
                                         style={inputStyle(focused === 'email')}
                                         onFocus={() => setFocused('email')} onBlur={() => setFocused('')}
                                     />
                                 </div>
                             </div>
                             <div>
-                                <label style={labelStyle}>Subject</label>
-                                <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="What is this about?"
+                                <label style={labelStyle}>{t('contact.subjectLabel')}</label>
+                                <input type="text" name="subject" data-testid="contact-subject" value={formData.subject} onChange={handleChange} placeholder={t('contact.subjectPlaceholder')}
                                     style={inputStyle(focused === 'subject')}
                                     onFocus={() => setFocused('subject')} onBlur={() => setFocused('')}
                                 />
                             </div>
                             <div>
-                                <label style={labelStyle}>Message *</label>
-                                <textarea name="message" value={formData.message} onChange={handleChange} required rows={5} placeholder="Your message..."
+                                <label style={labelStyle}>{t('contact.messageLabel')} *</label>
+                                <textarea name="message" data-testid="contact-message" value={formData.message} onChange={handleChange} required rows={5} placeholder={t('contact.messagePlaceholder')}
                                     style={{ ...inputStyle(focused === 'message'), resize: 'none' }}
                                     onFocus={() => setFocused('message')} onBlur={() => setFocused('')}
                                 />
                             </div>
                             <button
                                 type="submit"
+                                data-testid="contact-submit"
                                 disabled={isSubmitting}
                                 style={{
                                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
@@ -208,10 +203,10 @@ const Contact = () => {
                                 {isSubmitting ? (
                                     <>
                                         <div style={{ width: '15px', height: '15px', border: '2px solid rgba(255,255,255,0.3)', borderTopColor: '#ffffff', borderRadius: '9999px', animation: 'spin 0.8s linear infinite' }} />
-                                        Sending...
+                                        {t('contact.submitting')}
                                     </>
                                 ) : (
-                                    <><FaPaperPlane size={13} /> Send Message</>
+                                    <><FaPaperPlane size={13} /> {t('contact.submit')}</>
                                 )}
                             </button>
                         </form>

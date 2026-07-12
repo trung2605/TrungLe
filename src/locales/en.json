@@ -1,0 +1,408 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "education": "Education",
+    "projects": "Projects",
+    "certificates": "Certificates",
+    "prizes": "Prizes",
+    "activities": "Activities",
+    "contact": "Contact",
+    "downloadCV": "Download CV",
+    "viewProjects": "View Projects"
+  },
+  "home": {
+    "badge": "Available for opportunities",
+    "greeting": "Xin chào,",
+    "roles": ["Java Developer", "CS Student", "Backend Engineer", "Problem Solver"],
+    "iAm": "I'm a",
+    "heroDesc": "Computer Science student at FPT University. Specializing in Java Spring Boot and modern web development — building clean, scalable applications.",
+    "viewProjects": "View Projects",
+    "downloadCV": "Download CV",
+    "statsByNumbers": "By the numbers",
+    "stats": [
+      { "label": "Projects Built" },
+      { "label": "Certificates" },
+      { "label": "Awards & Prizes" },
+      { "label": "Activities" }
+    ],
+    "skillsLabel": "Skills & Expertise",
+    "skillsTitle": "What I work with",
+    "exploreLabel": "More About Me",
+    "exploreTitle": "Explore my journey",
+    "ctaLabel": "Let's build something",
+    "ctaTitle": "Open to internship & collaboration opportunities",
+    "getInTouch": "Get in touch"
+  },
+  "about": {
+    "personalInfoLabel": "Personal Info",
+    "dateOfBirth": "Date of Birth",
+    "location": "Location",
+    "education": "Education",
+    "specialization": "Specialization",
+    "educationValue": "FPT University",
+    "specializationValue": "Java Developer",
+    "atAGlance": "At a glance",
+    "experienceLabel": "Experience",
+    "experienceTitle": "Where I've worked & led",
+    "highlightsLabel": "Highlights",
+    "highlightsTitle": "What makes me me",
+    "skillsLabel": "Technical Skills",
+    "skillsTitle": "Tools & technologies I work with",
+    "languagesLabel": "Languages",
+    "languagesTitle": "How I communicate",
+    "funFactsLabel": "Beyond the Resume",
+    "funFactsTitle": "Things you won't find on my CV",
+    "galleryLabel": "Gallery"
+  },
+  "contact": {
+    "label": "Get in touch",
+    "title": "Contact Me",
+    "desc": "Open to internship opportunities, collaborations, or a chat about technology.",
+    "infoTitle": "Contact Information",
+    "infoDesc": "Feel free to reach out. I typically respond within 24 hours.",
+    "formTitle": "Send a Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your@email.com",
+    "subjectPlaceholder": "What is this about?",
+    "messagePlaceholder": "Your message...",
+    "nameLabel": "Full Name",
+    "emailLabel": "Email",
+    "subjectLabel": "Subject",
+    "messageLabel": "Message",
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "successMsg": "Message sent! I'll respond as soon as possible.",
+    "errorMsg": "Error sending message. Please email me directly.",
+    "errorRequired": "Fill in all required fields.",
+    "errorEmail": "Invalid email address.",
+    "methods": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "facebook": "Facebook",
+      "instagram": "Instagram"
+    }
+  },
+  "pageBanner": {
+    "about": {
+      "eyebrow": "About Me",
+      "title": "Who I Am",
+      "subtitle": "A glimpse into my background, skills, and what drives me forward."
+    },
+    "projects": {
+      "eyebrow": "Portfolio",
+      "title": "Projects",
+      "subtitle": "Things I've built — from side projects to real-world applications."
+    },
+    "education": {
+      "eyebrow": "Academic Journey",
+      "title": "Education",
+      "subtitle": "Where I study, what I learn, and moments I remember."
+    },
+    "certificates": {
+      "eyebrow": "Credentials",
+      "title": "Certificates & Awards",
+      "subtitle": "Verified skills and recognition earned along the way."
+    },
+    "activities": {
+      "eyebrow": "Involvement",
+      "title": "Activities",
+      "subtitle": "Clubs, competitions, and communities I've been part of."
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Get In Touch",
+      "subtitle": "Have a question or want to work together? Let's talk."
+    },
+    "projectDetail": "Project Detail",
+    "home": "Home"
+  },
+  "education": {
+    "label": "Academic Journey",
+    "title": "Education & Training",
+    "memoriesLabel": "Campus Memories",
+    "memoriesTitle": "Moments from the journey",
+    "current": "Current",
+    "completed": "Completed",
+    "graduated": "Graduated"
+  },
+  "projects": {
+    "label": "Portfolio",
+    "title": "Projects",
+    "all": "All",
+    "filterLabel": "Filter",
+    "filterAll": "All",
+    "filterActive": "Active",
+    "filterInDev": "In Development",
+    "filterCompleted": "Completed",
+    "viewDetails": "View Details",
+    "aboutProject": "About this project",
+    "techStack": "Tech Stack",
+    "viewCode": "View Code",
+    "viewSource": "View Source",
+    "liveDemo": "Live Demo",
+    "backToProjects": "Back to Projects",
+    "otherProjects": "Other Projects",
+    "notFound": "Project not found.",
+    "role": "Role",
+    "timeline": "Timeline",
+    "duration": "Duration",
+    "status": "Status",
+    "links": "Links",
+    "githubRepo": "GitHub Repository",
+    "statuses": {
+      "inDevelopment": "In Development",
+      "completed": "Completed",
+      "active": "Active"
+    }
+  },
+  "certificates": {
+    "label": "Credentials",
+    "title": "Certificates & Awards",
+    "searchPlaceholder": "Search certificates...",
+    "all": "All",
+    "allYears": "All Years",
+    "noResults": "No certificates found.",
+    "issuedBy": "Issued by",
+    "viewCertificate": "View Certificate",
+    "close": "Close",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "prizes": {
+    "label": "Recognition",
+    "title": "Prizes & Awards",
+    "finalist": "Finalist",
+    "winner": "Winner",
+    "runnerUp": "Runner-up"
+  },
+  "activities": {
+    "label": "Involvement",
+    "title": "Activities",
+    "totalActivities": "Total Activities",
+    "active": "Active",
+    "completed": "Completed",
+    "organizations": "Organizations",
+    "statusLabel": "Status:",
+    "orgLabel": "Organization:",
+    "all": "All",
+    "allOrgs": "All Organizations",
+    "viewDetails": "View Details",
+    "close": "Close",
+    "statuses": {
+      "active": "Active",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "various": "Various"
+    }
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Info",
+    "letsConnect": "Let's Connect",
+    "builtWith": "Built with React & Framer Motion",
+    "backToTop": "Back to top"
+  },
+  "common": {
+    "readMore": "Read more",
+    "learnMore": "Learn more",
+    "required": "required"
+  },
+  "personalInfo": {
+    "storyTitle": "My Journey",
+    "storyContent": "I'm **Lê Trí Trung** — a Computer Science student at **FPT University Da Nang**, currently interning at **FPT Software** as a Software Developer. I specialize in **Java Spring Boot** backend development and enjoy building full-stack applications that are clean, scalable, and actually useful.\n\nMy path started with a curiosity for how things work under the hood. That curiosity led me from Java fundamentals to designing RESTful APIs, integrating databases, working with real Agile teams, and eventually co-building platforms like **The MC Hub** — a marketplace connecting event MCs with clients, featuring real-time chat, payment integration, and a mobile app.\n\nOutside of code, I've served as an **MC for 600–1000+ attendee university events**, founded **The Dreamers** — a student charity organization focused on bringing technology education to orphaned children — and competed in multiple national-scale coding competitions, reaching final rounds at **FPT Code Talent** and **Innocode Camp**.\n\nI believe the best developers are those who can communicate, lead, and adapt — not just ship code. That's the kind of developer I'm working to become.",
+    "title": "Java Developer | Computer Science Student",
+    "intro": "Highly motivated Computer Science student with a strong foundation in web development. Proficient in Java Spring Boot, JavaScript, React, HTML/CSS, and passionate about creating clean, scalable applications. Seeking a Web Developer internship to apply my skills and contribute to a collaborative team."
+  },
+  "highlights": [
+    {
+      "title": "Backend-First Mindset",
+      "description": "Core strength in Java Spring Boot — designing RESTful APIs, securing services with JWT, managing relational and document databases, and building production-ready backend systems with clean architecture."
+    },
+    {
+      "title": "Full-Stack Capable",
+      "description": "Comfortable across the entire stack — from React 19 + Vite frontends to Spring Boot backends, with hands-on experience deploying on Vercel and integrating third-party services like PayOS and Cloudinary."
+    },
+    {
+      "title": "Competitive Programmer",
+      "description": "Reached final rounds at FPT Code Talent, Innocode Camp, and ResFes — sharpening algorithmic thinking and performance under pressure through consistent competition participation."
+    },
+    {
+      "title": "Leader & Community Builder",
+      "description": "Founded The Dreamers charity organization, led 5-person development teams, and hosted university events for 600–1000+ attendees — proving that strong developers also know how to communicate and inspire."
+    }
+  ],
+  "funFacts": [
+    {
+      "title": "MC for 1,000+ Attendees",
+      "description": "Hosted university events with live audiences up to 1,000 people — managing program flow, speakers, and unexpected moments on stage."
+    },
+    {
+      "title": "Commercial Actor & Model",
+      "description": "Appeared in commercial spots for Honda Tien Thu dealership and modeled for FPT University's official photography and bridal brand LenDoan."
+    },
+    {
+      "title": "5× Competition Finalist",
+      "description": "Reached final rounds at FPT Code Talent, Innocode Camp, ResFes (×2), and Code Mosaic — all while balancing internship and organization work."
+    },
+    {
+      "title": "Founded a Charity at 19",
+      "description": "Started The Dreamers Organization at age 19, growing it to 15+ members and running 6+ community events focused on tech education for orphaned children."
+    },
+    {
+      "title": "Self-Learning Japanese",
+      "description": "Teaching myself Japanese from scratch — completed Hiragana and Katakana alongside full-time CS studies and internship. Because why not."
+    },
+    {
+      "title": "Wakes Up at 5:30 AM",
+      "description": "Morning runs and football sessions before 7 AM most days. Physical discipline shapes how I approach deadlines and pressure."
+    }
+  ],
+  "experience": [
+    {
+      "role": "Software Developer Intern",
+      "company": "FPT Software",
+      "type": "Internship",
+      "duration": "09/2025 – Present",
+      "status": "Current",
+      "description": "Working as a **Software Developer Intern** at FPT Software — one of Vietnam's largest technology companies. Developing enterprise applications using the **OutSystems low-code platform**, collaborating with senior engineers on real client-facing projects, and gaining exposure to professional Agile workflows, code reviews, and enterprise delivery standards."
+    },
+    {
+      "role": "Founder & Project Lead",
+      "company": "The Dreamers Organization",
+      "type": "Volunteer",
+      "duration": "06/2024 – Present",
+      "status": "Current",
+      "description": "Founded and lead **The Dreamers** — a student-run charity organization at FPT University. Managing 15+ active members, coordinating community events, overseeing charity missions to orphanages, and running tech education programs for underprivileged children. Also building the organization's backend management platform in **Java Spring Boot**."
+    },
+    {
+      "role": "Team Leader & Backend Developer",
+      "company": "FPT University Project Teams",
+      "type": "Academic",
+      "duration": "09/2023 – Present",
+      "status": "Current",
+      "description": "Led multiple cross-functional project teams through full development cycles — from requirements gathering and system design to deployment. Key projects include **Job Finder** (Agile team of 6), **Dola Bakery** (team lead + backend architect), and **The MC Hub** (full-stack + mobile). Consistent focus on **Java Spring Boot** backend, RESTful API design, and collaborative Git workflows."
+    }
+  ],
+  "skills": [
+    {
+      "category": "Programming Languages",
+      "items": [
+        { "name": "Java Core & Spring Boot" },
+        { "name": "Javascript ES6" },
+        { "name": "HTML5 & CSS3" },
+        { "name": "API Development (RESTful)" }
+      ]
+    },
+    {
+      "category": "Frameworks & Libraries",
+      "items": [
+        { "name": "Spring Boot" },
+        { "name": "ReactJS (Hooks, API, JSX)" },
+        { "name": "Java Servlets" },
+        { "name": "React Hooks" }
+      ]
+    },
+    {
+      "category": "Tools & Technologies",
+      "items": [
+        { "name": "Git/GitHub/GitLab" },
+        { "name": "SQL Server Management Studio (SSMS)" },
+        { "name": "Docker" },
+        { "name": "Project Management" }
+      ]
+    },
+    {
+      "category": "Soft Skills",
+      "items": [
+        { "name": "Communication Skills" },
+        { "name": "Team Leadership" },
+        { "name": "Problem Solving" },
+        { "name": "Agile Collaboration" }
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "name": "Vietnamese",
+      "level": "Native",
+      "description": "Mother tongue — full professional and conversational fluency"
+    },
+    {
+      "name": "English",
+      "level": "Professional (IELTS 6.0)",
+      "description": "Professional working proficiency — reading, writing, presentations, and daily communication"
+    },
+    {
+      "name": "Japanese",
+      "level": "Beginner",
+      "description": "Hiragana & Katakana completed — self-study"
+    }
+  ],
+  "siteNavigation": [
+    { "title": "Home", "desc": "Welcome to my portfolio" },
+    { "title": "About", "desc": "Learn about my journey and passion" },
+    { "title": "Education", "desc": "My academic path and achievements" },
+    { "title": "Projects", "desc": "Software I've built and shipped" },
+    { "title": "Certificates", "desc": "Verified skills and completed courses" },
+    { "title": "Activities", "desc": "Events, competitions, and community work" },
+    { "title": "Contact", "desc": "Get in touch with me" }
+  ],
+  "educationItems": [
+    { "description": "Currently interning at FPT Software, a **top-tier technology company in Vietnam**. Gaining **practical experience** by developing applications using **Low-Code platforms**, specifically **OutSystems**. This role provides invaluable exposure to a professional **enterprise environment** and **modern software development practices**." },
+    { "description": "Currently pursuing a **Bachelor of Science in Computer Science**. My coursework emphasizes **software development**, **data structures**, and **algorithms**. I am actively focused on **backend technologies**, particularly **Java Spring Boot**, and gaining practical experience through **team projects** and **coding competitions**." },
+    { "description": "Participation in the **FPTU Inbound Mobility Programme** in **Kuala Lumpur, Malaysia**. Gained **international exposure** to diverse academic and cultural environments, enhancing **adaptability** and **cross-cultural communication skills**." },
+    { "description": "Graduated with an **excellent academic GPA of 9.3/10.0**. The curriculum provided a strong foundation in **Mathematics, Physics, and analytical skills**, which served as a crucial stepping stone for my current Computer Science studies and **problem-solving approach**." }
+  ],
+  "memoryItems": [
+    { "caption": "Learning and development at FPT University." },
+    { "caption": "International exposure during the mobility program in Kuala Lumpur." },
+    { "caption": "A strong foundation built during high school years." }
+  ],
+  "activityItems": [
+    { "description": "Invited back to my alma mater as a **guest speaker** to guide 12th-grade students on university pathways and careers in technology. Shared my personal journey from high school to FPT University and FPT Software internship — covering the Computer Science curriculum, Java development roadmap, and what actually matters in the first year of a tech career. Answered live Q&A from over 50 students." },
+    { "description": "Led a **5-member cross-functional team** through the full development lifecycle of Innocode Camp SU25 — from problem analysis and system design to implementation and final presentation. Our team built a job search platform prototype using **React, Java Spring Boot, MySQL, and Docker**. I coordinated sprint planning, handled backend architecture decisions, and kept the team on schedule under competition deadlines. We advanced to the **final round**." },
+    { "description": "Active core member of two of FPT University Da Nang's most prominent event and public speaking clubs. Regularly served as **MC and host** for university-scale events — including orientation ceremonies, cultural festivals, and academic competitions — with live audiences of **600 to 1000+ attendees**. Developed strong stage presence, improvisational recovery skills, and the ability to read and guide large crowds through multi-hour programs." },
+    { "description": "Led The Dreamers team through **FPT's Research Festival (ResFres)** — a multi-stage academic competition requiring original research, structured report writing, and formal panel presentations. Managed task distribution across team members, maintained the research timeline, and coached teammates on presenting technical findings clearly to a non-technical jury. The team advanced to the **multi-campus final round**." },
+    { "description": "Served as **main coordinator and external relations lead** for the 'Hon Thien Dat Viet' cultural gala — a large-scale university event celebrating Vietnamese heritage. Responsibilities included liaising with external partners and sponsors, coordinating logistics across departments, managing the event timeline on the day, and troubleshooting live issues during the program. Gained practical experience in high-stakes event diplomacy and multi-stakeholder coordination." },
+    { "description": "Designed and led The Dreamers' end-of-year fundraising campaign — coordinating sales activities, tracking contributions, and managing the budget as **treasurer**. Funds raised were directed entirely toward charity missions to local orphanages, covering meals, educational materials, and technology workshops. The campaign met its internal revenue target within the month and established a repeatable fundraising model for future cycles." },
+    { "description": "Participated in and helped organize multiple charity field missions through AHT Cooperation — including orphanage visits, community fundraising drives, and the 'Hanh trinh tu thien ocean.zero6' initiative. Activities ranged from direct on-site volunteering (distributing supplies, running mini-workshops for children) to backend logistics (transport coordination, documentation, and post-event reporting)." },
+    { "description": "Hosted the **'Make Your Image Better'** university workshop as MC — a session focused on personal branding, appearance, and professional presence for students entering the job market. Managed the program flow, introduced speakers, facilitated audience interaction, and kept energy high across a multi-segment event. This was one of several workshops I've hosted, building a consistent track record in professional event facilitation." },
+    { "description": "Served as MC for the **'Gender Equality in the Workplace'** workshop — a sensitive and important topic requiring careful tone, inclusive language, and the ability to facilitate open discussion. Introduced panelists, moderated Q&A segments, and ensured a respectful environment throughout. This experience expanded my ability to host programs that go beyond entertainment into social education." },
+    { "description": "Ongoing involvement as a **student representative and event guide** across a range of FPT University activities — including new student orientation, admission open days, volunteer recruitment drives, and inter-department collaboration events. Consistently trusted to represent the university face-to-face with prospective students and their families, requiring clear communication, patience, and campus knowledge." },
+    { "description": "Accumulated diverse media experience across three distinct roles: **Commercial Actor** for Honda Tien Thu dealership promotional content; **Model** for LenDoan Bridal and FPT University official photography and event materials; and **Vlogger/Content Creator** producing and editing video content for social platforms. These experiences developed adaptability, camera confidence, and creative production skills — a different but complementary dimension to technical work." },
+    { "description": "Designed and led The Dreamers' **second-round member recruitment campaign** — drafting the recruitment criteria, creating application materials, organizing interview sessions, and selecting candidates who aligned with the organization's mission and culture. Successfully onboarded a new cohort of members who went on to contribute to the Dream High project and charity missions." },
+    { "description": "Led the full planning and execution of **'Tot Hy Vong'** — a charity event organized by The Dreamers bringing joy, gifts, and educational activities to underprivileged children. Coordinated volunteer assignments, managed the day-of schedule, handled contingencies on-site, and oversaw post-event documentation. The event reinforced the organization's mission of using community action to create tangible social impact." },
+    { "description": "Led the organization team for **'Vong vao Mong mo'** — a week-long initiative by The Dreamers designed to inspire ambition and self-belief in young participants through storytelling, mentorship sessions, and interactive workshops. Managed the full event arc: concept development, logistics, volunteer coordination, and wrap-up. A meaningful project that connected The Dreamers' mission with direct youth empowerment." },
+    { "description": "Led **Dream High** — The Dreamers' flagship long-term project spanning 6 months, focused on bringing technology literacy and personal development to orphaned children through structured weekly sessions. As project leader, I oversaw curriculum design, volunteer scheduling, partner coordination, and progress tracking. The project ran bi-weekly workshops covering basic coding concepts, communication skills, and goal-setting exercises for children aged 8–15." },
+    { "description": "Selected as **head referee** for FPT University's AI & Robotics Competition — a technical contest where student teams program robots and AI systems to complete specified challenges. Responsibilities included enforcing competition rules impartially, evaluating technical compliance of robot designs, managing time-keeping during rounds, and resolving disputes between teams. Being chosen for this role reflects trust from faculty in both technical understanding and professional conduct." },
+    { "description": "Managed The Dreamers' **charity music performance event** from planning through execution — coordinating performers, securing the venue, handling ticket/donation logistics, and managing volunteer teams on the day. The concert raised funds directed toward orphanage support programs. This was the largest production The Dreamers had organized, requiring multi-week preparation and real-time problem solving during the live event." },
+    { "description": "Selected as **photo model** for FPT University's official commemorative photo series marking the anniversary of the August Revolution. Worked with the university's media team to produce formal portraits and group compositions used in official communications and campus displays. Part of an ongoing involvement in FPT's visual media and branding activities." }
+  ],
+  "certificateItems": [
+    { "description": "Achieved a **band score of 6.0** on the International English Language Testing System (IELTS) — demonstrating proficient academic English across Listening, Reading, Writing, and Speaking. This score meets the English proficiency requirement for international university programs and professional environments." },
+    { "description": "Completed the **FPT University Inbound Mobility Programme** hosted at Tunku Abdul Rahman University of Management and Technology in **Kuala Lumpur, Malaysia**. Gained international academic exposure, cross-cultural communication experience, and a broader perspective on technology education across Southeast Asia." },
+    { "description": "Certificate recognizing participation and advancement to the **final round** of Innocode Camp SU25 — a project-based coding competition organized by FPT Education for university students. Our team built a job search platform and competed against finalists from multiple FPT campuses." },
+    { "description": "Certificate of participation and achievement in the **FPT Research Festival (ResFres 2024)** — a multi-stage academic competition covering original research, structured reporting, and formal panel presentation. Advanced to the multi-campus final round representing The Dreamers team." },
+    { "description": "Completed training on building **AI-powered automation workflows** using n8n — covering agent design, API chaining, conditional logic, and integration with external services. Applied directly to workflow automation tasks during the FPT Software internship." },
+    { "description": "Completed Meta's **Programming with JavaScript** course on Coursera — part of the Meta Front-End Developer Professional Certificate. Covers ES6+ syntax, functions, objects, arrays, error handling, and testing fundamentals with Jest." },
+    { "description": "Completed the University of Michigan's **Basics of Web Development & Coding** course — an introduction to how the web works, covering HTML structure, CSS styling, basic JavaScript interactivity, and browser rendering concepts." },
+    { "description": "Completed Meta's **HTML and CSS in Depth** course — part of the Front-End Developer certificate. Deep coverage of semantic HTML5, advanced CSS selectors, the box model, Flexbox, Grid, and accessibility best practices." },
+    { "description": "Completed the University of Michigan's **Interactivity with JavaScript** course — focusing on DOM manipulation, event listeners, form validation, and dynamic content rendering to build responsive, interactive web pages." },
+    { "description": "Completed Meta's **Introduction to Front-End Development** — the foundational course of the Meta Front-End Developer Professional Certificate. Covers the role of front-end developers, core web technologies, and an introduction to React." },
+    { "description": "Completed IBM's **Data Visualization** course on Coursera — covering principles of effective data communication, chart selection, and hands-on practice with visualization tools to transform raw data into clear, actionable insights." },
+    { "description": "Completed the University of Michigan's **CSS3** course — advanced coverage of CSS3 features including transitions, animations, custom properties (CSS variables), pseudo-elements, and responsive design techniques." },
+    { "description": "Completed the University of Michigan's **HTML5** course — in-depth study of HTML5 semantic elements, multimedia embedding, forms, accessibility attributes, and best practices for structuring modern web documents." },
+    { "description": "Completed the University of Michigan's **Responsive Web Design** course — covering media queries, fluid grids, flexible images, and mobile-first design principles to build layouts that adapt seamlessly across all screen sizes." },
+    { "description": "Completed the University of Auckland's **Academic Skills for University Success** specialization — covering critical reading, academic writing, research methodology, and time management strategies for university-level study." },
+    { "description": "Completed CalArts' **Fundamentals of Graphic Design** course on Coursera — covering visual design principles including typography, color theory, composition, and image-making. Applied to creating visual materials for The Dreamers events and FPT activities." },
+    { "description": "Completed FPT Software's **IT Onboarding** program — an introduction to enterprise IT practices, internal tools, software development workflows, and professional standards used within FPT's technology organization." },
+    { "description": "Completed a **Robotics** course at FPT University — covering foundational robotics concepts including sensors, actuators, basic control systems, and hands-on experience with robot programming in a lab environment. Related to serving as head referee at the FPT AI & Robotics Competition." },
+    { "description": "Completed freeCodeCamp's **JavaScript Algorithms and Data Structures** certification — covering fundamental algorithms (sorting, searching), data structures (arrays, objects, linked lists, stacks, queues), and algorithmic problem solving in pure JavaScript." },
+    { "description": "Completed the **Hiragana** module — mastering the full 46-character Japanese phonetic alphabet used for native Japanese words. Part of an ongoing self-directed effort to learn Japanese language fundamentals alongside technical studies." },
+    { "description": "Completed the **Katakana** module — mastering the 46-character syllabary used for foreign loanwords and technical terminology in Japanese. Combined with Hiragana completion, provides a reading foundation for beginner Japanese texts." },
+    { "description": "Certificate of participation in the **'Non Xanh Nuoc Biec'** environmental awareness event organized by FPT University's Student Union — a campus initiative promoting sustainability, green living, and student community engagement." },
+    { "description": "Received the **'Dreamer of Honor'** recognition from The Dreamers Organization — awarded to members who demonstrated exceptional dedication, leadership, and contribution to the organization's mission throughout the year. One of the highest internal recognitions within the organization." }
+  ]
+}

@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaTrophy, FaScroll, FaStar, FaCoins } from 'react-icons/fa6';
+import { FaMedal, FaAward } from 'react-icons/fa';
 
 const AchievementCard = ({
     achievement,
@@ -29,16 +31,17 @@ const AchievementCard = ({
     };
 
     const config = {
-        prize: { color: 'amber', icon: '🏆' },
-        certificate: { color: 'green', icon: '📜' },
-        activity: { color: 'blue', icon: '🌟' },
-    }[type] || { color: 'blue', icon: '✨' };
+        prize: { color: 'amber', icon: <FaTrophy /> },
+        certificate: { color: 'green', icon: <FaScroll /> },
+        activity: { color: 'blue', icon: <FaStar /> },
+    }[type] || { color: 'blue', icon: <FaAward /> };
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9, rotate: -1 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -8, rotate: 0.5 }}
             className="h-full bg-white dark:bg-slate-900 rounded-[2.5rem] p-6 shadow-xl border border-gray-100 dark:border-slate-800 group relative transition-all duration-500 overflow-hidden"
         >
@@ -52,7 +55,7 @@ const AchievementCard = ({
                         {image ? (
                             <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                         ) : (
-                            <span className="text-3xl transform group-hover:scale-110 transition-transform">{config.icon}</span>
+                            <span style={{ fontSize: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="transform group-hover:scale-110 transition-transform">{config.icon}</span>
                         )}
                     </div>
 
@@ -69,7 +72,8 @@ const AchievementCard = ({
 
                     {amount && (
                         <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-300 border border-green-100 dark:border-green-800">
-                            <span className="text-xs font-black">💰 {amount}</span>
+                            <FaCoins size={12} />
+                            <span className="text-xs font-black">{amount}</span>
                         </div>
                     )}
                 </div>

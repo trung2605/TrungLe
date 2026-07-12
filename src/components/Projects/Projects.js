@@ -1,18 +1,20 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaTags, FaTimes } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser } from 'react-icons/fa';
 import { projects } from '../../data';
 import { default as ReactMarkdown } from 'react-markdown';
 import useSpotlight from '../../hooks/useSpotlight';
 import '../../animations/SpotlightCard.css';
-
+import { useTranslation } from 'react-i18next';
+import TechIcon from '../../common/TechIcon';
 const STATUS_COLORS = {
   'Active':         { bg: '#c8e6cd', color: '#000000' },
   'In Development': { bg: '#dceeb1', color: '#000000' },
   'Completed':      { bg: '#e6e6e6', color: '#000000' },
 };
 
-const ProjectCard = ({ project, onClick, index, featured = false }) => {
+const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
   const status = STATUS_COLORS[project.status] || { bg: '#f7f7f5', color: '#000000' };
   const spotlight = useSpotlight();
 
@@ -100,7 +102,9 @@ const ProjectCard = ({ project, onClick, index, featured = false }) => {
         {/* Primary tech tag */}
         {project.techStack?.[0] && (
           <span style={{
-            display: 'inline-block',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
             padding: '3px 10px',
             borderRadius: '50px',
             fontSize: '11px',
@@ -113,6 +117,7 @@ const ProjectCard = ({ project, onClick, index, featured = false }) => {
             marginBottom: '12px',
             width: 'fit-content',
           }}>
+            <TechIcon tech={project.techStack[0]} size={11} />
             {project.techStack[0]}
           </span>
         )}
@@ -144,12 +149,11 @@ const ProjectCard = ({ project, onClick, index, featured = false }) => {
           color: '#555555',
           marginBottom: '20px',
           flex: 1,
+          maxHeight: '4.65em',
           overflow: 'hidden',
-          display: '-webkit-box',
-          WebkitLineClamp: 3,
-          WebkitBoxOrient: 'vertical',
+          position: 'relative',
         }}>
-          <ReactMarkdown>{project.description}</ReactMarkdown>
+          <ReactMarkdown components={{ p: ({ children }) => <span style={{ display: 'block' }}>{children}</span> }}>{project.description}</ReactMarkdown>
         </div>
 
         {/* Actions */}
@@ -171,7 +175,7 @@ const ProjectCard = ({ project, onClick, index, featured = false }) => {
             onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
             onMouseLeave={e => e.currentTarget.style.backgroundColor = '#000000'}
           >
-            View Details
+            {t('projects.viewDetails')}
           </button>
           {project.githubUrl && project.githubUrl !== '#' && (
             <a
@@ -225,13 +229,14 @@ const ProjectCard = ({ project, onClick, index, featured = false }) => {
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
-  const [selectedProject, setSelectedProject] = useState(null);
+  const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const statusOptions = [
-    { value: 'all',            label: 'All',          count: projects.length },
-    { value: 'Active',         label: 'Active',        count: projects.filter(p => p.status === 'Active').length },
-    { value: 'In Development', label: 'In Development', count: projects.filter(p => p.status === 'In Development').length },
-    { value: 'Completed',      label: 'Completed',     count: projects.filter(p => p.status === 'Completed').length },
+    { value: 'all',            label: t('projects.filterAll'),          count: projects.length },
+    { value: 'Active',         label: t('projects.filterActive'),        count: projects.filter(p => p.status === 'Active').length },
+    { value: 'In Development', label: t('projects.filterInDev'), count: projects.filter(p => p.status === 'In Development').length },
+    { value: 'Completed',      label: t('projects.filterCompleted'),     count: projects.filter(p => p.status === 'Completed').length },
   ];
 
   const filteredProjects = filter === 'all'
@@ -240,6 +245,22 @@ const Projects = () => {
 
   return (
     <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
+
+      {/* Terminal prompt */}
+      <motion.div
+        initial={{ opacity: 0, x: -16 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4 }}
+        style={{
+          fontFamily: 'JetBrains Mono, monospace', fontSize: '13px',
+          color: '#888888', marginBottom: '20px',
+          display: 'flex', alignItems: 'center', gap: '8px',
+        }}
+      >
+        <span style={{ color: '#1ea64a' }}>$</span>
+        <span style={{ color: '#000000' }}>ls -la ./projects/</span>
+        <span style={{ color: '#aaaaaa', marginLeft: '8px' }}>→ {projects.length} repos found</span>
+      </motion.div>
 
       {/* Filter — pill tabs */}
       <motion.div
@@ -252,6 +273,7 @@ const Projects = () => {
           <button
             key={opt.value}
             onClick={() => setFilter(opt.value)}
+            data-testid={`project-filter-${opt.value.toLowerCase().replace(/\s+/g, '-')}`}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -289,189 +311,13 @@ const Projects = () => {
           <ProjectCard
             key={project.id}
             project={project}
-            onClick={setSelectedProject}
+            onClick={p => navigate(`/projects/${p.id}`)}
             index={i}
+            t={t}
             featured={filter === 'all' && i === 0}
           />
         ))}
       </div>
-
-      {/* Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            style={{
-              position: 'fixed', inset: 0,
-              backgroundColor: 'rgba(0,0,0,0.6)',
-              zIndex: 100,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '24px',
-            }}
-            onClick={() => setSelectedProject(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.92, opacity: 0, y: 30 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              transition={{ type: 'spring', damping: 30, stiffness: 350 }}
-              style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '24px',
-                maxWidth: '860px',
-                width: '100%',
-                maxHeight: '90vh',
-                overflowY: 'auto',
-              }}
-              onClick={e => e.stopPropagation()}
-            >
-              {/* Modal image */}
-              <div style={{ position: 'relative', height: '280px', overflow: 'hidden', borderRadius: '24px 24px 0 0', backgroundColor: '#f7f7f5' }}>
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  loading="lazy"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)' }} />
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  style={{
-                    position: 'absolute', top: '16px', right: '16px',
-                    width: '36px', height: '36px',
-                    borderRadius: '9999px',
-                    backgroundColor: 'rgba(0,0,0,0.4)',
-                    color: '#ffffff',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: 'pointer',
-                    fontSize: '16px',
-                  }}
-                >
-                  <FaTimes />
-                </button>
-                <div style={{ position: 'absolute', bottom: '24px', left: '24px' }}>
-                  <h2 style={{ fontSize: '28px', fontWeight: '540', color: '#ffffff', margin: 0, letterSpacing: '-0.3px' }}>
-                    {selectedProject.title}
-                  </h2>
-                  <span style={{
-                    display: 'inline-block', marginTop: '8px',
-                    padding: '4px 12px',
-                    borderRadius: '50px',
-                    fontSize: '11px',
-                    fontFamily: 'JetBrains Mono, monospace',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.4px',
-                    backgroundColor: (STATUS_COLORS[selectedProject.status] || {}).bg || '#e6e6e6',
-                    color: '#000000',
-                  }}>
-                    {selectedProject.status}
-                  </span>
-                </div>
-              </div>
-
-              {/* Modal body */}
-              <div style={{ padding: '32px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '32px' }}
-                  className="block md:grid"
-                >
-                  <div>
-                    <h3 style={{ fontSize: '16px', fontWeight: '540', color: '#000000', marginBottom: '12px' }}>About</h3>
-                    <div style={{ fontSize: '16px', fontWeight: '330', lineHeight: '1.6', color: '#444444' }}>
-                      <ReactMarkdown>{selectedProject.description}</ReactMarkdown>
-                    </div>
-                  </div>
-                  <div style={{ minWidth: '180px' }}>
-                    <div style={{ padding: '16px', backgroundColor: '#f7f7f5', borderRadius: '12px', marginBottom: '12px' }}>
-                      <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.5px', textTransform: 'uppercase', color: '#666666', marginBottom: '6px' }}>Role</p>
-                      <p style={{ fontSize: '14px', fontWeight: '400', color: '#000000', margin: 0 }}>{selectedProject.role}</p>
-                    </div>
-                    <div style={{ padding: '16px', backgroundColor: '#f7f7f5', borderRadius: '12px' }}>
-                      <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.5px', textTransform: 'uppercase', color: '#666666', marginBottom: '6px' }}>Timeline</p>
-                      <p style={{ fontSize: '14px', fontWeight: '400', color: '#000000', margin: 0 }}>{selectedProject.duration}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Tech stack */}
-                <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid #e6e6e6' }}>
-                  <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.5px', textTransform: 'uppercase', color: '#666666', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <FaTags size={10} /> Tech Stack
-                  </p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                    {selectedProject.techStack.map((tech, i) => (
-                      <span key={i} style={{
-                        padding: '6px 14px',
-                        borderRadius: '50px',
-                        fontSize: '13px',
-                        fontWeight: '400',
-                        color: '#000000',
-                        backgroundColor: '#f7f7f5',
-                        border: '1px solid #e6e6e6',
-                      }}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA row */}
-                <div style={{ display: 'flex', gap: '12px', marginTop: '24px', paddingTop: '24px', borderTop: '1px solid #e6e6e6', flexWrap: 'wrap' }}>
-                  {selectedProject.githubUrl && selectedProject.githubUrl !== '#' && (
-                    <a
-                      href={selectedProject.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'inline-flex', alignItems: 'center', gap: '8px',
-                        padding: '12px 24px',
-                        borderRadius: '50px',
-                        fontSize: '15px',
-                        fontWeight: '480',
-                        color: '#ffffff',
-                        backgroundColor: '#000000',
-                        textDecoration: 'none',
-                        transition: 'background-color 0.15s ease',
-                      }}
-                      onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
-                      onMouseLeave={e => e.currentTarget.style.backgroundColor = '#000000'}
-                    >
-                      <FaGithub size={15} /> View Source
-                    </a>
-                  )}
-                  {selectedProject.liveUrl && selectedProject.liveUrl !== '#' && (
-                    <a
-                      href={selectedProject.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'inline-flex', alignItems: 'center', gap: '8px',
-                        padding: '12px 24px',
-                        borderRadius: '50px',
-                        fontSize: '15px',
-                        fontWeight: '480',
-                        color: '#000000',
-                        backgroundColor: '#ffffff',
-                        border: '1.5px solid #e6e6e6',
-                        textDecoration: 'none',
-                        transition: 'background-color 0.15s ease',
-                      }}
-                      onMouseEnter={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
-                      onMouseLeave={e => e.currentTarget.style.backgroundColor = '#ffffff'}
-                    >
-                      <FaExternalLinkAlt size={13} /> Live Demo
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };

@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { educationMemories } from '../../data';
+import { useTranslatedData } from '../../hooks/useTranslatedData';
 
 const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
 
 const MemoryGallery = () => {
     const [hoveredId, setHoveredId] = useState(null);
     const [selectedMemory, setSelectedMemory] = useState(null);
+    const { educationMemories } = useTranslatedData();
 
     if (!educationMemories || educationMemories.length === 0) return null;
 
     return (
         <>
             <motion.div
-                variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08 } } }}
+                variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.07 } } }}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -22,7 +23,7 @@ const MemoryGallery = () => {
                 {educationMemories.map((memory, i) => (
                     <motion.div
                         key={memory.id}
-                        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                        variants={{ hidden: { opacity: 0, scale: 0.88, rotate: i % 2 === 0 ? -2 : 2 }, visible: { opacity: 1, scale: 1, rotate: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } } }}
                         whileHover={{ y: -4 }}
                         onMouseEnter={() => setHoveredId(memory.id)}
                         onMouseLeave={() => setHoveredId(null)}

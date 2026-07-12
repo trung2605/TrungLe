@@ -36,6 +36,15 @@ const Prizes = () => {
                 transition={{ delay: 0.1, duration: 0.5 }}
                 style={{ backgroundColor: '#dceeb1', borderRadius: '24px', padding: '32px 40px', marginBottom: '56px' }}
             >
+                <div style={{
+                    fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
+                    color: '#444444', marginBottom: '20px',
+                    display: 'flex', gap: '6px', alignItems: 'center',
+                }}>
+                    <span style={{ color: '#1ea64a', fontWeight: '600' }}>✓</span>
+                    <span>npm run awards --list</span>
+                    <span style={{ color: '#666666', marginLeft: '8px' }}>// output: {prizes.length} achievements unlocked</span>
+                </div>
                 <div className="stats-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
                     {[
                         { label: 'Total Awards', value: prizes.length, icon: <FaTrophy /> },

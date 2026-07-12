@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaCalendarAlt, FaStar } from 'react-icons/fa';
-import { education } from '../../data';
+import { useTranslatedData } from '../../hooks/useTranslatedData';
 import Markdown from 'react-markdown';
+import { useTranslation } from 'react-i18next';
 import MemoryGallery from './MemoryGallery';
 import useSpotlight from '../../hooks/useSpotlight';
 import '../../animations/SpotlightCard.css';
@@ -90,8 +91,29 @@ const EducationRow = ({ edu, index, isLast }) => {
 };
 
 const Education = () => {
+  const { t } = useTranslation();
+  const { education } = useTranslatedData();
   return (
     <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
+
+      {/* Git log prompt */}
+      <motion.div
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        style={{
+          fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
+          marginBottom: '32px',
+          padding: '10px 16px',
+          backgroundColor: '#0d1117',
+          borderRadius: '8px',
+          color: '#e2e8f0',
+          display: 'flex', gap: '16px', flexWrap: 'wrap',
+        }}
+      >
+        <span style={{ color: '#1ea64a' }}>$</span>
+        <span>git log --author="Le-Tri-Trung" --format="%s" --reverse</span>
+      </motion.div>
 
       {/* Timeline */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', marginBottom: '72px' }}>
@@ -109,10 +131,10 @@ const Education = () => {
         style={{ backgroundColor: '#f3c9b6', borderRadius: '24px', padding: '40px 32px' }}
       >
         <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.6px', textTransform: 'uppercase', color: '#444444', marginBottom: '10px' }}>
-          Campus Memories
+          {t('education.memoriesLabel')}
         </p>
         <h2 style={{ fontSize: 'clamp(22px, 3vw, 40px)', fontWeight: '340', lineHeight: '1.15', letterSpacing: '-0.5px', color: '#000000', marginBottom: '28px' }}>
-          Moments worth remembering
+          {t('education.memoriesTitle')}
         </h2>
         <MemoryGallery />
       </motion.div>
