@@ -156,25 +156,25 @@ export const highlights = [
     title: "Backend-First Mindset",
     description:
       "Core strength in Java Spring Boot — designing RESTful APIs, securing services with JWT, managing relational and document databases, and building production-ready backend systems with clean architecture.",
-    icon: <FaServer className="w-8 h-8 text-blue-500" />,
+    icon: <FaServer className="w-8 h-8" style={{ color: '#6d3fc9' }} />,
   },
   {
     title: "Full-Stack Capable",
     description:
       "Comfortable across the entire stack — from React 19 + Vite frontends to Spring Boot backends, with hands-on experience deploying on Vercel and integrating third-party services like PayOS and Cloudinary.",
-    icon: <FaGlobe className="w-8 h-8 text-green-500" />,
+    icon: <FaGlobe className="w-8 h-8" style={{ color: '#6d3fc9' }} />,
   },
   {
     title: "Competitive Programmer",
     description:
       "Reached final rounds at FPT Code Talent, Innocode Camp, and ResFes — sharpening algorithmic thinking and performance under pressure through consistent competition participation.",
-    icon: <FaPuzzlePiece className="w-8 h-8 text-purple-500" />,
+    icon: <FaPuzzlePiece className="w-8 h-8" style={{ color: '#6d3fc9' }} />,
   },
   {
     title: "Leader & Community Builder",
     description:
       "Founded The Dreamers charity organization, led 5-person development teams, and hosted university events for 600–1000+ attendees — proving that strong developers also know how to communicate and inspire.",
-    icon: <FaUsers className="w-8 h-8 text-orange-500" />,
+    icon: <FaUsers className="w-8 h-8" style={{ color: '#6d3fc9' }} />,
   },
 ];
 
@@ -1545,34 +1545,30 @@ export const allSkillsData = [
   // -------------------------------------------------------------
   // NGÔN NGỮ LẬP TRÌNH CỐT LÕI (Xanh Lam & Vàng)
   // -------------------------------------------------------------
-  { name: "Java", icon: "☕", color: "from-blue-600 to-indigo-700", level: 80 }, // Màu chính đậm
+  { name: "Java", color: "from-blue-600 to-indigo-700", level: 80 }, // Màu chính đậm
   {
     name: "JavaScript",
-    icon: "🟨",
     color: "from-yellow-400 to-yellow-500", // Giữ màu Vàng nổi bật
     level: 0,
   },
-  { name: "C / C++", icon: "⚙️", color: "from-blue-400 to-cyan-500", level: 0 },
-  { name: "Python", icon: "🐍", color: "from-blue-500 to-teal-500", level: 0 },
+  { name: "C / C++", color: "from-blue-400 to-cyan-500", level: 0 },
+  { name: "Python", color: "from-blue-500 to-teal-500", level: 0 },
 
   // -------------------------------------------------------------
   // FRAMEWORKS & BACKEND (Xanh Lá/Xanh Lam)
   // -------------------------------------------------------------
   {
     name: "Spring Boot",
-    icon: "🍃",
     color: "from-green-500 to-green-700", // Xanh lá cây đồng bộ
     level: 0,
   },
   {
     name: "Node.js",
-    icon: "🟢",
     color: "from-green-600 to-teal-700",
     level: 0,
   },
   {
     name: "Java Website (Servlets/JSP)",
-    icon: "💻",
     color: "from-indigo-500 to-purple-600",
     level: 0,
   },
@@ -1582,19 +1578,16 @@ export const allSkillsData = [
   // -------------------------------------------------------------
   {
     name: "React (F8/Coursera)",
-    icon: "⚛️",
     color: "from-cyan-400 to-blue-600",
     level: 0,
   },
   {
     name: "HTML & CSS in DEPTH",
-    icon: "🌐",
     color: "from-purple-500 to-indigo-600",
     level: 0,
   },
   {
     name: "Intro to Web Development",
-    icon: "🛠️",
     color: "from-blue-300 to-blue-500",
     level: 0,
   },
@@ -1604,19 +1597,16 @@ export const allSkillsData = [
   // -------------------------------------------------------------
   {
     name: "Database MySQL / Relational DB",
-    icon: "💾",
     color: "from-sky-500 to-blue-600",
     level: 0,
   },
   {
     name: "Database MongoDB",
-    icon: "🌿",
     color: "from-teal-600 to-cyan-700",
     level: 0,
   },
   {
     name: "Database Visualization",
-    icon: "📈",
     color: "from-indigo-600 to-purple-700",
     level: 0,
   },
@@ -1626,13 +1616,11 @@ export const allSkillsData = [
   // -------------------------------------------------------------
   {
     name: "OutSystems",
-    icon: "🤖",
     color: "from-red-600 to-pink-700", // Màu mới
     level: 0,
   },
   {
     name: "Make.com / N8N Automation",
-    icon: "🔗",
     color: "from-fuchsia-600 to-purple-700",
     level: 0,
   },
@@ -1642,43 +1630,36 @@ export const allSkillsData = [
   // -------------------------------------------------------------
   {
     name: "Data Structure and Algorithm",
-    icon: "🧠",
     color: "from-teal-500 to-cyan-600",
     level: 0,
   },
   {
     name: "DevOps",
-    icon: "☁️",
     color: "from-gray-600 to-gray-800", // Tông Xám trung tính hơn
     level: 0,
   },
   {
     name: "Data Analysis With Python",
-    icon: "📊",
     color: "from-yellow-700 to-amber-800",
     level: 0,
   },
   {
     name: "Scientific Computing with Python",
-    icon: "🔬",
     color: "from-gray-700 to-gray-900",
     level: 0,
   },
   {
     name: "Phỏng vấn lập trình",
-    icon: "💬",
     color: "from-lime-600 to-green-700",
     level: 0,
   },
   {
     name: "Mục lục các hàm trong code C",
-    icon: "📜",
     color: "from-cyan-500 to-blue-600",
     level: 0,
   },
   {
     name: "Kiến thức khác",
-    icon: "💡",
     color: "from-yellow-400 to-amber-500",
     level: 0,
   },

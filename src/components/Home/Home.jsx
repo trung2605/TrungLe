@@ -557,36 +557,55 @@ const Home = () => {
           }}>{t('home.exploreTitle')}</h2>
 
           <div
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '14px' }}
+            className="explore-bento-grid"
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridAutoRows: '1fr', gap: '14px' }}
           >
-            {siteNavigation.slice(1).map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9, rotate: i % 2 === 0 ? -1 : 1 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -4 }}
-                style={{ marginTop: i % 3 === 1 ? '18px' : 0 }}
-              >
-                <Link
-                  to={item.path}
+            {siteNavigation.slice(2).map((item, i) => {
+              // Asymmetric bento: first card (Projects) spans 2x2, rest fill in as smaller tiles
+              const isFeatured = i === 0;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9, rotate: i % 2 === 0 ? -1 : 1 }}
+                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ y: -4 }}
                   style={{
-                    display: 'block', padding: '22px',
-                    backgroundColor: '#ffffff', borderRadius: '16px',
-                    border: '1px solid rgba(0,0,0,0.06)',
-                    textDecoration: 'none', color: '#000000',
-                    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                    gridColumn: isFeatured ? 'span 2' : 'span 1',
+                    gridRow: isFeatured ? 'span 2' : 'span 1',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.06)'; e.currentTarget.style.boxShadow = 'none'; }}
                 >
-                  <div style={{ fontSize: '26px', marginBottom: '12px' }}>{item.icon}</div>
-                  <h3 style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', fontWeight: '540', color: '#000000', margin: '0 0 6px 0' }}>{item.title}</h3>
-                  <p style={{ fontSize: '14px', fontWeight: '330', color: '#555555', margin: 0, lineHeight: '1.5' }}>{item.desc}</p>
-                </Link>
-              </motion.div>
-            ))}
+                  <Link
+                    to={item.path}
+                    style={{
+                      display: 'flex', flexDirection: 'column',
+                      justifyContent: isFeatured ? 'flex-end' : 'flex-start',
+                      height: '100%', padding: isFeatured ? '28px' : '22px',
+                      backgroundColor: isFeatured ? '#000000' : '#ffffff',
+                      borderRadius: '16px',
+                      border: isFeatured ? 'none' : '1px solid rgba(0,0,0,0.06)',
+                      textDecoration: 'none', color: isFeatured ? '#ffffff' : '#000000',
+                      transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                    }}
+                    onMouseEnter={e => { if (!isFeatured) { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'; } }}
+                    onMouseLeave={e => { if (!isFeatured) { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.06)'; e.currentTarget.style.boxShadow = 'none'; } }}
+                  >
+                    <div style={{ fontSize: isFeatured ? '34px' : '26px', marginBottom: isFeatured ? '16px' : '12px' }}>{item.icon}</div>
+                    <h3 style={{
+                      fontFamily: 'Outfit, system-ui, sans-serif',
+                      fontSize: isFeatured ? '22px' : '17px', fontWeight: '540',
+                      color: isFeatured ? '#ffffff' : '#000000', margin: '0 0 6px 0',
+                    }}>{item.title}</h3>
+                    <p style={{
+                      fontSize: '14px', fontWeight: '330',
+                      color: isFeatured ? 'rgba(255,255,255,0.7)' : '#555555',
+                      margin: 0, lineHeight: '1.5',
+                    }}>{item.desc}</p>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </section>

@@ -10,6 +10,9 @@ import DecryptedText from "../../animations/DecryptedText";
 import TechIcon from "../../common/TechIcon";
 
 const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
+// Same tone family (lilac), varying shade — keeps the Highlights grid visually calm
+// instead of clashing pastels sitting side by side
+const HIGHLIGHT_COLORS = ['#ede5fb', '#ddcdf7', '#c5b0f4', '#ab8ded'];
 
 const STATUS_STYLE = {
   'Current':   { bg: '#c8e6cd', color: '#000000' },
@@ -264,7 +267,7 @@ const About = () => {
                 transition={{ delay: i * 0.07, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -4 }}
                 style={{
-                  backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length],
+                  backgroundColor: HIGHLIGHT_COLORS[i % HIGHLIGHT_COLORS.length],
                   borderRadius: '20px', padding: '24px',
                   transition: 'box-shadow 0.2s ease',
                 }}

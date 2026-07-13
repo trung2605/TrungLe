@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaChevronRight } from 'react-icons/fa';
-import { FiCircle, FiCode, FiBookOpen, FiAward, FiUsers, FiEdit3, FiFileText, FiMail, FiStar } from 'react-icons/fi';
+import { FiCircle, FiCode, FiBookOpen, FiAward, FiUsers, FiEdit3, FiFileText, FiMail } from 'react-icons/fi';
 import { projects, posts } from '../../data';
 import { useTranslation } from 'react-i18next';
 
@@ -41,7 +41,7 @@ const PageBanner = () => {
                     title: post.title,
                     subtitle: post.excerpt,
                     color: '#c8e6cd',
-                    decoration: '✎',
+                    decoration: FiEdit3,
                     parentPath: '/blog',
                     parentLabel: t('pageBanner.blog.title'),
                 };
@@ -60,7 +60,7 @@ const PageBanner = () => {
                     title: project.title,
                     subtitle: project.role + ' · ' + project.duration,
                     color: '#c5b0f4',
-                    decoration: '◈',
+                    decoration: FiCode,
                     parentPath: '/projects',
                     parentLabel: t('pageBanner.projects.title'),
                 };
@@ -191,21 +191,18 @@ const PageBanner = () => {
                         </motion.p>
                     </div>
 
-                    {/* Decoration glyph */}
+                    {/* Decoration icon */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.7, rotate: -20 }}
-                        animate={{ opacity: 0.12, scale: 1, rotate: 0 }}
+                        animate={{ opacity: 0.15, scale: 1, rotate: 0 }}
                         transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                         style={{
-                            fontSize: 'clamp(80px, 12vw, 140px)',
-                            fontWeight: '700',
                             color: '#000000',
-                            lineHeight: '1',
                             userSelect: 'none',
                             flexShrink: 0,
                         }}
                     >
-                        {config.decoration}
+                        <config.decoration size={100} strokeWidth={1} aria-hidden="true" />
                     </motion.div>
                 </div>
             </div>

@@ -24,6 +24,8 @@
     "githubRepos": "Public repos",
     "githubFollowers": "Followers",
     "githubRecent": "Recently updated",
+    "githubHeatmapAlt": "GitHub contribution heatmap",
+    "githubTopRepos": "Top repositories",
     "testimonialsLabel": "Kind words",
     "testimonialsTitle": "What people say",
     "stats": [

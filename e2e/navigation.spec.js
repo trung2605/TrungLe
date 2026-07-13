@@ -24,7 +24,8 @@ test.describe('Navigation & routing', () => {
   test('desktop nav links navigate to each route', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto('/');
-    for (const route of ROUTES.filter((r) => r.path !== '/')) {
+    // /certificates has no standalone nav link (merged into Education & Certificates)
+    for (const route of ROUTES.filter((r) => r.path !== '/' && r.path !== '/certificates')) {
       await page.locator(`nav a[href="${route.path}"]`).first().click();
       await expect(page).toHaveURL(route.path);
     }

@@ -479,6 +479,23 @@ body::before {
   }
 }
 
+/* Home "explore" bento grid — 4 cols desktop with a 2x2 featured tile,
+   collapses to 2 cols (tablet) then 1 col (mobile), featured tile un-spans */
+@media (max-width: 900px) {
+  .explore-bento-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 480px) {
+  .explore-bento-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .explore-bento-grid > div {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}
+
 /* Hero aurora background — kept subtle behind the hero copy */
 .hero-aurora {
   opacity: 0.4;

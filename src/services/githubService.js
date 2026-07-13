@@ -1,6 +1,6 @@
 const GITHUB_USERNAME = 'trung2605';
 const API_BASE = 'https://api.github.com';
-const CACHE_KEY = 'github_stats_cache_v1';
+const CACHE_KEY = 'github_stats_cache_v2';
 const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour — keeps us well under the 60 req/h unauthenticated limit
 
 function readCache() {
@@ -21,17 +21,32 @@ function writeCache(data) {
     }
 }
 
+const mapRepo = (repo) => ({
+    name: repo.name,
+    description: repo.description,
+    htmlUrl: repo.html_url,
+    language: repo.language,
+    updatedAt: repo.updated_at,
+    stars: repo.stargazers_count,
+});
+
 async function fetchLive() {
-    const [profileRes, reposRes] = await Promise.all([
+    const [profileRes, recentRes, topRes] = await Promise.all([
         fetch(`${API_BASE}/users/${GITHUB_USERNAME}`),
         fetch(`${API_BASE}/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=1`),
+        // GitHub's REST API has no "pinned repos" endpoint (that's GraphQL-only, which needs
+        // an auth token we can't safely expose client-side) — top-starred repos is the
+        // standard public-API stand-in most portfolios use instead.
+        fetch(`${API_BASE}/users/${GITHUB_USERNAME}/repos?sort=stars&direction=desc&per_page=6`),
     ]);
     if (!profileRes.ok) throw new Error(`GitHub profile fetch failed: ${profileRes.status}`);
-    if (!reposRes.ok) throw new Error(`GitHub repos fetch failed: ${reposRes.status}`);
+    if (!recentRes.ok) throw new Error(`GitHub repos fetch failed: ${recentRes.status}`);
+    if (!topRes.ok) throw new Error(`GitHub top repos fetch failed: ${topRes.status}`);
 
     const profileData = await profileRes.json();
-    const reposData = await reposRes.json();
-    const repo = reposData[0];
+    const recentData = await recentRes.json();
+    const topData = await topRes.json();
+    const repo = recentData[0];
 
     return {
         profile: {
@@ -40,14 +55,12 @@ async function fetchLive() {
             avatarUrl: profileData.avatar_url,
             htmlUrl: profileData.html_url,
         },
-        recentRepo: repo ? {
-            name: repo.name,
-            description: repo.description,
-            htmlUrl: repo.html_url,
-            language: repo.language,
-            updatedAt: repo.updated_at,
-            stars: repo.stargazers_count,
-        } : null,
+        recentRepo: repo ? mapRepo(repo) : null,
+        topRepos: topData
+            .filter((r) => !r.fork)
+            .sort((a, b) => b.stargazers_count - a.stargazers_count)
+            .slice(0, 4)
+            .map(mapRepo),
     };
 }
 
