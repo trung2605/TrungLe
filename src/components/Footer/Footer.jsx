@@ -55,7 +55,7 @@ const Footer = () => {
                             fontSize: '15px', fontWeight: '330', lineHeight: '1.6',
                             color: 'var(--color-ink-soft)', maxWidth: '320px', marginBottom: '20px',
                         }}>
-                            Computer Science student at FPT University. Passionate about building clean, scalable applications with Java Spring Boot and React.
+                            {t('footer.tagline')}
                         </p>
                         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                             {socialLinks.map((social, i) => {
@@ -122,7 +122,7 @@ const Footer = () => {
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', color: 'var(--color-ink-soft)' }}>
                                 <FaMapMarkerAlt size={13} style={{ marginTop: '2px', flexShrink: 0 }} />
-                                Đà Nẵng, Vietnam
+                                {t('footer.location')}
                             </li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
                                 <FaEnvelope size={13} style={{ flexShrink: 0 }} />

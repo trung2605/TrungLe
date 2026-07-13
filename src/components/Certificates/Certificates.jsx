@@ -212,22 +212,22 @@ const Certificates = () => {
 
             {/* Pagination */}
             {totalPages > 1 && (
-                <div role="navigation" aria-label="Pagination" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+                <div role="navigation" aria-label={t('common.pagination')} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
                     <button onClick={() => changePage(currentPage - 1)} disabled={currentPage === 1}
-                        aria-label="Previous page"
+                        aria-label={t('common.previousPage')}
                         style={{ width: '36px', height: '36px', borderRadius: '9999px', border: '1.5px solid #e6e6e6', backgroundColor: '#ffffff', cursor: currentPage === 1 ? 'not-allowed' : 'pointer', opacity: currentPage === 1 ? 0.4 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <FaChevronLeft size={12} aria-hidden="true" />
                     </button>
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
                         <button key={p} onClick={() => changePage(p)}
-                            aria-label={`Page ${p}`}
+                            aria-label={t('common.page', { n: p })}
                             aria-current={currentPage === p ? 'page' : undefined}
                             style={{ width: '36px', height: '36px', borderRadius: '9999px', border: '1.5px solid', borderColor: currentPage === p ? '#000000' : '#e6e6e6', backgroundColor: currentPage === p ? '#000000' : '#ffffff', color: currentPage === p ? '#ffffff' : '#000000', cursor: 'pointer', fontSize: '14px', fontWeight: currentPage === p ? '480' : '330' }}>
                             {p}
                         </button>
                     ))}
                     <button onClick={() => changePage(currentPage + 1)} disabled={currentPage === totalPages}
-                        aria-label="Next page"
+                        aria-label={t('common.nextPage')}
                         style={{ width: '36px', height: '36px', borderRadius: '9999px', border: '1.5px solid #e6e6e6', backgroundColor: '#ffffff', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer', opacity: currentPage === totalPages ? 0.4 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <FaChevronRight size={12} aria-hidden="true" />
                     </button>
@@ -238,7 +238,7 @@ const Certificates = () => {
             <Dialog
                 open={!!selectedCert}
                 onOpenChange={(open) => !open && setSelectedCert(null)}
-                title={selectedCert?.name || 'Certificate'}
+                title={selectedCert?.name || t('common.certificate')}
             >
                 {selectedCert && (
                     <>

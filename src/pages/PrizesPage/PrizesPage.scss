@@ -1,0 +1,16 @@
+.prizespage-container {
+  min-height: 100vh;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .prizespage-container {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .prizespage-container {
+    padding: 2rem;
+  }
+}

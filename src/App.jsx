@@ -1,5 +1,5 @@
 ﻿import { useEffect, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Lenis from 'lenis';
 import { AppContextProvider } from './contexts/AppContext';
 import { ThemeContextProvider } from './contexts/ThemeContext';
@@ -10,10 +10,9 @@ import ScrollToTop from './components/ScrollToTop';
 // Route-level code splitting — each page ships as its own chunk
 const HomePage = lazy(() => import('./pages/HomePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
-const EducationPage = lazy(() => import('./pages/EducationPage'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
-const CertificatesPage = lazy(() => import('./pages/CertificatesPage'));
 const ActivitiesPage = lazy(() => import('./pages/ActivitiesPage'));
+const AchievementsPage = lazy(() => import('./pages/AchievementsPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
@@ -65,11 +64,13 @@ function App() {
                 <Route path="/" element={<MainLayout />}>
                   <Route index element={<HomePage />} />
                   <Route path="about" element={<AboutPage />} />
-                  <Route path="education" element={<EducationPage />} />
+                  <Route path="achievements" element={<AchievementsPage />} />
+                  <Route path="education" element={<Navigate to="/achievements?tab=education" replace />} />
+                  <Route path="certificates" element={<Navigate to="/achievements?tab=certificates" replace />} />
+                  <Route path="prizes" element={<Navigate to="/achievements?tab=prizes" replace />} />
 
                   <Route path="projects" element={<ProjectsPage />} />
                   <Route path="projects/:id" element={<ProjectDetailPage />} />
-                  <Route path="certificates" element={<CertificatesPage />} />
                   <Route path="activities" element={<ActivitiesPage />} />
                   <Route path="contact" element={<ContactPage />} />
                   <Route path="resume" element={<ResumePage />} />

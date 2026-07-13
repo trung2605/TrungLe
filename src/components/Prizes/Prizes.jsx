@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { FaTrophy, FaMedal, FaStar, FaCalendarAlt, FaBuilding } from "react-icons/fa";
-import { prizes } from "../../data";
+import { useTranslatedData } from "../../hooks/useTranslatedData";
 import Markdown from "react-markdown";
 import { Dialog } from "../ui/Dialog";
 const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
@@ -13,15 +14,17 @@ const getPositionIcon = (position) => {
     return FaStar;
 };
 
-const getPositionBadge = (position) => {
+const getPositionBadge = (position, t) => {
     const p = position.toLowerCase();
-    if (p.includes('winner') || p.includes('first')) return { bg: '#dceeb1', label: 'Winner' };
-    if (p.includes('runner-up') || p.includes('second')) return { bg: '#c5b0f4', label: 'Runner-up' };
-    if (p.includes('finalist') || p.includes('final')) return { bg: '#f4ecd6', label: 'Finalist' };
-    return { bg: '#e6e6e6', label: 'Participant' };
+    if (p.includes('winner') || p.includes('first')) return { bg: '#dceeb1', label: t('prizes.winner') };
+    if (p.includes('runner-up') || p.includes('second')) return { bg: '#c5b0f4', label: t('prizes.runnerUp') };
+    if (p.includes('finalist') || p.includes('final')) return { bg: '#f4ecd6', label: t('prizes.finalist') };
+    return { bg: '#e6e6e6', label: t('prizes.participant') };
 };
 
 const Prizes = () => {
+    const { t } = useTranslation();
+    const { prizes } = useTranslatedData();
     const [selectedPrize, setSelectedPrize] = useState(null);
 
     const totalOrgs = new Set(prizes.map(p => p.organization)).size;
@@ -48,9 +51,9 @@ const Prizes = () => {
                 </div>
                 <div className="stats-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
                     {[
-                        { label: 'Total Awards', value: prizes.length, icon: <FaTrophy /> },
-                        { label: 'Organizations', value: totalOrgs, icon: <FaBuilding /> },
-                        { label: 'Years Active', value: totalYears, icon: <FaCalendarAlt /> },
+                        { label: t('prizes.totalAwards'), value: prizes.length, icon: <FaTrophy /> },
+                        { label: t('prizes.organizations'), value: totalOrgs, icon: <FaBuilding /> },
+                        { label: t('prizes.yearsActive'), value: totalYears, icon: <FaCalendarAlt /> },
                     ].map((s, i) => (
                         <div key={i}>
                             <div style={{ fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: '340', lineHeight: '1.0', color: '#000000' }}>{s.value}</div>
@@ -66,7 +69,7 @@ const Prizes = () => {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px' }}>
                 {prizes.map((prize, i) => {
                     const Icon = getPositionIcon(prize.position);
-                    const badge = getPositionBadge(prize.position);
+                    const badge = getPositionBadge(prize.position, t);
                     return (
                         <motion.div
                             key={prize.id || i}
@@ -135,7 +138,7 @@ const Prizes = () => {
             <Dialog
                 open={!!selectedPrize}
                 onOpenChange={(open) => !open && setSelectedPrize(null)}
-                title={selectedPrize?.title || 'Prize'}
+                title={selectedPrize?.title || t('common.prize')}
             >
                 {selectedPrize && (
                     <>
@@ -144,7 +147,7 @@ const Prizes = () => {
 
                         <div style={{ padding: '32px' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
-                                <div style={{ width: '48px', height: '48px', borderRadius: '9999px', backgroundColor: getPositionBadge(selectedPrize.position).bg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                <div style={{ width: '48px', height: '48px', borderRadius: '9999px', backgroundColor: getPositionBadge(selectedPrize.position, t).bg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                                     {(() => { const I = getPositionIcon(selectedPrize.position); return <I size={20} />; })()}
                                 </div>
                                 <div>

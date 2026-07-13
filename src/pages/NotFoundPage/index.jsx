@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FaArrowLeft, FaHome } from 'react-icons/fa';
 
 const NotFoundPage = () => {
+    const { t } = useTranslation();
     return (
         <div style={{
             minHeight: '60vh',
@@ -26,7 +28,7 @@ const NotFoundPage = () => {
                     marginBottom: '16px',
                 }}
             >
-                Error 404
+                {t('notFound.badge')}
             </motion.p>
 
             <motion.h1
@@ -57,7 +59,7 @@ const NotFoundPage = () => {
                     lineHeight: '1.6',
                 }}
             >
-                Trang bạn tìm không tồn tại, hoặc đã được chuyển đi nơi khác.
+                {t('notFound.message')}
             </motion.p>
 
             <motion.div
@@ -82,7 +84,7 @@ const NotFoundPage = () => {
                     onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
                     onMouseLeave={e => e.currentTarget.style.backgroundColor = '#000000'}
                 >
-                    <FaHome size={14} /> Về trang chủ
+                    <FaHome size={14} /> {t('notFound.backHome')}
                 </Link>
                 <button
                     onClick={() => window.history.back()}
@@ -99,7 +101,7 @@ const NotFoundPage = () => {
                         cursor: 'pointer',
                     }}
                 >
-                    <FaArrowLeft size={14} /> Quay lại
+                    <FaArrowLeft size={14} /> {t('notFound.goBack')}
                 </button>
             </motion.div>
         </div>

@@ -11,6 +11,9 @@ import {
   education as rawEducation,
   educationMemories as rawMemories,
   activities as rawActivities,
+  prizes as rawPrizes,
+  projects as rawProjects,
+  posts as rawPosts,
 } from '../data';
 
 export const useTranslatedData = () => {
@@ -78,6 +81,7 @@ export const useTranslatedData = () => {
 
   const education = rawEducation.map((e, i) => ({
     ...e,
+    degree: t(`educationItems.${i}.degree`),
     description: t(`educationItems.${i}.description`),
   }));
 
@@ -88,8 +92,32 @@ export const useTranslatedData = () => {
 
   const activities = rawActivities.map((a, i) => ({
     ...a,
+    title: t(`activityItems.${i}.title`),
+    role: t(`activityItems.${i}.role`),
     description: t(`activityItems.${i}.description`),
   }));
 
-  return { highlights, funFacts, experience, skills, languages, siteNavigation, personalInfo, certificates, education, educationMemories, activities, lang };
+  const prizes = rawPrizes.map((p, i) => ({
+    ...p,
+    title: t(`prizeItems.${i}.title`),
+    position: t(`prizeItems.${i}.position`),
+    description: t(`prizeItems.${i}.description`),
+  }));
+
+  const projects = rawProjects.map((p, i) => ({
+    ...p,
+    role: t(`projectItems.${i}.role`),
+    description: t(`projectItems.${i}.description`),
+    challenge: t(`projectItems.${i}.challenge`),
+    highlights: t(`projectItems.${i}.highlights`, { returnObjects: true }),
+  }));
+
+  const posts = rawPosts.map((p, i) => ({
+    ...p,
+    title: t(`postItems.${i}.title`),
+    excerpt: t(`postItems.${i}.excerpt`),
+    content: t(`postItems.${i}.content`),
+  }));
+
+  return { highlights, funFacts, experience, skills, languages, siteNavigation, personalInfo, certificates, education, educationMemories, activities, prizes, projects, posts, lang };
 };

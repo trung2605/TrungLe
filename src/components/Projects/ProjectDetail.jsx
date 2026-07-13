@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaTags, FaArrowLeft } from 'react-icons/fa';
-import { projects } from '../../data';
+import { useTranslatedData } from '../../hooks/useTranslatedData';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
 import TechIcon from '../../common/TechIcon';
@@ -13,13 +13,16 @@ const STATUS_COLORS = {
   'Completed':      { bg: '#e6e6e6', color: '#000000' },
 };
 
+const STATUS_KEY = { 'Active': 'active', 'In Development': 'inDevelopment', 'Completed': 'completed' };
+
 const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const project = projects.find(p => String(p.id) === id);
   const { t } = useTranslation();
+  const { projects } = useTranslatedData();
+  const project = projects.find(p => String(p.id) === id);
 
   const heroRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
@@ -35,7 +38,7 @@ const ProjectDetail = () => {
           onClick={() => navigate('/projects')}
           style={{ padding: '10px 24px', borderRadius: '50px', border: '1.5px solid #000000', background: '#000000', color: '#fff', cursor: 'pointer', fontSize: '15px' }}
         >
-          Back to Projects
+          {t('projects.backToProjects')}
         </button>
       </div>
     );
@@ -106,7 +109,7 @@ const ProjectDetail = () => {
           letterSpacing: '0.4px', textTransform: 'uppercase',
           backgroundColor: status.bg, color: status.color,
         }}>
-          {project.status}
+          {STATUS_KEY[project.status] ? t(`projects.statuses.${STATUS_KEY[project.status]}`) : project.status}
         </div>
 
         {/* Title overlay */}
@@ -330,7 +333,7 @@ const ProjectDetail = () => {
               {t('projects.status')}
             </p>
             <p style={{ fontSize: '15px', fontWeight: '480', color: '#000000', margin: 0 }}>
-              {project.status}
+              {STATUS_KEY[project.status] ? t(`projects.statuses.${STATUS_KEY[project.status]}`) : project.status}
             </p>
           </div>
 
@@ -389,6 +392,7 @@ const ProjectDetail = () => {
 const OtherProjects = ({ current }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { projects } = useTranslatedData();
   const others = projects.filter(p => p.id !== current.id).slice(0, 3);
   if (others.length === 0) return null;
 
@@ -437,7 +441,7 @@ const OtherProjects = ({ current }) => {
                   textTransform: 'uppercase', letterSpacing: '0.4px',
                   backgroundColor: s.bg, marginBottom: '8px',
                 }}>
-                  {p.status}
+                  {STATUS_KEY[p.status] ? t(`projects.statuses.${STATUS_KEY[p.status]}`) : p.status}
                 </span>
                 <h3 style={{ fontSize: '15px', fontWeight: '540', color: '#000000', margin: 0 }}>{p.title}</h3>
               </div>

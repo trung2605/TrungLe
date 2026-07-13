@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaInbox } from 'react-icons/fa';
-import { projects, skillTaxonomy } from '../../data';
+import { skillTaxonomy } from '../../data';
+import { useTranslatedData } from '../../hooks/useTranslatedData';
 import SkillChart from './SkillChart';
 import { default as ReactMarkdown } from 'react-markdown';
 import useSpotlight from '../../hooks/useSpotlight';
@@ -22,6 +23,8 @@ const CATEGORY_COLORS = {
   'Automation': '#f4ecd6',
   'Low-Code':   '#efd4d4',
 };
+
+const STATUS_KEY = { 'Active': 'active', 'In Development': 'inDevelopment', 'Completed': 'completed' };
 
 const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
   const status = STATUS_COLORS[project.status] || { bg: '#f7f7f5', color: '#000000' };
@@ -87,7 +90,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
           backgroundColor: status.bg,
           color: status.color,
         }}>
-          {project.status}
+          {STATUS_KEY[project.status] ? t(`projects.statuses.${STATUS_KEY[project.status]}`) : project.status}
         </div>
         {featured && (
           <div style={{
@@ -122,7 +125,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
               backgroundColor: CATEGORY_COLORS[project.category] || '#e6e6e6',
               width: 'fit-content',
             }}>
-              {project.category}
+              {t(`projects.categories.${project.category}`, project.category)}
             </span>
           )}
           {project.techStack?.[0] && (
@@ -258,6 +261,7 @@ const Projects = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { projects } = useTranslatedData();
 
   const statusOptions = [
     { value: 'all',            label: t('projects.filterAll'),          count: projects.length },

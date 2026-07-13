@@ -1,16 +1,24 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { FaSun, FaMoon, FaChevronDown } from "react-icons/fa";
 import { personalInfo } from "../../data";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCustomTheme } from "../../contexts/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { useTranslatedData } from "../../hooks/useTranslatedData";
 
+const ACHIEVEMENT_SUBTABS = [
+  { tab: 'education', labelKey: 'nav.education' },
+  { tab: 'certificates', labelKey: 'nav.certificates' },
+  { tab: 'prizes', labelKey: 'nav.prizes' },
+];
+
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [achievementsHover, setAchievementsHover] = useState(false);
   const location = useLocation();
+  const [searchParams] = useSearchParams();
   const { isDarkMode, toggleTheme } = useCustomTheme();
   const { t, i18n } = useTranslation();
   const { siteNavigation } = useTranslatedData();
@@ -63,8 +71,8 @@ const Navigation = () => {
             <div style={{
               width: '32px',
               height: '32px',
-              borderRadius: '6px',
-              backgroundColor: '#000000',
+              borderRadius: '9px',
+              background: 'linear-gradient(135deg, #1a1a2e 0%, #0a0a12 100%)',
               color: '#ffffff',
               display: 'flex',
               alignItems: 'center',
@@ -95,6 +103,110 @@ const Navigation = () => {
           >
             {siteNavigation.map((item) => {
               const isActive = location.pathname === item.path;
+
+              if (item.path === '/achievements') {
+                const activeTab = searchParams.get('tab');
+                return (
+                  <div
+                    key={item.path}
+                    style={{ position: 'relative' }}
+                    onMouseEnter={() => setAchievementsHover(true)}
+                    onMouseLeave={() => setAchievementsHover(false)}
+                  >
+                    <Link
+                      to={item.path}
+                      onClick={handleLinkClick}
+                      style={{
+                        position: 'relative',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        padding: '6px 16px',
+                        borderRadius: '50px',
+                        fontSize: '15px',
+                        fontWeight: isActive ? '540' : '400',
+                        color: isActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
+                        textDecoration: 'none',
+                        transition: 'color 0.15s ease',
+                        backgroundColor: isActive ? 'var(--color-surface-soft)' : 'transparent',
+                      }}
+                    >
+                      {isActive && (
+                        <motion.div
+                          layoutId="nav-pill"
+                          style={{
+                            position: 'absolute',
+                            inset: 0,
+                            backgroundColor: 'var(--color-surface-soft)',
+                            borderRadius: '50px',
+                          }}
+                          initial={false}
+                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                        />
+                      )}
+                      <span style={{ position: 'relative', zIndex: 1 }}>{item.title}</span>
+                      <FaChevronDown
+                        size={9}
+                        style={{
+                          position: 'relative', zIndex: 1,
+                          transition: 'transform 0.15s ease',
+                          transform: achievementsHover ? 'rotate(180deg)' : 'none',
+                        }}
+                      />
+                    </Link>
+
+                    <AnimatePresence>
+                      {achievementsHover && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -4 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -4 }}
+                          transition={{ duration: 0.15 }}
+                          style={{
+                            position: 'absolute',
+                            top: 'calc(100% + 6px)',
+                            left: 0,
+                            minWidth: '180px',
+                            backgroundColor: 'var(--color-canvas)',
+                            border: '1px solid var(--color-hairline)',
+                            borderRadius: '14px',
+                            padding: '6px',
+                            boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+                            zIndex: 60,
+                          }}
+                        >
+                          {ACHIEVEMENT_SUBTABS.map((sub) => {
+                            const subActive = isActive && (activeTab === sub.tab || (!activeTab && sub.tab === 'education'));
+                            return (
+                              <Link
+                                key={sub.tab}
+                                to={`/achievements?tab=${sub.tab}`}
+                                onClick={handleLinkClick}
+                                style={{
+                                  display: 'block',
+                                  padding: '9px 14px',
+                                  borderRadius: '9px',
+                                  fontSize: '14px',
+                                  fontWeight: subActive ? '540' : '400',
+                                  color: subActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
+                                  backgroundColor: subActive ? 'var(--color-surface-soft)' : 'transparent',
+                                  textDecoration: 'none',
+                                  transition: 'background-color 0.15s ease',
+                                }}
+                                onMouseEnter={e => { if (!subActive) e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; }}
+                                onMouseLeave={e => { if (!subActive) e.currentTarget.style.backgroundColor = 'transparent'; }}
+                              >
+                                {t(sub.labelKey)}
+                              </Link>
+                            );
+                          })}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={item.path}
@@ -135,7 +247,7 @@ const Navigation = () => {
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <button
               onClick={toggleTheme}
-              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-label={isDarkMode ? t('nav.switchToLight') : t('nav.switchToDark')}
               className="hover-surface"
               style={{
                 width: '36px', height: '36px',
@@ -177,7 +289,7 @@ const Navigation = () => {
                 flexShrink: 0,
                 overflow: 'hidden',
               }}
-              aria-label="Toggle language"
+              aria-label={t('nav.toggleLanguage')}
             >
               {/* Labels */}
               <span style={{
@@ -258,7 +370,7 @@ const Navigation = () => {
                 cursor: 'pointer',
                 color: 'var(--color-ink)',
               }}
-              aria-label="Toggle menu"
+              aria-label={t('nav.toggleMenu')}
             >
               <div style={{ width: '22px', height: '18px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <span style={{
@@ -306,28 +418,58 @@ const Navigation = () => {
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '16px' }}>
-              {siteNavigation.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={handleLinkClick}
-                  style={{
-                    padding: '10px 16px',
-                    borderRadius: '8px',
-                    fontSize: '16px',
-                    fontWeight: location.pathname === item.path ? '540' : '400',
-                    color: 'var(--color-ink)',
-                    textDecoration: 'none',
-                    backgroundColor: location.pathname === item.path ? 'var(--color-surface-soft)' : 'transparent',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '12px',
-                  }}
-                >
-                  <span style={{ opacity: 0.7 }}>{item.icon}</span>
-                  {item.title}
-                </Link>
-              ))}
+              {siteNavigation.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <div key={item.path}>
+                    <Link
+                      to={item.path}
+                      onClick={handleLinkClick}
+                      style={{
+                        padding: '10px 16px',
+                        borderRadius: '8px',
+                        fontSize: '16px',
+                        fontWeight: isActive ? '540' : '400',
+                        color: 'var(--color-ink)',
+                        textDecoration: 'none',
+                        backgroundColor: isActive ? 'var(--color-surface-soft)' : 'transparent',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                      }}
+                    >
+                      <span style={{ opacity: 0.7 }}>{item.icon}</span>
+                      {item.title}
+                    </Link>
+                    {item.path === '/achievements' && (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: '32px', marginTop: '2px' }}>
+                        {ACHIEVEMENT_SUBTABS.map((sub) => {
+                          const activeTab = searchParams.get('tab');
+                          const subActive = isActive && (activeTab === sub.tab || (!activeTab && sub.tab === 'education'));
+                          return (
+                            <Link
+                              key={sub.tab}
+                              to={`/achievements?tab=${sub.tab}`}
+                              onClick={handleLinkClick}
+                              style={{
+                                padding: '7px 16px',
+                                borderRadius: '8px',
+                                fontSize: '14px',
+                                fontWeight: subActive ? '540' : '400',
+                                color: subActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
+                                textDecoration: 'none',
+                                backgroundColor: subActive ? 'var(--color-surface-soft)' : 'transparent',
+                              }}
+                            >
+                              {t(sub.labelKey)}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
             <Link
               to="/projects"

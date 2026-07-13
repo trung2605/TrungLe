@@ -2,12 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaClock, FaInbox } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import { posts } from '../../data';
+import { useTranslatedData } from '../../hooks/useTranslatedData';
 
 const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
 
 const Blog = () => {
     const { t } = useTranslation();
+    const { posts } = useTranslatedData();
     const navigate = useNavigate();
 
     return (

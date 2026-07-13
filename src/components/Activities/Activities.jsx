@@ -18,9 +18,17 @@ const STATUS_STYLE = {
     'Various':     { bg: '#c5b0f4', color: '#000000' },
 };
 
-const ActivityCard = ({ act, index, onSelect }) => {
+const STATUS_KEY = {
+    'Active': 'active',
+    'In Progress': 'inProgress',
+    'Completed': 'completed',
+    'Various': 'various',
+};
+
+const ActivityCard = ({ act, index, onSelect, t }) => {
     const spotlight = useSpotlight();
     const statusStyle = STATUS_STYLE[act.status] || { bg: '#f7f7f5', color: '#000000' };
+    const statusLabel = STATUS_KEY[act.status] ? t(`activities.statuses.${STATUS_KEY[act.status]}`) : act.status;
 
     return (
         <motion.div
@@ -51,7 +59,7 @@ const ActivityCard = ({ act, index, onSelect }) => {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px', marginTop: '8px' }}>
                 <span style={{ padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: statusStyle.bg, color: statusStyle.color }}>
-                    {act.status}
+                    {statusLabel}
                 </span>
                 <FaEye size={14} style={{ color: '#aaaaaa' }} />
             </div>
@@ -148,7 +156,7 @@ const Activities = () => {
                         <TabsList>
                             {statuses.map(s => (
                                 <TabsTrigger key={s} value={s} className="!py-1.5 !px-3.5 !text-[13px]">
-                                    {s === 'all' ? t('activities.all') : s}
+                                    {s === 'all' ? t('activities.all') : (STATUS_KEY[s] ? t(`activities.statuses.${STATUS_KEY[s]}`) : s)}
                                 </TabsTrigger>
                             ))}
                         </TabsList>
@@ -169,22 +177,22 @@ const Activities = () => {
             {current.length > 0 ? (
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px', marginBottom: '48px' }}>
                     {current.map((act, i) => (
-                        <ActivityCard key={act.id || i} act={act} index={i} onSelect={setSelectedActivity} />
+                        <ActivityCard key={act.id || i} act={act} index={i} onSelect={setSelectedActivity} t={t} />
                     ))}
                 </div>
             ) : (
                 <div style={{ textAlign: 'center', padding: '64px 0', color: 'var(--color-ink-soft)' }}>
                     <FaInbox size={32} aria-hidden="true" style={{ marginBottom: '12px', opacity: 0.4 }} />
-                    <div>No activities found.</div>
+                    <div>{t('activities.noResults')}</div>
                 </div>
             )}
 
             {/* Pagination */}
             {totalPages > 1 && (
-                <div role="navigation" aria-label="Pagination" style={{ display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                <div role="navigation" aria-label={t('common.pagination')} style={{ display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap' }}>
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
                         <button key={p} onClick={() => changePage(p)}
-                            aria-label={`Page ${p}`}
+                            aria-label={t('common.page', { n: p })}
                             aria-current={currentPage === p ? 'page' : undefined}
                             style={{ width: '36px', height: '36px', borderRadius: '9999px', border: '1.5px solid', borderColor: currentPage === p ? '#000000' : '#e6e6e6', backgroundColor: currentPage === p ? '#000000' : '#ffffff', color: currentPage === p ? '#ffffff' : '#000000', cursor: 'pointer', fontSize: '14px', fontWeight: currentPage === p ? '480' : '330' }}>
                             {p}
@@ -197,14 +205,14 @@ const Activities = () => {
             <Dialog
                 open={!!selectedActivity}
                 onOpenChange={(open) => !open && setSelectedActivity(null)}
-                title={selectedActivity?.title || 'Activity'}
+                title={selectedActivity?.title || t('common.activity')}
                 contentClassName="!max-w-[640px] !max-h-[85vh]"
             >
                 {selectedActivity && (
                     <>
                         <div style={{ padding: '32px', borderBottom: '1px solid #e6e6e6', position: 'relative' }}>
                             <span style={{ display: 'inline-block', padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: (STATUS_STYLE[selectedActivity.status] || {}).bg || '#f7f7f5', marginBottom: '12px' }}>
-                                {selectedActivity.status}
+                                {STATUS_KEY[selectedActivity.status] ? t(`activities.statuses.${STATUS_KEY[selectedActivity.status]}`) : selectedActivity.status}
                             </span>
                             <h2 style={{ fontSize: '22px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0' }}>{selectedActivity.title}</h2>
                             <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#666666', margin: 0 }}>{selectedActivity.organization}</p>

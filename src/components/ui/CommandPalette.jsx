@@ -1,20 +1,23 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FaHome, FaUser, FaGraduationCap, FaFolderOpen, FaCertificate, FaUsers, FaEnvelope, FaSearch, FaArrowRight } from 'react-icons/fa';
 import { Dialog } from './Dialog';
-import { projects, certificates } from '../../data';
+import { certificates } from '../../data';
+import { useTranslatedData } from '../../hooks/useTranslatedData';
 
 const PAGES = [
-    { label: 'Home', path: '/', icon: FaHome },
-    { label: 'About', path: '/about', icon: FaUser },
-    { label: 'Education', path: '/education', icon: FaGraduationCap },
-    { label: 'Projects', path: '/projects', icon: FaFolderOpen },
-    { label: 'Certificates', path: '/certificates', icon: FaCertificate },
-    { label: 'Activities', path: '/activities', icon: FaUsers },
-    { label: 'Contact', path: '/contact', icon: FaEnvelope },
+    { key: 'home', path: '/', icon: FaHome },
+    { key: 'about', path: '/about', icon: FaUser },
+    { key: 'projects', path: '/projects', icon: FaFolderOpen },
+    { key: 'achievements', path: '/achievements', icon: FaGraduationCap },
+    { key: 'activities', path: '/activities', icon: FaUsers },
+    { key: 'contact', path: '/contact', icon: FaEnvelope },
 ];
 
 const CommandPalette = () => {
+    const { t } = useTranslation();
+    const { projects } = useTranslatedData();
     const [open, setOpen] = useState(false);
     const [query, setQuery] = useState('');
     const [activeIndex, setActiveIndex] = useState(0);
@@ -43,23 +46,23 @@ const CommandPalette = () => {
     const results = useMemo(() => {
         const q = query.trim().toLowerCase();
         const pageItems = PAGES
-            .filter((p) => !q || p.label.toLowerCase().includes(q))
-            .map((p) => ({ type: 'page', label: p.label, sub: 'Page', icon: p.icon, action: () => navigate(p.path) }));
+            .filter((p) => !q || t(`nav.${p.key}`).toLowerCase().includes(q))
+            .map((p) => ({ type: 'page', label: t(`nav.${p.key}`), sub: t('commandPalette.typePage'), icon: p.icon, action: () => navigate(p.path) }));
 
         if (!q) return pageItems;
 
         const projectItems = projects
             .filter((p) => p.title.toLowerCase().includes(q))
             .slice(0, 5)
-            .map((p) => ({ type: 'project', label: p.title, sub: 'Project', icon: FaFolderOpen, action: () => navigate(`/projects/${p.id}`) }));
+            .map((p) => ({ type: 'project', label: p.title, sub: t('commandPalette.typeProject'), icon: FaFolderOpen, action: () => navigate(`/projects/${p.id}`) }));
 
         const certItems = certificates
             .filter((c) => c.name.toLowerCase().includes(q))
             .slice(0, 5)
-            .map((c) => ({ type: 'certificate', label: c.name, sub: 'Certificate', icon: FaCertificate, action: () => navigate('/certificates') }));
+            .map((c) => ({ type: 'certificate', label: c.name, sub: t('commandPalette.typeCertificate'), icon: FaCertificate, action: () => navigate('/certificates') }));
 
         return [...pageItems, ...projectItems, ...certItems];
-    }, [query, navigate]);
+    }, [query, navigate, t]);
 
     useEffect(() => setActiveIndex(0), [results.length]);
 
@@ -85,7 +88,7 @@ const CommandPalette = () => {
         <Dialog
             open={open}
             onOpenChange={setOpen}
-            title="Command palette"
+            title={t('commandPalette.title')}
             showClose={false}
             contentClassName="!max-w-[560px] !max-h-[70vh]"
         >
@@ -96,8 +99,8 @@ const CommandPalette = () => {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="Search pages, projects, certificates…"
-                    aria-label="Command palette search"
+                    placeholder={t('commandPalette.searchPlaceholder')}
+                    aria-label={t('commandPalette.searchPlaceholder')}
                     style={{
                         flex: 1, border: 'none', outline: 'none', background: 'transparent',
                         fontSize: '15px', color: 'var(--color-ink)',
@@ -113,7 +116,7 @@ const CommandPalette = () => {
             <div style={{ maxHeight: '360px', overflowY: 'auto', padding: '8px' }}>
                 {results.length === 0 && (
                     <div style={{ padding: '32px 16px', textAlign: 'center', color: 'var(--color-ink-soft)', fontSize: '14px' }}>
-                        No results.
+                        {t('commandPalette.noResults')}
                     </div>
                 )}
                 {results.map((item, i) => {

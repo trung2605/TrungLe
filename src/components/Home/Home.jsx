@@ -30,6 +30,7 @@ const TECH_MARQUEE = [
 
 
 const TerminalCard = () => {
+  const { t } = useTranslation();
   const cardRef = useRef(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -130,7 +131,7 @@ const TerminalCard = () => {
             <span style={{ color: '#1ea64a' }}>$</span>
             <span style={{ color: '#ffffff' }}>echo $ROLE</span>
           </div>
-          <div style={{ color: '#93c5fd', paddingLeft: '14px', fontSize: '12px' }}>Software Developer Intern @ FPT Software</div>
+          <div style={{ color: '#93c5fd', paddingLeft: '14px', fontSize: '12px' }}>{t('home.terminalRole')}</div>
           <div style={{ display: 'flex', gap: '6px', alignItems: 'center', marginTop: '2px' }}>
             <span style={{ color: '#4ade80' }}>✓</span>
             <span style={{ color: '#4ade80', fontSize: '12px' }}>open_to_work: true</span>

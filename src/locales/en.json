@@ -3,13 +3,26 @@
     "home": "Home",
     "about": "About",
     "education": "Education",
+    "achievements": "Achievements",
     "projects": "Projects",
     "certificates": "Certificates",
     "prizes": "Prizes",
     "activities": "Activities",
     "contact": "Contact",
     "downloadCV": "Download CV",
-    "viewProjects": "View Projects"
+    "viewProjects": "View Projects",
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "toggleLanguage": "Toggle language",
+    "toggleMenu": "Toggle menu"
+  },
+  "commandPalette": {
+    "title": "Command palette",
+    "searchPlaceholder": "Search pages, projects, certificates…",
+    "noResults": "No results.",
+    "typePage": "Page",
+    "typeProject": "Project",
+    "typeCertificate": "Certificate"
   },
   "home": {
     "badge": "Available for opportunities",
@@ -40,7 +53,8 @@
     "exploreTitle": "Explore my journey",
     "ctaLabel": "Let's build something",
     "ctaTitle": "Open to internship & collaboration opportunities",
-    "getInTouch": "Get in touch"
+    "getInTouch": "Get in touch",
+    "terminalRole": "Software Developer Intern @ FPT Software"
   },
   "about": {
     "personalInfoLabel": "Personal Info",
@@ -113,10 +127,20 @@
       "title": "Certificates & Awards",
       "subtitle": "Verified skills and recognition earned along the way."
     },
+    "achievements": {
+      "eyebrow": "Track Record",
+      "title": "Achievements",
+      "subtitle": "Education, certificates, and prizes earned along the way."
+    },
     "activities": {
       "eyebrow": "Involvement",
       "title": "Activities",
       "subtitle": "Clubs, competitions, and communities I've been part of."
+    },
+    "prizes": {
+      "eyebrow": "Recognition",
+      "title": "Prizes & Awards",
+      "subtitle": "Competitions, contests, and recognitions earned along the way."
     },
     "contact": {
       "eyebrow": "Contact",
@@ -196,6 +220,12 @@
       "inDevelopment": "In Development",
       "completed": "Completed",
       "active": "Active"
+    },
+    "categories": {
+      "Full-Stack": "Full-Stack",
+      "Frontend": "Frontend",
+      "Automation": "Automation",
+      "Low-Code": "Low-Code"
     }
   },
   "certificates": {
@@ -224,7 +254,11 @@
     "title": "Prizes & Awards",
     "finalist": "Finalist",
     "winner": "Winner",
-    "runnerUp": "Runner-up"
+    "runnerUp": "Runner-up",
+    "participant": "Participant",
+    "totalAwards": "Total Awards",
+    "organizations": "Organizations",
+    "yearsActive": "Years Active"
   },
   "activities": {
     "label": "Involvement",
@@ -244,20 +278,45 @@
       "inProgress": "In Progress",
       "completed": "Completed",
       "various": "Various"
-    }
+    },
+    "noResults": "No activities found."
   },
   "footer": {
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Info",
     "letsConnect": "Let's Connect",
     "builtWith": "Built with React & Framer Motion",
-    "backToTop": "Back to top"
+    "backToTop": "Back to top",
+    "tagline": "Computer Science student at FPT University. Passionate about building clean, scalable applications with Java Spring Boot and React.",
+    "location": "Da Nang, Vietnam"
+  },
+  "notFound": {
+    "badge": "Error 404",
+    "message": "The page you're looking for doesn't exist, or it's been moved elsewhere.",
+    "backHome": "Back to home",
+    "goBack": "Go back"
   },
   "common": {
     "readMore": "Read more",
     "learnMore": "Learn more",
-    "required": "required"
+    "required": "required",
+    "pagination": "Pagination",
+    "page": "Page {{n}}",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "activity": "Activity",
+    "certificate": "Certificate",
+    "prize": "Prize"
   },
+  "prizeItems": [
+    { "title": "Code Mosaic Algorithm Contest", "position": "Finalist", "description": "Advanced to the **final round** of the Code Mosaic algorithmic contest organized by FPT Education — a competition testing data structures, algorithmic complexity, and problem-solving speed under time pressure. Competing against top CS students across FPT campuses." },
+    { "title": "FPT Code Talent Contest", "position": "Finalist", "description": "Reached the **final round** of FPT Code Talent — one of FPT's flagship annual coding competitions covering algorithms, OOP design, and system-level problem solving. A strong result that validated competitive programming preparation through consistent practice." },
+    { "title": "Innocode Camp SU25", "position": "Finalist", "description": "Advanced to the **final round** of Innocode Camp Summer 2025 — a project-based coding competition where teams build and present a working software product within a condensed timeframe. Led the team's backend development using Java Spring Boot and MySQL." },
+    { "title": "Research Festival (ResFres 2024)", "position": "Finalist", "description": "Advanced to the **final round** of the FPT University Research Festival — a campus-wide academic competition requiring teams to conduct original research, produce a formal report, and present findings to a judging panel. Developed skills in research methodology, data analysis, and academic presentation." },
+    { "title": "FPT ResFes 2024 – 5 Campus Scale", "position": "Research Finalist", "description": "Selected as a **research finalist** at the multi-campus scale of FPT ResFes 2024 — competing against research teams from all 5 FPT University campuses nationwide. One of the more selective academic achievements, requiring both technical depth and clear scientific communication." },
+    { "title": "Talent Contest – Final Interview Round", "position": "Winner (First Place)", "description": "Awarded **First Place** in the high school Talent Contest final round — a school-wide competition judged on performance, charisma, and interview skills. This was an early indicator of public speaking and stage confidence that would later develop into MC hosting for 1000+ attendee events." },
+    { "title": "Talent & Beauty Contest (Mister)", "position": "First Runner-up", "description": "Awarded **First Runner-up (Mister)** in the school's annual Talent and Beauty Contest — evaluated on presentation, talent performance, and personal interview. Competing among the top male representatives from across the school." }
+  ],
   "personalInfo": {
     "storyTitle": "My Journey",
     "storyContent": "I'm **Lê Trí Trung** — a Computer Science student at **FPT University Da Nang**, currently interning at **FPT Software** as a Software Developer. I specialize in **Java Spring Boot** backend development and enjoy building full-stack applications that are clean, scalable, and actually useful.\n\nMy path started with a curiosity for how things work under the hood. That curiosity led me from Java fundamentals to designing RESTful APIs, integrating databases, working with real Agile teams, and eventually co-building platforms like **The MC Hub** — a marketplace connecting event MCs with clients, featuring real-time chat, payment integration, and a mobile app.\n\nOutside of code, I've served as an **MC for 600–1000+ attendee university events**, founded **The Dreamers** — a student charity organization focused on bringing technology education to orphaned children — and competed in multiple national-scale coding competitions, reaching final rounds at **FPT Code Talent** and **Innocode Camp**.\n\nI believe the best developers are those who can communicate, lead, and adapt — not just ship code. That's the kind of developer I'm working to become.",
@@ -390,20 +449,215 @@
     }
   ],
   "siteNavigation": [
-    { "title": "Home", "desc": "Welcome to my portfolio" },
     { "title": "About", "desc": "Learn about my journey and passion" },
     { "title": "Projects", "desc": "Software I've built and shipped" },
-    { "title": "Education & Certificates", "desc": "My academic path and verified skills" },
+    { "title": "Achievements", "desc": "Education, certificates, and prizes" },
     { "title": "Activities", "desc": "Events, competitions, and community work" },
     { "title": "Blog", "desc": "Technical writing and project deep-dives" },
     { "title": "Resume", "desc": "View my resume online" },
     { "title": "Contact", "desc": "Get in touch with me" }
   ],
+  "projectItems": [
+    {
+      "role": "Backend Developer (Team Project)",
+      "description": "A full-stack **job search platform** built by a cross-functional Agile team of 6. I owned the **backend architecture** — designing and implementing RESTful APIs with **Java Spring Boot**, managing relational data in **SQL Server**, and integrating an **AI-powered chatbot** to assist job seekers with resume tips and job matching.\n\nKey contributions include building the **authentication system** (JWT-based login/register), designing the **job posting and application flow APIs**, and setting up **Git branching strategy** (feature branches + pull requests) to keep team collaboration clean across 4 months of development.\n\nThe platform is currently live on Vercel and under active iteration, with features like real-time job alerts and employer dashboard in progress.",
+      "challenge": "Needed a job platform letting seekers search/apply while getting AI assistance (resume tips, job matching), while a 6-person team coordinated Agile on one codebase for 4 months without stepping on each other.",
+      "highlights": [
+        "Designed and implemented the full RESTful API in Java Spring Boot, managing relational data in SQL Server",
+        "Built a JWT-based authentication system (login/register) from scratch",
+        "Set up a Git branching strategy (feature branch + pull request) keeping a 6-person team clean across 4 months",
+        "Integrated an AI chatbot to assist job seekers with resume tips and job matching"
+      ]
+    },
+    {
+      "role": "Java Developer & Team Lead (Team Project)",
+      "description": "Led a **4-member team** to build a complete e-commerce platform for a bakery business — covering product catalog, order management, shopping cart, and customer accounts. I architected the **Java Servlets backend**, designed the **SQL Server database schema**, and coordinated task distribution across the team using weekly sprints.\n\nStandout features include an **AI-powered chatbot** for customer support (integrated via API), **Google Maps API** for store location, and **Google OAuth** for social login. The frontend was built with vanilla **HTML/CSS/JavaScript**, keeping the system lightweight and fast.\n\nThis was my first real team project — it taught me how to scope features, resolve merge conflicts under deadline pressure, and deliver a working product end-to-end.",
+      "challenge": "My first team project — needed to build a complete e-commerce platform (catalog, cart, orders, customer accounts) for a bakery, with a 4-person team and a fixed deadline, with no prior team coordination experience.",
+      "highlights": [
+        "Architected the backend in Java Servlets, designed the SQL Server database schema from scratch",
+        "Led a 4-person team, splitting tasks into weekly sprints",
+        "Integrated an AI chatbot for customer support, Google Maps API for store location, Google OAuth for social login",
+        "Learned to resolve merge conflicts under deadline pressure and ship a complete product end-to-end"
+      ]
+    },
+    {
+      "role": "Founder & Project Lead",
+      "description": "Founded and lead **The Dreamers** — a student-run charity organization at FPT University dedicated to creating positive social impact through technology and education. The organization runs hands-on programs that bring **coding workshops, communication skills training, and mentorship** directly to orphaned children and underprivileged youth.\n\nAs founder, I manage the full operational scope: recruiting and onboarding members, defining project roadmaps, coordinating with partner organizations, and overseeing fundraising campaigns that have raised funds for multiple charity missions.\n\nNotable events organized under The Dreamers include **Tốt Hy Vọng**, **Vòng vào Mộng mơ**, **Dream High**, and a **Charity Music Performance** — each requiring end-to-end planning, logistics, and team coordination. The backend platform for managing member activities and event records is also being developed in **Java Spring Boot**.",
+      "challenge": "Building a sustainable student charity organization — not just one-off events, but continuous operations: recruiting members, fundraising, and now digitizing member/activity management with a dedicated backend platform.",
+      "highlights": [
+        "Founded and run the full operation: member recruitment, project roadmap, fundraising across multiple charity campaigns",
+        "Organized 4 major events end-to-end: Tot Hy Vong, Vong vao Mong mo, Dream High, Charity Music Performance",
+        "Currently developing a backend to manage activities and member records in Java Spring Boot"
+      ]
+    },
+    {
+      "role": "Solo Developer",
+      "description": "A focused utility tool built in 10 days to automate repetitive web form submissions — eliminating manual data entry for structured, high-volume input scenarios.\n\nThe system uses **Node.js** on the backend to orchestrate form interaction via DOM scripting, with a lightweight **React frontend** that lets users upload data (CSV/JSON), preview entries, and trigger batch submissions with a single click. Built to handle edge cases like input validation delays, dynamic field rendering, and CAPTCHA-protected forms.\n\nThis project sharpened my understanding of browser DOM behavior, async scripting patterns, and the practical limits of automation — a useful skillset for QA, data tooling, and internal workflow automation.",
+      "challenge": "Eliminate repetitive manual data entry for high-volume web forms, on a tight 10-day deadline — needed to handle tricky cases like dynamic field rendering and CAPTCHA-protected forms.",
+      "highlights": [
+        "Built a Node.js DOM-control engine to automate form interaction",
+        "React frontend for uploading CSV/JSON, previewing entries, and batch-submitting with one click",
+        "Handled edge cases: validation delays, dynamic field rendering, CAPTCHA-protected forms",
+        "Shipped solo, start to finish, in 10 days"
+      ]
+    },
+    {
+      "role": "Full-Stack Developer",
+      "description": "A complete e-commerce bookstore built entirely on the **OutSystems low-code platform** — developed as part of my internship training at **FPT Software**, where OutSystems is actively used in enterprise client projects.\n\nThe app covers core e-commerce flows: **product catalog with search/filter**, **shopping cart**, **order management**, and a basic **admin panel** for inventory control. Building it entirely in OutSystems taught me how to reason about data models, UI logic, and API integrations within a visual development environment — skills directly applicable to enterprise rapid-delivery contexts.\n\nThe live demo is publicly accessible on OutSystems Cloud.",
+      "challenge": "Learn and ship a full e-commerce app entirely inside a visual development environment (OutSystems) — a skillset directly applicable to enterprise rapid-delivery projects at FPT Software.",
+      "highlights": [
+        "Built the full e-commerce flow: catalog with search/filter, cart, order management, admin panel for inventory",
+        "Learned to reason about data models, UI logic, and API integrations in a low-code environment",
+        "Live demo publicly accessible on OutSystems Cloud"
+      ]
+    },
+    {
+      "role": "Frontend Developer (Practice Project)",
+      "description": "A pixel-accurate clone of the TikTok web interface built as a structured practice project through the **F8 React course** — one of Vietnam's most respected frontend learning programs.\n\nThe focus was on mastering **React component architecture**: breaking the TikTok UI into reusable, composable pieces — Sidebar, VideoFeed, UserCard, ActionBar — each with proper props, state, and effect management. Key techniques practiced include **custom hooks**, **React Router** for multi-page navigation, **CSS Modules** for scoped styling, and responsive layout without a UI library.\n\nThis project solidified my React fundamentals before applying them in production projects like Job Finder and The MC Hub.",
+      "challenge": "Solidify React fundamentals before applying them in production projects (Job Finder, The MC Hub) — by precisely rebuilding a complex, highly interactive real-world UI (TikTok web).",
+      "highlights": [
+        "Split the UI into reusable components — Sidebar, VideoFeed, UserCard, ActionBar — with properly managed props/state/effects",
+        "Practiced custom hooks, React Router for multi-page navigation, CSS Modules for scoped styling",
+        "Built a fully responsive layout with zero UI library"
+      ]
+    },
+    {
+      "role": "Designer & Developer",
+      "description": "This portfolio — the site you're on right now. Designed and built from scratch with a focus on **clean aesthetics, performance, and genuine content** rather than templates.\n\nThe design follows a **monochrome + pastel color system** inspired by modern Figma design trends: oversized typography, pill-shaped buttons, pastel accent blocks, and consistent spacing. Every page has a custom **PageBanner**, animated entries via **Framer Motion**, and fully responsive layouts down to mobile.\n\nTechnically, it's a **React 19 (CRA)** app with **React Router v6** for multi-page navigation, inline styles for component-scoped design, and CSS media queries for responsive breakpoints. Content is driven by a central `data.js` file, making updates straightforward without touching component logic.",
+      "challenge": "Build a portfolio that reflects genuine quality — avoiding a templated feel, optimizing performance (code-splitting, lazy images), and keeping content easy to update through a central data layer instead of editing components directly.",
+      "highlights": [
+        "Designed a custom monochrome + pastel block color system instead of using an off-the-shelf theme",
+        "Data-driven architecture: all content flows from data.js, decoupled from component logic",
+        "Route-level code-splitting, image optimization via Cloudinary, bilingual EN/VI i18n",
+        "Consistent Framer Motion animation across the site, respecting prefers-reduced-motion"
+      ]
+    },
+    {
+      "role": "Full-Stack Developer",
+      "description": "A full-stack internal management system for bakery operations — built as a course assignment with real-world scope. Covers **inventory tracking**, **sales recording**, **order management**, and a **customer database**, all connected through a REST API layer.\n\nThe backend is **Java Spring Boot** with **MySQL** for persistence, exposing endpoints consumed by a **React** frontend deployed on Vercel. I handled both sides: API design, database schema, React component structure, and deployment pipeline.\n\nBuilding this solo reinforced my understanding of the full request lifecycle — from UI interaction to database query and back — and gave me confidence in designing systems end-to-end without relying on teammates to fill gaps.",
+      "challenge": "A course assignment with real-world scope (inventory, sales, orders, customer database) but done solo — forcing me to design and ship the entire system, from database to deployment, without anyone to split the work with.",
+      "highlights": [
+        "Designed the API and database schema entirely solo",
+        "Java Spring Boot + MySQL backend, React frontend deployed on Vercel",
+        "Owned the full pipeline solo: API design → database → component structure → deployment"
+      ]
+    },
+    {
+      "role": "Full-Stack Developer (Team Project)",
+      "description": "A two-sided marketplace connecting **Clients** with professional **MCs (Masters of Ceremony)** for events — weddings, galas, corporate conferences, and more. Clients can search, filter by style/price/region, view MC profiles, and book directly through the platform. MCs get a full dashboard to manage bookings, communicate with clients, track revenue, and practice scripts using an **AI Script Reader**.\n\nThe system is built for scale: **Java Spring Boot 3.3 + Java 21 Virtual Threads** on the backend for high-concurrency handling, **MongoDB Atlas** for flexible document storage, and **WebSocket/STOMP** for real-time chat. The web app runs on **React 19 + Vite 7 + TailwindCSS v4**, and the mobile app is built with **React Native + Expo**.\n\nAdditional features include **PayOS payment integration**, push notifications, KYC identity verification, a coupon/discount system, and a full **admin analytics dashboard**. This is the most technically complex project I've worked on — touching distributed systems, payment flows, mobile development, and real-time infrastructure simultaneously.",
+      "challenge": "Build a two-sided marketplace (Client ↔ MC) that needs to handle high concurrency (many people booking at once), real payments, real-time chat, and both web and mobile apps — the most technically complex project I've been part of.",
+      "highlights": [
+        "Backend on Spring Boot 3.3 + Java 21 Virtual Threads for high-concurrency handling",
+        "Real-time chat over WebSocket/STOMP, MongoDB Atlas for flexible data",
+        "Integrated PayOS payments, KYC verification, a coupon/discount system, and an admin analytics dashboard",
+        "AI Script Reader to help MCs practice scripts; web (React 19 + Vite 7) and mobile (React Native + Expo) built in parallel"
+      ]
+    },
+    {
+      "role": "Backend Developer (Team Project)",
+      "description": "A real-time **auction/bidding platform** where users list items and compete through live bids. The backend is built with **Java 21 + Spring Boot 3.5.7**, using **Spring Data JPA** for persistence and **Spring Data Redis** to track live bid state and caching for low-latency bid updates.\n\nAdditional integrations include **Cloudinary** for item image uploads, **Spring Mail/EmailJS** for bid and outbid notifications, and a relational **MySQL** schema for users, listings, and transaction history. The frontend is a **React 19** app built with Create React App, using **React Router 7** and Axios for API communication.\n\nThis project deepened my experience with real-time state management and cache-backed concurrency patterns for high-frequency bid updates.",
+      "challenge": "A real-time auction platform needs low-latency bid-state updates when many people bid on the same item at once — a classic concurrency and cache-backed state problem.",
+      "highlights": [
+        "Spring Data Redis tracks live bid state and caches for low-latency updates",
+        "Relational MySQL schema for users, listings, and transaction history",
+        "Integrated Cloudinary for product image uploads, Spring Mail/EmailJS for outbid notifications",
+        "Deepened experience with real-time state management and cache-backed concurrency patterns"
+      ]
+    },
+    {
+      "role": "Full-Stack Developer (Team Project)",
+      "description": "A **Vietnamese agricultural marketplace** connecting farmers, suppliers, and customers — covering product listings, orders, reviews, and notifications. Started as an academic project (**PRM393**) with a **Flutter mobile app** and an **Express.js/MongoDB** backend secured with JWT.\n\nThe project later evolved into a more production-grade parallel build aimed at real startup viability: a **Next.js + TypeScript** frontend (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo for farm location mapping) backed by a **NestJS + TypeORM** service layer. This dual-track evolution — from academic prototype to startup-grade architecture — included drafting a formal Vietnamese startup proposal document.",
+      "challenge": "Started as an academic project (PRM393), but the team decided to upgrade it into production-grade architecture aimed at real startup viability — requiring a redesign from mobile-only to a scalable, multi-platform full stack.",
+      "highlights": [
+        "Track 1 (academic): Flutter mobile app + Express.js/MongoDB backend with JWT auth",
+        "Track 2 (parallel production-grade build): Next.js + TypeScript frontend (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo for farm location mapping) + NestJS + TypeORM backend",
+        "Drafted a formal Vietnamese startup proposal for the product model"
+      ]
+    },
+    {
+      "role": "Backend Developer (Team Project)",
+      "description": "An **agency platform for managing client brand content** across social media — Facebook, Instagram, TikTok, Threads, and Zalo — with content creation/approval workflows, AI-assisted content generation, campaign scheduling, and automated multi-platform publishing.\n\nBuilt as a **microservices architecture**: an **API Gateway** (Spring Cloud Gateway, WebFlux, JWT + Redis auth), a **business-service** (Spring Boot 3.3.5, Java 21) handling core domain logic, a **publisher-service** consuming from **RabbitMQ** with retry/backoff for reliable social posting, and an **AI service** (Python FastAPI, RAG) for content generation. The frontend is a **React 18 + TypeScript + Vite** dashboard, with a companion **Expo/React Native** mobile app, all orchestrated via **Docker Compose** infrastructure.",
+      "challenge": "Publish content to multiple social networks (Facebook, Instagram, TikTok, Threads, Zalo) at once, reliably — needed fault-tolerant architecture (retry/backoff) and a clean separation between domain logic, publishing, and AI content generation.",
+      "highlights": [
+        "Microservices architecture: API Gateway (Spring Cloud Gateway, WebFlux, JWT+Redis auth), business-service (Spring Boot 3.3.5), publisher-service (RabbitMQ with retry/backoff), AI service (Python FastAPI + RAG)",
+        "Entire system orchestrated via Docker Compose",
+        "React 18 + TypeScript + Vite dashboard frontend, with a companion Expo/React Native mobile app"
+      ]
+    },
+    {
+      "role": "Backend Developer (Team Project)",
+      "description": "A **children's storytelling and reading platform** (ages 3–12) combining story listening, guided reading practice, and pronunciation scoring — with a parent dashboard for tracking progress and a dedicated kid mode.\n\nThe backend is built in **.NET 9/10** following **Clean Architecture**, using **MongoDB** for storage, **JWT + Google OAuth** for auth, **Cloudinary** and **AWS S3/CloudFront** for media delivery, and **PayOS** for subscription payments — tested with **xUnit/NSubstitute**. The web app uses **React 19 + Vite + TypeScript**, **Tailwind 4**, and **TanStack Query**; the mobile app is **Expo/React Native**; and the marketing landing page uses **Three.js/react-three-fiber**, **PixiJS**, and **GSAP** for rich animation.\n\nA custom **AI training pipeline** (GPT-SoVITS-based TTS + pronunciation scoring) powers the platform's voice and reading-assessment features — the most technically diverse project I've contributed to, spanning backend, web, mobile, 3D web animation, and applied ML.",
+      "challenge": "Build a story listening/reading platform for kids aged 3–12 with pronunciation scoring — requiring a Clean Architecture backend, web/mobile apps, 3D landing-page animation, and a dedicated voice-processing AI pipeline all at once.",
+      "highlights": [
+        "Backend in .NET 9/10 following Clean Architecture, tested with xUnit/NSubstitute",
+        "JWT + Google OAuth, media via Cloudinary + AWS S3/CloudFront, subscription payments via PayOS",
+        "Landing page uses Three.js/react-three-fiber, PixiJS, GSAP for rich animation",
+        "Dedicated AI pipeline (GPT-SoVITS-based TTS + pronunciation scoring) — the most technically diverse project I've contributed to"
+      ]
+    },
+    {
+      "role": "Solo Developer",
+      "description": "A **travel showcase website** for Điện Biên Phủ province, Vietnam — converted from a static HTML site into a modern **React 19 + Vite** app with lazy-loaded imagery, card/modal-based content browsing, and safely rendered markdown content via **DOMPurify**.\n\nA **Three.js / React Three Fiber** element adds a subtle 3D visual touch to the hero section, and **Framer Motion** drives page transitions. Styled with **Tailwind CSS 4** for a clean, fast-loading layout suitable for tourism content.",
+      "challenge": "Convert a dated static HTML site into a modern React experience — preserving rich tourism content while ensuring safe markdown rendering and fast image-heavy load performance.",
+      "highlights": [
+        "Migrated from static HTML to React 19 + Vite, lazy-loading images site-wide",
+        "Safely renders markdown via DOMPurify, guarding against XSS from dynamic content",
+        "Added a subtle 3D touch to the hero using Three.js/React Three Fiber",
+        "Smooth page transitions via Framer Motion, styled with Tailwind CSS 4"
+      ]
+    },
+    {
+      "role": "Full-Stack Developer",
+      "description": "A **study and course-document platform** for FPT University students — featuring flashcards, quizzes, dashboards, and structured document management, seeded with real course content (e.g. MLN111).\n\nThe backend is a proper **Spring Boot 3.4.3 + MongoDB** REST API with authentication, request-logging middleware, and a maintained improvement log covering real fixes (removing a hardcoded mock user ID, resolving N+1 query issues). The frontend is a **React 18 + TypeScript** docs site with a **Monaco Editor**, Mermaid diagrams, **Recharts** dashboards, and PDF export via **TanStack Query** data fetching.",
+      "challenge": "FPT students need one place for course documents plus active-recall study tools (flashcards, quizzes) instead of scattered materials — and the project itself needed real engineering discipline (improvement logs, real fixes), not just a demo.",
+      "highlights": [
+        "Spring Boot 3.4.3 + MongoDB REST API with request-logging middleware, seeded with real course content (e.g. MLN111)",
+        "Maintains an improvement log documenting real fixes: removing a hardcoded mock user ID, resolving N+1 queries",
+        "React 18 + TypeScript frontend with Monaco Editor, Mermaid diagrams, Recharts dashboards, PDF export"
+      ]
+    },
+    {
+      "role": "Solo Developer",
+      "description": "An **Instagram-styled chatbot automation interface**, replicating Instagram's UI down to precise brand gradients and color tokens as a design reference. Built as a lightweight React scaffold intended to grow into a full chatbot automation tool for Instagram messaging workflows.",
+      "challenge": "Precisely recreate Instagram's design language (gradients, color tokens) as a UI foundation, before expanding it into a real chatbot messaging automation tool.",
+      "highlights": [
+        "Lightweight React scaffold precisely recreating Instagram's brand gradient and color tokens",
+        "Designed as the foundation for future chatbot messaging automation features"
+      ]
+    },
+    {
+      "role": "Solo Developer",
+      "description": "A **study-abroad consulting website** targeting students pursuing postgraduate study in Australia — covering program information, application guidance, and consultation booking, presented with rich data visualizations for program comparisons.",
+      "challenge": "Present complex postgraduate program comparison data (tuition, duration, requirements) in a way that's easy for students to grasp, instead of a dry data table.",
+      "highlights": [
+        "Visualized program comparison data with Recharts",
+        "MUI + Tailwind CSS 4 interface, smooth animation via Framer Motion",
+        "Consultation booking flow integrated directly into the program-browsing experience"
+      ]
+    },
+    {
+      "role": "Solo Developer",
+      "description": "A polished **restaurant landing page** for Papa Steak, a steakhouse in Đà Nẵng — featuring a dark/amber premium visual theme, multi-branch **Google Maps** integration with one-click navigation switching, a dynamic menu overlay, customer review section, and a validated reservation form built with **React Hook Form**.",
+      "challenge": "Build a premium restaurant landing page that needs to convey a 'premium' feel visually, while also solving a real problem: the restaurant has multiple branches, so guests need to switch directions easily.",
+      "highlights": [
+        "Designed a premium dark/amber theme fitting the steakhouse brand",
+        "Integrated multi-branch Google Maps with one-tap direction switching",
+        "Fully validated reservation form via React Hook Form, dynamic menu overlay"
+      ]
+    }
+  ],
+  "postItems": [
+    {
+      "title": "Teaching a 1.5B-Parameter Model to Fix JavaScript Concurrency Bugs",
+      "excerpt": "Inside ThreadLearn: fine-tuning Qwen2.5-Coder-1.5B with QLoRA, pairing it with a BM25-based RAG pipeline, and why a small model beats GPT-3.5-turbo on a narrow domain.",
+      "content": "JavaScript runs on a single thread — a single-threaded event loop — yet handles a mountain of asynchronous tasks at once via callbacks, Promises, and async/await. That gap between \"one thread\" and \"many overlapping tasks\" creates a particularly nasty class of bug: **concurrency bugs**. According to the NodeCB study (ASE 2017), which analyzed 57 real-world bugs across 53 Node.js projects, 93% of them caused serious consequences — server crashes, data corruption, or permanent hangs. And they almost never surface when running tests in isolation.\n\nA classic example — two requests reading then writing at the same time:\n\n```javascript\nconst stock = await db.getStock(productId);   // both requests read stock = 1\nawait db.setStock(productId, stock - 1);       // both requests set stock = 0\n// 2 units sold, but inventory only had 1 — race condition\n```\n\nStatic tools like ESLint only flag the bug, they don't fix it. Calling GPT-4 costs money, requires internet, and isn't specialized for this domain. **ThreadLearn** — a WDP301 course project at FPT University I built with two teammates — took a different approach: fine-tune a small model (Qwen2.5-Coder-1.5B) to specialize in exactly one class of bug, then fill the knowledge gap with RAG.\n\n## Why a small model, not GPT-4\n\nThree practical reasons: cost, latency, and the ability to run offline inside a firewalled enterprise environment. The team picked **Qwen2.5-Coder-1.5B** — small enough to run on an 8GB GPU, yet capable since it's pretrained on hundreds of billions of code tokens — then fine-tuned it with **QLoRA** (loading the model in 4-bit NF4, training only a rank-16 LoRA adapter, roughly 0.5% of total parameters). The whole process ran on Kaggle's free 2×T4 GPUs in about 2 hours.\n\nThe fine-tuning side (783 buggy/fixed code pairs, dataset collected from GitHub plus hand-written examples) was my teammate Ha Van An's work. What I directly owned was the **RAG pipeline and API server** — the most technically substantial part, so that's what I'll detail here.\n\n## RAG: why BM25, not vector search\n\nWith JavaScript, a developer knows exactly which API name they're looking for — `Promise.all`, `setTimeout`, `appendFile`. That's an exact-keyword-match problem, not semantic similarity. Vector search (FAISS, Chroma) needs a GPU to embed, needs a 500MB+ model, and sometimes misses exact matches because it's optimized for \"roughly similar meaning\" rather than \"the exact keyword.\" **BM25** — a frequency-based search algorithm, an improvement over TF-IDF — builds an index over 2,050 documents in under 500ms, needs no GPU, and produces better results on the code domain.\n\nThe catch is BM25's default tokenizer handles code poorly: `setTimeout` gets split into `[\"set\", \"timeout\"]`, `fetchAllUsers` into `[\"fetch\", \"all\", \"users\"]`. When a query contains `setTimeout` intact, it matches more weakly against documents that got fragmented. My first version wrote a regex tokenizer to split CamelCase — it worked, but still fragmented API names when extracting keywords from input code.\n\nThe fix uses **esprima to parse code into an AST**, then only keeps tokens of type `Identifier` — function/variable names the developer chose — skipping language keywords (`async`, `await`, `for`):\n\n```python\nscript = esprima.parseScript(code, options={\"tolerant\": True, \"tokens\": True})\nfor tok in script.tokens:\n    if tok.type == \"Identifier\" and tok.value not in _JS_STOPWORDS:\n        result.append(tok.value)\n```\n\nDirect comparison: `fs.appendFile(logPath, data)` through the regex tokenizer becomes `\"fs append file path data\"` — appendFile gets fragmented. Through AST extraction it becomes `\"fs appendFile logPath data\"` — intact. Keeping API names intact means a higher BM25 score against the right document, and the top-3 retrieved docs come back noticeably more accurate.\n\n## Results — and why fine-tuning matters more than RAG\n\nEvaluated on 20 hand-crafted test cases covering 8 concurrency bug categories (race conditions, event loop blocking, unhandled rejection, callback hell, zalgo, context loss, etc.), scored with Fix-Pattern Scoring (checking whether the output contains the correct fix pattern, not a hard match against a sample answer):\n\n| Method | Pass | Partial | Fail | Pass Rate |\n|---|---|---|---|---|\n| GPT-3.5-turbo zero-shot | 6 | 11 | 3 | 30% |\n| Qwen2.5-Coder-1.5B (base, no fine-tune) | 8 | 9 | 3 | 40% |\n| ThreadLearn RAW (fine-tuned, no RAG) | 14 | 6 | 0 | 70% |\n| **ThreadLearn + RAG** | **15** | **5** | **0** | **75%** |\n\n![Ablation chart](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871855/my-website/assets/blog/threadlearn/fig_ablation.png)\n\n### Benchmark 2 — 30 real-world cases (from real npm packages on GitHub Issues)\n\nThreadLearn + pipeline scored **73.3% (22/30)**, beating GPT-3.5-turbo + pipeline's **65.0%** (19.5/30). Full details in `server/tests/real_world/README.md`.\n\n### Analysis\n\nFine-tuning contributed **+30pp** (40% → 70%), RAG added **+5pp** (70% → 75%). 783 training samples were enough for the model to learn concrete fix patterns; RAG helps the harder cases that need context beyond the training data. No case FAILED outright — the model always produced readable code.\n\n**3 categories still weak**: Zalgo (0/1), Double Callback (0/1), Buffer Leak (0/1) — very niche patterns, rarely represented in the dataset.\n\nEvent Loop Blocking hit **100% (5/5)** — best-covered category in the training data.\n\n![Per-category breakdown](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871858/my-website/assets/blog/threadlearn/fig_category.png)\n\n## Takeaways\n\nA small model (~1.5B), fine-tuned on a narrow domain, **beats GPT-3.5 (175B) despite being 125x smaller** — not because it's \"smarter,\" but because it doesn't carry irrelevant knowledge. BM25 + AST extraction is cheap, fast, and offline. When designing retrieval for code, exact keyword matching matters more than semantic similarity.\n\n---\n\n*Team roles: **Le Tri Trung** (AI2 — RAG Pipeline, FastAPI Server, Race Detector) · Ha Van An (AI1 — Dataset Collection, QLoRA Fine-tuning) · Nguyen Thi Thuy Hoai (Model Evaluation & Report Writing). FPT University, Da Nang.*\n\nCode, dataset, and research paper: [github.com/ThreadLearn/ThreadLearn_AI_Trainning](https://github.com/ThreadLearn/ThreadLearn_AI_Trainning). Full PDF: `/d/FPT/threadlearn_paper-full.pdf`. Visual demo site: [github.com/ThreadLearn/ThreadLearn-AI-Visual](https://github.com/ThreadLearn/ThreadLearn-AI-Visual)."
+    }
+  ],
   "educationItems": [
-    { "description": "Currently interning at FPT Software, a **top-tier technology company in Vietnam**. Gaining **practical experience** by developing applications using **Low-Code platforms**, specifically **OutSystems**. This role provides invaluable exposure to a professional **enterprise environment** and **modern software development practices**." },
-    { "description": "Currently pursuing a **Bachelor of Science in Computer Science**. My coursework emphasizes **software development**, **data structures**, and **algorithms**. I am actively focused on **backend technologies**, particularly **Java Spring Boot**, and gaining practical experience through **team projects** and **coding competitions**." },
-    { "description": "Participation in the **FPTU Inbound Mobility Programme** in **Kuala Lumpur, Malaysia**. Gained **international exposure** to diverse academic and cultural environments, enhancing **adaptability** and **cross-cultural communication skills**." },
-    { "description": "Graduated with an **excellent academic GPA of 9.3/10.0**. The curriculum provided a strong foundation in **Mathematics, Physics, and analytical skills**, which served as a crucial stepping stone for my current Computer Science studies and **problem-solving approach**." }
+    { "degree": "Software Developer Intern", "description": "Currently interning at FPT Software, a **top-tier technology company in Vietnam**. Gaining **practical experience** by developing applications using **Low-Code platforms**, specifically **OutSystems**. This role provides invaluable exposure to a professional **enterprise environment** and **modern software development practices**." },
+    { "degree": "University (Computer Science)", "description": "Currently pursuing a **Bachelor of Science in Computer Science**. My coursework emphasizes **software development**, **data structures**, and **algorithms**. I am actively focused on **backend technologies**, particularly **Java Spring Boot**, and gaining practical experience through **team projects** and **coding competitions**." },
+    { "degree": "Inbound Mobility Programme", "description": "Participation in the **FPTU Inbound Mobility Programme** in **Kuala Lumpur, Malaysia**. Gained **international exposure** to diverse academic and cultural environments, enhancing **adaptability** and **cross-cultural communication skills**." },
+    { "degree": "High School Diploma", "description": "Graduated with an **excellent academic GPA of 9.3/10.0**. The curriculum provided a strong foundation in **Mathematics, Physics, and analytical skills**, which served as a crucial stepping stone for my current Computer Science studies and **problem-solving approach**." }
   ],
   "memoryItems": [
     { "caption": "Learning and development at FPT University." },
@@ -411,24 +665,24 @@
     { "caption": "A strong foundation built during high school years." }
   ],
   "activityItems": [
-    { "description": "Invited back to my alma mater as a **guest speaker** to guide 12th-grade students on university pathways and careers in technology. Shared my personal journey from high school to FPT University and FPT Software internship — covering the Computer Science curriculum, Java development roadmap, and what actually matters in the first year of a tech career. Answered live Q&A from over 50 students." },
-    { "description": "Led a **5-member cross-functional team** through the full development lifecycle of Innocode Camp SU25 — from problem analysis and system design to implementation and final presentation. Our team built a job search platform prototype using **React, Java Spring Boot, MySQL, and Docker**. I coordinated sprint planning, handled backend architecture decisions, and kept the team on schedule under competition deadlines. We advanced to the **final round**." },
-    { "description": "Active core member of two of FPT University Da Nang's most prominent event and public speaking clubs. Regularly served as **MC and host** for university-scale events — including orientation ceremonies, cultural festivals, and academic competitions — with live audiences of **600 to 1000+ attendees**. Developed strong stage presence, improvisational recovery skills, and the ability to read and guide large crowds through multi-hour programs." },
-    { "description": "Led The Dreamers team through **FPT's Research Festival (ResFres)** — a multi-stage academic competition requiring original research, structured report writing, and formal panel presentations. Managed task distribution across team members, maintained the research timeline, and coached teammates on presenting technical findings clearly to a non-technical jury. The team advanced to the **multi-campus final round**." },
-    { "description": "Served as **main coordinator and external relations lead** for the 'Hon Thien Dat Viet' cultural gala — a large-scale university event celebrating Vietnamese heritage. Responsibilities included liaising with external partners and sponsors, coordinating logistics across departments, managing the event timeline on the day, and troubleshooting live issues during the program. Gained practical experience in high-stakes event diplomacy and multi-stakeholder coordination." },
-    { "description": "Designed and led The Dreamers' end-of-year fundraising campaign — coordinating sales activities, tracking contributions, and managing the budget as **treasurer**. Funds raised were directed entirely toward charity missions to local orphanages, covering meals, educational materials, and technology workshops. The campaign met its internal revenue target within the month and established a repeatable fundraising model for future cycles." },
-    { "description": "Participated in and helped organize multiple charity field missions through AHT Cooperation — including orphanage visits, community fundraising drives, and the 'Hanh trinh tu thien ocean.zero6' initiative. Activities ranged from direct on-site volunteering (distributing supplies, running mini-workshops for children) to backend logistics (transport coordination, documentation, and post-event reporting)." },
-    { "description": "Hosted the **'Make Your Image Better'** university workshop as MC — a session focused on personal branding, appearance, and professional presence for students entering the job market. Managed the program flow, introduced speakers, facilitated audience interaction, and kept energy high across a multi-segment event. This was one of several workshops I've hosted, building a consistent track record in professional event facilitation." },
-    { "description": "Served as MC for the **'Gender Equality in the Workplace'** workshop — a sensitive and important topic requiring careful tone, inclusive language, and the ability to facilitate open discussion. Introduced panelists, moderated Q&A segments, and ensured a respectful environment throughout. This experience expanded my ability to host programs that go beyond entertainment into social education." },
-    { "description": "Ongoing involvement as a **student representative and event guide** across a range of FPT University activities — including new student orientation, admission open days, volunteer recruitment drives, and inter-department collaboration events. Consistently trusted to represent the university face-to-face with prospective students and their families, requiring clear communication, patience, and campus knowledge." },
-    { "description": "Accumulated diverse media experience across three distinct roles: **Commercial Actor** for Honda Tien Thu dealership promotional content; **Model** for LenDoan Bridal and FPT University official photography and event materials; and **Vlogger/Content Creator** producing and editing video content for social platforms. These experiences developed adaptability, camera confidence, and creative production skills — a different but complementary dimension to technical work." },
-    { "description": "Designed and led The Dreamers' **second-round member recruitment campaign** — drafting the recruitment criteria, creating application materials, organizing interview sessions, and selecting candidates who aligned with the organization's mission and culture. Successfully onboarded a new cohort of members who went on to contribute to the Dream High project and charity missions." },
-    { "description": "Led the full planning and execution of **'Tot Hy Vong'** — a charity event organized by The Dreamers bringing joy, gifts, and educational activities to underprivileged children. Coordinated volunteer assignments, managed the day-of schedule, handled contingencies on-site, and oversaw post-event documentation. The event reinforced the organization's mission of using community action to create tangible social impact." },
-    { "description": "Led the organization team for **'Vong vao Mong mo'** — a week-long initiative by The Dreamers designed to inspire ambition and self-belief in young participants through storytelling, mentorship sessions, and interactive workshops. Managed the full event arc: concept development, logistics, volunteer coordination, and wrap-up. A meaningful project that connected The Dreamers' mission with direct youth empowerment." },
-    { "description": "Led **Dream High** — The Dreamers' flagship long-term project spanning 6 months, focused on bringing technology literacy and personal development to orphaned children through structured weekly sessions. As project leader, I oversaw curriculum design, volunteer scheduling, partner coordination, and progress tracking. The project ran bi-weekly workshops covering basic coding concepts, communication skills, and goal-setting exercises for children aged 8–15." },
-    { "description": "Selected as **head referee** for FPT University's AI & Robotics Competition — a technical contest where student teams program robots and AI systems to complete specified challenges. Responsibilities included enforcing competition rules impartially, evaluating technical compliance of robot designs, managing time-keeping during rounds, and resolving disputes between teams. Being chosen for this role reflects trust from faculty in both technical understanding and professional conduct." },
-    { "description": "Managed The Dreamers' **charity music performance event** from planning through execution — coordinating performers, securing the venue, handling ticket/donation logistics, and managing volunteer teams on the day. The concert raised funds directed toward orphanage support programs. This was the largest production The Dreamers had organized, requiring multi-week preparation and real-time problem solving during the live event." },
-    { "description": "Selected as **photo model** for FPT University's official commemorative photo series marking the anniversary of the August Revolution. Worked with the university's media team to produce formal portraits and group compositions used in official communications and campus displays. Part of an ongoing involvement in FPT's visual media and branding activities." }
+    { "title": "Alumni Career Guidance Talk", "role": "Guest Speaker & Mentor", "description": "Invited back to my alma mater as a **guest speaker** to guide 12th-grade students on university pathways and careers in technology. Shared my personal journey from high school to FPT University and FPT Software internship — covering the Computer Science curriculum, Java development roadmap, and what actually matters in the first year of a tech career. Answered live Q&A from over 50 students." },
+    { "title": "Innocode Camp – Coding Competition", "role": "Team Leader", "description": "Led a **5-member cross-functional team** through the full development lifecycle of Innocode Camp SU25 — from problem analysis and system design to implementation and final presentation. Our team built a job search platform prototype using **React, Java Spring Boot, MySQL, and Docker**. I coordinated sprint planning, handled backend architecture decisions, and kept the team on schedule under competition deadlines. We advanced to the **final round**." },
+    { "title": "Mic Home Club & FUM Club", "role": "Core Member & Event Host", "description": "Active core member of two of FPT University Da Nang's most prominent event and public speaking clubs. Regularly served as **MC and host** for university-scale events — including orientation ceremonies, cultural festivals, and academic competitions — with live audiences of **600 to 1000+ attendees**. Developed strong stage presence, improvisational recovery skills, and the ability to read and guide large crowds through multi-hour programs." },
+    { "title": "Dreamer ResFres – Research Festival", "role": "Team Leader", "description": "Led The Dreamers team through **FPT's Research Festival (ResFres)** — a multi-stage academic competition requiring original research, structured report writing, and formal panel presentations. Managed task distribution across team members, maintained the research timeline, and coached teammates on presenting technical findings clearly to a non-technical jury. The team advanced to the **multi-campus final round**." },
+    { "title": "Gala – Hon Thien Dat Viet", "role": "External Relations & Main Coordinator", "description": "Served as **main coordinator and external relations lead** for the 'Hon Thien Dat Viet' cultural gala — a large-scale university event celebrating Vietnamese heritage. Responsibilities included liaising with external partners and sponsors, coordinating logistics across departments, managing the event timeline on the day, and troubleshooting live issues during the program. Gained practical experience in high-stakes event diplomacy and multi-stakeholder coordination." },
+    { "title": "The Dreamers – Charity Fundraising Campaign", "role": "Project Leader & Treasurer", "description": "Designed and led The Dreamers' end-of-year fundraising campaign — coordinating sales activities, tracking contributions, and managing the budget as **treasurer**. Funds raised were directed entirely toward charity missions to local orphanages, covering meals, educational materials, and technology workshops. The campaign met its internal revenue target within the month and established a repeatable fundraising model for future cycles." },
+    { "title": "Charity Missions – AHT Cooperation", "role": "Participant & Organizer", "description": "Participated in and helped organize multiple charity field missions through AHT Cooperation — including orphanage visits, community fundraising drives, and the 'Hanh trinh tu thien ocean.zero6' initiative. Activities ranged from direct on-site volunteering (distributing supplies, running mini-workshops for children) to backend logistics (transport coordination, documentation, and post-event reporting)." },
+    { "title": "Workshop MC – 'Make Your Image Better'", "role": "Master of Ceremonies", "description": "Hosted the **'Make Your Image Better'** university workshop as MC — a session focused on personal branding, appearance, and professional presence for students entering the job market. Managed the program flow, introduced speakers, facilitated audience interaction, and kept energy high across a multi-segment event. This was one of several workshops I've hosted, building a consistent track record in professional event facilitation." },
+    { "title": "Gender Equality Workshop – Program MC", "role": "Master of Ceremonies", "description": "Served as MC for the **'Gender Equality in the Workplace'** workshop — a sensitive and important topic requiring careful tone, inclusive language, and the ability to facilitate open discussion. Introduced panelists, moderated Q&A segments, and ensured a respectful environment throughout. This experience expanded my ability to host programs that go beyond entertainment into social education." },
+    { "title": "University Event Collaborator", "role": "Student Representative & Guide", "description": "Ongoing involvement as a **student representative and event guide** across a range of FPT University activities — including new student orientation, admission open days, volunteer recruitment drives, and inter-department collaboration events. Consistently trusted to represent the university face-to-face with prospective students and their families, requiring clear communication, patience, and campus knowledge." },
+    { "title": "Student Actor / Model / Content Creator", "role": "Actor, Model & Vlogger", "description": "Accumulated diverse media experience across three distinct roles: **Commercial Actor** for Honda Tien Thu dealership promotional content; **Model** for LenDoan Bridal and FPT University official photography and event materials; and **Vlogger/Content Creator** producing and editing video content for social platforms. These experiences developed adaptability, camera confidence, and creative production skills — a different but complementary dimension to technical work." },
+    { "title": "The Dreamers – Member Recruitment Drive", "role": "Recruitment Leader", "description": "Designed and led The Dreamers' **second-round member recruitment campaign** — drafting the recruitment criteria, creating application materials, organizing interview sessions, and selecting candidates who aligned with the organization's mission and culture. Successfully onboarded a new cohort of members who went on to contribute to the Dream High project and charity missions." },
+    { "title": "Tot Hy Vong Event", "role": "Event Leader", "description": "Led the full planning and execution of **'Tot Hy Vong'** — a charity event organized by The Dreamers bringing joy, gifts, and educational activities to underprivileged children. Coordinated volunteer assignments, managed the day-of schedule, handled contingencies on-site, and oversaw post-event documentation. The event reinforced the organization's mission of using community action to create tangible social impact." },
+    { "title": "Vong vao Mong mo Event", "role": "Event Leader", "description": "Led the organization team for **'Vong vao Mong mo'** — a week-long initiative by The Dreamers designed to inspire ambition and self-belief in young participants through storytelling, mentorship sessions, and interactive workshops. Managed the full event arc: concept development, logistics, volunteer coordination, and wrap-up. A meaningful project that connected The Dreamers' mission with direct youth empowerment." },
+    { "title": "Dream High Project", "role": "Project Leader", "description": "Led **Dream High** — The Dreamers' flagship long-term project spanning 6 months, focused on bringing technology literacy and personal development to orphaned children through structured weekly sessions. As project leader, I oversaw curriculum design, volunteer scheduling, partner coordination, and progress tracking. The project ran bi-weekly workshops covering basic coding concepts, communication skills, and goal-setting exercises for children aged 8–15." },
+    { "title": "AI & Robotics Competition – Official Referee", "role": "Head Referee", "description": "Selected as **head referee** for FPT University's AI & Robotics Competition — a technical contest where student teams program robots and AI systems to complete specified challenges. Responsibilities included enforcing competition rules impartially, evaluating technical compliance of robot designs, managing time-keeping during rounds, and resolving disputes between teams. Being chosen for this role reflects trust from faculty in both technical understanding and professional conduct." },
+    { "title": "Charity Music Performance – Event Manager", "role": "Event Manager", "description": "Managed The Dreamers' **charity music performance event** from planning through execution — coordinating performers, securing the venue, handling ticket/donation logistics, and managing volunteer teams on the day. The concert raised funds directed toward orphanage support programs. This was the largest production The Dreamers had organized, requiring multi-week preparation and real-time problem solving during the live event." },
+    { "title": "August Revolution Commemorative Photoshoot", "role": "Photo Model", "description": "Selected as **photo model** for FPT University's official commemorative photo series marking the anniversary of the August Revolution. Worked with the university's media team to produce formal portraits and group compositions used in official communications and campus displays. Part of an ongoing involvement in FPT's visual media and branding activities." }
   ],
   "certificateItems": [
     { "description": "Achieved an **overall band score of 6.0** (Listening 5.5, Reading 6.5, Writing 5.5, Speaking 6.0 · CEFR B2) on the Academic IELTS — demonstrating proficient academic English across all four skills. Officially administered and verified by the British Council / IDP." },

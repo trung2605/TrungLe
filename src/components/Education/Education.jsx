@@ -8,8 +8,11 @@ import useSpotlight from '../../hooks/useSpotlight';
 import '../../animations/SpotlightCard.css';
 const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd'];
 
-const EducationRow = ({ edu, index, isLast }) => {
+const STATUS_KEY = { 'Current': 'current', 'Completed': 'completed', 'Graduated': 'graduated' };
+
+const EducationRow = ({ edu, index, isLast, t }) => {
   const spotlight = useSpotlight();
+  const statusLabel = STATUS_KEY[edu.status] ? t(`education.${STATUS_KEY[edu.status]}`) : edu.status;
 
   return (
     <motion.div
@@ -65,7 +68,7 @@ const EducationRow = ({ edu, index, isLast }) => {
             color: '#000000', border: '1px solid rgba(0,0,0,0.08)',
             flexShrink: 0,
           }}>
-            {edu.status}
+            {statusLabel}
           </span>
         </div>
 
@@ -118,7 +121,7 @@ const Education = () => {
       {/* Timeline */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', marginBottom: '72px' }}>
         {education.map((edu, i) => (
-          <EducationRow key={edu.id} edu={edu} index={i} isLast={i === education.length - 1} />
+          <EducationRow key={edu.id} edu={edu} index={i} isLast={i === education.length - 1} t={t} />
         ))}
       </div>
 

@@ -11,7 +11,6 @@ import {
   FaCrown,
   FaMicrophone,
   FaVideo,
-  FaHome,
   FaUser,
   FaLaptopCode,
   FaSun,
@@ -1668,12 +1667,6 @@ export const allSkillsData = [
 //Site Navigation Data
 export const siteNavigation = [
     {
-        title: "Home",
-        desc: "Welcome to my portfolio",
-        icon: <FaHome />,
-        path: "/",
-    },
-    {
         title: "About",
         desc: "Learn about my journey and passion",
         icon: <FaUser />,
@@ -1687,10 +1680,10 @@ export const siteNavigation = [
     },
 
     {
-        title: "Education & Certificates",
-        desc: "My academic journey and verified skills",
+        title: "Achievements",
+        desc: "Education, certificates, and prizes",
         icon: <FaGraduationCap />,
-        path: "/education",
+        path: "/achievements",
     },
     {
         title: "Activities",
