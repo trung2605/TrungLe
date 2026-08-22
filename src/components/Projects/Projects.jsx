@@ -18,10 +18,13 @@ const STATUS_COLORS = {
 };
 
 const CATEGORY_COLORS = {
-  'Full-Stack': '#c5b0f4',
-  'Frontend':   '#c8e6cd',
-  'Automation': '#f4ecd6',
-  'Low-Code':   '#efd4d4',
+  'fullstack':   '#c5b0f4',
+  'ecommerce':   '#c8e6cd',
+  'ai':          '#cde6f4',
+  'frontend':    '#efd4d4',
+  'automation':  '#f4ecd6',
+  'lowcode':     '#dceeb1',
+  'ngo':         '#f3c9b6',
 };
 
 const STATUS_KEY = { 'Active': 'active', 'In Development': 'inDevelopment', 'Completed': 'completed' };
@@ -259,6 +262,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
 const Projects = () => {
   const [filter, setFilter] = useState('all');
   const [selectedSkill, setSelectedSkill] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { projects } = useTranslatedData();
@@ -270,20 +274,32 @@ const Projects = () => {
     { value: 'Completed',      label: t('projects.filterCompleted'),     count: projects.filter(p => p.status === 'Completed').length },
   ];
 
+  const categoryKeys = [...new Set(projects.map(p => p.category).filter(Boolean))];
+  const categoryOptions = [
+    { value: 'all', label: t('projects.filterAllCategories') },
+    ...categoryKeys.map(k => ({
+      value: k,
+      label: t(`projects.categories.${k}`),
+      count: projects.filter(p => p.category === k).length,
+    })),
+  ];
+
   const skillProjectIds = selectedSkill
     ? new Set(skillTaxonomy.find(s => s.id === selectedSkill)?.projectIds || [])
     : null;
 
   const FEATURED_PROJECT_ID = 11; // The MC Hub
+  const isUnfiltered = filter === 'all' && selectedCategory === 'all' && !selectedSkill;
 
   const filteredProjects = projects
     .filter(p => filter === 'all' || p.status === filter)
+    .filter(p => selectedCategory === 'all' || p.category === selectedCategory)
     .filter(p => !skillProjectIds || skillProjectIds.has(p.id))
     .sort((a, b) => {
-      if (filter !== 'all' || selectedSkill) return 0;
+      if (!isUnfiltered) return 0;
       if (a.id === FEATURED_PROJECT_ID) return -1;
       if (b.id === FEATURED_PROJECT_ID) return 1;
-      return 0;
+      return a.tier - b.tier;
     });
 
   return (
@@ -328,6 +344,29 @@ const Projects = () => {
         </Tabs>
       </motion.div>
 
+      {/* Category filter — pill tabs, AND with status */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+        style={{ marginBottom: '24px' }}
+      >
+        <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
+          <TabsList>
+            {categoryOptions.map((opt) => (
+              <TabsTrigger
+                key={opt.value}
+                value={opt.value}
+                count={opt.count}
+                data-testid={`project-category-${opt.value.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                {opt.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
+      </motion.div>
+
       <SkillChart selectedSkill={selectedSkill} onSelectSkill={setSelectedSkill} />
 
       {/* Grid — the first project gets a wider "bento" tile when unfiltered */}
@@ -340,7 +379,7 @@ const Projects = () => {
               onClick={p => navigate(`/projects/${p.id}`)}
               index={i}
               t={t}
-              featured={filter === 'all' && i === 0 && !selectedSkill}
+              featured={isUnfiltered && i === 0}
             />
           ))}
         </div>

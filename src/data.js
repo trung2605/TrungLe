@@ -394,7 +394,8 @@ export const projects = [
     githubUrl: "https://github.com/SWPGr",
     liveUrl: "https://fe-jobfinder.vercel.app/",
     status: "In Development",
-    category: "Full-Stack",
+    category: "fullstack",
+    tier: 3,
     challenge: "Cần một nền tảng tìm việc cho phép job seeker vừa tìm kiếm/ứng tuyển vừa nhận hỗ trợ AI (resume tips, job matching), trong khi team 6 người phải phối hợp Agile trên cùng một codebase suốt 4 tháng mà không dẫm chân nhau.",
     highlights: [
       "Thiết kế và triển khai toàn bộ RESTful API bằng Java Spring Boot, quản lý dữ liệu quan hệ trên SQL Server",
@@ -423,7 +424,8 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/BakeryManagement",
     liveUrl: "https://themes.sapo.vn/demo/dola-bakery",
     status: "Completed",
-    category: "Full-Stack",
+    category: "ecommerce",
+    tier: 3,
     challenge: "Dự án nhóm đầu tiên của tôi — cần dựng một nền tảng thương mại điện tử đầy đủ (catalog, giỏ hàng, đơn hàng, tài khoản khách) cho một tiệm bánh, với đội 4 người và deadline cố định, mà không có kinh nghiệm phối hợp team trước đó.",
     highlights: [
       "Kiến trúc backend bằng Java Servlets, tự thiết kế schema database SQL Server",
@@ -445,7 +447,8 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/the_dreamers_backend",
     liveUrl: "#",
     status: "Active",
-    category: "Full-Stack",
+    category: "ngo",
+    tier: 2,
     challenge: "Xây dựng một tổ chức thiện nguyện sinh viên bền vững — không chỉ tổ chức sự kiện đơn lẻ mà cần vận hành liên tục: tuyển thành viên, gây quỹ, và giờ đây là số hoá việc quản lý hoạt động/thành viên bằng một nền tảng backend riêng.",
     highlights: [
       "Sáng lập và điều hành toàn bộ hoạt động: tuyển thành viên, roadmap dự án, gây quỹ cho nhiều chiến dịch thiện nguyện",
@@ -466,7 +469,8 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/Form-Automation-Backend",
     liveUrl: "https://form-automation-frontend.vercel.app/",
     status: "Completed",
-    category: "Automation",
+    category: "automation",
+    tier: 4,
     challenge: "Loại bỏ việc nhập liệu thủ công lặp lại cho các form web có khối lượng lớn, trong thời hạn gấp 10 ngày — cần xử lý được các trường hợp khó như field render động và form có CAPTCHA.",
     highlights: [
       "Xây dựng engine điều khiển DOM bằng Node.js để tự động hoá tương tác form",
@@ -488,7 +492,8 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/Book-Shop-Outsystems-Public",
     liveUrl: "https://personal-fu4tft5e.outsystemscloud.com/BookShopCore/BookStore",
     status: "Completed",
-    category: "Low-Code",
+    category: "lowcode",
+    tier: 4,
     challenge: "Học và triển khai một ứng dụng thương mại điện tử đầy đủ hoàn toàn trong môi trường visual development (OutSystems) — kỹ năng trực tiếp áp dụng cho các dự án enterprise rapid-delivery tại FPT Software.",
     highlights: [
       "Xây dựng đầy đủ luồng e-commerce: catalog có search/filter, giỏ hàng, quản lý đơn hàng, admin panel quản lý tồn kho",
@@ -509,7 +514,8 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/tiktok-ui-Public",
     liveUrl: "#",
     status: "Completed",
-    category: "Frontend",
+    category: "frontend",
+    tier: 4,
     challenge: "Củng cố nền tảng React trước khi áp dụng vào các dự án production (Job Finder, The MC Hub) — bằng cách tái tạo chính xác một giao diện phức tạp, nhiều component tương tác thật (TikTok web).",
     highlights: [
       "Tách UI thành các component tái sử dụng: Sidebar, VideoFeed, UserCard, ActionBar với props/state/effect quản lý đúng chuẩn",
@@ -530,7 +536,8 @@ export const projects = [
     githubUrl: "#",
     liveUrl: "#",
     status: "In Development",
-    category: "Frontend",
+    category: "frontend",
+    tier: 4,
     challenge: "Xây một portfolio thể hiện đúng chất lượng thật — tránh cảm giác template, tối ưu hiệu năng (code-splitting, lazy image), và giữ nội dung dễ cập nhật qua một data layer trung tâm thay vì sửa trực tiếp component.",
     highlights: [
       "Thiết kế hệ thống màu monochrome + pastel block riêng, không dùng theme có sẵn",
@@ -552,7 +559,8 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/bakery_assginment_fe",
     liveUrl: "https://bakery-assginment-fe.vercel.app/",
     status: "Completed",
-    category: "Full-Stack",
+    category: "fullstack",
+    tier: 3,
     challenge: "Bài tập môn học yêu cầu phạm vi thật (inventory, sales, order, customer database) nhưng làm solo — buộc phải tự thiết kế và triển khai toàn bộ hệ thống từ database đến deployment mà không có ai chia việc.",
     highlights: [
       "Tự thiết kế API và schema database, không phụ thuộc teammate",
@@ -590,7 +598,8 @@ export const projects = [
     githubUrl: "https://github.com/The-MC-Hub",
     liveUrl: "#",
     status: "In Development",
-    category: "Full-Stack",
+    category: "fullstack",
+    tier: 2,
     challenge: "Xây một marketplace 2 chiều (Client ↔ MC) cần xử lý concurrency cao (nhiều người đặt lịch cùng lúc), thanh toán thật, chat real-time, và cả web lẫn mobile app — dự án kỹ thuật phức tạp nhất tôi từng tham gia.",
     highlights: [
       "Backend Spring Boot 3.3 + Java 21 Virtual Threads cho khả năng xử lý đồng thời cao",
@@ -612,7 +621,8 @@ export const projects = [
     githubUrl: "https://github.com/SwiftBid-MultiThreats/SwiftBid-Backend",
     liveUrl: "#",
     status: "In Development",
-    category: "Full-Stack",
+    category: "fullstack",
+    tier: 2,
     challenge: "Nền tảng đấu giá real-time cần cập nhật trạng thái bid độ trễ thấp khi nhiều người cùng đấu giá một sản phẩm — bài toán concurrency và cache-backed state kinh điển.",
     highlights: [
       "Spring Data Redis theo dõi trạng thái bid live và cache cho cập nhật độ trễ thấp",
@@ -634,7 +644,8 @@ export const projects = [
     githubUrl: "https://github.com/AgriLinkVN/agrilink-backend",
     liveUrl: "#",
     status: "Active",
-    category: "Full-Stack",
+    category: "ecommerce",
+    tier: 2,
     challenge: "Bắt đầu là đồ án học thuật (PRM393) nhưng đội ngũ quyết định nâng cấp thành kiến trúc production-grade hướng tới khả năng khởi nghiệp thật — đòi hỏi thiết kế lại từ mobile-only sang full-stack đa nền tảng có khả năng mở rộng.",
     highlights: [
       "Track 1 (học thuật): mobile app Flutter + backend Express.js/MongoDB xác thực JWT",
@@ -655,7 +666,8 @@ export const projects = [
     githubUrl: "https://github.com/BrandHubOrganization",
     liveUrl: "#",
     status: "Active",
-    category: "Full-Stack",
+    category: "fullstack",
+    tier: 2,
     challenge: "Đăng nội dung đồng thời lên nhiều mạng xã hội (Facebook, Instagram, TikTok, Threads, Zalo) một cách đáng tin cậy — cần kiến trúc chịu lỗi (retry/backoff) và tách biệt rõ giữa domain logic, việc publish, và AI content generation.",
     highlights: [
       "Kiến trúc microservices: API Gateway (Spring Cloud Gateway, WebFlux, JWT+Redis auth), business-service (Spring Boot 3.3.5), publisher-service (RabbitMQ với retry/backoff), AI service (Python FastAPI + RAG)",
@@ -676,7 +688,8 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/Yarnia-Backend",
     liveUrl: "#",
     status: "Active",
-    category: "Full-Stack",
+    category: "fullstack",
+    tier: 2,
     challenge: "Xây một nền tảng đọc/nghe truyện cho trẻ 3-12 tuổi với chấm điểm phát âm — đòi hỏi kết hợp backend chuẩn Clean Architecture, web/mobile app, animation 3D cho landing page, và cả một pipeline AI xử lý giọng nói riêng.",
     highlights: [
       "Backend .NET 9/10 theo Clean Architecture, test bằng xUnit/NSubstitute",
@@ -698,7 +711,8 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/DienBienPhu_Travel-",
     liveUrl: "#",
     status: "Completed",
-    category: "Frontend",
+    category: "frontend",
+    tier: 4,
     challenge: "Chuyển đổi một site tĩnh HTML lỗi thời thành một trải nghiệm React hiện đại — vừa giữ nội dung du lịch phong phú, vừa đảm bảo render markdown an toàn và hiệu năng tải nhanh cho ảnh nhiều.",
     highlights: [
       "Migrate từ static HTML sang React 19 + Vite, lazy-load ảnh toàn site",
@@ -720,7 +734,8 @@ export const projects = [
     githubUrl: "#",
     liveUrl: "#",
     status: "Active",
-    category: "Full-Stack",
+    category: "fullstack",
+    tier: 3,
     challenge: "Sinh viên FPT cần một nơi tập trung tài liệu môn học kèm công cụ ôn tập chủ động (flashcard, quiz) thay vì tài liệu rời rạc — và bản thân dự án cũng cần duy trì kỷ luật kỹ thuật tốt (log cải tiến, sửa lỗi thật) chứ không chỉ là demo.",
     highlights: [
       "REST API Spring Boot 3.4.3 + MongoDB với middleware logging request, seed nội dung môn học thật (vd MLN111)",
@@ -741,7 +756,8 @@ export const projects = [
     githubUrl: "https://github.com/Yarnia0805/Instagram_ChatBot",
     liveUrl: "#",
     status: "In Development",
-    category: "Frontend",
+    category: "frontend",
+    tier: 4,
     challenge: "Tái tạo chính xác ngôn ngữ thiết kế của Instagram (gradient, color token) làm nền tảng UI trước khi mở rộng thành công cụ tự động hoá chatbot messaging thật.",
     highlights: [
       "Scaffold React nhẹ, tái tạo chuẩn xác brand gradient và color token của Instagram",
@@ -761,7 +777,8 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/Study_Post_Graduate_Sydney",
     liveUrl: "#",
     status: "Completed",
-    category: "Frontend",
+    category: "frontend",
+    tier: 4,
     challenge: "Trình bày thông tin so sánh chương trình học sau đại học phức tạp (học phí, thời lượng, yêu cầu) theo cách dễ hiểu cho học sinh, thay vì bảng dữ liệu khô khan.",
     highlights: [
       "Trực quan hoá dữ liệu so sánh chương trình học bằng Recharts",
@@ -782,7 +799,8 @@ export const projects = [
     githubUrl: "https://github.com/trung2605/PapaSteak_Website",
     liveUrl: "#",
     status: "Completed",
-    category: "Frontend",
+    category: "frontend",
+    tier: 4,
     challenge: "Xây dựng landing page nhà hàng cao cấp cần truyền tải cảm giác 'premium' qua visual, đồng thời giải quyết bài toán thực tế: nhà hàng có nhiều chi nhánh nên khách cần chuyển đổi bản đồ chỉ đường dễ dàng.",
     highlights: [
       "Thiết kế theme dark/amber cao cấp phù hợp thương hiệu steakhouse",
@@ -803,7 +821,8 @@ export const projects = [
     githubUrl: "https://github.com/PRM393r/WeatherTracking_FE",
     liveUrl: "#",
     status: "Completed",
-    category: "Full-Stack",
+    category: "fullstack",
+    tier: 3,
     challenge: "Xây ứng dụng theo dõi thời tiết với cảnh báo AQI tự động cho môn học PRM393 — team 3 người cần quy trình làm việc thật (Jira ticket, feature branch, CI/CD) chứ không chỉ code một lần rồi nộp.",
     highlights: [
       "App Flutter theo dõi thời tiết, cảnh báo vị trí và ngưỡng AQI tự động (scheduled job)",
@@ -825,7 +844,8 @@ export const projects = [
     githubUrl: "https://github.com/ThreadLearn/ThreadLearn_AI_Trainning",
     liveUrl: "#",
     status: "Completed",
-    category: "Full-Stack",
+    category: "ai",
+    tier: 2,
     challenge: "ESLint chỉ báo lỗi concurrency JavaScript, không sửa; gọi GPT-4 tốn phí và không chuyên biệt cho domain. Cần một model nhỏ, chạy được offline, chuyên trị đúng một loại lỗi — và một pipeline retrieval hiểu đúng tên API thay vì so khớp ngữ nghĩa mơ hồ.",
     highlights: [
       "Xây dựng RAG pipeline dựa trên BM25 (build index 2050 tài liệu dưới 500ms, không cần GPU)",
@@ -847,7 +867,8 @@ export const projects = [
     githubUrl: "https://github.com/Garchomppy/Nursing-KTYH",
     liveUrl: "#",
     status: "Completed",
-    category: "Frontend",
+    category: "frontend",
+    tier: 3,
     challenge: "Xây website khoa cho khách hàng thật (Đại học Y Dược Phan Châu Trinh) — team 6 người, không dùng framework, cần sơ đồ tổ chức phân cấp responsive và nội dung song ngữ dễ cập nhật mà không hardcode theo từng trang.",
     highlights: [
       "Xây dựng component sơ đồ tổ chức (org chart) với branch connector responsive cho cấu trúc khoa",
@@ -868,7 +889,8 @@ export const projects = [
     githubUrl: "https://github.com/BienSoDep/biensovip-backend",
     liveUrl: "#",
     status: "Active",
-    category: "Full-Stack",
+    category: "ecommerce",
+    tier: 1,
     challenge: "Dự án freelance thật cho khách hàng — cần giao MVP hoàn chỉnh (12 use case, 3 NFR) trong 30 ngày, một mình xử lý toàn bộ từ kiến trúc, database, đến quyết định phạm vi bảo mật (không tích hợp cổng thanh toán để tránh yêu cầu PCI-DSS).",
     highlights: [
       "Backend ASP.NET Core 8 Minimal API theo Clean Architecture, EF Core + PostgreSQL, JWT auth",
@@ -890,7 +912,8 @@ export const projects = [
     githubUrl: "#",
     liveUrl: "#",
     status: "Completed",
-    category: "Full-Stack",
+    category: "ai",
+    tier: 4,
     challenge: "Xây CNN phân loại viêm phổi từ X-quang trong 3 tiếng với team 4 người — dataset mất cân bằng lớp nặng (74.3% PNEUMONIA), yêu cầu bắt buộc: không dùng pre-trained model, phải tự xây CNN từ đầu.",
     highlights: [
       "Phân tích EDA: mất cân bằng lớp giữa các tập train/test/val (5,856 ảnh)",

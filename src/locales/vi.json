@@ -221,11 +221,15 @@
       "completed": "Đã hoàn thành",
       "active": "Đang hoạt động"
     },
+    "filterAllCategories": "Tất cả phân loại",
     "categories": {
-      "Full-Stack": "Full-Stack",
-      "Frontend": "Frontend",
-      "Automation": "Tự động hoá",
-      "Low-Code": "Low-Code"
+      "fullstack": "Nền tảng Full-Stack",
+      "ecommerce": "Thương mại điện tử",
+      "ai": "AI / Học máy",
+      "frontend": "Frontend / Giao diện",
+      "automation": "Tự động hoá",
+      "lowcode": "Low-Code",
+      "ngo": "Cộng đồng / Thiện nguyện"
     }
   },
   "certificates": {
