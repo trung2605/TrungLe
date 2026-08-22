@@ -274,9 +274,17 @@ const Projects = () => {
     ? new Set(skillTaxonomy.find(s => s.id === selectedSkill)?.projectIds || [])
     : null;
 
+  const FEATURED_PROJECT_ID = 11; // The MC Hub
+
   const filteredProjects = projects
     .filter(p => filter === 'all' || p.status === filter)
-    .filter(p => !skillProjectIds || skillProjectIds.has(p.id));
+    .filter(p => !skillProjectIds || skillProjectIds.has(p.id))
+    .sort((a, b) => {
+      if (filter !== 'all' || selectedSkill) return 0;
+      if (a.id === FEATURED_PROJECT_ID) return -1;
+      if (b.id === FEATURED_PROJECT_ID) return 1;
+      return 0;
+    });
 
   return (
     <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>

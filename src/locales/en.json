@@ -391,34 +391,42 @@
       "duration": "09/2023 – Present",
       "status": "Current",
       "description": "Led multiple cross-functional project teams through full development cycles — from requirements gathering and system design to deployment. Key projects include **Job Finder** (Agile team of 6), **Dola Bakery** (team lead + backend architect), and **The MC Hub** (full-stack + mobile). Consistent focus on **Java Spring Boot** backend, RESTful API design, and collaborative Git workflows."
+    },
+    {
+      "role": "Solo Full-Stack Developer",
+      "company": "Biensovip (Freelance Client)",
+      "type": "Freelance",
+      "duration": "08/2026 – Present",
+      "status": "Current",
+      "description": "Sole developer for a real freelance client, building **Biensovip** — a marketplace for premium vehicle license plates — end-to-end. Own the full stack: ASP.NET Core 8 Clean Architecture backend, React 19 frontend, database design, and product-scope decisions (including a deliberate call to skip online payment integration to avoid PCI-DSS overhead). Delivering a 30-day MVP directly to a paying client, with no team to split the work."
     }
   ],
   "skills": [
     {
       "category": "Programming Languages",
       "items": [
-        { "name": "Java Core & Spring Boot" },
-        { "name": "Javascript ES6" },
+        { "name": "Java" },
+        { "name": "JavaScript / TypeScript" },
         { "name": "HTML5 & CSS3" },
-        { "name": "API Development (RESTful)" }
+        { "name": "Python" }
       ]
     },
     {
       "category": "Frameworks & Libraries",
       "items": [
-        { "name": "Spring Boot" },
-        { "name": "ReactJS (Hooks, API, JSX)" },
-        { "name": "Java Servlets" },
-        { "name": "React Hooks" }
+        { "name": "Java Spring Boot" },
+        { "name": "React" },
+        { "name": "React Native / Expo" },
+        { "name": "Tailwind CSS / Framer Motion" }
       ]
     },
     {
-      "category": "Tools & Technologies",
+      "category": "Databases & Infra",
       "items": [
-        { "name": "Git/GitHub/GitLab" },
-        { "name": "SQL Server Management Studio (SSMS)" },
-        { "name": "Docker" },
-        { "name": "Project Management" }
+        { "name": "MySQL / SQL Server" },
+        { "name": "MongoDB" },
+        { "name": "Redis" },
+        { "name": "Docker" }
       ]
     },
     {
@@ -644,6 +652,59 @@
         "Integrated multi-branch Google Maps with one-tap direction switching",
         "Fully validated reservation form via React Hook Form, dynamic menu overlay"
       ]
+    },
+    {
+      "role": "Mobile Developer (Team Project)",
+      "description": "A **weather monitoring mobile app** built as a PRM393 course project with a real team workflow — Jira-ticket-linked commits, feature branches, and code review across a 3-person team.\n\nThe app is built in **Flutter**, with a **Node.js backend** handling weather data aggregation, location-based alerts, and a **scheduled AQI (Air Quality Index) threshold check** that triggers push notifications. **Firebase** powers auth and push delivery. A **CI/CD pipeline** (GitHub Actions) runs on every push to keep both the Flutter app and backend deployable at all times.",
+      "challenge": "Build a weather-tracking app with automated AQI alerts for the PRM393 course — a 3-person team needed a real workflow (Jira tickets, feature branches, CI/CD), not just code-once-and-submit.",
+      "highlights": [
+        "Flutter app tracking weather with location alerts and automated AQI threshold checks (scheduled job)",
+        "Node.js backend handling weather data aggregation and push notifications via Firebase",
+        "CI/CD pipeline (GitHub Actions) running on every push, keeping both app and backend deployable",
+        "Real team workflow: commits linked to Jira tickets (PRM-XX), feature branches, code review"
+      ]
+    },
+    {
+      "role": "AI Engineer — RAG Pipeline & API (Team Project)",
+      "description": "An **AI system that fixes JavaScript concurrency bugs** — fine-tuning a small language model (Qwen2.5-Coder-1.5B) with QLoRA and pairing it with a **BM25 + AST-based RAG pipeline** for exact API-name retrieval, instead of relying on a large general-purpose model.\n\nI owned the **RAG pipeline and FastAPI server**: building the BM25 retrieval index over 2,050 documents, an esprima-based AST tokenizer that keeps JavaScript identifiers intact (avoiding the false-split problem of naive regex tokenizers), and the race-condition detector. The fine-tuned model + RAG pipeline reached a **75% pass rate** on a 20-case benchmark, beating zero-shot GPT-3.5-turbo (30%) and even the fine-tuned model without RAG (70%) — full write-up on the blog.",
+      "challenge": "ESLint only flags JavaScript concurrency bugs, it doesn't fix them; calling GPT-4 costs money and isn't specialized for this domain. Needed a small, offline-capable model specializing in exactly one bug class — and a retrieval pipeline that understands exact API names instead of fuzzy semantic matching.",
+      "highlights": [
+        "Built a BM25-based RAG pipeline (indexing 2,050 documents in under 500ms, no GPU required)",
+        "AST tokenizer via esprima keeps API names intact (fs.appendFile doesn't fragment into loose words)",
+        "FastAPI server + race-condition detector, the core technical piece I owned in a 3-person team",
+        "Result: ThreadLearn + RAG hit a 75% pass rate on the benchmark, beating zero-shot GPT-3.5-turbo (30%)"
+      ]
+    },
+    {
+      "role": "Frontend Developer (Team Project)",
+      "description": "The official **department website for the Faculty of Nursing and Medical Technology** at Phan Chau Trinh University — built for a real academic client with a 6-person team, covering faculty info, department pages (Nursing, Medical Technology), organizational chart, teaching staff listings, and bilingual content.\n\nBuilt with **vanilla JavaScript Web Components** (no framework) — a custom site-navbar, site-hero, site-footer, and content components — plus a lightweight **client-side router** and a **data-driven i18n system** for Vietnamese/English content switching. I contributed the **organizational chart component** (a responsive branch-connector layout for the department hierarchy) and refactored department pages to fetch content dynamically instead of hardcoding it per page.",
+      "challenge": "Build a real client website (Phan Chau Trinh University) with a 6-person team, no framework — needed a responsive organizational chart and bilingual content that's easy to update, not hardcoded per page.",
+      "highlights": [
+        "Built the organizational chart component with a responsive branch-connector layout for the department hierarchy",
+        "Refactored department pages to fetch content dynamically instead of hardcoding it per page",
+        "Entire site runs on vanilla JS Web Components with a hand-built router and i18n system, no framework"
+      ]
+    },
+    {
+      "role": "Solo Developer (Freelance Client Project)",
+      "description": "A **marketplace for trading premium (fancy) vehicle license plates** — a real freelance client project scoped as a 30-day MVP covering 12 core use cases plus 3 non-functional requirements, built and shipped **solo** end-to-end.\n\nThe backend is **ASP.NET Core 8 (Minimal API)** in **Clean Architecture** (Domain/Application/Infrastructure/Api layers) with **Entity Framework Core + PostgreSQL**, **ASP.NET Core Identity + JWT**, and **FluentValidation**. The frontend is **React 19 + Vite** with **TanStack Query**, **SignalR** for real-time updates, **TipTap** rich-text editor, and **Recharts** dashboards — tested with **Playwright**. A deliberate scope decision: no online payment gateway integration — deposit requests route through a contact form for manual admin confirmation, reducing attack surface and avoiding PCI-DSS compliance overhead. Includes a **DeepSeek-powered AI chatbot** for customer assistance.",
+      "challenge": "A real freelance client project — needed a complete MVP (12 use cases, 3 NFRs) shipped in 30 days, solo, handling everything from architecture and database to security-scope decisions (skipping payment gateway integration to avoid PCI-DSS requirements).",
+      "highlights": [
+        "ASP.NET Core 8 Minimal API backend in Clean Architecture, EF Core + PostgreSQL, JWT auth",
+        "React 19 + Vite frontend, TanStack Query, SignalR for real-time updates, tested with Playwright",
+        "Deliberate security-scope decision: deposits via contact form instead of an online payment gateway integration",
+        "Integrated an AI chatbot for customer support via the DeepSeek API"
+      ]
+    },
+    {
+      "role": "ML Engineer (Team Project)",
+      "description": "A **CNN built from scratch** to classify chest X-ray images as NORMAL or PNEUMONIA — a timeboxed (3-hour) team exercise across a dataset of 5,856 images, split into a data-analysis sub-team and a modeling sub-team.\n\nWorked on the **data/EDA side**: profiling class imbalance across train/test/val splits (74.3% PNEUMONIA in training data), documenting the data pipeline, and designing the **data augmentation strategy** feeding into a CNN trained without pre-trained weights (built and tuned from scratch, no transfer learning) in **TensorFlow/Keras**.",
+      "challenge": "Build a CNN classifying pneumonia from chest X-rays in 3 hours with a 4-person team — a heavily class-imbalanced dataset (74.3% PNEUMONIA) and a hard requirement: no pre-trained models, build the CNN from scratch.",
+      "highlights": [
+        "EDA: class imbalance analysis across train/test/val splits (5,856 images)",
+        "Designed the data augmentation pipeline for a from-scratch CNN (no transfer learning)",
+        "Parallel work across 2 sub-teams under a 3-hour deadline, TensorFlow/Keras"
+      ]
     }
   ],
   "postItems": [
@@ -725,6 +786,8 @@
     { "description": "Completed UC Irvine's **Initiating and Planning Projects** course on Coursera — part of a Project Management specialization, covering project charters, scope definition, and early-stage planning fundamentals." },
     { "description": "Completed UC Irvine's **Budgeting and Scheduling Projects** course on Coursera — covering cost estimation, budget planning, and schedule development techniques for managing projects." },
     { "description": "Completed UC Irvine's **Managing Project Risks and Changes** course on Coursera — covering risk identification, mitigation planning, and change management practices throughout the project lifecycle." },
-    { "description": "Completed the capstone **Project Management Project** for UC Irvine's Project Management specialization on Coursera — applying initiation, planning, budgeting, scheduling, and risk management skills to a full project simulation." }
+    { "description": "Completed the capstone **Project Management Project** for UC Irvine's Project Management specialization on Coursera — applying initiation, planning, budgeting, scheduling, and risk management skills to a full project simulation." },
+    { "description": "Certificate of participation in **Hackathon Computer Vision 2026** — an international hackathon competition between FPT University and Singapore Institute of Technology (SIT), strengthening academic exchange between the two institutions." },
+    { "description": "Awarded **Honorable Student of the Semester (Spring 2026)** by FPT University in recognition of outstanding academic performance and conduct during the semester." }
   ]
 }

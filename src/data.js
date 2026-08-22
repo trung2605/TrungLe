@@ -63,6 +63,8 @@ const RoboticsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,
 const IELTSRealImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838534/my-website/assets/Certificate/Language/IELTS_Real.png";
 const DOLLinearImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838530/my-website/assets/Certificate/Language/DOL_Linear.png";
 const FsoftOJTImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838532/my-website/assets/Certificate/Language/FPT_OJT.png";
+const HackathonCVImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1787394791/my-website/assets/Certificate/AI_Computer_Vision.png";
+const CertOfMeritImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1787394844/my-website/assets/Certificate/giaykhen387.png";
 const HocBong2023Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838533/my-website/assets/Certificate/Language/HocBong2023.png";
 const AIESECLeadershipImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838569/my-website/assets/Certificate/Event/Leadership_Conference_2025.png";
 const IBMRAGLangChainImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838587/my-website/assets/Certificate/TechnologyCertificates/IBM_RAG_LangChain-1.png";
@@ -336,28 +338,28 @@ export const skills = [
   {
     category: "Programming Languages",
     items: [
-      { name: "Java Core & Spring Boot", level: 70 },
-      { name: "Javascript Es6", level: 65 },
+      { name: "Java", level: 85 },
+      { name: "JavaScript / TypeScript", level: 80 },
       { name: "HTML5 & CSS3", level: 75 },
-      { name: "API Development (RESTful)", level: 65 },
+      { name: "Python", level: 45 },
     ],
   },
   {
     category: "Frameworks & Libraries",
     items: [
-      { name: "Spring Boot", level: 65 },
-      { name: "ReactJS (Hooks, API, JSX)", level: 60 },
-      { name: "Java Servlets", level: 55 },
-      { name: "React Hooks", level: 60 },
+      { name: "Java Spring Boot", level: 85 },
+      { name: "React", level: 90 },
+      { name: "React Native / Expo", level: 55 },
+      { name: "Tailwind CSS / Framer Motion", level: 75 },
     ],
   },
   {
-    category: "Tools & Technologies",
+    category: "Databases & Infra",
     items: [
-      { name: "Git/GitHub/GitLab", level: 65 },
-      { name: "SQL Server Management Studio (SSMS)", level: 55 },
-      { name: "Docker", level: 50 },
-      { name: "Project Management", level: 60 },
+      { name: "MySQL / SQL Server", level: 75 },
+      { name: "MongoDB", level: 70 },
+      { name: "Redis", level: 55 },
+      { name: "Docker", level: 55 },
     ],
   },
   {
@@ -786,6 +788,114 @@ export const projects = [
       "Thiết kế theme dark/amber cao cấp phù hợp thương hiệu steakhouse",
       "Tích hợp Google Maps đa chi nhánh với chuyển đổi chỉ đường một chạm",
       "Form đặt bàn có validate đầy đủ bằng React Hook Form, menu overlay động",
+    ],
+    screenshots: [],
+  },
+  {
+    id: 23,
+    title: "WeatherTracking",
+    role: "Mobile Developer (Team Project)",
+    duration: "PRM393 course",
+    image: TikTokUIImage,
+    description:
+      "A **weather monitoring mobile app** built as a PRM393 course project with a real team workflow — Jira-ticket-linked commits, feature branches, and code review across a 3-person team.\n\nThe app is built in **Flutter**, with a **Node.js backend** handling weather data aggregation, location-based alerts, and a **scheduled AQI (Air Quality Index) threshold check** that triggers push notifications. **Firebase** powers auth and push delivery. A **CI/CD pipeline** (GitHub Actions) runs on every push to keep both the Flutter app and backend deployable at all times.",
+    techStack: ["Flutter", "Node.js", "Firebase", "GitHub Actions", "REST API"],
+    githubUrl: "https://github.com/PRM393r/WeatherTracking_FE",
+    liveUrl: "#",
+    status: "Completed",
+    category: "Full-Stack",
+    challenge: "Xây ứng dụng theo dõi thời tiết với cảnh báo AQI tự động cho môn học PRM393 — team 3 người cần quy trình làm việc thật (Jira ticket, feature branch, CI/CD) chứ không chỉ code một lần rồi nộp.",
+    highlights: [
+      "App Flutter theo dõi thời tiết, cảnh báo vị trí và ngưỡng AQI tự động (scheduled job)",
+      "Backend Node.js xử lý tổng hợp dữ liệu thời tiết và push notification qua Firebase",
+      "CI/CD pipeline (GitHub Actions) chạy mỗi lần push, giữ cả app và backend luôn deploy được",
+      "Quy trình team thật: commit gắn Jira ticket (PRM-XX), feature branch, code review",
+    ],
+    screenshots: [],
+  },
+  {
+    id: 24,
+    title: "ThreadLearn",
+    role: "AI Engineer — RAG Pipeline & API (Team Project)",
+    duration: "WDP301 course",
+    image: TikTokUIImage,
+    description:
+      "An **AI system that fixes JavaScript concurrency bugs** — fine-tuning a small language model (Qwen2.5-Coder-1.5B) with QLoRA and pairing it with a **BM25 + AST-based RAG pipeline** for exact API-name retrieval, instead of relying on a large general-purpose model.\n\nI owned the **RAG pipeline and FastAPI server**: building the BM25 retrieval index over 2,050 documents, an esprima-based AST tokenizer that keeps JavaScript identifiers intact (avoiding the false-split problem of naive regex tokenizers), and the race-condition detector. The fine-tuned model + RAG pipeline reached a **75% pass rate** on a 20-case benchmark, beating zero-shot GPT-3.5-turbo (30%) and even the fine-tuned model without RAG (70%) — full write-up on the blog.",
+    techStack: ["Python", "FastAPI", "QLoRA", "BM25", "esprima (AST)", "Qwen2.5-Coder-1.5B"],
+    githubUrl: "https://github.com/ThreadLearn/ThreadLearn_AI_Trainning",
+    liveUrl: "#",
+    status: "Completed",
+    category: "Full-Stack",
+    challenge: "ESLint chỉ báo lỗi concurrency JavaScript, không sửa; gọi GPT-4 tốn phí và không chuyên biệt cho domain. Cần một model nhỏ, chạy được offline, chuyên trị đúng một loại lỗi — và một pipeline retrieval hiểu đúng tên API thay vì so khớp ngữ nghĩa mơ hồ.",
+    highlights: [
+      "Xây dựng RAG pipeline dựa trên BM25 (build index 2050 tài liệu dưới 500ms, không cần GPU)",
+      "AST tokenizer bằng esprima giữ nguyên tên API (fs.appendFile không bị vỡ thành các từ rời rạc)",
+      "FastAPI server + race-condition detector, chỗ kỹ thuật chính tôi phụ trách trong nhóm 3 người",
+      "Kết quả: ThreadLearn + RAG đạt 75% pass rate trên benchmark, vượt GPT-3.5-turbo zero-shot (30%)",
+    ],
+    screenshots: [],
+  },
+  {
+    id: 25,
+    title: "Nursing & Medical Technology Faculty Website",
+    role: "Frontend Developer (Team Project)",
+    duration: "Team project",
+    image: TikTokUIImage,
+    description:
+      "The official **department website for the Faculty of Nursing and Medical Technology** at Phan Chau Trinh University — built for a real academic client with a 6-person team, covering faculty info, department pages (Nursing, Medical Technology), organizational chart, teaching staff listings, and bilingual content.\n\nBuilt with **vanilla JavaScript Web Components** (no framework) — a custom `site-navbar`, `site-hero`, `site-footer`, and content components — plus a lightweight **client-side router** and a **data-driven i18n system** for Vietnamese/English content switching. I contributed the **organizational chart component** (a responsive branch-connector layout for the department hierarchy) and refactored department pages to fetch content dynamically instead of hardcoding it per page.",
+    techStack: ["JavaScript (Web Components)", "CSS3", "Custom Router", "i18n"],
+    githubUrl: "https://github.com/Garchomppy/Nursing-KTYH",
+    liveUrl: "#",
+    status: "Completed",
+    category: "Frontend",
+    challenge: "Xây website khoa cho khách hàng thật (Đại học Y Dược Phan Châu Trinh) — team 6 người, không dùng framework, cần sơ đồ tổ chức phân cấp responsive và nội dung song ngữ dễ cập nhật mà không hardcode theo từng trang.",
+    highlights: [
+      "Xây dựng component sơ đồ tổ chức (org chart) với branch connector responsive cho cấu trúc khoa",
+      "Refactor các trang bộ môn sang fetch dữ liệu động thay vì hardcode nội dung mỗi trang",
+      "Toàn bộ site dùng vanilla JS Web Components, router và i18n tự viết, không dùng framework",
+    ],
+    screenshots: [],
+  },
+  {
+    id: 26,
+    title: "Biensovip — Marketplace Biển Số Đẹp",
+    role: "Solo Developer (Freelance Client Project)",
+    duration: "08/2026 – Present",
+    image: TikTokUIImage,
+    description:
+      "A **marketplace for trading premium (fancy) vehicle license plates** — a real freelance client project scoped as a 30-day MVP covering 12 core use cases plus 3 non-functional requirements, built and shipped **solo** end-to-end.\n\nThe backend is **ASP.NET Core 8 (Minimal API)** in **Clean Architecture** (Domain/Application/Infrastructure/Api layers) with **Entity Framework Core + PostgreSQL**, **ASP.NET Core Identity + JWT**, and **FluentValidation**. The frontend is **React 19 + Vite** with **TanStack Query**, **SignalR** for real-time updates, **TipTap** rich-text editor, and **Recharts** dashboards — tested with **Playwright**. A deliberate scope decision: no online payment gateway integration — deposit requests route through a contact form for manual admin confirmation, reducing attack surface and avoiding PCI-DSS compliance overhead. Includes a **DeepSeek-powered AI chatbot** for customer assistance.",
+    techStack: ["ASP.NET Core 8", "Entity Framework Core", "PostgreSQL", "React 19", "TanStack Query", "SignalR", "Playwright"],
+    githubUrl: "https://github.com/BienSoDep/biensovip-backend",
+    liveUrl: "#",
+    status: "Active",
+    category: "Full-Stack",
+    challenge: "Dự án freelance thật cho khách hàng — cần giao MVP hoàn chỉnh (12 use case, 3 NFR) trong 30 ngày, một mình xử lý toàn bộ từ kiến trúc, database, đến quyết định phạm vi bảo mật (không tích hợp cổng thanh toán để tránh yêu cầu PCI-DSS).",
+    highlights: [
+      "Backend ASP.NET Core 8 Minimal API theo Clean Architecture, EF Core + PostgreSQL, JWT auth",
+      "Frontend React 19 + Vite, TanStack Query, SignalR cho cập nhật real-time, test bằng Playwright",
+      "Quyết định phạm vi bảo mật có chủ đích: đặt cọc qua form liên hệ thay vì tích hợp cổng thanh toán online",
+      "Tích hợp AI chatbot hỗ trợ khách hàng qua DeepSeek API",
+    ],
+    screenshots: [],
+  },
+  {
+    id: 27,
+    title: "Chest X-Ray Pneumonia Classification",
+    role: "ML Engineer (Team Project)",
+    duration: "Course exercise",
+    image: TikTokUIImage,
+    description:
+      "A **CNN built from scratch** to classify chest X-ray images as NORMAL or PNEUMONIA — a timeboxed (3-hour) team exercise across a dataset of 5,856 images, split into a data-analysis sub-team and a modeling sub-team.\n\nWorked on the **data/EDA side**: profiling class imbalance across train/test/val splits (74.3% PNEUMONIA in training data), documenting the data pipeline, and designing the **data augmentation strategy** feeding into a CNN trained without pre-trained weights (built and tuned from scratch, no transfer learning) in **TensorFlow/Keras**.",
+    techStack: ["Python", "TensorFlow / Keras", "CNN", "Data Augmentation", "EDA"],
+    githubUrl: "#",
+    liveUrl: "#",
+    status: "Completed",
+    category: "Full-Stack",
+    challenge: "Xây CNN phân loại viêm phổi từ X-quang trong 3 tiếng với team 4 người — dataset mất cân bằng lớp nặng (74.3% PNEUMONIA), yêu cầu bắt buộc: không dùng pre-trained model, phải tự xây CNN từ đầu.",
+    highlights: [
+      "Phân tích EDA: mất cân bằng lớp giữa các tập train/test/val (5,856 ảnh)",
+      "Thiết kế pipeline data augmentation cho CNN tự xây (không transfer learning)",
+      "Làm việc song song 2 sub-team trong deadline 3 tiếng, TensorFlow/Keras",
     ],
     screenshots: [],
   },
@@ -1242,6 +1352,28 @@ export const certificates = [
     image: PMCapstoneImage,
     description:
       "Completed the capstone **Project Management Project** for UC Irvine's Project Management specialization on Coursera — applying initiation, planning, budgeting, scheduling, and risk management skills to a full project simulation.",
+  },
+  {
+    id: 46,
+    category: "Event",
+    name: "Hackathon Computer Vision 2026",
+    issuer: "FPT University × Singapore Institute of Technology (SIT)",
+    year: "2026",
+    dateIssued: "2026",
+    image: HackathonCVImage,
+    description:
+      "Certificate of participation in **Hackathon Computer Vision 2026** — an international hackathon competition between FPT University and Singapore Institute of Technology (SIT), strengthening academic exchange between the two institutions.",
+  },
+  {
+    id: 47,
+    category: "Event",
+    name: "Certificate of Merit — Honorable Student of Semester",
+    issuer: "FPT University",
+    year: "2026",
+    dateIssued: "29/6/2026",
+    image: CertOfMeritImage,
+    description:
+      "Awarded **Honorable Student of the Semester (Spring 2026)** by FPT University in recognition of outstanding academic performance and conduct during the semester.",
   },
 ];
 
@@ -1748,6 +1880,18 @@ export const experience = [
     skills: ["Public Speaking", "Event Hosting", "Improvisation", "Audience Management"],
     color: "#f3c9b6",
   },
+  {
+    id: 4,
+    company: "Biensovip (Freelance Client)",
+    role: "Solo Full-Stack Developer",
+    type: "Freelance",
+    duration: "08/2026 – Present",
+    status: "Current",
+    description:
+      "Sole developer for a real freelance client, building **Biensovip** — a marketplace for premium vehicle license plates — end-to-end. Own the full stack: ASP.NET Core 8 Clean Architecture backend, React 19 frontend, database design, and product-scope decisions (including a deliberate call to skip online payment integration to avoid PCI-DSS overhead). Delivering a 30-day MVP directly to a paying client, with no team to split the work.",
+    skills: ["ASP.NET Core", "React", "PostgreSQL", "Client Management", "Solo Delivery"],
+    color: "#efd4d4",
+  },
 ];
 
 export const languages = [
@@ -1939,14 +2083,18 @@ export const testimonials = [
 
 // proficiency (0-100) suy luận từ số lượng + độ sâu sử dụng qua các project — tự tinh chỉnh lại nếu muốn phản ánh đúng hơn cảm nhận thật
 export const skillTaxonomy = [
-  { id: "react", label: "React", category: "Frontend", proficiency: 90, projectIds: [1, 4, 6, 7, 10, 11, 12, 16, 17, 18, 19, 21, 22] },
+  { id: "react", label: "React", category: "Frontend", proficiency: 90, projectIds: [1, 4, 6, 7, 10, 11, 12, 16, 17, 18, 19, 21, 22, 26] },
   { id: "spring-boot", label: "Java Spring Boot", category: "Backend", proficiency: 85, projectIds: [1, 2, 3, 7, 11, 12, 14, 18] },
   { id: "typescript", label: "TypeScript", category: "Language", proficiency: 70, projectIds: [13, 14, 16, 18] },
   { id: "mongodb", label: "MongoDB", category: "Database", proficiency: 70, projectIds: [11, 13, 14, 16, 18] },
   { id: "sql", label: "MySQL / SQL Server", category: "Database", proficiency: 75, projectIds: [1, 2, 7, 12] },
   { id: "tailwind", label: "Tailwind CSS", category: "Frontend", proficiency: 80, projectIds: [10, 11, 16, 17, 19, 21, 22] },
   { id: "framer-motion", label: "Framer Motion", category: "Frontend", proficiency: 75, projectIds: [10, 17, 21, 22] },
-  { id: "node", label: "Node.js / Express.js", category: "Backend", proficiency: 60, projectIds: [4, 11, 13] },
+  { id: "node", label: "Node.js / Express.js", category: "Backend", proficiency: 60, projectIds: [4, 11, 13, 23] },
+  { id: "flutter", label: "Flutter", category: "Mobile", proficiency: 55, projectIds: [13, 23] },
+  { id: "python", label: "Python / FastAPI", category: "Backend", proficiency: 50, projectIds: [14, 24, 27] },
+  { id: "dotnet", label: "ASP.NET Core", category: "Backend", proficiency: 55, projectIds: [16, 26] },
+  { id: "postgresql", label: "PostgreSQL", category: "Database", proficiency: 55, projectIds: [26] },
   { id: "redis", label: "Redis", category: "Backend", proficiency: 55, projectIds: [11, 12, 14] },
   { id: "docker", label: "Docker", category: "DevOps", proficiency: 50, projectIds: [14] },
   { id: "threejs", label: "Three.js", category: "Frontend", proficiency: 45, projectIds: [16, 17] },

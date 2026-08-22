@@ -391,34 +391,42 @@
       "duration": "09/2023 – Hiện tại",
       "status": "Hiện tại",
       "description": "Dẫn dắt nhiều nhóm dự án đa chức năng qua toàn bộ vòng đời phát triển — từ thu thập yêu cầu và thiết kế hệ thống đến triển khai. Các dự án chính gồm **Job Finder** (nhóm Agile 6 người), **Dola Bakery** (trưởng nhóm + kiến trúc backend) và **The MC Hub** (full-stack + mobile). Tập trung nhất quán vào **Java Spring Boot** backend, thiết kế RESTful API và quy trình Git cộng tác."
+    },
+    {
+      "role": "Lập trình viên Full-Stack độc lập",
+      "company": "Biensovip (Khách hàng freelance)",
+      "type": "Freelance",
+      "duration": "08/2026 – Hiện tại",
+      "status": "Hiện tại",
+      "description": "Lập trình viên duy nhất cho một khách hàng freelance thật, xây dựng **Biensovip** — nền tảng mua bán biển số xe đẹp — end-to-end. Phụ trách toàn bộ stack: backend ASP.NET Core 8 Clean Architecture, frontend React 19, thiết kế database, và các quyết định phạm vi sản phẩm (bao gồm quyết định có chủ đích bỏ qua tích hợp thanh toán online để tránh gánh nặng PCI-DSS). Giao MVP 30 ngày trực tiếp cho khách hàng trả phí, không có team chia việc."
     }
   ],
   "skills": [
     {
       "category": "Ngôn ngữ lập trình",
       "items": [
-        { "name": "Java Core & Spring Boot" },
-        { "name": "Javascript ES6" },
+        { "name": "Java" },
+        { "name": "JavaScript / TypeScript" },
         { "name": "HTML5 & CSS3" },
-        { "name": "API Development (RESTful)" }
+        { "name": "Python" }
       ]
     },
     {
       "category": "Framework & Thư viện",
       "items": [
-        { "name": "Spring Boot" },
-        { "name": "ReactJS (Hooks, API, JSX)" },
-        { "name": "Java Servlets" },
-        { "name": "React Hooks" }
+        { "name": "Java Spring Boot" },
+        { "name": "React" },
+        { "name": "React Native / Expo" },
+        { "name": "Tailwind CSS / Framer Motion" }
       ]
     },
     {
-      "category": "Công cụ & Công nghệ",
+      "category": "Cơ sở dữ liệu & Hạ tầng",
       "items": [
-        { "name": "Git/GitHub/GitLab" },
-        { "name": "SQL Server Management Studio (SSMS)" },
-        { "name": "Docker" },
-        { "name": "Quản lý dự án" }
+        { "name": "MySQL / SQL Server" },
+        { "name": "MongoDB" },
+        { "name": "Redis" },
+        { "name": "Docker" }
       ]
     },
     {
@@ -644,6 +652,59 @@
         "Tích hợp Google Maps đa chi nhánh với chuyển đổi chỉ đường một chạm",
         "Form đặt bàn có validate đầy đủ bằng React Hook Form, menu overlay động"
       ]
+    },
+    {
+      "role": "Lập trình viên Mobile (Dự án nhóm)",
+      "description": "Ứng dụng **theo dõi thời tiết** xây dựng cho môn học PRM393 với quy trình làm việc nhóm thật — commit gắn Jira ticket, feature branch, code review giữa 3 thành viên.\n\nApp xây dựng bằng **Flutter**, kèm **backend Node.js** xử lý tổng hợp dữ liệu thời tiết, cảnh báo theo vị trí, và **kiểm tra ngưỡng AQI (chỉ số chất lượng không khí) theo lịch** kích hoạt push notification. **Firebase** đảm nhận xác thực và gửi thông báo. **CI/CD pipeline** (GitHub Actions) chạy mỗi lần push, giữ cả app và backend luôn ở trạng thái deploy được.",
+      "challenge": "Xây ứng dụng theo dõi thời tiết với cảnh báo AQI tự động cho môn học PRM393 — team 3 người cần quy trình làm việc thật (Jira ticket, feature branch, CI/CD) chứ không chỉ code một lần rồi nộp.",
+      "highlights": [
+        "App Flutter theo dõi thời tiết, cảnh báo vị trí và ngưỡng AQI tự động (scheduled job)",
+        "Backend Node.js xử lý tổng hợp dữ liệu thời tiết và push notification qua Firebase",
+        "CI/CD pipeline (GitHub Actions) chạy mỗi lần push, giữ cả app và backend luôn deploy được",
+        "Quy trình team thật: commit gắn Jira ticket (PRM-XX), feature branch, code review"
+      ]
+    },
+    {
+      "role": "AI Engineer — RAG Pipeline & API (Dự án nhóm)",
+      "description": "Hệ thống AI **sửa lỗi concurrency JavaScript** — fine-tune một model ngôn ngữ nhỏ (Qwen2.5-Coder-1.5B) bằng QLoRA và kết hợp với **RAG pipeline dựa trên BM25 + AST** để tìm đúng tên API, thay vì dựa vào một model tổng quát lớn.\n\nTôi phụ trách **RAG pipeline và FastAPI server**: xây dựng index tìm kiếm BM25 trên 2.050 tài liệu, tokenizer AST dựa trên esprima giữ nguyên vẹn định danh JavaScript (tránh vấn đề tách vụn của regex tokenizer thông thường), và bộ phát hiện race-condition. Model fine-tune + RAG pipeline đạt **75% pass rate** trên benchmark 20 case, vượt GPT-3.5-turbo zero-shot (30%) và cả model fine-tune không dùng RAG (70%) — bài viết đầy đủ trên blog.",
+      "challenge": "ESLint chỉ báo lỗi concurrency JavaScript, không sửa; gọi GPT-4 tốn phí và không chuyên biệt cho domain. Cần một model nhỏ, chạy được offline, chuyên trị đúng một loại lỗi — và một pipeline retrieval hiểu đúng tên API thay vì so khớp ngữ nghĩa mơ hồ.",
+      "highlights": [
+        "Xây dựng RAG pipeline dựa trên BM25 (build index 2050 tài liệu dưới 500ms, không cần GPU)",
+        "AST tokenizer bằng esprima giữ nguyên tên API (fs.appendFile không bị vỡ thành các từ rời rạc)",
+        "FastAPI server + race-condition detector, chỗ kỹ thuật chính tôi phụ trách trong nhóm 3 người",
+        "Kết quả: ThreadLearn + RAG đạt 75% pass rate trên benchmark, vượt GPT-3.5-turbo zero-shot (30%)"
+      ]
+    },
+    {
+      "role": "Frontend Developer (Dự án nhóm)",
+      "description": "Website chính thức của **Khoa Điều Dưỡng và Kỹ Thuật Y Học**, Đại học Y Dược Phan Châu Trinh — xây dựng cho khách hàng thật với team 6 người, bao gồm thông tin khoa, trang bộ môn (Điều Dưỡng, Kỹ Thuật Y Học), sơ đồ tổ chức, danh sách giảng viên, và nội dung song ngữ.\n\nXây dựng bằng **vanilla JavaScript Web Components** (không dùng framework) — component site-navbar, site-hero, site-footer, và các component nội dung tự viết — cùng **router phía client** nhẹ và **hệ thống i18n data-driven** cho chuyển đổi nội dung Việt/Anh. Tôi đóng góp **component sơ đồ tổ chức** (bố cục branch-connector responsive cho cấu trúc phân cấp khoa) và refactor các trang bộ môn sang fetch nội dung động thay vì hardcode theo từng trang.",
+      "challenge": "Xây website khoa cho khách hàng thật (Đại học Y Dược Phan Châu Trinh) — team 6 người, không dùng framework, cần sơ đồ tổ chức phân cấp responsive và nội dung song ngữ dễ cập nhật mà không hardcode theo từng trang.",
+      "highlights": [
+        "Xây dựng component sơ đồ tổ chức (org chart) với branch connector responsive cho cấu trúc khoa",
+        "Refactor các trang bộ môn sang fetch dữ liệu động thay vì hardcode nội dung mỗi trang",
+        "Toàn bộ site dùng vanilla JS Web Components, router và i18n tự viết, không dùng framework"
+      ]
+    },
+    {
+      "role": "Lập trình viên độc lập (Dự án freelance khách hàng)",
+      "description": "**Nền tảng mua bán biển số xe đẹp** — dự án freelance thật cho khách hàng, phạm vi MVP 30 ngày gồm 12 use case cốt lõi và 3 yêu cầu phi chức năng, tự xây dựng và triển khai **solo** end-to-end.\n\nBackend là **ASP.NET Core 8 (Minimal API)** theo **Clean Architecture** (tầng Domain/Application/Infrastructure/Api) với **Entity Framework Core + PostgreSQL**, **ASP.NET Core Identity + JWT**, và **FluentValidation**. Frontend là **React 19 + Vite** với **TanStack Query**, **SignalR** cho cập nhật real-time, editor rich-text **TipTap**, và dashboard **Recharts** — test bằng **Playwright**. Một quyết định phạm vi có chủ đích: không tích hợp cổng thanh toán online — yêu cầu đặt cọc xử lý qua form liên hệ để admin xác nhận thủ công, giảm bề mặt tấn công và tránh yêu cầu tuân thủ PCI-DSS. Bao gồm **chatbot AI dùng DeepSeek** hỗ trợ khách hàng.",
+      "challenge": "Dự án freelance thật cho khách hàng — cần giao MVP hoàn chỉnh (12 use case, 3 NFR) trong 30 ngày, một mình xử lý toàn bộ từ kiến trúc, database, đến quyết định phạm vi bảo mật (không tích hợp cổng thanh toán để tránh yêu cầu PCI-DSS).",
+      "highlights": [
+        "Backend ASP.NET Core 8 Minimal API theo Clean Architecture, EF Core + PostgreSQL, JWT auth",
+        "Frontend React 19 + Vite, TanStack Query, SignalR cho cập nhật real-time, test bằng Playwright",
+        "Quyết định phạm vi bảo mật có chủ đích: đặt cọc qua form liên hệ thay vì tích hợp cổng thanh toán online",
+        "Tích hợp AI chatbot hỗ trợ khách hàng qua DeepSeek API"
+      ]
+    },
+    {
+      "role": "ML Engineer (Dự án nhóm)",
+      "description": "**CNN xây dựng từ đầu** để phân loại ảnh X-quang ngực NORMAL hoặc PNEUMONIA — bài tập nhóm giới hạn thời gian (3 tiếng) trên dataset 5,856 ảnh, chia thành sub-team phân tích dữ liệu và sub-team modeling.\n\nPhụ trách phần **data/EDA**: phân tích mất cân bằng lớp giữa các tập train/test/val (74.3% PNEUMONIA trong training data), viết tài liệu data pipeline, và thiết kế **chiến lược data augmentation** đưa vào CNN huấn luyện không dùng pre-trained weight (tự xây và tune từ đầu, không transfer learning) bằng **TensorFlow/Keras**.",
+      "challenge": "Xây CNN phân loại viêm phổi từ X-quang trong 3 tiếng với team 4 người — dataset mất cân bằng lớp nặng (74.3% PNEUMONIA), yêu cầu bắt buộc: không dùng pre-trained model, phải tự xây CNN từ đầu.",
+      "highlights": [
+        "Phân tích EDA: mất cân bằng lớp giữa các tập train/test/val (5,856 ảnh)",
+        "Thiết kế pipeline data augmentation cho CNN tự xây (không transfer learning)",
+        "Làm việc song song 2 sub-team trong deadline 3 tiếng, TensorFlow/Keras"
+      ]
     }
   ],
   "postItems": [
@@ -725,6 +786,8 @@
     { "description": "Hoàn thành khóa **Initiating and Planning Projects** của UC Irvine trên Coursera — thuộc chuyên đề Quản lý Dự án, bao gồm điều lệ dự án, xác định phạm vi và các nguyên tắc lập kế hoạch giai đoạn đầu." },
     { "description": "Hoàn thành khóa **Budgeting and Scheduling Projects** của UC Irvine trên Coursera — bao gồm ước tính chi phí, lập ngân sách và kỹ thuật xây dựng lịch trình cho quản lý dự án." },
     { "description": "Hoàn thành khóa **Managing Project Risks and Changes** của UC Irvine trên Coursera — bao gồm nhận diện rủi ro, lập kế hoạch giảm thiểu và quản lý thay đổi xuyên suốt vòng đời dự án." },
-    { "description": "Hoàn thành dự án tổng kết **Project Management Project** của chuyên đề Quản lý Dự án UC Irvine trên Coursera — áp dụng kỹ năng khởi tạo, lập kế hoạch, lập ngân sách, lên lịch trình và quản lý rủi ro vào một mô phỏng dự án hoàn chỉnh." }
+    { "description": "Hoàn thành dự án tổng kết **Project Management Project** của chuyên đề Quản lý Dự án UC Irvine trên Coursera — áp dụng kỹ năng khởi tạo, lập kế hoạch, lập ngân sách, lên lịch trình và quản lý rủi ro vào một mô phỏng dự án hoàn chỉnh." },
+    { "description": "Chứng nhận tham gia **Hackathon Computer Vision 2026** — cuộc thi hackathon quốc tế giữa Đại học FPT và Singapore Institute of Technology (SIT), tăng cường trao đổi học thuật giữa hai trường." },
+    { "description": "Đạt danh hiệu **Sinh viên Danh dự trong Kỳ (Học kỳ Xuân 2026)** do Đại học FPT trao tặng, ghi nhận thành tích học tập và ý thức xuất sắc trong kỳ học." }
   ]
 }
