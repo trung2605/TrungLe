@@ -80,7 +80,10 @@
   "contact": {
     "label": "Liên hệ",
     "title": "Liên hệ với tôi",
-    "desc": "Sẵn sàng cho cơ hội thực tập, hợp tác, hoặc chỉ là một cuộc trò chuyện về công nghệ.",
+    "desc": "Sẵn sàng cho cơ hội thực tập, nhận làm website freelance, hợp tác, hoặc chỉ là một cuộc trò chuyện về công nghệ.",
+    "freelanceTitle": "Cần làm website?",
+    "freelanceDesc": "Mình nhận làm website freelance — landing page, website doanh nghiệp, hệ thống thương mại điện tử nhỏ, công cụ nội bộ — trọn gói từ thiết kế đến deploy. Điền thông tin vào form bên dưới, hoặc nhắn Zalo trực tiếp để phản hồi nhanh hơn.",
+    "freelanceZaloCta": "Nhắn Zalo",
     "infoTitle": "Thông tin liên hệ",
     "infoDesc": "Hãy liên lạc. Tôi thường phản hồi trong vòng 24 giờ.",
     "formTitle": "Gửi tin nhắn",
@@ -101,6 +104,7 @@
     "methods": {
       "email": "Email",
       "phone": "Điện thoại",
+      "zalo": "Zalo",
       "location": "Địa chỉ",
       "facebook": "Facebook",
       "instagram": "Instagram"
@@ -692,7 +696,7 @@
     },
     {
       "role": "Lập trình viên độc lập (Dự án freelance khách hàng)",
-      "description": "**Nền tảng mua bán biển số xe đẹp** — dự án freelance thật cho khách hàng, phạm vi MVP 30 ngày gồm 12 use case cốt lõi và 3 yêu cầu phi chức năng, tự xây dựng và triển khai **solo** end-to-end.\n\nBackend là **ASP.NET Core 8 (Minimal API)** theo **Clean Architecture** (tầng Domain/Application/Infrastructure/Api) với **Entity Framework Core + PostgreSQL**, **ASP.NET Core Identity + JWT**, và **FluentValidation**. Frontend là **React 19 + Vite** với **TanStack Query**, **SignalR** cho cập nhật real-time, editor rich-text **TipTap**, và dashboard **Recharts** — test bằng **Playwright**. Một quyết định phạm vi có chủ đích: không tích hợp cổng thanh toán online. Yêu cầu đặt cọc thay vào đó đi qua form liên hệ để admin xác nhận thủ công — giảm bề mặt tấn công và tránh luôn phần tuân thủ PCI-DSS. Dự án còn có **chatbot AI dùng DeepSeek** hỗ trợ khách hàng.",
+      "description": "**Nền tảng mua bán biển số xe đẹp** — dự án freelance thật cho khách hàng, phạm vi MVP 30 ngày gồm 12 use case cốt lõi và 3 yêu cầu phi chức năng, tự xây dựng và triển khai **solo** end-to-end.\n\nBackend là **ASP.NET Core 8 (Minimal API)** theo **Clean Architecture** (tầng Domain/Application/Infrastructure/Api) với **Entity Framework Core + PostgreSQL**, **ASP.NET Core Identity + JWT**, và **FluentValidation**. Frontend là **React 19 + Vite** với **TanStack Query**, **SignalR** cho cập nhật real-time, editor rich-text **TipTap**, và dashboard **Recharts** — test bằng **Playwright**. Một quyết định phạm vi có chủ đích: không tích hợp cổng thanh toán online. Yêu cầu đặt cọc thay vào đó đi qua form liên hệ để admin xác nhận thủ công — giảm bề mặt tấn công và tránh luôn phần tuân thủ PCI-DSS. Dự án còn có **chatbot AI dùng DeepSeek** hỗ trợ khách hàng.\n\nWebsite đang chạy thật tại **[biensovip.com](https://biensovip.com)** — đây chính là dạng dự án freelance mình nhận làm: nếu bạn cần một website tương tự, làm trọn gói từ thiết kế, backend, đến deploy, thì trang liên hệ có Zalo và email của mình.",
       "challenge": "Dự án freelance thật cho khách hàng — cần giao MVP hoàn chỉnh (12 use case, 3 NFR) trong 30 ngày, một mình xử lý toàn bộ từ kiến trúc, database, đến các quyết định phạm vi bảo mật (không tích hợp cổng thanh toán để tránh yêu cầu PCI-DSS).",
       "highlights": [
         "Backend ASP.NET Core 8 Minimal API theo Clean Architecture, EF Core + PostgreSQL, JWT auth",

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaPaperPlane, FaInstagram, FaGithub, FaLinkedin, FaArrowRight, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaPaperPlane, FaInstagram, FaGithub, FaLinkedin, FaArrowRight, FaCheckCircle, FaTimesCircle, FaComment } from 'react-icons/fa';
 import { personalInfo } from '../../data';
 import { useTranslation } from 'react-i18next';
 import emailService from '../../services/emailService';
@@ -63,9 +63,13 @@ const Contact = () => {
         }
     };
 
+    const zaloDigits = personalInfo.contact?.phone?.replace(/[^\d]/g, '').replace(/^0/, '84');
+    const zaloUrl = zaloDigits ? `https://zalo.me/${zaloDigits}` : null;
+
     const methods = [
         { icon: FaEnvelope,    label: t('contact.methods.email'),    value: personalInfo.contact?.email,    href: `mailto:${personalInfo.contact?.email}`, external: false },
         { icon: FaPhone,       label: t('contact.methods.phone'),    value: personalInfo.contact?.phone,    href: `tel:${personalInfo.contact?.phone}`,    external: false },
+        { icon: FaComment,     label: t('contact.methods.zalo'),     value: personalInfo.contact?.phone,    href: zaloUrl,                                 external: true },
         { icon: FaMapMarkerAlt,label: t('contact.methods.location'), value: personalInfo.contact?.location, href: '#',                                     external: false },
         { icon: FaGithub,      label: 'GitHub',                      value: 'github.com/trung2605',         href: personalInfo.contact?.github,            external: true },
         { icon: FaLinkedin,    label: 'LinkedIn',                    value: 'Lê Trí Trung',                 href: personalInfo.contact?.linkedin,          external: true },
@@ -75,6 +79,58 @@ const Contact = () => {
 
     return (
         <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
+
+            {/* FREELANCE BANNER */}
+            <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                style={{
+                    backgroundImage: 'linear-gradient(120deg, #ff8a3d, #6d3fc9)',
+                    borderRadius: '24px',
+                    padding: '32px',
+                    marginBottom: '32px',
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: '20px',
+                    color: '#ffffff',
+                }}
+            >
+                <div style={{ maxWidth: '640px' }}>
+                    <h2 style={{ fontSize: 'clamp(18px, 2.5vw, 24px)', fontWeight: '540', letterSpacing: '-0.24px', marginBottom: '10px' }}>
+                        {t('contact.freelanceTitle')}
+                    </h2>
+                    <p style={{ fontSize: '15px', fontWeight: '330', lineHeight: '1.6', color: 'rgba(255,255,255,0.9)', margin: 0 }}>
+                        {t('contact.freelanceDesc')}
+                    </p>
+                </div>
+                {zaloUrl && (
+                    <a
+                        href={zaloUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                            display: 'inline-flex', alignItems: 'center', gap: '10px',
+                            padding: '13px 24px',
+                            borderRadius: '9999px',
+                            backgroundColor: '#ffffff',
+                            color: '#000000',
+                            fontSize: '15px',
+                            fontWeight: '540',
+                            textDecoration: 'none',
+                            flexShrink: 0,
+                            transition: 'transform 0.15s ease',
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
+                        onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                    >
+                        <FaComment size={16} /> {t('contact.freelanceZaloCta')}
+                    </a>
+                )}
+            </motion.div>
 
             {/* LIME BLOCK */}
             <motion.div

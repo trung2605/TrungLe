@@ -80,7 +80,10 @@
   "contact": {
     "label": "Get in touch",
     "title": "Contact Me",
-    "desc": "Open to internship opportunities, collaborations, or a chat about technology.",
+    "desc": "Open to internship opportunities, freelance website projects, collaborations, or just a chat about technology.",
+    "freelanceTitle": "Need a website built?",
+    "freelanceDesc": "I take on freelance web projects — landing pages, business sites, small e-commerce platforms, internal tools — end to end, from design to deployment. Drop your details in the form below, or message me directly on Zalo for a faster reply.",
+    "freelanceZaloCta": "Chat on Zalo",
     "infoTitle": "Contact Information",
     "infoDesc": "Feel free to reach out. I typically respond within 24 hours.",
     "formTitle": "Send a Message",
@@ -101,6 +104,7 @@
     "methods": {
       "email": "Email",
       "phone": "Phone",
+      "zalo": "Zalo",
       "location": "Location",
       "facebook": "Facebook",
       "instagram": "Instagram"
@@ -692,7 +696,7 @@
     },
     {
       "role": "Solo Developer (Freelance Client Project)",
-      "description": "A **marketplace for trading premium (fancy) vehicle license plates** — a real freelance client project scoped as a 30-day MVP covering 12 core use cases plus 3 non-functional requirements, built and shipped **solo** end-to-end.\n\nThe backend is **ASP.NET Core 8 (Minimal API)** in **Clean Architecture** (Domain/Application/Infrastructure/Api layers) with **Entity Framework Core + PostgreSQL**, **ASP.NET Core Identity + JWT**, and **FluentValidation**. The frontend is **React 19 + Vite** with **TanStack Query**, **SignalR** for real-time updates, a **TipTap** rich-text editor, and **Recharts** dashboards — tested with **Playwright**. One deliberate scope call: no online payment gateway. Deposit requests go through a contact form for manual admin confirmation instead, cutting down the attack surface and skipping PCI-DSS compliance overhead. It also includes a **DeepSeek-powered AI chatbot** for customer assistance.",
+      "description": "A **marketplace for trading premium (fancy) vehicle license plates** — a real freelance client project scoped as a 30-day MVP covering 12 core use cases plus 3 non-functional requirements, built and shipped **solo** end-to-end.\n\nThe backend is **ASP.NET Core 8 (Minimal API)** in **Clean Architecture** (Domain/Application/Infrastructure/Api layers) with **Entity Framework Core + PostgreSQL**, **ASP.NET Core Identity + JWT**, and **FluentValidation**. The frontend is **React 19 + Vite** with **TanStack Query**, **SignalR** for real-time updates, a **TipTap** rich-text editor, and **Recharts** dashboards — tested with **Playwright**. One deliberate scope call: no online payment gateway. Deposit requests go through a contact form for manual admin confirmation instead, cutting down the attack surface and skipping PCI-DSS compliance overhead. It also includes a **DeepSeek-powered AI chatbot** for customer assistance.\n\nThe site is live in production at **[biensovip.com](https://biensovip.com)** — this is the kind of freelance web project I take on: if you need something similar built end-to-end (design, backend, deployment), the contact page has my Zalo and email.",
       "challenge": "A real freelance client project — I needed to ship a complete MVP (12 use cases, 3 NFRs) in 30 days, solo, handling everything from architecture and database design to security-scope calls (skipping payment gateway integration to avoid PCI-DSS requirements).",
       "highlights": [
         "ASP.NET Core 8 Minimal API backend in Clean Architecture, EF Core + PostgreSQL, JWT auth",
