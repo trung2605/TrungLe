@@ -38,6 +38,8 @@ const JobFinderShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto
 const DolaBakeryShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870962/my-website/assets/projects/screenshots/2-dola-bakery.png";
 const WebFormAutomationShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870966/my-website/assets/projects/screenshots/4-web-form-automation.png";
 const BakeryManagementShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870969/my-website/assets/projects/screenshots/7-bakery-management.png";
+const BiensovipShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353578/my-website/assets/projects/screenshots/biensovip_1_home.png";
+const BiensovipShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353581/my-website/assets/projects/screenshots/biensovip_2_detail.png";
 
 //Certificate Imports
 const HiraganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962642/my-website/assets/Certificate/Language/Completion_Hiragana.png";
@@ -882,12 +884,12 @@ export const projects = [
     title: "Biensovip — Marketplace Biển Số Đẹp",
     role: "Solo Developer (Freelance Client Project)",
     duration: "08/2026 – Present",
-    image: TikTokUIImage,
+    image: BiensovipShot1,
     description:
       "A **marketplace for trading premium (fancy) vehicle license plates** — a real freelance client project scoped as a 30-day MVP covering 12 core use cases plus 3 non-functional requirements, built and shipped **solo** end-to-end.\n\nThe backend is **ASP.NET Core 8 (Minimal API)** in **Clean Architecture** (Domain/Application/Infrastructure/Api layers) with **Entity Framework Core + PostgreSQL**, **ASP.NET Core Identity + JWT**, and **FluentValidation**. The frontend is **React 19 + Vite** with **TanStack Query**, **SignalR** for real-time updates, **TipTap** rich-text editor, and **Recharts** dashboards — tested with **Playwright**. A deliberate scope decision: no online payment gateway integration — deposit requests route through a contact form for manual admin confirmation, reducing attack surface and avoiding PCI-DSS compliance overhead. Includes a **DeepSeek-powered AI chatbot** for customer assistance.",
     techStack: ["ASP.NET Core 8", "Entity Framework Core", "PostgreSQL", "React 19", "TanStack Query", "SignalR", "Playwright"],
     githubUrl: "https://github.com/BienSoDep/biensovip-backend",
-    liveUrl: "#",
+    liveUrl: "https://biensovip.com",
     status: "Active",
     category: "ecommerce",
     tier: 1,
@@ -898,7 +900,7 @@ export const projects = [
       "Quyết định phạm vi bảo mật có chủ đích: đặt cọc qua form liên hệ thay vì tích hợp cổng thanh toán online",
       "Tích hợp AI chatbot hỗ trợ khách hàng qua DeepSeek API",
     ],
-    screenshots: [],
+    screenshots: [BiensovipShot1, BiensovipShot2],
   },
   {
     id: 27,

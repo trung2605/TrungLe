@@ -46,21 +46,27 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         display: 'flex',
         flexDirection: featured ? 'row' : 'column',
         backgroundColor: 'var(--color-canvas)',
-        border: '1px solid #e6e6e6',
+        border: featured ? '2px solid transparent' : '1px solid #e6e6e6',
+        backgroundImage: featured
+          ? 'linear-gradient(var(--color-canvas), var(--color-canvas)), linear-gradient(120deg, #ff8a3d, #c5b0f4, #6d3fc9)'
+          : undefined,
+        backgroundOrigin: featured ? 'border-box' : undefined,
+        backgroundClip: featured ? 'padding-box, border-box' : undefined,
         borderRadius: '24px',
         overflow: 'hidden',
         transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
         cursor: 'pointer',
         gridColumn: featured ? 'span 2' : undefined,
+        boxShadow: featured ? '0 12px 40px rgba(109,63,201,0.18)' : undefined,
       }}
       onMouseMove={spotlight.onMouseMove}
       onMouseEnter={e => {
-        e.currentTarget.style.borderColor = 'var(--color-ink)';
-        e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)';
+        if (!featured) e.currentTarget.style.borderColor = 'var(--color-ink)';
+        e.currentTarget.style.boxShadow = featured ? '0 16px 48px rgba(109,63,201,0.28)' : '0 8px 24px rgba(0,0,0,0.08)';
       }}
       onMouseLeave={e => {
-        e.currentTarget.style.borderColor = '#e6e6e6';
-        e.currentTarget.style.boxShadow = 'none';
+        if (!featured) e.currentTarget.style.borderColor = '#e6e6e6';
+        e.currentTarget.style.boxShadow = featured ? '0 12px 40px rgba(109,63,201,0.18)' : 'none';
       }}
     >
       {/* Image */}
@@ -98,16 +104,18 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         {featured && (
           <div style={{
             position: 'absolute', top: '16px', left: '16px',
-            padding: '4px 12px',
+            padding: '4px 14px',
             borderRadius: '50px',
             fontSize: '11px',
+            fontWeight: '600',
             fontFamily: 'JetBrains Mono, monospace',
             letterSpacing: '0.4px',
             textTransform: 'uppercase',
-            backgroundColor: '#000000',
+            backgroundImage: 'linear-gradient(120deg, #ff8a3d, #6d3fc9)',
             color: '#ffffff',
+            boxShadow: '0 2px 10px rgba(109,63,201,0.4)',
           }}>
-            Featured
+            ★ {t('projects.liveClientProject', 'Live Client Project')}
           </div>
         )}
       </div>
@@ -288,7 +296,7 @@ const Projects = () => {
     ? new Set(skillTaxonomy.find(s => s.id === selectedSkill)?.projectIds || [])
     : null;
 
-  const FEATURED_PROJECT_ID = 11; // The MC Hub
+  const FEATURED_PROJECT_ID = 26; // Biensovip — real freelance client project, live in production
   const isUnfiltered = filter === 'all' && selectedCategory === 'all' && !selectedSkill;
 
   const filteredProjects = projects
