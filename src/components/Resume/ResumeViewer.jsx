@@ -16,7 +16,7 @@ const ResumeViewer = () => {
     const { t } = useTranslation();
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
-    const [pageWidth, setPageWidth] = useState(Math.min(720, window.innerWidth - 64));
+    const [pageWidth] = useState(Math.min(720, window.innerWidth - 64));
     const [failed, setFailed] = useState(false);
 
     return (

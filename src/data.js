@@ -24,9 +24,7 @@ import {
 import NewAvatar from './assets/information/image.png';
 
 // Project Image Imports
-const JobFinderImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962629/my-website/assets/projects/JobFinder.png";
 const DolaBakeryImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962632/my-website/assets/projects/DolaBakery.png";
-const TheDreamersOrganizationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962634/my-website/assets/projects/TheDreamers.png";
 const WebFormAutomationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962635/my-website/assets/projects/WebFormAutomation.png";
 const BookShopOutsystemsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962636/my-website/assets/projects/BookShopOutsystems.png";
 const TikTokUIImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962637/my-website/assets/projects/ComingSoon.png";
@@ -40,6 +38,22 @@ const WebFormAutomationShot1 = "https://res.cloudinary.com/dvwt6npcl/image/uploa
 const BakeryManagementShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870969/my-website/assets/projects/screenshots/7-bakery-management.png";
 const BiensovipShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353578/my-website/assets/projects/screenshots/biensovip_1_home.png";
 const BiensovipShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353581/my-website/assets/projects/screenshots/biensovip_2_detail.png";
+const BiensovipShot3 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579610/my-website/assets/projects/screenshots/nxlufqwkaozhvd5h7tk2.png";
+const BiensovipShot4 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579613/my-website/assets/projects/screenshots/vl8kafmfubidwk3mugcb.png";
+const JobFinderShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579568/my-website/assets/projects/screenshots/yfy17yiopbaz9vlzvv1m.png";
+const DreamersShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579570/my-website/assets/projects/screenshots/pic_1_of_131.jpg";
+const DreamersShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579573/my-website/assets/projects/screenshots/pic_10_of_131.jpg";
+const McHubShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579575/my-website/assets/projects/screenshots/01-landing.png";
+const McHubShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579578/my-website/assets/projects/screenshots/01-dashboard-full.png";
+const McHubShot3 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579580/my-website/assets/projects/screenshots/04-voice-library.png";
+const AgriLinkShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579596/my-website/assets/projects/screenshots/dash-01-admin-dashboard.png";
+const AgriLinkShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579599/my-website/assets/projects/screenshots/auth-00-login.png";
+const BrandHubShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579601/my-website/assets/projects/screenshots/DA-D19-01.png";
+const BrandHubShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579603/my-website/assets/projects/screenshots/DA-D19-02.png";
+const ThreadLearnShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579605/my-website/assets/projects/screenshots/slide_07_pipeline.png";
+const ThreadLearnShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579607/my-website/assets/projects/screenshots/slide_11_main_results.png";
+const NursingKTYHShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789580945/my-website/assets/projects/screenshots/nursing_check.png";
+const NursingKTYHShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789580947/my-website/assets/projects/screenshots/nursing_orgchart2.png";
 
 //Certificate Imports
 const HiraganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962642/my-website/assets/Certificate/Language/Completion_Hiragana.png";
@@ -381,7 +395,7 @@ export const projects = [
     title: "Job Finder",
     role: "Backend Developer (Team Project)",
     duration: "05/2025 – 09/2025",
-    image: JobFinderImage,
+    image: JobFinderShot2,
     description:
       "A full-stack **job search platform** built by a cross-functional Agile team of 6. I owned the **backend architecture** — designing and implementing RESTful APIs with **Java Spring Boot**, managing relational data in **SQL Server**, and integrating an **AI-powered chatbot** to assist job seekers with resume tips and job matching.\n\nKey contributions include building the **authentication system** (JWT-based login/register), designing the **job posting and application flow APIs**, and setting up **Git branching strategy** (feature branches + pull requests) to keep team collaboration clean across 4 months of development.\n\nThe platform is currently live on Vercel and under active iteration, with features like real-time job alerts and employer dashboard in progress.",
     techStack: [
@@ -405,7 +419,7 @@ export const projects = [
       "Thiết lập Git branching strategy (feature branch + pull request) giữ team 6 người làm việc sạch trong 4 tháng",
       "Tích hợp AI chatbot hỗ trợ resume tips và job matching cho job seeker",
     ],
-    screenshots: [JobFinderShot1],
+    screenshots: [JobFinderShot2, JobFinderShot1],
   },
   {
     id: 2,
@@ -442,7 +456,7 @@ export const projects = [
     title: "The Dreamers Organization",
     role: "Founder & Project Lead",
     duration: "15/06/2025 – Present",
-    image: TheDreamersOrganizationImage,
+    image: DreamersShot1,
     description:
       "Founded and lead **The Dreamers** — a student-run charity organization at FPT University dedicated to creating positive social impact through technology and education. The organization runs hands-on programs that bring **coding workshops, communication skills training, and mentorship** directly to orphaned children and underprivileged youth.\n\nAs founder, I manage the full operational scope: recruiting and onboarding members, defining project roadmaps, coordinating with partner organizations, and overseeing fundraising campaigns that have raised funds for multiple charity missions.\n\nNotable events organized under The Dreamers include **Tốt Hy Vọng**, **Vòng vào Mộng mơ**, **Dream High**, and a **Charity Music Performance** — each requiring end-to-end planning, logistics, and team coordination. The backend platform for managing member activities and event records is also being developed in **Java Spring Boot**.",
     techStack: ["Project Management", "Team Leadership", "Community Organizing", "Java Spring Boot", "Event Production"],
@@ -457,7 +471,7 @@ export const projects = [
       "Tổ chức end-to-end 4 sự kiện lớn: Tốt Hy Vọng, Vòng vào Mộng mơ, Dream High, Charity Music Performance",
       "Đang phát triển backend quản lý hoạt động và hồ sơ thành viên bằng Java Spring Boot",
     ],
-    screenshots: [],
+    screenshots: [DreamersShot1, DreamersShot2],
   },
   {
     id: 4,
@@ -576,7 +590,7 @@ export const projects = [
     title: "The MC Hub",
     role: "Full-Stack Developer (Team Project)",
     duration: "09/2025 – Present",
-    image: PortfolioImage,
+    image: McHubShot1,
     description:
       "A two-sided marketplace connecting **Clients** with professional **MCs (Masters of Ceremony)** for events — weddings, galas, corporate conferences, and more. Clients can search, filter by style/price/region, view MC profiles, and book directly through the platform. MCs get a full dashboard to manage bookings, communicate with clients, track revenue, and practice scripts using an **AI Script Reader**.\n\nThe system is built for scale: **Java Spring Boot 3.3 + Java 21 Virtual Threads** on the backend for high-concurrency handling, **MongoDB Atlas** for flexible document storage, and **WebSocket/STOMP** for real-time chat. The web app runs on **React 19 + Vite 7 + TailwindCSS v4**, and the mobile app is built with **React Native + Expo**.\n\nAdditional features include **PayOS payment integration**, push notifications, KYC identity verification, a coupon/discount system, and a full **admin analytics dashboard**. This is the most technically complex project I've worked on — touching distributed systems, payment flows, mobile development, and real-time infrastructure simultaneously.",
     techStack: [
@@ -609,37 +623,14 @@ export const projects = [
       "Tích hợp thanh toán PayOS, xác thực KYC, hệ thống coupon/discount, admin analytics dashboard",
       "AI Script Reader hỗ trợ MC luyện tập kịch bản, web (React 19 + Vite 7) và mobile (React Native + Expo) song song",
     ],
-    screenshots: [],
-  },
-  {
-    id: 12,
-    title: "SwiftBid",
-    role: "Backend Developer (Team Project)",
-    duration: "10/2025 – Present",
-    image: TikTokUIImage,
-    description:
-      "A real-time **auction/bidding platform** where users list items and compete through live bids. The backend is built with **Java 21 + Spring Boot 3.5.7**, using **Spring Data JPA** for persistence and **Spring Data Redis** to track live bid state and caching for low-latency bid updates.\n\nAdditional integrations include **Cloudinary** for item image uploads, **Spring Mail/EmailJS** for bid and outbid notifications, and a relational **MySQL** schema for users, listings, and transaction history. The frontend is a **React 19** app built with Create React App, using **React Router 7** and Axios for API communication.\n\nThis project deepened my experience with real-time state management and cache-backed concurrency patterns for high-frequency bid updates.",
-    techStack: ["Java 21", "Spring Boot 3.5.7", "Spring Data JPA", "Redis", "MySQL", "React 19", "React Router 7", "Cloudinary"],
-    githubUrl: "https://github.com/SwiftBid-MultiThreats/SwiftBid-Backend",
-    liveUrl: "#",
-    status: "In Development",
-    category: "fullstack",
-    tier: 2,
-    challenge: "Nền tảng đấu giá real-time cần cập nhật trạng thái bid độ trễ thấp khi nhiều người cùng đấu giá một sản phẩm — bài toán concurrency và cache-backed state kinh điển.",
-    highlights: [
-      "Spring Data Redis theo dõi trạng thái bid live và cache cho cập nhật độ trễ thấp",
-      "Schema MySQL quan hệ cho user, listing, lịch sử giao dịch",
-      "Tích hợp Cloudinary cho upload ảnh sản phẩm, Spring Mail/EmailJS cho thông báo outbid",
-      "Đào sâu kinh nghiệm quản lý state real-time và pattern concurrency cache-backed",
-    ],
-    screenshots: [],
+    screenshots: [McHubShot1, McHubShot2, McHubShot3],
   },
   {
     id: 13,
     title: "AgriLink",
     role: "Full-Stack Developer (Team Project)",
     duration: "01/2025 – Present",
-    image: TikTokUIImage,
+    image: AgriLinkShot1,
     description:
       "A **Vietnamese agricultural marketplace** connecting farmers, suppliers, and customers — covering product listings, orders, reviews, and notifications. Started as an academic project (**PRM393**) with a **Flutter mobile app** and an **Express.js/MongoDB** backend secured with JWT.\n\nThe project later evolved into a more production-grade parallel build aimed at real startup viability: a **Next.js + TypeScript** frontend (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo for farm location mapping) backed by a **NestJS + TypeORM** service layer. This dual-track evolution — from academic prototype to startup-grade architecture — included drafting a formal Vietnamese startup proposal document.",
     techStack: ["Flutter", "Express.js", "MongoDB", "Next.js", "TypeScript", "NestJS", "TypeORM", "TanStack Query"],
@@ -654,14 +645,14 @@ export const projects = [
       "Track 2 (production-grade song song): frontend Next.js + TypeScript (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo cho bản đồ nông trại) + backend NestJS + TypeORM",
       "Soạn thảo đề xuất khởi nghiệp chính thức bằng tiếng Việt cho mô hình sản phẩm",
     ],
-    screenshots: [],
+    screenshots: [AgriLinkShot1, AgriLinkShot2],
   },
   {
     id: 14,
     title: "BrandHub",
     role: "Backend Developer (Team Project)",
     duration: "05/2026 – Present",
-    image: TikTokUIImage,
+    image: BrandHubShot1,
     description:
       "An **agency platform for managing client brand content** across social media — Facebook, Instagram, TikTok, Threads, and Zalo — with content creation/approval workflows, AI-assisted content generation, campaign scheduling, and automated multi-platform publishing.\n\nBuilt as a **microservices architecture**: an **API Gateway** (Spring Cloud Gateway, WebFlux, JWT + Redis auth), a **business-service** (Spring Boot 3.3.5, Java 21) handling core domain logic, a **publisher-service** consuming from **RabbitMQ** with retry/backoff for reliable social posting, and an **AI service** (Python FastAPI, RAG) for content generation. The frontend is a **React 18 + TypeScript + Vite** dashboard, with a companion **Expo/React Native** mobile app, all orchestrated via **Docker Compose** infrastructure.",
     techStack: ["Spring Boot", "Java 21", "Spring Cloud Gateway", "RabbitMQ", "Redis", "Python FastAPI", "React 18", "TypeScript", "Docker"],
@@ -676,30 +667,7 @@ export const projects = [
       "Toàn bộ hệ thống orchestrate qua Docker Compose",
       "Frontend dashboard React 18 + TypeScript + Vite, kèm mobile app Expo/React Native",
     ],
-    screenshots: [],
-  },
-  {
-    id: 16,
-    title: "Yarnia",
-    role: "Backend Developer (Team Project)",
-    duration: "04/2026 – Present",
-    image: TikTokUIImage,
-    description:
-      "A **children's storytelling and reading platform** (ages 3–12) combining story listening, guided reading practice, and pronunciation scoring — with a parent dashboard for tracking progress and a dedicated kid mode.\n\nThe backend is built in **.NET 9/10** following **Clean Architecture**, using **MongoDB** for storage, **JWT + Google OAuth** for auth, **Cloudinary** and **AWS S3/CloudFront** for media delivery, and **PayOS** for subscription payments — tested with **xUnit/NSubstitute**. The web app uses **React 19 + Vite + TypeScript**, **Tailwind 4**, and **TanStack Query**; the mobile app is **Expo/React Native**; and the marketing landing page uses **Three.js/react-three-fiber**, **PixiJS**, and **GSAP** for rich animation.\n\nA custom **AI training pipeline** (GPT-SoVITS-based TTS + pronunciation scoring) powers the platform's voice and reading-assessment features — the most technically diverse project I've contributed to, spanning backend, web, mobile, 3D web animation, and applied ML.",
-    techStack: [".NET 9", "MongoDB", "JWT", "AWS S3", "PayOS", "React 19", "TypeScript", "TanStack Query", "Expo", "Three.js", "GPT-SoVITS"],
-    githubUrl: "https://github.com/trung2605/Yarnia-Backend",
-    liveUrl: "#",
-    status: "Active",
-    category: "fullstack",
-    tier: 2,
-    challenge: "Xây một nền tảng đọc/nghe truyện cho trẻ 3-12 tuổi với chấm điểm phát âm — đòi hỏi kết hợp backend chuẩn Clean Architecture, web/mobile app, animation 3D cho landing page, và cả một pipeline AI xử lý giọng nói riêng.",
-    highlights: [
-      "Backend .NET 9/10 theo Clean Architecture, test bằng xUnit/NSubstitute",
-      "Auth JWT + Google OAuth, media qua Cloudinary + AWS S3/CloudFront, thanh toán subscription qua PayOS",
-      "Landing page dùng Three.js/react-three-fiber, PixiJS, GSAP cho animation phong phú",
-      "Pipeline AI riêng (GPT-SoVITS-based TTS + chấm điểm phát âm) — dự án đa dạng kỹ thuật nhất tôi từng góp mặt",
-    ],
-    screenshots: [],
+    screenshots: [BrandHubShot1, BrandHubShot2],
   },
   {
     id: 17,
@@ -812,34 +780,11 @@ export const projects = [
     screenshots: [],
   },
   {
-    id: 23,
-    title: "WeatherTracking",
-    role: "Mobile Developer (Team Project)",
-    duration: "PRM393 course",
-    image: TikTokUIImage,
-    description:
-      "A **weather monitoring mobile app** built as a PRM393 course project with a real team workflow — Jira-ticket-linked commits, feature branches, and code review across a 3-person team.\n\nThe app is built in **Flutter**, with a **Node.js backend** handling weather data aggregation, location-based alerts, and a **scheduled AQI (Air Quality Index) threshold check** that triggers push notifications. **Firebase** powers auth and push delivery. A **CI/CD pipeline** (GitHub Actions) runs on every push to keep both the Flutter app and backend deployable at all times.",
-    techStack: ["Flutter", "Node.js", "Firebase", "GitHub Actions", "REST API"],
-    githubUrl: "https://github.com/PRM393r/WeatherTracking_FE",
-    liveUrl: "#",
-    status: "Completed",
-    category: "fullstack",
-    tier: 3,
-    challenge: "Xây ứng dụng theo dõi thời tiết với cảnh báo AQI tự động cho môn học PRM393 — team 3 người cần quy trình làm việc thật (Jira ticket, feature branch, CI/CD) chứ không chỉ code một lần rồi nộp.",
-    highlights: [
-      "App Flutter theo dõi thời tiết, cảnh báo vị trí và ngưỡng AQI tự động (scheduled job)",
-      "Backend Node.js xử lý tổng hợp dữ liệu thời tiết và push notification qua Firebase",
-      "CI/CD pipeline (GitHub Actions) chạy mỗi lần push, giữ cả app và backend luôn deploy được",
-      "Quy trình team thật: commit gắn Jira ticket (PRM-XX), feature branch, code review",
-    ],
-    screenshots: [],
-  },
-  {
     id: 24,
     title: "ThreadLearn",
     role: "AI Engineer — RAG Pipeline & API (Team Project)",
     duration: "WDP301 course",
-    image: TikTokUIImage,
+    image: ThreadLearnShot1,
     description:
       "An **AI system that fixes JavaScript concurrency bugs** — fine-tuning a small language model (Qwen2.5-Coder-1.5B) with QLoRA and pairing it with a **BM25 + AST-based RAG pipeline** for exact API-name retrieval, instead of relying on a large general-purpose model.\n\nI owned the **RAG pipeline and FastAPI server**: building the BM25 retrieval index over 2,050 documents, an esprima-based AST tokenizer that keeps JavaScript identifiers intact (avoiding the false-split problem of naive regex tokenizers), and the race-condition detector. The fine-tuned model + RAG pipeline reached a **75% pass rate** on a 20-case benchmark, beating zero-shot GPT-3.5-turbo (30%) and even the fine-tuned model without RAG (70%) — full write-up on the blog.",
     techStack: ["Python", "FastAPI", "QLoRA", "BM25", "esprima (AST)", "Qwen2.5-Coder-1.5B"],
@@ -855,14 +800,14 @@ export const projects = [
       "FastAPI server + race-condition detector, chỗ kỹ thuật chính tôi phụ trách trong nhóm 3 người",
       "Kết quả: ThreadLearn + RAG đạt 75% pass rate trên benchmark, vượt GPT-3.5-turbo zero-shot (30%)",
     ],
-    screenshots: [],
+    screenshots: [ThreadLearnShot1, ThreadLearnShot2],
   },
   {
     id: 25,
     title: "Nursing & Medical Technology Faculty Website",
     role: "Frontend Developer (Team Project)",
     duration: "Team project",
-    image: TikTokUIImage,
+    image: NursingKTYHShot2,
     description:
       "The official **department website for the Faculty of Nursing and Medical Technology** at Phan Chau Trinh University — built for a real academic client with a 6-person team, covering faculty info, department pages (Nursing, Medical Technology), organizational chart, teaching staff listings, and bilingual content.\n\nBuilt with **vanilla JavaScript Web Components** (no framework) — a custom `site-navbar`, `site-hero`, `site-footer`, and content components — plus a lightweight **client-side router** and a **data-driven i18n system** for Vietnamese/English content switching. I contributed the **organizational chart component** (a responsive branch-connector layout for the department hierarchy) and refactored department pages to fetch content dynamically instead of hardcoding it per page.",
     techStack: ["JavaScript (Web Components)", "CSS3", "Custom Router", "i18n"],
@@ -877,7 +822,7 @@ export const projects = [
       "Refactor các trang bộ môn sang fetch dữ liệu động thay vì hardcode nội dung mỗi trang",
       "Toàn bộ site dùng vanilla JS Web Components, router và i18n tự viết, không dùng framework",
     ],
-    screenshots: [],
+    screenshots: [NursingKTYHShot1, NursingKTYHShot2],
   },
   {
     id: 26,
@@ -900,7 +845,7 @@ export const projects = [
       "Quyết định phạm vi bảo mật có chủ đích: đặt cọc qua form liên hệ thay vì tích hợp cổng thanh toán online",
       "Tích hợp AI chatbot hỗ trợ khách hàng qua DeepSeek API",
     ],
-    screenshots: [BiensovipShot1, BiensovipShot2],
+    screenshots: [BiensovipShot1, BiensovipShot2, BiensovipShot3, BiensovipShot4],
   },
   {
     id: 27,
@@ -2108,21 +2053,21 @@ export const testimonials = [
 
 // proficiency (0-100) suy luận từ số lượng + độ sâu sử dụng qua các project — tự tinh chỉnh lại nếu muốn phản ánh đúng hơn cảm nhận thật
 export const skillTaxonomy = [
-  { id: "react", label: "React", category: "Frontend", proficiency: 90, projectIds: [1, 4, 6, 7, 10, 11, 12, 16, 17, 18, 19, 21, 22, 26] },
-  { id: "spring-boot", label: "Java Spring Boot", category: "Backend", proficiency: 85, projectIds: [1, 2, 3, 7, 11, 12, 14, 18] },
-  { id: "typescript", label: "TypeScript", category: "Language", proficiency: 70, projectIds: [13, 14, 16, 18] },
-  { id: "mongodb", label: "MongoDB", category: "Database", proficiency: 70, projectIds: [11, 13, 14, 16, 18] },
-  { id: "sql", label: "MySQL / SQL Server", category: "Database", proficiency: 75, projectIds: [1, 2, 7, 12] },
-  { id: "tailwind", label: "Tailwind CSS", category: "Frontend", proficiency: 80, projectIds: [10, 11, 16, 17, 19, 21, 22] },
+  { id: "react", label: "React", category: "Frontend", proficiency: 90, projectIds: [1, 4, 6, 7, 10, 11, 17, 18, 19, 21, 22, 26] },
+  { id: "spring-boot", label: "Java Spring Boot", category: "Backend", proficiency: 85, projectIds: [1, 2, 3, 7, 11, 14, 18] },
+  { id: "typescript", label: "TypeScript", category: "Language", proficiency: 70, projectIds: [13, 14, 18] },
+  { id: "mongodb", label: "MongoDB", category: "Database", proficiency: 70, projectIds: [11, 13, 14, 18] },
+  { id: "sql", label: "MySQL / SQL Server", category: "Database", proficiency: 75, projectIds: [1, 2, 7] },
+  { id: "tailwind", label: "Tailwind CSS", category: "Frontend", proficiency: 80, projectIds: [10, 11, 17, 19, 21, 22] },
   { id: "framer-motion", label: "Framer Motion", category: "Frontend", proficiency: 75, projectIds: [10, 17, 21, 22] },
-  { id: "node", label: "Node.js / Express.js", category: "Backend", proficiency: 60, projectIds: [4, 11, 13, 23] },
-  { id: "flutter", label: "Flutter", category: "Mobile", proficiency: 55, projectIds: [13, 23] },
+  { id: "node", label: "Node.js / Express.js", category: "Backend", proficiency: 60, projectIds: [4, 11, 13] },
+  { id: "flutter", label: "Flutter", category: "Mobile", proficiency: 55, projectIds: [13] },
   { id: "python", label: "Python / FastAPI", category: "Backend", proficiency: 50, projectIds: [14, 24, 27] },
-  { id: "dotnet", label: "ASP.NET Core", category: "Backend", proficiency: 55, projectIds: [16, 26] },
+  { id: "dotnet", label: "ASP.NET Core", category: "Backend", proficiency: 55, projectIds: [26] },
   { id: "postgresql", label: "PostgreSQL", category: "Database", proficiency: 55, projectIds: [26] },
-  { id: "redis", label: "Redis", category: "Backend", proficiency: 55, projectIds: [11, 12, 14] },
+  { id: "redis", label: "Redis", category: "Backend", proficiency: 55, projectIds: [14] },
   { id: "docker", label: "Docker", category: "DevOps", proficiency: 50, projectIds: [14] },
-  { id: "threejs", label: "Three.js", category: "Frontend", proficiency: 45, projectIds: [16, 17] },
+  { id: "threejs", label: "Three.js", category: "Frontend", proficiency: 45, projectIds: [17] },
   { id: "outsystems", label: "OutSystems", category: "Low-Code", proficiency: 65, projectIds: [5] },
   { id: "google-maps", label: "Google Maps API", category: "Integration", proficiency: 60, projectIds: [2, 22] },
   { id: "leadership", label: "Project & Team Leadership", category: "Soft Skill", proficiency: 80, projectIds: [1, 2, 3] },

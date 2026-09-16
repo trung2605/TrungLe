@@ -27,7 +27,12 @@
   "home": {
     "badge": "Available for opportunities",
     "greeting": "Xin chào,",
-    "roles": ["Java Developer", "CS Student", "Backend Engineer", "Problem Solver"],
+    "roles": [
+      "Java Developer",
+      "CS Student",
+      "Backend Engineer",
+      "Problem Solver"
+    ],
     "iAm": "I'm a",
     "heroDesc": "Computer Science student at FPT University. Specializing in Java Spring Boot and modern web development — building clean, scalable applications.",
     "viewProjects": "View Projects",
@@ -42,10 +47,18 @@
     "testimonialsLabel": "Kind words",
     "testimonialsTitle": "What people say",
     "stats": [
-      { "label": "Projects Built" },
-      { "label": "Certificates" },
-      { "label": "Awards & Prizes" },
-      { "label": "Activities" }
+      {
+        "label": "Projects Built"
+      },
+      {
+        "label": "Certificates"
+      },
+      {
+        "label": "Awards & Prizes"
+      },
+      {
+        "label": "Activities"
+      }
     ],
     "skillsLabel": "Skills & Expertise",
     "skillsTitle": "What I work with",
@@ -318,19 +331,47 @@
     "prize": "Prize"
   },
   "prizeItems": [
-    { "title": "Code Mosaic Algorithm Contest", "position": "Finalist", "description": "Made it to the **final round** of Code Mosaic, an algorithmic contest run by FPT Education that tests data structures, algorithmic complexity, and how fast you can think under a ticking clock. I was up against top CS students from across FPT's campuses." },
-    { "title": "FPT Code Talent Contest", "position": "Finalist", "description": "Reached the **final round** of FPT Code Talent, one of FPT's flagship annual coding competitions spanning algorithms, OOP design, and system-level problem solving. A solid result that paid off months of steady competitive-programming practice." },
-    { "title": "Innocode Camp SU25", "position": "Finalist", "description": "Made it to the **final round** of Innocode Camp Summer 2025, a project-based competition where teams build and demo a working product on a tight clock. I led the backend side of things, using Java Spring Boot and MySQL." },
-    { "title": "Research Festival (ResFres 2024)", "position": "Finalist", "description": "Advanced to the **final round** of the FPT University Research Festival — a campus-wide academic competition where teams run original research, write it up formally, and defend it in front of a judging panel. It sharpened my research methodology, data analysis, and academic presentation skills." },
-    { "title": "FPT ResFes 2024 – 5 Campus Scale", "position": "Research Finalist", "description": "Selected as a **research finalist** at the multi-campus level of FPT ResFes 2024, competing against research teams from all 5 FPT University campuses nationwide. One of my more selective wins — it demanded both technical depth and being able to explain the science clearly." },
-    { "title": "Talent Contest – Final Interview Round", "position": "Winner (First Place)", "description": "Took **First Place** in my high school's Talent Contest final round, a school-wide competition judged on performance, charisma, and interview skills. Looking back, it was an early sign of the stage confidence and public-speaking chops that later grew into MC work for events with 1000+ attendees." },
-    { "title": "Talent & Beauty Contest (Mister)", "position": "First Runner-up", "description": "Won **First Runner-up (Mister)** in my school's annual Talent and Beauty Contest, judged on presentation, talent, and a personal interview — up against the school's top male contenders." }
+    {
+      "title": "Code Mosaic Algorithm Contest",
+      "position": "Finalist",
+      "description": "Made it to the **final round** of Code Mosaic, an algorithmic contest run by FPT Education that tests data structures, algorithmic complexity, and how fast you can think under a ticking clock. I was up against top CS students from across FPT's campuses."
+    },
+    {
+      "title": "FPT Code Talent Contest",
+      "position": "Finalist",
+      "description": "Reached the **final round** of FPT Code Talent, one of FPT's flagship annual coding competitions spanning algorithms, OOP design, and system-level problem solving. A solid result that paid off months of steady competitive-programming practice."
+    },
+    {
+      "title": "Innocode Camp SU25",
+      "position": "Finalist",
+      "description": "Made it to the **final round** of Innocode Camp Summer 2025, a project-based competition where teams build and demo a working product on a tight clock. I led the backend side of things, using Java Spring Boot and MySQL."
+    },
+    {
+      "title": "Research Festival (ResFres 2024)",
+      "position": "Finalist",
+      "description": "Advanced to the **final round** of the FPT University Research Festival — a campus-wide academic competition where teams run original research, write it up formally, and defend it in front of a judging panel. It sharpened my research methodology, data analysis, and academic presentation skills."
+    },
+    {
+      "title": "FPT ResFes 2024 – 5 Campus Scale",
+      "position": "Research Finalist",
+      "description": "Selected as a **research finalist** at the multi-campus level of FPT ResFes 2024, competing against research teams from all 5 FPT University campuses nationwide. One of my more selective wins — it demanded both technical depth and being able to explain the science clearly."
+    },
+    {
+      "title": "Talent Contest – Final Interview Round",
+      "position": "Winner (First Place)",
+      "description": "Took **First Place** in my high school's Talent Contest final round, a school-wide competition judged on performance, charisma, and interview skills. Looking back, it was an early sign of the stage confidence and public-speaking chops that later grew into MC work for events with 1000+ attendees."
+    },
+    {
+      "title": "Talent & Beauty Contest (Mister)",
+      "position": "First Runner-up",
+      "description": "Won **First Runner-up (Mister)** in my school's annual Talent and Beauty Contest, judged on presentation, talent, and a personal interview — up against the school's top male contenders."
+    }
   ],
   "personalInfo": {
     "storyTitle": "My Journey",
     "storyContent": "I'm **Lê Trí Trung** — a Computer Science student at **FPT University Da Nang**, currently interning at **FPT Software** as a Software Developer. I specialize in **Java Spring Boot** on the backend and love building full-stack apps that are clean, scalable, and actually useful to someone.\n\nIt all started with just being curious about how things work under the hood. That curiosity took me from Java fundamentals to designing RESTful APIs, wiring up databases, working on real Agile teams, and eventually co-building platforms like **The MC Hub** — a marketplace connecting event MCs with clients, complete with real-time chat, payment integration, and a mobile app.\n\nOutside of code, I've emceed **university events with 600–1000+ attendees**, founded **The Dreamers** — a student charity bringing tech education to orphaned children — and competed in several national-scale coding competitions, making the final rounds at **FPT Code Talent** and **Innocode Camp**.\n\nI believe the best developers aren't just the ones who ship code — they're the ones who can also communicate, lead, and adapt. That's the developer I'm working to become.",
     "title": "Java Developer | Computer Science Student",
-    "intro": "I'm a Computer Science student who loves building things that actually work well — mostly with Java Spring Boot on the backend and JavaScript/React on the front. I care about writing code that's clean enough that I (or a teammate) can still make sense of it months later. Right now I'm looking for a Web Developer internship where I can put those skills to use and pull my weight on a real team."
+    "intro": "I'm a Computer Science student who loves building things that actually work — mostly with Java Spring Boot on the backend and React on the front. Currently interning at FPT Software and taking on freelance web projects on the side."
   },
   "highlights": [
     {
@@ -414,37 +455,69 @@
     {
       "category": "Programming Languages",
       "items": [
-        { "name": "Java" },
-        { "name": "JavaScript / TypeScript" },
-        { "name": "HTML5 & CSS3" },
-        { "name": "Python" }
+        {
+          "name": "Java"
+        },
+        {
+          "name": "JavaScript / TypeScript"
+        },
+        {
+          "name": "HTML5 & CSS3"
+        },
+        {
+          "name": "Python"
+        }
       ]
     },
     {
       "category": "Frameworks & Libraries",
       "items": [
-        { "name": "Java Spring Boot" },
-        { "name": "React" },
-        { "name": "React Native / Expo" },
-        { "name": "Tailwind CSS / Framer Motion" }
+        {
+          "name": "Java Spring Boot"
+        },
+        {
+          "name": "React"
+        },
+        {
+          "name": "React Native / Expo"
+        },
+        {
+          "name": "Tailwind CSS / Framer Motion"
+        }
       ]
     },
     {
       "category": "Databases & Infra",
       "items": [
-        { "name": "MySQL / SQL Server" },
-        { "name": "MongoDB" },
-        { "name": "Redis" },
-        { "name": "Docker" }
+        {
+          "name": "MySQL / SQL Server"
+        },
+        {
+          "name": "MongoDB"
+        },
+        {
+          "name": "Redis"
+        },
+        {
+          "name": "Docker"
+        }
       ]
     },
     {
       "category": "Soft Skills",
       "items": [
-        { "name": "Communication Skills" },
-        { "name": "Team Leadership" },
-        { "name": "Problem Solving" },
-        { "name": "Agile Collaboration" }
+        {
+          "name": "Communication Skills"
+        },
+        {
+          "name": "Team Leadership"
+        },
+        {
+          "name": "Problem Solving"
+        },
+        {
+          "name": "Agile Collaboration"
+        }
       ]
     }
   ],
@@ -466,13 +539,34 @@
     }
   ],
   "siteNavigation": [
-    { "title": "About", "desc": "Learn about my journey and passion" },
-    { "title": "Projects", "desc": "Software I've built and shipped" },
-    { "title": "Achievements", "desc": "Education, certificates, and prizes" },
-    { "title": "Activities", "desc": "Events, competitions, and community work" },
-    { "title": "Blog", "desc": "Technical writing and project deep-dives" },
-    { "title": "Resume", "desc": "View my resume online" },
-    { "title": "Contact", "desc": "Get in touch with me" }
+    {
+      "title": "About",
+      "desc": "Learn about my journey and passion"
+    },
+    {
+      "title": "Projects",
+      "desc": "Software I've built and shipped"
+    },
+    {
+      "title": "Achievements",
+      "desc": "Education, certificates, and prizes"
+    },
+    {
+      "title": "Activities",
+      "desc": "Events, competitions, and community work"
+    },
+    {
+      "title": "Blog",
+      "desc": "Technical writing and project deep-dives"
+    },
+    {
+      "title": "Resume",
+      "desc": "View my resume online"
+    },
+    {
+      "title": "Contact",
+      "desc": "Get in touch with me"
+    }
   ],
   "projectItems": [
     {
@@ -571,17 +665,6 @@
       ]
     },
     {
-      "role": "Backend Developer (Team Project)",
-      "description": "A real-time **auction/bidding platform** where users list items and go head-to-head with live bids. The backend runs on **Java 21 + Spring Boot 3.5.7**, using **Spring Data JPA** for persistence and **Spring Data Redis** to track live bid state and keep bid updates fast.\n\nOn top of that: **Cloudinary** for item image uploads, **Spring Mail/EmailJS** for bid and outbid notifications, and a relational **MySQL** schema for users, listings, and transaction history. The frontend is a **React 19** app built with Create React App, using **React Router 7** and Axios to talk to the API.\n\nThis project pushed my experience with real-time state management and cache-backed concurrency handling for bids that come in fast and often.",
-      "challenge": "A real-time auction platform needs low-latency bid-state updates when a lot of people are bidding on the same item at once — a classic concurrency and cache-backed state problem.",
-      "highlights": [
-        "Spring Data Redis tracks live bid state and caches for low-latency updates",
-        "Relational MySQL schema for users, listings, and transaction history",
-        "Integrated Cloudinary for product image uploads, Spring Mail/EmailJS for outbid notifications",
-        "Deepened experience with real-time state management and cache-backed concurrency patterns"
-      ]
-    },
-    {
       "role": "Full-Stack Developer (Team Project)",
       "description": "A **Vietnamese agricultural marketplace** connecting farmers, suppliers, and customers — covering listings, orders, reviews, and notifications. It started as an academic project (**PRM393**) with a **Flutter mobile app** and an **Express.js/MongoDB** backend secured with JWT.\n\nIt later grew into a more production-grade parallel build aimed at real startup viability: a **Next.js + TypeScript** frontend (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo for farm location mapping) backed by a **NestJS + TypeORM** service layer. That shift — from academic prototype to startup-grade architecture — even included drafting a formal Vietnamese startup proposal document.",
       "challenge": "It started as an academic project (PRM393), but the team decided to push it into production-grade architecture aimed at real startup viability — which meant redesigning it from mobile-only into a scalable, multi-platform full stack.",
@@ -599,17 +682,6 @@
         "Microservices architecture: API Gateway (Spring Cloud Gateway, WebFlux, JWT+Redis auth), business-service (Spring Boot 3.3.5), publisher-service (RabbitMQ with retry/backoff), AI service (Python FastAPI + RAG)",
         "Entire system orchestrated via Docker Compose",
         "React 18 + TypeScript + Vite dashboard frontend, with a companion Expo/React Native mobile app"
-      ]
-    },
-    {
-      "role": "Backend Developer (Team Project)",
-      "description": "A **children's storytelling and reading platform** (ages 3–12) combining story listening, guided reading practice, and pronunciation scoring — with a parent dashboard for tracking progress and a dedicated kid mode.\n\nThe backend runs on **.NET 9/10** following **Clean Architecture**, using **MongoDB** for storage, **JWT + Google OAuth** for auth, **Cloudinary** and **AWS S3/CloudFront** for media delivery, and **PayOS** for subscription payments — all tested with **xUnit/NSubstitute**. The web app uses **React 19 + Vite + TypeScript**, **Tailwind 4**, and **TanStack Query**; the mobile app is **Expo/React Native**; and the marketing landing page leans on **Three.js/react-three-fiber**, **PixiJS**, and **GSAP** for richer animation.\n\nA custom **AI training pipeline** (GPT-SoVITS-based TTS + pronunciation scoring) powers the platform's voice and reading-assessment features — this is the most technically diverse project I've contributed to, touching backend, web, mobile, 3D web animation, and applied ML all at once.",
-      "challenge": "Build a story listening/reading platform for kids aged 3–12 with pronunciation scoring — which meant a Clean Architecture backend, web and mobile apps, 3D landing-page animation, and a dedicated voice-processing AI pipeline all at the same time.",
-      "highlights": [
-        "Backend in .NET 9/10 following Clean Architecture, tested with xUnit/NSubstitute",
-        "JWT + Google OAuth, media via Cloudinary + AWS S3/CloudFront, subscription payments via PayOS",
-        "Landing page uses Three.js/react-three-fiber, PixiJS, GSAP for rich animation",
-        "Dedicated AI pipeline (GPT-SoVITS-based TTS + pronunciation scoring) — the most technically diverse project I've contributed to"
       ]
     },
     {
@@ -663,17 +735,6 @@
       ]
     },
     {
-      "role": "Mobile Developer (Team Project)",
-      "description": "A **weather monitoring mobile app** built as a PRM393 course project, run with a real team workflow — Jira-ticket-linked commits, feature branches, and code review across a 3-person team.\n\nThe app is built in **Flutter**, with a **Node.js backend** handling weather data aggregation, location-based alerts, and a **scheduled AQI (Air Quality Index) threshold check** that triggers push notifications. **Firebase** powers auth and push delivery. A **CI/CD pipeline** (GitHub Actions) runs on every push to keep both the Flutter app and backend deployable at all times.",
-      "challenge": "Build a weather-tracking app with automated AQI alerts for the PRM393 course — a 3-person team needed a real workflow (Jira tickets, feature branches, CI/CD), not just code-once-and-submit.",
-      "highlights": [
-        "Flutter app tracking weather with location alerts and automated AQI threshold checks (scheduled job)",
-        "Node.js backend handling weather data aggregation and push notifications via Firebase",
-        "CI/CD pipeline (GitHub Actions) running on every push, keeping both app and backend deployable",
-        "Real team workflow: commits linked to Jira tickets (PRM-XX), feature branches, code review"
-      ]
-    },
-    {
       "role": "AI Engineer — RAG Pipeline & API (Team Project)",
       "description": "An **AI system that fixes JavaScript concurrency bugs** — fine-tuning a small language model (Qwen2.5-Coder-1.5B) with QLoRA and pairing it with a **BM25 + AST-based RAG pipeline** for exact API-name retrieval, rather than reaching for a large general-purpose model.\n\nI owned the **RAG pipeline and FastAPI server**: building the BM25 retrieval index over 2,050 documents, an esprima-based AST tokenizer that keeps JavaScript identifiers intact (avoiding the false-split problem naive regex tokenizers run into), and the race-condition detector. The fine-tuned model plus RAG pipeline hit a **75% pass rate** on a 20-case benchmark, beating zero-shot GPT-3.5-turbo (30%) and even the fine-tuned model without RAG (70%) — full write-up on the blog.",
       "challenge": "ESLint only flags JavaScript concurrency bugs, it doesn't fix them, and calling GPT-4 costs money and isn't specialized for this domain. We needed a small, offline-capable model that specializes in exactly one bug class — and a retrieval pipeline that understands exact API names instead of fuzzy semantic matching.",
@@ -724,79 +785,255 @@
     }
   ],
   "educationItems": [
-    { "degree": "Software Developer Intern", "description": "Currently interning at FPT Software, a **top-tier technology company in Vietnam**. I'm getting hands-on experience building applications on **Low-Code platforms**, specifically **OutSystems**. This role has given me a real, up-close look at a professional **enterprise environment** and **modern software development practices**." },
-    { "degree": "University (Computer Science)", "description": "Currently working toward a **Bachelor of Science in Computer Science**. My coursework leans heavily into **software development**, **data structures**, and **algorithms**. I've focused especially on **backend technologies**, particularly **Java Spring Boot**, picking up practical experience through **team projects** and **coding competitions** along the way." },
-    { "degree": "Inbound Mobility Programme", "description": "Took part in the **FPTU Inbound Mobility Programme** in **Kuala Lumpur, Malaysia**. It gave me real **international exposure** to different academic and cultural environments, and sharpened my **adaptability** and **cross-cultural communication skills**." },
-    { "degree": "High School Diploma", "description": "Graduated with a **GPA of 9.3/10.0**. The curriculum gave me a strong foundation in **Mathematics, Physics, and analytical thinking** — a crucial stepping stone into Computer Science and the **problem-solving mindset** I still lean on today." }
+    {
+      "degree": "Software Developer Intern",
+      "description": "Currently interning at FPT Software, a **top-tier technology company in Vietnam**. I'm getting hands-on experience building applications on **Low-Code platforms**, specifically **OutSystems**. This role has given me a real, up-close look at a professional **enterprise environment** and **modern software development practices**."
+    },
+    {
+      "degree": "University (Computer Science)",
+      "description": "Currently working toward a **Bachelor of Science in Computer Science**. My coursework leans heavily into **software development**, **data structures**, and **algorithms**. I've focused especially on **backend technologies**, particularly **Java Spring Boot**, picking up practical experience through **team projects** and **coding competitions** along the way."
+    },
+    {
+      "degree": "Inbound Mobility Programme",
+      "description": "Took part in the **FPTU Inbound Mobility Programme** in **Kuala Lumpur, Malaysia**. It gave me real **international exposure** to different academic and cultural environments, and sharpened my **adaptability** and **cross-cultural communication skills**."
+    },
+    {
+      "degree": "High School Diploma",
+      "description": "Graduated with a **GPA of 9.3/10.0**. The curriculum gave me a strong foundation in **Mathematics, Physics, and analytical thinking** — a crucial stepping stone into Computer Science and the **problem-solving mindset** I still lean on today."
+    }
   ],
   "memoryItems": [
-    { "caption": "Learning and development at FPT University." },
-    { "caption": "International exposure during the mobility program in Kuala Lumpur." },
-    { "caption": "A strong foundation built during high school years." }
+    {
+      "caption": "Learning and development at FPT University."
+    },
+    {
+      "caption": "International exposure during the mobility program in Kuala Lumpur."
+    },
+    {
+      "caption": "A strong foundation built during high school years."
+    }
   ],
   "activityItems": [
-    { "title": "Alumni Career Guidance Talk", "role": "Guest Speaker & Mentor", "description": "Invited back to my alma mater as a **guest speaker** to talk to 12th-graders about university pathways and careers in tech. I shared my own path from high school to FPT University and the FPT Software internship — the CS curriculum, the Java development roadmap, and what actually matters in your first year in tech. Fielded live Q&A from over 50 students." },
-    { "title": "Innocode Camp – Coding Competition", "role": "Team Leader", "description": "Led a **5-member cross-functional team** through the full development lifecycle of Innocode Camp SU25 — from problem analysis and system design to implementation and the final presentation. We built a job search platform prototype using **React, Java Spring Boot, MySQL, and Docker**. I ran sprint planning, made the backend architecture calls, and kept the team on schedule under the competition deadline. We made the **final round**." },
-    { "title": "Mic Home Club & FUM Club", "role": "Core Member & Event Host", "description": "Active core member of two of FPT University Da Nang's most prominent event and public speaking clubs. I regularly served as **MC and host** for university-scale events — orientation ceremonies, cultural festivals, academic competitions — in front of live audiences of **600 to 1000+ people**. Built up real stage presence, the ability to recover when things go sideways, and a feel for reading and guiding a big crowd through a multi-hour program." },
-    { "title": "Dreamer ResFres – Research Festival", "role": "Team Leader", "description": "Led The Dreamers team through **FPT's Research Festival (ResFres)** — a multi-stage academic competition requiring original research, a structured report, and formal panel presentations. I split up tasks across the team, kept the research timeline on track, and coached teammates on presenting technical findings clearly to a non-technical jury. We advanced to the **multi-campus final round**." },
-    { "title": "Gala – Hon Thien Dat Viet", "role": "External Relations & Main Coordinator", "description": "Served as **main coordinator and external relations lead** for the 'Hon Thien Dat Viet' cultural gala — a large-scale university event celebrating Vietnamese heritage. That meant liaising with outside partners and sponsors, coordinating logistics across departments, running the event timeline on the day, and troubleshooting whatever came up live. Good practical lessons in high-stakes event diplomacy and juggling multiple stakeholders." },
-    { "title": "The Dreamers – Charity Fundraising Campaign", "role": "Project Leader & Treasurer", "description": "Designed and led The Dreamers' end-of-year fundraising campaign — coordinating sales, tracking contributions, and managing the budget as **treasurer**. Every dollar raised went straight to charity missions at local orphanages — meals, educational materials, and technology workshops. The campaign hit its internal revenue target within the month and gave us a repeatable model for future fundraising cycles." },
-    { "title": "Charity Missions – AHT Cooperation", "role": "Participant & Organizer", "description": "Took part in and helped organize several charity field missions through AHT Cooperation — orphanage visits, community fundraising drives, and the 'Hanh trinh tu thien ocean.zero6' initiative. My work ranged from hands-on volunteering (handing out supplies, running mini-workshops for kids) to the logistics side (transport coordination, documentation, post-event reporting)." },
-    { "title": "Workshop MC – 'Make Your Image Better'", "role": "Master of Ceremonies", "description": "Hosted the **'Make Your Image Better'** university workshop — a session on personal branding, appearance, and professional presence for students about to enter the job market. Ran the program flow, introduced speakers, kept the audience engaged, and kept the energy up across a multi-segment event. One of several workshops I've hosted, building a solid track record in professional event facilitation." },
-    { "title": "Gender Equality Workshop – Program MC", "role": "Master of Ceremonies", "description": "MC'd the **'Gender Equality in the Workplace'** workshop — a sensitive, important topic that called for careful tone, inclusive language, and the ability to keep an open discussion running smoothly. Introduced panelists, moderated Q&A, and made sure the room stayed respectful throughout. This one stretched my hosting range beyond entertainment into social education." },
-    { "title": "University Event Collaborator", "role": "Student Representative & Guide", "description": "Ongoing work as a **student representative and event guide** across a range of FPT University activities — new student orientation, admission open days, volunteer recruitment drives, and inter-department collaboration events. Consistently trusted to be the face of the university for prospective students and their families, which takes clear communication, patience, and knowing the campus inside out." },
-    { "title": "Student Actor / Model / Content Creator", "role": "Actor, Model & Vlogger", "description": "Picked up a mix of media experience across three roles: **Commercial Actor** for Honda Tien Thu dealership promotional content; **Model** for LenDoan Bridal and FPT University's official photography and event materials; and **Vlogger/Content Creator** producing and editing video for social platforms. These built up my adaptability, camera confidence, and creative production chops — a different but complementary side to the technical work." },
-    { "title": "The Dreamers – Member Recruitment Drive", "role": "Recruitment Leader", "description": "Designed and led The Dreamers' **second-round member recruitment campaign** — drafting the recruitment criteria, putting together application materials, running interviews, and picking candidates who fit the organization's mission and culture. Successfully brought in a new cohort of members who went on to contribute to the Dream High project and our charity missions." },
-    { "title": "Tot Hy Vong Event", "role": "Event Leader", "description": "Led the full planning and execution of **'Tot Hy Vong'** — a charity event organized by The Dreamers bringing joy, gifts, and educational activities to underprivileged children. Coordinated volunteer assignments, managed the day-of schedule, handled whatever came up on-site, and oversaw post-event documentation. A good reminder of what The Dreamers is really about — using community action to make a tangible difference." },
-    { "title": "Vong vao Mong mo Event", "role": "Event Leader", "description": "Led the organizing team for **'Vong vao Mong mo'** — a week-long initiative by The Dreamers designed to inspire ambition and self-belief in young participants through storytelling, mentorship sessions, and interactive workshops. Handled the full arc: concept, logistics, volunteer coordination, and wrap-up. A meaningful project that tied The Dreamers' mission directly to youth empowerment." },
-    { "title": "Dream High Project", "role": "Project Leader", "description": "Led **Dream High** — The Dreamers' flagship long-term project, running 6 months, focused on bringing technology literacy and personal development to orphaned children through structured weekly sessions. As project leader, I oversaw curriculum design, volunteer scheduling, partner coordination, and progress tracking. The project ran bi-weekly workshops on basic coding concepts, communication skills, and goal-setting for kids aged 8–15." },
-    { "title": "AI & Robotics Competition – Official Referee", "role": "Head Referee", "description": "Selected as **head referee** for FPT University's AI & Robotics Competition — a technical contest where student teams program robots and AI systems to complete set challenges. Responsibilities included enforcing the rules fairly, checking technical compliance of robot designs, managing timekeeping during rounds, and settling disputes between teams. Being trusted with this role reflected the faculty's confidence in both my technical understanding and my professional conduct." },
-    { "title": "Charity Music Performance – Event Manager", "role": "Event Manager", "description": "Managed The Dreamers' **charity music performance event** from planning through execution — coordinating performers, securing the venue, handling ticket and donation logistics, and managing the volunteer teams on the day. The concert raised funds for orphanage support programs. This was the biggest production The Dreamers had put on, requiring weeks of prep and a lot of real-time problem solving during the live event." },
-    { "title": "August Revolution Commemorative Photoshoot", "role": "Photo Model", "description": "Selected as a **photo model** for FPT University's official commemorative photo series marking the anniversary of the August Revolution. Worked with the university's media team on formal portraits and group shots used in official communications and campus displays — part of an ongoing involvement with FPT's visual media and branding work." }
+    {
+      "title": "Alumni Career Guidance Talk",
+      "role": "Guest Speaker & Mentor",
+      "description": "Invited back to my alma mater as a **guest speaker** to talk to 12th-graders about university pathways and careers in tech. I shared my own path from high school to FPT University and the FPT Software internship — the CS curriculum, the Java development roadmap, and what actually matters in your first year in tech. Fielded live Q&A from over 50 students."
+    },
+    {
+      "title": "Innocode Camp – Coding Competition",
+      "role": "Team Leader",
+      "description": "Led a **5-member cross-functional team** through the full development lifecycle of Innocode Camp SU25 — from problem analysis and system design to implementation and the final presentation. We built a job search platform prototype using **React, Java Spring Boot, MySQL, and Docker**. I ran sprint planning, made the backend architecture calls, and kept the team on schedule under the competition deadline. We made the **final round**."
+    },
+    {
+      "title": "Mic Home Club & FUM Club",
+      "role": "Core Member & Event Host",
+      "description": "Active core member of two of FPT University Da Nang's most prominent event and public speaking clubs. I regularly served as **MC and host** for university-scale events — orientation ceremonies, cultural festivals, academic competitions — in front of live audiences of **600 to 1000+ people**. Built up real stage presence, the ability to recover when things go sideways, and a feel for reading and guiding a big crowd through a multi-hour program."
+    },
+    {
+      "title": "Dreamer ResFres – Research Festival",
+      "role": "Team Leader",
+      "description": "Led The Dreamers team through **FPT's Research Festival (ResFres)** — a multi-stage academic competition requiring original research, a structured report, and formal panel presentations. I split up tasks across the team, kept the research timeline on track, and coached teammates on presenting technical findings clearly to a non-technical jury. We advanced to the **multi-campus final round**."
+    },
+    {
+      "title": "Gala – Hon Thien Dat Viet",
+      "role": "External Relations & Main Coordinator",
+      "description": "Served as **main coordinator and external relations lead** for the 'Hon Thien Dat Viet' cultural gala — a large-scale university event celebrating Vietnamese heritage. That meant liaising with outside partners and sponsors, coordinating logistics across departments, running the event timeline on the day, and troubleshooting whatever came up live. Good practical lessons in high-stakes event diplomacy and juggling multiple stakeholders."
+    },
+    {
+      "title": "The Dreamers – Charity Fundraising Campaign",
+      "role": "Project Leader & Treasurer",
+      "description": "Designed and led The Dreamers' end-of-year fundraising campaign — coordinating sales, tracking contributions, and managing the budget as **treasurer**. Every dollar raised went straight to charity missions at local orphanages — meals, educational materials, and technology workshops. The campaign hit its internal revenue target within the month and gave us a repeatable model for future fundraising cycles."
+    },
+    {
+      "title": "Charity Missions – AHT Cooperation",
+      "role": "Participant & Organizer",
+      "description": "Took part in and helped organize several charity field missions through AHT Cooperation — orphanage visits, community fundraising drives, and the 'Hanh trinh tu thien ocean.zero6' initiative. My work ranged from hands-on volunteering (handing out supplies, running mini-workshops for kids) to the logistics side (transport coordination, documentation, post-event reporting)."
+    },
+    {
+      "title": "Workshop MC – 'Make Your Image Better'",
+      "role": "Master of Ceremonies",
+      "description": "Hosted the **'Make Your Image Better'** university workshop — a session on personal branding, appearance, and professional presence for students about to enter the job market. Ran the program flow, introduced speakers, kept the audience engaged, and kept the energy up across a multi-segment event. One of several workshops I've hosted, building a solid track record in professional event facilitation."
+    },
+    {
+      "title": "Gender Equality Workshop – Program MC",
+      "role": "Master of Ceremonies",
+      "description": "MC'd the **'Gender Equality in the Workplace'** workshop — a sensitive, important topic that called for careful tone, inclusive language, and the ability to keep an open discussion running smoothly. Introduced panelists, moderated Q&A, and made sure the room stayed respectful throughout. This one stretched my hosting range beyond entertainment into social education."
+    },
+    {
+      "title": "University Event Collaborator",
+      "role": "Student Representative & Guide",
+      "description": "Ongoing work as a **student representative and event guide** across a range of FPT University activities — new student orientation, admission open days, volunteer recruitment drives, and inter-department collaboration events. Consistently trusted to be the face of the university for prospective students and their families, which takes clear communication, patience, and knowing the campus inside out."
+    },
+    {
+      "title": "Student Actor / Model / Content Creator",
+      "role": "Actor, Model & Vlogger",
+      "description": "Picked up a mix of media experience across three roles: **Commercial Actor** for Honda Tien Thu dealership promotional content; **Model** for LenDoan Bridal and FPT University's official photography and event materials; and **Vlogger/Content Creator** producing and editing video for social platforms. These built up my adaptability, camera confidence, and creative production chops — a different but complementary side to the technical work."
+    },
+    {
+      "title": "The Dreamers – Member Recruitment Drive",
+      "role": "Recruitment Leader",
+      "description": "Designed and led The Dreamers' **second-round member recruitment campaign** — drafting the recruitment criteria, putting together application materials, running interviews, and picking candidates who fit the organization's mission and culture. Successfully brought in a new cohort of members who went on to contribute to the Dream High project and our charity missions."
+    },
+    {
+      "title": "Tot Hy Vong Event",
+      "role": "Event Leader",
+      "description": "Led the full planning and execution of **'Tot Hy Vong'** — a charity event organized by The Dreamers bringing joy, gifts, and educational activities to underprivileged children. Coordinated volunteer assignments, managed the day-of schedule, handled whatever came up on-site, and oversaw post-event documentation. A good reminder of what The Dreamers is really about — using community action to make a tangible difference."
+    },
+    {
+      "title": "Vong vao Mong mo Event",
+      "role": "Event Leader",
+      "description": "Led the organizing team for **'Vong vao Mong mo'** — a week-long initiative by The Dreamers designed to inspire ambition and self-belief in young participants through storytelling, mentorship sessions, and interactive workshops. Handled the full arc: concept, logistics, volunteer coordination, and wrap-up. A meaningful project that tied The Dreamers' mission directly to youth empowerment."
+    },
+    {
+      "title": "Dream High Project",
+      "role": "Project Leader",
+      "description": "Led **Dream High** — The Dreamers' flagship long-term project, running 6 months, focused on bringing technology literacy and personal development to orphaned children through structured weekly sessions. As project leader, I oversaw curriculum design, volunteer scheduling, partner coordination, and progress tracking. The project ran bi-weekly workshops on basic coding concepts, communication skills, and goal-setting for kids aged 8–15."
+    },
+    {
+      "title": "AI & Robotics Competition – Official Referee",
+      "role": "Head Referee",
+      "description": "Selected as **head referee** for FPT University's AI & Robotics Competition — a technical contest where student teams program robots and AI systems to complete set challenges. Responsibilities included enforcing the rules fairly, checking technical compliance of robot designs, managing timekeeping during rounds, and settling disputes between teams. Being trusted with this role reflected the faculty's confidence in both my technical understanding and my professional conduct."
+    },
+    {
+      "title": "Charity Music Performance – Event Manager",
+      "role": "Event Manager",
+      "description": "Managed The Dreamers' **charity music performance event** from planning through execution — coordinating performers, securing the venue, handling ticket and donation logistics, and managing the volunteer teams on the day. The concert raised funds for orphanage support programs. This was the biggest production The Dreamers had put on, requiring weeks of prep and a lot of real-time problem solving during the live event."
+    },
+    {
+      "title": "August Revolution Commemorative Photoshoot",
+      "role": "Photo Model",
+      "description": "Selected as a **photo model** for FPT University's official commemorative photo series marking the anniversary of the August Revolution. Worked with the university's media team on formal portraits and group shots used in official communications and campus displays — part of an ongoing involvement with FPT's visual media and branding work."
+    }
   ],
   "certificateItems": [
-    { "description": "Scored an **overall band of 6.0** (Listening 5.5, Reading 6.5, Writing 5.5, Speaking 6.0 · CEFR B2) on the Academic IELTS — solid academic English across all four skills. Officially administered and verified by the British Council / IDP." },
-    { "description": "Linear Certificate from **DOL English's IELTS 6.0 course**, marking course completion and progress toward the target band score — a prep milestone ahead of sitting the official IELTS Academic test." },
-    { "description": "Completed the **FPT University Inbound Mobility Programme** hosted at Tunku Abdul Rahman University of Management and Technology in **Kuala Lumpur, Malaysia**. Came away with international academic exposure, cross-cultural communication experience, and a broader view of technology education across Southeast Asia." },
-    { "description": "Certificate recognizing participation and advancing to the **final round** of Innocode Camp SU25 — a project-based coding competition organized by FPT Education for university students. Our team built a job search platform and went up against finalists from multiple FPT campuses." },
-    { "description": "Certificate of participation and achievement at the **FPT Research Festival (ResFres 2024)** — a multi-stage academic competition covering original research, structured reporting, and a formal panel presentation. Advanced to the multi-campus final round representing The Dreamers team." },
-    { "description": "Completed training on building **AI-powered automation workflows** using n8n — agent design, API chaining, conditional logic, and integrating with external services. Put it to use directly on workflow automation tasks during the FPT Software internship." },
-    { "description": "Completed Meta's **Programming with JavaScript** course on Coursera — part of the Meta Front-End Developer Professional Certificate. Covers ES6+ syntax, functions, objects, arrays, error handling, and testing fundamentals with Jest." },
-    { "description": "Completed the University of Michigan's **Basics of Web Development & Coding** course — an intro to how the web works, covering HTML structure, CSS styling, basic JavaScript interactivity, and browser rendering." },
-    { "description": "Completed Meta's **HTML and CSS in Depth** course — part of the Front-End Developer certificate. Deep dive on semantic HTML5, advanced CSS selectors, the box model, Flexbox, Grid, and accessibility best practices." },
-    { "description": "Completed the University of Michigan's **Interactivity with JavaScript** course — DOM manipulation, event listeners, form validation, and dynamic content rendering for responsive, interactive web pages." },
-    { "description": "Completed Meta's **Introduction to Front-End Development** — the foundational course of the Meta Front-End Developer Professional Certificate. Covers what front-end developers actually do, core web technologies, and an intro to React." },
-    { "description": "Completed IBM's **Data Visualization** course on Coursera — principles of effective data communication, chart selection, and hands-on practice with visualization tools to turn raw data into clear, useful insights." },
-    { "description": "Completed the University of Michigan's **CSS3** course — advanced CSS3 features including transitions, animations, custom properties (CSS variables), pseudo-elements, and responsive design techniques." },
-    { "description": "Completed the University of Michigan's **HTML5** course — in-depth look at HTML5 semantic elements, multimedia embedding, forms, accessibility attributes, and best practices for structuring modern web documents." },
-    { "description": "Completed the University of Michigan's **Responsive Web Design** course — media queries, fluid grids, flexible images, and mobile-first design principles for layouts that adapt across screen sizes." },
-    { "description": "Completed the University of Auckland's **Academic Skills for University Success** specialization — critical reading, academic writing, research methodology, and time management for university-level study." },
-    { "description": "Completed CalArts' **Fundamentals of Graphic Design** course on Coursera — visual design principles including typography, color theory, composition, and image-making. Applied it to visual materials for The Dreamers events and FPT activities." },
-    { "description": "Completed F8's **Information Technology Onboarding** course — an intro to core IT concepts, development workflows, and foundational practices for students starting out in software development." },
-    { "description": "Served on the **Organizing Committee** of the FPTU AI & Robotics Challenge 2025 — a technical competition where student teams program robots and AI systems to complete engineering challenges. Certificate awarded for helping run the competition and its operations." },
-    { "description": "Officially certified completion of the **On-the-Job Training program** at Công ty TNHH Phần mềm FPT Miền Trung (FPT Software), covering September–December 2025 — the university-recognized internship placement underlying my FPT Software Developer Intern role." },
-    { "description": "Completed IBM's **Build RAG Applications: Get Started** course on Coursera — an intro to Retrieval-Augmented Generation (RAG) fundamentals for building AI applications that ground responses in external knowledge sources." },
-    { "description": "Completed IBM's **Fundamentals of AI Agents Using RAG and LangChain** course on Coursera — core concepts of AI agent design, retrieval-augmented generation, and LangChain orchestration for building context-aware agents." },
-    { "description": "Completed an IBM-authored Coursera project building **Generative AI applications using Retrieval-Augmented Generation (RAG) and LangChain** — vector retrieval, prompt orchestration, and grounding LLM outputs in external data sources." },
-    { "description": "Recognized as a **Student Ambassador** for actively promoting AIESEC's Mini Leadership Conference 2025 — helping with outreach and campaign efforts for the regional youth leadership event in Da Nang." },
-    { "description": "Awarded a **10% scholarship** for the Information Technology program (Software Engineering major) at FPT University, based on the university's 2023 scholarship exam (Điểm trắc nghiệm 44/90, Điểm luận 8/15 — Tổng điểm 52/105)." },
-    { "description": "Completed freeCodeCamp's **JavaScript Algorithms and Data Structures** certification — fundamental algorithms (sorting, searching), data structures (arrays, objects, linked lists, stacks, queues), and algorithmic problem solving in pure JavaScript." },
-    { "description": "Completed the **Hiragana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — got through the full 46-character Japanese phonetic alphabet used for native Japanese words." },
-    { "description": "Completed the **Katakana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — the 46-character syllabary used for foreign loanwords and technical terms in Japanese." },
-    { "description": "Certificate of participation in the **'Non Xanh Nuoc Biec'** environmental awareness event organized by FPT University's Student Union — a campus initiative promoting sustainability, green living, and student community engagement." },
-    { "description": "Presented with **The Dreamers' Certificate of Honor**, recognizing my leadership and dedication as **Founder and President** of The Dreamers — honoring the passion and commitment that got the organization off the ground." },
-    { "description": "Completed CertNexus's **Create and Lead an Ethical Data-Driven Organization** course on Coursera — part of a specialization on ethical governance and leadership for data-driven teams." },
-    { "description": "Completed CertNexus's **Detect and Mitigate Ethical Risks** course on Coursera — methods to identify, assess, and reduce ethical risks in data-driven and AI-powered systems." },
-    { "description": "Completed CertNexus's **Promote the Ethical Use of Data-Driven Technologies** course on Coursera — strategies for advocating responsible, ethical adoption of data and AI technologies within organizations." },
-    { "description": "Completed CertNexus's **Turn Ethical Frameworks into Actionable Steps** course on Coursera — translating high-level ethical principles into concrete, implementable practices for data-driven organizations." },
-    { "description": "Completed CertNexus's **Communicate Effectively about Ethical Challenges in Data-Driven Technologies** course on Coursera — building skills to clearly discuss and navigate ethical issues in AI and data technologies with diverse stakeholders." },
-    { "description": "Completed CertNexus's **Preparing for Your CertNexus Certification Exam** course on Coursera — the capstone course of the CertNexus ethical data specialization, reviewing key concepts and exam prep strategies." },
-    { "description": "Completed Politecnico di Milano's **Ethics of Artificial Intelligence** course on Coursera — the philosophical, social, and technical dimensions of ethical AI design and deployment." },
-    { "description": "Completed UC Irvine's **Initiating and Planning Projects** course on Coursera — part of a Project Management specialization, covering project charters, scope definition, and early-stage planning fundamentals." },
-    { "description": "Completed UC Irvine's **Budgeting and Scheduling Projects** course on Coursera — cost estimation, budget planning, and schedule development techniques for managing projects." },
-    { "description": "Completed UC Irvine's **Managing Project Risks and Changes** course on Coursera — risk identification, mitigation planning, and change management practices throughout the project lifecycle." },
-    { "description": "Completed the capstone **Project Management Project** for UC Irvine's Project Management specialization on Coursera — applying initiation, planning, budgeting, scheduling, and risk management skills to a full project simulation." },
-    { "description": "Certificate of participation in **Hackathon Computer Vision 2026** — an international hackathon between FPT University and Singapore Institute of Technology (SIT), strengthening academic exchange between the two schools." },
-    { "description": "Awarded **Honorable Student of the Semester (Spring 2026)** by FPT University in recognition of strong academic performance and conduct during the semester." }
+    {
+      "description": "Scored an **overall band of 6.0** (Listening 5.5, Reading 6.5, Writing 5.5, Speaking 6.0 · CEFR B2) on the Academic IELTS — solid academic English across all four skills. Officially administered and verified by the British Council / IDP."
+    },
+    {
+      "description": "Linear Certificate from **DOL English's IELTS 6.0 course**, marking course completion and progress toward the target band score — a prep milestone ahead of sitting the official IELTS Academic test."
+    },
+    {
+      "description": "Completed the **FPT University Inbound Mobility Programme** hosted at Tunku Abdul Rahman University of Management and Technology in **Kuala Lumpur, Malaysia**. Came away with international academic exposure, cross-cultural communication experience, and a broader view of technology education across Southeast Asia."
+    },
+    {
+      "description": "Certificate recognizing participation and advancing to the **final round** of Innocode Camp SU25 — a project-based coding competition organized by FPT Education for university students. Our team built a job search platform and went up against finalists from multiple FPT campuses."
+    },
+    {
+      "description": "Certificate of participation and achievement at the **FPT Research Festival (ResFres 2024)** — a multi-stage academic competition covering original research, structured reporting, and a formal panel presentation. Advanced to the multi-campus final round representing The Dreamers team."
+    },
+    {
+      "description": "Completed training on building **AI-powered automation workflows** using n8n — agent design, API chaining, conditional logic, and integrating with external services. Put it to use directly on workflow automation tasks during the FPT Software internship."
+    },
+    {
+      "description": "Completed Meta's **Programming with JavaScript** course on Coursera — part of the Meta Front-End Developer Professional Certificate. Covers ES6+ syntax, functions, objects, arrays, error handling, and testing fundamentals with Jest."
+    },
+    {
+      "description": "Completed the University of Michigan's **Basics of Web Development & Coding** course — an intro to how the web works, covering HTML structure, CSS styling, basic JavaScript interactivity, and browser rendering."
+    },
+    {
+      "description": "Completed Meta's **HTML and CSS in Depth** course — part of the Front-End Developer certificate. Deep dive on semantic HTML5, advanced CSS selectors, the box model, Flexbox, Grid, and accessibility best practices."
+    },
+    {
+      "description": "Completed the University of Michigan's **Interactivity with JavaScript** course — DOM manipulation, event listeners, form validation, and dynamic content rendering for responsive, interactive web pages."
+    },
+    {
+      "description": "Completed Meta's **Introduction to Front-End Development** — the foundational course of the Meta Front-End Developer Professional Certificate. Covers what front-end developers actually do, core web technologies, and an intro to React."
+    },
+    {
+      "description": "Completed IBM's **Data Visualization** course on Coursera — principles of effective data communication, chart selection, and hands-on practice with visualization tools to turn raw data into clear, useful insights."
+    },
+    {
+      "description": "Completed the University of Michigan's **CSS3** course — advanced CSS3 features including transitions, animations, custom properties (CSS variables), pseudo-elements, and responsive design techniques."
+    },
+    {
+      "description": "Completed the University of Michigan's **HTML5** course — in-depth look at HTML5 semantic elements, multimedia embedding, forms, accessibility attributes, and best practices for structuring modern web documents."
+    },
+    {
+      "description": "Completed the University of Michigan's **Responsive Web Design** course — media queries, fluid grids, flexible images, and mobile-first design principles for layouts that adapt across screen sizes."
+    },
+    {
+      "description": "Completed the University of Auckland's **Academic Skills for University Success** specialization — critical reading, academic writing, research methodology, and time management for university-level study."
+    },
+    {
+      "description": "Completed CalArts' **Fundamentals of Graphic Design** course on Coursera — visual design principles including typography, color theory, composition, and image-making. Applied it to visual materials for The Dreamers events and FPT activities."
+    },
+    {
+      "description": "Completed F8's **Information Technology Onboarding** course — an intro to core IT concepts, development workflows, and foundational practices for students starting out in software development."
+    },
+    {
+      "description": "Served on the **Organizing Committee** of the FPTU AI & Robotics Challenge 2025 — a technical competition where student teams program robots and AI systems to complete engineering challenges. Certificate awarded for helping run the competition and its operations."
+    },
+    {
+      "description": "Officially certified completion of the **On-the-Job Training program** at Công ty TNHH Phần mềm FPT Miền Trung (FPT Software), covering September–December 2025 — the university-recognized internship placement underlying my FPT Software Developer Intern role."
+    },
+    {
+      "description": "Completed IBM's **Build RAG Applications: Get Started** course on Coursera — an intro to Retrieval-Augmented Generation (RAG) fundamentals for building AI applications that ground responses in external knowledge sources."
+    },
+    {
+      "description": "Completed IBM's **Fundamentals of AI Agents Using RAG and LangChain** course on Coursera — core concepts of AI agent design, retrieval-augmented generation, and LangChain orchestration for building context-aware agents."
+    },
+    {
+      "description": "Completed an IBM-authored Coursera project building **Generative AI applications using Retrieval-Augmented Generation (RAG) and LangChain** — vector retrieval, prompt orchestration, and grounding LLM outputs in external data sources."
+    },
+    {
+      "description": "Recognized as a **Student Ambassador** for actively promoting AIESEC's Mini Leadership Conference 2025 — helping with outreach and campaign efforts for the regional youth leadership event in Da Nang."
+    },
+    {
+      "description": "Awarded a **10% scholarship** for the Information Technology program (Software Engineering major) at FPT University, based on the university's 2023 scholarship exam (Điểm trắc nghiệm 44/90, Điểm luận 8/15 — Tổng điểm 52/105)."
+    },
+    {
+      "description": "Completed freeCodeCamp's **JavaScript Algorithms and Data Structures** certification — fundamental algorithms (sorting, searching), data structures (arrays, objects, linked lists, stacks, queues), and algorithmic problem solving in pure JavaScript."
+    },
+    {
+      "description": "Completed the **Hiragana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — got through the full 46-character Japanese phonetic alphabet used for native Japanese words."
+    },
+    {
+      "description": "Completed the **Katakana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — the 46-character syllabary used for foreign loanwords and technical terms in Japanese."
+    },
+    {
+      "description": "Certificate of participation in the **'Non Xanh Nuoc Biec'** environmental awareness event organized by FPT University's Student Union — a campus initiative promoting sustainability, green living, and student community engagement."
+    },
+    {
+      "description": "Presented with **The Dreamers' Certificate of Honor**, recognizing my leadership and dedication as **Founder and President** of The Dreamers — honoring the passion and commitment that got the organization off the ground."
+    },
+    {
+      "description": "Completed CertNexus's **Create and Lead an Ethical Data-Driven Organization** course on Coursera — part of a specialization on ethical governance and leadership for data-driven teams."
+    },
+    {
+      "description": "Completed CertNexus's **Detect and Mitigate Ethical Risks** course on Coursera — methods to identify, assess, and reduce ethical risks in data-driven and AI-powered systems."
+    },
+    {
+      "description": "Completed CertNexus's **Promote the Ethical Use of Data-Driven Technologies** course on Coursera — strategies for advocating responsible, ethical adoption of data and AI technologies within organizations."
+    },
+    {
+      "description": "Completed CertNexus's **Turn Ethical Frameworks into Actionable Steps** course on Coursera — translating high-level ethical principles into concrete, implementable practices for data-driven organizations."
+    },
+    {
+      "description": "Completed CertNexus's **Communicate Effectively about Ethical Challenges in Data-Driven Technologies** course on Coursera — building skills to clearly discuss and navigate ethical issues in AI and data technologies with diverse stakeholders."
+    },
+    {
+      "description": "Completed CertNexus's **Preparing for Your CertNexus Certification Exam** course on Coursera — the capstone course of the CertNexus ethical data specialization, reviewing key concepts and exam prep strategies."
+    },
+    {
+      "description": "Completed Politecnico di Milano's **Ethics of Artificial Intelligence** course on Coursera — the philosophical, social, and technical dimensions of ethical AI design and deployment."
+    },
+    {
+      "description": "Completed UC Irvine's **Initiating and Planning Projects** course on Coursera — part of a Project Management specialization, covering project charters, scope definition, and early-stage planning fundamentals."
+    },
+    {
+      "description": "Completed UC Irvine's **Budgeting and Scheduling Projects** course on Coursera — cost estimation, budget planning, and schedule development techniques for managing projects."
+    },
+    {
+      "description": "Completed UC Irvine's **Managing Project Risks and Changes** course on Coursera — risk identification, mitigation planning, and change management practices throughout the project lifecycle."
+    },
+    {
+      "description": "Completed the capstone **Project Management Project** for UC Irvine's Project Management specialization on Coursera — applying initiation, planning, budgeting, scheduling, and risk management skills to a full project simulation."
+    },
+    {
+      "description": "Certificate of participation in **Hackathon Computer Vision 2026** — an international hackathon between FPT University and Singapore Institute of Technology (SIT), strengthening academic exchange between the two schools."
+    },
+    {
+      "description": "Awarded **Honorable Student of the Semester (Spring 2026)** by FPT University in recognition of strong academic performance and conduct during the semester."
+    }
   ]
 }

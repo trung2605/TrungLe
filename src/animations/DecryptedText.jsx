@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
 
 /**
  * DecryptedText - Inspired by ReactBits.dev
