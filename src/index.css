@@ -49,14 +49,6 @@
     transition: background-color 0.25s ease, color 0.25s ease;
   }
 
-  /* Custom cursor: hide the native pointer only where our cursor dot
-     actually renders (fine pointer + hover-capable devices) */
-  @media (hover: hover) and (pointer: fine) {
-    body, a, button, [role="button"] {
-      cursor: none;
-    }
-  }
-
   /* Respect OS-level reduced motion preference */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {

@@ -3,7 +3,6 @@ import { motion, useReducedMotion } from 'framer-motion';
 import Navigation from '../../components/Navigation/Navigation';
 import Footer from '../../components/Footer/Footer';
 import PageBanner from '../../components/PageBanner/PageBanner';
-import CustomCursor from '../../common/CustomCursor';
 import ScrollProgressBar from '../../common/ScrollProgressBar';
 import CommandPalette from '../../components/ui/CommandPalette';
 import InstallPrompt from '../../common/InstallPrompt';
@@ -21,7 +20,6 @@ const MainLayout = () => {
             fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
             overflowX: 'hidden',
         }}>
-            <CustomCursor />
             <ScrollProgressBar />
             <CommandPalette />
             <InstallPrompt />
