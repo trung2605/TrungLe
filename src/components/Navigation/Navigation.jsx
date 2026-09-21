@@ -137,7 +137,13 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
             style={{ alignItems: 'center', gap: '4px' }}
           >
             {siteNavigation.map((item) => {
-              const isActive = location.pathname === item.path || (item.path === '/achievements' && location.pathname === '/activities');
+              const isActive = 
+                location.pathname === item.path || 
+                (item.path !== '/' && location.pathname.startsWith(item.path)) ||
+                (item.path === '/achievements' && (location.pathname === '/achievements' || location.pathname === '/activities'));
+
+              const activeBg = isDarkMode ? '#ffffff' : '#000000';
+              const activeText = isDarkMode ? '#000000' : '#ffffff';
 
               if (item.path === '/achievements') {
                 const activeTab = searchParams.get('tab');
@@ -155,16 +161,21 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                         position: 'relative',
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '4px',
-                        padding: '6px 13px',
+                        gap: '5px',
+                        padding: '6px 14px',
                         borderRadius: '50px',
                         fontSize: '14px',
-                        fontWeight: isActive ? '550' : '450',
-                        color: isActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
+                        fontWeight: isActive ? '600' : '480',
+                        color: isActive ? activeText : 'var(--color-ink-soft)',
                         textDecoration: 'none',
                         whiteSpace: 'nowrap',
-                        transition: 'color 0.15s ease',
-                        backgroundColor: isActive ? 'var(--color-surface-soft)' : 'transparent',
+                        transition: 'all 0.15s ease',
+                      }}
+                      onMouseEnter={e => {
+                        if (!isActive) e.currentTarget.style.color = 'var(--color-ink)';
+                      }}
+                      onMouseLeave={e => {
+                        if (!isActive) e.currentTarget.style.color = 'var(--color-ink-soft)';
                       }}
                     >
                       {isActive && (
@@ -173,18 +184,22 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                           style={{
                             position: 'absolute',
                             inset: 0,
-                            backgroundColor: 'var(--color-surface-soft)',
+                            backgroundColor: activeBg,
                             borderRadius: '50px',
+                            boxShadow: isDarkMode ? '0 2px 10px rgba(255, 255, 255, 0.15)' : '0 2px 8px rgba(0, 0, 0, 0.22)',
+                            zIndex: 0,
                           }}
                           initial={false}
-                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                          transition={{ type: "spring", stiffness: 500, damping: 32 }}
                         />
                       )}
                       <span style={{ position: 'relative', zIndex: 1 }}>{item.title}</span>
                       <FaChevronDown
                         size={9}
                         style={{
-                          position: 'relative', zIndex: 1,
+                          position: 'relative',
+                          zIndex: 1,
+                          color: isActive ? activeText : 'currentColor',
                           transition: 'transform 0.15s ease',
                           transform: achievementsHover ? 'rotate(180deg)' : 'none',
                         }}
@@ -227,11 +242,11 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                                   padding: '9px 14px',
                                   borderRadius: '9px',
                                   fontSize: '14px',
-                                  fontWeight: subActive ? '540' : '400',
-                                  color: subActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
-                                  backgroundColor: subActive ? 'var(--color-surface-soft)' : 'transparent',
+                                  fontWeight: subActive ? '600' : '400',
+                                  color: subActive ? activeText : 'var(--color-ink-soft)',
+                                  backgroundColor: subActive ? activeBg : 'transparent',
                                   textDecoration: 'none',
-                                  transition: 'background-color 0.15s ease',
+                                  transition: 'all 0.15s ease',
                                 }}
                                 onMouseEnter={e => { if (!subActive) e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; }}
                                 onMouseLeave={e => { if (!subActive) e.currentTarget.style.backgroundColor = 'transparent'; }}
@@ -254,15 +269,20 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                   onClick={handleLinkClick}
                   style={{
                     position: 'relative',
-                    padding: '6px 13px',
+                    padding: '6px 14px',
                     borderRadius: '50px',
                     fontSize: '14px',
-                    fontWeight: isActive ? '550' : '450',
-                    color: isActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
+                    fontWeight: isActive ? '600' : '480',
+                    color: isActive ? activeText : 'var(--color-ink-soft)',
                     textDecoration: 'none',
                     whiteSpace: 'nowrap',
-                    transition: 'color 0.15s ease',
-                    backgroundColor: isActive ? 'var(--color-surface-soft)' : 'transparent',
+                    transition: 'all 0.15s ease',
+                  }}
+                  onMouseEnter={e => {
+                    if (!isActive) e.currentTarget.style.color = 'var(--color-ink)';
+                  }}
+                  onMouseLeave={e => {
+                    if (!isActive) e.currentTarget.style.color = 'var(--color-ink-soft)';
                   }}
                 >
                   {isActive && (
@@ -271,11 +291,13 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                       style={{
                         position: 'absolute',
                         inset: 0,
-                        backgroundColor: 'var(--color-surface-soft)',
+                        backgroundColor: activeBg,
                         borderRadius: '50px',
+                        boxShadow: isDarkMode ? '0 2px 10px rgba(255, 255, 255, 0.15)' : '0 2px 8px rgba(0, 0, 0, 0.22)',
+                        zIndex: 0,
                       }}
                       initial={false}
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      transition={{ type: "spring", stiffness: 500, damping: 32 }}
                     />
                   )}
                   <span style={{ position: 'relative', zIndex: 1, display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
@@ -505,7 +527,13 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
               >
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '16px' }}>
                   {siteNavigation.map((item) => {
-                    const isActive = location.pathname === item.path || (item.path === '/achievements' && location.pathname === '/activities');
+                    const isActive = 
+                      location.pathname === item.path || 
+                      (item.path !== '/' && location.pathname.startsWith(item.path)) ||
+                      (item.path === '/achievements' && (location.pathname === '/achievements' || location.pathname === '/activities'));
+                    const activeBg = isDarkMode ? '#ffffff' : '#000000';
+                    const activeText = isDarkMode ? '#000000' : '#ffffff';
+
                     return (
                       <div key={item.path}>
                         <Link
@@ -516,16 +544,16 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                             borderRadius: '12px',
                             fontSize: '15px',
                             fontWeight: isActive ? '600' : '450',
-                            color: 'var(--color-ink)',
+                            color: isActive ? activeText : 'var(--color-ink)',
                             textDecoration: 'none',
-                            backgroundColor: isActive ? 'var(--color-surface-soft)' : 'transparent',
+                            backgroundColor: isActive ? activeBg : 'transparent',
                             display: 'flex',
                             alignItems: 'center',
                             gap: '12px',
-                            transition: 'background-color 0.15s ease',
+                            transition: 'all 0.15s ease',
                           }}
                         >
-                          <span style={{ opacity: 0.7 }}>{item.icon}</span>
+                          <span style={{ opacity: isActive ? 1 : 0.7, color: isActive ? activeText : 'inherit' }}>{item.icon}</span>
                           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                             {item.title}
                             {item.path === '/dich-vu' && (
@@ -544,7 +572,7 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                           </span>
                         </Link>
                         {item.path === '/achievements' && (
-                          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: '32px', marginTop: '2px' }}>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: '32px', marginTop: '4px' }}>
                             {ACHIEVEMENT_SUBTABS.map((sub) => {
                               const activeTab = searchParams.get('tab');
                               const subActive = sub.path === '/activities'
@@ -556,13 +584,14 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                                   to={sub.path}
                                   onClick={handleLinkClick}
                                   style={{
-                                    padding: '7px 16px',
+                                    padding: '8px 16px',
                                     borderRadius: '8px',
                                     fontSize: '14px',
-                                    fontWeight: subActive ? '540' : '400',
-                                    color: subActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
+                                    fontWeight: subActive ? '600' : '400',
+                                    color: subActive ? activeText : 'var(--color-ink-soft)',
                                     textDecoration: 'none',
-                                    backgroundColor: subActive ? 'var(--color-surface-soft)' : 'transparent',
+                                    backgroundColor: subActive ? activeBg : 'transparent',
+                                    transition: 'all 0.15s ease',
                                   }}
                                 >
                                   {t(sub.labelKey)}
