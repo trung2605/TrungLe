@@ -542,23 +542,94 @@
       }
 
       .linked-product-card {
-        display: block;
+        display: flex;
+        flex-direction: column;
         text-decoration: none;
         background: #ffffff;
         border: 1.5px solid #e2e8f0;
         border-radius: 14px;
-        padding: 16px;
+        padding: 0;
+        overflow: hidden;
         transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02);
 
         &:hover {
           border-color: #94a3b8;
-          transform: translateY(-2px);
-          box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.09);
+
+          .card-thumb-img {
+            transform: scale(1.05);
+          }
 
           .card-action {
             gap: 8px;
           }
+
+          .card-floating-icon {
+            background: #ffffff;
+            color: #0f172a;
+            transform: scale(1.08);
+          }
+        }
+
+        .linked-card-inner {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        .card-thumb-wrap {
+          position: relative;
+          width: 100%;
+          height: 135px;
+          background: #f1f5f9;
+          overflow: hidden;
+        }
+
+        .card-thumb-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-floating-badge {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          font-size: 11px;
+          font-weight: 700;
+          padding: 3px 9px;
+          border-radius: 50px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+          z-index: 2;
+        }
+
+        .card-floating-icon {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.92);
+          backdrop-filter: blur(4px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #475569;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+          z-index: 2;
+          transition: all 0.2s ease;
+        }
+
+        .card-content-wrap {
+          padding: 14px 16px 16px;
+          display: flex;
+          flex-direction: column;
+          flex: 1;
         }
 
         .card-top {
@@ -590,9 +661,11 @@
           color: #64748b;
           line-height: 1.5;
           margin: 0 0 12px 0;
+          flex: 1;
         }
 
         .card-action {
+          margin-top: auto;
           display: inline-flex;
           align-items: center;
           gap: 6px;

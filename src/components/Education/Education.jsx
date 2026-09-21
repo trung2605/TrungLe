@@ -127,6 +127,7 @@ const MILESTONE_LINKS = {
       path: '/dich-vu',
       badgeVi: 'Bảng Giá Dịch Vụ',
       badgeEn: 'Service Packages',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579575/my-website/assets/projects/screenshots/01-landing.png',
       isExternal: false,
       color: '#059669',
       bg: '#ecfdf5'
@@ -140,6 +141,7 @@ const MILESTONE_LINKS = {
       path: '/projects/26',
       badgeVi: 'Dự Án Tiêu Biểu',
       badgeEn: 'Flagship Project',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353578/my-website/assets/projects/screenshots/biensovip_1_home.png',
       isExternal: false,
       color: '#2563eb',
       bg: '#eff6ff'
@@ -153,6 +155,7 @@ const MILESTONE_LINKS = {
       path: 'https://biensovip.com',
       badgeVi: 'Sản Phẩm Đang Chạy',
       badgeEn: 'Live Website',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353581/my-website/assets/projects/screenshots/biensovip_2_detail.png',
       isExternal: true,
       color: '#d97706',
       bg: '#fffbeb'
@@ -168,6 +171,7 @@ const MILESTONE_LINKS = {
       path: '/projects/5',
       badgeVi: 'Dự Án OJT',
       badgeEn: 'OJT Project',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962636/my-website/assets/projects/BookShopOutsystems.png',
       isExternal: false,
       color: '#d97706',
       bg: '#fffbeb'
@@ -181,6 +185,7 @@ const MILESTONE_LINKS = {
       path: '/dich-vu',
       badgeVi: 'Giải Pháp Đội Ngũ',
       badgeEn: 'Team Solution',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870966/my-website/assets/projects/screenshots/4-web-form-automation.png',
       isExternal: false,
       color: '#059669',
       bg: '#ecfdf5'
@@ -196,6 +201,7 @@ const MILESTONE_LINKS = {
       path: '/projects/24',
       badgeVi: 'Quán Quân Hackathon',
       badgeEn: 'Hackathon Champion',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579605/my-website/assets/projects/screenshots/slide_07_pipeline.png',
       isExternal: false,
       color: '#7c3aed',
       bg: '#faf5ff'
@@ -209,6 +215,7 @@ const MILESTONE_LINKS = {
       path: '/projects/25',
       badgeVi: 'Dự Án Khách Hàng',
       badgeEn: 'Client Project',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789580947/my-website/assets/projects/screenshots/nursing_orgchart2.png',
       isExternal: false,
       color: '#2563eb',
       bg: '#eff6ff'
@@ -222,6 +229,7 @@ const MILESTONE_LINKS = {
       path: '/blog/threadlearn',
       badgeVi: 'Bài Viết Kỹ Thuật',
       badgeEn: 'Tech Deep-Dive',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579607/my-website/assets/projects/screenshots/slide_11_main_results.png',
       isExternal: false,
       color: '#0891b2',
       bg: '#ecfeff'
@@ -237,6 +245,7 @@ const MILESTONE_LINKS = {
       path: '/achievements?tab=certificates',
       badgeVi: 'Chứng Chỉ Quốc Tế',
       badgeEn: 'Global Certificate',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962693/my-website/assets/educationMemories/Malaysia_Memory.jpg',
       isExternal: false,
       color: '#2563eb',
       bg: '#eff6ff'
@@ -250,6 +259,7 @@ const MILESTONE_LINKS = {
       path: '/projects/3',
       badgeVi: 'Tổ Chức Xã Hội',
       badgeEn: 'Community Project',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579570/my-website/assets/projects/screenshots/pic_1_of_131.jpg',
       isExternal: false,
       color: '#059669',
       bg: '#ecfdf5'
@@ -265,6 +275,7 @@ const MILESTONE_LINKS = {
       path: '/achievements?tab=prizes',
       badgeVi: 'Giải Thưởng Học Thuật',
       badgeEn: 'Academic Awards',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962694/my-website/assets/educationMemories/PCT_Graduation_Memory.jpg',
       isExternal: false,
       color: '#0891b2',
       bg: '#ecfeff'
@@ -278,6 +289,7 @@ const MILESTONE_LINKS = {
       path: '/projects',
       badgeVi: 'Tất Cả Dự Án',
       badgeEn: 'All Projects',
+      image: 'https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579568/my-website/assets/projects/screenshots/yfy17yiopbaz9vlzvv1m.png',
       isExternal: false,
       color: '#7c3aed',
       bg: '#faf5ff'
@@ -623,21 +635,47 @@ const Education = () => {
                         {activeLinks.map((item, idx) => {
                           const CardInner = (
                             <div className="linked-card-inner">
-                              <div className="card-top">
-                                <span className="card-badge" style={{ backgroundColor: item.bg, color: item.color }}>
-                                  {isEn ? item.badgeEn : item.badgeVi}
-                                </span>
-                                {item.isExternal ? (
-                                  <FaExternalLinkAlt size={11} style={{ color: '#94a3b8' }} />
-                                ) : (
-                                  <FaArrowRight size={11} style={{ color: '#94a3b8' }} />
+                              {item.image && (
+                                <div className="card-thumb-wrap">
+                                  <img
+                                    src={item.image}
+                                    alt={isEn ? item.titleEn : item.titleVi}
+                                    loading="lazy"
+                                    className="card-thumb-img"
+                                  />
+                                  <span className="card-floating-badge" style={{ backgroundColor: item.bg, color: item.color }}>
+                                    {isEn ? item.badgeEn : item.badgeVi}
+                                  </span>
+                                  {item.isExternal ? (
+                                    <span className="card-floating-icon" title="External link">
+                                      <FaExternalLinkAlt size={10} />
+                                    </span>
+                                  ) : (
+                                    <span className="card-floating-icon">
+                                      <FaArrowRight size={10} />
+                                    </span>
+                                  )}
+                                </div>
+                              )}
+                              <div className="card-content-wrap">
+                                {!item.image && (
+                                  <div className="card-top">
+                                    <span className="card-badge" style={{ backgroundColor: item.bg, color: item.color }}>
+                                      {isEn ? item.badgeEn : item.badgeVi}
+                                    </span>
+                                    {item.isExternal ? (
+                                      <FaExternalLinkAlt size={11} style={{ color: '#94a3b8' }} />
+                                    ) : (
+                                      <FaArrowRight size={11} style={{ color: '#94a3b8' }} />
+                                    )}
+                                  </div>
                                 )}
-                              </div>
-                              <h5 className="card-title">{isEn ? item.titleEn : item.titleVi}</h5>
-                              <p className="card-desc">{isEn ? item.descEn : item.descVi}</p>
-                              <div className="card-action" style={{ color: item.color }}>
-                                <span>{isEn ? "Explore Now" : "Khám phá ngay"}</span>
-                                <FaArrowRight size={10} />
+                                <h5 className="card-title">{isEn ? item.titleEn : item.titleVi}</h5>
+                                <p className="card-desc">{isEn ? item.descEn : item.descVi}</p>
+                                <div className="card-action" style={{ color: item.color }}>
+                                  <span>{isEn ? "Explore Now" : "Khám phá ngay"}</span>
+                                  <FaArrowRight size={10} />
+                                </div>
                               </div>
                             </div>
                           );
