@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaCheckCircle, 
@@ -8,20 +8,17 @@ import {
   FaFileContract, 
   FaReceipt, 
   FaArrowRight, 
-  FaPhoneAlt, 
   FaCommentDots, 
-  FaEnvelope, 
   FaExternalLinkAlt, 
-  FaTimes,
-  FaSearch,
-  FaRobot,
-  FaQrcode,
-  FaCogs,
-  FaChartLine,
-  FaSyncAlt,
+  FaTimes, 
+  FaSearch, 
+  FaRobot, 
+  FaQrcode, 
+  FaCogs, 
+  FaChartLine, 
+  FaSyncAlt, 
   FaStar,
-  FaGraduationCap,
-  FaLaptopCode
+  FaGraduationCap 
 } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -36,8 +33,6 @@ import {
   Step5HandoverSVG
 } from './ServiceSVGs';
 import infographicTeam from '../../assets/landing/infographic_team.png';
-import bannerFooter from '../../assets/landing/banner_footer.png';
-import NewAvatar from '../../assets/information/image.png';
 import './Services.scss';
 
 const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
@@ -68,32 +63,15 @@ const BIENSOVIP_SHOTS = [
 const Services = () => {
   const { i18n } = useTranslation();
   const isEn = i18n.language === 'en';
+  const navigate = useNavigate();
 
   const [activeShotIndex, setActiveShotIndex] = useState(0);
   const [lightboxImg, setLightboxImg] = useState(null);
   const [showWorkflowModal, setShowWorkflowModal] = useState(false);
   const [activeModalTab, setActiveModalTab] = useState('manday');
 
-  const [formState, setFormState] = useState({
-    name: '',
-    phone: '',
-    businessType: 'shop-thoi-trang',
-    package: 'mvp-fast',
-    budget: '5-10tr',
-    message: ''
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formState.name || !formState.phone) return;
-    setSubmitted(true);
-  };
-
   const scrollToContact = () => {
-    const el = document.getElementById('consultation-form');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    navigate('/contact');
   };
 
   const scrollToPricing = () => {
@@ -886,268 +864,6 @@ const Services = () => {
           <button onClick={() => setShowWorkflowModal(true)} className="btn-open-workflow-modal">
             <FaFileContract /> {isEn ? "Explore Quotation & Contract Workflow" : "Khám Phá Quy Trình Báo Giá & Hợp Đồng"}
           </button>
-        </div>
-      </section>
-
-      {/* 7. CONSULTATION BOOKING & DIRECT CONNECT */}
-      <section id="consultation-form" className="section-container">
-        <div className="consultation-card">
-          <div className="leader-box">
-            <div className="leader-row">
-              <img src={NewAvatar} alt="Lê Trí Trung - Leader" className="avatar" />
-              <div>
-                <h3 style={{ margin: '0 0 2px 0' }}>Lê Trí Trung</h3>
-                <p style={{ margin: '0 0 6px 0' }}>Team Leader & Software Architect (Đà Nẵng)</p>
-                <Link 
-                  to="/about"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '5px',
-                    fontSize: '12.5px',
-                    fontWeight: '600',
-                    color: '#6d3fc9',
-                    textDecoration: 'none',
-                    borderBottom: '1px dashed #6d3fc9',
-                  }}
-                >
-                  {isEn ? "Read Full Background & Story →" : "Xem Hành Trình & Giới Thiệu Bản Thân →"}
-                </Link>
-              </div>
-            </div>
-
-            <div className="leader-quote">
-              {isEn 
-                ? "“Investing in a professional website is investing in your store's future. You won't talk to a sales rep — I will personally analyze your shop and recommend the most cost-effective architecture.”"
-                : "“Đầu tư cho website là đầu tư cho tương lai cửa hàng. Liên hệ trực tiếp với em để được tư vấn kịch bản tối ưu nhất, không lo bị chèo kéo.”"}
-            </div>
-
-            <div className="direct-channels">
-              <a 
-                href="https://zalo.me/0782399721" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="channel-btn zalo"
-              >
-                <FaCommentDots size={16} />
-                <span>{isEn ? "Chat via Zalo (0782.399.721)" : "Nhắn Zalo Với Leader (0782.399.721)"}</span>
-              </a>
-
-              <a 
-                href="tel:0782399721" 
-                className="channel-btn phone"
-              >
-                <FaPhoneAlt size={14} />
-                <span>Hotline: 0782.399.721 / 0819.539.121</span>
-              </a>
-
-              <a 
-                href="mailto:letritrung2605@gmail.com" 
-                className="channel-btn email"
-              >
-                <FaEnvelope size={14} />
-                <span>Email: letritrung2605@gmail.com</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="form-box">
-            <h3>{isEn ? "Book a Free Consultation" : "Đăng Ký Nhận Tư Vấn Miễn Phí"}</h3>
-            <p>{isEn ? "Fill in your information, we will get in touch within 30 minutes." : "Để lại thông tin, team sẽ liên hệ lại với bạn trong vòng 30 phút!"}</p>
-
-            {submitted ? (
-              <div style={{ textAlign: 'center', padding: '24px 12px' }}>
-                <div style={{ color: '#1ea64a', marginBottom: '14px' }}>
-                  <FaCheckCircle size={44} />
-                </div>
-                <h4 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '6px' }}>
-                  {isEn ? "Request Received Successfully!" : "Đã Nhận Yêu Cầu Thành Công!"}
-                </h4>
-                <p style={{ fontSize: '14px', color: 'var(--color-ink-soft)', marginBottom: '18px' }}>
-                  {isEn 
-                    ? "Leader Le Tri Trung will reach out to your Phone/Zalo shortly."
-                    : "Leader Lê Trí Trung sẽ chủ động liên hệ qua Số điện thoại / Zalo của bạn ngay."}
-                </p>
-                <a 
-                  href="https://zalo.me/0782399721" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn-pill-primary"
-                  style={{ display: 'inline-flex' }}
-                >
-                  <FaCommentDots size={14} /> {isEn ? "Chat Immediately on Zalo" : "Nhắn Zalo Ngay"}
-                </a>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <div className="form-field">
-                  <label htmlFor="client-name">{isEn ? "Your Name *" : "Họ và Tên của bạn *"}</label>
-                  <input 
-                    id="client-name" 
-                    type="text" 
-                    required 
-                    placeholder={isEn ? "e.g., Nguyen Van A" : "Ví dụ: Anh Tuấn, Chị Mai..."}
-                    value={formState.name}
-                    onChange={e => setFormState({ ...formState, name: e.target.value })}
-                  />
-                </div>
-
-                <div className="form-field">
-                  <label htmlFor="client-phone">{isEn ? "Phone / Zalo Number *" : "Số Điện Thoại / Zalo *"}</label>
-                  <input 
-                    id="client-phone" 
-                    type="tel" 
-                    required 
-                    placeholder={isEn ? "e.g., 0905xxxxxx" : "Ví dụ: 0905.xxx.xxx"}
-                    value={formState.phone}
-                    onChange={e => setFormState({ ...formState, phone: e.target.value })}
-                  />
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                  <div className="form-field">
-                    <label htmlFor="business-type">{isEn ? "Business Type" : "Lĩnh vực kinh doanh"}</label>
-                    <select 
-                      id="business-type"
-                      value={formState.businessType}
-                      onChange={e => setFormState({ ...formState, businessType: e.target.value })}
-                    >
-                      <option value="shop-thoi-trang">{isEn ? "Fashion / Boutique" : "Shop Thời Trang / Mỹ Phẩm"}</option>
-                      <option value="am-thuc-fnb">{isEn ? "Food & Beverage / Cafe" : "Quán Ăn / Cafe / Bakery"}</option>
-                      <option value="dich-vu-spa">{isEn ? "Services / Spa / Salon" : "Dịch vụ / Spa / Làm đẹp"}</option>
-                      <option value="showroom-oto-bienso">{isEn ? "Automotive / Showroom" : "Xe cộ / Biển số / Showroom"}</option>
-                      <option value="khac">{isEn ? "Other Business" : "Ngành nghề khác"}</option>
-                    </select>
-                  </div>
-
-                  <div className="form-field">
-                    <label htmlFor="budget-range">{isEn ? "Estimated Budget" : "Ngân sách dự kiến"}</label>
-                    <select 
-                      id="budget-range"
-                      value={formState.budget}
-                      onChange={e => setFormState({ ...formState, budget: e.target.value })}
-                    >
-                      <option value="5-10tr">{isEn ? "5 - 10M VND (Starter)" : "5 - 10 Triệu (Gói MVP)"}</option>
-                      <option value="10-20tr">{isEn ? "10 - 20M VND (Full)" : "10 - 20 Triệu (Gói Đầy Đủ)"}</option>
-                      <option value="tren-20tr">{isEn ? "> 20M VND (Enterprise)" : "Trên 20 Triệu (Doanh nghiệp)"}</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="form-field">
-                  <label htmlFor="client-message">{isEn ? "Your Requirements / Notes" : "Nhu cầu hoặc yêu cầu đặc biệt"}</label>
-                  <textarea 
-                    id="client-message" 
-                    rows={2} 
-                    placeholder={isEn ? "e.g., I want an online product showcase with fast Zalo ordering..." : "Ví dụ: Cần website giới thiệu sản phẩm đồ ăn vặt, có đặt hàng nhanh..."}
-                    value={formState.message}
-                    onChange={e => setFormState({ ...formState, message: e.target.value })}
-                  />
-                </div>
-
-                <button type="submit" className="btn-submit">
-                  {isEn ? "Submit & Book Leader Meeting" : "Hẹn Gặp Leader Ngay (Miễn Phí)"}
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-
-        {/* Footer Banner Graphic Asset */}
-        <div className="footer-banner-box">
-          <img src={bannerFooter} alt="Đà Nẵng Website Development Team Contact Banner" />
-        </div>
-
-        {/* Cross-linking to Education & Projects */}
-        <div style={{
-          marginTop: '48px',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '20px',
-        }}>
-          <div style={{
-            backgroundColor: '#ffffff',
-            border: '1.5px solid #e2e8f0',
-            borderRadius: '20px',
-            padding: '24px 28px',
-            boxShadow: '0 8px 24px -6px rgba(15, 23, 42, 0.05)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            gap: '16px',
-          }}>
-            <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '3px 10px', borderRadius: '50px', backgroundColor: '#ecfdf5', color: '#059669', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', marginBottom: '10px' }}>
-                <FaGraduationCap size={12} />
-                {isEn ? "Verified Background" : "Hồ Sơ Năng Lực Tech Lead"}
-              </div>
-              <h4 style={{ fontSize: '17px', fontWeight: '700', color: '#0f172a', margin: '0 0 6px 0', lineHeight: '1.35' }}>
-                {isEn ? "Explore Career & Academic Milestones" : "Hành Trình Kỹ Sư & Cột Mốc Thực Chiến"}
-              </h4>
-              <p style={{ fontSize: '13.5px', color: '#64748b', margin: 0, lineHeight: '1.55' }}>
-                {isEn 
-                  ? "Directly inspect verified milestones from leading a 5-engineer team to FPT Software OJT and Hackathon championships." 
-                  : "Tìm hiểu chi tiết các cột mốc thực chiến: từ vai trò Tech Lead dẫn dắt 5 kỹ sư, thực tập FPT Software, đến giải Quán quân Hackathon AI."}
-              </p>
-            </div>
-            <Link
-              to="/achievements?tab=education"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                fontSize: '13.5px',
-                fontWeight: '600',
-                color: '#059669',
-                textDecoration: 'none',
-              }}
-            >
-              <span>{isEn ? "View Education & Milestones" : "Xem Hồ Sơ Học Vấn & Cột Mốc"}</span>
-              <FaArrowRight size={11} />
-            </Link>
-          </div>
-
-          <div style={{
-            backgroundColor: '#ffffff',
-            border: '1.5px solid #e2e8f0',
-            borderRadius: '20px',
-            padding: '24px 28px',
-            boxShadow: '0 8px 24px -6px rgba(15, 23, 42, 0.05)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            gap: '16px',
-          }}>
-            <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '3px 10px', borderRadius: '50px', backgroundColor: '#eff6ff', color: '#2563eb', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', marginBottom: '10px' }}>
-                <FaLaptopCode size={12} />
-                {isEn ? "Live Portfolio" : "Dự Án Đã Thực Hiện"}
-              </div>
-              <h4 style={{ fontSize: '17px', fontWeight: '700', color: '#0f172a', margin: '0 0 6px 0', lineHeight: '1.35' }}>
-                {isEn ? "Browse Complete Projects Portfolio" : "Toàn Bộ 10+ Dự Án Phần Mềm & Case Studies"}
-              </h4>
-              <p style={{ fontSize: '13.5px', color: '#64748b', margin: 0, lineHeight: '1.55' }}>
-                {isEn 
-                  ? "Review production codebases, architecture deep-dives, live demo links, and GitHub repositories across diverse stacks." 
-                  : "Khám phá các sản phẩm web thực tế, đồ án nghiên cứu AI, kiến trúc Clean Architecture và demo đang hoạt động."}
-              </p>
-            </div>
-            <Link
-              to="/projects"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                fontSize: '13.5px',
-                fontWeight: '600',
-                color: '#2563eb',
-                textDecoration: 'none',
-              }}
-            >
-              <span>{isEn ? "Browse All Projects" : "Xem Toàn Bộ Dự Án"}</span>
-              <FaArrowRight size={11} />
-            </Link>
-          </div>
         </div>
       </section>
 
