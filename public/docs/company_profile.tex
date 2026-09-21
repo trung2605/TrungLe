@@ -1,8 +1,9 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
-\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage[top=1.6cm,bottom=1.8cm,left=1.8cm,right=1.8cm]{geometry}
 \usepackage{xcolor}
+\usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{tabularx}
 \usepackage{booktabs}
@@ -10,104 +11,436 @@
 \usepackage{tcolorbox}
 \usepackage{fancyhdr}
 \usepackage{enumitem}
+\usepackage{caption}
+\usepackage{colortbl}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{amsmath}
 
-\definecolor{primary}{HTML}{0E0E10}
-\definecolor{accent}{HTML}{1EA64A}
-\definecolor{softbg}{HTML}{F8FAFC}
-\definecolor{hairline}{HTML}{E2E8F0}
-\definecolor{tagbg}{HTML}{DCEEB1}
+% Color Palette - Modern Executive Slate & Emerald
+\definecolor{primary}{HTML}{0F172A}      % Slate 900
+\definecolor{secondary}{HTML}{1E293B}    % Slate 800
+\definecolor{accent}{HTML}{059669}       % Emerald 600
+\definecolor{accentlight}{HTML}{D1FAE5}  % Emerald 100
+\definecolor{softbg}{HTML}{F8FAFC}      % Slate 50
+\definecolor{hairline}{HTML}{CBD5E1}    % Slate 300
+\definecolor{tagbg}{HTML}{ECFDF5}       % Emerald 50
+\definecolor{warnbg}{HTML}{FFF7ED}      % Amber 50
+\definecolor{warnborder}{HTML}{F59E0B}  % Amber 500
+\definecolor{darktext}{HTML}{1E293B}
+\definecolor{mutedtext}{HTML}{64748B}
+\definecolor{tablealt}{HTML}{F1F5F9}    % Slate 100
 
 \hypersetup{
     colorlinks=true,
     linkcolor=accent,
     urlcolor=accent,
-    citecolor=primary
+    citecolor=primary,
+    pdfauthor={Le Tri Trung},
+    pdftitle={Ho So Nang Luc va Bao Gia -- Team Ky Su Da Nang},
+    pdfsubject={Phat trien Website SaaS Automation AI Integration},
+    bookmarksdepth=2
 }
 
+% Header & Footer
+\setlength{\headheight}{14pt}
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\small\textcolor{gray}{Hồ Sơ Năng Lực \& Quy Chuẩn Kỹ Thuật --- Team Đà Nẵng}}
-\lhead{\small\textbf{Lê Trí Trung \& Cộng Sự}}
-\rfoot{\small Trang \thepage}
+\rhead{\small\textcolor{mutedtext}{Hồ Sơ Năng Lực \& Báo Giá Kỹ Thuật --- Đội Ngũ Kỹ Sư Đà Nẵng}}
+\lhead{\small\textbf{\textcolor{primary}{Lê Trí Trung \& Nhóm Cộng Sự}}}
+\rfoot{\small\textcolor{mutedtext}{Trang \thepage/\pageref{LastPage}}}
+\lfoot{\small\textcolor{mutedtext}{Tài liệu kỹ thuật \& Báo giá chính thức $\cdot$ letritrung.id.vn $\cdot$ \textit{Bảo mật --- Không phát tán}}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
 
-\titleformat{\section}{\Large\bfseries\color{primary}}{\thesection.}{0.8em}{}[\titlerule]
-\titleformat{\subsection}{\large\bfseries\color{primary}}{\thesubsection}{0.6em}{}
+% Section Titles
+\titleformat{\section}{\Large\bfseries\color{primary}}{\thesection.}{0.6em}{}[\vspace{1mm}\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries\color{secondary}}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\small\bfseries\color{accent}}{\thesubsubsection}{0.4em}{}
+
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titlespacing*{\subsection}{0pt}{5pt}{2pt}
+
+\tcbset{
+    boxrule=0.8pt,
+    arc=2.5mm,
+    fonttitle=\bfseries,
+    colback=white,
+    colframe=hairline
+}
 
 \begin{document}
 
-\begin{tcolorbox}[colback=softbg,colframe=hairline,arc=4mm,boxrule=1pt]
+% ===============================================================
+% TRANG 1: TỔNG QUAN & ĐỘI NGŨ KỸ SƯ
+% ===============================================================
+\begin{tcolorbox}[colback=softbg,colframe=accent,arc=3.5mm,boxrule=1.2pt,top=3mm,bottom=3mm]
 \begin{center}
-    {\Huge \textbf{HỒ SƠ NĂNG LỰC \& BẢNG GIÁ DỊCH VỤ}}\\[2mm]
-    {\Large \textbf{PHÁT TRIỂN HỆ THỐNG WEBSITE \& TỰ ĐỘNG HÓA SAAS}}\\[3mm]
-    {\normalsize \textbf{Đơn vị triển khai:} Team 1 Leader + 4 Kỹ Sư Cao Cấp (Đà Nẵng)}\\[1mm]
-    {\small \textbf{Kiến trúc sư \& Trưởng nhóm:} Lê Trí Trung $\cdot$ Hotline/Zalo: 0782.399.721 $\cdot$ Email: letritrung2605@gmail.com}
+    {\Large \textbf{\color{primary} HỒ SƠ NĂNG LỰC KỸ THUẬT \& BẢNG BÁO GIÁ DỰ ÁN}}\\[1.5mm]
+    {\large \textbf{\color{accent} PHÁT TRIỂN WEBSITE KINH DOANH \& TỰ ĐỘNG HÓA SAAS --- AI AGENT TÍCH HỢP}}\\[2mm]
+    \begin{tabular}{ccc}
+        \textbf{Tech Lead:} Lê Trí Trung &
+        \textbf{Hotline/Zalo:} 0782.399.721 &
+        \textbf{Email:} letritrung2605@gmail.com
+    \end{tabular}\\[1mm]
+    {\small \url{https://letritrung.id.vn} $\cdot$ \url{https://biensovip.com} $\cdot$ \textbf{Địa chỉ:} Ngũ Hành Sơn, TP. Đà Nẵng}
 \end{center}
 \end{tcolorbox}
 
-\vspace{4mm}
+\vspace{1mm}
 
-\section{Giới Thiệu Đội Ngũ \& Quy Chuẩn Chất Lượng Kỹ Thuật}
+\section{Đội Ngũ Kỹ Sư \& Lý Do Nên Làm Việc Trực Tiếp Với Chúng Tôi}
 
-Chúng tôi là đội ngũ kỹ sư phần mềm chuyên sâu hoạt động tại Đà Nẵng, bao gồm **01 Kiến trúc sư trưởng (Leader)** chịu trách nhiệm pháp lý, điều phối và kiến trúc hệ thống, cùng **04 Kỹ sư phần mềm giàu kinh nghiệm** phụ trách chuyên biệt: Frontend UI/UX, Backend \& Database, Tự động hóa tích hợp (SaaS \& Payment), và Kiểm thử chất lượng (QA/QC).
+\begin{tcolorbox}[colback=tagbg,colframe=accent,arc=2.5mm,boxrule=0.8pt,top=1.5mm,bottom=1.5mm]
+\small
+\textbf{\color{accent} BỐI CẢNH THỊ TRƯỜNG:} Theo Báo cáo thị trường IT Dịch vụ Việt Nam 2024--2025, thị trường phát triển website cho SME Việt Nam đạt ước tính \textbf{722 triệu USD năm 2025}, với hơn 80\% doanh nghiệp tăng chi tiêu số hóa. Thế nhưng, phần lớn chủ shop nhỏ vẫn bị ``mắc kẹt'' giữa các agency đội giá trung gian, kéo dài tiến độ, và sản phẩm không đáp ứng kỳ vọng kỹ thuật thực tế.
+\end{tcolorbox}
 
-\begin{itemize}[leftmargin=*,itemsep=2pt]
-    \item \textbf{Mô hình 1 Leader + 4 Devs:} Khách hàng chỉ làm việc trực tiếp với duy nhất Leader Lê Trí Trung để đảm bảo thông suốt về yêu cầu, không qua trung gian sales. Đội ngũ 4 dev tập trung 100\% công suất viết mã sạch.
-    \item \textbf{Kiến trúc phần mềm Clean Architecture:} Tách biệt độc lập các tầng Domain, Application, Infrastructure. Hệ thống dễ dàng mở rộng, chịu tải cao, không phụ thuộc framework.
-    \item \textbf{Hiệu năng đạt chuẩn Google Lighthouse 98/100:} Tốc độ phản hồi dưới 1 giây, tối ưu hình ảnh WebP/AVIF, CDN hóa toàn diện, thân thiện tuyệt đối với thuật toán SEO Google.
-    \item \textbf{Kiểm thử nghiêm ngặt (CI/CD Automated Pipelines):} Quy trình kiểm thử tự động, kiểm tra tương thích 100\% trên iPhone, Android, iPad và màn hình máy tính trước khi bàn giao.
+\vspace{1.5mm}
+
+Chúng tôi là nhóm \textbf{05 kỹ sư phần mềm chính quy} tại Đà Nẵng, chuyên sâu trong việc phát triển ứng dụng Web hiệu năng cao, sàn thương mại điện tử, cổng thanh toán tự động và tích hợp trí tuệ nhân tạo (AI/SaaS Automation) cho cá nhân, chủ shop bán lẻ và doanh nghiệp vừa \& nhỏ (SMEs). \textbf{Mô hình làm việc trực tiếp, không qua trung gian (No Middlemen)} là cam kết cốt lõi của đội ngũ chúng tôi.
+
+\vspace{2mm}
+
+\textbf{\color{primary} Mô Hình Vận Hành: 01 Tech Lead + 04 Kỹ Sư Chuyên Trách}
+
+\begin{itemize}[leftmargin=*,itemsep=1.5pt,topsep=1pt]
+    \item \textbf{Làm việc 1-1 trực tiếp với Tech Lead:} Mọi yêu cầu kinh doanh và kỹ thuật được phân tích và chốt chuẩn xác ngay từ cuộc gặp đầu tiên với kỹ sư trưởng Lê Trí Trung. Xóa bỏ hoàn toàn chi phí và rủi ro khi thông qua chuỗi truyền đạt sales $\rightarrow$ account $\rightarrow$ project manager $\rightarrow$ developer.
+    \item \textbf{04 Kỹ sư chuyên môn hóa cao cho từng phân hệ:}
+    \begin{itemize}[itemsep=1pt,topsep=1pt]
+        \item \textit{01 Backend \& Database Engineer:} Thiết kế RESTful/GraphQL API, PostgreSQL/SQL Server, kiểm soát concurrency (lock bi quan/lạc quan) chống trùng đơn hàng.
+        \item \textit{01 Frontend UX/UI Specialist:} React/Next.js/Vite, Tailwind CSS, thiết kế đạt chuẩn Google Core Web Vitals (LCP $\leq 2.5\text{s}$, INP $\leq 200\text{ms}$, CLS $\leq 0.1$).
+        \item \textit{01 SaaS \& AI Automation Engineer:} Tích hợp VietQR động, Webhooks ngân hàng thời gian thực, AI Agent DeepSeek/OpenAI, kịch bản tự động hóa n8n.
+        \item \textit{01 QA/QC \& Security Engineer:} Kiểm thử tự động (Unit/Integration/E2E Test), kiểm tra bảo mật chuẩn OWASP Top 10, kiểm tra tải cao (Load Testing).
+    \end{itemize}
+    \item \textbf{Sở hữu trọn vẹn mã nguồn sau nghiệm thu (100\% Source Code Ownership):} Bàn giao đầy đủ Source Code, Database Schema, tài liệu kiến trúc hệ thống và video hướng dẫn vận hành.
 \end{itemize}
 
-\section{Bảng Phân Bổ Man-Day \& Báo Giá Các Gói Dịch Vụ}
-Chi phí được tính toán minh bạch dựa trên khối lượng công việc thực tế (Man-day) theo bảng Use Case hệ thống:
-
 \vspace{2mm}
-\begin{tabularx}{\textwidth}{Xcccr}
+
+\textbf{\color{primary} Thành Tích \& Năng Lực Học Thuật Đã Được Công Nhận}
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\textwidth}{>{\bfseries}lX}
 \toprule
-\textbf{Gói Dịch Vụ} & \textbf{Quy Mô Dev} & \textbf{Tổng Man-day} & \textbf{Thời Gian} & \textbf{Chi Phí Chuẩn} \\
+\textbf{Thành Tích / Chứng Chỉ} & \textbf{Chi Tiết \& Đơn Vị Cấp} \\
 \midrule
-\textbf{Gói 1: MVP Khởi Nghiệp} & 1 Dev & 23 MD & 7 -- 10 ngày & 11.500.000 VNĐ \\
-\textbf{Gói 2: MVP Tốc Hành} & 2 Devs song song & 23 MD & 4 -- 6 ngày & 18.500.000 VNĐ \\
-\textbf{Gói 3: Doanh Nghiệp Toàn Diện} & Full 5 Devs & 63 MD & 15 -- 20 ngày & 33.000.000 VNĐ \\
+Quán quân Hackathon CV 2026 & Giải nhất cuộc thi lập trình thực chiến toàn quốc -- Trường ĐH FPT Đà Nẵng (2026) \\
+Top 5 FPT ResFes Toàn Quốc & Nghiên cứu khoa học ứng dụng AI trong bảo mật phần mềm đa luồng -- FPT Education (2026) \\
+Chứng chỉ AI \& Automation & \textit{Build AI Agents and Automate Workflows with n8n} -- LinkedIn Learning / n8n.io (2025) \\
+GPA Xuất Sắc & Kỹ thuật Phần mềm -- Đại học FPT Đà Nẵng (Cơ sở Đà Nẵng) \\
 \bottomrule
 \end{tabularx}
+\end{center}
+
+\newpage
+
+% ===============================================================
+% TRANG 2: KIẾN TRÚC & SAAS AUTOMATION FLOW
+% ===============================================================
+\section{Kiến Trúc Kỹ Thuật \& Dòng Chảy Tự Động Hóa SaaS (Closed-Loop Automation)}
+
+\begin{tcolorbox}[colback=tagbg,colframe=accent,arc=2.5mm,boxrule=0.8pt,top=1.5mm,bottom=1.5mm]
+\small
+\textbf{\color{accent} SỐ LIỆU THÚC ĐẨY QUYẾT ĐỊNH:} Theo dữ liệu từ Ngân hàng Nhà nước Việt Nam (NHNN), thanh toán QR trong 9 tháng đầu năm 2025 \textbf{tăng 61,63\% về lượng giao dịch và 150,67\% về giá trị} so với cùng kỳ. Gần \textbf{90 triệu tài khoản Mobile Banking} đang quét VietQR tại hơn \textbf{2,1 triệu điểm chấp nhận} toàn quốc. Với quy mô này, việc không tích hợp VietQR tự động đồng nghĩa với việc mất đi cơ hội chuyển đổi ngay tại điểm quyết định mua hàng.
+\end{tcolorbox}
+
+\vspace{1.5mm}
+
+Một website bán hàng hiện đại không chỉ dừng lại ở trang giới thiệu tĩnh. Để tạo doanh thu bền vững và cắt giảm tối đa chi phí nhân sự vận hành, hệ thống được thiết kế theo mô hình \textbf{Tự Động Hóa Khép Kín (Closed-Loop Automation)}:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.97\textwidth,height=7.5cm,keepaspectratio]{images/architecture_infographic.png}
+    \caption*{\footnotesize Hình 1: Sơ đồ luồng dữ liệu SaaS Automation --- Kết nối liền mạch: Khách hàng tương tác $\rightarrow$ Nhận diện đơn hàng $\rightarrow$ Khớp lệnh VietQR tức thì $<0.5\text{s}$ $\rightarrow$ Đồng bộ Kho vận $\rightarrow$ AI Agent chăm sóc 24/7}
+\end{figure}
+
+\subsection{Bốn Trụ Cột Kỹ Thuật Nền Tảng}
+
+\begin{enumerate}[leftmargin=*,itemsep=3pt,topsep=1pt]
+    \item \textbf{VietQR Động \& Webhooks Tức Thì (Thời gian xử lý $<0.5$ giây):}\\
+    Khách hàng chọn mua $\rightarrow$ hệ thống tự sinh mã VietQR chứa đúng số tiền và mã đơn duy nhất. Webhook ngân hàng bắn callback về server, hệ thống tự động kiểm tra chữ ký số, gạch đơn, gửi hóa đơn điện tử qua Email và thông báo Zalo/Telegram cho chủ shop---tất cả trong chưa đầy nửa giây, không cần nhân viên đối soát thủ công. \textbf{Tiết kiệm 100\% chi phí nhân sự kiểm tra chuyển khoản hằng ngày.}
+
+    \item \textbf{AI Agent DeepSeek --- Nhân viên Kinh Doanh Ảo Hoạt Động 24/7:}\\
+    Theo nghiên cứu của VnEconomy (2025), \textbf{93\% doanh nghiệp Việt Nam} đã tích hợp công cụ AI và \textbf{86\% SME ghi nhận tăng trưởng doanh thu} sau khi ứng dụng AI tư vấn cá nhân hóa. AI Agent của chúng tôi được xây dựng trên nền tảng DeepSeek---chi phí API chỉ \textbf{\$0.30--\$1.20/triệu token} (so với GPT-5.5 ở mức $>$\$5/triệu token), tức là \textbf{tiết kiệm 80--95\% chi phí AI} mà vẫn đạt hiệu suất tư vấn vượt trội trong lĩnh vực sản phẩm và bán hàng. Agent tự học danh mục sản phẩm, tư vấn đặc điểm kỹ thuật, gợi ý bán kèm (Cross-sell/Up-sell) và dẫn dắt khách đến hành vi thanh toán ngay trong cửa sổ chat.
+
+    \item \textbf{Hiệu Năng Google Core Web Vitals --- Nền Tảng SEO Bền Vững:}\\
+    Theo Google (2024), trải nghiệm người dùng được đo bằng 03 chỉ số bắt buộc: LCP $\leq 2.5\text{s}$ (tốc độ tải nội dung chính), INP $\leq 200\text{ms}$ (độ phản hồi tương tác), CLS $\leq 0.1$ (ổn định giao diện). Website của chúng tôi xây dựng theo kiến trúc tối ưu nén ảnh WebP/AVIF, Lazy Loading thông minh và CSS purging---điểm Lighthouse duy trì \textbf{95--100/100}, đảm bảo xếp hạng tốt trên Google tìm kiếm tự nhiên và giảm tỷ lệ thoát trang (bounce rate) xuống thấp nhất.
+
+    \item \textbf{Tự Động Hóa Quy Trình Bằng n8n Workflow Engine:}\\
+    n8n---nền tảng tự động hóa đang được \textbf{15.000+ doanh nghiệp} trên toàn cầu (bao gồm 3.000+ khách hàng doanh nghiệp) sử dụng, với định giá thị trường \textbf{\$5.2 tỷ USD} (2026)---cho phép kết nối linh hoạt hàng trăm nguồn dữ liệu: Email, Zalo, Google Sheets, CRM, kho hàng, ngân hàng. Trên \textbf{80\% luồng tự động hóa} hiện tại trên n8n đã tích hợp AI Agent, tạo ra hệ sinh thái tự vận hành mà không cần phần mềm ERP đắt tiền.
+\end{enumerate}
+
+\newpage
+
+% ===============================================================
+% TRANG 3: DỰ ÁN THỰC TẾ BIENSOVIP.COM
+% ===============================================================
+\section{Minh Chứng Dự Án Thực Tế \& Số Liệu Vận Hành Minh Bạch}
+
+\textit{``Năng lực không được chứng minh bằng lời nói mà bằng sản phẩm đang vận hành trong thực tế, phục vụ người dùng thực tế mỗi ngày.''}
+
+\subsection{Dự Án 1: Sàn Thương Mại \& Marketplace Biển Số Đẹp (biensovip.com)}
+
+Nền tảng giao dịch định danh số lượng lớn với yêu cầu bảo mật nghiêm ngặt, tìm kiếm toàn văn bản (Full-text Search) nhanh và khớp lệnh giao dịch tài chính thời gian thực:
+
+\begin{center}
+    \includegraphics[width=0.96\textwidth,height=6.2cm,keepaspectratio]{images/biensovip_marketplace.png}\\[1mm]
+    \captionof{figure}{\footnotesize Giao diện sàn giao dịch Biensovip.com: Bộ lọc thông minh theo tỉnh/thành, tra cứu ý nghĩa phong thủy biển số, hiển thị giá niêm yết và cổng đặt cọc VietQR tức thì}
+\end{center}
+
+\vspace{1mm}
+
+\begin{center}
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,height=4.6cm,keepaspectratio]{images/biensovip_dashboard.png}\\[1mm]
+        \captionof{figure}{\footnotesize Admin Dashboard: Quản lý đơn hàng, phê duyệt giao dịch \& báo cáo doanh số real-time}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,height=4.6cm,keepaspectratio]{images/biensovip_analytics.png}\\[1mm]
+        \captionof{figure}{\footnotesize Biểu đồ phân tích lưu lượng truy cập, tỷ lệ chuyển đổi \& doanh thu theo ngày}
+    \end{minipage}
+\end{center}
+
+\vspace{1mm}
+
+\begin{tcolorbox}[colback=softbg,colframe=accent,arc=2.5mm,boxrule=0.8pt,top=2mm,bottom=2mm,title=\textbf{\color{primary} CHỈ SỐ VẬN HÀNH ĐO ĐẠC THỰC TẾ TẠI BIENSOVIP.COM (THÁNG 09/2026)}]
+\small
+\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+    \textbf{100+ Lượt khách/ngày} & \textbf{$<$120ms Độ trễ API} & \textbf{99.98\% Uptime} & \textbf{100\% Khớp lệnh VietQR} \\
+    {\footnotesize Lưu lượng truy cập tự nhiên ổn định} & {\footnotesize Tối ưu truy vấn SQL \& Redis Cache} & {\footnotesize Cloud Server vận hành liên tục 24/7} & {\footnotesize Không qua đối soát thủ công}
+\end{tabularx}
+\end{tcolorbox}
+
+\vspace{1mm}
+
+\textbf{Các thách thức kỹ thuật đặc thù đã giải quyết:}
+\begin{itemize}[leftmargin=*,itemsep=1.5pt,topsep=1pt]
+    \item \textbf{Chống trùng giao dịch (Double-Spending Prevention):} Áp dụng cơ chế Pessimistic Lock (khóa bi quan) trong SQL kết hợp Queue Job xử lý bất đồng bộ, đảm bảo cùng một biển số không thể bị đặt cọc bởi 2 người dùng đồng thời, ngay cả dưới tải cao.
+    \item \textbf{Tích hợp đa ngân hàng:} Hỗ trợ Webhooks từ các ngân hàng lớn (VCB, TCB, MB, ACB), tự động phân loại và kiểm tra chữ ký HMAC-SHA256 từng payload thanh toán.
+    \item \textbf{SEO cho nội dung động:} Sinh \texttt{sitemap.xml} tự động, SSR (Server-Side Rendering) metadata cho từng biển số, giúp Google lập chỉ mục toàn bộ catalog sản phẩm.
+\end{itemize}
+
+\newpage
+
+% ===============================================================
+% TRANG 4: DỰ ÁN BÁN LẺ & NGHIÊN CỨU AI
+% ===============================================================
+\subsection{Dự Án 2: Website Thương Mại Bán Lẻ Chuỗi F\&B --- Dola Bakery}
+
+\begin{center}
+    \begin{minipage}[t]{0.46\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,height=5.5cm,keepaspectratio]{images/ecommerce_dola.png}\\[1mm]
+        \captionof{figure}{\footnotesize Giao diện đặt bánh trực tuyến Dola Bakery}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.50\textwidth}
+        \textbf{\small Giải Pháp Đặc Thù Cho Ngành F\&B / Bán Lẻ:}
+        \vspace{1.5mm}
+        \begin{itemize}[leftmargin=*,itemsep=2pt,topsep=0pt]
+            \item \textbf{Mobile First, đặt hàng trong 2 thao tác} mà không cần đăng ký tài khoản.
+            \item \textbf{Phân khung giờ nhận hàng:} Chọn ca giao, tự tính phí ship theo bản đồ (Haversine distance formula).
+            \item \textbf{Quản lý nguyên vật liệu tồn kho} theo ngày (báo cáo cuối ca gửi về Telegram).
+            \item \textbf{Tích hợp quét mã VietQR} tại quầy cho khách đến mua trực tiếp.
+        \end{itemize}
+        \vspace{2mm}
+        \textbf{\small Kết Quả Sau Triển Khai:}
+        \begin{itemize}[leftmargin=*,itemsep=2pt]
+            \item Thời gian đặt hàng giảm từ \textasciitilde{}5 phút (gọi điện) xuống \textasciitilde{}45 giây (web).
+            \item Giảm 100\% sai sót nhập đơn thủ công và hủy đơn do nhầm lẫn thông tin.
+        \end{itemize}
+    \end{minipage}
+\end{center}
+
 \vspace{2mm}
 
-\begin{tcolorbox}[colback=tagbg!30,colframe=accent,arc=2mm,title=\textbf{CHÍNH SÁCH ĐÀM PHÁN \& TRỢ GIÁ KHỞI NGHIỆP}]
+\subsection{Dự Án 3: Hệ Thống Phân Tích Mã Nguồn Bằng AI --- ThreadLearn Pipeline}
+
+Dự án nghiên cứu chuyên sâu kết hợp Cây Cú Pháp Trừu Tượng (Abstract Syntax Tree --- AST) với kiến trúc RAG (Retrieval-Augmented Generation) để phát hiện và tự động gợi ý sửa lỗi xung đột tài nguyên đa luồng (Race Condition) trong môi trường tải cao:
+
+\begin{center}
+    \includegraphics[width=0.90\textwidth,height=6.0cm,keepaspectratio]{images/threadlearn_pipeline.png}\\[1mm]
+    \captionof{figure}{\footnotesize Kiến trúc Pipeline ThreadLearn: Phân tích AST $\rightarrow$ Phát hiện Race Condition $\rightarrow$ RAG Retrieval $\rightarrow$ LLM Engine tạo gợi ý sửa lỗi thời gian thực}
+\end{center}
+
+\vspace{1mm}
+
+\textbf{Giá trị ứng dụng thực tiễn cho khách hàng:} Năng lực phân tích thuật toán đa luồng chuyên sâu giúp đội ngũ chúng tôi thiết kế và xây dựng những hệ thống xử lý giao dịch đồng thời (High Concurrency Transaction Systems) cho các sàn thương mại và website bán hàng---loại bỏ triệt để nguy cơ trừ tiền hai lần hoặc bán trùng một sản phẩm cho nhiều khách cùng một thời điểm. Đây là năng lực kỹ thuật mà các đơn vị phát triển website thông thường không có.
+
+\newpage
+
+% ===============================================================
+% TRANG 5: PHƯƠNG PHÁP LUẬN ĐỊNH GIÁ & 3 GÓI BÁO GIÁ
+% ===============================================================
+\section{Phương Pháp Luận Định Giá Man-Day \& Báo Giá 3 Gói Dịch Vụ Chuẩn}
+
+\begin{tcolorbox}[colback=warnbg,colframe=warnborder,arc=2.5mm,boxrule=0.8pt,top=1.5mm,bottom=1.5mm]
 \small
-\textbf{Lưu ý quan trọng:} Mức giá trên là giá niêm yết tiêu chuẩn cho hệ thống hoàn chỉnh. Chúng tôi luôn áp dụng \textbf{chính sách đàm phán linh hoạt theo ngân sách thực tế} của từng chủ shop:
-\begin{itemize}[leftmargin=*,itemsep=1pt]
-    \item \textbf{Trợ giá 20\% -- 30\%:} Dành cho các shop mới khởi nghiệp hoặc đối tác chốt sớm.
-    \item \textbf{Tùy biến bóc tách tính năng (Modular Scope):} Khách hàng chỉ trả tiền cho các tính năng thực sự cần dùng ở giai đoạn đầu, không lãng phí chi phí thừa.
+\textbf{\color{secondary} CAM KẾT MINH BẠCH:} Chúng tôi nói không với chi phí ẩn. Mọi báo giá đều được bóc tách rõ ràng dựa trên số lượng \textbf{Ngày Công Kỹ Thuật (Man-day / MD)} cho từng phân hệ theo Tài liệu Đặc tả Yêu cầu (SRS) đã thống nhất. Không có phí phát sinh sau nghiệm thu cho các hạng mục đã ký trong hợp đồng.
+\end{tcolorbox}
+
+\vspace{1.5mm}
+
+\subsection{Định Mức Chi Phí Ngày Công Kỹ Thuật (Man-Day Rate)}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{>{\bfseries}lXcr}
+\toprule
+\textbf{Vai Trò Chuyên Môn} & \textbf{Phạm Vi Trách Nhiệm Kỹ Thuật} & \textbf{Kinh Nghiệm} & \textbf{Đơn Giá/MD} \\
+\midrule
+Tech Lead / Kiến Trúc Sư & Thiết kế kiến trúc tổng thể, mô hình CSDL, bảo mật hệ thống, review toàn bộ code & 4+ năm & 1.800.000 VNĐ \\
+\rowcolor{tablealt}
+Backend Engineer & Xây dựng API, tích hợp VietQR, xử lý logic nghiệp vụ, tối ưu SQL/NoSQL & 3+ năm & 1.500.000 VNĐ \\
+Frontend Engineer & Giao diện Responsive đạt Core Web Vitals, tối ưu tốc độ, UX/UI chuẩn Material & 3+ năm & 1.400.000 VNĐ \\
+\rowcolor{tablealt}
+AI \& Automation & Tích hợp AI Agent DeepSeek/OpenAI, thiết kế luồng Webhook, kịch bản n8n & 2+ năm & 1.400.000 VNĐ \\
+QA / Security Tester & Kiểm thử tự động, kiểm tra bảo mật OWASP Top 10, test tải cao (Load Test) & 2+ năm & 1.000.000 VNĐ \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\vspace{1.5mm}
+
+\subsection{Bảng So Sánh Chi Tiết 3 Gói Dịch Vụ Trọn Gói}
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.7cm}Xccr}
+\toprule
+\textbf{Gói Dịch Vụ} & \textbf{Tính Năng Bàn Giao Chi Tiết} & \textbf{Nhân Lực} & \textbf{Tiến Độ} & \textbf{Giá Trọn Gói} \\
+\midrule
+\textbf{GÓI 1}\\MVP KHỞI NGHIỆP
+& $\cdot$ Giao diện Responsive đạt chuẩn SEO, tối ưu Mobile First\newline
+  $\cdot$ Danh mục sản phẩm, trang chi tiết sản phẩm, trang giới thiệu shop\newline
+  $\cdot$ Form đặt hàng nhanh \& nút Zalo/Hotline nổi trên mobile\newline
+  $\cdot$ Cài đặt SSL/TLS bảo mật miễn phí, Google Analytics, sitemap\newline
+  $\cdot$ Bảo hành lỗi kỹ thuật \textbf{06 tháng}
+& 1 Dev chính
+& 7--10 ngày
+& \textbf{11.500.000₫} \\
+\midrule
+\rowcolor{accentlight}
+\textbf{GÓI 2}\\MVP TỐC HÀNH\\{\color{accent}\textit{Phổ biến nhất}}
+& $\cdot$ Toàn bộ tính năng Gói Khởi Nghiệp\newline
+  $\cdot$ \textbf{02 Kỹ sư lập trình song song (rút ngắn 50\% thời gian)}\newline
+  $\cdot$ \textbf{Thanh toán VietQR tự động -- không đối soát thủ công}\newline
+  $\cdot$ Tự động gửi thông báo đơn hàng qua Telegram / Email / Zalo OA\newline
+  $\cdot$ Tặng 01 năm VPS Cloud Server + Bảo hành \textbf{08 tháng}
+& 2 Devs song song
+& 4--6 ngày
+& \textbf{18.500.000₫} \\
+\midrule
+\textbf{GÓI 3}\\TOÀN DIỆN\\+SAAS \& AI
+& $\cdot$ Đầy đủ chức năng sàn TMĐT: Giỏ hàng, tài khoản, lịch sử đơn hàng\newline
+  $\cdot$ \textbf{Tích hợp AI Agent DeepSeek tư vấn bán hàng 24/7}\newline
+  $\cdot$ \textbf{Cổng Admin Analytics}: Biểu đồ doanh thu, tồn kho, tỷ lệ chuyển đổi\newline
+  $\cdot$ Tích hợp đa cổng (VietQR + VNPay + Thẻ ATM/tín dụng nội địa)\newline
+  $\cdot$ Hỗ trợ kỹ thuật khẩn cấp 24/7 + Bảo hành \textbf{12 tháng}
+& Full team 5 người
+& 15--20 ngày
+& \textbf{33.000.000₫} \\
+\bottomrule
+\end{tabularx}
+\endgroup
+
+\vspace{2mm}
+
+\begin{tcolorbox}[colback=tagbg,colframe=accent,arc=2.5mm,boxrule=0.9pt,top=2mm,bottom=2mm,title=\textbf{\color{accent} CHÍNH SÁCH ĐÀM PHÁN NGÂN SÁCH \& TRỢ GIÁ KHỞI NGHIỆP (QUAN TRỌNG)}]
+\small
+\textbf{Mức giá niêm yết trên là chi phí hoàn thiện trọn gói theo tiêu chuẩn kỹ thuật cao nhất.} Đây không phải giá cứng --- đội ngũ chúng tôi hiểu rằng mỗi chủ shop có mức ngân sách khởi điểm khác nhau:
+\begin{itemize}[leftmargin=*,itemsep=1.5pt,topsep=1pt]
+    \item \textbf{Trợ giá 20\%--30\%} dành cho: cửa hàng mới mở, startup giai đoạn đầu, đơn vị ký kết sớm trong tuần đầu tư vấn.
+    \item \textbf{Bóc tách module linh hoạt:} Loại bỏ AI Agent, VietQR hoặc Admin Analytics để hạ chi phí về mức vừa túi tiền ngay bây giờ, nâng cấp sau khi doanh thu tăng trưởng.
+    \item \textbf{Chia nhỏ thanh toán theo milestone:} Không yêu cầu trả toàn bộ trả trước --- cơ chế 40\%/60\% bảo vệ quyền lợi khách hàng tối đa.
 \end{itemize}
 \end{tcolorbox}
 
-\section{Cơ Chế Thanh Toán \& Cam Kết Thưởng / Phạt Tiến Độ}
-\begin{itemize}[leftmargin=*,itemsep=3pt]
-    \item \textbf{Lộ trình đặt cọc 40\% / 60\%:} Khách hàng đặt cọc 40\% khi ký kết hợp đồng dân sự để khởi động dự án. 60\% còn lại chỉ được thanh toán sau khi khách đã nghiệm thu hài lòng trên môi trường thực tế (Production).
-    \item \textbf{Thời gian ân hạn (Grace Period):} Quy định 2 ngày ân hạn đầu tiên cho sai số lịch biểu mà không tính thưởng/phạt.
-    \item \textbf{Thưởng hoàn thành sớm:} Nếu bàn giao trước mốc cam kết và hệ thống vận hành hoàn hảo, khách thưởng thêm tỷ lệ \% giá trị hợp đồng theo thỏa thuận.
-    \item \textbf{Phạt bồi thường trễ hạn:} Nếu bàn giao trễ hạn do lỗi chủ quan từ phía đội ngũ phát triển, chúng tôi chịu phạt trừ tiền theo từng ngày trễ trực tiếp vào hợp đồng.
-\end{itemize}
+\newpage
 
-\section{Quy Chế Xử Lý Tính Năng Phát Sinh (Feature Request --- FR)}
-Trong quá trình triển khai, nếu khách hàng mong muốn bổ sung các tính năng ngoài phạm vi ban đầu (Scope of Work đã ký):
-\begin{enumerate}[leftmargin=*,itemsep=2pt]
-    \item \textbf{Phân tích \& Ước lượng Man-day bổ sung:} Leader sẽ bóc tách yêu cầu, đánh giá tác động kỹ thuật và gửi bảng báo man-day chi tiết để khách duyệt trước khi bắt tay viết mã.
-    \item \textbf{Quy định nâng cấp sau (+20\% phụ phí):} Trường hợp khách hàng triển khai gói MVP trước, sau này mới quyết định nâng cấp lên gói Đầy Đủ trên hệ thống đang chạy thật, chi phí sẽ áp dụng hệ số phụ phí 20\% do phát sinh công việc đọc lại mã nguồn, kiểm thử tương thích đa luồng và đảm bảo không gián đoạn người dùng hiện hữu.
+% ===============================================================
+% TRANG 6: QUY TRÌNH HỢP ĐỒNG & CAM KẾT PHÁP LÝ
+% ===============================================================
+\section{Quy Trình Triển Khai, Điều Khoản Hợp Đồng \& Cam Kết Pháp Lý}
+
+\begin{enumerate}[leftmargin=*,itemsep=3pt]
+    \item \textbf{Quy trình giải ngân bảo vệ an toàn 40\% / 60\%:}
+    \begin{itemize}[itemsep=1.5pt]
+        \item \textit{Đợt 1 --- 40\% (Cọc kỹ thuật):} Thanh toán sau khi hai bên ký tắt Tài liệu Đặc tả Yêu cầu (SRS) và khách hàng phê duyệt bản Wireframe/Prototype giao diện trên Figma.
+        \item \textit{Đợt 2 --- 60\% (Nghiệm thu):} Chỉ thanh toán sau khi hệ thống hoàn thiện 100\%, kiểm thử nghiệm thu không còn lỗi nghiêm trọng (zero critical bug) và hệ thống đã chạy thử nghiệm thành công trên tên miền chính thức của khách hàng trong ít nhất 48 giờ.
+    \end{itemize}
+
+    \item \textbf{Cam kết tiến độ Thưởng / Phạt minh bạch:}
+    \begin{itemize}[itemsep=1.5pt]
+        \item \textit{Thời gian ân hạn (Grace Period):} Tối đa \textbf{02 ngày làm việc} cho các trường hợp bất khả kháng được ghi nhận trong biên bản.
+        \item \textit{Phạt tiến độ (vi phạm từ phía đội phát triển):} \textbf{1\% giá trị hợp đồng / ngày trễ}, tối đa 10\%. Trễ quá \textbf{15 ngày}: \textbf{hoàn trả 100\% tiền cọc ngay lập tức, không tranh chấp}.
+        \item \textit{Thưởng bàn giao sớm:} Nếu hoàn thành trước tiến độ và chất lượng vượt kỳ vọng, khách hàng có thể cân nhắc thưởng thêm theo thỏa thuận.
+    \end{itemize}
+
+    \item \textbf{Chính sách xử lý tính năng phát sinh (Feature Request):}
+    \begin{itemize}[itemsep=1.5pt]
+        \item \textit{Hoán đổi tính năng tương đương --- Miễn phí:} Trong thời gian phát triển, khách hàng được quyền hoán đổi tối đa \textbf{20\%} khối lượng tính năng sang tính năng tương đương về độ phức tạp, mà không mất thêm chi phí.
+        \item \textit{Nâng cấp Live System sau nghiệm thu (+20\%):} Nếu muốn nâng cấp gói MVP lên gói Toàn Diện sau khi hệ thống đã chạy thật, áp dụng phụ phí 20\% cho công tác refactor mã nguồn và kiểm thử hồi quy (Regression Testing) không làm ảnh hưởng người dùng đang sử dụng.
+    \end{itemize}
+
+    \item \textbf{Bảo hành \& Hỗ trợ kỹ thuật dài hạn (SLA):}
+    \begin{itemize}[itemsep=1.5pt]
+        \item Bảo hành lỗi kỹ thuật từ \textbf{6--12 tháng} theo gói dịch vụ đã ký.
+        \item \textbf{Hỗ trợ khẩn cấp 24/7} đối với lỗi nghiêm trọng ảnh hưởng đến giao dịch (Gói 3). Thời gian phản hồi tối đa: 2 giờ đối với sự cố P1 (Production Down).
+        \item Hỗ trợ cập nhật bảo mật định kỳ (Security Patch) và tư vấn nâng cấp kỹ thuật sau khi hết thời hạn bảo hành.
+    \end{itemize}
+
+    \item \textbf{Nghĩa vụ Pháp lý \& Bảo mật Thông tin:}\\
+    Đội ngũ chúng tôi tự chịu trách nhiệm kê khai và nộp thuế thu nhập cá nhân (TNCN) theo đúng quy định pháp luật Việt Nam hiện hành. Hợp đồng dịch vụ bao gồm điều khoản \textbf{Bảo mật thông tin kinh doanh (NDA)} và cam kết \textbf{chuyển giao toàn bộ bản quyền sở hữu trí tuệ} cho khách hàng sau khi nghiệm thu và thanh toán đợt 2.
 \end{enumerate}
 
-\section{Chính Sách Bảo Hành, SLA Hỗ Trợ 24/7 \& Nghĩa Vụ Thuế}
-\begin{itemize}[leftmargin=*,itemsep=3pt]
-    \item \textbf{Bảo hành miễn phí 6 -- 12 tháng:} Sửa chữa toàn bộ lỗi phát sinh từ mã nguồn đã bàn giao, bảo đảm uptime trên 99.9\%.
-    \item \textbf{SLA hỗ trợ khẩn cấp 24/7:} Phản hồi sự cố trong vòng 15--30 phút; khắc phục lỗi quan trọng trong tối đa 4 giờ làm việc.
-    \item \textbf{Nghĩa vụ Thuế TNCN minh bạch:} Đội ngũ chúng tôi tự chịu trách nhiệm kê khai và nộp thuế thu nhập cá nhân đầy đủ với cơ quan thuế nhà nước. Khách hàng cá nhân hoặc doanh nghiệp hoàn toàn không phải bận tâm về thủ tục giấy tờ khấu trừ thuế.
-\end{itemize}
+\vspace{5mm}
 
-\vspace{6mm}
-\begin{flushright}
-    \textbf{Đại Diện Đội Ngũ Phát Triển}\\
-    \textit{Kiến trúc sư trưởng \& Trưởng nhóm}\\[12mm]
-    \textbf{LÊ TRÍ TRUNG}
-\end{flushright}
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \textbf{ĐẠI DIỆN KHÁCH HÀNG / ĐỐI TÁC}\\[1mm]
+    \textit{(Ký tên, ghi rõ họ tên \& đóng dấu nếu có)}\\[22mm]
+    \rule{5.5cm}{0.4pt}\\[2mm]
+    \small Ngày \rule{1cm}{0.4pt} / \rule{0.5cm}{0.4pt} / \rule{1.2cm}{0.4pt}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \textbf{ĐẠI DIỆN ĐỘI NGŨ PHÁT TRIỂN}\\
+    \textit{Kiến trúc sư trưởng \& Trưởng nhóm Kỹ thuật}\\[18mm]
+    \rule{5.5cm}{0.4pt}\\[2mm]
+    \textbf{\large LÊ TRÍ TRUNG}\\
+    \small Hotline/Zalo: 0782.399.721 $\cdot$ Đà Nẵng
+\end{minipage}
+
+\vspace{4mm}
+
+\noindent\rule{\textwidth}{0.4pt}
+\begin{center}
+\footnotesize\textcolor{mutedtext}{\textbf{Tài liệu tham khảo \& Nguồn dữ liệu trong hồ sơ này:}}
+\end{center}
+\begin{multicols}{2}
+\footnotesize\textcolor{mutedtext}{
+\begin{enumerate}[leftmargin=*,itemsep=0.5pt,label={[\arabic*]}]
+    \item Ngân hàng Nhà nước VN (NHNN): Báo cáo Thanh toán Điện tử 9 tháng 2025. \url{sbv.gov.vn}
+    \item VnEconomy: ``93\% doanh nghiệp VN đã ứng dụng công cụ AI'', 2025. \url{vneconomy.vn}
+    \item VietnamPlus: ``AI tư vấn thúc đẩy tăng trưởng doanh thu 86\% SME VN'', 2025. \url{vietnamplus.vn}
+    \item Google Web Vitals: Core Web Vitals Thresholds (LCP, INP, CLS). \url{web.dev/vitals}
+    \item Research.com: Vietnam Website Builder Market Size, USD 722M (2025).
+    \item NAPAS: VietQR Standard, 2.1 triệu điểm chấp nhận toàn quốc (2025). \url{napas.com.vn}
+    \item n8n.io: n8n Enterprise Adoption Report -- 15,000+ companies, \$5.2B valuation, 2026. \url{n8n.io}
+    \item DeepSeek API Pricing: DeepSeek V4.1-Flash, \$0.30--\$1.20/1M tokens (2026). \url{deepseek.com}
+\end{enumerate}
+}
+\end{multicols}
 
 \end{document}

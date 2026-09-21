@@ -8,9 +8,10 @@ import { useTranslation } from "react-i18next";
 import { useTranslatedData } from "../../hooks/useTranslatedData";
 
 const ACHIEVEMENT_SUBTABS = [
-  { tab: 'education', labelKey: 'nav.education' },
-  { tab: 'certificates', labelKey: 'nav.certificates' },
-  { tab: 'prizes', labelKey: 'nav.prizes' },
+  { tab: 'education', labelKey: 'nav.education', path: '/achievements?tab=education' },
+  { tab: 'certificates', labelKey: 'nav.certificates', path: '/achievements?tab=certificates' },
+  { tab: 'prizes', labelKey: 'nav.prizes', path: '/achievements?tab=prizes' },
+  { tab: 'activities', labelKey: 'nav.activities', path: '/activities' },
 ];
 
 const Navigation = ({ onOpenRecruiterMatch }) => {
@@ -136,7 +137,7 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
             style={{ alignItems: 'center', gap: '4px' }}
           >
             {siteNavigation.map((item) => {
-              const isActive = location.pathname === item.path;
+              const isActive = location.pathname === item.path || (item.path === '/achievements' && location.pathname === '/activities');
 
               if (item.path === '/achievements') {
                 const activeTab = searchParams.get('tab');
@@ -202,20 +203,24 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                             top: 'calc(100% + 6px)',
                             left: 0,
                             minWidth: '180px',
-                            backgroundColor: 'var(--color-canvas)',
+                            backgroundColor: isDarkMode ? 'rgba(20, 22, 31, 0.95)' : 'rgba(255, 255, 255, 0.95)',
+                            backdropFilter: 'blur(20px)',
+                            WebkitBackdropFilter: 'blur(20px)',
                             border: '1px solid var(--color-hairline)',
                             borderRadius: '14px',
                             padding: '6px',
-                            boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+                            boxShadow: isDarkMode ? '0 12px 32px rgba(0,0,0,0.5)' : '0 12px 32px rgba(15,23,42,0.1)',
                             zIndex: 60,
                           }}
                         >
                           {ACHIEVEMENT_SUBTABS.map((sub) => {
-                            const subActive = isActive && (activeTab === sub.tab || (!activeTab && sub.tab === 'education'));
+                            const subActive = sub.path === '/activities'
+                              ? location.pathname === '/activities'
+                              : location.pathname === '/achievements' && (activeTab === sub.tab || (!activeTab && sub.tab === 'education'));
                             return (
                               <Link
                                 key={sub.tab}
-                                to={`/achievements?tab=${sub.tab}`}
+                                to={sub.path}
                                 onClick={handleLinkClick}
                                 style={{
                                   display: 'block',
@@ -500,7 +505,7 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
               >
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '16px' }}>
                   {siteNavigation.map((item) => {
-                    const isActive = location.pathname === item.path;
+                    const isActive = location.pathname === item.path || (item.path === '/achievements' && location.pathname === '/activities');
                     return (
                       <div key={item.path}>
                         <Link
@@ -521,17 +526,34 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                           }}
                         >
                           <span style={{ opacity: 0.7 }}>{item.icon}</span>
-                          {item.title}
+                          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                            {item.title}
+                            {item.path === '/dich-vu' && (
+                              <span style={{
+                                fontSize: '9px',
+                                fontWeight: '700',
+                                color: '#ffffff',
+                                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                                padding: '1px 5px',
+                                borderRadius: '4px',
+                                letterSpacing: '0.4px',
+                                lineHeight: '1.2',
+                                textTransform: 'uppercase'
+                              }}>HOT</span>
+                            )}
+                          </span>
                         </Link>
                         {item.path === '/achievements' && (
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: '32px', marginTop: '2px' }}>
                             {ACHIEVEMENT_SUBTABS.map((sub) => {
                               const activeTab = searchParams.get('tab');
-                              const subActive = isActive && (activeTab === sub.tab || (!activeTab && sub.tab === 'education'));
+                              const subActive = sub.path === '/activities'
+                                ? location.pathname === '/activities'
+                                : location.pathname === '/achievements' && (activeTab === sub.tab || (!activeTab && sub.tab === 'education'));
                               return (
                                 <Link
                                   key={sub.tab}
-                                  to={`/achievements?tab=${sub.tab}`}
+                                  to={sub.path}
                                   onClick={handleLinkClick}
                                   style={{
                                     padding: '7px 16px',

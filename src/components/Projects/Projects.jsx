@@ -45,35 +45,35 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
       style={{
         display: 'flex',
         flexDirection: featured ? 'row' : 'column',
-        backgroundColor: 'var(--color-canvas)',
-        border: featured ? '2px solid transparent' : '1px solid #e6e6e6',
+        backgroundColor: 'var(--color-card-bg)',
+        border: featured ? '2px solid transparent' : '1px solid var(--color-card-border)',
         backgroundImage: featured
-          ? 'linear-gradient(var(--color-canvas), var(--color-canvas)), linear-gradient(120deg, #ff8a3d, #c5b0f4, #6d3fc9)'
+          ? 'linear-gradient(var(--color-card-bg), var(--color-card-bg)), linear-gradient(120deg, #ff8a3d, #c5b0f4, #6d3fc9)'
           : undefined,
         backgroundOrigin: featured ? 'border-box' : undefined,
         backgroundClip: featured ? 'padding-box, border-box' : undefined,
         borderRadius: '24px',
         overflow: 'hidden',
-        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+        transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
         cursor: 'pointer',
         gridColumn: featured ? 'span 2' : undefined,
-        boxShadow: featured ? '0 12px 40px rgba(109,63,201,0.18)' : undefined,
+        boxShadow: featured ? '0 12px 40px rgba(109,63,201,0.18)' : 'var(--shadow-soft)',
       }}
       onMouseMove={spotlight.onMouseMove}
       onMouseEnter={e => {
         if (!featured) e.currentTarget.style.borderColor = 'var(--color-ink)';
-        e.currentTarget.style.boxShadow = featured ? '0 16px 48px rgba(109,63,201,0.28)' : '0 8px 24px rgba(0,0,0,0.08)';
+        e.currentTarget.style.boxShadow = featured ? '0 16px 48px rgba(109,63,201,0.28)' : 'var(--shadow-hover)';
       }}
       onMouseLeave={e => {
-        if (!featured) e.currentTarget.style.borderColor = '#e6e6e6';
-        e.currentTarget.style.boxShadow = featured ? '0 12px 40px rgba(109,63,201,0.18)' : 'none';
+        if (!featured) e.currentTarget.style.borderColor = 'var(--color-card-border)';
+        e.currentTarget.style.boxShadow = featured ? '0 12px 40px rgba(109,63,201,0.18)' : 'var(--shadow-soft)';
       }}
     >
       {/* Image */}
       <div style={{
         position: 'relative',
         overflow: 'hidden',
-        backgroundColor: '#f7f7f5',
+        backgroundColor: 'var(--color-surface-soft)',
         ...(featured
           ? { width: '46%', flexShrink: 0 }
           : { aspectRatio: '16/10' }),
@@ -93,7 +93,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
           borderRadius: '50px',
           fontSize: '11px',
           fontFamily: 'JetBrains Mono, monospace',
-          fontWeight: '400',
+          fontWeight: '500',
           letterSpacing: '0.4px',
           textTransform: 'uppercase',
           backgroundColor: status.bg,
@@ -133,7 +133,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
               letterSpacing: '0.4px',
               textTransform: 'uppercase',
               color: '#000000',
-              backgroundColor: CATEGORY_COLORS[project.category] || '#e6e6e6',
+              backgroundColor: CATEGORY_COLORS[project.category] || 'var(--color-surface-soft)',
               width: 'fit-content',
             }}>
               {t(`projects.categories.${project.category}`, project.category)}
@@ -150,9 +150,9 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
               fontFamily: 'JetBrains Mono, monospace',
               letterSpacing: '0.4px',
               textTransform: 'uppercase',
-              color: '#000000',
-              backgroundColor: '#f7f7f5',
-              border: '1px solid #e6e6e6',
+              color: 'var(--color-ink)',
+              backgroundColor: 'var(--color-surface-soft)',
+              border: '1px solid var(--color-hairline)',
               width: 'fit-content',
             }}>
               <TechIcon tech={project.techStack[0]} size={11} />
@@ -164,9 +164,9 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         <h3 style={{
           fontFamily: 'Outfit, system-ui, sans-serif',
           fontSize: '20px',
-          fontWeight: '540',
+          fontWeight: '600',
           lineHeight: '1.35',
-          letterSpacing: '-0.2px',
+          letterSpacing: '-0.015em',
           color: 'var(--color-ink)',
           margin: '0 0 8px 0',
         }}>
@@ -174,19 +174,19 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         </h3>
 
         <div style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
-          <span style={{ fontSize: '13px', color: '#666666', display: 'flex', alignItems: 'center', gap: '5px' }}>
+          <span style={{ fontSize: '13px', color: 'var(--color-ink-soft)', display: 'flex', alignItems: 'center', gap: '5px' }}>
             <FaUser size={11} /> {project.role}
           </span>
-          <span style={{ fontSize: '13px', color: '#666666', display: 'flex', alignItems: 'center', gap: '5px' }}>
+          <span style={{ fontSize: '13px', color: 'var(--color-ink-soft)', display: 'flex', alignItems: 'center', gap: '5px' }}>
             <FaCalendarAlt size={11} /> {project.duration}
           </span>
         </div>
 
         <div style={{
-          fontSize: '15px',
-          fontWeight: '330',
-          lineHeight: '1.55',
-          color: '#555555',
+          fontSize: '14.5px',
+          fontWeight: '350',
+          lineHeight: '1.6',
+          color: 'var(--color-ink-soft)',
           marginBottom: '20px',
           flex: 1,
           maxHeight: '4.65em',
@@ -203,17 +203,18 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
             style={{
               flex: 1,
               padding: '10px 20px',
-              borderRadius: '50px',
+              borderRadius: '9999px',
               fontSize: '14px',
-              fontWeight: '480',
-              color: '#ffffff',
-              backgroundColor: '#000000',
+              fontWeight: '550',
+              color: 'var(--color-canvas)',
+              backgroundColor: 'var(--color-ink)',
               border: 'none',
               cursor: 'pointer',
-              transition: 'background-color 0.15s ease',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+              transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
-            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
-            onMouseLeave={e => e.currentTarget.style.backgroundColor = '#000000'}
+            onMouseEnter={e => { e.currentTarget.style.opacity = '0.9'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+            onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}
           >
             {t('projects.viewDetails')}
           </button>
@@ -222,18 +223,19 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub Repository"
               style={{
                 width: '40px', height: '40px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderRadius: '9999px',
-                backgroundColor: '#f7f7f5',
-                color: '#000000',
-                border: '1px solid #e6e6e6',
-                transition: 'background-color 0.15s ease',
+                backgroundColor: 'var(--color-surface-soft)',
+                color: 'var(--color-ink)',
+                border: '1px solid var(--color-hairline)',
+                transition: 'all 0.2s ease',
                 textDecoration: 'none',
               }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#e6e6e6'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--color-hairline)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; e.currentTarget.style.transform = 'translateY(0)'; }}
               onClick={e => e.stopPropagation()}
             >
               <FaGithub size={16} />
@@ -244,18 +246,19 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Live Project Website"
               style={{
                 width: '40px', height: '40px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderRadius: '9999px',
-                backgroundColor: '#f7f7f5',
-                color: '#000000',
-                border: '1px solid #e6e6e6',
-                transition: 'background-color 0.15s ease',
+                backgroundColor: 'var(--color-surface-soft)',
+                color: 'var(--color-ink)',
+                border: '1px solid var(--color-hairline)',
+                transition: 'all 0.2s ease',
                 textDecoration: 'none',
               }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#e6e6e6'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#f7f7f5'}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--color-hairline)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; e.currentTarget.style.transform = 'translateY(0)'; }}
               onClick={e => e.stopPropagation()}
             >
               <FaExternalLinkAlt size={14} />

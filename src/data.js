@@ -1,4 +1,3 @@
-
 import {
   FaGraduationCap,
   FaCode,
@@ -18,145 +17,237 @@ import {
   FaLightbulb,
   FaFilm,
   FaEnvelope,
-  FaFileAlt,
   FaNewspaper,
   FaRocket,
 } from "react-icons/fa";
-import NewAvatar from './assets/information/image.png';
-import { allPosts } from './data/posts';
+import NewAvatar from "./assets/information/image.png";
+import { allPosts } from "./data/posts";
 
 // Project Image Imports
-const DolaBakeryImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962632/my-website/assets/projects/DolaBakery.png";
-const WebFormAutomationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962635/my-website/assets/projects/WebFormAutomation.png";
-const BookShopOutsystemsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962636/my-website/assets/projects/BookShopOutsystems.png";
-const TikTokUIImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962637/my-website/assets/projects/ComingSoon.png";
-const PortfolioImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962639/my-website/assets/projects/Portfolio.png";
-const BakeryManagementImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962640/my-website/assets/projects/BakeryManagementSystem.png";
+const DolaBakeryImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962632/my-website/assets/projects/DolaBakery.png";
+const WebFormAutomationImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962635/my-website/assets/projects/WebFormAutomation.png";
+const BookShopOutsystemsImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962636/my-website/assets/projects/BookShopOutsystems.png";
+const TikTokUIImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962637/my-website/assets/projects/ComingSoon.png";
+const PortfolioImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962639/my-website/assets/projects/Portfolio.png";
+const BakeryManagementImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962640/my-website/assets/projects/BakeryManagementSystem.png";
 
 // Live screenshots captured via Playwright from each project's deployed liveUrl
-const JobFinderShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870959/my-website/assets/projects/screenshots/1-job-finder.png";
-const DolaBakeryShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870962/my-website/assets/projects/screenshots/2-dola-bakery.png";
-const WebFormAutomationShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870966/my-website/assets/projects/screenshots/4-web-form-automation.png";
-const BakeryManagementShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870969/my-website/assets/projects/screenshots/7-bakery-management.png";
-const BiensovipShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353578/my-website/assets/projects/screenshots/biensovip_1_home.png";
-const BiensovipShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353581/my-website/assets/projects/screenshots/biensovip_2_detail.png";
-const BiensovipShot3 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579610/my-website/assets/projects/screenshots/nxlufqwkaozhvd5h7tk2.png";
-const BiensovipShot4 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579613/my-website/assets/projects/screenshots/vl8kafmfubidwk3mugcb.png";
-const JobFinderShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579568/my-website/assets/projects/screenshots/yfy17yiopbaz9vlzvv1m.png";
-const DreamersShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579570/my-website/assets/projects/screenshots/pic_1_of_131.jpg";
-const DreamersShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579573/my-website/assets/projects/screenshots/pic_10_of_131.jpg";
-const McHubShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579575/my-website/assets/projects/screenshots/01-landing.png";
-const McHubShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579578/my-website/assets/projects/screenshots/01-dashboard-full.png";
-const McHubShot3 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579580/my-website/assets/projects/screenshots/04-voice-library.png";
-const AgriLinkShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579596/my-website/assets/projects/screenshots/dash-01-admin-dashboard.png";
-const AgriLinkShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579599/my-website/assets/projects/screenshots/auth-00-login.png";
-const BrandHubShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579601/my-website/assets/projects/screenshots/DA-D19-01.png";
-const BrandHubShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579603/my-website/assets/projects/screenshots/DA-D19-02.png";
-const ThreadLearnShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579605/my-website/assets/projects/screenshots/slide_07_pipeline.png";
-const ThreadLearnShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579607/my-website/assets/projects/screenshots/slide_11_main_results.png";
-const NursingKTYHShot1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789580945/my-website/assets/projects/screenshots/nursing_check.png";
-const NursingKTYHShot2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789580947/my-website/assets/projects/screenshots/nursing_orgchart2.png";
+const JobFinderShot1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870959/my-website/assets/projects/screenshots/1-job-finder.png";
+const DolaBakeryShot1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870962/my-website/assets/projects/screenshots/2-dola-bakery.png";
+const WebFormAutomationShot1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870966/my-website/assets/projects/screenshots/4-web-form-automation.png";
+const BakeryManagementShot1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783870969/my-website/assets/projects/screenshots/7-bakery-management.png";
+const BiensovipShot1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353578/my-website/assets/projects/screenshots/biensovip_1_home.png";
+const BiensovipShot2 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353581/my-website/assets/projects/screenshots/biensovip_2_detail.png";
+const BiensovipShot3 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579610/my-website/assets/projects/screenshots/nxlufqwkaozhvd5h7tk2.png";
+const BiensovipShot4 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579613/my-website/assets/projects/screenshots/vl8kafmfubidwk3mugcb.png";
+const JobFinderShot2 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579568/my-website/assets/projects/screenshots/yfy17yiopbaz9vlzvv1m.png";
+const DreamersShot1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579570/my-website/assets/projects/screenshots/pic_1_of_131.jpg";
+const DreamersShot2 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579573/my-website/assets/projects/screenshots/pic_10_of_131.jpg";
+const McHubShot1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579575/my-website/assets/projects/screenshots/01-landing.png";
+const McHubShot2 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579578/my-website/assets/projects/screenshots/01-dashboard-full.png";
+const McHubShot3 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579580/my-website/assets/projects/screenshots/04-voice-library.png";
+const AgriLinkShot1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579596/my-website/assets/projects/screenshots/dash-01-admin-dashboard.png";
+const AgriLinkShot2 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579599/my-website/assets/projects/screenshots/auth-00-login.png";
+const BrandHubShot1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579601/my-website/assets/projects/screenshots/DA-D19-01.png";
+const BrandHubShot2 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579603/my-website/assets/projects/screenshots/DA-D19-02.png";
+const ThreadLearnShot1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579605/my-website/assets/projects/screenshots/slide_07_pipeline.png";
+const ThreadLearnShot2 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579607/my-website/assets/projects/screenshots/slide_11_main_results.png";
+const NursingKTYHShot1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789580945/my-website/assets/projects/screenshots/nursing_check.png";
+const NursingKTYHShot2 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789580947/my-website/assets/projects/screenshots/nursing_orgchart2.png";
 
 //Certificate Imports
-const HiraganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962642/my-website/assets/Certificate/Language/Completion_Hiragana.png";
-const KataganaImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962643/my-website/assets/Certificate/Language/Completion_katagana.png";
-const DreamersResfresImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962644/my-website/assets/Certificate/Event/DreamersResfres.png";
-const NonXanhNuocBiecImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962645/my-website/assets/Certificate/Event/NonXanhNuocBiec.png";
-const DreamerOfHonorImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838572/my-website/assets/Certificate/Event/DreamersHonor-1.png";
-const AcademicSkillsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962647/my-website/assets/Certificate/TechnologyCertificates/AcademicSkills_for_University_Success-1.png";
-const WebDevBasicsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962649/my-website/assets/Certificate/TechnologyCertificates/Basics_of_web_development_coding___Michigan-1.png";
-const AIAgentsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962650/my-website/assets/Certificate/TechnologyCertificates/CertificateOfCompletion_Build_AI_Agents_and_Automate_Workflows_with_n8n-1.png";
-const CSS3Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962651/my-website/assets/Certificate/TechnologyCertificates/CSS3_Michigan-1.png";
-const DataVisualizationImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962653/my-website/assets/Certificate/TechnologyCertificates/Data_Visualization.png";
-const GraphicDesignImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962654/my-website/assets/Certificate/TechnologyCertificates/Fundamentals_of_Graphic_Design-1.png";
-const HTMLCSSDepthImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962656/my-website/assets/Certificate/TechnologyCertificates/HTML_and_CSS_in_depth-1.png";
-const HTML5Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962657/my-website/assets/Certificate/TechnologyCertificates/Html5_Michigan-1.png";
-const ITOnboardingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962658/my-website/assets/Certificate/TechnologyCertificates/Information_Technology_Onboarding-1.png";
-const InteractivityJSImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962660/my-website/assets/Certificate/TechnologyCertificates/Interactivity_with_JavaScript___Michigan-1.png";
-const IntroFrontEndImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962661/my-website/assets/Certificate/TechnologyCertificates/Introduction_to_Front-End_Development-1.png";
-const JSAlgorithmsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962662/my-website/assets/Certificate/TechnologyCertificates/JavaScript_Algorithms.png";
-const ProgrammingJSImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962663/my-website/assets/Certificate/TechnologyCertificates/Programming_with_JavaScript-1.png";
-const ResponsiveImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962664/my-website/assets/Certificate/TechnologyCertificates/Reponsive__Michigan-1.png";
-const RoboticsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962666/my-website/assets/Certificate/TechnologyCertificates/Robotics.jpg";
-const IELTSRealImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838534/my-website/assets/Certificate/Language/IELTS_Real.png";
-const DOLLinearImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838530/my-website/assets/Certificate/Language/DOL_Linear.png";
-const FsoftOJTImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838532/my-website/assets/Certificate/Language/FPT_OJT.png";
-const HackathonCVImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1787394791/my-website/assets/Certificate/AI_Computer_Vision.png";
-const CertOfMeritImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1787394844/my-website/assets/Certificate/giaykhen387.png";
-const HocBong2023Image = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838533/my-website/assets/Certificate/Language/HocBong2023.png";
-const AIESECLeadershipImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838569/my-website/assets/Certificate/Event/Leadership_Conference_2025.png";
-const IBMRAGLangChainImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838587/my-website/assets/Certificate/TechnologyCertificates/IBM_RAG_LangChain-1.png";
-const RAGGetStartedImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783839672/my-website/assets/Certificate/TechnologyCertificates/RAG_GetStarted-1.png";
-const AIAgentsRAGLangChainImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783839671/my-website/assets/Certificate/TechnologyCertificates/AIAgents_RAG_LangChain-1.png";
-const EthicalOrgImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840247/my-website/assets/Certificate/TechnologyCertificates/EthicalOrg-1.png";
-const EthicalRisksImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840249/my-website/assets/Certificate/TechnologyCertificates/EthicalRisks-1.png";
-const EthicalPromoteImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840248/my-website/assets/Certificate/TechnologyCertificates/EthicalPromote-1.png";
-const EthicalActionableImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840244/my-website/assets/Certificate/TechnologyCertificates/EthicalActionable-1.png";
-const EthicalCommunicateImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840246/my-website/assets/Certificate/TechnologyCertificates/EthicalCommunicate-1.png";
-const CertNexusExamPrepImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840243/my-website/assets/Certificate/TechnologyCertificates/CertNexusExamPrep-1.png";
-const EthicsOfAIImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840250/my-website/assets/Certificate/TechnologyCertificates/EthicsOfAI-1.png";
-const PMInitiatingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840252/my-website/assets/Certificate/TechnologyCertificates/PMInitiating-1.png";
-const PMBudgetingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840250/my-website/assets/Certificate/TechnologyCertificates/PMBudgeting-1.png";
-const PMRisksImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840253/my-website/assets/Certificate/TechnologyCertificates/PMRisks-1.png";
-const PMCapstoneImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840251/my-website/assets/Certificate/TechnologyCertificates/PMCapstone-1.png";
+const HiraganaImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962642/my-website/assets/Certificate/Language/Completion_Hiragana.png";
+const KataganaImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962643/my-website/assets/Certificate/Language/Completion_katagana.png";
+const DreamersResfresImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962644/my-website/assets/Certificate/Event/DreamersResfres.png";
+const NonXanhNuocBiecImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962645/my-website/assets/Certificate/Event/NonXanhNuocBiec.png";
+const DreamerOfHonorImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838572/my-website/assets/Certificate/Event/DreamersHonor-1.png";
+const AcademicSkillsImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962647/my-website/assets/Certificate/TechnologyCertificates/AcademicSkills_for_University_Success-1.png";
+const WebDevBasicsImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962649/my-website/assets/Certificate/TechnologyCertificates/Basics_of_web_development_coding___Michigan-1.png";
+const AIAgentsImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962650/my-website/assets/Certificate/TechnologyCertificates/CertificateOfCompletion_Build_AI_Agents_and_Automate_Workflows_with_n8n-1.png";
+const CSS3Image =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962651/my-website/assets/Certificate/TechnologyCertificates/CSS3_Michigan-1.png";
+const DataVisualizationImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962653/my-website/assets/Certificate/TechnologyCertificates/Data_Visualization.png";
+const GraphicDesignImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962654/my-website/assets/Certificate/TechnologyCertificates/Fundamentals_of_Graphic_Design-1.png";
+const HTMLCSSDepthImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962656/my-website/assets/Certificate/TechnologyCertificates/HTML_and_CSS_in_depth-1.png";
+const HTML5Image =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962657/my-website/assets/Certificate/TechnologyCertificates/Html5_Michigan-1.png";
+const ITOnboardingImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962658/my-website/assets/Certificate/TechnologyCertificates/Information_Technology_Onboarding-1.png";
+const InteractivityJSImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962660/my-website/assets/Certificate/TechnologyCertificates/Interactivity_with_JavaScript___Michigan-1.png";
+const IntroFrontEndImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962661/my-website/assets/Certificate/TechnologyCertificates/Introduction_to_Front-End_Development-1.png";
+const JSAlgorithmsImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962662/my-website/assets/Certificate/TechnologyCertificates/JavaScript_Algorithms.png";
+const ProgrammingJSImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962663/my-website/assets/Certificate/TechnologyCertificates/Programming_with_JavaScript-1.png";
+const ResponsiveImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962664/my-website/assets/Certificate/TechnologyCertificates/Reponsive__Michigan-1.png";
+const RoboticsImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962666/my-website/assets/Certificate/TechnologyCertificates/Robotics.jpg";
+const IELTSRealImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838534/my-website/assets/Certificate/Language/IELTS_Real.png";
+const DOLLinearImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838530/my-website/assets/Certificate/Language/DOL_Linear.png";
+const FsoftOJTImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838532/my-website/assets/Certificate/Language/FPT_OJT.png";
+const HackathonCVImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1787394791/my-website/assets/Certificate/AI_Computer_Vision.png";
+const CertOfMeritImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1787394844/my-website/assets/Certificate/giaykhen387.png";
+const HocBong2023Image =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838533/my-website/assets/Certificate/Language/HocBong2023.png";
+const AIESECLeadershipImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838569/my-website/assets/Certificate/Event/Leadership_Conference_2025.png";
+const IBMRAGLangChainImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783838587/my-website/assets/Certificate/TechnologyCertificates/IBM_RAG_LangChain-1.png";
+const RAGGetStartedImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783839672/my-website/assets/Certificate/TechnologyCertificates/RAG_GetStarted-1.png";
+const AIAgentsRAGLangChainImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783839671/my-website/assets/Certificate/TechnologyCertificates/AIAgents_RAG_LangChain-1.png";
+const EthicalOrgImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840247/my-website/assets/Certificate/TechnologyCertificates/EthicalOrg-1.png";
+const EthicalRisksImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840249/my-website/assets/Certificate/TechnologyCertificates/EthicalRisks-1.png";
+const EthicalPromoteImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840248/my-website/assets/Certificate/TechnologyCertificates/EthicalPromote-1.png";
+const EthicalActionableImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840244/my-website/assets/Certificate/TechnologyCertificates/EthicalActionable-1.png";
+const EthicalCommunicateImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840246/my-website/assets/Certificate/TechnologyCertificates/EthicalCommunicate-1.png";
+const CertNexusExamPrepImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840243/my-website/assets/Certificate/TechnologyCertificates/CertNexusExamPrep-1.png";
+const EthicsOfAIImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840250/my-website/assets/Certificate/TechnologyCertificates/EthicsOfAI-1.png";
+const PMInitiatingImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840252/my-website/assets/Certificate/TechnologyCertificates/PMInitiating-1.png";
+const PMBudgetingImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840250/my-website/assets/Certificate/TechnologyCertificates/PMBudgeting-1.png";
+const PMRisksImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840253/my-website/assets/Certificate/TechnologyCertificates/PMRisks-1.png";
+const PMCapstoneImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783840251/my-website/assets/Certificate/TechnologyCertificates/PMCapstone-1.png";
 
 //Activity Imports
-const InnocodeCampActivityImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962667/my-website/assets/activities/Dreamers_Innocode_Camp.png";
-const MicHomeFUMClubImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962668/my-website/assets/activities/Mic_Home_FUM_Club.jpg";
-const ResFresActivityImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962644/my-website/assets/Certificate/Event/DreamersResfres.png";
-const CharityFundraisingImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962670/my-website/assets/activities/Dreamers_Charity_Fundraising.jpg";
-const MediaRolesImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962671/my-website/assets/activities/Student_Actor_Model.jpg";
-const GalaHonTanDatVietImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962672/my-website/assets/activities/Gala_HonTanDatViet.jpg";
-const CharityMissionsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962673/my-website/assets/activities/TuThien_Missions_Group.jpg";
-const WorkshopMakeImageBetterImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962674/my-website/assets/activities/Workshop_MakeImageBetter_MC.jpg";
-const GenderEqualityMCImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962676/my-website/assets/activities/Gender_Equality_Workshop_MC.jpg";
-const CollaborationEventsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962677/my-website/assets/activities/Collaboration_Events_Group.jpg";
-const TuyenThanhVienDreamersImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962678/my-website/assets/activities/Tuyen_Thanh_Vien_Dreamers.jpg";
-const DuAnDreamHighImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962681/my-website/assets/activities/Du_An_Dream_High.jpg";
-const TotHyVongImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962682/my-website/assets/activities/Tet_Hy_Vong_Event.jpg";
-const VongVaoMongMoImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962684/my-website/assets/activities/Vong_Vao_Mong_Mo.jpg";
-const AIRoboticsImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962685/my-website/assets/activities/AI_Robotics_Referee.jpg";
-const DienNhacTuThienImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962688/my-website/assets/activities/Dien_Nhac_Tu_Thien.png";
-const BoAnhKyNiemImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962689/my-website/assets/activities/Bo_Anh_Ky_Niem.jpg";
-const AlumniGuidanceImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962690/my-website/assets/activities/Alumni_Career_Guidance_Talk.jpg";
+const InnocodeCampActivityImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962667/my-website/assets/activities/Dreamers_Innocode_Camp.png";
+const MicHomeFUMClubImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962668/my-website/assets/activities/Mic_Home_FUM_Club.jpg";
+const ResFresActivityImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962644/my-website/assets/Certificate/Event/DreamersResfres.png";
+const CharityFundraisingImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962670/my-website/assets/activities/Dreamers_Charity_Fundraising.jpg";
+const MediaRolesImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962671/my-website/assets/activities/Student_Actor_Model.jpg";
+const GalaHonTanDatVietImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962672/my-website/assets/activities/Gala_HonTanDatViet.jpg";
+const CharityMissionsImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962673/my-website/assets/activities/TuThien_Missions_Group.jpg";
+const WorkshopMakeImageBetterImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962674/my-website/assets/activities/Workshop_MakeImageBetter_MC.jpg";
+const GenderEqualityMCImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962676/my-website/assets/activities/Gender_Equality_Workshop_MC.jpg";
+const CollaborationEventsImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962677/my-website/assets/activities/Collaboration_Events_Group.jpg";
+const TuyenThanhVienDreamersImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962678/my-website/assets/activities/Tuyen_Thanh_Vien_Dreamers.jpg";
+const DuAnDreamHighImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962681/my-website/assets/activities/Du_An_Dream_High.jpg";
+const TotHyVongImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962682/my-website/assets/activities/Tet_Hy_Vong_Event.jpg";
+const VongVaoMongMoImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962684/my-website/assets/activities/Vong_Vao_Mong_Mo.jpg";
+const AIRoboticsImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962685/my-website/assets/activities/AI_Robotics_Referee.jpg";
+const DienNhacTuThienImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962688/my-website/assets/activities/Dien_Nhac_Tu_Thien.png";
+const BoAnhKyNiemImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962689/my-website/assets/activities/Bo_Anh_Ky_Niem.jpg";
+const AlumniGuidanceImage =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962690/my-website/assets/activities/Alumni_Career_Guidance_Talk.jpg";
 
 //eudcation Memories Imports
-const FPTMemory1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962692/my-website/assets/educationMemories/FPT_Memory_1.jpg";
-const MalaysiaMemory = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962693/my-website/assets/educationMemories/Malaysia_Memory.jpg";
-const PCTMemory = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962694/my-website/assets/educationMemories/PCT_Graduation_Memory.jpg";
+const FPTMemory1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962692/my-website/assets/educationMemories/FPT_Memory_1.jpg";
+const MalaysiaMemory =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962693/my-website/assets/educationMemories/Malaysia_Memory.jpg";
+const PCTMemory =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962694/my-website/assets/educationMemories/PCT_Graduation_Memory.jpg";
 
 // About Slider Images Imports
-const SliderImg1 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962695/my-website/assets/slider/SliderImg1.jpg";
-const SliderImg2 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962696/my-website/assets/slider/SliderImg2.jpg";
-const SliderImg3 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962697/my-website/assets/slider/SliderImg3.jpg";
-const SliderImg4 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962699/my-website/assets/slider/SliderImg4.jpg";
+const SliderImg1 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962695/my-website/assets/slider/SliderImg1.jpg";
+const SliderImg2 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962696/my-website/assets/slider/SliderImg2.jpg";
+const SliderImg3 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962697/my-website/assets/slider/SliderImg3.jpg";
+const SliderImg4 =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962699/my-website/assets/slider/SliderImg4.jpg";
 
 // Local Image Import
 // moved to top
 
-
 export const personalInfo = {
   name: "Lê Trí Trung",
-  title: "Back-End Developer",
+  title: "Tech Lead & Full-Stack Engineer",
   profileImage: NewAvatar,
   cv: "/Le_Tri_Trung_CV.pdf",
   logo: NewAvatar,
   intro:
-    "Highly motivated Computer Science student with a strong foundation in web development. Proficient in Java Spring Boot, .NET, JavaScript, React, NodeJS, Python FastAPI and passionate about creating clean, scalable applications and eager to leverage AI technologies to build smarter solutions in a collaborative environment.",
+    "Tech Lead dẫn dắt đội 5 kỹ sư tại Đà Nẵng — chuyên phát triển Website thương mại, SaaS Automation và tích hợp AI Agent cho doanh nghiệp vừa & nhỏ. Quán quân Hackathon Computer Vision 2026 (FPT University). Đang vận hành biensovip.com — nền tảng marketplace giao dịch biển số xe với VietQR tự động.",
   contact: {
     email: "letritrung2605@gmail.com",
     phone: "(+84) 912 158 715",
     birthday: "26/05/2005",
-    location: "Hai Chau district, Da Nang city, Viet Nam",
+    location: "Ngũ Hành Sơn, TP. Đà Nẵng, Việt Nam",
     facebook: "https://www.facebook.com/trung.le.2605",
     instagram: "https://www.instagram.com/trung.le.2605/?hl=en",
     github: "https://github.com/trung2605",
     linkedin: "https://www.linkedin.com/in/trung-l%C3%AA-7ba564283/",
   },
   story: {
-    title: "My Journey",
+    title: "Hành Trình Của Tôi",
     content:
-      "I'm **Lê Trí Trung** — a Computer Science student at **FPT University Da Nang**, currently interning at **FPT Software** as a Software Developer. I specialize in **Java Spring Boot** backend development and enjoy building full-stack applications that are clean, scalable, and actually useful.\n\nMy path started with a curiosity for how things work under the hood. That curiosity led me from Java fundamentals to designing RESTful APIs, integrating databases, working with real Agile teams, and eventually co-building platforms like **The MC Hub** — a marketplace connecting event MCs with clients, featuring real-time chat, payment integration, and a mobile app.\n\nOutside of code, I've served as an **MC for 600–1000+ attendee university events**, founded **The Dreamers** — a student charity organization focused on bringing technology education to orphaned children — and competed in multiple national-scale coding competitions, reaching final rounds at **FPT Code Talent** and **Innocode Camp**.\n\nI believe the best developers are those who can communicate, lead, and adapt — not just ship code. That's the kind of developer I'm working to become.",
+      "Mình là **Lê Trí Trung** — Tech Lead và kỹ sư phần mềm tại Đà Nẵng, hiện dẫn dắt **đội 5 kỹ sư** chuyên phát triển Website kinh doanh, SaaS Automation và tích hợp AI Agent cho cá nhân, chủ shop và doanh nghiệp vừa & nhỏ.\n\nSau khi hoàn thành chương trình thực tập tại **FPT Software** (09–12/2025) và giành **Giải Nhất Hackathon Computer Vision 2026** cùng **Top 5 ResFes Toàn Quốc** tại FPT University Đà Nẵng, mình đã đưa những kiến thức kỹ thuật vào thực tế bằng cách tự xây dựng và vận hành **biensovip.com** — sàn giao dịch biển số xe với VietQR tự động, xử lý 100+ lượt truy cập/ngày và khớp lệnh thanh toán dưới 0.5 giây.\n\nĐiều mình đam mê nhất là **tự động hóa luồng kinh doanh**: tích hợp VietQR Webhook thời gian thực, AI Agent DeepSeek tư vấn bán hàng 24/7, và kịch bản n8n giảm tải nhân sự vận hành. Với triết lý **No Middlemen** — làm việc 1-1 trực tiếp với Tech Lead — khách hàng nhận được sản phẩm kỹ thuật cao mà không phải trả chi phí trung gian.\n\nNgoài lập trình, mình từng là **MC dẫn chương trình cho các sự kiện 600–1000+ khán giả** tại FPT University, sáng lập **The Dreamers** — tổ chức từ thiện sinh viên đưa công nghệ đến trẻ em mồ côi, và đạt huy chương tại nhiều cuộc thi lập trình cấp quốc gia.",
   },
 };
 
@@ -172,28 +263,28 @@ export const navigation = [
 
 export const highlights = [
   {
-    title: "Backend-First Mindset",
+    title: "SaaS & AI Automation",
     description:
-      "Core strength in Java Spring Boot — designing RESTful APIs, securing services with JWT, managing relational and document databases, and building production-ready backend systems with clean architecture.",
-    icon: <FaServer className="w-8 h-8" style={{ color: '#6d3fc9' }} />,
+      "Chuyên sâu thiết kế luồng tự động hóa kinh doanh: VietQR Webhook thời gian thực, AI Agent DeepSeek tư vấn 24/7, kịch bản n8n kết nối đa nền tảng — cắt giảm tối đa nhân sự vận hành thủ công.",
+    icon: <FaRocket className="w-8 h-8" style={{ color: "#6d3fc9" }} />,
   },
   {
-    title: "Full-Stack Capable",
+    title: "Full-Stack Production Systems",
     description:
-      "Comfortable across the entire stack — from React 19 + Vite frontends to Spring Boot backends, with hands-on experience deploying on Vercel and integrating third-party services like PayOS and Cloudinary.",
-    icon: <FaGlobe className="w-8 h-8" style={{ color: '#6d3fc9' }} />,
+      "Vận hành biensovip.com thực tế: 100+ lượt/ngày, độ trễ API <120ms, uptime 99.98%, khớp lệnh VietQR <0.5s. Kinh nghiệm thực chiến từ Java Spring Boot, React/Next.js đến PostgreSQL và Redis Cache.",
+    icon: <FaGlobe className="w-8 h-8" style={{ color: "#6d3fc9" }} />,
   },
   {
-    title: "Competitive Programmer",
+    title: "Nghiên Cứu & Thi Đấu",
     description:
-      "Reached final rounds at FPT Code Talent, Innocode Camp, and ResFes — sharpening algorithmic thinking and performance under pressure through consistent competition participation.",
-    icon: <FaPuzzlePiece className="w-8 h-8" style={{ color: '#6d3fc9' }} />,
+      "Quán quân Hackathon Computer Vision 2026, Top 5 ResFes Toàn Quốc (nghiên cứu AI bảo mật đa luồng). Từng vào vòng cuối FPT Code Talent và Innocode Camp — tư duy thuật toán sắc bén dưới áp lực.",
+    icon: <FaTrophy className="w-8 h-8" style={{ color: "#6d3fc9" }} />,
   },
   {
-    title: "Leader & Community Builder",
+    title: "Tech Lead & Cộng Đồng",
     description:
-      "Founded The Dreamers charity organization, led 5-person development teams, and hosted university events for 600–1000+ attendees — proving that strong developers also know how to communicate and inspire.",
-    icon: <FaUsers className="w-8 h-8" style={{ color: '#6d3fc9' }} />,
+      "Dẫn dắt đội 5 kỹ sư phát triển sản phẩm thực tế. Sáng lập The Dreamers (từ thiện công nghệ), MC sự kiện 600–1000+ khán giả — kỹ sư không chỉ viết code mà còn truyền cảm hứng.",
+    icon: <FaUsers className="w-8 h-8" style={{ color: "#6d3fc9" }} />,
   },
 ];
 
@@ -286,26 +377,36 @@ export const experienceBlocks = [
 export const education = [
   {
     id: 1,
+    school: "Đội Ngũ Kỹ Sư Đà Nẵng (Tự Khởi Nghiệp)",
+    degree: "Tech Lead & Kỹ Sư Trưởng",
+    duration: "01/2026 - Hiện tại",
+    gpa: "Đang hoạt động",
+    status: "Current",
+    description:
+      "Dẫn dắt **đội 5 kỹ sư** phát triển Website thương mại, SaaS Automation và AI Agent cho khách hàng SME. Đang vận hành **biensovip.com** — sàn marketplace giao dịch biển số xe với VietQR tự động, xử lý 100+ lượt truy cập/ngày, uptime 99.98%, độ trễ API <120ms.",
+  },
+  {
+    id: 2,
     school: "FPT Software (FSoft)",
     degree: "Software Developer Intern",
     duration: "08/2025 - 12/2025",
     gpa: "Passed",
     status: "Completed",
     description:
-      "Developed enterprise applications using **OutSystems Reactive Web** within an Agile team. Debugged and refactored code to optimize system performance and user experience.",
+      "Phát triển ứng dụng enterprise bằng **OutSystems Reactive Web** trong môi trường Agile. Tối ưu hiệu năng và refactor code hệ thống. Hoàn thành chứng chỉ OJT được FPT University công nhận.",
   },
   {
-    id: 2,
+    id: 3,
     school: "FPT University",
     degree: "University (Computer Science)",
     duration: "09/2023 - Present",
     gpa: "3.3/4.0 - 8.2/10.0",
     status: "Current",
     description:
-      "Currently pursuing a **Bachelor of Science in Computer Science** (GPA 3.3/4.0 - 8.2/10.0). Coursework emphasizes software engineering, data structures, algorithms, and backend systems in Java Spring Boot, .NET, and Python FastAPI.",
+      "Đang theo học **Cử nhân Khoa học Máy tính** (GPA 3.3/4.0). Đạt **Giải Nhất Hackathon Computer Vision 2026** và **Top 5 ResFes Toàn Quốc** về nghiên cứu AI bảo mật đa luồng. Chuyên sâu Java Spring Boot, .NET, Python FastAPI và kiến trúc phần mềm.",
   },
   {
-    id: 3,
+    id: 4,
     school:
       "Tunku Abdul Rahman University of Management and Technology (TAR UMT)",
     degree: "FPTU Student Exchange / Inbound Mobility Programme",
@@ -313,17 +414,17 @@ export const education = [
     gpa: "Passed",
     status: "Completed",
     description:
-      "Participation in the **FPTU Student Exchange / Inbound Mobility Programme** in **Kuala Lumpur, Malaysia**. Gained international exposure to diverse academic and cultural environments, enhancing adaptability and cross-cultural communication skills.",
+      "Tham gia **Chương trình Trao đổi Sinh viên FPTU** tại **Kuala Lumpur, Malaysia**. Mở rộng góc nhìn học thuật đa văn hóa và phát triển kỹ năng giao tiếp quốc tế.",
   },
   {
-    id: 4,
+    id: 5,
     school: "Phan Chau Trinh High School",
     degree: "High School Diploma",
     duration: "09/2020 - 06/2023",
     gpa: "9.0/10.0",
     status: "Graduated",
     description:
-      "Graduated with an **academic GPA of 9.0/10.0**. Built a strong foundation in Mathematics, analytical thinking, and leadership.",
+      "Tốt nghiệp với **GPA 9.0/10.0**. Xây dựng nền tảng tư duy phân tích và toán học vững chắc.",
   },
 ];
 
@@ -357,7 +458,7 @@ export const skills = [
     category: "Programming Languages",
     items: [
       { name: "Java", level: 85 },
-      { name: "JavaScript / TypeScript", level: 80 },
+      { name: "JavaScript / TypeScript", level: 85 },
       { name: "C# (.NET)", level: 80 },
       { name: "Python", level: 75 },
     ],
@@ -366,27 +467,27 @@ export const skills = [
     category: "Frameworks & Libraries",
     items: [
       { name: "Java Spring Boot", level: 85 },
-      { name: "ASP.NET Core", level: 80 },
-      { name: "React", level: 90 },
+      { name: "React / Next.js / Vite", level: 90 },
       { name: "Python FastAPI & NodeJS", level: 80 },
+      { name: "ASP.NET Core", level: 75 },
     ],
   },
   {
-    category: "Databases & Tools",
+    category: "SaaS & AI Automation",
     items: [
-      { name: "PostgreSQL & SQL Server", level: 80 },
+      { name: "VietQR Webhook Integration", level: 90 },
+      { name: "AI Agent (DeepSeek / OpenAI)", level: 85 },
+      { name: "n8n Workflow Automation", level: 85 },
+      { name: "RAG & LangChain", level: 75 },
+    ],
+  },
+  {
+    category: "Databases & DevOps",
+    items: [
+      { name: "PostgreSQL & SQL Server", level: 85 },
       { name: "MongoDB & Redis", level: 75 },
-      { name: "Docker & Git / GitHub", level: 80 },
-      { name: "Jira & Notion", level: 85 },
-    ],
-  },
-  {
-    category: "Soft Skills",
-    items: [
-      { name: "Communication Skills", level: 85 },
-      { name: "Team Leadership", level: 80 },
-      { name: "Problem Solving", level: 80 },
-      { name: "Agile Collaboration", level: 75 },
+      { name: "Docker & Cloud Server", level: 80 },
+      { name: "Git / GitHub & CI/CD", level: 85 },
     ],
   },
 ];
@@ -414,7 +515,8 @@ export const projects = [
     status: "In Development",
     category: "fullstack",
     tier: 3,
-    challenge: "Cần một nền tảng tìm việc cho phép job seeker vừa tìm kiếm/ứng tuyển vừa nhận hỗ trợ AI (resume tips, job matching), trong khi team 6 người phải phối hợp Agile trên cùng một codebase suốt 4 tháng mà không dẫm chân nhau.",
+    challenge:
+      "Cần một nền tảng tìm việc cho phép job seeker vừa tìm kiếm/ứng tuyển vừa nhận hỗ trợ AI (resume tips, job matching), trong khi team 6 người phải phối hợp Agile trên cùng một codebase suốt 4 tháng mà không dẫm chân nhau.",
     highlights: [
       "Thiết kế và triển khai toàn bộ RESTful API bằng Java Spring Boot, quản lý dữ liệu quan hệ trên SQL Server",
       "Xây dựng hệ thống xác thực JWT-based (login/register) từ đầu",
@@ -444,7 +546,8 @@ export const projects = [
     status: "Completed",
     category: "ecommerce",
     tier: 3,
-    challenge: "Dự án nhóm đầu tiên của tôi — cần dựng một nền tảng thương mại điện tử đầy đủ (catalog, giỏ hàng, đơn hàng, tài khoản khách) cho một tiệm bánh, với đội 4 người và deadline cố định, mà không có kinh nghiệm phối hợp team trước đó.",
+    challenge:
+      "Dự án nhóm đầu tiên của tôi — cần dựng một nền tảng thương mại điện tử đầy đủ (catalog, giỏ hàng, đơn hàng, tài khoản khách) cho một tiệm bánh, với đội 4 người và deadline cố định, mà không có kinh nghiệm phối hợp team trước đó.",
     highlights: [
       "Kiến trúc backend bằng Java Servlets, tự thiết kế schema database SQL Server",
       "Dẫn dắt team 4 người, chia task theo sprint hàng tuần",
@@ -461,13 +564,20 @@ export const projects = [
     image: DreamersShot1,
     description:
       "Founded and lead **The Dreamers** — a student-run charity organization at FPT University dedicated to creating positive social impact through technology and education. The organization runs hands-on programs that bring **coding workshops, communication skills training, and mentorship** directly to orphaned children and underprivileged youth.\n\nAs founder, I manage the full operational scope: recruiting and onboarding members, defining project roadmaps, coordinating with partner organizations, and overseeing fundraising campaigns that have raised funds for multiple charity missions.\n\nNotable events organized under The Dreamers include **Tốt Hy Vọng**, **Vòng vào Mộng mơ**, **Dream High**, and a **Charity Music Performance** — each requiring end-to-end planning, logistics, and team coordination. The backend platform for managing member activities and event records is also being developed in **Java Spring Boot**.",
-    techStack: ["Project Management", "Team Leadership", "Community Organizing", "Java Spring Boot", "Event Production"],
+    techStack: [
+      "Project Management",
+      "Team Leadership",
+      "Community Organizing",
+      "Java Spring Boot",
+      "Event Production",
+    ],
     githubUrl: "https://github.com/trung2605/the_dreamers_backend",
     liveUrl: "#",
     status: "Active",
     category: "ngo",
     tier: 2,
-    challenge: "Xây dựng một tổ chức thiện nguyện sinh viên bền vững — không chỉ tổ chức sự kiện đơn lẻ mà cần vận hành liên tục: tuyển thành viên, gây quỹ, và giờ đây là số hoá việc quản lý hoạt động/thành viên bằng một nền tảng backend riêng.",
+    challenge:
+      "Xây dựng một tổ chức thiện nguyện sinh viên bền vững — không chỉ tổ chức sự kiện đơn lẻ mà cần vận hành liên tục: tuyển thành viên, gây quỹ, và giờ đây là số hoá việc quản lý hoạt động/thành viên bằng một nền tảng backend riêng.",
     highlights: [
       "Sáng lập và điều hành toàn bộ hoạt động: tuyển thành viên, roadmap dự án, gây quỹ cho nhiều chiến dịch thiện nguyện",
       "Tổ chức end-to-end 4 sự kiện lớn: Tốt Hy Vọng, Vòng vào Mộng mơ, Dream High, Charity Music Performance",
@@ -483,13 +593,20 @@ export const projects = [
     image: WebFormAutomationImage,
     description:
       "A focused utility tool built in 10 days to automate repetitive web form submissions — eliminating manual data entry for structured, high-volume input scenarios.\n\nThe system uses **Node.js** on the backend to orchestrate form interaction via DOM scripting, with a lightweight **React frontend** that lets users upload data (CSV/JSON), preview entries, and trigger batch submissions with a single click. Built to handle edge cases like input validation delays, dynamic field rendering, and CAPTCHA-protected forms.\n\nThis project sharpened my understanding of browser DOM behavior, async scripting patterns, and the practical limits of automation — a useful skillset for QA, data tooling, and internal workflow automation.",
-    techStack: ["JavaScript", "Node.js", "React", "DOM Scripting", "Web Automation"],
+    techStack: [
+      "JavaScript",
+      "Node.js",
+      "React",
+      "DOM Scripting",
+      "Web Automation",
+    ],
     githubUrl: "https://github.com/trung2605/Form-Automation-Backend",
     liveUrl: "https://form-automation-frontend.vercel.app/",
     status: "Completed",
     category: "automation",
     tier: 4,
-    challenge: "Loại bỏ việc nhập liệu thủ công lặp lại cho các form web có khối lượng lớn, trong thời hạn gấp 10 ngày — cần xử lý được các trường hợp khó như field render động và form có CAPTCHA.",
+    challenge:
+      "Loại bỏ việc nhập liệu thủ công lặp lại cho các form web có khối lượng lớn, trong thời hạn gấp 10 ngày — cần xử lý được các trường hợp khó như field render động và form có CAPTCHA.",
     highlights: [
       "Xây dựng engine điều khiển DOM bằng Node.js để tự động hoá tương tác form",
       "Frontend React cho phép upload CSV/JSON, xem trước dữ liệu, và submit hàng loạt chỉ với 1 click",
@@ -506,13 +623,21 @@ export const projects = [
     image: BookShopOutsystemsImage,
     description:
       "A complete e-commerce bookstore built entirely on the **OutSystems low-code platform** — developed as part of my internship training at **FPT Software**, where OutSystems is actively used in enterprise client projects.\n\nThe app covers core e-commerce flows: **product catalog with search/filter**, **shopping cart**, **order management**, and a basic **admin panel** for inventory control. Building it entirely in OutSystems taught me how to reason about data models, UI logic, and API integrations within a visual development environment — skills directly applicable to enterprise rapid-delivery contexts.\n\nThe live demo is publicly accessible on OutSystems Cloud.",
-    techStack: ["OutSystems", "Low-Code Platform", "REST API Integration", "UI Flows", "Data Modeling"],
+    techStack: [
+      "OutSystems",
+      "Low-Code Platform",
+      "REST API Integration",
+      "UI Flows",
+      "Data Modeling",
+    ],
     githubUrl: "https://github.com/trung2605/Book-Shop-Outsystems-Public",
-    liveUrl: "https://personal-fu4tft5e.outsystemscloud.com/BookShopCore/BookStore",
+    liveUrl:
+      "https://personal-fu4tft5e.outsystemscloud.com/BookShopCore/BookStore",
     status: "Completed",
     category: "lowcode",
     tier: 4,
-    challenge: "Học và triển khai một ứng dụng thương mại điện tử đầy đủ hoàn toàn trong môi trường visual development (OutSystems) — kỹ năng trực tiếp áp dụng cho các dự án enterprise rapid-delivery tại FPT Software.",
+    challenge:
+      "Học và triển khai một ứng dụng thương mại điện tử đầy đủ hoàn toàn trong môi trường visual development (OutSystems) — kỹ năng trực tiếp áp dụng cho các dự án enterprise rapid-delivery tại FPT Software.",
     highlights: [
       "Xây dựng đầy đủ luồng e-commerce: catalog có search/filter, giỏ hàng, quản lý đơn hàng, admin panel quản lý tồn kho",
       "Học cách tư duy data model, UI logic, và tích hợp API trong môi trường low-code",
@@ -528,13 +653,20 @@ export const projects = [
     image: TikTokUIImage,
     description:
       "A pixel-accurate clone of the TikTok web interface built as a structured practice project through the **F8 React course** — one of Vietnam's most respected frontend learning programs.\n\nThe focus was on mastering **React component architecture**: breaking the TikTok UI into reusable, composable pieces — Sidebar, VideoFeed, UserCard, ActionBar — each with proper props, state, and effect management. Key techniques practiced include **custom hooks**, **React Router** for multi-page navigation, **CSS Modules** for scoped styling, and responsive layout without a UI library.\n\nThis project solidified my React fundamentals before applying them in production projects like Job Finder and The MC Hub.",
-    techStack: ["React", "JavaScript (ES6+)", "CSS Modules", "React Router", "Custom Hooks"],
+    techStack: [
+      "React",
+      "JavaScript (ES6+)",
+      "CSS Modules",
+      "React Router",
+      "Custom Hooks",
+    ],
     githubUrl: "https://github.com/trung2605/tiktok-ui-Public",
     liveUrl: "#",
     status: "Completed",
     category: "frontend",
     tier: 4,
-    challenge: "Củng cố nền tảng React trước khi áp dụng vào các dự án production (Job Finder, The MC Hub) — bằng cách tái tạo chính xác một giao diện phức tạp, nhiều component tương tác thật (TikTok web).",
+    challenge:
+      "Củng cố nền tảng React trước khi áp dụng vào các dự án production (Job Finder, The MC Hub) — bằng cách tái tạo chính xác một giao diện phức tạp, nhiều component tương tác thật (TikTok web).",
     highlights: [
       "Tách UI thành các component tái sử dụng: Sidebar, VideoFeed, UserCard, ActionBar với props/state/effect quản lý đúng chuẩn",
       "Thực hành custom hooks, React Router cho điều hướng đa trang, CSS Modules cho styling có phạm vi",
@@ -550,13 +682,21 @@ export const projects = [
     image: PortfolioImage,
     description:
       "This portfolio — the site you're on right now. Designed and built from scratch with a focus on **clean aesthetics, performance, and genuine content** rather than templates.\n\nThe design follows a **monochrome + pastel color system** inspired by modern Figma design trends: oversized typography, pill-shaped buttons, pastel accent blocks, and consistent spacing. Every page has a custom **PageBanner**, animated entries via **Framer Motion**, and fully responsive layouts down to mobile.\n\nTechnically, it's a **React 19 (CRA)** app with **React Router v6** for multi-page navigation, inline styles for component-scoped design, and CSS media queries for responsive breakpoints. Content is driven by a central `data.js` file, making updates straightforward without touching component logic.",
-    techStack: ["React 19", "React Router v6", "Framer Motion", "Tailwind CSS", "JavaScript (ES6+)", "Cloudinary (media)"],
+    techStack: [
+      "React 19",
+      "React Router v6",
+      "Framer Motion",
+      "Tailwind CSS",
+      "JavaScript (ES6+)",
+      "Cloudinary (media)",
+    ],
     githubUrl: "#",
     liveUrl: "#",
     status: "In Development",
     category: "frontend",
     tier: 4,
-    challenge: "Xây một portfolio thể hiện đúng chất lượng thật — tránh cảm giác template, tối ưu hiệu năng (code-splitting, lazy image), và giữ nội dung dễ cập nhật qua một data layer trung tâm thay vì sửa trực tiếp component.",
+    challenge:
+      "Xây một portfolio thể hiện đúng chất lượng thật — tránh cảm giác template, tối ưu hiệu năng (code-splitting, lazy image), và giữ nội dung dễ cập nhật qua một data layer trung tâm thay vì sửa trực tiếp component.",
     highlights: [
       "Thiết kế hệ thống màu monochrome + pastel block riêng, không dùng theme có sẵn",
       "Kiến trúc data-driven: toàn bộ nội dung điều khiển bởi data.js, tách biệt khỏi component logic",
@@ -579,7 +719,8 @@ export const projects = [
     status: "Completed",
     category: "fullstack",
     tier: 3,
-    challenge: "Bài tập môn học yêu cầu phạm vi thật (inventory, sales, order, customer database) nhưng làm solo — buộc phải tự thiết kế và triển khai toàn bộ hệ thống từ database đến deployment mà không có ai chia việc.",
+    challenge:
+      "Bài tập môn học yêu cầu phạm vi thật (inventory, sales, order, customer database) nhưng làm solo — buộc phải tự thiết kế và triển khai toàn bộ hệ thống từ database đến deployment mà không có ai chia việc.",
     highlights: [
       "Tự thiết kế API và schema database, không phụ thuộc teammate",
       "Backend Java Spring Boot + MySQL, frontend React deploy trên Vercel",
@@ -612,7 +753,8 @@ export const projects = [
     status: "Completed",
     category: "fullstack",
     tier: 1,
-    challenge: "Xây dựng và thương mại hóa nền tảng luyện giọng MC từ con số 0 lên production trong 6 tháng với team 6 người, tích hợp AI voice analysis đánh giá phát âm, ngữ điệu và ngắt nghỉ real-time.",
+    challenge:
+      "Xây dựng và thương mại hóa nền tảng luyện giọng MC từ con số 0 lên production trong 6 tháng với team 6 người, tích hợp AI voice analysis đánh giá phát âm, ngữ điệu và ngắt nghỉ real-time.",
     highlights: [
       "Ra mắt nền tảng luyện giọng MC thương mại hoá từ ngày đầu: 87 MC tham gia tháng đầu, 20 giao dịch đạt ~4 triệu VNĐ doanh thu với 2 gói Basic/Full",
       "Xây dựng microservice AI phân tích giọng nói (Python FastAPI + Whisper) đánh giá phát âm, ngữ điệu, tốc độ, ngắt nghỉ — phục vụ 101 bài tập, 40 bài lý thuyết, 4 khoá học",
@@ -629,13 +771,23 @@ export const projects = [
     image: AgriLinkShot1,
     description:
       "A **Vietnamese agricultural marketplace** connecting farmers, suppliers, and customers — covering product listings, orders, reviews, and notifications. Started as an academic project (**PRM393**) with a **Flutter mobile app** and an **Express.js/MongoDB** backend secured with JWT.\n\nThe project later evolved into a more production-grade parallel build aimed at real startup viability: a **Next.js + TypeScript** frontend (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo for farm location mapping) backed by a **NestJS + TypeORM** service layer. This dual-track evolution — from academic prototype to startup-grade architecture — included drafting a formal Vietnamese startup proposal document.",
-    techStack: ["Flutter", "Express.js", "MongoDB", "Next.js", "TypeScript", "NestJS", "TypeORM", "TanStack Query"],
+    techStack: [
+      "Flutter",
+      "Express.js",
+      "MongoDB",
+      "Next.js",
+      "TypeScript",
+      "NestJS",
+      "TypeORM",
+      "TanStack Query",
+    ],
     githubUrl: "https://github.com/AgriLinkVN/agrilink-backend",
     liveUrl: "#",
     status: "Active",
     category: "ecommerce",
     tier: 2,
-    challenge: "Bắt đầu là đồ án học thuật (PRM393) nhưng đội ngũ quyết định nâng cấp thành kiến trúc production-grade hướng tới khả năng khởi nghiệp thật — đòi hỏi thiết kế lại từ mobile-only sang full-stack đa nền tảng có khả năng mở rộng.",
+    challenge:
+      "Bắt đầu là đồ án học thuật (PRM393) nhưng đội ngũ quyết định nâng cấp thành kiến trúc production-grade hướng tới khả năng khởi nghiệp thật — đòi hỏi thiết kế lại từ mobile-only sang full-stack đa nền tảng có khả năng mở rộng.",
     highlights: [
       "Track 1 (học thuật): mobile app Flutter + backend Express.js/MongoDB xác thực JWT",
       "Track 2 (production-grade song song): frontend Next.js + TypeScript (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo cho bản đồ nông trại) + backend NestJS + TypeORM",
@@ -651,13 +803,24 @@ export const projects = [
     image: BrandHubShot1,
     description:
       "An **agency platform for managing client brand content** across social media — Facebook, Instagram, TikTok, Threads, and Zalo — with content creation/approval workflows, AI-assisted content generation, campaign scheduling, and automated multi-platform publishing.\n\nBuilt as a **microservices architecture**: an **API Gateway** (Spring Cloud Gateway, WebFlux, JWT + Redis auth), a **business-service** (Spring Boot 3.3.5, Java 21) handling core domain logic, a **publisher-service** consuming from **RabbitMQ** with retry/backoff for reliable social posting, and an **AI service** (Python FastAPI, RAG) for content generation. The frontend is a **React 18 + TypeScript + Vite** dashboard, with a companion **Expo/React Native** mobile app, all orchestrated via **Docker Compose** infrastructure.",
-    techStack: ["Spring Boot", "Java 21", "Spring Cloud Gateway", "RabbitMQ", "Redis", "Python FastAPI", "React 18", "TypeScript", "Docker"],
+    techStack: [
+      "Spring Boot",
+      "Java 21",
+      "Spring Cloud Gateway",
+      "RabbitMQ",
+      "Redis",
+      "Python FastAPI",
+      "React 18",
+      "TypeScript",
+      "Docker",
+    ],
     githubUrl: "https://github.com/BrandHubOrganization",
     liveUrl: "#",
     status: "Active",
     category: "fullstack",
     tier: 2,
-    challenge: "Đăng nội dung đồng thời lên nhiều mạng xã hội (Facebook, Instagram, TikTok, Threads, Zalo) một cách đáng tin cậy — cần kiến trúc chịu lỗi (retry/backoff) và tách biệt rõ giữa domain logic, việc publish, và AI content generation.",
+    challenge:
+      "Đăng nội dung đồng thời lên nhiều mạng xã hội (Facebook, Instagram, TikTok, Threads, Zalo) một cách đáng tin cậy — cần kiến trúc chịu lỗi (retry/backoff) và tách biệt rõ giữa domain logic, việc publish, và AI content generation.",
     highlights: [
       "Kiến trúc microservices: API Gateway (Spring Cloud Gateway, WebFlux, JWT+Redis auth), business-service (Spring Boot 3.3.5), publisher-service (RabbitMQ với retry/backoff), AI service (Python FastAPI + RAG)",
       "Toàn bộ hệ thống orchestrate qua Docker Compose",
@@ -673,13 +836,21 @@ export const projects = [
     image: TikTokUIImage,
     description:
       "A **travel showcase website** for Điện Biên Phủ province, Vietnam — converted from a static HTML site into a modern **React 19 + Vite** app with lazy-loaded imagery, card/modal-based content browsing, and safely rendered markdown content via **DOMPurify**.\n\nA **Three.js / React Three Fiber** element adds a subtle 3D visual touch to the hero section, and **Framer Motion** drives page transitions. Styled with **Tailwind CSS 4** for a clean, fast-loading layout suitable for tourism content.",
-    techStack: ["React 19", "Vite", "Tailwind CSS 4", "Framer Motion", "Three.js", "DOMPurify"],
+    techStack: [
+      "React 19",
+      "Vite",
+      "Tailwind CSS 4",
+      "Framer Motion",
+      "Three.js",
+      "DOMPurify",
+    ],
     githubUrl: "https://github.com/trung2605/DienBienPhu_Travel-",
     liveUrl: "#",
     status: "Completed",
     category: "frontend",
     tier: 4,
-    challenge: "Chuyển đổi một site tĩnh HTML lỗi thời thành một trải nghiệm React hiện đại — vừa giữ nội dung du lịch phong phú, vừa đảm bảo render markdown an toàn và hiệu năng tải nhanh cho ảnh nhiều.",
+    challenge:
+      "Chuyển đổi một site tĩnh HTML lỗi thời thành một trải nghiệm React hiện đại — vừa giữ nội dung du lịch phong phú, vừa đảm bảo render markdown an toàn và hiệu năng tải nhanh cho ảnh nhiều.",
     highlights: [
       "Migrate từ static HTML sang React 19 + Vite, lazy-load ảnh toàn site",
       "Render markdown an toàn qua DOMPurify, tránh XSS từ nội dung động",
@@ -696,13 +867,22 @@ export const projects = [
     image: TikTokUIImage,
     description:
       "A **study and course-document platform** for FPT University students — featuring flashcards, quizzes, dashboards, and structured document management, seeded with real course content (e.g. MLN111).\n\nThe backend is a proper **Spring Boot 3.4.3 + MongoDB** REST API with authentication, request-logging middleware, and a maintained improvement log covering real fixes (removing a hardcoded mock user ID, resolving N+1 query issues). The frontend is a **React 18 + TypeScript** docs site with a **Monaco Editor**, Mermaid diagrams, **Recharts** dashboards, and PDF export via **TanStack Query** data fetching.",
-    techStack: ["Java 21", "Spring Boot 3.4.3", "MongoDB", "React 18", "TypeScript", "TanStack Query", "Monaco Editor"],
+    techStack: [
+      "Java 21",
+      "Spring Boot 3.4.3",
+      "MongoDB",
+      "React 18",
+      "TypeScript",
+      "TanStack Query",
+      "Monaco Editor",
+    ],
     githubUrl: "#",
     liveUrl: "#",
     status: "Active",
     category: "fullstack",
     tier: 3,
-    challenge: "Sinh viên FPT cần một nơi tập trung tài liệu môn học kèm công cụ ôn tập chủ động (flashcard, quiz) thay vì tài liệu rời rạc — và bản thân dự án cũng cần duy trì kỷ luật kỹ thuật tốt (log cải tiến, sửa lỗi thật) chứ không chỉ là demo.",
+    challenge:
+      "Sinh viên FPT cần một nơi tập trung tài liệu môn học kèm công cụ ôn tập chủ động (flashcard, quiz) thay vì tài liệu rời rạc — và bản thân dự án cũng cần duy trì kỷ luật kỹ thuật tốt (log cải tiến, sửa lỗi thật) chứ không chỉ là demo.",
     highlights: [
       "REST API Spring Boot 3.4.3 + MongoDB với middleware logging request, seed nội dung môn học thật (vd MLN111)",
       "Duy trì improvement log ghi lại các fix thật: loại bỏ mock user ID hardcode, giải quyết N+1 query",
@@ -724,7 +904,8 @@ export const projects = [
     status: "In Development",
     category: "frontend",
     tier: 4,
-    challenge: "Tái tạo chính xác ngôn ngữ thiết kế của Instagram (gradient, color token) làm nền tảng UI trước khi mở rộng thành công cụ tự động hoá chatbot messaging thật.",
+    challenge:
+      "Tái tạo chính xác ngôn ngữ thiết kế của Instagram (gradient, color token) làm nền tảng UI trước khi mở rộng thành công cụ tự động hoá chatbot messaging thật.",
     highlights: [
       "Scaffold React nhẹ, tái tạo chuẩn xác brand gradient và color token của Instagram",
       "Thiết kế làm nền tảng cho tính năng tự động hoá chatbot messaging trong tương lai",
@@ -739,13 +920,21 @@ export const projects = [
     image: TikTokUIImage,
     description:
       "A **study-abroad consulting website** targeting students pursuing postgraduate study in Australia — covering program information, application guidance, and consultation booking, presented with rich data visualizations for program comparisons.",
-    techStack: ["React 18", "Vite", "MUI", "Tailwind CSS 4", "Framer Motion", "Recharts"],
+    techStack: [
+      "React 18",
+      "Vite",
+      "MUI",
+      "Tailwind CSS 4",
+      "Framer Motion",
+      "Recharts",
+    ],
     githubUrl: "https://github.com/trung2605/Study_Post_Graduate_Sydney",
     liveUrl: "#",
     status: "Completed",
     category: "frontend",
     tier: 4,
-    challenge: "Trình bày thông tin so sánh chương trình học sau đại học phức tạp (học phí, thời lượng, yêu cầu) theo cách dễ hiểu cho học sinh, thay vì bảng dữ liệu khô khan.",
+    challenge:
+      "Trình bày thông tin so sánh chương trình học sau đại học phức tạp (học phí, thời lượng, yêu cầu) theo cách dễ hiểu cho học sinh, thay vì bảng dữ liệu khô khan.",
     highlights: [
       "Trực quan hoá dữ liệu so sánh chương trình học bằng Recharts",
       "Giao diện MUI + Tailwind CSS 4, animation mượt bằng Framer Motion",
@@ -761,13 +950,21 @@ export const projects = [
     image: TikTokUIImage,
     description:
       "A polished **restaurant landing page** for Papa Steak, a steakhouse in Đà Nẵng — featuring a dark/amber premium visual theme, multi-branch **Google Maps** integration with one-click navigation switching, a dynamic menu overlay, customer review section, and a validated reservation form built with **React Hook Form**.",
-    techStack: ["React 19", "Vite", "Tailwind CSS 4", "Framer Motion", "React Hook Form", "Google Maps API"],
+    techStack: [
+      "React 19",
+      "Vite",
+      "Tailwind CSS 4",
+      "Framer Motion",
+      "React Hook Form",
+      "Google Maps API",
+    ],
     githubUrl: "https://github.com/trung2605/PapaSteak_Website",
     liveUrl: "#",
     status: "Completed",
     category: "frontend",
     tier: 4,
-    challenge: "Xây dựng landing page nhà hàng cao cấp cần truyền tải cảm giác 'premium' qua visual, đồng thời giải quyết bài toán thực tế: nhà hàng có nhiều chi nhánh nên khách cần chuyển đổi bản đồ chỉ đường dễ dàng.",
+    challenge:
+      "Xây dựng landing page nhà hàng cao cấp cần truyền tải cảm giác 'premium' qua visual, đồng thời giải quyết bài toán thực tế: nhà hàng có nhiều chi nhánh nên khách cần chuyển đổi bản đồ chỉ đường dễ dàng.",
     highlights: [
       "Thiết kế theme dark/amber cao cấp phù hợp thương hiệu steakhouse",
       "Tích hợp Google Maps đa chi nhánh với chuyển đổi chỉ đường một chạm",
@@ -783,13 +980,24 @@ export const projects = [
     image: ThreadLearnShot1,
     description:
       "Fine-tuned a 1.5B-parameter LLM (Qwen2.5-Coder + QLoRA) that outperforms GPT-3.5-turbo at fixing JavaScript concurrency bugs — 73.3% vs 65.0% on 30 real production bugs, despite a ~125x smaller model.\n\nBuilt a RAG pipeline (BM25 + AST retrieval, 2,050-doc knowledge base) paired with a custom static race-condition detector to ground the model's fixes and cut hallucination.\n\nShipped a production FastAPI microservice (JWT, Redis, MongoDB) serving real-time fix suggestions. Co-authored a research paper submitted at ICTA 2026.",
-    techStack: ["Python FastAPI", "Whisper", "Java Spring Boot", "ReactJS", "Redis", "MongoDB", "Qwen2.5-Coder 1.5B", "QLoRA", "BM25"],
+    techStack: [
+      "Python FastAPI",
+      "Whisper",
+      "Java Spring Boot",
+      "ReactJS",
+      "Redis",
+      "MongoDB",
+      "Qwen2.5-Coder 1.5B",
+      "QLoRA",
+      "BM25",
+    ],
     githubUrl: "https://github.com/ThreadLearn/ThreadLearn_AI_Trainning",
     liveUrl: "https://threadlearn.vercel.app/",
     status: "Completed",
     category: "ai",
     tier: 1,
-    challenge: "ESLint chỉ báo lỗi concurrency JavaScript mà không tự sửa; gọi GPT-4 tốn kém chi phí API và dễ bị ảo giác cú pháp. Cần một model 1.5B nhỏ gọn chạy tối ưu kết hợp pipeline retrieval chính xác tên hàm qua AST và BM25.",
+    challenge:
+      "ESLint chỉ báo lỗi concurrency JavaScript mà không tự sửa; gọi GPT-4 tốn kém chi phí API và dễ bị ảo giác cú pháp. Cần một model 1.5B nhỏ gọn chạy tối ưu kết hợp pipeline retrieval chính xác tên hàm qua AST và BM25.",
     highlights: [
       "Fine-tuned LLM 1.5B tham số (Qwen2.5-Coder + QLoRA) vượt trội hơn GPT-3.5-turbo trong việc sửa lỗi concurrency JavaScript — 73.3% so với 65.0% trên 30 lỗi production thật",
       "Xây dựng pipeline RAG (BM25 + AST retrieval, 2.050 tài liệu) kết hợp bộ phát hiện static race-condition chống hallucination",
@@ -812,7 +1020,8 @@ export const projects = [
     status: "Completed",
     category: "frontend",
     tier: 3,
-    challenge: "Xây website khoa cho khách hàng thật (Đại học Y Dược Phan Châu Trinh) — team 6 người, không dùng framework, cần sơ đồ tổ chức phân cấp responsive và nội dung song ngữ dễ cập nhật mà không hardcode theo từng trang.",
+    challenge:
+      "Xây website khoa cho khách hàng thật (Đại học Y Dược Phan Châu Trinh) — team 6 người, không dùng framework, cần sơ đồ tổ chức phân cấp responsive và nội dung song ngữ dễ cập nhật mà không hardcode theo từng trang.",
     highlights: [
       "Xây dựng component sơ đồ tổ chức (org chart) với branch connector responsive cho cấu trúc khoa",
       "Refactor các trang bộ môn sang fetch dữ liệu động thay vì hardcode nội dung mỗi trang",
@@ -828,19 +1037,36 @@ export const projects = [
     image: BiensovipShot1,
     description:
       "Independently designed and built a full-stack marketplace platform solo — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth, and deployment.\n\nMade and justified key architecture decisions: PostgreSQL over MongoDB for relational multi-filter queries, and excluded a payment gateway (manual confirmation flow instead) to cut PCI-DSS risk.\n\nOwned full delivery as freelancer — client requirements gathering, technical proposal, 30-day MVP roadmap, third-party integrations (Cloudinary, AWS SES, DeepSeek AI chatbot) and deploy on VPS.",
-    techStack: [".NET 8 / ASP.NET Core", "Clean Architecture", "PostgreSQL", "EF Core", "React 19", "JWT", "Cloudinary", "AWS SES", "DeepSeek AI", "VPS"],
+    techStack: [
+      ".NET 8 / ASP.NET Core",
+      "Clean Architecture",
+      "PostgreSQL",
+      "EF Core",
+      "React 19",
+      "JWT",
+      "Cloudinary",
+      "AWS SES",
+      "DeepSeek AI",
+      "VPS",
+    ],
     githubUrl: "https://github.com/BienSoDep/biensovip-backend",
     liveUrl: "https://biensovip.com",
     status: "Active",
     category: "ecommerce",
     tier: 1,
-    challenge: "Dự án freelance thật cho khách hàng — cần giao MVP hoàn chỉnh trong 30 ngày, một mình xử lý toàn bộ từ kiến trúc Clean Architecture, 61 entities PostgreSQL, đến quyết định phạm vi bảo mật (loại trừ cổng thanh toán để tránh rủi ro PCI-DSS).",
+    challenge:
+      "Dự án freelance thật cho khách hàng — cần giao MVP hoàn chỉnh trong 30 ngày, một mình xử lý toàn bộ từ kiến trúc Clean Architecture, 61 entities PostgreSQL, đến quyết định phạm vi bảo mật (loại trừ cổng thanh toán để tránh rủi ro PCI-DSS).",
     highlights: [
       "Thiết kế và xây dựng độc lập nền tảng marketplace solo — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth và triển khai hệ thống",
       "Đưa ra và bảo vệ các quyết định kiến trúc then chốt: PostgreSQL thay vì MongoDB cho truy vấn lọc đa điều kiện quan hệ, và loại trừ cổng thanh toán để loại bỏ rủi ro PCI-DSS",
       "Chịu trách nhiệm toàn bộ bàn giao dự án freelance: lấy yêu cầu khách hàng, đề xuất kỹ thuật, lộ trình MVP 30 ngày, tích hợp Cloudinary, AWS SES, DeepSeek AI chatbot và deploy VPS",
     ],
-    screenshots: [BiensovipShot1, BiensovipShot2, BiensovipShot3, BiensovipShot4],
+    screenshots: [
+      BiensovipShot1,
+      BiensovipShot2,
+      BiensovipShot3,
+      BiensovipShot4,
+    ],
   },
   {
     id: 27,
@@ -850,13 +1076,20 @@ export const projects = [
     image: TikTokUIImage,
     description:
       "A **CNN built from scratch** to classify chest X-ray images as NORMAL or PNEUMONIA — a timeboxed (3-hour) team exercise across a dataset of 5,856 images, split into a data-analysis sub-team and a modeling sub-team.\n\nWorked on the **data/EDA side**: profiling class imbalance across train/test/val splits (74.3% PNEUMONIA in training data), documenting the data pipeline, and designing the **data augmentation strategy** feeding into a CNN trained without pre-trained weights (built and tuned from scratch, no transfer learning) in **TensorFlow/Keras**.",
-    techStack: ["Python", "TensorFlow / Keras", "CNN", "Data Augmentation", "EDA"],
+    techStack: [
+      "Python",
+      "TensorFlow / Keras",
+      "CNN",
+      "Data Augmentation",
+      "EDA",
+    ],
     githubUrl: "#",
     liveUrl: "#",
     status: "Completed",
     category: "ai",
     tier: 4,
-    challenge: "Xây CNN phân loại viêm phổi từ X-quang trong 3 tiếng với team 4 người — dataset mất cân bằng lớp nặng (74.3% PNEUMONIA), yêu cầu bắt buộc: không dùng pre-trained model, phải tự xây CNN từ đầu.",
+    challenge:
+      "Xây CNN phân loại viêm phổi từ X-quang trong 3 tiếng với team 4 người — dataset mất cân bằng lớp nặng (74.3% PNEUMONIA), yêu cầu bắt buộc: không dùng pre-trained model, phải tự xây CNN từ đầu.",
     highlights: [
       "Phân tích EDA: mất cân bằng lớp giữa các tập train/test/val (5,856 ảnh)",
       "Thiết kế pipeline data augmentation cho CNN tự xây (không transfer learning)",
@@ -1773,55 +2006,42 @@ export const allSkillsData = [
 
 //Site Navigation Data
 export const siteNavigation = [
-    {
-        title: "About",
-        desc: "Learn about my journey and passion",
-        icon: <FaUser />,
-        path: "/about",
-    },
-    {
-        title: "Projects",
-        desc: "Explore the projects I have worked on",
-        icon: <FaLaptopCode />,
-        path: "/projects",
-    },
-
-    {
-        title: "Achievements",
-        desc: "Education, certificates, and prizes",
-        icon: <FaGraduationCap />,
-        path: "/achievements",
-    },
-    {
-        title: "Activities",
-        desc: "My extracurricular involvement and leadership",
-        icon: <FaUsers />,
-        path: "/activities",
-    },
-    {
-        title: "Blog",
-        desc: "Technical writing and project deep-dives",
-        icon: <FaNewspaper />,
-        path: "/blog",
-    },
-    {
-        title: "Resume",
-        desc: "View my resume online",
-        icon: <FaFileAlt />,
-        path: "/resume",
-    },
-    {
-        title: "Services",
-        desc: "Professional website development for shop owners",
-        icon: <FaRocket />,
-        path: "/dich-vu",
-    },
-    {
-        title: "Contact",
-        desc: "Get in touch with me",
-        icon: <FaEnvelope />,
-        path: "/contact",
-    },
+  {
+    title: "About",
+    desc: "Learn about my journey and passion",
+    icon: <FaUser />,
+    path: "/about",
+  },
+  {
+    title: "Projects",
+    desc: "Explore the projects I have worked on",
+    icon: <FaLaptopCode />,
+    path: "/projects",
+  },
+  {
+    title: "Achievements",
+    desc: "Education, certificates, and prizes",
+    icon: <FaGraduationCap />,
+    path: "/achievements",
+  },
+  {
+    title: "Services",
+    desc: "Professional website development for shop owners",
+    icon: <FaRocket />,
+    path: "/dich-vu",
+  },
+  {
+    title: "Blog",
+    desc: "Technical writing and project deep-dives",
+    icon: <FaNewspaper />,
+    path: "/blog",
+  },
+  {
+    title: "Contact",
+    desc: "Get in touch with me",
+    icon: <FaEnvelope />,
+    path: "/contact",
+  },
 ];
 
 export const experience = [
@@ -1834,7 +2054,12 @@ export const experience = [
     status: "Completed",
     description:
       "Developed enterprise applications using **OutSystems Reactive Web** within an Agile team. Debugged and refactored code to optimize system performance and user experience.",
-    skills: ["OutSystems Reactive Web", "Agile/Scrum", "Enterprise Architecture", "Performance Optimization"],
+    skills: [
+      "OutSystems Reactive Web",
+      "Agile/Scrum",
+      "Enterprise Architecture",
+      "Performance Optimization",
+    ],
     color: "#dceeb1",
   },
   {
@@ -1846,7 +2071,12 @@ export const experience = [
     status: "Current",
     description:
       "Founder of a community-driven charity organization including 30 members dedicated to fostering positive social impact through technology education and community initiatives.",
-    skills: ["Team Leadership", "Project Management", "Community Outreach", "Social Impact"],
+    skills: [
+      "Team Leadership",
+      "Project Management",
+      "Community Outreach",
+      "Social Impact",
+    ],
     color: "#c5b0f4",
   },
   {
@@ -1870,7 +2100,13 @@ export const experience = [
     status: "Current",
     description:
       "Independently designed and built a full-stack marketplace platform solo — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth, and VPS deployment. Owned full delivery as freelancer: client requirements gathering, technical proposal, 30-day MVP roadmap, third-party integrations (Cloudinary, AWS SES, DeepSeek AI chatbot).",
-    skills: [".NET 8 / ASP.NET Core", "Clean Architecture", "React 19", "PostgreSQL", "VPS Deployment"],
+    skills: [
+      ".NET 8 / ASP.NET Core",
+      "Clean Architecture",
+      "React 19",
+      "PostgreSQL",
+      "VPS Deployment",
+    ],
     color: "#efd4d4",
   },
 ];
@@ -1986,31 +2222,173 @@ export const testimonials = [
 // count as a match, and which experience entry (by id, see `experience` above) to surface.
 // Labels/blurbs are translated via recruiterMatch.roles.<id>.* in en.json/vi.json.
 export const recruiterRoles = [
-  { id: "backend", categories: ["fullstack", "ai"], skillIds: ["spring-boot", "node", "python", "dotnet", "sql", "mongodb", "redis", "postgresql"], experienceId: 1 },
-  { id: "frontend", categories: ["frontend", "fullstack"], skillIds: ["react", "tailwind", "framer-motion", "typescript", "threejs"], experienceId: 1 },
-  { id: "fullstack", categories: ["fullstack", "ecommerce"], skillIds: ["react", "spring-boot", "mongodb", "sql", "node", "dotnet"], experienceId: 1 },
+  {
+    id: "backend",
+    categories: ["fullstack", "ai"],
+    skillIds: [
+      "spring-boot",
+      "node",
+      "python",
+      "dotnet",
+      "sql",
+      "mongodb",
+      "redis",
+      "postgresql",
+    ],
+    experienceId: 1,
+  },
+  {
+    id: "frontend",
+    categories: ["frontend", "fullstack"],
+    skillIds: ["react", "tailwind", "framer-motion", "typescript", "threejs"],
+    experienceId: 1,
+  },
+  {
+    id: "fullstack",
+    categories: ["fullstack", "ecommerce"],
+    skillIds: ["react", "spring-boot", "mongodb", "sql", "node", "dotnet"],
+    experienceId: 1,
+  },
   { id: "ai-ml", categories: ["ai"], skillIds: ["python"], experienceId: 1 },
-  { id: "lowcode", categories: ["lowcode", "automation"], skillIds: ["outsystems"], experienceId: 1 },
-  { id: "freelance", categories: ["ecommerce", "lowcode"], skillIds: ["dotnet", "react", "postgresql"], experienceId: 4 },
+  {
+    id: "lowcode",
+    categories: ["lowcode", "automation"],
+    skillIds: ["outsystems"],
+    experienceId: 1,
+  },
+  {
+    id: "freelance",
+    categories: ["ecommerce", "lowcode"],
+    skillIds: ["dotnet", "react", "postgresql"],
+    experienceId: 4,
+  },
 ];
 
 export const skillTaxonomy = [
-  { id: "react", label: "React", category: "Frontend", proficiency: 90, projectIds: [1, 4, 6, 7, 10, 11, 17, 18, 19, 21, 22, 26] },
-  { id: "spring-boot", label: "Java Spring Boot", category: "Backend", proficiency: 85, projectIds: [1, 2, 3, 7, 11, 14, 18] },
-  { id: "typescript", label: "TypeScript", category: "Language", proficiency: 70, projectIds: [13, 14, 18] },
-  { id: "mongodb", label: "MongoDB", category: "Database", proficiency: 70, projectIds: [11, 13, 14, 18] },
-  { id: "sql", label: "MySQL / SQL Server", category: "Database", proficiency: 75, projectIds: [1, 2, 7] },
-  { id: "tailwind", label: "Tailwind CSS", category: "Frontend", proficiency: 80, projectIds: [10, 11, 17, 19, 21, 22] },
-  { id: "framer-motion", label: "Framer Motion", category: "Frontend", proficiency: 75, projectIds: [10, 17, 21, 22] },
-  { id: "node", label: "Node.js / Express.js", category: "Backend", proficiency: 60, projectIds: [4, 11, 13] },
-  { id: "flutter", label: "Flutter", category: "Mobile", proficiency: 55, projectIds: [13] },
-  { id: "python", label: "Python / FastAPI", category: "Backend", proficiency: 50, projectIds: [14, 24, 27] },
-  { id: "dotnet", label: "ASP.NET Core", category: "Backend", proficiency: 55, projectIds: [26] },
-  { id: "postgresql", label: "PostgreSQL", category: "Database", proficiency: 55, projectIds: [26] },
-  { id: "redis", label: "Redis", category: "Backend", proficiency: 55, projectIds: [14] },
-  { id: "docker", label: "Docker", category: "DevOps", proficiency: 50, projectIds: [14] },
-  { id: "threejs", label: "Three.js", category: "Frontend", proficiency: 45, projectIds: [17] },
-  { id: "outsystems", label: "OutSystems", category: "Low-Code", proficiency: 65, projectIds: [5] },
-  { id: "google-maps", label: "Google Maps API", category: "Integration", proficiency: 60, projectIds: [2, 22] },
-  { id: "leadership", label: "Project & Team Leadership", category: "Soft Skill", proficiency: 80, projectIds: [1, 2, 3] },
+  {
+    id: "react",
+    label: "React",
+    category: "Frontend",
+    proficiency: 90,
+    projectIds: [1, 4, 6, 7, 10, 11, 17, 18, 19, 21, 22, 26],
+  },
+  {
+    id: "spring-boot",
+    label: "Java Spring Boot",
+    category: "Backend",
+    proficiency: 85,
+    projectIds: [1, 2, 3, 7, 11, 14, 18],
+  },
+  {
+    id: "typescript",
+    label: "TypeScript",
+    category: "Language",
+    proficiency: 70,
+    projectIds: [13, 14, 18],
+  },
+  {
+    id: "mongodb",
+    label: "MongoDB",
+    category: "Database",
+    proficiency: 70,
+    projectIds: [11, 13, 14, 18],
+  },
+  {
+    id: "sql",
+    label: "MySQL / SQL Server",
+    category: "Database",
+    proficiency: 75,
+    projectIds: [1, 2, 7],
+  },
+  {
+    id: "tailwind",
+    label: "Tailwind CSS",
+    category: "Frontend",
+    proficiency: 80,
+    projectIds: [10, 11, 17, 19, 21, 22],
+  },
+  {
+    id: "framer-motion",
+    label: "Framer Motion",
+    category: "Frontend",
+    proficiency: 75,
+    projectIds: [10, 17, 21, 22],
+  },
+  {
+    id: "node",
+    label: "Node.js / Express.js",
+    category: "Backend",
+    proficiency: 60,
+    projectIds: [4, 11, 13],
+  },
+  {
+    id: "flutter",
+    label: "Flutter",
+    category: "Mobile",
+    proficiency: 55,
+    projectIds: [13],
+  },
+  {
+    id: "python",
+    label: "Python / FastAPI",
+    category: "Backend",
+    proficiency: 50,
+    projectIds: [14, 24, 27],
+  },
+  {
+    id: "dotnet",
+    label: "ASP.NET Core",
+    category: "Backend",
+    proficiency: 55,
+    projectIds: [26],
+  },
+  {
+    id: "postgresql",
+    label: "PostgreSQL",
+    category: "Database",
+    proficiency: 55,
+    projectIds: [26],
+  },
+  {
+    id: "redis",
+    label: "Redis",
+    category: "Backend",
+    proficiency: 55,
+    projectIds: [14],
+  },
+  {
+    id: "docker",
+    label: "Docker",
+    category: "DevOps",
+    proficiency: 50,
+    projectIds: [14],
+  },
+  {
+    id: "threejs",
+    label: "Three.js",
+    category: "Frontend",
+    proficiency: 45,
+    projectIds: [17],
+  },
+  {
+    id: "outsystems",
+    label: "OutSystems",
+    category: "Low-Code",
+    proficiency: 65,
+    projectIds: [5],
+  },
+  {
+    id: "google-maps",
+    label: "Google Maps API",
+    category: "Integration",
+    proficiency: 60,
+    projectIds: [2, 22],
+  },
+  {
+    id: "leadership",
+    label: "Project & Team Leadership",
+    category: "Soft Skill",
+    proficiency: 80,
+    projectIds: [1, 2, 3],
+  },
 ];

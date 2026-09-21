@@ -403,9 +403,11 @@ const Home = () => {
       <div className="marquee-strip" style={{
         marginLeft: 'calc(-50vw + 50%)',
         marginRight: 'calc(-50vw + 50%)',
-        backgroundColor: '#000000',
+        backgroundColor: isDarkMode ? '#12141c' : '#0f172a',
+        borderTop: '1px solid var(--color-hairline)',
+        borderBottom: '1px solid var(--color-hairline)',
         color: '#ffffff',
-        height: '40px',
+        height: '42px',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
@@ -563,48 +565,62 @@ const Home = () => {
 
           <div
             className="explore-bento-grid"
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridAutoRows: '1fr', gap: '14px' }}
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px' }}
           >
             {siteNavigation.slice(2).map((item, i) => {
-              // Asymmetric bento: first card (Projects) spans 2x2, rest fill in as smaller tiles
-              const isFeatured = i === 0;
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, scale: 0.9, rotate: i % 2 === 0 ? -1 : 1 }}
-                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -4 }}
                   style={{
-                    gridColumn: isFeatured ? 'span 2' : 'span 1',
-                    gridRow: isFeatured ? 'span 2' : 'span 1',
+                    gridColumn: 'span 1',
+                    gridRow: 'span 1',
                   }}
                 >
                   <Link
                     to={item.path}
                     style={{
                       display: 'flex', flexDirection: 'column',
-                      justifyContent: isFeatured ? 'flex-end' : 'flex-start',
-                      height: '100%', padding: isFeatured ? '28px' : '22px',
-                      backgroundColor: isFeatured ? '#000000' : '#ffffff',
+                      justifyContent: 'flex-start',
+                      height: '100%', minHeight: '170px', padding: '24px',
+                      backgroundColor: '#ffffff',
                       borderRadius: '16px',
-                      border: isFeatured ? 'none' : '1px solid rgba(0,0,0,0.06)',
-                      textDecoration: 'none', color: isFeatured ? '#ffffff' : '#000000',
+                      border: '1px solid rgba(0,0,0,0.06)',
+                      textDecoration: 'none', color: '#000000',
                       transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                     }}
-                    onMouseEnter={e => { if (!isFeatured) { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'; } }}
-                    onMouseLeave={e => { if (!isFeatured) { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.06)'; e.currentTarget.style.boxShadow = 'none'; } }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.08)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.06)'; e.currentTarget.style.boxShadow = 'none'; }}
                   >
-                    <div style={{ fontSize: isFeatured ? '34px' : '26px', marginBottom: isFeatured ? '16px' : '12px' }}>{item.icon}</div>
+                    <div style={{ fontSize: '28px', marginBottom: '14px', color: '#000000' }}>{item.icon}</div>
                     <h3 style={{
                       fontFamily: 'Outfit, system-ui, sans-serif',
-                      fontSize: isFeatured ? '22px' : '17px', fontWeight: '540',
-                      color: isFeatured ? '#ffffff' : '#000000', margin: '0 0 6px 0',
-                    }}>{item.title}</h3>
+                      fontSize: '18px', fontWeight: '540',
+                      color: '#000000', margin: '0 0 6px 0',
+                      display: 'flex', alignItems: 'center', gap: '6px'
+                    }}>
+                      {item.title}
+                      {item.path === '/dich-vu' && (
+                        <span style={{
+                          fontSize: '9px',
+                          fontWeight: '700',
+                          color: '#ffffff',
+                          background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                          padding: '1px 5px',
+                          borderRadius: '4px',
+                          letterSpacing: '0.4px',
+                          lineHeight: '1.2',
+                          textTransform: 'uppercase'
+                        }}>HOT</span>
+                      )}
+                    </h3>
                     <p style={{
-                      fontSize: '14px', fontWeight: '330',
-                      color: isFeatured ? 'rgba(255,255,255,0.7)' : '#555555',
+                      fontSize: '13.5px', fontWeight: '330',
+                      color: '#555555',
                       margin: 0, lineHeight: '1.5',
                     }}>{item.desc}</p>
                   </Link>
@@ -624,23 +640,26 @@ const Home = () => {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="cta-navy"
           style={{
-            backgroundColor: '#1f1d3d', borderRadius: '24px',
+            background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '24px',
             padding: '56px 48px',
             display: 'flex', alignItems: 'center',
             justifyContent: 'space-between',
             gap: '32px', flexWrap: 'wrap',
+            boxShadow: '0 20px 40px -15px rgba(15, 23, 42, 0.35)',
           }}
         >
           <div>
             <p style={{
               fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
               letterSpacing: '0.60px', textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.5)', marginBottom: '12px',
+              color: 'rgba(255,255,255,0.6)', marginBottom: '12px',
             }}>{t('home.ctaLabel')}</p>
             <h2 style={{
               fontFamily: 'Outfit, system-ui, sans-serif',
-              fontSize: 'clamp(22px, 3.5vw, 44px)', fontWeight: '340',
-              lineHeight: '1.15', letterSpacing: '-0.72px',
+              fontSize: 'clamp(22px, 3.5vw, 44px)', fontWeight: '600',
+              lineHeight: '1.15', letterSpacing: '-0.025em',
               color: '#ffffff', margin: 0,
             }}>
               {t('home.ctaTitle')}
@@ -651,15 +670,16 @@ const Home = () => {
               to="/contact"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
-                padding: '11px 22px', borderRadius: '50px',
-                fontSize: '16px', fontWeight: '480',
-                color: '#000000', backgroundColor: '#ffffff',
-                textDecoration: 'none', transition: 'background-color 0.15s ease',
+                padding: '12px 24px', borderRadius: '9999px',
+                fontSize: '15px', fontWeight: '550',
+                color: '#0f172a', backgroundColor: '#ffffff',
+                textDecoration: 'none', transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
               }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#f0f0f0'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#ffffff'}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.2)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)'; }}
             >
-              {t('home.getInTouch')} <FaArrowRight size={14} />
+              {t('home.getInTouch')} <FaArrowRight size={13} />
             </Link>
             <a
               href={personalInfo.contact?.github || 'https://github.com/trung2605'}
@@ -667,17 +687,17 @@ const Home = () => {
               rel="noopener noreferrer"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
-                padding: '11px 22px', borderRadius: '50px',
-                fontSize: '16px', fontWeight: '480',
+                padding: '12px 24px', borderRadius: '9999px',
+                fontSize: '15px', fontWeight: '500',
                 color: '#ffffff',
-                backgroundColor: 'rgba(255,255,255,0.12)',
-                border: '1.5px solid rgba(255,255,255,0.2)',
-                textDecoration: 'none', transition: 'background-color 0.15s ease',
+                backgroundColor: 'rgba(255,255,255,0.08)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                textDecoration: 'none', transition: 'all 0.2s ease',
               }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)'}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.16)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(0)'; }}
             >
-              <FaGithub size={16} /> GitHub
+              <FaGithub size={15} /> GitHub
             </a>
           </div>
         </motion.div>
