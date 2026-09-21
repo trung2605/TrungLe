@@ -1,0 +1,113 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+
+\definecolor{primary}{HTML}{0E0E10}
+\definecolor{accent}{HTML}{1EA64A}
+\definecolor{softbg}{HTML}{F8FAFC}
+\definecolor{hairline}{HTML}{E2E8F0}
+\definecolor{tagbg}{HTML}{DCEEB1}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent,
+    citecolor=primary
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small\textcolor{gray}{Hồ Sơ Năng Lực \& Quy Chuẩn Kỹ Thuật --- Team Đà Nẵng}}
+\lhead{\small\textbf{Lê Trí Trung \& Cộng Sự}}
+\rfoot{\small Trang \thepage}
+
+\titleformat{\section}{\Large\bfseries\color{primary}}{\thesection.}{0.8em}{}[\titlerule]
+\titleformat{\subsection}{\large\bfseries\color{primary}}{\thesubsection}{0.6em}{}
+
+\begin{document}
+
+\begin{tcolorbox}[colback=softbg,colframe=hairline,arc=4mm,boxrule=1pt]
+\begin{center}
+    {\Huge \textbf{HỒ SƠ NĂNG LỰC \& BẢNG GIÁ DỊCH VỤ}}\\[2mm]
+    {\Large \textbf{PHÁT TRIỂN HỆ THỐNG WEBSITE \& TỰ ĐỘNG HÓA SAAS}}\\[3mm]
+    {\normalsize \textbf{Đơn vị triển khai:} Team 1 Leader + 4 Kỹ Sư Cao Cấp (Đà Nẵng)}\\[1mm]
+    {\small \textbf{Kiến trúc sư \& Trưởng nhóm:} Lê Trí Trung $\cdot$ Hotline/Zalo: 0782.399.721 $\cdot$ Email: letritrung2605@gmail.com}
+\end{center}
+\end{tcolorbox}
+
+\vspace{4mm}
+
+\section{Giới Thiệu Đội Ngũ \& Quy Chuẩn Chất Lượng Kỹ Thuật}
+
+Chúng tôi là đội ngũ kỹ sư phần mềm chuyên sâu hoạt động tại Đà Nẵng, bao gồm **01 Kiến trúc sư trưởng (Leader)** chịu trách nhiệm pháp lý, điều phối và kiến trúc hệ thống, cùng **04 Kỹ sư phần mềm giàu kinh nghiệm** phụ trách chuyên biệt: Frontend UI/UX, Backend \& Database, Tự động hóa tích hợp (SaaS \& Payment), và Kiểm thử chất lượng (QA/QC).
+
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{Mô hình 1 Leader + 4 Devs:} Khách hàng chỉ làm việc trực tiếp với duy nhất Leader Lê Trí Trung để đảm bảo thông suốt về yêu cầu, không qua trung gian sales. Đội ngũ 4 dev tập trung 100\% công suất viết mã sạch.
+    \item \textbf{Kiến trúc phần mềm Clean Architecture:} Tách biệt độc lập các tầng Domain, Application, Infrastructure. Hệ thống dễ dàng mở rộng, chịu tải cao, không phụ thuộc framework.
+    \item \textbf{Hiệu năng đạt chuẩn Google Lighthouse 98/100:} Tốc độ phản hồi dưới 1 giây, tối ưu hình ảnh WebP/AVIF, CDN hóa toàn diện, thân thiện tuyệt đối với thuật toán SEO Google.
+    \item \textbf{Kiểm thử nghiêm ngặt (CI/CD Automated Pipelines):} Quy trình kiểm thử tự động, kiểm tra tương thích 100\% trên iPhone, Android, iPad và màn hình máy tính trước khi bàn giao.
+\end{itemize}
+
+\section{Bảng Phân Bổ Man-Day \& Báo Giá Các Gói Dịch Vụ}
+Chi phí được tính toán minh bạch dựa trên khối lượng công việc thực tế (Man-day) theo bảng Use Case hệ thống:
+
+\vspace{2mm}
+\begin{tabularx}{\textwidth}{Xcccr}
+\toprule
+\textbf{Gói Dịch Vụ} & \textbf{Quy Mô Dev} & \textbf{Tổng Man-day} & \textbf{Thời Gian} & \textbf{Chi Phí Chuẩn} \\
+\midrule
+\textbf{Gói 1: MVP Khởi Nghiệp} & 1 Dev & 23 MD & 7 -- 10 ngày & 11.500.000 VNĐ \\
+\textbf{Gói 2: MVP Tốc Hành} & 2 Devs song song & 23 MD & 4 -- 6 ngày & 18.500.000 VNĐ \\
+\textbf{Gói 3: Doanh Nghiệp Toàn Diện} & Full 5 Devs & 63 MD & 15 -- 20 ngày & 33.000.000 VNĐ \\
+\bottomrule
+\end{tabularx}
+\vspace{2mm}
+
+\begin{tcolorbox}[colback=tagbg!30,colframe=accent,arc=2mm,title=\textbf{CHÍNH SÁCH ĐÀM PHÁN \& TRỢ GIÁ KHỞI NGHIỆP}]
+\small
+\textbf{Lưu ý quan trọng:} Mức giá trên là giá niêm yết tiêu chuẩn cho hệ thống hoàn chỉnh. Chúng tôi luôn áp dụng \textbf{chính sách đàm phán linh hoạt theo ngân sách thực tế} của từng chủ shop:
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+    \item \textbf{Trợ giá 20\% -- 30\%:} Dành cho các shop mới khởi nghiệp hoặc đối tác chốt sớm.
+    \item \textbf{Tùy biến bóc tách tính năng (Modular Scope):} Khách hàng chỉ trả tiền cho các tính năng thực sự cần dùng ở giai đoạn đầu, không lãng phí chi phí thừa.
+\end{itemize}
+\end{tcolorbox}
+
+\section{Cơ Chế Thanh Toán \& Cam Kết Thưởng / Phạt Tiến Độ}
+\begin{itemize}[leftmargin=*,itemsep=3pt]
+    \item \textbf{Lộ trình đặt cọc 40\% / 60\%:} Khách hàng đặt cọc 40\% khi ký kết hợp đồng dân sự để khởi động dự án. 60\% còn lại chỉ được thanh toán sau khi khách đã nghiệm thu hài lòng trên môi trường thực tế (Production).
+    \item \textbf{Thời gian ân hạn (Grace Period):} Quy định 2 ngày ân hạn đầu tiên cho sai số lịch biểu mà không tính thưởng/phạt.
+    \item \textbf{Thưởng hoàn thành sớm:} Nếu bàn giao trước mốc cam kết và hệ thống vận hành hoàn hảo, khách thưởng thêm tỷ lệ \% giá trị hợp đồng theo thỏa thuận.
+    \item \textbf{Phạt bồi thường trễ hạn:} Nếu bàn giao trễ hạn do lỗi chủ quan từ phía đội ngũ phát triển, chúng tôi chịu phạt trừ tiền theo từng ngày trễ trực tiếp vào hợp đồng.
+\end{itemize}
+
+\section{Quy Chế Xử Lý Tính Năng Phát Sinh (Feature Request --- FR)}
+Trong quá trình triển khai, nếu khách hàng mong muốn bổ sung các tính năng ngoài phạm vi ban đầu (Scope of Work đã ký):
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+    \item \textbf{Phân tích \& Ước lượng Man-day bổ sung:} Leader sẽ bóc tách yêu cầu, đánh giá tác động kỹ thuật và gửi bảng báo man-day chi tiết để khách duyệt trước khi bắt tay viết mã.
+    \item \textbf{Quy định nâng cấp sau (+20\% phụ phí):} Trường hợp khách hàng triển khai gói MVP trước, sau này mới quyết định nâng cấp lên gói Đầy Đủ trên hệ thống đang chạy thật, chi phí sẽ áp dụng hệ số phụ phí 20\% do phát sinh công việc đọc lại mã nguồn, kiểm thử tương thích đa luồng và đảm bảo không gián đoạn người dùng hiện hữu.
+\end{enumerate}
+
+\section{Chính Sách Bảo Hành, SLA Hỗ Trợ 24/7 \& Nghĩa Vụ Thuế}
+\begin{itemize}[leftmargin=*,itemsep=3pt]
+    \item \textbf{Bảo hành miễn phí 6 -- 12 tháng:} Sửa chữa toàn bộ lỗi phát sinh từ mã nguồn đã bàn giao, bảo đảm uptime trên 99.9\%.
+    \item \textbf{SLA hỗ trợ khẩn cấp 24/7:} Phản hồi sự cố trong vòng 15--30 phút; khắc phục lỗi quan trọng trong tối đa 4 giờ làm việc.
+    \item \textbf{Nghĩa vụ Thuế TNCN minh bạch:} Đội ngũ chúng tôi tự chịu trách nhiệm kê khai và nộp thuế thu nhập cá nhân đầy đủ với cơ quan thuế nhà nước. Khách hàng cá nhân hoặc doanh nghiệp hoàn toàn không phải bận tâm về thủ tục giấy tờ khấu trừ thuế.
+\end{itemize}
+
+\vspace{6mm}
+\begin{flushright}
+    \textbf{Đại Diện Đội Ngũ Phát Triển}\\
+    \textit{Kiến trúc sư trưởng \& Trưởng nhóm}\\[12mm]
+    \textbf{LÊ TRÍ TRUNG}
+\end{flushright}
+
+\end{document}

@@ -21,6 +21,17 @@ import {
   FaStar
 } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import { 
+  CostConcernSVG, 
+  TrustConcernSVG, 
+  TechComplexitySVG, 
+  TaxConcernSVG,
+  Step1ScopeSVG,
+  Step2DesignSVG,
+  Step3CodingSVG,
+  Step4TestingSVG,
+  Step5HandoverSVG
+} from './ServiceSVGs';
 import infographicTeam from '../../assets/landing/infographic_team.png';
 import bannerFooter from '../../assets/landing/banner_footer.png';
 import NewAvatar from '../../assets/information/image.png';
@@ -57,6 +68,8 @@ const Services = () => {
 
   const [activeShotIndex, setActiveShotIndex] = useState(0);
   const [lightboxImg, setLightboxImg] = useState(null);
+  const [showWorkflowModal, setShowWorkflowModal] = useState(false);
+  const [activeModalTab, setActiveModalTab] = useState('manday');
 
   const [formState, setFormState] = useState({
     name: '',
@@ -348,19 +361,25 @@ const Services = () => {
         <div className="empathy-grid">
           <div className="empathy-card">
             <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[0] }} />
+            <div className="card-svg-wrap">
+              <CostConcernSVG />
+            </div>
             <div className="card-body">
               <span className="card-num">01 / COST CONCERN</span>
               <h3 className="card-title">{isEn ? "Afraid it's too expensive?" : "Chi Phí Quá Đắt Đỏ?"}</h3>
               <p className="fear-text">{isEn ? "Agencies frequently quote 20 - 50M VND with bloated overhead." : "Nhiều bên báo giá 20-40 triệu kèm nhiều chi phí phát sinh khiến chủ shop e ngại."}</p>
               <div className="solution-box">
                 <strong>{isEn ? "Our Commitment: " : "Giải pháp: "}</strong>
-                {isEn ? "Calculated strictly on actual man-day effort. Over 75% invested directly in your product, starting at just 5.5M VND." : "Báo giá theo man-day công việc thực tế, gói MVP khởi nghiệp chỉ từ 5.5 triệu, hơn 75% chi phí dồn vào sản phẩm thật."}
+                {isEn ? "Calculated strictly on actual man-day effort. Over 75% invested directly in your product, starting at just 11.5M VND with 20-30% startup subsidies." : "Báo giá theo man-day công việc thực tế, chính sách trợ giá 20-30% cho chủ shop, hơn 75% chi phí dồn vào sản phẩm thật."}
               </div>
             </div>
           </div>
 
           <div className="empathy-card">
             <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[1] }} />
+            <div className="card-svg-wrap">
+              <TrustConcernSVG />
+            </div>
             <div className="card-body">
               <span className="card-num">02 / TRUST & RELIABILITY</span>
               <h3 className="card-title">{isEn ? "Fear of abandonment?" : "Sợ Bị Lừa Hoặc Bỏ Rơi?"}</h3>
@@ -374,6 +393,9 @@ const Services = () => {
 
           <div className="empathy-card">
             <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[2] }} />
+            <div className="card-svg-wrap">
+              <TechComplexitySVG />
+            </div>
             <div className="card-body">
               <span className="card-num">03 / TECHNICAL COMPLEXITY</span>
               <h3 className="card-title">{isEn ? "Not tech-savvy?" : "Công Nghệ Quá Phức Tạp?"}</h3>
@@ -387,6 +409,9 @@ const Services = () => {
 
           <div className="empathy-card">
             <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[3] }} />
+            <div className="card-svg-wrap">
+              <TaxConcernSVG />
+            </div>
             <div className="card-body">
               <span className="card-num">04 / LEGAL & TAX</span>
               <h3 className="card-title">{isEn ? "Tax paperwork worries?" : "Rắc Rối Thuế & Giấy Tờ?"}</h3>
@@ -589,8 +614,8 @@ const Services = () => {
               <p className="plan-desc">{isEn ? "Best for small boutiques, single product lines, or launching fast to test the market." : "Phù hợp cho cá nhân, shop mới mở, cần ra mắt web nhanh để bán hàng và thử nghiệm thị trường với chi phí tiết kiệm nhất."}</p>
 
               <div className="plan-pricing-row">
-                <span className="price-label">{isEn ? "Turnkey Investment" : "Chi Phí Trọn Gói"}</span>
-                <div className="price-num">5.500.000₫</div>
+                <span className="price-label">{isEn ? "Turnkey Standard Price" : "Chi Phí Niêm Yết"}</span>
+                <div className="price-num">11.500.000₫</div>
                 <div className="price-speed">⚡ {isEn ? "Delivered in 7 - 10 working days" : "Bàn giao trong 7 - 10 ngày"}</div>
               </div>
 
@@ -621,8 +646,8 @@ const Services = () => {
               <p className="plan-desc">{isEn ? "Two engineers working simultaneously to accelerate delivery for urgent shop openings or campaigns." : "Dành cho shop cần khai trương gấp hoặc chạy chiến dịch. Hai lập trình viên code song song, rút ngắn 50% thời gian!"}</p>
 
               <div className="plan-pricing-row">
-                <span className="price-label">{isEn ? "Turnkey Investment" : "Chi Phí Trọn Gói"}</span>
-                <div className="price-num">8.900.000₫</div>
+                <span className="price-label">{isEn ? "Turnkey Standard Price" : "Chi Phí Niêm Yết"}</span>
+                <div className="price-num">18.500.000₫</div>
                 <div className="price-speed">🚀 {isEn ? "Superfast in 4 - 6 working days" : "Siêu tốc chỉ trong 4 - 6 ngày"}</div>
               </div>
 
@@ -646,14 +671,14 @@ const Services = () => {
             <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[2] }} />
             <div className="card-inner">
               <div className="plan-badge-row">
-                <span className="plan-tag">FULL SCOPE</span>
+                <span className="plan-tag">FULL SCOPE (5 DEVS)</span>
               </div>
               <h3 className="plan-title">{isEn ? "Full Enterprise E-Commerce" : "Gói Chuyên Nghiệp Toàn Diện"}</h3>
               <p className="plan-desc">{isEn ? "Complete e-commerce platform with automated payment, inventory, multi-roles and AI assistant." : "Dành cho thương hiệu, sàn giao dịch, cửa hàng lớn cần tính năng thanh toán tự động, quản lý kho và trợ lý AI thông minh."}</p>
 
               <div className="plan-pricing-row">
-                <span className="price-label">{isEn ? "Turnkey Investment" : "Chi Phí Trọn Gói"}</span>
-                <div className="price-num">16.500.000₫</div>
+                <span className="price-label">{isEn ? "Turnkey Standard Price" : "Chi Phí Niêm Yết"}</span>
+                <div className="price-num">33.000.000₫</div>
                 <div className="price-speed">⭐ {isEn ? "Turnkey in 15 - 20 working days" : "Trọn gói trong 15 - 20 ngày"}</div>
               </div>
 
@@ -670,6 +695,44 @@ const Services = () => {
                 {isEn ? "Consult Enterprise" : "Tư Vấn Gói Toàn Diện"}
               </button>
             </div>
+          </div>
+        </div>
+
+        {/* NEGOTIATION & STARTUP SUBSIDY HOOK BANNER */}
+        <div className="negotiation-banner">
+          <div className="banner-top-row">
+            <div className="banner-badge">
+              <span className="sparkle">✨</span>
+              <span>{isEn ? "FLEXIBLE BUDGET NEGOTIATION POLICY" : "CHÍNH SÁCH THƯƠNG LƯỢNG & ĐÀM PHÁN GIÁ LINH HOẠT"}</span>
+            </div>
+            <span className="sub-tag">🔥 {isEn ? "Startup Subsidies 20% – 30%" : "Trợ giá khởi nghiệp 20% – 30%"}</span>
+          </div>
+          <h3 className="banner-title">
+            {isEn 
+              ? "Worried about the cost? We customize scope to fit your exact budget!"
+              : "Bảng giá trên là mức niêm yết chuẩn — Chúng tôi hoàn toàn sẵn sàng đàm phán linh hoạt theo ngân sách của bạn!"}
+          </h3>
+          <p className="banner-desc">
+            {isEn
+              ? "We understand non-technical shops have different launch constraints. You don't have to take a rigid bundle: our team can split features into modular phases so you only pay for what brings immediate sales, saving up to 30%."
+              : "Chúng tôi hiểu mỗi chủ shop có nguồn lực và ưu tiên khác nhau khi bắt đầu. Bạn KHÔNG cần phải mua một gói cồng kềnh: Team sẵn sàng bóc tách tính năng theo từng giai đoạn (modular scope) để bạn chỉ trả tiền cho những gì thực sự tạo ra doanh thu ngay, tiết kiệm tối đa chi phí."}
+          </p>
+          <div className="banner-actions">
+            <button onClick={scrollToContact} className="btn-negotiate">
+              <FaCommentDots /> {isEn ? "Negotiate Custom Budget" : "Trao Đổi Thương Lượng Ngân Sách Riêng"}
+            </button>
+            <button onClick={() => setShowWorkflowModal(true)} className="btn-learn-pricing">
+              <FaFileContract /> {isEn ? "See Man-Day Breakdown & Contract Terms" : "Xem Cách Tính Man-day & Ký Hợp Đồng"}
+            </button>
+            <a 
+              href="/docs/Ho_So_Nang_Luc_Va_Bao_Gia_Website.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-download-pdf"
+              download
+            >
+              <FaArrowRight /> {isEn ? "Download PDF Profile (LaTeX)" : "Tải Hồ Sơ Năng Lực & Báo Giá (PDF)"}
+            </a>
           </div>
         </div>
 
@@ -710,34 +773,60 @@ const Services = () => {
 
         <div className="process-grid">
           <div className="process-card">
+            <div className="step-svg-box">
+              <Step1ScopeSVG />
+            </div>
             <span className="step-tag">BƯỚC 01</span>
             <h4 className="step-name">{isEn ? "1. Empathy & Scope" : "1. Lắng Nghe & Tư Vấn"}</h4>
             <p className="step-detail">{isEn ? "Analyze products, target buyers, and essential shop workflows." : "Tìm hiểu kỹ sản phẩm và khách hàng mục tiêu để chọn tính năng thiết thực nhất."}</p>
           </div>
 
           <div className="process-card">
+            <div className="step-svg-box">
+              <Step2DesignSVG />
+            </div>
             <span className="step-tag">BƯỚC 02</span>
             <h4 className="step-name">{isEn ? "2. Visual Mockup" : "2. Thiết Kế Giao Diện"}</h4>
             <p className="step-detail">{isEn ? "Modern UI/UX layout crafted and approved before writing code." : "Lên bản mẫu giao diện trực quan chuẩn mobile để chủ shop duyệt trước khi lập trình."}</p>
           </div>
 
           <div className="process-card">
+            <div className="step-svg-box">
+              <Step3CodingSVG />
+            </div>
             <span className="step-tag">BƯỚC 03</span>
             <h4 className="step-name">{isEn ? "3. Clean Coding" : "3. Lập Trình Chuẩn"}</h4>
             <p className="step-detail">{isEn ? "Clean code, sub-1s loading speed, and multi-layer security." : "Lập trình sạch sẽ, bảo mật cao, tối ưu tốc độ tải trang dưới 1 giây mượt mà."}</p>
           </div>
 
           <div className="process-card">
+            <div className="step-svg-box">
+              <Step4TestingSVG />
+            </div>
             <span className="step-tag">BƯỚC 04</span>
             <h4 className="step-name">{isEn ? "4. Strict QA / CI/CD" : "4. Kiểm Thử Nghiêm Ngặt"}</h4>
             <p className="step-detail">{isEn ? "Tested across iPhone, Android, iPad, and desktop browsers." : "Thử nghiệm đặt hàng, thanh toán trên iPhone, Android và máy tính, không để lọt lỗi."}</p>
           </div>
 
           <div className="process-card">
+            <div className="step-svg-box">
+              <Step5HandoverSVG />
+            </div>
             <span className="step-tag">BƯỚC 05</span>
             <h4 className="step-name">{isEn ? "5. Handover & Warranty" : "5. Bàn Giao & Bảo Hành"}</h4>
             <p className="step-detail">{isEn ? "1-on-1 video guide, keys handover, and 24/7 warranty activation." : "Gửi video hướng dẫn 1-1, bàn giao quyền sở hữu hoàn toàn và bảo hành 24/7."}</p>
           </div>
+        </div>
+
+        {/* PROCESS TO QUOTATION & CONTRACT CTA BANNER */}
+        <div className="process-cta-banner">
+          <div className="cta-banner-text">
+            <h4>{isEn ? "Want to see how your money is broken down and calculated?" : "Bạn muốn hiểu rõ số tiền của mình được sử dụng và tính toán như thế nào?"}</h4>
+            <p>{isEn ? "We believe in radical engineering transparency. See how engineering man-days translate directly into software craftsmanship and strict delay/bonus contract clauses." : "Minh bạch tuyệt đối trong từng dòng code và chi phí: Xem chi tiết cách tính Man-day từ file Báo Giá Excel, quy trình giải ngân an toàn 40/60 và điều khoản phạt trễ tiến độ."}</p>
+          </div>
+          <button onClick={() => setShowWorkflowModal(true)} className="btn-open-workflow-modal">
+            <FaFileContract /> {isEn ? "Explore Quotation & Contract Workflow" : "Khám Phá Quy Trình Báo Giá & Hợp Đồng"}
+          </button>
         </div>
       </section>
 
@@ -938,6 +1027,208 @@ const Services = () => {
                 style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 20px 48px rgba(0,0,0,0.6)' }} 
               />
             </div>
+          </motion.div>
+        )}
+
+        {/* WORKFLOW & QUOTATION BREAKDOWN MODAL (FROM EXCEL) */}
+        {showWorkflowModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="workflow-modal-backdrop"
+            onClick={() => setShowWorkflowModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              className="workflow-modal-dialog"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="modal-top-bar">
+                <div className="modal-title-group">
+                  <span className="modal-tag">BẢNG BÓC TÁCH MINH BẠCH</span>
+                  <h3>{isEn ? "Quotation & Contract Workflow (From Excel Model)" : "Quy Trình Báo Giá & Ký Hợp Đồng Chi Tiết (Trích Từ Excel)"}</h3>
+                </div>
+                <button onClick={() => setShowWorkflowModal(false)} className="btn-close-modal">
+                  <FaTimes />
+                </button>
+              </div>
+
+              {/* TABS */}
+              <div className="modal-tabs">
+                <button 
+                  className={`modal-tab ${activeModalTab === 'manday' ? 'active' : ''}`}
+                  onClick={() => setActiveModalTab('manday')}
+                >
+                  <FaCogs /> {isEn ? "1. How Man-Days Are Priced" : "1. Bóc Tách Man-day & Đánh Đổi Giá Trị"}
+                </button>
+                <button 
+                  className={`modal-tab ${activeModalTab === 'contract' ? 'active' : ''}`}
+                  onClick={() => setActiveModalTab('contract')}
+                >
+                  <FaFileContract /> {isEn ? "2. Contract & 40/60 Payment" : "2. Hợp Đồng & Cọc 40/60"}
+                </button>
+                <button 
+                  className={`modal-tab ${activeModalTab === 'penalty' ? 'active' : ''}`}
+                  onClick={() => setActiveModalTab('penalty')}
+                >
+                  <FaShieldAlt /> {isEn ? "3. Early Bonus / Delay Penalty" : "3. Thưởng Sớm / Phạt Trễ"}
+                </button>
+                <button 
+                  className={`modal-tab ${activeModalTab === 'upgrade' ? 'active' : ''}`}
+                  onClick={() => setActiveModalTab('upgrade')}
+                >
+                  <FaSyncAlt /> {isEn ? "4. Feature Request & Upgrades" : "4. Phát Sinh FR & Nâng Cấp Sau"}
+                </button>
+              </div>
+
+              {/* TAB CONTENT */}
+              <div className="modal-body-content">
+                {activeModalTab === 'manday' && (
+                  <div className="tab-pane">
+                    <div className="alert-info-box">
+                      <strong>💡 {isEn ? "Core Value Exchange:" : "Số tiền của bạn được đánh đổi thế nào?"}</strong>
+                      <p>{isEn 
+                        ? "You are paying for genuine engineering hours, zero-bloat Clean Architecture code, dedicated Cloud VPS servers, and guaranteed delivery — not agency sales commissions." 
+                        : "Khách hàng đầu tư trực tiếp vào giờ công kỹ sư thực tế, mã nguồn sạch không dùng template rác, máy chủ Cloud VPS tốc độ cao và cam kết nghiệm thu thực tế — không phải gánh chi phí văn phòng hay hoa hồng sales."}
+                      </p>
+                    </div>
+
+                    <div className="modal-table-wrap">
+                      <table className="excel-table">
+                        <thead>
+                          <tr>
+                            <th>Hạng Mục Phân Bổ</th>
+                            <th>Gói MVP (1-2 Devs)</th>
+                            <th>Gói Toàn Diện (Full Scope)</th>
+                            <th>Ghi Chú Giá Trị Thực Tế</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><strong>Phạm Vi Chức Năng</strong></td>
+                            <td>UC01 - UC12 + NFR01-03 (12 Use Case cốt lõi)</td>
+                            <td>UC01 - UC26 + NFR01-03 (26 Use Case đầy đủ)</td>
+                            <td>Đầy đủ sàn TMĐT, VietQR, AI DeepSeek</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Khối Lượng Kỹ Sư</strong></td>
+                            <td>23 Man-day công việc</td>
+                            <td>63 - 75 Man-day công việc</td>
+                            <td>Frontend, Backend, Database, QA/QC</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Chiết Khấu Trợ Giá Dev</strong></td>
+                            <td><span className="badge-discount">-50% Đơn Giá Thị Trường</span></td>
+                            <td><span className="badge-discount">-50% Đơn Giá Thị Trường</span></td>
+                            <td>Chính sách trợ giá cho chủ shop khởi nghiệp</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Hạ Tầng Máy Chủ (VPS)</strong></td>
+                            <td>Tặng trọn gói 1 năm Cloud Server</td>
+                            <td>Tặng trọn gói 1 năm Cloud Server</td>
+                            <td>Máy chủ riêng biệt, IP tĩnh, SSL bảo mật</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Đàm Phán Thực Tế</strong></td>
+                            <td><strong>Có Thể Thương Lượng</strong></td>
+                            <td><strong>Có Thể Thương Lượng</strong></td>
+                            <td>Bóc tách tính năng linh hoạt theo ngân sách</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+
+                {activeModalTab === 'contract' && (
+                  <div className="tab-pane">
+                    <h4>Lộ Trình Ký Hợp Đồng Dân Sự & Thanh Toán An Toàn 40/60</h4>
+                    <p className="tab-desc">Khách hàng hoàn toàn an tâm: Tiền của bạn chỉ được thanh toán toàn bộ sau khi đã tận mắt kiểm tra hệ thống hoạt động ổn định trên môi trường thực tế.</p>
+                    
+                    <div className="timeline-cards">
+                      <div className="timeline-card">
+                        <div className="t-badge">GIAI ĐOẠN 1</div>
+                        <h5>Ký Hợp Đồng Dân Sự & Đặt Cọc 40%</h5>
+                        <p>Leader Lê Trí Trung đứng tên đại diện pháp lý, ký hợp đồng có đầy đủ phụ lục yêu cầu kỹ thuật, mốc deadline và điều khoản cam kết bồi thường.</p>
+                      </div>
+                      <div className="timeline-card">
+                        <div className="t-badge">GIAI ĐOẠN 2</div>
+                        <h5>Triển Khai & Báo Cáo Tiến Độ Từng Sprint</h5>
+                        <p>Team cập nhật link chạy thử nghiệm định kỳ, chủ shop theo dõi trực quan các màn hình đang hoàn thiện trên điện thoại.</p>
+                      </div>
+                      <div className="timeline-card highlight">
+                        <div className="t-badge success">GIAI ĐOẠN 3</div>
+                        <h5>Nghiệm Thu Môi Trường Thật & Thanh Toán 60% Còn Lại</h5>
+                        <p>Chỉ khi toàn bộ tính năng đặt hàng, thanh toán VietQR hoạt động mượt mà và chủ shop hài lòng 100%, mới tiến hành thanh toán phần còn lại.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeModalTab === 'penalty' && (
+                  <div className="tab-pane">
+                    <h4>Quy Chế Thưởng Hoàn Thành Sớm / Phạt Bồi Thường Trễ Tiến Độ</h4>
+                    <p className="tab-desc">Cam kết tiến độ bằng văn bản rõ ràng, đảm bảo kế hoạch khai trương bán hàng của bạn không bao giờ bị trì hoãn.</p>
+                    
+                    <div className="penalty-grid-modal">
+                      <div className="penalty-card green">
+                        <div className="p-header">THƯỞNG HOÀN THÀNH SỚM</div>
+                        <ul>
+                          <li><strong>2 Ngày Ân Hạn:</strong> Tránh sai số nhỏ về lịch biểu.</li>
+                          <li><strong>Thưởng Theo Ngày:</strong> Mỗi ngày sớm hơn thỏa thuận (sau ân hạn), khách thưởng một khoản % giá trị hợp đồng để động viên team tăng ca thần tốc.</li>
+                          <li><strong>Có Mức Trần Tối Đa:</strong> Minh bạch giới hạn tối đa ngay trong hợp đồng.</li>
+                        </ul>
+                      </div>
+                      <div className="penalty-card red">
+                        <div className="p-header">PHẠT BỒI THƯỜNG TRỄ HẠN</div>
+                        <ul>
+                          <li><strong>Cam Kết Bồi Thường:</strong> Nếu chậm tiến độ do lỗi chủ quan của dev, dev chịu phạt trừ tiền theo từng ngày trễ.</li>
+                          <li><strong>Trừ Trực Tiếp:</strong> Tiền phạt được trừ thẳng vào khoản thanh toán cuối cùng khi nghiệm thu.</li>
+                          <li><strong>Bảo Vệ Chủ Shop:</strong> Đảm bảo chủ shop không bao giờ chịu thiệt hại về cơ hội kinh doanh.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeModalTab === 'upgrade' && (
+                  <div className="tab-pane">
+                    <h4>Quy Chế Xử Lý Feature Request (FR) & Nâng Cấp Hệ Thống Sau Này</h4>
+                    <p className="tab-desc">Lộ trình nâng cấp linh hoạt: Bạn có thể bắt đầu với gói MVP chi phí tối thiểu, sau này mở rộng quy mô khi doanh thu tăng trưởng.</p>
+                    
+                    <div className="upgrade-details">
+                      <div className="detail-item">
+                        <h5>1. Bổ sung tính năng phát sinh (Feature Request - FR)</h5>
+                        <p>Trong quá trình làm, nếu bạn nảy ra ý tưởng mới ngoài hợp đồng ban đầu, Leader sẽ lập tức bóc tách thành Man-day độc lập, báo giá cụ thể để bạn quyết định trước khi code, tuyệt đối không có chi phí ẩn.</p>
+                      </div>
+                      <div className="detail-item">
+                        <h5>2. Cơ chế mua MVP trước, nâng cấp Đầy Đủ sau (+20% phụ phí)</h5>
+                        <p>Nếu bạn chọn làm MVP trước, sau này nâng cấp lên sàn lớn trên hệ thống đang chạy thật (Production), chi phí sẽ áp dụng hệ số +20% do team phải đọc lại code, kiểm thử đa luồng và đảm bảo không làm gián đoạn khách hàng đang mua sắm.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* MODAL FOOTER */}
+              <div className="modal-footer-bar">
+                <a 
+                  href="/docs/Ho_So_Nang_Luc_Va_Bao_Gia_Website.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-modal-download"
+                  download
+                >
+                  <FaArrowRight /> {isEn ? "Download Full Company Profile (PDF)" : "Tải Tài Liệu Báo Giá & Hồ Sơ Năng Lực (PDF)"}
+                </a>
+                <button onClick={() => { setShowWorkflowModal(false); scrollToContact(); }} className="btn-modal-contact">
+                  <FaCommentDots /> {isEn ? "Contact Leader for Negotiation" : "Thương Lượng Ngân Sách Với Leader"}
+                </button>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
