@@ -62,7 +62,7 @@ const CommandPalette = () => {
             .map((c) => ({ type: 'certificate', label: c.name, sub: t('commandPalette.typeCertificate'), icon: FaCertificate, action: () => navigate('/certificates') }));
 
         return [...pageItems, ...projectItems, ...certItems];
-    }, [query, navigate, t]);
+    }, [query, navigate, t, projects]);
 
     useEffect(() => setActiveIndex(0), [results.length]);
 

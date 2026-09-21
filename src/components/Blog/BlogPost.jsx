@@ -1,6 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaArrowLeft, FaClock, FaCalendarAlt, FaRocket, FaLaptopCode, FaArrowRight, FaCommentDots } from 'react-icons/fa';
+import { FaArrowLeft, FaClock, FaCalendarAlt, FaRocket, FaLaptopCode, FaArrowRight } from 'react-icons/fa';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useTranslation } from 'react-i18next';

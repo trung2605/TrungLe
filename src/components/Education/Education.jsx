@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaCodeBranch, 
-  FaTerminal, 
   FaCalendarAlt, 
   FaStar, 
   FaArrowLeft, 
@@ -232,6 +231,7 @@ const Education = () => {
                             color: cfg.color
                           }}
                         >
+                          <IconComponent style={{ marginRight: '4px', verticalAlign: '-1px' }} />
                           {edu.branchLabel || edu.branch || 'main'}
                         </span>
                       </div>

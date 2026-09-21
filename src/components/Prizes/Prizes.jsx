@@ -47,7 +47,7 @@ const Prizes = () => {
                 }}>
                     <span style={{ color: '#1ea64a', fontWeight: '600' }}>✓</span>
                     <span>npm run awards --list</span>
-                    <span style={{ color: '#666666', marginLeft: '8px' }}>// output: {prizes.length} achievements unlocked</span>
+                    <span style={{ color: '#666666', marginLeft: '8px' }}>{'// '}output: {prizes.length} achievements unlocked</span>
                 </div>
                 <div className="stats-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
                     {[

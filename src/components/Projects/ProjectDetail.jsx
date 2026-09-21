@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaTags, FaArrowLeft, FaRocket, FaNewspaper, FaArrowRight, FaBookOpen } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaTags, FaArrowLeft, FaRocket, FaArrowRight, FaBookOpen } from 'react-icons/fa';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';

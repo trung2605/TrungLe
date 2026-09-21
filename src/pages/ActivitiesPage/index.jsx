@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Activities from '../../components/Activities/Activities';
 import './ActivitiesPage.scss';
 

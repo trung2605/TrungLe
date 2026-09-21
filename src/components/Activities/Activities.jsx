@@ -124,7 +124,7 @@ const Activities = () => {
                 }}>
                     <span style={{ color: '#1ea64a' }}>{'> '}</span>
                     <span>activities.filter(a =&gt; a.isActive).length</span>
-                    <span style={{ color: '#555555', marginLeft: '8px' }}>// {activities.filter(a => a.status === 'Active' || a.status === 'In Progress').length} running</span>
+                    <span style={{ color: '#555555', marginLeft: '8px' }}>{'// '}{activities.filter(a => a.status === 'Active' || a.status === 'In Progress').length} running</span>
                 </div>
                 <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
                     {[

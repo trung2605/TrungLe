@@ -131,7 +131,7 @@ const Certificates = () => {
                 <span style={{ color: '#1ea64a' }}>const</span>
                 <span style={{ color: '#93c5fd' }}> certs</span>
                 <span> = await fetchCertificates()</span>
-                <span style={{ color: '#fbbf24', marginLeft: '8px' }}>// {certificates.length} loaded</span>
+                <span style={{ color: '#fbbf24', marginLeft: '8px' }}>{'// '}{certificates.length} loaded</span>
             </motion.div>
 
             {/* Search + Year filter */}
