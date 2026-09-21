@@ -1,4 +1,4 @@
-﻿import { useEffect, Suspense, lazy } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Lenis from 'lenis';
 import { AppContextProvider } from './contexts/AppContext';
@@ -19,6 +19,7 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 const ResumePage = lazy(() => import('./pages/ResumePage'));
 const BlogPage = lazy(() => import('./pages/BlogPage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 
 function App() {
   useEffect(() => {
@@ -76,6 +77,8 @@ function App() {
                   <Route path="resume" element={<ResumePage />} />
                   <Route path="blog" element={<BlogPage />} />
                   <Route path="blog/:slug" element={<BlogPostPage />} />
+                  <Route path="dich-vu" element={<ServicesPage />} />
+                  <Route path="services" element={<Navigate to="/dich-vu" replace />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Route>
               </Routes>

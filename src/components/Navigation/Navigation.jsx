@@ -273,7 +273,22 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
                   )}
-                  <span style={{ position: 'relative', zIndex: 1 }}>{item.title}</span>
+                  <span style={{ position: 'relative', zIndex: 1, display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                    {item.title}
+                    {item.path === '/dich-vu' && (
+                      <span style={{
+                        fontSize: '9px',
+                        fontWeight: '700',
+                        color: '#ffffff',
+                        background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                        padding: '1px 5px',
+                        borderRadius: '4px',
+                        letterSpacing: '0.4px',
+                        lineHeight: '1.2',
+                        textTransform: 'uppercase'
+                      }}>HOT</span>
+                    )}
+                  </span>
                 </Link>
               );
             })}

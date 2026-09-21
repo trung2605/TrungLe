@@ -20,6 +20,7 @@ import {
   FaEnvelope,
   FaFileAlt,
   FaNewspaper,
+  FaRocket,
 } from "react-icons/fa";
 import NewAvatar from './assets/information/image.png';
 import { allPosts } from './data/posts';
@@ -1808,6 +1809,12 @@ export const siteNavigation = [
         desc: "View my resume online",
         icon: <FaFileAlt />,
         path: "/resume",
+    },
+    {
+        title: "Services",
+        desc: "Professional website development for shop owners",
+        icon: <FaRocket />,
+        path: "/dich-vu",
     },
     {
         title: "Contact",
