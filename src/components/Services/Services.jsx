@@ -19,7 +19,9 @@ import {
   FaCogs,
   FaChartLine,
   FaSyncAlt,
-  FaStar
+  FaStar,
+  FaGraduationCap,
+  FaLaptopCode
 } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -305,6 +307,24 @@ const Services = () => {
                   onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#ede5fb'; }}
                 >
                   <span>{isEn ? "PostgreSQL 8ms Deep-Dive" : "Bài Viết CSDL PostgreSQL 8ms"}</span>
+                  <FaArrowRight size={11} />
+                </Link>
+
+                <Link
+                  to="/achievements?tab=education&milestone=1"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '8px',
+                    padding: '10px 18px', borderRadius: '50px',
+                    backgroundColor: '#ecfdf5', color: '#059669',
+                    fontSize: '13.5px', fontWeight: '600', textDecoration: 'none',
+                    border: '1px solid #a7f3d0',
+                    transition: 'all 0.15s ease',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#d1fae5'; }}
+                  onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#ecfdf5'; }}
+                >
+                  <FaGraduationCap size={13} />
+                  <span>{isEn ? "Tech Lead Milestone Dossier" : "Hồ Sơ Năng Lực Tech Lead"}</span>
                   <FaArrowRight size={11} />
                 </Link>
 
@@ -1036,6 +1056,98 @@ const Services = () => {
         {/* Footer Banner Graphic Asset */}
         <div className="footer-banner-box">
           <img src={bannerFooter} alt="Đà Nẵng Website Development Team Contact Banner" />
+        </div>
+
+        {/* Cross-linking to Education & Projects */}
+        <div style={{
+          marginTop: '48px',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: '20px',
+        }}>
+          <div style={{
+            backgroundColor: '#ffffff',
+            border: '1.5px solid #e2e8f0',
+            borderRadius: '20px',
+            padding: '24px 28px',
+            boxShadow: '0 8px 24px -6px rgba(15, 23, 42, 0.05)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            gap: '16px',
+          }}>
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '3px 10px', borderRadius: '50px', backgroundColor: '#ecfdf5', color: '#059669', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', marginBottom: '10px' }}>
+                <FaGraduationCap size={12} />
+                {isEn ? "Verified Background" : "Hồ Sơ Năng Lực Tech Lead"}
+              </div>
+              <h4 style={{ fontSize: '17px', fontWeight: '700', color: '#0f172a', margin: '0 0 6px 0', lineHeight: '1.35' }}>
+                {isEn ? "Explore Career & Academic Milestones" : "Hành Trình Kỹ Sư & Cột Mốc Thực Chiến"}
+              </h4>
+              <p style={{ fontSize: '13.5px', color: '#64748b', margin: 0, lineHeight: '1.55' }}>
+                {isEn 
+                  ? "Directly inspect verified milestones from leading a 5-engineer team to FPT Software OJT and Hackathon championships." 
+                  : "Tìm hiểu chi tiết các cột mốc thực chiến: từ vai trò Tech Lead dẫn dắt 5 kỹ sư, thực tập FPT Software, đến giải Quán quân Hackathon AI."}
+              </p>
+            </div>
+            <Link
+              to="/achievements?tab=education"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontSize: '13.5px',
+                fontWeight: '600',
+                color: '#059669',
+                textDecoration: 'none',
+              }}
+            >
+              <span>{isEn ? "View Education & Milestones" : "Xem Hồ Sơ Học Vấn & Cột Mốc"}</span>
+              <FaArrowRight size={11} />
+            </Link>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            border: '1.5px solid #e2e8f0',
+            borderRadius: '20px',
+            padding: '24px 28px',
+            boxShadow: '0 8px 24px -6px rgba(15, 23, 42, 0.05)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            gap: '16px',
+          }}>
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '3px 10px', borderRadius: '50px', backgroundColor: '#eff6ff', color: '#2563eb', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', marginBottom: '10px' }}>
+                <FaLaptopCode size={12} />
+                {isEn ? "Live Portfolio" : "Dự Án Đã Thực Hiện"}
+              </div>
+              <h4 style={{ fontSize: '17px', fontWeight: '700', color: '#0f172a', margin: '0 0 6px 0', lineHeight: '1.35' }}>
+                {isEn ? "Browse Complete Projects Portfolio" : "Toàn Bộ 10+ Dự Án Phần Mềm & Case Studies"}
+              </h4>
+              <p style={{ fontSize: '13.5px', color: '#64748b', margin: 0, lineHeight: '1.55' }}>
+                {isEn 
+                  ? "Review production codebases, architecture deep-dives, live demo links, and GitHub repositories across diverse stacks." 
+                  : "Khám phá các sản phẩm web thực tế, đồ án nghiên cứu AI, kiến trúc Clean Architecture và demo đang hoạt động."}
+              </p>
+            </div>
+            <Link
+              to="/projects"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontSize: '13.5px',
+                fontWeight: '600',
+                color: '#2563eb',
+                textDecoration: 'none',
+              }}
+            >
+              <span>{isEn ? "Browse All Projects" : "Xem Toàn Bộ Dự Án"}</span>
+              <FaArrowRight size={11} />
+            </Link>
+          </div>
         </div>
       </section>
 

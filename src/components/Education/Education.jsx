@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useSearchParams } from 'react-router-dom';
 import { 
   FaCalendarAlt, 
   FaStar, 
@@ -13,7 +14,8 @@ import {
   FaMapMarkerAlt,
   FaUsers,
   FaBriefcase,
-  FaAward
+  FaAward,
+  FaExternalLinkAlt
 } from 'react-icons/fa';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import Markdown from 'react-markdown';
@@ -114,13 +116,194 @@ const CATEGORY_CONFIG = {
   }
 };
 
+const MILESTONE_LINKS = {
+  1: [
+    {
+      type: 'service',
+      titleVi: 'Gói Dịch Vụ Web & SaaS Automation',
+      titleEn: 'Web Development & SaaS Services',
+      descVi: 'Bảng giá 3 gói dịch vụ thực chiến (Khởi nghiệp, Tốc hành, Chuyên nghiệp) với đội ngũ 5 kỹ sư',
+      descEn: 'Pricing and full-scope packages for SME commerce websites & SaaS automation',
+      path: '/dich-vu',
+      badgeVi: 'Bảng Giá Dịch Vụ',
+      badgeEn: 'Service Packages',
+      isExternal: false,
+      color: '#059669',
+      bg: '#ecfdf5'
+    },
+    {
+      type: 'project',
+      titleVi: 'Case Study: Biensovip — Sàn Biển Số Đẹp',
+      titleEn: 'Case Study: Biensovip Marketplace',
+      descVi: 'Nền tảng thực tế xử lý 100+ visits/ngày, VietQR webhook <0.5s, Clean Architecture .NET 8 & PostgreSQL',
+      descEn: 'Production marketplace with 100+ daily visits, automated VietQR, Clean Architecture .NET 8 & PostgreSQL',
+      path: '/projects/26',
+      badgeVi: 'Dự Án Tiêu Biểu',
+      badgeEn: 'Flagship Project',
+      isExternal: false,
+      color: '#2563eb',
+      bg: '#eff6ff'
+    },
+    {
+      type: 'external',
+      titleVi: 'Trải Nghiệm Live: biensovip.com',
+      titleEn: 'Live Production: biensovip.com',
+      descVi: 'Khám phá trực tiếp website thương mại đang hoạt động do chính team xây dựng và vận hành',
+      descEn: 'Directly explore the active production marketplace deployed and operated by our team',
+      path: 'https://biensovip.com',
+      badgeVi: 'Sản Phẩm Đang Chạy',
+      badgeEn: 'Live Website',
+      isExternal: true,
+      color: '#d97706',
+      bg: '#fffbeb'
+    }
+  ],
+  2: [
+    {
+      type: 'project',
+      titleVi: 'Dự Án: Book Shop — OutSystems Enterprise',
+      titleEn: 'Project: Book Shop — OutSystems App',
+      descVi: 'Ứng dụng thương mại điện tử doanh nghiệp phát triển trên nền tảng OutSystems Reactive Web trong kỳ OJT FSoft',
+      descEn: 'Enterprise e-commerce application built with OutSystems Reactive Web during enterprise OJT at FSoft',
+      path: '/projects/5',
+      badgeVi: 'Dự Án OJT',
+      badgeEn: 'OJT Project',
+      isExternal: false,
+      color: '#d97706',
+      bg: '#fffbeb'
+    },
+    {
+      type: 'service',
+      titleVi: 'Dịch Vụ: Phát Triển Phần Mềm Doanh Nghiệp',
+      titleEn: 'Services: Enterprise Software Delivery',
+      descVi: 'Quy trình chuẩn Agile / Scrum FSoft được áp dụng trực tiếp vào các dự án khách hàng của đội ngũ',
+      descEn: 'Enterprise Agile / Scrum workflow applied directly to our client software development packages',
+      path: '/dich-vu',
+      badgeVi: 'Giải Pháp Đội Ngũ',
+      badgeEn: 'Team Solution',
+      isExternal: false,
+      color: '#059669',
+      bg: '#ecfdf5'
+    }
+  ],
+  3: [
+    {
+      type: 'project',
+      titleVi: 'Dự Án: ThreadLearn AI (Quán Quân Hackathon 2026)',
+      titleEn: 'Project: ThreadLearn AI (Champion 2026)',
+      descVi: 'Mô hình AI 1.5B tham số fine-tuned kết hợp RAG AST phát hiện và sửa lỗi concurrency JavaScript vượt trội GPT-3.5',
+      descEn: 'Fine-tuned 1.5B LLM with AST RAG pipeline outperforming GPT-3.5 at fixing JS concurrency bugs',
+      path: '/projects/24',
+      badgeVi: 'Quán Quân Hackathon',
+      badgeEn: 'Hackathon Champion',
+      isExternal: false,
+      color: '#7c3aed',
+      bg: '#faf5ff'
+    },
+    {
+      type: 'project',
+      titleVi: 'Dự Án: Website Khoa Y Dược Phan Châu Trinh',
+      titleEn: 'Project: Faculty of Nursing & Tech Website',
+      descVi: 'Website chính thức xây dựng cho trường đại học với vanilla JS Web Components (team 6 devs)',
+      descEn: 'Official university department site built with Web Components for a real client',
+      path: '/projects/25',
+      badgeVi: 'Dự Án Khách Hàng',
+      badgeEn: 'Client Project',
+      isExternal: false,
+      color: '#2563eb',
+      bg: '#eff6ff'
+    },
+    {
+      type: 'blog',
+      titleVi: 'Bài Viết Kỹ Thuật: Nghiên Cứu ThreadLearn AI',
+      titleEn: 'Technical Article: ThreadLearn AI Research',
+      descVi: 'Phân tích chi tiết quy trình huấn luyện QLoRA, AST parsing và kết quả benchmark học thuật',
+      descEn: 'In-depth breakdown of QLoRA fine-tuning, AST retrieval pipeline, and benchmark results',
+      path: '/blog/threadlearn',
+      badgeVi: 'Bài Viết Kỹ Thuật',
+      badgeEn: 'Tech Deep-Dive',
+      isExternal: false,
+      color: '#0891b2',
+      bg: '#ecfeff'
+    }
+  ],
+  4: [
+    {
+      type: 'certificate',
+      titleVi: 'Chứng Chỉ Trao Đổi Quốc Tế (TAR UMT Malaysia)',
+      titleEn: 'International Student Mobility Certificate',
+      descVi: 'Chứng nhận hoàn thành chương trình trao đổi học thuật quốc tế tại Kuala Lumpur, Malaysia',
+      descEn: 'Certificate of completion for academic mobility program in Kuala Lumpur, Malaysia',
+      path: '/achievements?tab=certificates',
+      badgeVi: 'Chứng Chỉ Quốc Tế',
+      badgeEn: 'Global Certificate',
+      isExternal: false,
+      color: '#2563eb',
+      bg: '#eff6ff'
+    },
+    {
+      type: 'project',
+      titleVi: 'Tổ Chức The Dreamers — Dự Án Xã Hội & Công Nghệ',
+      titleEn: 'The Dreamers — Community Tech Initiative',
+      descVi: 'Sáng lập và quản lý tổ chức sinh viên đưa công nghệ và kỹ năng đến với trẻ em có hoàn cảnh khó khăn',
+      descEn: 'Founded and lead student organization teaching tech skills to underprivileged youth',
+      path: '/projects/3',
+      badgeVi: 'Tổ Chức Xã Hội',
+      badgeEn: 'Community Project',
+      isExternal: false,
+      color: '#059669',
+      bg: '#ecfdf5'
+    }
+  ],
+  5: [
+    {
+      type: 'prize',
+      titleVi: 'Bảng Thành Tích & Giải Thưởng Học Thuật',
+      titleEn: 'Academic Honors & Competition Awards',
+      descVi: 'Xem danh sách toàn bộ huy chương, học bổng và các giải thưởng học thuật đạt được',
+      descEn: 'Explore the full list of medals, scholarships, and academic honors received',
+      path: '/achievements?tab=prizes',
+      badgeVi: 'Giải Thưởng Học Thuật',
+      badgeEn: 'Academic Awards',
+      isExternal: false,
+      color: '#0891b2',
+      bg: '#ecfeff'
+    },
+    {
+      type: 'projects',
+      titleVi: 'Khám Phá Toàn Bộ Danh Mục 10+ Dự Án',
+      titleEn: 'Explore Full 10+ Projects Portfolio',
+      descVi: 'Tổng hợp đầy đủ các dự án phần mềm từ đồ án nền tảng đến các hệ thống thương mại thực tế',
+      descEn: 'Comprehensive portfolio spanning foundational apps to active production platforms',
+      path: '/projects',
+      badgeVi: 'Tất Cả Dự Án',
+      badgeEn: 'All Projects',
+      isExternal: false,
+      color: '#7c3aed',
+      bg: '#faf5ff'
+    }
+  ]
+};
+
 const Education = () => {
   const { t, i18n } = useTranslation();
   const isEn = i18n.language === 'en';
   const { education = [] } = useTranslatedData();
+  const [searchParams] = useSearchParams();
 
   const [selectedMilestoneId, setSelectedMilestoneId] = useState(education[0]?.id || 1);
   const [filterCategory, setFilterCategory] = useState('all');
+
+  // Handle milestone query param from other pages
+  useEffect(() => {
+    const milestoneParam = searchParams.get('milestone');
+    if (milestoneParam) {
+      const parsed = parseInt(milestoneParam, 10);
+      if (!isNaN(parsed) && education.some(e => e.id === parsed)) {
+        setSelectedMilestoneId(parsed);
+      }
+    }
+  }, [searchParams, education]);
 
   // Filter education items
   const filteredEducation = education.filter(item => {
@@ -132,6 +315,7 @@ const Education = () => {
   const activeEdu = education.find(e => e.id === selectedMilestoneId) || education[0];
   const activeIdx = education.findIndex(e => e.id === selectedMilestoneId);
   const activeCfg = CATEGORY_CONFIG[activeEdu?.branch] || CATEGORY_CONFIG['main'];
+  const activeLinks = MILESTONE_LINKS[activeEdu?.id] || [];
 
   const handlePrev = () => {
     if (activeIdx > 0) {
@@ -424,6 +608,60 @@ const Education = () => {
                             {tech}
                           </span>
                         ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* CROSS-LINKING: Linked Products, Projects & Services */}
+                  {activeLinks && activeLinks.length > 0 && (
+                    <div className="linked-products-section">
+                      <h4 className="section-title">
+                        <FaRocket style={{ color: activeCfg.color, marginRight: '8px' }} />
+                        {isEn ? "Related Products, Services & Live Projects" : "Sản Phẩm Thực Tế & Dịch Vụ Liên Quan"}
+                      </h4>
+                      <div className="linked-cards-grid">
+                        {activeLinks.map((item, idx) => {
+                          const CardInner = (
+                            <div className="linked-card-inner">
+                              <div className="card-top">
+                                <span className="card-badge" style={{ backgroundColor: item.bg, color: item.color }}>
+                                  {isEn ? item.badgeEn : item.badgeVi}
+                                </span>
+                                {item.isExternal ? (
+                                  <FaExternalLinkAlt size={11} style={{ color: '#94a3b8' }} />
+                                ) : (
+                                  <FaArrowRight size={11} style={{ color: '#94a3b8' }} />
+                                )}
+                              </div>
+                              <h5 className="card-title">{isEn ? item.titleEn : item.titleVi}</h5>
+                              <p className="card-desc">{isEn ? item.descEn : item.descVi}</p>
+                              <div className="card-action" style={{ color: item.color }}>
+                                <span>{isEn ? "Explore Now" : "Khám phá ngay"}</span>
+                                <FaArrowRight size={10} />
+                              </div>
+                            </div>
+                          );
+
+                          return item.isExternal ? (
+                            <a
+                              key={idx}
+                              href={item.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="linked-product-card"
+                            >
+                              {CardInner}
+                            </a>
+                          ) : (
+                            <Link
+                              key={idx}
+                              to={item.path}
+                              className="linked-product-card"
+                            >
+                              {CardInner}
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   )}

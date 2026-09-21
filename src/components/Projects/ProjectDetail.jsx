@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaTags, FaArrowLeft, FaRocket, FaArrowRight, FaBookOpen } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaTags, FaArrowLeft, FaRocket, FaArrowRight, FaBookOpen, FaGraduationCap } from 'react-icons/fa';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
@@ -17,6 +17,59 @@ const STATUS_KEY = { 'Active': 'active', 'In Development': 'inDevelopment', 'Com
 
 const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
 
+const PROJECT_MILESTONE_MAP = {
+  26: {
+    milestoneId: 1,
+    titleVi: "Đội Ngũ Kỹ Sư Đà Nẵng (Khởi Nghiệp Đa Công Nghệ)",
+    titleEn: "Da Nang Engineering Team (Multi-Tech Startup)",
+    roleVi: "Tech Lead & Kỹ Sư Trưởng",
+    roleEn: "Tech Lead & Chief Engineer",
+    color: "#059669",
+    bg: "#ecfdf5",
+    border: "#a7f3d0"
+  },
+  24: {
+    milestoneId: 3,
+    titleVi: "Đại học FPT Đà Nẵng (AI Research)",
+    titleEn: "FPT University Da Nang (AI Research)",
+    roleVi: "Cử nhân KHMT & Quán Quân Hackathon 2026",
+    roleEn: "CS Student & Hackathon Champion 2026",
+    color: "#7c3aed",
+    bg: "#faf5ff",
+    border: "#ddd6fe"
+  },
+  5: {
+    milestoneId: 2,
+    titleVi: "FPT Software (FSoft Đà Nẵng)",
+    titleEn: "FPT Software (FSoft Da Nang)",
+    roleVi: "Thực tập sinh Software Developer (OJT)",
+    roleEn: "Software Developer Intern (OJT)",
+    color: "#d97706",
+    bg: "#fffbeb",
+    border: "#fde68a"
+  },
+  25: {
+    milestoneId: 3,
+    titleVi: "Đại học FPT Đà Nẵng",
+    titleEn: "FPT University Da Nang",
+    roleVi: "Dự án khách hàng thực tế (Team 6 devs)",
+    roleEn: "Client Web Project (6-dev team)",
+    color: "#2563eb",
+    bg: "#eff6ff",
+    border: "#bfdbfe"
+  },
+  3: {
+    milestoneId: 4,
+    titleVi: "Trao Đổi Quốc Tế & Hoạt Động Xã Hội",
+    titleEn: "Global Exchange & Community Leadership",
+    roleVi: "Sáng lập The Dreamers Organization",
+    roleEn: "Founder of The Dreamers Organization",
+    color: "#059669",
+    bg: "#ecfdf5",
+    border: "#a7f3d0"
+  }
+};
+
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -24,6 +77,7 @@ const ProjectDetail = () => {
   const isEn = i18n.language === 'en';
   const { projects, posts = [] } = useTranslatedData();
   const project = projects.find(p => String(p.id) === id);
+  const milestoneData = project ? PROJECT_MILESTONE_MAP[project.id] : null;
 
   const heroRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
@@ -385,6 +439,50 @@ const ProjectDetail = () => {
               </div>
             </div>
           ) : null}
+
+          {/* Associated Career & Academic Milestone */}
+          <div style={{
+            backgroundColor: milestoneData ? milestoneData.bg : '#f8fafc',
+            borderRadius: '16px',
+            padding: '18px 20px',
+            border: `1px solid ${milestoneData ? milestoneData.border : '#e2e8f0'}`,
+          }}>
+            <p style={{
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '10.5px',
+              fontWeight: '700',
+              letterSpacing: '0.5px',
+              textTransform: 'uppercase',
+              color: milestoneData ? milestoneData.color : '#64748b',
+              margin: '0 0 8px 0',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+            }}>
+              <FaGraduationCap size={13} /> {isEn ? "Associated Milestone" : "Cột Mốc Thực Chiến"}
+            </p>
+            <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#0f172a', margin: '0 0 4px 0', lineHeight: '1.35' }}>
+              {milestoneData ? (isEn ? milestoneData.titleEn : milestoneData.titleVi) : (isEn ? "Career & Academic Roadmap" : "Lộ Trình Học Vấn & Thực Chiến")}
+            </h4>
+            <p style={{ fontSize: '12px', color: '#475569', margin: '0 0 12px 0', lineHeight: '1.4' }}>
+              {milestoneData ? (isEn ? milestoneData.roleEn : milestoneData.roleVi) : (isEn ? "Explore verified milestones and engineering journey" : "Khám phá các cột mốc thực chiến và kỹ thuật")}
+            </p>
+            <Link
+              to={`/achievements?tab=education${milestoneData ? `&milestone=${milestoneData.milestoneId}` : ''}`}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                fontSize: '12px',
+                fontWeight: '600',
+                color: milestoneData ? milestoneData.color : '#2563eb',
+                textDecoration: 'none',
+              }}
+            >
+              <span>{isEn ? "View Milestone Dossier" : "Xem Chi Tiết Cột Mốc"}</span>
+              <FaArrowRight size={10} />
+            </Link>
+          </div>
         </motion.div>
       </div>
 

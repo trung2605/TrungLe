@@ -522,6 +522,87 @@
       }
     }
 
+    /* Linked Products & Services Section */
+    .linked-products-section {
+      .section-title {
+        font-size: 13.5px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #334155;
+        margin: 0 0 14px 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .linked-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 14px;
+      }
+
+      .linked-product-card {
+        display: block;
+        text-decoration: none;
+        background: #ffffff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 16px;
+        transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02);
+
+        &:hover {
+          border-color: #94a3b8;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08);
+
+          .card-action {
+            gap: 8px;
+          }
+        }
+
+        .card-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 10px;
+        }
+
+        .card-badge {
+          font-size: 11px;
+          font-weight: 600;
+          padding: 3px 10px;
+          border-radius: 50px;
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .card-title {
+          font-size: 14px;
+          font-weight: 700;
+          color: #0f172a;
+          margin: 0 0 6px 0;
+          line-height: 1.35;
+        }
+
+        .card-desc {
+          font-size: 12.5px;
+          color: #64748b;
+          line-height: 1.5;
+          margin: 0 0 12px 0;
+        }
+
+        .card-action {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 12.5px;
+          font-weight: 600;
+          transition: gap 0.15s ease;
+        }
+      }
+    }
+
     /* Executive Summary Card */
     .executive-summary-card {
       background: #f8fafc;
