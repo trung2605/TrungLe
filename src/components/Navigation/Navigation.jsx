@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
-import { FaSun, FaMoon, FaChevronDown } from "react-icons/fa";
+import { FaSun, FaMoon, FaChevronDown, FaBriefcase, FaDownload } from "react-icons/fa";
 import { personalInfo } from "../../data";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCustomTheme } from "../../contexts/ThemeContext";
@@ -13,7 +13,7 @@ const ACHIEVEMENT_SUBTABS = [
   { tab: 'prizes', labelKey: 'nav.prizes' },
 ];
 
-const Navigation = () => {
+const Navigation = ({ onOpenRecruiterMatch }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [achievementsHover, setAchievementsHover] = useState(false);
@@ -47,54 +47,88 @@ const Navigation = () => {
     <nav
       style={{
         position: 'fixed',
-        top: 0,
+        top: '12px',
         left: 0,
         right: 0,
         zIndex: 50,
-        backgroundColor: 'var(--color-canvas)',
-        borderBottom: isScrolled ? '1px solid var(--color-hairline)' : '1px solid transparent',
-        transition: 'border-color 0.2s ease',
-        height: '56px',
         display: 'flex',
-        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '0 16px',
+        pointerEvents: 'none',
       }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px', width: '100%' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-
-          {/* Logo */}
-          <Link
-            to="/"
-            onClick={handleLinkClick}
-            style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
-          >
-            <div style={{
+      <div
+        style={{
+          pointerEvents: 'auto',
+          maxWidth: '1220px',
+          width: '100%',
+          height: '52px',
+          padding: '0 8px 0 14px',
+          borderRadius: '9999px',
+          backgroundColor: isDarkMode ? 'rgba(16, 16, 20, 0.82)' : 'rgba(255, 255, 255, 0.84)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          border: isDarkMode
+            ? (isScrolled ? '1px solid rgba(255, 255, 255, 0.14)' : '1px solid rgba(255, 255, 255, 0.08)')
+            : (isScrolled ? '1px solid rgba(0, 0, 0, 0.12)' : '1px solid rgba(0, 0, 0, 0.07)'),
+          boxShadow: isDarkMode
+            ? (isScrolled ? '0 16px 40px -4px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05)' : '0 8px 24px -4px rgba(0, 0, 0, 0.4)')
+            : (isScrolled ? '0 14px 36px -4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04)' : '0 6px 20px -4px rgba(0, 0, 0, 0.05)'),
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '8px',
+          position: 'relative',
+          transition: 'all 0.25s ease',
+        }}
+      >
+        {/* Logo */}
+        <Link
+          to="/"
+          onClick={handleLinkClick}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            textDecoration: 'none',
+            flexShrink: 0,
+          }}
+        >
+          <div
+            style={{
               width: '32px',
               height: '32px',
               borderRadius: '9px',
-              background: 'linear-gradient(135deg, #1a1a2e 0%, #0a0a12 100%)',
+              background: 'linear-gradient(135deg, #1e1e2f 0%, #0a0a14 100%)',
               color: '#ffffff',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '13px',
+              fontSize: '12.5px',
               fontWeight: '700',
               letterSpacing: '-0.5px',
-            }}>
-              LT
-            </div>
-            <span style={{
-              fontSize: '15px',
-              fontWeight: '540',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+              transition: 'transform 0.2s ease',
+            }}
+            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.06)'}
+            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            LT
+          </div>
+          <span
+            style={{
+              fontSize: '14.5px',
+              fontWeight: '550',
               color: 'var(--color-ink)',
               letterSpacing: '-0.2px',
-              display: 'none',
+              whiteSpace: 'nowrap',
             }}
-              className="sm:block"
-            >
-              {personalInfo.name}
-            </span>
-          </Link>
+            className="hidden sm:inline-block"
+          >
+            {personalInfo.name}
+          </span>
+        </Link>
 
           {/* Desktop Nav */}
           <div
@@ -121,12 +155,13 @@ const Navigation = () => {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '4px',
-                        padding: '6px 16px',
+                        padding: '6px 13px',
                         borderRadius: '50px',
-                        fontSize: '15px',
-                        fontWeight: isActive ? '540' : '400',
+                        fontSize: '14px',
+                        fontWeight: isActive ? '550' : '450',
                         color: isActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
                         textDecoration: 'none',
+                        whiteSpace: 'nowrap',
                         transition: 'color 0.15s ease',
                         backgroundColor: isActive ? 'var(--color-surface-soft)' : 'transparent',
                       }}
@@ -214,12 +249,13 @@ const Navigation = () => {
                   onClick={handleLinkClick}
                   style={{
                     position: 'relative',
-                    padding: '6px 16px',
+                    padding: '6px 13px',
                     borderRadius: '50px',
-                    fontSize: '15px',
-                    fontWeight: isActive ? '540' : '400',
+                    fontSize: '14px',
+                    fontWeight: isActive ? '550' : '450',
                     color: isActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
                     textDecoration: 'none',
+                    whiteSpace: 'nowrap',
                     transition: 'color 0.15s ease',
                     backgroundColor: isActive ? 'var(--color-surface-soft)' : 'transparent',
                   }}
@@ -243,8 +279,9 @@ const Navigation = () => {
             })}
           </div>
 
-          {/* CTA pair */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {/* Right actions cluster */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+            {/* Theme toggle */}
             <button
               onClick={toggleTheme}
               aria-label={isDarkMode ? t('nav.switchToLight') : t('nav.switchToDark')}
@@ -255,8 +292,10 @@ const Navigation = () => {
                 borderRadius: '9999px',
                 backgroundColor: 'var(--color-surface-soft)',
                 color: 'var(--color-ink)',
-                border: 'none', cursor: 'pointer',
-                transition: 'background-color 0.15s ease',
+                border: '1px solid var(--color-hairline)',
+                cursor: 'pointer',
+                transition: 'background-color 0.15s ease, border-color 0.15s ease',
+                flexShrink: 0,
               }}
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -268,7 +307,7 @@ const Navigation = () => {
                   transition={{ duration: 0.2 }}
                   style={{ display: 'flex' }}
                 >
-                  {isDarkMode ? <FaSun size={14} /> : <FaMoon size={14} />}
+                  {isDarkMode ? <FaSun size={13} /> : <FaMoon size={13} />}
                 </motion.span>
               </AnimatePresence>
             </button>
@@ -279,11 +318,11 @@ const Navigation = () => {
               data-testid="lang-toggle"
               style={{
                 position: 'relative',
-                width: '64px',
-                height: '28px',
-                borderRadius: '50px',
-                backgroundColor: '#f7f7f5',
-                border: '1.5px solid #e6e6e6',
+                width: '58px',
+                height: '30px',
+                borderRadius: '9999px',
+                backgroundColor: 'var(--color-surface-soft)',
+                border: '1px solid var(--color-hairline)',
                 cursor: 'pointer',
                 padding: 0,
                 flexShrink: 0,
@@ -293,70 +332,95 @@ const Navigation = () => {
             >
               {/* Labels */}
               <span style={{
-                position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)',
-                fontSize: '10px', fontFamily: 'JetBrains Mono, monospace', fontWeight: '600',
-                letterSpacing: '0.4px', color: i18n.language === 'en' ? '#ffffff' : '#aaaaaa',
+                position: 'absolute', left: '7px', top: '50%', transform: 'translateY(-50%)',
+                fontSize: '10px', fontFamily: 'JetBrains Mono, monospace', fontWeight: '700',
+                letterSpacing: '0.4px',
+                color: i18n.language === 'en' ? 'var(--color-canvas)' : 'var(--color-ink-soft)',
                 transition: 'color 0.2s ease', userSelect: 'none', zIndex: 3,
               }}>EN</span>
               <span style={{
-                position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)',
-                fontSize: '10px', fontFamily: 'JetBrains Mono, monospace', fontWeight: '600',
-                letterSpacing: '0.4px', color: i18n.language === 'vi' ? '#ffffff' : '#aaaaaa',
+                position: 'absolute', right: '7px', top: '50%', transform: 'translateY(-50%)',
+                fontSize: '10px', fontFamily: 'JetBrains Mono, monospace', fontWeight: '700',
+                letterSpacing: '0.4px',
+                color: i18n.language === 'vi' ? 'var(--color-canvas)' : 'var(--color-ink-soft)',
                 transition: 'color 0.2s ease', userSelect: 'none', zIndex: 3,
               }}>VI</span>
               {/* Thumb */}
               <motion.div
-                animate={{ x: i18n.language === 'en' ? 1 : 33 }}
+                animate={{ x: i18n.language === 'en' ? 3 : 29 }}
                 transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                 style={{
                   position: 'absolute',
-                  top: '2px',
-                  width: '28px',
-                  height: '20px',
-                  borderRadius: '50px',
-                  backgroundColor: '#000000',
+                  top: '3px',
+                  width: '24px',
+                  height: '22px',
+                  borderRadius: '9999px',
+                  backgroundColor: 'var(--color-ink)',
                   zIndex: 2,
                 }}
               />
             </button>
 
+            {/* For Recruiters */}
+            <button
+              onClick={onOpenRecruiterMatch}
+              className="hidden lg:inline-flex hover-surface"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                height: '36px',
+                padding: '0 14px',
+                borderRadius: '9999px',
+                fontSize: '13.5px',
+                fontWeight: '500',
+                color: 'var(--color-ink)',
+                backgroundColor: 'transparent',
+                border: '1px solid var(--color-hairline)',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
+                transition: 'all 0.15s ease',
+              }}
+            >
+              <FaBriefcase size={12} style={{ opacity: 0.85 }} />
+              <span>{t('nav.forRecruiters')}</span>
+            </button>
+
+            {/* Download CV - Primary CTA */}
             <a
               href={personalInfo.cv}
               download="Le_Tri_Trung_CV.pdf"
-              className="hidden lg:inline-flex hover-surface"
-              style={{
-                padding: '8px 18px 10px',
-                borderRadius: '50px',
-                fontSize: '15px',
-                fontWeight: '480',
-                color: 'var(--color-ink)',
-                backgroundColor: 'var(--color-canvas)',
-                border: '1.5px solid var(--color-hairline)',
-                textDecoration: 'none',
-                transition: 'background-color 0.15s ease',
-              }}
-            >
-              {t('nav.downloadCV')}
-            </a>
-            <Link
-              to="/projects"
-              onClick={handleLinkClick}
               className="hidden lg:inline-flex"
               style={{
-                padding: '10px 20px',
-                borderRadius: '50px',
-                fontSize: '15px',
-                fontWeight: '480',
-                color: '#ffffff',
-                backgroundColor: '#000000',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                height: '36px',
+                padding: '0 16px',
+                borderRadius: '9999px',
+                fontSize: '13.5px',
+                fontWeight: '500',
+                color: 'var(--color-canvas)',
+                backgroundColor: 'var(--color-ink)',
                 textDecoration: 'none',
-                transition: 'background-color 0.15s ease',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
+                boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
+                transition: 'opacity 0.15s ease, transform 0.15s ease',
               }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = '#000000'}
+              onMouseEnter={e => {
+                e.currentTarget.style.opacity = '0.88';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.opacity = '1';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
             >
-              {t('nav.viewProjects')}
-            </Link>
+              <FaDownload size={11} />
+              <span>{t('nav.downloadCV')}</span>
+            </a>
 
             {/* Hamburger */}
             <button
@@ -394,106 +458,135 @@ const Navigation = () => {
               </div>
             </button>
           </div>
-        </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            data-testid="mobile-menu"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            style={{
-              position: 'absolute',
-              top: '56px',
-              left: 0,
-              right: 0,
-              backgroundColor: 'var(--color-canvas)',
-              borderBottom: '1px solid var(--color-hairline)',
-              padding: '16px 24px 24px',
-              zIndex: 49,
-            }}
-          >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '16px' }}>
-              {siteNavigation.map((item) => {
-                const isActive = location.pathname === item.path;
-                return (
-                  <div key={item.path}>
-                    <Link
-                      to={item.path}
-                      onClick={handleLinkClick}
-                      style={{
-                        padding: '10px 16px',
-                        borderRadius: '8px',
-                        fontSize: '16px',
-                        fontWeight: isActive ? '540' : '400',
-                        color: 'var(--color-ink)',
-                        textDecoration: 'none',
-                        backgroundColor: isActive ? 'var(--color-surface-soft)' : 'transparent',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                      }}
-                    >
-                      <span style={{ opacity: 0.7 }}>{item.icon}</span>
-                      {item.title}
-                    </Link>
-                    {item.path === '/achievements' && (
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: '32px', marginTop: '2px' }}>
-                        {ACHIEVEMENT_SUBTABS.map((sub) => {
-                          const activeTab = searchParams.get('tab');
-                          const subActive = isActive && (activeTab === sub.tab || (!activeTab && sub.tab === 'education'));
-                          return (
-                            <Link
-                              key={sub.tab}
-                              to={`/achievements?tab=${sub.tab}`}
-                              onClick={handleLinkClick}
-                              style={{
-                                padding: '7px 16px',
-                                borderRadius: '8px',
-                                fontSize: '14px',
-                                fontWeight: subActive ? '540' : '400',
-                                color: subActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
-                                textDecoration: 'none',
-                                backgroundColor: subActive ? 'var(--color-surface-soft)' : 'transparent',
-                              }}
-                            >
-                              {t(sub.labelKey)}
-                            </Link>
-                          );
-                        })}
+          {/* Mobile Menu Dropdown Card */}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                data-testid="mobile-menu"
+                initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  position: 'absolute',
+                  top: 'calc(100% + 8px)',
+                  left: 0,
+                  right: 0,
+                  backgroundColor: isDarkMode ? 'rgba(18, 18, 22, 0.96)' : 'rgba(255, 255, 255, 0.96)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.08)',
+                  borderRadius: '24px',
+                  padding: '16px 20px 20px',
+                  boxShadow: isDarkMode ? '0 20px 48px rgba(0, 0, 0, 0.7)' : '0 20px 48px rgba(0, 0, 0, 0.14)',
+                  zIndex: 60,
+                }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '16px' }}>
+                  {siteNavigation.map((item) => {
+                    const isActive = location.pathname === item.path;
+                    return (
+                      <div key={item.path}>
+                        <Link
+                          to={item.path}
+                          onClick={handleLinkClick}
+                          style={{
+                            padding: '10px 16px',
+                            borderRadius: '12px',
+                            fontSize: '15px',
+                            fontWeight: isActive ? '600' : '450',
+                            color: 'var(--color-ink)',
+                            textDecoration: 'none',
+                            backgroundColor: isActive ? 'var(--color-surface-soft)' : 'transparent',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '12px',
+                            transition: 'background-color 0.15s ease',
+                          }}
+                        >
+                          <span style={{ opacity: 0.7 }}>{item.icon}</span>
+                          {item.title}
+                        </Link>
+                        {item.path === '/achievements' && (
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: '32px', marginTop: '2px' }}>
+                            {ACHIEVEMENT_SUBTABS.map((sub) => {
+                              const activeTab = searchParams.get('tab');
+                              const subActive = isActive && (activeTab === sub.tab || (!activeTab && sub.tab === 'education'));
+                              return (
+                                <Link
+                                  key={sub.tab}
+                                  to={`/achievements?tab=${sub.tab}`}
+                                  onClick={handleLinkClick}
+                                  style={{
+                                    padding: '7px 16px',
+                                    borderRadius: '8px',
+                                    fontSize: '14px',
+                                    fontWeight: subActive ? '540' : '400',
+                                    color: subActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
+                                    textDecoration: 'none',
+                                    backgroundColor: subActive ? 'var(--color-surface-soft)' : 'transparent',
+                                  }}
+                                >
+                                  {t(sub.labelKey)}
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-            <Link
-              to="/projects"
-              onClick={handleLinkClick}
-              style={{
-                display: 'block',
-                width: '100%',
-                padding: '12px 24px',
-                borderRadius: '50px',
-                fontSize: '16px',
-                fontWeight: '480',
-                color: '#ffffff',
-                backgroundColor: '#000000',
-                textAlign: 'center',
-                textDecoration: 'none',
-              }}
-            >
-              {t('nav.viewProjects')}
-            </Link>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
-};
+                    );
+                  })}
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <a
+                    href={personalInfo.cv}
+                    download="Le_Tri_Trung_CV.pdf"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
+                      width: '100%',
+                      padding: '11px 20px',
+                      borderRadius: '50px',
+                      fontSize: '14.5px',
+                      fontWeight: '520',
+                      color: 'var(--color-ink)',
+                      backgroundColor: 'var(--color-surface-soft)',
+                      border: '1px solid var(--color-hairline)',
+                      textAlign: 'center',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <FaDownload size={12} />
+                    {t('nav.downloadCV')}
+                  </a>
+                  <Link
+                    to="/projects"
+                    onClick={handleLinkClick}
+                    style={{
+                      display: 'block',
+                      width: '100%',
+                      padding: '11px 20px',
+                      borderRadius: '50px',
+                      fontSize: '14.5px',
+                      fontWeight: '520',
+                      color: 'var(--color-canvas)',
+                      backgroundColor: 'var(--color-ink)',
+                      textAlign: 'center',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    {t('nav.viewProjects')}
+                  </Link>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </nav>
+    );
+  };
 
 export default Navigation;

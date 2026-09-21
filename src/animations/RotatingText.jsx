@@ -14,7 +14,6 @@ const RotatingText = forwardRef((props, ref) => {
     animate = { y: 0, opacity: 1 },
     exit = { y: '-120%', opacity: 0 },
     animatePresenceMode = 'wait',
-    animatePresenceInitial = false,
     rotationInterval = 2000,
     staggerDuration = 0,
     staggerFrom = 'first',
@@ -28,9 +27,18 @@ const RotatingText = forwardRef((props, ref) => {
     ...rest
   } = props;
 
+  const validTexts = useMemo(() => {
+    if (Array.isArray(texts) && texts.length > 0) return texts;
+    if (typeof texts === 'string' && texts.length > 0) return [texts];
+    return ['Software Developer'];
+  }, [texts]);
+
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
+  const safeIndex = currentTextIndex < validTexts.length ? currentTextIndex : 0;
+
   const splitIntoCharacters = (text) => {
+    if (!text) return [];
     if (typeof Intl !== 'undefined' && Intl.Segmenter) {
       const segmenter = new Intl.Segmenter('en', { granularity: 'grapheme' });
       return Array.from(segmenter.segment(text), (segment) => segment.segment);
@@ -39,7 +47,8 @@ const RotatingText = forwardRef((props, ref) => {
   };
 
   const elements = useMemo(() => {
-    const currentText = texts[currentTextIndex];
+    const currentText = validTexts[safeIndex] || validTexts[0] || '';
+    if (!currentText) return [];
     if (splitBy === 'characters') {
       const words = currentText.split(' ');
       return words.map((word, i) => ({
@@ -57,7 +66,7 @@ const RotatingText = forwardRef((props, ref) => {
       characters: [part],
       needsSpace: i !== arr.length - 1,
     }));
-  }, [texts, currentTextIndex, splitBy]);
+  }, [validTexts, safeIndex, splitBy]);
 
   const getStaggerDelay = useCallback(
     (index, totalChars) => {
@@ -82,27 +91,27 @@ const RotatingText = forwardRef((props, ref) => {
 
   const next = useCallback(() => {
     const nextIndex =
-      currentTextIndex === texts.length - 1 ? (loop ? 0 : currentTextIndex) : currentTextIndex + 1;
-    if (nextIndex !== currentTextIndex) handleIndexChange(nextIndex);
-  }, [currentTextIndex, texts.length, loop, handleIndexChange]);
+      safeIndex === validTexts.length - 1 ? (loop ? 0 : safeIndex) : safeIndex + 1;
+    if (nextIndex !== safeIndex) handleIndexChange(nextIndex);
+  }, [safeIndex, validTexts.length, loop, handleIndexChange]);
 
   const previous = useCallback(() => {
     const prevIndex =
-      currentTextIndex === 0 ? (loop ? texts.length - 1 : currentTextIndex) : currentTextIndex - 1;
-    if (prevIndex !== currentTextIndex) handleIndexChange(prevIndex);
-  }, [currentTextIndex, texts.length, loop, handleIndexChange]);
+      safeIndex === 0 ? (loop ? validTexts.length - 1 : safeIndex) : safeIndex - 1;
+    if (prevIndex !== safeIndex) handleIndexChange(prevIndex);
+  }, [safeIndex, validTexts.length, loop, handleIndexChange]);
 
   const jumpTo = useCallback(
     (index) => {
-      const validIndex = Math.max(0, Math.min(index, texts.length - 1));
-      if (validIndex !== currentTextIndex) handleIndexChange(validIndex);
+      const validIndex = Math.max(0, Math.min(index, validTexts.length - 1));
+      if (validIndex !== safeIndex) handleIndexChange(validIndex);
     },
-    [texts.length, currentTextIndex, handleIndexChange]
+    [validTexts.length, safeIndex, handleIndexChange]
   );
 
   const reset = useCallback(() => {
-    if (currentTextIndex !== 0) handleIndexChange(0);
-  }, [currentTextIndex, handleIndexChange]);
+    if (safeIndex !== 0) handleIndexChange(0);
+  }, [safeIndex, handleIndexChange]);
 
   useImperativeHandle(ref, () => ({ next, previous, jumpTo, reset }), [next, previous, jumpTo, reset]);
 
@@ -117,10 +126,10 @@ const RotatingText = forwardRef((props, ref) => {
 
   return (
     <motion.span className={`text-rotate ${mainClassName || ''}`} {...rest} layout transition={transition}>
-      <span className="text-rotate-sr-only">{texts[currentTextIndex]}</span>
-      <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
+      <span className="text-rotate-sr-only">{validTexts[safeIndex]}</span>
+      <AnimatePresence mode={animatePresenceMode} initial={true}>
         <motion.span
-          key={currentTextIndex}
+          key={safeIndex}
           className={`text-rotate-inner ${splitLevelClassName || ''}`}
           aria-hidden="true"
           initial="initial"

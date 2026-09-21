@@ -14,7 +14,53 @@
     "switchToLight": "Switch to light mode",
     "switchToDark": "Switch to dark mode",
     "toggleLanguage": "Toggle language",
-    "toggleMenu": "Toggle menu"
+    "toggleMenu": "Toggle menu",
+    "forRecruiters": "For Recruiters"
+  },
+  "recruiterMatch": {
+    "widgetLabel": "For Recruiters",
+    "step1Of2": "Step 1 of 2",
+    "step2Of2": "Step 2 of 2",
+    "step1Title": "What role are you hiring for?",
+    "step1Desc": "Pick the closest match — I'll tailor the intro and projects below to it.",
+    "step2Title": "Any specific skills you care about?",
+    "step2Desc": "Optional — pick up to 3. Leave blank to see my best overall match for this role.",
+    "back": "Back",
+    "seeMatch": "See my match",
+    "skip": "Skip, show my match",
+    "resultGreeting": "Thanks for checking! Here's a quick rundown tailored to what you're looking for.",
+    "matchingProjects": "Relevant projects",
+    "relevantExperience": "Relevant experience",
+    "downloadCV": "Download CV",
+    "chatZalo": "Chat on Zalo",
+    "startOver": "Start over",
+    "close": "Close",
+    "roles": {
+      "backend": {
+        "label": "Backend / API Development",
+        "blurb": "I specialize in Java Spring Boot on the backend, with hands-on experience in ASP.NET Core, Node.js, and Python too — designing REST APIs, working with relational and document databases, and building systems meant to hold up under real load."
+      },
+      "frontend": {
+        "label": "Frontend / UI Engineering",
+        "blurb": "I build clean, responsive interfaces with React and Tailwind CSS, with an eye for animation (Framer Motion) and performance. I care about interfaces that feel considered, not just functional."
+      },
+      "fullstack": {
+        "label": "Full-Stack Development",
+        "blurb": "I'm comfortable owning a feature end-to-end — React or Next.js on the frontend, Spring Boot or .NET on the backend, and the database and deployment pipeline in between."
+      },
+      "ai-ml": {
+        "label": "AI / Machine Learning",
+        "blurb": "I've fine-tuned language models with QLoRA, built RAG retrieval pipelines, and trained CNNs from scratch — focused on making small, specialized models outperform larger general-purpose ones on narrow tasks."
+      },
+      "lowcode": {
+        "label": "Low-Code / Enterprise Delivery",
+        "blurb": "Through my internship at FPT Software, I've shipped applications on OutSystems in an enterprise Agile environment — useful if your team needs fast, structured delivery without sacrificing process."
+      },
+      "freelance": {
+        "label": "Freelance Web Project",
+        "blurb": "I take on freelance web projects solo, end-to-end — architecture, backend, frontend, and deployment — and I'm currently running a live production marketplace for a paying client."
+      }
+    }
   },
   "commandPalette": {
     "title": "Command palette",
@@ -28,10 +74,10 @@
     "badge": "Available for opportunities",
     "greeting": "Xin chào,",
     "roles": [
-      "Java Developer",
-      "CS Student",
-      "Backend Engineer",
-      "Problem Solver"
+      "Back-End Developer",
+      "Java & .NET Engineer",
+      "Full-Stack Developer",
+      "AI & Problem Solver"
     ],
     "iAm": "I'm a",
     "heroDesc": "Computer Science student at FPT University. Specializing in Java Spring Boot and modern web development — building clean, scalable applications.",
@@ -332,6 +378,11 @@
   },
   "prizeItems": [
     {
+      "title": "Hackathon Computer Vision 2026",
+      "position": "Winner (First Place)",
+      "description": "Awarded **Winner (First Place)** at the **Hackathon Computer Vision 2026** organized by FPT Education (06/08/2026) — designing and implementing high-accuracy computer vision and AI models under intense competition constraints."
+    },
+    {
       "title": "Code Mosaic Algorithm Contest",
       "position": "Finalist",
       "description": "Made it to the **final round** of Code Mosaic, an algorithmic contest run by FPT Education that tests data structures, algorithmic complexity, and how fast you can think under a ticking clock. I was up against top CS students from across FPT's campuses."
@@ -370,8 +421,8 @@
   "personalInfo": {
     "storyTitle": "My Journey",
     "storyContent": "I'm **Lê Trí Trung** — a Computer Science student at **FPT University Da Nang**, currently interning at **FPT Software** as a Software Developer. I specialize in **Java Spring Boot** on the backend and love building full-stack apps that are clean, scalable, and actually useful to someone.\n\nIt all started with just being curious about how things work under the hood. That curiosity took me from Java fundamentals to designing RESTful APIs, wiring up databases, working on real Agile teams, and eventually co-building platforms like **The MC Hub** — a marketplace connecting event MCs with clients, complete with real-time chat, payment integration, and a mobile app.\n\nOutside of code, I've emceed **university events with 600–1000+ attendees**, founded **The Dreamers** — a student charity bringing tech education to orphaned children — and competed in several national-scale coding competitions, making the final rounds at **FPT Code Talent** and **Innocode Camp**.\n\nI believe the best developers aren't just the ones who ship code — they're the ones who can also communicate, lead, and adapt. That's the developer I'm working to become.",
-    "title": "Java Developer | Computer Science Student",
-    "intro": "I'm a Computer Science student who loves building things that actually work — mostly with Java Spring Boot on the backend and React on the front. Currently interning at FPT Software and taking on freelance web projects on the side."
+    "title": "Back-End Developer | Computer Science Student",
+    "intro": "Highly motivated Computer Science student with a strong foundation in web development. Proficient in Java Spring Boot, .NET, JavaScript, React, NodeJS, Python FastAPI and passionate about creating clean, scalable applications and eager to leverage AI technologies to build smarter solutions in a collaborative environment."
   },
   "highlights": [
     {
@@ -422,33 +473,33 @@
       "role": "Software Developer Intern",
       "company": "FPT Software",
       "type": "Internship",
-      "duration": "09/2025 – Present",
-      "status": "Current",
-      "description": "I'm interning as a **Software Developer** at FPT Software, one of Vietnam's largest tech companies. I build enterprise applications on the **OutSystems low-code platform**, work alongside senior engineers on real client-facing projects, and get a first-hand look at professional Agile workflows, code reviews, and enterprise delivery standards."
+      "duration": "08/2025 – 12/2025",
+      "status": "Completed",
+      "description": "Developed enterprise applications using **OutSystems Reactive Web** within an Agile team. Debugged and refactored code to optimize system performance and user experience."
     },
     {
-      "role": "Founder & Project Lead",
+      "role": "Founder",
       "company": "The Dreamers Organization",
-      "type": "Volunteer",
-      "duration": "06/2024 – Present",
+      "type": "Leadership",
+      "duration": "15/06/2024 – Present",
       "status": "Current",
-      "description": "I founded and lead **The Dreamers**, a student-run charity at FPT University. I manage 15+ active members, coordinate community events, oversee charity missions to orphanages, and run tech education programs for underprivileged kids. I'm also building out the organization's backend management platform in **Java Spring Boot**."
+      "description": "Founder of a community-driven charity organization including 30 members dedicated to fostering positive social impact through technology education and community initiatives."
     },
     {
-      "role": "Team Leader & Backend Developer",
-      "company": "FPT University Project Teams",
-      "type": "Academic",
-      "duration": "09/2023 – Present",
+      "role": "Team Leader & Event MC",
+      "company": "FPT University / Various Events",
+      "type": "Leadership / Hosting",
+      "duration": "01/2024 – Present",
       "status": "Current",
-      "description": "I've led several cross-functional project teams through full development cycles — from gathering requirements and designing systems to shipping. Highlights include **Job Finder** (an Agile team of 6), **Dola Bakery** (where I was team lead and backend architect), and **The MC Hub** (full-stack plus mobile). Across all of them, my focus has stayed consistent: solid Java Spring Boot backends, well-designed RESTful APIs, and clean collaborative Git workflows."
+      "description": "MC for 50+ university events and orientation ceremonies. Referee for FPTU AI & Robotics 2025 Competition and Student Ambassador of Danang Economic Project 'Working Space'."
     },
     {
-      "role": "Solo Full-Stack Developer",
+      "role": "Freelance Full-Stack Developer",
       "company": "Biensovip (Freelance Client)",
       "type": "Freelance",
-      "duration": "08/2026 – Present",
+      "duration": "05/2026 – Present",
       "status": "Current",
-      "description": "I'm the sole developer for a real freelance client, building **Biensovip** — a marketplace for premium vehicle license plates — from the ground up. I own the entire stack: an ASP.NET Core 8 Clean Architecture backend, a React 19 frontend, database design, and the product-scope calls (including a deliberate decision to skip online payment integration and avoid PCI-DSS overhead). Delivering a 30-day MVP directly to a paying client, with no team to share the load with."
+      "description": "Independently designed and built full-stack marketplace platform solo (biensovip.com) — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth, and VPS deployment. Owned full delivery as freelancer: client requirements gathering, technical proposal, 30-day MVP roadmap, third-party integrations (Cloudinary, AWS SES, DeepSeek AI chatbot)."
     }
   ],
   "skills": [
@@ -462,7 +513,7 @@
           "name": "JavaScript / TypeScript"
         },
         {
-          "name": "HTML5 & CSS3"
+          "name": "C# (.NET)"
         },
         {
           "name": "Python"
@@ -476,30 +527,30 @@
           "name": "Java Spring Boot"
         },
         {
+          "name": "ASP.NET Core"
+        },
+        {
           "name": "React"
         },
         {
-          "name": "React Native / Expo"
-        },
-        {
-          "name": "Tailwind CSS / Framer Motion"
+          "name": "Python FastAPI & NodeJS"
         }
       ]
     },
     {
-      "category": "Databases & Infra",
+      "category": "Databases & Tools",
       "items": [
         {
-          "name": "MySQL / SQL Server"
+          "name": "PostgreSQL & SQL Server"
         },
         {
-          "name": "MongoDB"
+          "name": "MongoDB & Redis"
         },
         {
-          "name": "Redis"
+          "name": "Docker & Git / GitHub"
         },
         {
-          "name": "Docker"
+          "name": "Jira & Notion"
         }
       ]
     },
@@ -654,14 +705,14 @@
       ]
     },
     {
-      "role": "Full-Stack Developer (Team Project)",
-      "description": "A two-sided marketplace connecting **Clients** with professional **MCs (Masters of Ceremony)** for events — weddings, galas, corporate conferences, and more. Clients can search, filter by style/price/region, browse MC profiles, and book directly through the platform. MCs get a full dashboard to manage bookings, chat with clients, track revenue, and rehearse scripts with an **AI Script Reader**.\n\nWe built it to scale: **Java Spring Boot 3.3 + Java 21 Virtual Threads** on the backend for handling high concurrency, **MongoDB Atlas** for flexible document storage, and **WebSocket/STOMP** for real-time chat. The web app runs on **React 19 + Vite 7 + TailwindCSS v4**, and the mobile app is built with **React Native + Expo**.\n\nOn top of that: **PayOS payment integration**, push notifications, KYC identity verification, a coupon/discount system, and a full **admin analytics dashboard**. This is the most technically complex project I've worked on — distributed systems, payment flows, mobile, and real-time infrastructure, all at once.",
-      "challenge": "Build a two-sided marketplace (Client ↔ MC) that has to handle high concurrency (lots of people booking at once), real payments, real-time chat, and both web and mobile apps — the most technically complex project I've been part of.",
+      "role": "Tech Lead & CEO",
+      "description": "Launched voice training platform (React 19 + Java Spring Boot 3.3) monetized from day one: 87 MCs onboarded in first month, 20 transactions with ~4M VND revenue across 2 subscription tiers (Basic/Full).\n\nBuilt AI voice analysis microservice (Python FastAPI + Whisper) evaluating pronunciation, intonation, pace, pauses — powering 101 practice exercises, 40 theory readings, and 4 structured courses across 6 MC categories.\n\nLed team of 6 from zero to production in 6 months. CI/CD on Vercel (frontend) + Render (backend), using Notion and Jira to manage workflow.",
+      "challenge": "Build and monetize an AI voice training platform from zero to production in 6 months with a 6-person team, integrating real-time speech analysis (pronunciation, intonation, cadence).",
       "highlights": [
-        "Backend on Spring Boot 3.3 + Java 21 Virtual Threads for high-concurrency handling",
-        "Real-time chat over WebSocket/STOMP, MongoDB Atlas for flexible data",
-        "Integrated PayOS payments, KYC verification, a coupon/discount system, and an admin analytics dashboard",
-        "AI Script Reader to help MCs practice scripts; web (React 19 + Vite 7) and mobile (React Native + Expo) built in parallel"
+        "Launched voice training platform monetized from day one: 87 MCs onboarded in first month, 20 transactions with ~4M VND revenue across 2 subscription tiers (Basic/Full)",
+        "Built AI voice analysis microservice (Python FastAPI + Whisper) evaluating pronunciation, intonation, pace, pauses — powering 101 practice exercises, 40 theory readings, and 4 structured courses",
+        "Led team of 6 from zero to production in 6 months with CI/CD on Vercel + Render, managed via Notion & Jira",
+        "Tech stack: MongoDB, Python FastAPI + Whisper, Java Spring Boot 3.3, React 19, Redis"
       ]
     },
     {
@@ -735,14 +786,14 @@
       ]
     },
     {
-      "role": "AI Engineer — RAG Pipeline & API (Team Project)",
-      "description": "An **AI system that fixes JavaScript concurrency bugs** — fine-tuning a small language model (Qwen2.5-Coder-1.5B) with QLoRA and pairing it with a **BM25 + AST-based RAG pipeline** for exact API-name retrieval, rather than reaching for a large general-purpose model.\n\nI owned the **RAG pipeline and FastAPI server**: building the BM25 retrieval index over 2,050 documents, an esprima-based AST tokenizer that keeps JavaScript identifiers intact (avoiding the false-split problem naive regex tokenizers run into), and the race-condition detector. The fine-tuned model plus RAG pipeline hit a **75% pass rate** on a 20-case benchmark, beating zero-shot GPT-3.5-turbo (30%) and even the fine-tuned model without RAG (70%) — full write-up on the blog.",
-      "challenge": "ESLint only flags JavaScript concurrency bugs, it doesn't fix them, and calling GPT-4 costs money and isn't specialized for this domain. We needed a small, offline-capable model that specializes in exactly one bug class — and a retrieval pipeline that understands exact API names instead of fuzzy semantic matching.",
+      "role": "AI Engineer — RAG Pipeline, FastAPI Server, Static Analysis",
+      "description": "Fine-tuned a 1.5B-parameter LLM (Qwen2.5-Coder + QLoRA) that outperforms GPT-3.5-turbo at fixing JavaScript concurrency bugs — 73.3% vs 65.0% on 30 real production bugs, despite a ~125x smaller model.\n\nBuilt a RAG pipeline (BM25 + AST retrieval, 2,050-doc knowledge base) paired with a custom static race-condition detector to ground the model's fixes and cut hallucination.\n\nShipped a production FastAPI microservice (JWT, Redis, MongoDB) serving real-time fix suggestions. Co-authored a research paper submitted at ICTA 2026.",
+      "challenge": "ESLint only flags JavaScript concurrency bugs without fixing them, while calling general LLMs costs money and hallucinates APIs. Needed a lightweight, offline-capable 1.5B model paired with precise AST and BM25 retrieval for zero-hallucination fixes.",
       "highlights": [
-        "Built a BM25-based RAG pipeline (indexing 2,050 documents in under 500ms, no GPU required)",
-        "AST tokenizer via esprima keeps API names intact (fs.appendFile doesn't fragment into loose words)",
-        "FastAPI server + race-condition detector, the core technical piece I owned in a 3-person team",
-        "Result: ThreadLearn + RAG hit a 75% pass rate on the benchmark, beating zero-shot GPT-3.5-turbo (30%)"
+        "Fine-tuned 1.5B LLM (Qwen2.5-Coder + QLoRA) outperforming GPT-3.5-turbo at fixing JavaScript concurrency bugs (73.3% vs 65.0% on 30 real production bugs)",
+        "Built RAG pipeline (BM25 + AST retrieval, 2,050-doc knowledge base) with custom static race-condition detector",
+        "Shipped production FastAPI microservice (JWT, Redis, MongoDB) serving real-time fix suggestions",
+        "Co-authored research paper submitted at ICTA 2026"
       ]
     },
     {
@@ -756,14 +807,13 @@
       ]
     },
     {
-      "role": "Solo Developer (Freelance Client Project)",
-      "description": "A **marketplace for trading premium (fancy) vehicle license plates** — a real freelance client project scoped as a 30-day MVP covering 12 core use cases plus 3 non-functional requirements, built and shipped **solo** end-to-end.\n\nThe backend is **ASP.NET Core 8 (Minimal API)** in **Clean Architecture** (Domain/Application/Infrastructure/Api layers) with **Entity Framework Core + PostgreSQL**, **ASP.NET Core Identity + JWT**, and **FluentValidation**. The frontend is **React 19 + Vite** with **TanStack Query**, **SignalR** for real-time updates, a **TipTap** rich-text editor, and **Recharts** dashboards — tested with **Playwright**. One deliberate scope call: no online payment gateway. Deposit requests go through a contact form for manual admin confirmation instead, cutting down the attack surface and skipping PCI-DSS compliance overhead. It also includes a **DeepSeek-powered AI chatbot** for customer assistance.\n\nThe site is live in production at **[biensovip.com](https://biensovip.com)** — this is the kind of freelance web project I take on: if you need something similar built end-to-end (design, backend, deployment), the contact page has my Zalo and email.",
-      "challenge": "A real freelance client project — I needed to ship a complete MVP (12 use cases, 3 NFRs) in 30 days, solo, handling everything from architecture and database design to security-scope calls (skipping payment gateway integration to avoid PCI-DSS requirements).",
+      "role": "Freelance Full-Stack Developer",
+      "description": "Independently designed and built a full-stack marketplace platform solo (biensovip.com) — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth, and deployment.\n\nMade and justified key architecture decisions: PostgreSQL over MongoDB for relational multi-filter queries, and excluded a payment gateway (manual confirmation flow instead) to cut PCI-DSS risk.\n\nOwned full delivery as freelancer — client requirements gathering, technical proposal, 30-day MVP roadmap, third-party integrations (Cloudinary, AWS SES, DeepSeek AI chatbot) and deploy on VPS.",
+      "challenge": "A real freelance client project — shipped a complete 30-day MVP solo, handling Clean Architecture (.NET 8, 61 entities, PostgreSQL), dual auth, and deliberate security scoping (excluding payment gateway to eliminate PCI-DSS compliance risks).",
       "highlights": [
-        "ASP.NET Core 8 Minimal API backend in Clean Architecture, EF Core + PostgreSQL, JWT auth",
-        "React 19 + Vite frontend, TanStack Query, SignalR for real-time updates, tested with Playwright",
-        "Deliberate security-scope decision: deposits via contact form instead of an online payment gateway integration",
-        "Integrated an AI chatbot for customer support via the DeepSeek API"
+        "Independently designed and built full-stack marketplace platform solo — .NET 8 Clean Architecture, 61 entities, EF Core + PostgreSQL, React 19, JWT dual auth",
+        "Justified key architecture choices: PostgreSQL for multi-filter relational queries, manual confirmation flow instead of payment gateway to cut PCI-DSS risk",
+        "Owned full delivery: client requirements, technical proposal, 30-day MVP roadmap, Cloudinary, AWS SES, DeepSeek AI chatbot, and VPS deployment"
       ]
     },
     {
@@ -787,19 +837,19 @@
   "educationItems": [
     {
       "degree": "Software Developer Intern",
-      "description": "Currently interning at FPT Software, a **top-tier technology company in Vietnam**. I'm getting hands-on experience building applications on **Low-Code platforms**, specifically **OutSystems**. This role has given me a real, up-close look at a professional **enterprise environment** and **modern software development practices**."
+      "description": "Developed enterprise applications using **OutSystems Reactive Web** within an Agile team at FPT Software. Debugged and refactored code to optimize system performance and user experience."
     },
     {
       "degree": "University (Computer Science)",
-      "description": "Currently working toward a **Bachelor of Science in Computer Science**. My coursework leans heavily into **software development**, **data structures**, and **algorithms**. I've focused especially on **backend technologies**, particularly **Java Spring Boot**, picking up practical experience through **team projects** and **coding competitions** along the way."
+      "description": "Currently pursuing a **Bachelor of Science in Computer Science** at FPT University (GPA 3.3/4.0 - 8.2/10.0). Coursework emphasizes software engineering, data structures, algorithms, and backend systems in Java Spring Boot, .NET, and Python FastAPI."
     },
     {
-      "degree": "Inbound Mobility Programme",
-      "description": "Took part in the **FPTU Inbound Mobility Programme** in **Kuala Lumpur, Malaysia**. It gave me real **international exposure** to different academic and cultural environments, and sharpened my **adaptability** and **cross-cultural communication skills**."
+      "degree": "FPTU Student Exchange / Inbound Mobility Programme",
+      "description": "Completed the **FPT University Student Exchange / Inbound Mobility Programme** at TAR UMT in **Kuala Lumpur, Malaysia**. Gained international academic exposure and cross-cultural communication skills."
     },
     {
       "degree": "High School Diploma",
-      "description": "Graduated with a **GPA of 9.3/10.0**. The curriculum gave me a strong foundation in **Mathematics, Physics, and analytical thinking** — a crucial stepping stone into Computer Science and the **problem-solving mindset** I still lean on today."
+      "description": "Graduated from Phan Chau Trinh High School with an **academic GPA of 9.0/10.0**. Built a strong foundation in Mathematics, analytical thinking, and leadership."
     }
   ],
   "memoryItems": [

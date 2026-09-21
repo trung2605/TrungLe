@@ -112,12 +112,19 @@ export const useTranslatedData = () => {
     highlights: t(`projectItems.${i}.highlights`, { returnObjects: true }),
   }));
 
-  const posts = rawPosts.map((p, i) => ({
-    ...p,
-    title: t(`postItems.${i}.title`),
-    excerpt: t(`postItems.${i}.excerpt`),
-    content: t(`postItems.${i}.content`),
-  }));
+  const posts = rawPosts.map((p, i) => {
+    const isEn = lang === 'en';
+    const localizedTitle = isEn ? p.titleEn : p.titleVi;
+    const localizedExcerpt = isEn ? p.excerptEn : p.excerptVi;
+    const localizedContent = isEn ? p.contentEn : p.contentVi;
+
+    return {
+      ...p,
+      title: localizedTitle || (t(`postItems.${i}.title`) !== `postItems.${i}.title` ? t(`postItems.${i}.title`) : (p.title || p.titleVi)),
+      excerpt: localizedExcerpt || (t(`postItems.${i}.excerpt`) !== `postItems.${i}.excerpt` ? t(`postItems.${i}.excerpt`) : (p.excerpt || p.excerptVi)),
+      content: localizedContent || (t(`postItems.${i}.content`) !== `postItems.${i}.content` ? t(`postItems.${i}.content`) : (p.content || p.contentVi)),
+    };
+  });
 
   return { highlights, funFacts, experience, skills, languages, siteNavigation, personalInfo, certificates, education, educationMemories, activities, prizes, projects, posts, lang };
 };

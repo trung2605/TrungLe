@@ -14,7 +14,53 @@
     "switchToLight": "Chuyển sang chế độ sáng",
     "switchToDark": "Chuyển sang chế độ tối",
     "toggleLanguage": "Chuyển ngôn ngữ",
-    "toggleMenu": "Mở/đóng menu"
+    "toggleMenu": "Mở/đóng menu",
+    "forRecruiters": "Nhà tuyển dụng"
+  },
+  "recruiterMatch": {
+    "widgetLabel": "Dành cho Nhà tuyển dụng",
+    "step1Of2": "Bước 1/2",
+    "step2Of2": "Bước 2/2",
+    "step1Title": "Bạn đang tuyển vị trí nào?",
+    "step1Desc": "Chọn vị trí gần đúng nhất — mình sẽ tuỳ chỉnh phần giới thiệu và dự án bên dưới theo đó.",
+    "step2Title": "Bạn quan tâm kỹ năng cụ thể nào không?",
+    "step2Desc": "Không bắt buộc — chọn tối đa 3. Bỏ trống để xem kết quả phù hợp tổng quát nhất cho vị trí này.",
+    "back": "Quay lại",
+    "seeMatch": "Xem kết quả phù hợp",
+    "skip": "Bỏ qua, xem kết quả",
+    "resultGreeting": "Cảm ơn bạn đã xem qua! Đây là tóm tắt nhanh phù hợp với vị trí bạn đang tìm.",
+    "matchingProjects": "Dự án liên quan",
+    "relevantExperience": "Kinh nghiệm liên quan",
+    "downloadCV": "Tải CV",
+    "chatZalo": "Nhắn Zalo",
+    "startOver": "Làm lại từ đầu",
+    "close": "Đóng",
+    "roles": {
+      "backend": {
+        "label": "Backend / Phát triển API",
+        "blurb": "Mình chuyên về Java Spring Boot ở backend, có kinh nghiệm thực tế với ASP.NET Core, Node.js và Python — thiết kế REST API, làm việc với cả database quan hệ lẫn document, và xây hệ thống chịu được tải thật."
+      },
+      "frontend": {
+        "label": "Frontend / Xây dựng giao diện",
+        "blurb": "Mình xây giao diện sạch, responsive bằng React và Tailwind CSS, chú trọng animation (Framer Motion) và hiệu năng. Mình quan tâm đến việc giao diện phải được cân nhắc kỹ, không chỉ chạy được là xong."
+      },
+      "fullstack": {
+        "label": "Full-Stack Development",
+        "blurb": "Mình thoải mái khi nhận trọn một tính năng từ đầu đến cuối — React hoặc Next.js ở frontend, Spring Boot hoặc .NET ở backend, cùng database và pipeline deploy ở giữa."
+      },
+      "ai-ml": {
+        "label": "AI / Machine Learning",
+        "blurb": "Mình từng fine-tune language model bằng QLoRA, xây RAG retrieval pipeline, và tự huấn luyện CNN từ đầu — tập trung vào việc làm cho model nhỏ, chuyên biệt vượt trội hơn model tổng quát lớn hơn trên bài toán hẹp."
+      },
+      "lowcode": {
+        "label": "Low-Code / Triển khai Enterprise",
+        "blurb": "Qua kỳ thực tập tại FPT Software, mình đã triển khai ứng dụng trên OutSystems trong môi trường Agile doanh nghiệp — hữu ích nếu team bạn cần giao hàng nhanh, có quy trình mà không đánh đổi chất lượng."
+      },
+      "freelance": {
+        "label": "Dự án Website Freelance",
+        "blurb": "Mình nhận dự án website freelance solo, trọn gói từ kiến trúc, backend, frontend, đến deploy — và hiện đang vận hành một marketplace thật cho một khách hàng trả phí."
+      }
+    }
   },
   "commandPalette": {
     "title": "Bảng lệnh",
@@ -28,10 +74,10 @@
     "badge": "Sẵn sàng cho cơ hội mới",
     "greeting": "Xin chào,",
     "roles": [
-      "Java Developer",
-      "Sinh viên CNTT",
-      "Backend Engineer",
-      "Problem Solver"
+      "Back-End Developer",
+      "Kỹ sư Java & .NET",
+      "Lập trình viên Full-Stack",
+      "AI & Problem Solver"
     ],
     "iAm": "Tôi là",
     "heroDesc": "Sinh viên Khoa học Máy tính tại Đại học FPT. Chuyên sâu về Java Spring Boot và phát triển web hiện đại — xây dựng ứng dụng sạch, có khả năng mở rộng.",
@@ -332,6 +378,11 @@
   },
   "prizeItems": [
     {
+      "title": "Hackathon Computer Vision 2026",
+      "position": "Quán quân (Giải Nhất)",
+      "description": "Đạt **Quán quân (Giải Nhất)** tại cuộc thi **Hackathon Computer Vision 2026** do FPT Education tổ chức (06/08/2026) — nghiên cứu và phát triển mô hình thị giác máy tính, giải pháp AI chính xác cao dưới áp lực gay cấn của hackathon."
+    },
+    {
       "title": "Cuộc Thi Thuật Toán Code Mosaic",
       "position": "Vào Chung Kết",
       "description": "Lọt vào **vòng chung kết** cuộc thi thuật toán Code Mosaic do FPT Education tổ chức — một cuộc thi kiểm tra khả năng nắm cấu trúc dữ liệu, độ phức tạp thuật toán, và tốc độ xử lý vấn đề khi đồng hồ đang chạy. Đối thủ là các sinh viên CNTT giỏi nhất từ nhiều cơ sở FPT."
@@ -370,8 +421,8 @@
   "personalInfo": {
     "storyTitle": "Hành trình của tôi",
     "storyContent": "Mình là **Lê Trí Trung** — sinh viên Khoa học Máy tính tại **Đại học FPT Đà Nẵng**, hiện đang thực tập tại **FPT Software** với vị trí Software Developer. Mình chuyên về **Java Spring Boot** ở backend và thích xây những ứng dụng full-stack sạch sẽ, có khả năng mở rộng, và thực sự hữu ích cho ai đó dùng.\n\nMọi thứ bắt đầu từ sự tò mò đơn giản: mọi thứ hoạt động ra sao bên dưới lớp vỏ. Sự tò mò đó dẫn mình từ nền tảng Java đến thiết kế RESTful API, kết nối cơ sở dữ liệu, làm việc trong các nhóm Agile thật sự, và cuối cùng là cùng xây những nền tảng như **The MC Hub** — một marketplace kết nối MC sự kiện với khách hàng, có chat thời gian thực, tích hợp thanh toán và cả ứng dụng di động.\n\nNgoài chuyện code, mình từng làm MC cho **các sự kiện trường với 600–1000+ khán giả**, sáng lập **The Dreamers** — một tổ chức thiện nguyện sinh viên mang giáo dục công nghệ đến trẻ em mồ côi — và tham gia nhiều cuộc thi lập trình cấp quốc gia, lọt vào chung kết **FPT Code Talent** và **Innocode Camp**.\n\nMình tin rằng lập trình viên giỏi không chỉ là người viết code tốt, mà còn là người biết giao tiếp, dẫn dắt và thích nghi. Đó là kiểu lập trình viên mình đang cố gắng trở thành.",
-    "title": "Java Developer | Sinh viên Khoa học Máy tính",
-    "intro": "Mình là sinh viên Khoa học Máy tính, thích làm ra những thứ thực sự chạy tốt — chủ yếu với Java Spring Boot ở backend và React ở frontend. Hiện đang thực tập tại FPT Software và nhận thêm các dự án website freelance."
+    "title": "Back-End Developer | Sinh viên Khoa học Máy tính",
+    "intro": "Sinh viên Khoa học Máy tính với nền tảng vững chắc về phát triển web. Thành thạo Java Spring Boot, .NET, JavaScript, React, NodeJS, Python FastAPI; đam mê xây dựng các ứng dụng sạch, có khả năng mở rộng và sẵn sàng ứng dụng công nghệ AI để tạo ra các giải pháp thông minh hơn trong môi trường cộng tác."
   },
   "highlights": [
     {
@@ -422,33 +473,33 @@
       "role": "Thực tập sinh Software Developer",
       "company": "FPT Software",
       "type": "Thực tập",
-      "duration": "09/2025 – Hiện tại",
-      "status": "Hiện tại",
-      "description": "Mình đang thực tập vị trí **Software Developer** tại FPT Software — một trong những công ty công nghệ lớn nhất Việt Nam. Công việc là phát triển ứng dụng doanh nghiệp trên **nền tảng low-code OutSystems**, làm việc cùng các kỹ sư senior trong các dự án khách hàng thật, và được tiếp cận trực tiếp với quy trình Agile chuyên nghiệp, code review, và tiêu chuẩn giao sản phẩm ở quy mô doanh nghiệp."
+      "duration": "08/2025 – 12/2025",
+      "status": "Đã hoàn thành",
+      "description": "Phát triển các ứng dụng doanh nghiệp sử dụng **OutSystems Reactive Web** trong môi trường Agile. Debug và tái cấu trúc mã nguồn nhằm tối ưu hiệu năng hệ thống và nâng cao trải nghiệm người dùng."
     },
     {
-      "role": "Người sáng lập & Trưởng dự án",
+      "role": "Người sáng lập (Founder)",
       "company": "The Dreamers Organization",
-      "type": "Tình nguyện",
-      "duration": "06/2024 – Hiện tại",
+      "type": "Lãnh đạo",
+      "duration": "15/06/2024 – Hiện tại",
       "status": "Hiện tại",
-      "description": "Mình sáng lập và dẫn dắt **The Dreamers** — một tổ chức thiện nguyện do sinh viên vận hành tại Đại học FPT. Mình quản lý hơn 15 thành viên tích cực, điều phối các sự kiện cộng đồng, giám sát các chuyến thiện nguyện đến trại trẻ mồ côi, và triển khai chương trình giáo dục công nghệ cho trẻ em có hoàn cảnh khó khăn. Đồng thời cũng đang xây dựng nền tảng quản lý backend của tổ chức bằng **Java Spring Boot**."
+      "description": "Người sáng lập tổ chức thiện nguyện cộng đồng gồm 30 thành viên, cống hiến cho các hoạt động thúc đẩy tác động xã hội tích cực thông qua giáo dục công nghệ và hoạt động cộng đồng."
     },
     {
-      "role": "Trưởng nhóm & Backend Developer",
-      "company": "Nhóm dự án Đại học FPT",
-      "type": "Học thuật",
-      "duration": "09/2023 – Hiện tại",
+      "role": "Trưởng nhóm & MC Sự kiện",
+      "company": "Đại học FPT / Nhiều sự kiện",
+      "type": "Lãnh đạo / Dẫn chương trình",
+      "duration": "01/2024 – Hiện tại",
       "status": "Hiện tại",
-      "description": "Mình đã dẫn dắt nhiều nhóm dự án đa chức năng qua toàn bộ vòng đời phát triển — từ thu thập yêu cầu, thiết kế hệ thống, đến khi sản phẩm chạy được. Các dự án tiêu biểu gồm **Job Finder** (nhóm Agile 6 người), **Dola Bakery** (nơi mình là trưởng nhóm kiêm kiến trúc sư backend), và **The MC Hub** (full-stack + mobile). Xuyên suốt các dự án, trọng tâm của mình luôn nhất quán: backend Java Spring Boot chắc chắn, thiết kế RESTful API rõ ràng, và quy trình Git cộng tác sạch sẽ."
+      "description": "MC cho hơn 50 sự kiện trường và lễ khai giảng. Trọng tài cuộc thi FPTU AI & Robotics 2025 và Đại sứ sinh viên Dự án Kinh tế Đà Nẵng 'Working Space'."
     },
     {
-      "role": "Lập trình viên Full-Stack độc lập",
+      "role": "Freelance Full-Stack Developer",
       "company": "Biensovip (Khách hàng freelance)",
       "type": "Freelance",
-      "duration": "08/2026 – Hiện tại",
+      "duration": "05/2026 – Hiện tại",
       "status": "Hiện tại",
-      "description": "Mình là lập trình viên duy nhất cho một khách hàng freelance thật, xây dựng **Biensovip** — nền tảng mua bán biển số xe đẹp — từ đầu đến cuối. Mình phụ trách toàn bộ stack: backend ASP.NET Core 8 Clean Architecture, frontend React 19, thiết kế database, và cả những quyết định về phạm vi sản phẩm (bao gồm quyết định có chủ đích bỏ qua tích hợp thanh toán online để tránh gánh nặng PCI-DSS). Giao MVP trong 30 ngày trực tiếp cho khách hàng trả phí, không có ai chia việc cùng."
+      "description": "Thiết kế và xây dựng độc lập nền tảng marketplace solo (biensovip.com) — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth và VPS deployment. Làm chủ quy trình bàn giao freelancer: thu thập yêu cầu, đề xuất giải pháp kỹ thuật, lộ trình MVP 30 ngày, tích hợp Cloudinary, AWS SES, DeepSeek AI chatbot."
     }
   ],
   "skills": [
@@ -462,7 +513,7 @@
           "name": "JavaScript / TypeScript"
         },
         {
-          "name": "HTML5 & CSS3"
+          "name": "C# (.NET)"
         },
         {
           "name": "Python"
@@ -476,30 +527,30 @@
           "name": "Java Spring Boot"
         },
         {
+          "name": "ASP.NET Core"
+        },
+        {
           "name": "React"
         },
         {
-          "name": "React Native / Expo"
-        },
-        {
-          "name": "Tailwind CSS / Framer Motion"
+          "name": "Python FastAPI & NodeJS"
         }
       ]
     },
     {
-      "category": "Cơ sở dữ liệu & Hạ tầng",
+      "category": "Cơ sở dữ liệu & Công cụ",
       "items": [
         {
-          "name": "MySQL / SQL Server"
+          "name": "PostgreSQL & SQL Server"
         },
         {
-          "name": "MongoDB"
+          "name": "MongoDB & Redis"
         },
         {
-          "name": "Redis"
+          "name": "Docker & Git / GitHub"
         },
         {
-          "name": "Docker"
+          "name": "Jira & Notion"
         }
       ]
     },
@@ -654,14 +705,14 @@
       ]
     },
     {
-      "role": "Full-Stack Developer (Dự án nhóm)",
-      "description": "Một marketplace hai chiều kết nối **Khách hàng** với **MC (Người dẫn chương trình)** chuyên nghiệp cho sự kiện — đám cưới, gala, hội nghị doanh nghiệp, và nhiều hơn nữa. Khách hàng có thể tìm kiếm, lọc theo phong cách/giá/khu vực, xem hồ sơ MC, và đặt lịch trực tiếp qua nền tảng. MC có dashboard đầy đủ để quản lý booking, trò chuyện với khách hàng, theo dõi doanh thu, và luyện kịch bản bằng **AI Script Reader**.\n\nBọn mình xây dựng hệ thống này để mở rộng được: **Java Spring Boot 3.3 + Java 21 Virtual Threads** ở backend để xử lý concurrency cao, **MongoDB Atlas** cho lưu trữ document linh hoạt, và **WebSocket/STOMP** cho chat real-time. Web app chạy trên **React 19 + Vite 7 + TailwindCSS v4**, và mobile app xây bằng **React Native + Expo**.\n\nThêm vào đó là **tích hợp thanh toán PayOS**, push notification, xác thực danh tính KYC, hệ thống coupon/discount, và **admin analytics dashboard** đầy đủ. Đây là dự án phức tạp nhất về kỹ thuật mà mình từng làm — chạm đến distributed systems, luồng thanh toán, mobile development, và hạ tầng real-time cùng một lúc.",
-      "challenge": "Xây một marketplace 2 chiều (Client ↔ MC) cần xử lý concurrency cao (nhiều người đặt lịch cùng lúc), thanh toán thật, chat real-time, và cả web lẫn mobile app — dự án kỹ thuật phức tạp nhất mình từng tham gia.",
+      "role": "Tech Lead & CEO",
+      "description": "Ra mắt nền tảng luyện giọng MC (React 19 + Java Spring Boot 3.3) thương mại hóa ngay từ ngày đầu: 87 MC tham gia trong tháng đầu tiên, 20 giao dịch với doanh thu ~4 triệu VNĐ qua 2 gói dịch vụ (Basic/Full).\n\nXây dựng microservice AI phân tích giọng nói (Python FastAPI + Whisper) đánh giá phát âm, ngữ điệu, tốc độ, ngắt nghỉ — phục vụ 101 bài tập thực hành, 40 bài lý thuyết và 4 khóa học chuyên sâu theo 6 thể loại MC.\n\nDẫn dắt đội ngũ 6 người từ con số 0 lên production trong 6 tháng. Thiết lập quy trình CI/CD trên Vercel (frontend) + Render (backend), dùng Notion và Jira để quản lý dự án.",
+      "challenge": "Xây dựng và thương mại hóa nền tảng luyện giọng MC từ con số 0 lên production trong 6 tháng với team 6 người, tích hợp AI voice analysis đánh giá phát âm, ngữ điệu và ngắt nghỉ thời gian thực.",
       "highlights": [
-        "Backend Spring Boot 3.3 + Java 21 Virtual Threads cho khả năng xử lý đồng thời cao",
-        "Real-time chat qua WebSocket/STOMP, MongoDB Atlas cho dữ liệu linh hoạt",
-        "Tích hợp thanh toán PayOS, xác thực KYC, hệ thống coupon/discount, admin analytics dashboard",
-        "AI Script Reader hỗ trợ MC luyện tập kịch bản, web (React 19 + Vite 7) và mobile (React Native + Expo) song song"
+        "Ra mắt nền tảng luyện giọng MC thương mại hoá từ ngày đầu: 87 MC tham gia tháng đầu, 20 giao dịch đạt ~4 triệu VNĐ doanh thu với 2 gói Basic/Full",
+        "Xây dựng microservice AI phân tích giọng nói (Python FastAPI + Whisper) đánh giá phát âm, ngữ điệu, tốc độ, ngắt nghỉ — phục vụ 101 bài tập, 40 bài lý thuyết, 4 khoá học",
+        "Dẫn dắt team 6 người từ con số 0 lên production trong 6 tháng với quy trình CI/CD Vercel + Render, quản lý qua Notion & Jira",
+        "Công nghệ: MongoDB, Python FastAPI + Whisper, Java SpringBoot, ReactJS, Redis"
       ]
     },
     {
@@ -735,14 +786,14 @@
       ]
     },
     {
-      "role": "AI Engineer — RAG Pipeline & API (Dự án nhóm)",
-      "description": "Một hệ thống AI **sửa lỗi concurrency JavaScript** — fine-tune một model ngôn ngữ nhỏ (Qwen2.5-Coder-1.5B) bằng QLoRA và ghép với **RAG pipeline dựa trên BM25 + AST** để tìm đúng tên API, thay vì dựa vào một model tổng quát lớn.\n\nMình phụ trách **RAG pipeline và FastAPI server**: xây dựng index tìm kiếm BM25 trên 2.050 tài liệu, tokenizer AST dựa trên esprima giữ nguyên vẹn định danh JavaScript (tránh lỗi tách vụn thường gặp ở regex tokenizer thông thường), và bộ phát hiện race-condition. Model fine-tune + RAG pipeline đạt **75% pass rate** trên benchmark 20 case, vượt GPT-3.5-turbo zero-shot (30%) và cả model fine-tune không dùng RAG (70%) — bài viết đầy đủ có trên blog.",
-      "challenge": "ESLint chỉ báo lỗi concurrency JavaScript chứ không sửa; gọi GPT-4 thì tốn phí và không chuyên biệt cho domain này. Cần một model nhỏ, chạy được offline, chuyên trị đúng một loại lỗi — và một pipeline retrieval hiểu đúng tên API thay vì so khớp ngữ nghĩa mơ hồ.",
+      "role": "AI Engineer — RAG Pipeline, FastAPI Server, Static Analysis",
+      "description": "Fine-tuned LLM 1.5B tham số (Qwen2.5-Coder + QLoRA) vượt trội hơn GPT-3.5-turbo trong việc sửa lỗi concurrency JavaScript — 73.3% so với 65.0% trên 30 lỗi production thật, dù kích thước model nhỏ hơn ~125 lần.\n\nXây dựng pipeline RAG (BM25 + AST retrieval, cơ sở tri thức 2.050 tài liệu) kết hợp bộ phát hiện static race-condition chống hallucination.\n\nTriển khai microservice FastAPI production (JWT, Redis, MongoDB) phục vụ gợi ý sửa lỗi thời gian thực. Đồng tác giả bài báo nghiên cứu khoa học — đã nộp tại hội nghị quốc tế ICTA 2026.",
+      "challenge": "ESLint chỉ cảnh báo lỗi concurrency JavaScript mà không sửa được, còn gọi LLM lớn thì tốn chi phí và dễ ảo giác API. Cần một model 1.5B nhỏ gọn, chạy offline kết hợp pipeline retrieval chính xác tên hàm qua AST và BM25.",
       "highlights": [
-        "Xây dựng RAG pipeline dựa trên BM25 (build index 2050 tài liệu dưới 500ms, không cần GPU)",
-        "AST tokenizer bằng esprima giữ nguyên tên API (fs.appendFile không bị vỡ thành các từ rời rạc)",
-        "FastAPI server + race-condition detector, chỗ kỹ thuật chính mình phụ trách trong nhóm 3 người",
-        "Kết quả: ThreadLearn + RAG đạt 75% pass rate trên benchmark, vượt GPT-3.5-turbo zero-shot (30%)"
+        "Fine-tuned LLM 1.5B tham số (Qwen2.5-Coder + QLoRA) vượt trội hơn GPT-3.5-turbo trong việc sửa lỗi concurrency JavaScript — 73.3% so với 65.0% trên 30 lỗi production thật",
+        "Xây dựng pipeline RAG (BM25 + AST retrieval, 2.050 tài liệu) kết hợp bộ phát hiện static race-condition chống hallucination",
+        "Triển khai microservice FastAPI production (JWT, Redis, MongoDB) phục vụ gợi ý sửa lỗi thời gian thực",
+        "Đồng tác giả bài báo nghiên cứu khoa học — đã nộp tại hội nghị ICTA 2026"
       ]
     },
     {
@@ -756,14 +807,13 @@
       ]
     },
     {
-      "role": "Lập trình viên độc lập (Dự án freelance khách hàng)",
-      "description": "**Nền tảng mua bán biển số xe đẹp** — dự án freelance thật cho khách hàng, phạm vi MVP 30 ngày gồm 12 use case cốt lõi và 3 yêu cầu phi chức năng, tự xây dựng và triển khai **solo** end-to-end.\n\nBackend là **ASP.NET Core 8 (Minimal API)** theo **Clean Architecture** (tầng Domain/Application/Infrastructure/Api) với **Entity Framework Core + PostgreSQL**, **ASP.NET Core Identity + JWT**, và **FluentValidation**. Frontend là **React 19 + Vite** với **TanStack Query**, **SignalR** cho cập nhật real-time, editor rich-text **TipTap**, và dashboard **Recharts** — test bằng **Playwright**. Một quyết định phạm vi có chủ đích: không tích hợp cổng thanh toán online. Yêu cầu đặt cọc thay vào đó đi qua form liên hệ để admin xác nhận thủ công — giảm bề mặt tấn công và tránh luôn phần tuân thủ PCI-DSS. Dự án còn có **chatbot AI dùng DeepSeek** hỗ trợ khách hàng.\n\nWebsite đang chạy thật tại **[biensovip.com](https://biensovip.com)** — đây chính là dạng dự án freelance mình nhận làm: nếu bạn cần một website tương tự, làm trọn gói từ thiết kế, backend, đến deploy, thì trang liên hệ có Zalo và email của mình.",
-      "challenge": "Dự án freelance thật cho khách hàng — cần giao MVP hoàn chỉnh (12 use case, 3 NFR) trong 30 ngày, một mình xử lý toàn bộ từ kiến trúc, database, đến các quyết định phạm vi bảo mật (không tích hợp cổng thanh toán để tránh yêu cầu PCI-DSS).",
+      "role": "Freelance Full-Stack Developer",
+      "description": "Thiết kế và xây dựng độc lập nền tảng marketplace solo — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth và triển khai hệ thống.\n\nĐưa ra và bảo vệ các quyết định kiến trúc then chốt: PostgreSQL thay vì MongoDB cho truy vấn lọc đa điều kiện quan hệ, và loại trừ cổng thanh toán để loại bỏ rủi ro PCI-DSS.\n\nChịu trách nhiệm toàn bộ bàn giao dự án freelance: lấy yêu cầu khách hàng, đề xuất kỹ thuật, lộ trình MVP 30 ngày, tích hợp bên thứ ba (Cloudinary, AWS SES, DeepSeek AI chatbot) và deploy trên VPS.",
+      "challenge": "Dự án freelance thật cho khách hàng — cần giao MVP hoàn chỉnh trong 30 ngày, một mình xử lý toàn bộ từ kiến trúc Clean Architecture, 61 entities PostgreSQL, đến quyết định bảo mật loại trừ cổng thanh toán online.",
       "highlights": [
-        "Backend ASP.NET Core 8 Minimal API theo Clean Architecture, EF Core + PostgreSQL, JWT auth",
-        "Frontend React 19 + Vite, TanStack Query, SignalR cho cập nhật real-time, test bằng Playwright",
-        "Quyết định phạm vi bảo mật có chủ đích: đặt cọc qua form liên hệ thay vì tích hợp cổng thanh toán online",
-        "Tích hợp AI chatbot hỗ trợ khách hàng qua DeepSeek API"
+        "Thiết kế và xây dựng độc lập nền tảng marketplace solo — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth và triển khai hệ thống",
+        "Đưa ra và bảo vệ các quyết định kiến trúc then chốt: PostgreSQL thay vì MongoDB cho truy vấn lọc đa điều kiện quan hệ, và loại trừ cổng thanh toán để loại bỏ rủi ro PCI-DSS",
+        "Chịu trách nhiệm toàn bộ bàn giao dự án freelance: lấy yêu cầu khách hàng, đề xuất kỹ thuật, lộ trình MVP 30 ngày, tích hợp Cloudinary, AWS SES, DeepSeek AI chatbot và deploy VPS"
       ]
     },
     {
@@ -787,19 +837,19 @@
   "educationItems": [
     {
       "degree": "Thực tập sinh Software Developer",
-      "description": "Hiện mình đang thực tập tại FPT Software — một trong những **công ty công nghệ hàng đầu Việt Nam**. Đang tích lũy **kinh nghiệm thực tế** bằng cách phát triển ứng dụng trên **nền tảng Low-Code**, cụ thể là **OutSystems**. Vai trò này cho mình một cái nhìn thật gần với **môi trường doanh nghiệp chuyên nghiệp** và **quy trình phát triển phần mềm hiện đại**."
+      "description": "Phát triển các ứng dụng doanh nghiệp sử dụng **OutSystems Reactive Web** trong môi trường Agile tại FPT Software. Debug và tối ưu hóa code nhằm nâng cao hiệu năng hệ thống và trải nghiệm người dùng."
     },
     {
       "degree": "Đại học (Khoa học Máy tính)",
-      "description": "Đang theo học **Cử nhân Khoa học Máy tính** tại Đại học FPT. Chương trình học của mình chú trọng **phát triển phần mềm**, **cấu trúc dữ liệu** và **giải thuật**. Mình tập trung đặc biệt vào **công nghệ backend**, nhất là **Java Spring Boot**, và tích lũy kinh nghiệm dần qua **dự án nhóm** và **các cuộc thi lập trình**."
+      "description": "Hiện đang theo học **Cử nhân Khoa học Máy tính** tại Đại học FPT (GPA 3.3/4.0 - 8.2/10.0). Chương trình học tập trung chuyên sâu vào kỹ thuật phần mềm, cấu trúc dữ liệu, giải thuật, và hệ thống backend với Java Spring Boot, .NET và Python FastAPI."
     },
     {
-      "degree": "Chương trình Trao đổi Sinh viên",
-      "description": "Tham gia **Chương trình Trao đổi Sinh viên Quốc tế** của Đại học FPT tại **Kuala Lumpur, Malaysia**. Có được **kinh nghiệm học thuật quốc tế** thật sự trong một môi trường đa dạng, và nâng cao **khả năng thích nghi** cùng **kỹ năng giao tiếp đa văn hóa**."
+      "degree": "Chương trình Trao đổi Sinh viên Quốc tế (FPTU Student Exchange)",
+      "description": "Hoàn thành **Chương trình Trao đổi Sinh viên Quốc tế** của Đại học FPT tại TAR UMT ở **Kuala Lumpur, Malaysia**. Tích lũy trải nghiệm học thuật quốc tế, nâng cao khả năng thích nghi và kỹ năng giao tiếp đa văn hóa."
     },
     {
       "degree": "Bằng Tốt nghiệp Trung học Phổ thông",
-      "description": "Tốt nghiệp với **GPA 9.3/10.0**. Chương trình học tạo cho mình nền tảng vững chắc về **Toán, Lý và tư duy phân tích** — bước đệm quan trọng cho hành trình học Khoa học Máy tính và **khả năng giải quyết vấn đề** mà mình vẫn dùng đến hôm nay."
+      "description": "Tốt nghiệp Trường THPT Phan Châu Trinh với **GPA 9.0/10.0**. Nền tảng vững chắc về Toán học, tư duy logic phản biện và tinh thần trách nhiệm."
     }
   ],
   "memoryItems": [

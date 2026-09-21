@@ -1,12 +1,12 @@
-import { useRef, useCallback } from "react";
-import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import { useRef, useMemo } from "react";
+import { motion, useReducedMotion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaDownload, FaGithub, FaLinkedin, FaInstagram, FaFacebook, FaArrowRight } from "react-icons/fa";
 import { personalInfo, allSkillsData } from "../../data";
 import TechIcon from "../../common/TechIcon";
-import NewAvatar from "../../assets/information/image.png";
 import { useTranslatedData } from "../../hooks/useTranslatedData";
 import { useTranslation } from "react-i18next";
+import { useCustomTheme } from "../../contexts/ThemeContext";
 import BlurText from "../../animations/BlurText";
 import CountUp from "../../animations/CountUp";
 import RotatingText from "../../animations/RotatingText";
@@ -26,123 +26,6 @@ const TECH_MARQUEE = [
   "MongoDB", "SQL Server", "Docker", "Git", "REST APIs",
   "React Native", "Tailwind CSS", "Spring Security",
 ];
-
-
-
-const TerminalCard = () => {
-  const { t } = useTranslation();
-  const cardRef = useRef(null);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const rotX = useSpring(useTransform(mouseY, [-1, 1], [12, -12]), { stiffness: 180, damping: 22 });
-  const rotY = useSpring(useTransform(mouseX, [-1, 1], [-12, 12]), { stiffness: 180, damping: 22 });
-  const glowX = useSpring(useTransform(mouseX, [-1, 1], [0, 100]), { stiffness: 180, damping: 22 });
-  const glowY = useSpring(useTransform(mouseY, [-1, 1], [0, 100]), { stiffness: 180, damping: 22 });
-
-  const handleMouseMove = useCallback((e) => {
-    const el = cardRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    mouseX.set(((e.clientX - rect.left) / rect.width) * 2 - 1);
-    mouseY.set(((e.clientY - rect.top) / rect.height) * 2 - 1);
-  }, [mouseX, mouseY]);
-
-  const handleMouseLeave = useCallback(() => {
-    mouseX.set(0);
-    mouseY.set(0);
-  }, [mouseX, mouseY]);
-
-  return (
-    <div style={{ perspective: '900px', width: '100%' }}>
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX: rotX,
-        rotateY: rotY,
-        transformStyle: 'preserve-3d',
-        backgroundColor: '#0d1117',
-        borderRadius: '16px',
-        overflow: 'hidden',
-        border: '1px solid #30363d',
-        fontFamily: 'JetBrains Mono, monospace',
-        fontSize: '13px',
-        boxShadow: '0 24px 48px rgba(0,0,0,0.4)',
-        width: '100%',
-        cursor: 'default',
-      }}
-    >
-      {/* Title bar */}
-      <div style={{ backgroundColor: '#161b22', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid #30363d' }}>
-        <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ff5f57', display: 'inline-block' }} />
-        <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ffbd2e', display: 'inline-block' }} />
-        <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#28c840', display: 'inline-block' }} />
-        <span style={{ marginLeft: '8px', fontSize: '12px', color: '#8b949e' }}>trung@portfolio ~ </span>
-        <span style={{ marginLeft: 'auto', fontSize: '11px', color: '#30363d' }}>image.png</span>
-      </div>
-
-      {/* Avatar with code overlay */}
-      <div style={{ position: 'relative' }}>
-        {/* Mouse-tracking glare */}
-        <motion.div
-          style={{
-            position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none', borderRadius: 0,
-            background: useTransform(
-              [glowX, glowY],
-              ([x, y]) => `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.08) 0%, transparent 60%)`
-            ),
-          }}
-        />
-        <img
-          src={NewAvatar}
-          alt="Le Tri Trung"
-          style={{ width: '100%', display: 'block', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'top' }}
-        />
-
-        {/* Top-left: file path badge */}
-        <div style={{
-          position: 'absolute', top: '14px', left: '14px',
-          backgroundColor: 'rgba(13,17,23,0.85)',
-          border: '1px solid #30363d',
-          borderRadius: '6px',
-          padding: '5px 10px',
-          fontSize: '11px', color: '#8b949e',
-          backdropFilter: 'blur(4px)',
-        }}>
-          <span style={{ color: '#1ea64a' }}>$ </span>open <span style={{ color: '#93c5fd' }}>le-tri-trung.jpg</span>
-        </div>
-
-        {/* Bottom overlay: code info strip */}
-        <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0,
-          backgroundColor: 'rgba(13,17,23,0.88)',
-          borderTop: '1px solid #30363d',
-          padding: '14px 16px',
-          backdropFilter: 'blur(8px)',
-          display: 'flex', flexDirection: 'column', gap: '5px',
-        }}>
-          <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-            <span style={{ color: '#1ea64a' }}>$</span>
-            <span style={{ color: '#ffffff' }}>whoami</span>
-          </div>
-          <div style={{ color: '#e2e8f0', paddingLeft: '14px' }}>le-tri-trung</div>
-          <div style={{ display: 'flex', gap: '6px', alignItems: 'center', marginTop: '4px' }}>
-            <span style={{ color: '#1ea64a' }}>$</span>
-            <span style={{ color: '#ffffff' }}>echo $ROLE</span>
-          </div>
-          <div style={{ color: '#93c5fd', paddingLeft: '14px', fontSize: '12px' }}>{t('home.terminalRole')}</div>
-          <div style={{ display: 'flex', gap: '6px', alignItems: 'center', marginTop: '2px' }}>
-            <span style={{ color: '#4ade80' }}>✓</span>
-            <span style={{ color: '#4ade80', fontSize: '12px' }}>open_to_work: true</span>
-            <span style={{ display: 'inline-block', width: '7px', height: '13px', backgroundColor: '#1ea64a', animation: 'blink 1s step-end infinite', marginLeft: '4px' }} />
-          </div>
-        </div>
-      </div>
-    </motion.div>
-    </div>
-  );
-};
 
 const SkillBar = ({ skill }) => (
   <div style={{ marginBottom: '16px' }}>
@@ -165,7 +48,14 @@ const SkillBar = ({ skill }) => (
 const Home = () => {
   const prefersReducedMotion = useReducedMotion();
   const { t } = useTranslation();
+  const { isDarkMode } = useCustomTheme();
   const { skills, siteNavigation } = useTranslatedData();
+
+  const heroRoles = useMemo(() => {
+    const raw = t('home.roles', { returnObjects: true });
+    if (Array.isArray(raw) && raw.length > 0) return raw;
+    return ['Java Developer', 'Backend Engineer', 'Sinh viên CNTT', 'Problem Solver'];
+  }, [t]);
 
   const heroRef = useRef(null);
   const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -178,8 +68,6 @@ const Home = () => {
   const roleY    = useSpring(useTransform(heroScroll, [0, 1], [0, -25]),  heroSpring);
   const descY    = useSpring(useTransform(heroScroll, [0, 1], [0, -15]),  heroSpring);
   const ctaY     = useSpring(useTransform(heroScroll, [0, 1], [0, -8]),   heroSpring);
-  const imgX     = useSpring(useTransform(heroScroll, [0, 1], [0, 60]),   heroSpring);
-  const imgOp    = useSpring(useTransform(heroScroll, [0, 0.7], [1, 0]),  heroSpring);
 
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
@@ -193,7 +81,27 @@ const Home = () => {
   return (
     <div>
       {/* ── HERO ── */}
-      <section ref={heroRef} style={{ paddingTop: '64px', paddingBottom: '80px', position: 'relative', overflow: 'hidden' }}>
+      <section ref={heroRef} style={{ paddingTop: '64px', paddingBottom: '88px', position: 'relative', overflow: 'hidden' }}>
+        {/* Soft Ambient Light Diffusers - Centered Spotlights */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            top: '10%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '680px',
+            height: '420px',
+            borderRadius: '50%',
+            background: isDarkMode
+              ? 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.08) 40%, transparent 70%)'
+              : 'radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(236, 72, 153, 0.05) 45%, transparent 70%)',
+            filter: 'blur(75px)',
+            pointerEvents: 'none',
+            zIndex: 0,
+          }}
+        />
+
         {!prefersReducedMotion && (
           <Aurora
             colorStops={['#dceeb1', '#c5b0f4', '#f4ecd6']}
@@ -203,194 +111,290 @@ const Home = () => {
             className="hero-aurora"
           />
         )}
+
         <div
-          className="hero-grid"
-          style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center', position: 'relative', zIndex: 1 }}
+          style={{
+            maxWidth: '860px',
+            margin: '0 auto',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            gap: '26px',
+            position: 'relative',
+            zIndex: 1,
+            padding: '16px 16px 8px',
+          }}
         >
-          {/* Text */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <motion.div style={{ y: badgeY, opacity: badgeOp }}>
-              <span style={{
+          {/* Status Badge */}
+          <motion.div style={{ y: badgeY, opacity: badgeOp }}>
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '9px',
+                padding: '7px 18px',
+                borderRadius: '9999px',
+                backgroundColor: isDarkMode ? 'rgba(34, 197, 94, 0.12)' : 'rgba(34, 197, 94, 0.08)',
+                border: isDarkMode ? '1px solid rgba(34, 197, 94, 0.3)' : '1px solid rgba(34, 197, 94, 0.24)',
+                fontSize: '12px',
+                fontFamily: 'JetBrains Mono, monospace',
+                fontWeight: '600',
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+                color: isDarkMode ? '#4ade80' : '#15803d',
+                boxShadow: isDarkMode ? '0 0 24px rgba(34, 197, 94, 0.14)' : '0 2px 10px rgba(34, 197, 94, 0.08)',
+              }}
+            >
+              <span style={{ position: 'relative', display: 'flex', width: '8px', height: '8px' }}>
+                <span
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    borderRadius: '50%',
+                    backgroundColor: '#22c55e',
+                    opacity: 0.75,
+                    animation: 'ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite',
+                  }}
+                />
+                <span
+                  style={{
+                    position: 'relative',
+                    display: 'inline-block',
+                    width: '8px',
+                    height: '8px',
+                    borderRadius: '50%',
+                    backgroundColor: '#16a34a',
+                  }}
+                />
+              </span>
+              {t('home.badge')}
+            </span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1
+            {...fadeUp(0.1)}
+            style={{
+              fontFamily: 'Outfit, system-ui, sans-serif',
+              fontSize: 'clamp(44px, 7.5vw, 92px)',
+              fontWeight: '400',
+              lineHeight: '1.05',
+              letterSpacing: '-2px',
+              color: 'var(--color-ink)',
+              margin: 0,
+              y: h1Y,
+              opacity: h1Op,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <BlurText
+              text={t('home.greeting')}
+              delay={50}
+              animateBy="words"
+              direction="top"
+              className="block opacity-90"
+            />
+            <span
+              style={{
+                display: 'block',
+                marginTop: '4px',
+                background: isDarkMode
+                  ? 'linear-gradient(180deg, #ffffff 30%, #a1a1aa 100%)'
+                  : 'linear-gradient(180deg, #18181b 30%, #52525b 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              <DecryptedText
+                text="Lê Trí Trung"
+                speed={80}
+                maxIterations={12}
+                sequential={true}
+                revealDirection="start"
+                animateOn="view"
+                characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+              />
+            </span>
+          </motion.h1>
+
+          {/* Roles */}
+          <motion.div
+            {...fadeUp(0.2)}
+            style={{
+              fontSize: 'clamp(17px, 3.2vw, 24px)',
+              fontWeight: '400',
+              color: 'var(--color-ink)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '12px',
+              flexWrap: 'wrap',
+              y: roleY,
+            }}
+          >
+            <span style={{ color: 'var(--color-ink-soft)', fontWeight: '350' }}>{t('home.iAm')}</span>
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                backgroundColor: isDarkMode ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.04)',
+                border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.12)' : '1px solid rgba(0, 0, 0, 0.08)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                borderRadius: '12px',
+                padding: '6px 18px',
+                boxShadow: isDarkMode ? '0 4px 16px rgba(0,0,0,0.3)' : '0 2px 8px rgba(0,0,0,0.04)',
+              }}
+            >
+              <RotatingText
+                texts={heroRoles}
+                mainClassName="font-semibold"
+                rotationInterval={2600}
+                staggerDuration={0.025}
+                staggerFrom="last"
+                transition={{ type: 'spring', damping: 28, stiffness: 350 }}
+                initial={{ y: '100%', opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: '-100%', opacity: 0 }}
+                style={{ color: 'var(--color-ink)', fontSize: '1em' }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Bio Description */}
+          <motion.p
+            {...fadeUp(0.3)}
+            style={{
+              fontSize: 'clamp(16px, 2.3vw, 20px)',
+              fontWeight: '340',
+              lineHeight: '1.65',
+              letterSpacing: '-0.15px',
+              color: 'var(--color-ink-soft)',
+              maxWidth: '640px',
+              margin: '0 auto',
+              y: descY,
+            }}
+          >
+            {t('home.heroDesc')}
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            {...fadeUp(0.4)}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '14px',
+              flexWrap: 'wrap',
+              y: ctaY,
+              paddingTop: '6px',
+            }}
+          >
+            <MotionLink
+              ref={magnetic.ref}
+              to="/projects"
+              style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '6px 14px',
-                borderRadius: '50px',
-                backgroundColor: '#dceeb1',
-                fontSize: '13px',
-                fontFamily: 'JetBrains Mono, monospace',
-                fontWeight: '400',
-                letterSpacing: '0.4px',
-                textTransform: 'uppercase',
-                color: '#000000',
-              }}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#1ea64a', display: 'inline-block' }} />
-                {t('home.badge')}
-              </span>
-            </motion.div>
-
-            <motion.h1
-              {...fadeUp(0.1)}
-              style={{
-                fontFamily: 'Outfit, system-ui, sans-serif',
-                fontSize: 'clamp(36px, 6vw, 86px)',
-                fontWeight: '340',
-                lineHeight: '1.00',
-                letterSpacing: '-1.72px',
-                color: 'var(--color-ink)',
-                margin: 0,
-                y: h1Y,
-                opacity: h1Op,
+                padding: '13px 28px',
+                borderRadius: '9999px',
+                fontSize: '15.5px',
+                fontWeight: '540',
+                color: 'var(--color-canvas)',
+                backgroundColor: 'var(--color-ink)',
+                textDecoration: 'none',
+                boxShadow: isDarkMode ? '0 4px 20px rgba(0,0,0,0.4)' : '0 4px 18px rgba(0,0,0,0.18)',
+                transition: 'all 0.2s ease',
+                x: magnetic.x,
+                y: magnetic.y,
+              }}
+              onMouseMove={magnetic.handleMouseMove}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.opacity = '0.9';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.opacity = '1';
+                magnetic.handleMouseLeave();
               }}
             >
-              <BlurText
-                text={t('home.greeting')}
-                delay={50}
-                animateBy="words"
-                direction="top"
-                className="block"
-              />
-              <span style={{ display: 'block', marginTop: '4px' }}>
-                <DecryptedText
-                  text="Lê Trí Trung"
-                  speed={80}
-                  maxIterations={12}
-                  sequential={true}
-                  revealDirection="start"
-                  animateOn="view"
-                  characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-                />
-              </span>
-            </motion.h1>
-
-            <motion.div
-              {...fadeUp(0.2)}
+              {t('home.viewProjects')} <FaArrowRight size={13} />
+            </MotionLink>
+            <a
+              href={personalInfo.cv}
+              download="Le_Tri_Trung_CV.pdf"
+              className="hover-surface"
               style={{
-                fontSize: 'clamp(16px, 3vw, 22px)',
-                fontWeight: '330',
-                color: 'var(--color-ink)',
-                display: 'flex',
+                display: 'inline-flex',
                 alignItems: 'center',
-                gap: '12px',
-                flexWrap: 'wrap',
-                y: roleY,
+                gap: '8px',
+                padding: '13px 28px',
+                borderRadius: '9999px',
+                fontSize: '15.5px',
+                fontWeight: '520',
+                color: 'var(--color-ink)',
+                backgroundColor: 'var(--color-surface-soft)',
+                border: '1px solid var(--color-hairline)',
+                textDecoration: 'none',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.04)',
+                transition: 'all 0.2s ease',
               }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
             >
-              <span>{t('home.iAm')}</span>
-              <RotatingText
-                texts={t('home.roles', { returnObjects: true })}
-                mainClassName="inline-flex items-center px-4 py-1 rounded-lg font-semibold"
-                rotationInterval={2500}
-                staggerDuration={0.025}
-                staggerFrom="last"
-                transition={{ type: 'spring', damping: 30, stiffness: 400 }}
-                initial={{ y: '110%', opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: '-110%', opacity: 0 }}
-                style={{ backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)', borderRadius: '8px', padding: '4px 14px' }}
-              />
-            </motion.div>
+              <FaDownload size={13} /> {t('home.downloadCV')}
+            </a>
+          </motion.div>
 
-            <motion.p
-              {...fadeUp(0.3)}
-              style={{
-                fontSize: 'clamp(15px, 2.5vw, 20px)',
-                fontWeight: '330',
-                lineHeight: '1.55',
-                letterSpacing: '-0.14px',
-                color: 'var(--color-ink-soft)',
-                maxWidth: '520px',
-                margin: 0,
-                y: descY,
-              }}
-            >
-              {t('home.heroDesc')}
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div {...fadeUp(0.4)} style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', y: ctaY }}>
-              <MotionLink
-                ref={magnetic.ref}
-                to="/projects"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '8px',
-                  padding: '11px 22px',
-                  borderRadius: '50px',
-                  fontSize: '16px',
-                  fontWeight: '480',
-                  color: '#ffffff',
-                  backgroundColor: '#000000',
-                  textDecoration: 'none',
-                  transition: 'background-color 0.15s ease',
-                  x: magnetic.x,
-                  y: magnetic.y,
-                }}
-                onMouseMove={magnetic.handleMouseMove}
-                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1a1a1a'}
-                onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#000000'; magnetic.handleMouseLeave(); }}
-              >
-                {t('home.viewProjects')} <FaArrowRight size={14} />
-              </MotionLink>
-              <a
-                href={personalInfo.cv}
-                download="Le_Tri_Trung_CV.pdf"
+          {/* Social links */}
+          <motion.div
+            {...fadeUp(0.5)}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '12px',
+              paddingTop: '6px',
+              y: ctaY,
+            }}
+          >
+            {[
+              { href: personalInfo.contact?.github, icon: <FaGithub size={18} />, label: "GitHub" },
+              { href: personalInfo.contact?.linkedin, icon: <FaLinkedin size={18} />, label: "LinkedIn" },
+              { href: personalInfo.contact?.instagram, icon: <FaInstagram size={18} />, label: "Instagram" },
+              { href: personalInfo.contact?.facebook, icon: <FaFacebook size={18} />, label: "Facebook" },
+            ].filter(s => s.href).map((social, i) => (
+              <motion.a
+                key={i}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -3, scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label={social.label}
                 className="hover-surface"
                 style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '8px',
-                  padding: '11px 22px',
-                  borderRadius: '50px',
-                  fontSize: '16px',
-                  fontWeight: '480',
+                  width: '42px',
+                  height: '42px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '9999px',
+                  backgroundColor: 'var(--color-surface-soft)',
+                  border: '1px solid var(--color-hairline)',
                   color: 'var(--color-ink)',
-                  backgroundColor: 'var(--color-canvas)',
-                  border: '1.5px solid var(--color-hairline)',
-                  textDecoration: 'none',
-                  transition: 'background-color 0.15s ease',
+                  transition: 'background-color 0.15s ease, border-color 0.15s ease',
                 }}
               >
-                <FaDownload size={14} /> {t('home.downloadCV')}
-              </a>
-            </motion.div>
-
-            {/* Social links */}
-            <motion.div {...fadeUp(0.5)} style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingTop: '8px', y: ctaY }}>
-              {[
-                { href: personalInfo.contact?.github, icon: <FaGithub size={18} /> },
-                { href: personalInfo.contact?.linkedin, icon: <FaLinkedin size={18} /> },
-                { href: personalInfo.contact?.instagram, icon: <FaInstagram size={18} /> },
-                { href: personalInfo.contact?.facebook, icon: <FaFacebook size={18} /> },
-              ].filter(s => s.href).map((social, i) => (
-                <motion.a
-                  key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -2 }}
-                  className="hover-surface"
-                  style={{
-                    width: '40px', height: '40px',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    borderRadius: '9999px',
-                    backgroundColor: 'var(--color-surface-soft)',
-                    color: 'var(--color-ink)',
-                    transition: 'background-color 0.15s ease',
-                  }}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Terminal card — hidden on mobile */}
-          <motion.div
-            className="hidden lg:block"
-            initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: prefersReducedMotion ? 0 : 0.3, duration: prefersReducedMotion ? 0.01 : 0.7 }}
-            style={{ x: imgX, opacity: imgOp }}
-          >
-            <TerminalCard />
+                {social.icon}
+              </motion.a>
+            ))}
           </motion.div>
         </div>
       </section>

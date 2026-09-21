@@ -22,6 +22,7 @@ import {
   FaNewspaper,
 } from "react-icons/fa";
 import NewAvatar from './assets/information/image.png';
+import { allPosts } from './data/posts';
 
 // Project Image Imports
 const DolaBakeryImage = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962632/my-website/assets/projects/DolaBakery.png";
@@ -135,12 +136,12 @@ const SliderImg4 = "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_a
 
 export const personalInfo = {
   name: "Lê Trí Trung",
-  title: "Java Developer | Computer Science Student",
+  title: "Back-End Developer",
   profileImage: NewAvatar,
   cv: "/Le_Tri_Trung_CV.pdf",
   logo: NewAvatar,
   intro:
-    "Highly motivated Computer Science student with a strong foundation in web development. Proficient in Java Spring Boot, JavaScript, React, HTML/CSS, and passionate about creating clean, scalable applications. Seeking a Web Developer internship to apply my skills and contribute to a collaborative team.",
+    "Highly motivated Computer Science student with a strong foundation in web development. Proficient in Java Spring Boot, .NET, JavaScript, React, NodeJS, Python FastAPI and passionate about creating clean, scalable applications and eager to leverage AI technologies to build smarter solutions in a collaborative environment.",
   contact: {
     email: "letritrung2605@gmail.com",
     phone: "(+84) 912 158 715",
@@ -286,42 +287,42 @@ export const education = [
     id: 1,
     school: "FPT Software (FSoft)",
     degree: "Software Developer Intern",
-    duration: "09/2025 - Present",
+    duration: "08/2025 - 12/2025",
     gpa: "Passed",
-    status: "Current",
+    status: "Completed",
     description:
-      "Currently interning at FPT Software, a **top-tier technology company in Vietnam**. Gaining **practical experience** by developing applications using **Low-Code platforms**, specifically **OutSystems**. This role provides invaluable exposure to a professional **enterprise environment** and **modern software development practices**.",
+      "Developed enterprise applications using **OutSystems Reactive Web** within an Agile team. Debugged and refactored code to optimize system performance and user experience.",
   },
   {
     id: 2,
     school: "FPT University",
     degree: "University (Computer Science)",
     duration: "09/2023 - Present",
-    gpa: "8.25/10.0",
+    gpa: "3.3/4.0 - 8.2/10.0",
     status: "Current",
     description:
-      "Currently pursuing a **Bachelor of Science in Computer Science**. My coursework emphasizes **software development**, **data structures**, and **algorithms**. I am actively focused on **backend technologies**, particularly **Java Spring Boot**, and gaining practical experience through **team projects** and **coding competitions**.",
+      "Currently pursuing a **Bachelor of Science in Computer Science** (GPA 3.3/4.0 - 8.2/10.0). Coursework emphasizes software engineering, data structures, algorithms, and backend systems in Java Spring Boot, .NET, and Python FastAPI.",
   },
   {
     id: 3,
     school:
       "Tunku Abdul Rahman University of Management and Technology (TAR UMT)",
-    degree: "Inbound Mobility Programme",
+    degree: "FPTU Student Exchange / Inbound Mobility Programme",
     duration: "12/2023",
     gpa: "Passed",
     status: "Completed",
     description:
-      "Participation in the **FPTU Inbound Mobility Programme** in **Kuala Lumpur, Malaysia**. Gained **international exposure** to diverse academic and cultural environments, enhancing **adaptability** and **cross-cultural communication skills**.",
+      "Participation in the **FPTU Student Exchange / Inbound Mobility Programme** in **Kuala Lumpur, Malaysia**. Gained international exposure to diverse academic and cultural environments, enhancing adaptability and cross-cultural communication skills.",
   },
   {
     id: 4,
     school: "Phan Chau Trinh High School",
     degree: "High School Diploma",
     duration: "09/2020 - 06/2023",
-    gpa: "9.3/10.0",
+    gpa: "9.0/10.0",
     status: "Graduated",
     description:
-      "Graduated with an **excellent academic GPA of 9.3/10.0**. The curriculum provided a strong foundation in **Mathematics, Physics, and analytical skills**, which served as a crucial stepping stone for my current Computer Science studies and **problem-solving approach**.",
+      "Graduated with an **academic GPA of 9.0/10.0**. Built a strong foundation in Mathematics, analytical thinking, and leadership.",
   },
 ];
 
@@ -356,35 +357,35 @@ export const skills = [
     items: [
       { name: "Java", level: 85 },
       { name: "JavaScript / TypeScript", level: 80 },
-      { name: "HTML5 & CSS3", level: 75 },
-      { name: "Python", level: 45 },
+      { name: "C# (.NET)", level: 80 },
+      { name: "Python", level: 75 },
     ],
   },
   {
     category: "Frameworks & Libraries",
     items: [
       { name: "Java Spring Boot", level: 85 },
+      { name: "ASP.NET Core", level: 80 },
       { name: "React", level: 90 },
-      { name: "React Native / Expo", level: 55 },
-      { name: "Tailwind CSS / Framer Motion", level: 75 },
+      { name: "Python FastAPI & NodeJS", level: 80 },
     ],
   },
   {
-    category: "Databases & Infra",
+    category: "Databases & Tools",
     items: [
-      { name: "MySQL / SQL Server", level: 75 },
-      { name: "MongoDB", level: 70 },
-      { name: "Redis", level: 55 },
-      { name: "Docker", level: 55 },
+      { name: "PostgreSQL & SQL Server", level: 80 },
+      { name: "MongoDB & Redis", level: 75 },
+      { name: "Docker & Git / GitHub", level: 80 },
+      { name: "Jira & Notion", level: 85 },
     ],
   },
   {
     category: "Soft Skills",
     items: [
-      { name: "Communication Skills", level: 70 },
-      { name: "Team Leadership", level: 65 },
-      { name: "Problem Solving", level: 70 },
-      { name: "Agile Collaboration", level: 60 },
+      { name: "Communication Skills", level: 85 },
+      { name: "Team Leadership", level: 80 },
+      { name: "Problem Solving", level: 80 },
+      { name: "Agile Collaboration", level: 75 },
     ],
   },
 ];
@@ -588,40 +589,34 @@ export const projects = [
   {
     id: 11,
     title: "The MC Hub",
-    role: "Full-Stack Developer (Team Project)",
-    duration: "09/2025 – Present",
+    role: "Tech Lead & CEO",
+    duration: "01/2026 – 07/2026",
     image: McHubShot1,
     description:
-      "A two-sided marketplace connecting **Clients** with professional **MCs (Masters of Ceremony)** for events — weddings, galas, corporate conferences, and more. Clients can search, filter by style/price/region, view MC profiles, and book directly through the platform. MCs get a full dashboard to manage bookings, communicate with clients, track revenue, and practice scripts using an **AI Script Reader**.\n\nThe system is built for scale: **Java Spring Boot 3.3 + Java 21 Virtual Threads** on the backend for high-concurrency handling, **MongoDB Atlas** for flexible document storage, and **WebSocket/STOMP** for real-time chat. The web app runs on **React 19 + Vite 7 + TailwindCSS v4**, and the mobile app is built with **React Native + Expo**.\n\nAdditional features include **PayOS payment integration**, push notifications, KYC identity verification, a coupon/discount system, and a full **admin analytics dashboard**. This is the most technically complex project I've worked on — touching distributed systems, payment flows, mobile development, and real-time infrastructure simultaneously.",
+      "Launched voice training platform (React 19 + Java Spring Boot 3.3) monetized from day one: 87 MCs onboarded in first month, 20 transactions with ~4M VND revenue across 2 subscription tiers (Basic/Full).\n\nBuilt AI voice analysis microservice (Python FastAPI + Whisper) evaluating pronunciation, intonation, pace, pauses — powering 101 practice exercises, 40 theory readings, and 4 structured courses across 6 MC categories.\n\nLed team of 6 from zero to production in 6 months. CI/CD on Vercel (frontend) + Render (backend), using Notion and Jira to manage workflow.",
     techStack: [
-      "Java Spring Boot 3.3",
-      "Java 21 (Virtual Threads)",
-      "Spring Security + JWT",
-      "MongoDB Atlas",
-      "WebSocket (STOMP)",
       "React 19",
-      "Vite 7",
-      "TailwindCSS v4",
-      "Zustand",
-      "React Native",
-      "Expo",
-      "Node.js",
-      "PayOS",
-      "Cloudinary",
-      "MapStruct",
-      "Swagger / OpenAPI 3",
+      "Java Spring Boot 3.3",
+      "Python FastAPI",
+      "Whisper AI",
+      "MongoDB",
+      "Redis",
+      "Vercel",
+      "Render",
+      "Jira",
+      "Notion",
     ],
     githubUrl: "https://github.com/The-MC-Hub",
-    liveUrl: "#",
-    status: "In Development",
+    liveUrl: "https://mc-voice-training.vercel.app/",
+    status: "Completed",
     category: "fullstack",
-    tier: 2,
-    challenge: "Xây một marketplace 2 chiều (Client ↔ MC) cần xử lý concurrency cao (nhiều người đặt lịch cùng lúc), thanh toán thật, chat real-time, và cả web lẫn mobile app — dự án kỹ thuật phức tạp nhất tôi từng tham gia.",
+    tier: 1,
+    challenge: "Xây dựng và thương mại hóa nền tảng luyện giọng MC từ con số 0 lên production trong 6 tháng với team 6 người, tích hợp AI voice analysis đánh giá phát âm, ngữ điệu và ngắt nghỉ real-time.",
     highlights: [
-      "Backend Spring Boot 3.3 + Java 21 Virtual Threads cho khả năng xử lý đồng thời cao",
-      "Real-time chat qua WebSocket/STOMP, MongoDB Atlas cho dữ liệu linh hoạt",
-      "Tích hợp thanh toán PayOS, xác thực KYC, hệ thống coupon/discount, admin analytics dashboard",
-      "AI Script Reader hỗ trợ MC luyện tập kịch bản, web (React 19 + Vite 7) và mobile (React Native + Expo) song song",
+      "Ra mắt nền tảng luyện giọng MC thương mại hoá từ ngày đầu: 87 MC tham gia tháng đầu, 20 giao dịch đạt ~4 triệu VNĐ doanh thu với 2 gói Basic/Full",
+      "Xây dựng microservice AI phân tích giọng nói (Python FastAPI + Whisper) đánh giá phát âm, ngữ điệu, tốc độ, ngắt nghỉ — phục vụ 101 bài tập, 40 bài lý thuyết, 4 khoá học",
+      "Dẫn dắt team 6 người từ con số 0 lên production trong 6 tháng với quy trình CI/CD Vercel + Render, quản lý qua Notion & Jira",
+      "Công nghệ: MongoDB, Python FastAPI + Whisper, Java SpringBoot, ReactJS, Redis",
     ],
     screenshots: [McHubShot1, McHubShot2, McHubShot3],
   },
@@ -781,24 +776,24 @@ export const projects = [
   },
   {
     id: 24,
-    title: "ThreadLearn",
-    role: "AI Engineer — RAG Pipeline & API (Team Project)",
-    duration: "WDP301 course",
+    title: "ThreadLearn: AI Race-Condition Detector & Fix Suggestion Engine",
+    role: "AI Engineer — RAG Pipeline, FastAPI Server, Static Analysis",
+    duration: "06/2026 – 07/2026",
     image: ThreadLearnShot1,
     description:
-      "An **AI system that fixes JavaScript concurrency bugs** — fine-tuning a small language model (Qwen2.5-Coder-1.5B) with QLoRA and pairing it with a **BM25 + AST-based RAG pipeline** for exact API-name retrieval, instead of relying on a large general-purpose model.\n\nI owned the **RAG pipeline and FastAPI server**: building the BM25 retrieval index over 2,050 documents, an esprima-based AST tokenizer that keeps JavaScript identifiers intact (avoiding the false-split problem of naive regex tokenizers), and the race-condition detector. The fine-tuned model + RAG pipeline reached a **75% pass rate** on a 20-case benchmark, beating zero-shot GPT-3.5-turbo (30%) and even the fine-tuned model without RAG (70%) — full write-up on the blog.",
-    techStack: ["Python", "FastAPI", "QLoRA", "BM25", "esprima (AST)", "Qwen2.5-Coder-1.5B"],
+      "Fine-tuned a 1.5B-parameter LLM (Qwen2.5-Coder + QLoRA) that outperforms GPT-3.5-turbo at fixing JavaScript concurrency bugs — 73.3% vs 65.0% on 30 real production bugs, despite a ~125x smaller model.\n\nBuilt a RAG pipeline (BM25 + AST retrieval, 2,050-doc knowledge base) paired with a custom static race-condition detector to ground the model's fixes and cut hallucination.\n\nShipped a production FastAPI microservice (JWT, Redis, MongoDB) serving real-time fix suggestions. Co-authored a research paper submitted at ICTA 2026.",
+    techStack: ["Python FastAPI", "Whisper", "Java Spring Boot", "ReactJS", "Redis", "MongoDB", "Qwen2.5-Coder 1.5B", "QLoRA", "BM25"],
     githubUrl: "https://github.com/ThreadLearn/ThreadLearn_AI_Trainning",
-    liveUrl: "#",
+    liveUrl: "https://threadlearn.vercel.app/",
     status: "Completed",
     category: "ai",
-    tier: 2,
-    challenge: "ESLint chỉ báo lỗi concurrency JavaScript, không sửa; gọi GPT-4 tốn phí và không chuyên biệt cho domain. Cần một model nhỏ, chạy được offline, chuyên trị đúng một loại lỗi — và một pipeline retrieval hiểu đúng tên API thay vì so khớp ngữ nghĩa mơ hồ.",
+    tier: 1,
+    challenge: "ESLint chỉ báo lỗi concurrency JavaScript mà không tự sửa; gọi GPT-4 tốn kém chi phí API và dễ bị ảo giác cú pháp. Cần một model 1.5B nhỏ gọn chạy tối ưu kết hợp pipeline retrieval chính xác tên hàm qua AST và BM25.",
     highlights: [
-      "Xây dựng RAG pipeline dựa trên BM25 (build index 2050 tài liệu dưới 500ms, không cần GPU)",
-      "AST tokenizer bằng esprima giữ nguyên tên API (fs.appendFile không bị vỡ thành các từ rời rạc)",
-      "FastAPI server + race-condition detector, chỗ kỹ thuật chính tôi phụ trách trong nhóm 3 người",
-      "Kết quả: ThreadLearn + RAG đạt 75% pass rate trên benchmark, vượt GPT-3.5-turbo zero-shot (30%)",
+      "Fine-tuned LLM 1.5B tham số (Qwen2.5-Coder + QLoRA) vượt trội hơn GPT-3.5-turbo trong việc sửa lỗi concurrency JavaScript — 73.3% so với 65.0% trên 30 lỗi production thật",
+      "Xây dựng pipeline RAG (BM25 + AST retrieval, 2.050 tài liệu) kết hợp bộ phát hiện static race-condition chống hallucination",
+      "Triển khai microservice FastAPI production (JWT, Redis, MongoDB) phục vụ gợi ý sửa lỗi thời gian thực",
+      "Đồng tác giả bài báo nghiên cứu khoa học — đã nộp tại hội nghị ICTA 2026",
     ],
     screenshots: [ThreadLearnShot1, ThreadLearnShot2],
   },
@@ -827,23 +822,22 @@ export const projects = [
   {
     id: 26,
     title: "Biensovip — Marketplace Biển Số Đẹp",
-    role: "Solo Developer (Freelance Client Project)",
-    duration: "08/2026 – Present",
+    role: "Freelance Full-Stack Developer",
+    duration: "05/2026 – Present",
     image: BiensovipShot1,
     description:
-      "A **marketplace for trading premium (fancy) vehicle license plates** — a real freelance client project scoped as a 30-day MVP covering 12 core use cases plus 3 non-functional requirements, built and shipped **solo** end-to-end.\n\nThe backend is **ASP.NET Core 8 (Minimal API)** in **Clean Architecture** (Domain/Application/Infrastructure/Api layers) with **Entity Framework Core + PostgreSQL**, **ASP.NET Core Identity + JWT**, and **FluentValidation**. The frontend is **React 19 + Vite** with **TanStack Query**, **SignalR** for real-time updates, **TipTap** rich-text editor, and **Recharts** dashboards — tested with **Playwright**. A deliberate scope decision: no online payment gateway integration — deposit requests route through a contact form for manual admin confirmation, reducing attack surface and avoiding PCI-DSS compliance overhead. Includes a **DeepSeek-powered AI chatbot** for customer assistance.",
-    techStack: ["ASP.NET Core 8", "Entity Framework Core", "PostgreSQL", "React 19", "TanStack Query", "SignalR", "Playwright"],
+      "Independently designed and built a full-stack marketplace platform solo — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth, and deployment.\n\nMade and justified key architecture decisions: PostgreSQL over MongoDB for relational multi-filter queries, and excluded a payment gateway (manual confirmation flow instead) to cut PCI-DSS risk.\n\nOwned full delivery as freelancer — client requirements gathering, technical proposal, 30-day MVP roadmap, third-party integrations (Cloudinary, AWS SES, DeepSeek AI chatbot) and deploy on VPS.",
+    techStack: [".NET 8 / ASP.NET Core", "Clean Architecture", "PostgreSQL", "EF Core", "React 19", "JWT", "Cloudinary", "AWS SES", "DeepSeek AI", "VPS"],
     githubUrl: "https://github.com/BienSoDep/biensovip-backend",
     liveUrl: "https://biensovip.com",
     status: "Active",
     category: "ecommerce",
     tier: 1,
-    challenge: "Dự án freelance thật cho khách hàng — cần giao MVP hoàn chỉnh (12 use case, 3 NFR) trong 30 ngày, một mình xử lý toàn bộ từ kiến trúc, database, đến quyết định phạm vi bảo mật (không tích hợp cổng thanh toán để tránh yêu cầu PCI-DSS).",
+    challenge: "Dự án freelance thật cho khách hàng — cần giao MVP hoàn chỉnh trong 30 ngày, một mình xử lý toàn bộ từ kiến trúc Clean Architecture, 61 entities PostgreSQL, đến quyết định phạm vi bảo mật (loại trừ cổng thanh toán để tránh rủi ro PCI-DSS).",
     highlights: [
-      "Backend ASP.NET Core 8 Minimal API theo Clean Architecture, EF Core + PostgreSQL, JWT auth",
-      "Frontend React 19 + Vite, TanStack Query, SignalR cho cập nhật real-time, test bằng Playwright",
-      "Quyết định phạm vi bảo mật có chủ đích: đặt cọc qua form liên hệ thay vì tích hợp cổng thanh toán online",
-      "Tích hợp AI chatbot hỗ trợ khách hàng qua DeepSeek API",
+      "Thiết kế và xây dựng độc lập nền tảng marketplace solo — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth và triển khai hệ thống",
+      "Đưa ra và bảo vệ các quyết định kiến trúc then chốt: PostgreSQL thay vì MongoDB cho truy vấn lọc đa điều kiện quan hệ, và loại trừ cổng thanh toán để loại bỏ rủi ro PCI-DSS",
+      "Chịu trách nhiệm toàn bộ bàn giao dự án freelance: lấy yêu cầu khách hàng, đề xuất kỹ thuật, lộ trình MVP 30 ngày, tích hợp Cloudinary, AWS SES, DeepSeek AI chatbot và deploy VPS",
     ],
     screenshots: [BiensovipShot1, BiensovipShot2, BiensovipShot3, BiensovipShot4],
   },
@@ -1349,6 +1343,16 @@ export const certificates = [
 
 export const prizes = [
   {
+    id: 8,
+    title: "Hackathon Computer Vision 2026",
+    position: "Winner (First Place)",
+    year: "08/2026",
+    organization: "FPT Education",
+    description:
+      "Awarded **Winner (First Place)** at the **Hackathon Computer Vision 2026** organized by FPT Education (06/08/2026) — designing and implementing high-accuracy computer vision and AI models under intense competition constraints.",
+    image: HackathonCVImage,
+  },
+  {
     id: 6,
     title: "Code Mosaic Algorithm Contest",
     position: "Finalist",
@@ -1819,47 +1823,47 @@ export const experience = [
     company: "FPT Software",
     role: "Software Developer Intern",
     type: "Internship",
-    duration: "09/2025 – Present",
-    status: "Current",
+    duration: "08/2025 – 12/2025",
+    status: "Completed",
     description:
-      "Working as a software developer intern at FPT Software — one of Vietnam's largest technology companies with global delivery centers. Developing enterprise applications on the **OutSystems low-code platform**, gaining exposure to professional Agile workflows, code review practices, and enterprise client requirements. Contributing to real project deliveries alongside senior engineers.",
-    skills: ["OutSystems", "Low-Code Development", "Agile/Scrum", "Enterprise Software"],
+      "Developed enterprise applications using **OutSystems Reactive Web** within an Agile team. Debugged and refactored code to optimize system performance and user experience.",
+    skills: ["OutSystems Reactive Web", "Agile/Scrum", "Enterprise Architecture", "Performance Optimization"],
     color: "#dceeb1",
   },
   {
     id: 2,
     company: "The Dreamers Organization",
-    role: "Founder & President",
+    role: "Founder",
     type: "Leadership",
-    duration: "06/2025 – Present",
+    duration: "15/06/2024 – Present",
     status: "Current",
     description:
-      "Founded and lead a student-run charity organization at FPT University, managing a team of 15+ active members. Oversee project planning, fundraising operations, event production, and partnership development. Responsible for the organization's strategic direction and community impact programs targeting orphaned and underprivileged youth.",
-    skills: ["Team Leadership", "Project Management", "Event Production", "Community Outreach"],
+      "Founder of a community-driven charity organization including 30 members dedicated to fostering positive social impact through technology education and community initiatives.",
+    skills: ["Team Leadership", "Project Management", "Community Outreach", "Social Impact"],
     color: "#c5b0f4",
   },
   {
     id: 3,
     company: "FPT University / Various Events",
-    role: "Event MC & Host",
-    type: "Part-time",
-    duration: "01/2024 – 02/2025",
-    status: "Completed",
+    role: "Team Leader & Event MC",
+    type: "Leadership / Hosting",
+    duration: "01/2024 – Present",
+    status: "Current",
     description:
-      "Regular MC and event host for FPT University's large-scale programs — including orientation ceremonies, cultural galas, workshops, and academic competitions. Hosted live events with 600–1000+ attendees, managing full program flow, audience engagement, and real-time improvisation when required.",
-    skills: ["Public Speaking", "Event Hosting", "Improvisation", "Audience Management"],
+      "MC for 50+ university events and orientation ceremonies. Referee for FPTU AI & Robotics 2025 Competition and Student Ambassador of Danang Economic Project 'Working Space'.",
+    skills: ["Public Speaking", "Event Hosting", "Leadership", "Networking"],
     color: "#f3c9b6",
   },
   {
     id: 4,
     company: "Biensovip (Freelance Client)",
-    role: "Solo Full-Stack Developer",
+    role: "Freelance Full-Stack Developer",
     type: "Freelance",
-    duration: "08/2026 – Present",
+    duration: "05/2026 – Present",
     status: "Current",
     description:
-      "Sole developer for a real freelance client, building **Biensovip** — a marketplace for premium vehicle license plates — end-to-end. Own the full stack: ASP.NET Core 8 Clean Architecture backend, React 19 frontend, database design, and product-scope decisions (including a deliberate call to skip online payment integration to avoid PCI-DSS overhead). Delivering a 30-day MVP directly to a paying client, with no team to split the work.",
-    skills: ["ASP.NET Core", "React", "PostgreSQL", "Client Management", "Solo Delivery"],
+      "Independently designed and built a full-stack marketplace platform solo — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth, and VPS deployment. Owned full delivery as freelancer: client requirements gathering, technical proposal, 30-day MVP roadmap, third-party integrations (Cloudinary, AWS SES, DeepSeek AI chatbot).",
+    skills: [".NET 8 / ASP.NET Core", "Clean Architecture", "React 19", "PostgreSQL", "VPS Deployment"],
     color: "#efd4d4",
   },
 ];
@@ -1963,88 +1967,7 @@ export const stats = [
   },
 ];
 
-export const posts = [
-  {
-    id: 1,
-    slug: "threadlearn-javascript-concurrency-bugs",
-    title: "Dạy một model 1.5B tham số sửa lỗi concurrency JavaScript",
-    excerpt: "Bên trong ThreadLearn: fine-tune Qwen2.5-Coder-1.5B bằng QLoRA, ghép RAG pipeline dựa trên BM25, và vì sao model nhỏ lại thắng GPT-3.5-turbo trên một domain hẹp.",
-    date: "2026-06-11",
-    tags: ["AI", "RAG", "Fine-tuning", "JavaScript", "FastAPI"],
-    readTime: "9 min read",
-    content: `JavaScript chạy trên một luồng duy nhất — single-threaded event loop — nhưng lại xử lý hàng loạt tác vụ bất đồng bộ cùng lúc qua callback, Promise, async/await. Chính khoảng cách giữa "một luồng" và "nhiều tác vụ chồng lấp" đó tạo ra một lớp lỗi rất khó chịu: **concurrency bugs**. Theo nghiên cứu NodeCB (ASE 2017) phân tích 57 lỗi thực tế trên 53 dự án Node.js, 93% trong số đó gây hậu quả nghiêm trọng — crash server, sai dữ liệu, hoặc treo vĩnh viễn. Và chúng gần như không bao giờ lộ diện khi chạy test đơn lẻ.
-
-Ví dụ kinh điển — hai request cùng đọc rồi cùng ghi:
-
-\`\`\`javascript
-const stock = await db.getStock(productId);   // cả 2 request đọc được stock = 1
-await db.setStock(productId, stock - 1);       // cả 2 request đặt stock = 0
-// bán được 2 sản phẩm, kho chỉ có 1 — race condition
-\`\`\`
-
-Công cụ tĩnh như ESLint chỉ báo lỗi, không sửa. Gọi GPT-4 thì tốn phí, cần internet, và không chuyên biệt cho domain này. **ThreadLearn** — đồ án môn WDP301 tại FPT University tôi làm cùng hai bạn cùng nhóm — thử một hướng khác: fine-tune một model nhỏ (Qwen2.5-Coder-1.5B) để chuyên trị đúng một loại lỗi, rồi bù kiến thức còn thiếu bằng RAG.
-
-## Vì sao model nhỏ, không phải GPT-4
-
-Ba lý do thực dụng: chi phí, độ trễ, và khả năng chạy offline trong môi trường doanh nghiệp có firewall. Nhóm chọn **Qwen2.5-Coder-1.5B** — đủ nhỏ để chạy trên GPU 8GB, đủ mạnh vì đã pretrain trên hàng trăm tỷ token code — rồi fine-tune bằng **QLoRA** (load model 4-bit NF4, chỉ train một adapter LoRA rank 16, tức khoảng 0.5% tổng tham số). Toàn bộ quá trình chạy trên 2×T4 miễn phí của Kaggle, khoảng 2 giờ.
-
-Phần fine-tuning (783 cặp code lỗi/đã sửa, dataset thu thập từ GitHub + viết tay) là công của bạn cùng nhóm Hà Văn Ân. Phần tôi trực tiếp phụ trách là **RAG pipeline và API server** — chỗ đáng kể nhất về mặt kỹ thuật, nên đây là phần tôi kể chi tiết.
-
-## RAG: vì sao BM25, không phải vector search
-
-Với JavaScript, người lập trình biết chính xác tên API cần tìm — \`Promise.all\`, \`setTimeout\`, \`appendFile\`. Đó là bài toán exact-keyword-match, không phải semantic similarity. Vector search (FAISS, Chroma) cần GPU để embed, cần model 500MB+, và đôi khi bỏ sót match chính xác vì tối ưu cho "ý nghĩa gần giống" chứ không phải "đúng từ khóa". **BM25** — thuật toán tìm kiếm dựa trên tần suất từ, cải tiến từ TF-IDF — build index cho 2050 tài liệu trong dưới 500ms, không cần GPU, và cho kết quả tốt hơn trên domain code.
-
-Vấn đề là BM25 mặc định tokenize kém với code: \`setTimeout\` bị vỡ thành \`["set", "timeout"]\`, \`fetchAllUsers\` thành \`["fetch", "all", "users"]\`. Khi query chứa \`setTimeout\` nguyên vẹn, nó khớp yếu hơn với tài liệu đã bị tách vụn. Bản đầu tôi viết regex tokenizer để tách CamelCase — chạy được nhưng vẫn làm vỡ tên API khi trích keyword từ code đầu vào.
-
-Bản sửa sau dùng **esprima parse code thành AST**, rồi chỉ lấy token loại \`Identifier\` — tên hàm/biến do lập trình viên đặt — bỏ qua keyword ngôn ngữ (\`async\`, \`await\`, \`for\`):
-
-\`\`\`python
-script = esprima.parseScript(code, options={"tolerant": True, "tokens": True})
-for tok in script.tokens:
-    if tok.type == "Identifier" and tok.value not in _JS_STOPWORDS:
-        result.append(tok.value)
-\`\`\`
-
-So sánh trực tiếp: \`fs.appendFile(logPath, data)\` qua regex tokenizer ra \`"fs append file path data"\` — appendFile bị vỡ. Qua AST extraction ra \`"fs appendFile logPath data"\` — nguyên vẹn. Tên API giữ nguyên nghĩa là BM25 score cao hơn với đúng tài liệu, và top-3 doc trả về chính xác hơn đáng kể.
-
-## Kết quả — và vì sao fine-tuning quan trọng hơn RAG
-
-Đánh giá trên 20 test case thủ công phủ 8 loại lỗi concurrency (race condition, event loop blocking, unhandled rejection, callback hell, zalgo, context loss...), chấm bằng Fix-Pattern Scoring (kiểm tra output chứa pattern fix đúng, không so khớp cứng với đáp án mẫu):
-
-| Phương pháp | Pass | Partial | Fail | Pass Rate |
-|---|---|---|---|---|
-| GPT-3.5-turbo zero-shot | 6 | 11 | 3 | 30% |
-| Qwen2.5-Coder-1.5B (base, chưa fine-tune) | 8 | 9 | 3 | 40% |
-| ThreadLearn RAW (fine-tune, không RAG) | 14 | 6 | 0 | 70% |
-| **ThreadLearn + RAG** | **15** | **5** | **0** | **75%** |
-
-![Ablation chart](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871855/my-website/assets/blog/threadlearn/fig_ablation.png)
-
-### Benchmark 2 — 30 case real-world (từ npm packages thật trên GitHub Issues)
-
-ThreadLearn + pipeline đạt **73.3% (22/30)**, vượt GPT-3.5-turbo + pipeline **65.0%** (19.5/30). Chi tiết tại \`server/tests/real_world/README.md\`.
-
-### Phân tích
-
-Fine-tuning đóng góp **+30pp** (40% → 70%), RAG **+5pp** (70% → 75%). 783 mẫu training đủ để model học pattern fix cụ thể; RAG giúp các case khó cần thêm ngữ cảnh ngoài training data. Không có case nào FAIL hoàn toàn — model luôn sinh ra code đọc được.
-
-**3 category còn yếu**: Zalgo (0/1), Double Callback (0/1), Buffer Leak (0/1) — pattern rất đặc thù, ít xuất hiện trong dataset.
-
-Event Loop Blocking đạt **100% (5/5)** — training data phủ tốt nhất.
-
-![Per-category chi tiết](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871858/my-website/assets/blog/threadlearn/fig_category.png)
-
-## Bài học
-
-Model nhỏ (~1.5B), fine-tune trên domain hẹp, **vượt GPT-3.5 (175B) dù nhỏ hơn 125 lần** — không phải vì "giỏi hơn", mà vì không phải gánh kiến thức không liên quan. BM25 + AST extraction rẻ, nhanh, offline. Khi thiết kế retrieval cho code, exact keyword match quan trọng hơn semantic similarity.
-
----
-
-*Vai trò nhóm: **Lê Trí Trung** (AI2 — RAG Pipeline, FastAPI Server, Race Detector) · Hà Văn Ân (AI1 — Dataset Collection, QLoRA Fine-tuning) · Nguyễn Thị Thúy Hoài (Đánh giá mô hình & viết báo cáo). FPT University, Da Nang.*
-
-Code, dataset, và bài nghiên cứu: [github.com/ThreadLearn/ThreadLearn_AI_Trainning](https://github.com/ThreadLearn/ThreadLearn_AI_Trainning). Bản PDF đầy đủ: \`/d/FPT/threadlearn_paper-full.pdf\`. Visual demo site: [github.com/ThreadLearn/ThreadLearn-AI-Visual](https://github.com/ThreadLearn/ThreadLearn-AI-Visual).`,
-  },
-];
+export const posts = allPosts;
 
 export const testimonials = [
   // Để trống — điền lời nhận xét thật (mentor/giảng viên/đồng đội) vào đây theo shape:
@@ -2052,6 +1975,18 @@ export const testimonials = [
 ];
 
 // proficiency (0-100) suy luận từ số lượng + độ sâu sử dụng qua các project — tự tinh chỉnh lại nếu muốn phản ánh đúng hơn cảm nhận thật
+// Config for the "For Recruiters" match widget — role -> which project categories/skills
+// count as a match, and which experience entry (by id, see `experience` above) to surface.
+// Labels/blurbs are translated via recruiterMatch.roles.<id>.* in en.json/vi.json.
+export const recruiterRoles = [
+  { id: "backend", categories: ["fullstack", "ai"], skillIds: ["spring-boot", "node", "python", "dotnet", "sql", "mongodb", "redis", "postgresql"], experienceId: 1 },
+  { id: "frontend", categories: ["frontend", "fullstack"], skillIds: ["react", "tailwind", "framer-motion", "typescript", "threejs"], experienceId: 1 },
+  { id: "fullstack", categories: ["fullstack", "ecommerce"], skillIds: ["react", "spring-boot", "mongodb", "sql", "node", "dotnet"], experienceId: 1 },
+  { id: "ai-ml", categories: ["ai"], skillIds: ["python"], experienceId: 1 },
+  { id: "lowcode", categories: ["lowcode", "automation"], skillIds: ["outsystems"], experienceId: 1 },
+  { id: "freelance", categories: ["ecommerce", "lowcode"], skillIds: ["dotnet", "react", "postgresql"], experienceId: 4 },
+];
+
 export const skillTaxonomy = [
   { id: "react", label: "React", category: "Frontend", proficiency: 90, projectIds: [1, 4, 6, 7, 10, 11, 17, 18, 19, 21, 22, 26] },
   { id: "spring-boot", label: "Java Spring Boot", category: "Backend", proficiency: 85, projectIds: [1, 2, 3, 7, 11, 14, 18] },

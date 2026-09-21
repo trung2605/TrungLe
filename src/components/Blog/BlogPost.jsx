@@ -56,6 +56,18 @@ const BlogPost = () => {
                 transition={{ duration: 0.5 }}
                 style={{ maxWidth: '760px', margin: '0 auto' }}
             >
+                <h1 style={{
+                    fontFamily: 'Outfit, system-ui, sans-serif',
+                    fontSize: 'clamp(28px, 4vw, 38px)',
+                    fontWeight: '700',
+                    lineHeight: '1.25',
+                    color: 'var(--color-ink)',
+                    marginBottom: '20px',
+                    letterSpacing: '-0.02em',
+                }}>
+                    {post.title}
+                </h1>
+
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '40px', paddingBottom: '32px', borderBottom: '1px solid var(--color-hairline)' }}>
                     {post.tags.map(tag => (
                         <span key={tag} style={{
