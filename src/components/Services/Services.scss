@@ -628,38 +628,55 @@
 
     .metrics-kpi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
       margin-bottom: 24px;
+      align-items: stretch;
+
+      @media (max-width: 1080px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 580px) {
+        grid-template-columns: 1fr;
+      }
 
       .kpi-card {
         background: var(--color-surface-soft);
         border: 1px solid var(--color-hairline);
         border-radius: 16px;
-        padding: 20px;
+        padding: 20px 18px;
         display: flex;
         flex-direction: column;
+        height: 100%;
+        min-height: 200px;
 
         .kpi-top {
           display: flex;
           justify-content: space-between;
-          align-items: baseline;
-          margin-bottom: 6px;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 10px;
+          min-height: 38px;
 
           .kpi-num {
             font-family: 'Outfit', sans-serif;
-            font-size: 30px;
+            font-size: clamp(20px, 1.8vw, 25px);
             font-weight: 700;
             color: var(--color-ink);
             letter-spacing: -0.02em;
+            white-space: nowrap;
+            line-height: 1.1;
           }
 
           .kpi-trend {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             font-weight: 600;
-            padding: 2px 8px;
+            padding: 3px 8px;
             border-radius: 50px;
+            white-space: nowrap;
+            flex-shrink: 0;
 
             &.positive {
               background: rgba(30, 166, 74, 0.12);
@@ -678,7 +695,11 @@
           font-size: 13.5px;
           font-weight: 600;
           color: var(--color-ink);
-          margin-bottom: 6px;
+          line-height: 1.35;
+          margin-bottom: 8px;
+          min-height: 38px;
+          display: flex;
+          align-items: center;
         }
 
         .kpi-sub {

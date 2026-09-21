@@ -489,10 +489,10 @@ const Services = () => {
                 <span className="kpi-num">37.5%</span>
                 <span className="kpi-trend positive">+125% MoM</span>
               </div>
-              <div className="kpi-label">{isEn ? "Lead-to-Order Conversion Rate" : "Tỉ Lệ Chốt Thành Công / Liên Hệ"}</div>
+              <div className="kpi-label">{isEn ? "Lead-to-Order Conversion" : "Tỉ Lệ Chốt / Liên Hệ"}</div>
               <div className="kpi-sub">
                 {isEn 
-                  ? "Industry benchmark is ~8-10%. Automated funnel & clear pricing deliver 3.5x higher conversion." 
+                  ? "3.5x higher than average e-commerce benchmark (~8-10%) via automated funnel." 
                   : "Gấp 3.5 lần trung bình ngành TMĐT (8-10%) nhờ tự động hóa phễu và báo giá minh bạch."}
               </div>
             </div>
@@ -500,22 +500,22 @@ const Services = () => {
             <div className="kpi-card">
               <div className="kpi-top">
                 <span className="kpi-num">+300%</span>
-                <span className="kpi-trend positive">🚀 Tăng Vọt</span>
+                <span className="kpi-trend positive">🚀 Tăng Trưởng</span>
               </div>
-              <div className="kpi-label">{isEn ? "Inquiry & Booking Growth" : "Tăng Trưởng Yêu Cầu Liên Hệ & Cọc"}</div>
+              <div className="kpi-label">{isEn ? "Inquiry & Booking Growth" : "Tăng Trưởng Yêu Cầu & Cọc"}</div>
               <div className="kpi-sub">
                 {isEn 
-                  ? "Sub-8ms dynamic search and smart categories drove 24 qualified leads in single cycle." 
+                  ? "Sub-8ms dynamic search and smart categories drove high qualified buyer engagement." 
                   : "Lượng khách chủ động liên hệ tăng gấp 4 lần ngay sau khi triển khai hệ thống lọc tức thời <8ms."}
               </div>
             </div>
 
             <div className="kpi-card">
               <div className="kpi-top">
-                <span className="kpi-num">36+ / 280+</span>
-                <span className="kpi-trend neutral">14 Trang Kho</span>
+                <span className="kpi-num">36+ Đơn</span>
+                <span className="kpi-trend neutral">14 Trang Admin</span>
               </div>
-              <div className="kpi-label">{isEn ? "Deals Closed & Realtime Stock" : "Giao Dịch Đã Chốt & Kho Quản Trị"}</div>
+              <div className="kpi-label">{isEn ? "Closed Deals & Catalog" : "Giao Dịch Đã Chốt & Quản Trị"}</div>
               <div className="kpi-sub">
                 {isEn 
                   ? "36 high-value plates closed, managing active catalog across 14 admin pages with zero conflicts." 
@@ -525,10 +525,10 @@ const Services = () => {
 
             <div className="kpi-card">
               <div className="kpi-top">
-                <span className="kpi-num">93+ Lượt</span>
+                <span className="kpi-num">93+ Lần</span>
                 <span className="kpi-trend positive">100% Tự Động</span>
               </div>
-              <div className="kpi-label">{isEn ? "Automated Comparison & AI" : "Tự Động Phân Tích & Đối Chiếu Dữ Liệu"}</div>
+              <div className="kpi-label">{isEn ? "Automated Comparison & AI" : "Tự Động Phân Tích & Đối Chiếu"}</div>
               <div className="kpi-sub">
                 {isEn 
                   ? "Auto-computed Five Elements (Kim/Moc/Thuy/Hoa/Tho) matches and multi-plate comparisons." 
@@ -652,16 +652,17 @@ const Services = () => {
               <div className="plan-pricing-row">
                 <span className="price-label">{isEn ? "Turnkey Standard Price" : "Chi Phí Niêm Yết"}</span>
                 <div className="price-num">11.500.000₫</div>
-                <div className="price-speed">⚡ {isEn ? "Delivered in 7 - 10 working days" : "Bàn giao trong 7 - 10 ngày"}</div>
+                <div className="price-speed">⚡ {isEn ? "Average timeline: ~1.5 - 2 months" : "Thời gian thực hiện: ~1.5 - 2 tháng"}</div>
               </div>
 
               <ul className="features-list">
-                <li><FaCheckCircle /> {isEn ? "Modern UI/UX Tailored Design" : "Giao diện hiện đại, chuẩn nhận diện thương hiệu"}</li>
+                <li><FaCheckCircle /> {isEn ? "Tailored UI/UX matching brand identity" : "Giao diện thiết kế theo yêu cầu, chuẩn nhận diện thương hiệu"}</li>
                 <li><FaCheckCircle /> {isEn ? "100% Mobile & Tablet Responsive" : "Tương thích 100% điện thoại, iPad, máy tính"}</li>
-                <li><FaCheckCircle /> {isEn ? "Product Catalog & Order Contact Form" : "Danh mục sản phẩm, trang giới thiệu, form đặt hàng"}</li>
-                <li><FaCheckCircle /> {isEn ? "Floating Zalo / Messenger / Call buttons" : "Nút gọi Hotline, chat Zalo, Messenger nổi tiện lợi"}</li>
-                <li><FaCheckCircle /> {isEn ? "Google SEO Ready + Free SSL Certificate" : "Tối ưu chuẩn SEO Google cơ bản, chứng chỉ SSL bảo mật"}</li>
-                <li><FaCheckCircle /> {isEn ? "6 Months Free Technical Warranty" : "Bảo hành sửa lỗi kỹ thuật miễn phí 6 tháng"}</li>
+                <li><FaCheckCircle /> {isEn ? "Product/service catalog & contact inquiry form" : "Danh mục sản phẩm/dịch vụ, trang giới thiệu, form liên hệ"}</li>
+                <li><FaCheckCircle /> {isEn ? "Floating Hotline, Zalo & Messenger buttons" : "Nút gọi Hotline, chat Zalo, Messenger nổi tiện lợi"}</li>
+                <li><FaCheckCircle /> {isEn ? "Google SEO Ready + Free SSL Certificate" : "Chuẩn SEO Google cơ bản, chứng chỉ bảo mật SSL"}</li>
+                <li><FaCheckCircle /> {isEn ? "Free Cloud VPS/Domain setup & hosting optimization" : "Hỗ trợ kết nối tên miền & cấu hình hosting tối ưu chi phí"}</li>
+                <li><FaCheckCircle /> {isEn ? "6 Months Free Technical Warranty" : "Bảo hành kỹ thuật & sửa lỗi miễn phí 6 tháng"}</li>
               </ul>
 
               <button onClick={scrollToContact} className="btn-select-plan">
@@ -676,24 +677,25 @@ const Services = () => {
             <div className="card-inner">
               <div className="plan-badge-row">
                 <span className="plan-tag">GÓI 2 DEVS</span>
-                <span className="highlight-chip">{isEn ? "POPULAR • 2X SPEED" : "ĐỀ XUẤT • 2X TỐC ĐỘ"}</span>
+                <span className="highlight-chip">{isEn ? "RECOMMENDED • 2 DEVS" : "ĐỀ XUẤT • 2 KỸ SƯ"}</span>
               </div>
               <h3 className="plan-title">{isEn ? "Fast MVP (2 Devs)" : "Gói MVP Tốc Hành (2 Devs)"}</h3>
-              <p className="plan-desc">{isEn ? "Two engineers working simultaneously to accelerate delivery for urgent shop openings or campaigns." : "Dành cho shop cần khai trương gấp hoặc chạy chiến dịch. Hai lập trình viên code song song, rút ngắn 50% thời gian!"}</p>
+              <p className="plan-desc">{isEn ? "Two engineers working in parallel on frontend and backend to accelerate delivery with rock-solid quality." : "Dành cho shop cần ra mắt chuyên nghiệp với quy trình chuẩn. Hai kỹ sư phụ trách song song Frontend & Backend, tối ưu chất lượng và tiến độ!"}</p>
 
               <div className="plan-pricing-row">
                 <span className="price-label">{isEn ? "Turnkey Standard Price" : "Chi Phí Niêm Yết"}</span>
                 <div className="price-num">18.500.000₫</div>
-                <div className="price-speed">🚀 {isEn ? "Superfast in 4 - 6 working days" : "Siêu tốc chỉ trong 4 - 6 ngày"}</div>
+                <div className="price-speed">🚀 {isEn ? "Average timeline: ~1.5 - 2 months (2 Devs)" : "Thời gian thực hiện: ~1.5 - 2 tháng (2 Kỹ sư)"}</div>
               </div>
 
               <ul className="features-list">
                 <li><FaCheckCircle /> {isEn ? "All features from Starter MVP" : "Toàn bộ tính năng của Gói Khởi Nghiệp"}</li>
-                <li><FaCheckCircle /> <strong>{isEn ? "2 Engineers Working Simultaneously" : "2 Kỹ sư code song song, tiến độ thần tốc"}</strong></li>
-                <li><FaCheckCircle /> {isEn ? "Dynamic VietQR Payment Integration" : "Tích hợp mã thanh toán VietQR động tự điền số tiền"}</li>
-                <li><FaCheckCircle /> {isEn ? "Order Tracking & Email/Zalo notification" : "Quản lý đơn hàng tinh gọn, thông báo qua Email/Zalo"}</li>
-                <li><FaCheckCircle /> {isEn ? "Free 1 Year Cloud VPS Hosting Setup" : "Tặng 1 năm Cloud Server tốc độ cao + cài đặt tên miền"}</li>
-                <li><FaCheckCircle /> {isEn ? "8 Months Free Technical Warranty" : "Bảo hành kỹ thuật miễn phí 8 tháng"}</li>
+                <li><FaCheckCircle /> <strong>{isEn ? "2 Engineers Working Simultaneously (Frontend & Backend)" : "2 Kỹ sư code song song Frontend & Backend"}</strong></li>
+                <li><FaCheckCircle /> {isEn ? "Dynamic VietQR Payment Integration" : "Tích hợp cổng thanh toán VietQR động tự điền số tiền"}</li>
+                <li><FaCheckCircle /> {isEn ? "Order Tracking & Telegram/Zalo notification webhook" : "Quản lý đơn hàng tinh gọn, thông báo qua Telegram/Zalo Webhook"}</li>
+                <li><FaCheckCircle /> {isEn ? "Admin CMS Panel for products & pricing" : "Cổng quản trị nội dung dễ dùng (sản phẩm, giá, đơn hàng)"</li>
+                <li><FaCheckCircle /> {isEn ? "Free Lifetime Cloud VPS & SSL Setup" : "Miễn phí cài đặt Cloud VPS & chứng chỉ SSL trọn đời"}</li>
+                <li><FaCheckCircle /> {isEn ? "8 Months Free Technical Warranty" : "Bảo hành kỹ thuật & hỗ trợ vận hành 8 tháng"}</li>
               </ul>
 
               <button onClick={scrollToContact} className="btn-select-plan is-featured">
@@ -715,16 +717,17 @@ const Services = () => {
               <div className="plan-pricing-row">
                 <span className="price-label">{isEn ? "Turnkey Standard Price" : "Chi Phí Niêm Yết"}</span>
                 <div className="price-num">33.000.000₫</div>
-                <div className="price-speed">⭐ {isEn ? "Turnkey in 15 - 20 working days" : "Trọn gói trong 15 - 20 ngày"}</div>
+                <div className="price-speed">⭐ {isEn ? "Average timeline: ~2 - 2.5 months (5 Devs)" : "Thời gian thực hiện: ~2 - 2.5 tháng (Team 5 kỹ sư)"}</div>
               </div>
 
               <ul className="features-list">
-                <li><FaCheckCircle /> {isEn ? "Full E-Commerce: Cart, Orders, Inventory" : "Đầy đủ sàn TMĐT: Giỏ hàng, tồn kho, đơn hàng đa trạng thái"}</li>
-                <li><FaCheckCircle /> {isEn ? "Multi-gateway: VietQR, VNPay, Bank transfers" : "Tích hợp đa cổng thanh toán: VietQR, VNPay, chuyển khoản"}</li>
-                <li><FaCheckCircle /> <strong>{isEn ? "DeepSeek AI Sales Consultation Agent" : "Tích hợp Trợ lý AI DeepSeek tư vấn bán hàng 24/7"}</strong></li>
-                <li><FaCheckCircle /> {isEn ? "Advanced Admin Dashboard with Sales Analytics" : "Cổng quản trị chuyên sâu, biểu đồ doanh thu và khách hàng"}</li>
-                <li><FaCheckCircle /> {isEn ? "Top Google SEO optimization & Ultra caching" : "Tối ưu SEO Google chuyên sâu, tốc độ tải dưới 0.8 giây"}</li>
-                <li><FaCheckCircle /> {isEn ? "12 Months Free 24/7 Priority Warranty" : "Bảo hành 12 tháng + Hỗ trợ kỹ thuật ưu tiên 24/7"}</li>
+                <li><FaCheckCircle /> {isEn ? "Full E-Commerce / Marketplace: Cart, Orders, Stock" : "Đầy đủ nền tảng Sàn TMĐT / Marketplace: Giỏ hàng, đơn hàng, tồn kho"}</li>
+                <li><FaCheckCircle /> {isEn ? "Multi-gateway: VietQR Webhook auto-match, VNPay" : "Tích hợp đa phương thức: VietQR Webhook tự động khớp lệnh, VNPay"}</li>
+                <li><FaCheckCircle /> <strong>{isEn ? "Integrated AI Assistant (DeepSeek API) 24/7" : "Tích hợp Trợ lý AI (DeepSeek API) tư vấn & tra cứu 24/7"}</strong></li>
+                <li><FaCheckCircle /> {isEn ? "Advanced Admin Dashboard with Analytics" : "Bảng điều khiển quản trị chuyên sâu (Dashboard phân tích doanh thu)"}</li>
+                <li><FaCheckCircle /> {isEn ? "Full Source Code Handover & Tech Docs" : "Bàn giao toàn bộ mã nguồn (Full Source Code) & tài liệu kỹ thuật"}</li>
+                <li><FaCheckCircle /> {isEn ? "Top Google SEO optimization & CDN <1s" : "Tối ưu SEO Google chuyên sâu, CDN tăng tốc độ tải trang <1s"}</li>
+                <li><FaCheckCircle /> {isEn ? "12 Months Priority Warranty & 24/7 Support" : "Bảo hành kỹ thuật ưu tiên 12 tháng + Hỗ trợ trực tiếp 24/7"}</li>
               </ul>
 
               <button onClick={scrollToContact} className="btn-select-plan">
