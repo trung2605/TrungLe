@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { FaSun, FaMoon, FaChevronDown, FaBriefcase, FaDownload } from "react-icons/fa";
 import { personalInfo } from "../../data";
@@ -23,6 +23,51 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
   const { isDarkMode, toggleTheme } = useCustomTheme();
   const { t, i18n } = useTranslation();
   const { siteNavigation } = useTranslatedData();
+
+  const navItemsRef = useRef({});
+  const hasMountedRef = useRef(false);
+  const [indicator, setIndicator] = useState({ left: 0, top: 0, width: 0, height: 0, opacity: 0 });
+
+  const activeNavIndex = siteNavigation.findIndex((item) => {
+    return (
+      location.pathname === item.path ||
+      (item.path !== '/' && location.pathname.startsWith(item.path)) ||
+      (item.path === '/achievements' && (location.pathname === '/achievements' || location.pathname === '/activities'))
+    );
+  });
+
+  useEffect(() => {
+    if (activeNavIndex !== -1 && navItemsRef.current[activeNavIndex]) {
+      const el = navItemsRef.current[activeNavIndex];
+      setIndicator({
+        left: el.offsetLeft,
+        top: el.offsetTop,
+        width: el.offsetWidth,
+        height: el.offsetHeight,
+        opacity: 1,
+      });
+      hasMountedRef.current = true;
+    } else {
+      setIndicator((prev) => ({ ...prev, opacity: 0 }));
+    }
+  }, [location.pathname, searchParams, activeNavIndex]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (activeNavIndex !== -1 && navItemsRef.current[activeNavIndex]) {
+        const el = navItemsRef.current[activeNavIndex];
+        setIndicator({
+          left: el.offsetLeft,
+          top: el.offsetTop,
+          width: el.offsetWidth,
+          height: el.offsetHeight,
+          opacity: 1,
+        });
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [activeNavIndex]);
 
   const toggleLang = () => {
     const next = i18n.language === 'en' ? 'vi' : 'en';
@@ -134,14 +179,36 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
           {/* Desktop Nav */}
           <div
             className="hidden lg:flex"
-            style={{ alignItems: 'center', gap: '4px' }}
+            style={{ position: 'relative', alignItems: 'center', gap: '4px' }}
           >
-            {siteNavigation.map((item) => {
-              const isActive = 
-                location.pathname === item.path || 
-                (item.path !== '/' && location.pathname.startsWith(item.path)) ||
-                (item.path === '/achievements' && (location.pathname === '/achievements' || location.pathname === '/activities'));
+            {/* Sliding black pill indicator */}
+            <motion.div
+              initial={false}
+              animate={{
+                x: indicator.left,
+                width: indicator.width,
+                opacity: indicator.opacity,
+              }}
+              transition={
+                hasMountedRef.current
+                  ? { type: "spring", stiffness: 420, damping: 34, mass: 0.8 }
+                  : { duration: 0 }
+              }
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: indicator.top || 0,
+                height: indicator.height || '34px',
+                backgroundColor: isDarkMode ? '#ffffff' : '#000000',
+                borderRadius: '50px',
+                boxShadow: isDarkMode ? '0 2px 10px rgba(255, 255, 255, 0.15)' : '0 2px 8px rgba(0, 0, 0, 0.22)',
+                pointerEvents: 'none',
+                zIndex: 0,
+              }}
+            />
 
+            {siteNavigation.map((item, index) => {
+              const isActive = index === activeNavIndex;
               const activeBg = isDarkMode ? '#ffffff' : '#000000';
               const activeText = isDarkMode ? '#000000' : '#ffffff';
 
@@ -150,6 +217,7 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                 return (
                   <div
                     key={item.path}
+                    ref={(el) => { navItemsRef.current[index] = el; }}
                     style={{ position: 'relative' }}
                     onMouseEnter={() => setAchievementsHover(true)}
                     onMouseLeave={() => setAchievementsHover(false)}
@@ -159,6 +227,7 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                       onClick={handleLinkClick}
                       style={{
                         position: 'relative',
+                        zIndex: 1,
                         display: 'flex',
                         alignItems: 'center',
                         gap: '5px',
@@ -169,7 +238,7 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                         color: isActive ? activeText : 'var(--color-ink-soft)',
                         textDecoration: 'none',
                         whiteSpace: 'nowrap',
-                        transition: 'all 0.15s ease',
+                        transition: 'color 0.18s ease',
                       }}
                       onMouseEnter={e => {
                         if (!isActive) e.currentTarget.style.color = 'var(--color-ink)';
@@ -178,29 +247,12 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                         if (!isActive) e.currentTarget.style.color = 'var(--color-ink-soft)';
                       }}
                     >
-                      {isActive && (
-                        <motion.div
-                          layoutId="nav-pill"
-                          style={{
-                            position: 'absolute',
-                            inset: 0,
-                            backgroundColor: activeBg,
-                            borderRadius: '50px',
-                            boxShadow: isDarkMode ? '0 2px 10px rgba(255, 255, 255, 0.15)' : '0 2px 8px rgba(0, 0, 0, 0.22)',
-                            zIndex: 0,
-                          }}
-                          initial={false}
-                          transition={{ type: "spring", stiffness: 500, damping: 32 }}
-                        />
-                      )}
-                      <span style={{ position: 'relative', zIndex: 1 }}>{item.title}</span>
+                      <span>{item.title}</span>
                       <FaChevronDown
                         size={9}
                         style={{
-                          position: 'relative',
-                          zIndex: 1,
                           color: isActive ? activeText : 'currentColor',
-                          transition: 'transform 0.15s ease',
+                          transition: 'transform 0.15s ease, color 0.18s ease',
                           transform: achievementsHover ? 'rotate(180deg)' : 'none',
                         }}
                       />
@@ -263,60 +315,53 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
               }
 
               return (
-                <Link
+                <div
                   key={item.path}
-                  to={item.path}
-                  onClick={handleLinkClick}
-                  style={{
-                    position: 'relative',
-                    padding: '6px 14px',
-                    borderRadius: '50px',
-                    fontSize: '14px',
-                    fontWeight: isActive ? '600' : '480',
-                    color: isActive ? activeText : 'var(--color-ink-soft)',
-                    textDecoration: 'none',
-                    whiteSpace: 'nowrap',
-                    transition: 'all 0.15s ease',
-                  }}
-                  onMouseEnter={e => {
-                    if (!isActive) e.currentTarget.style.color = 'var(--color-ink)';
-                  }}
-                  onMouseLeave={e => {
-                    if (!isActive) e.currentTarget.style.color = 'var(--color-ink-soft)';
-                  }}
+                  ref={(el) => { navItemsRef.current[index] = el; }}
+                  style={{ position: 'relative' }}
                 >
-                  {isActive && (
-                    <motion.div
-                      layoutId="nav-pill"
-                      style={{
-                        position: 'absolute',
-                        inset: 0,
-                        backgroundColor: activeBg,
-                        borderRadius: '50px',
-                        boxShadow: isDarkMode ? '0 2px 10px rgba(255, 255, 255, 0.15)' : '0 2px 8px rgba(0, 0, 0, 0.22)',
-                        zIndex: 0,
-                      }}
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 500, damping: 32 }}
-                    />
-                  )}
-                  <span style={{ position: 'relative', zIndex: 1, display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-                    {item.title}
-                    {item.path === '/dich-vu' && (
-                      <span style={{
-                        fontSize: '9px',
-                        fontWeight: '700',
-                        color: '#ffffff',
-                        background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                        padding: '1px 5px',
-                        borderRadius: '4px',
-                        letterSpacing: '0.4px',
-                        lineHeight: '1.2',
-                        textTransform: 'uppercase'
-                      }}>HOT</span>
-                    )}
-                  </span>
-                </Link>
+                  <Link
+                    to={item.path}
+                    onClick={handleLinkClick}
+                    style={{
+                      position: 'relative',
+                      zIndex: 1,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      padding: '6px 14px',
+                      borderRadius: '50px',
+                      fontSize: '14px',
+                      fontWeight: isActive ? '600' : '480',
+                      color: isActive ? activeText : 'var(--color-ink-soft)',
+                      textDecoration: 'none',
+                      whiteSpace: 'nowrap',
+                      transition: 'color 0.18s ease',
+                    }}
+                    onMouseEnter={e => {
+                      if (!isActive) e.currentTarget.style.color = 'var(--color-ink)';
+                    }}
+                    onMouseLeave={e => {
+                      if (!isActive) e.currentTarget.style.color = 'var(--color-ink-soft)';
+                    }}
+                  >
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                      {item.title}
+                      {item.path === '/dich-vu' && (
+                        <span style={{
+                          fontSize: '9px',
+                          fontWeight: '700',
+                          color: '#ffffff',
+                          background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                          padding: '1px 5px',
+                          borderRadius: '4px',
+                          letterSpacing: '0.4px',
+                          lineHeight: '1.2',
+                          textTransform: 'uppercase'
+                        }}>HOT</span>
+                      )}
+                    </span>
+                  </Link>
+                </div>
               );
             })}
           </div>
