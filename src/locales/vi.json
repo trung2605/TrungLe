@@ -74,13 +74,13 @@
     "badge": "Sẵn sàng cho cơ hội mới",
     "greeting": "Xin chào,",
     "roles": [
-      "Back-End Developer",
-      "Kỹ sư Java & .NET",
-      "Lập trình viên Full-Stack",
-      "AI & Problem Solver"
+      "Tech Lead & Full-Stack",
+      "Chuyên Gia SaaS Automation",
+      "Kỹ Sư Java & .NET / AI",
+      "Problem Solver"
     ],
     "iAm": "Tôi là",
-    "heroDesc": "Sinh viên Khoa học Máy tính tại Đại học FPT. Chuyên sâu về Java Spring Boot và phát triển web hiện đại — xây dựng ứng dụng sạch, có khả năng mở rộng.",
+    "heroDesc": "Tech Lead dẫn dắt đội ngũ 5 kỹ sư tại Đà Nẵng — chuyên phát triển Website thương mại, SaaS Automation và tích hợp AI Agent cho doanh nghiệp vừa & nhỏ. Đang vận hành sàn giao dịch biensovip.com thực tế.",
     "viewProjects": "Xem dự án",
     "downloadCV": "Tải CV",
     "statsByNumbers": "Những con số",
@@ -121,8 +121,8 @@
     "location": "Địa chỉ",
     "education": "Học vấn",
     "specialization": "Chuyên môn",
-    "educationValue": "Đại học FPT",
-    "specializationValue": "Java Developer",
+    "educationValue": "Đại học FPT Đà Nẵng (Khoa học Máy tính)",
+    "specializationValue": "Tech Lead & Full-Stack / SaaS Automation",
     "atAGlance": "Tóm lược",
     "experienceLabel": "Kinh nghiệm",
     "experienceTitle": "Nơi tôi đã làm việc & dẫn dắt",
@@ -134,7 +134,11 @@
     "languagesTitle": "Cách tôi giao tiếp",
     "funFactsLabel": "Ngoài CV",
     "funFactsTitle": "Những điều bạn sẽ không thấy trong CV",
-    "galleryLabel": "Thư viện ảnh"
+    "galleryLabel": "Thư viện ảnh",
+    "phoneLabel": "Điện thoại / Zalo",
+    "ecosystemLabel": "Hệ sinh thái & Kết nối",
+    "ecosystemTitle": "Khám phá các trang liên kết",
+    "ecosystemSubtitle": "Khám phá dịch vụ phát triển website của team 5 kỹ sư, showcase dự án thực chiến, bài viết kỹ thuật chuyên sâu và hồ sơ giải thưởng."
   },
   "contact": {
     "label": "Liên hệ",
@@ -420,52 +424,52 @@
   ],
   "personalInfo": {
     "storyTitle": "Hành trình của tôi",
-    "storyContent": "Mình là **Lê Trí Trung** — sinh viên Khoa học Máy tính tại **Đại học FPT Đà Nẵng**, hiện đang thực tập tại **FPT Software** với vị trí Software Developer. Mình chuyên về **Java Spring Boot** ở backend và thích xây những ứng dụng full-stack sạch sẽ, có khả năng mở rộng, và thực sự hữu ích cho ai đó dùng.\n\nMọi thứ bắt đầu từ sự tò mò đơn giản: mọi thứ hoạt động ra sao bên dưới lớp vỏ. Sự tò mò đó dẫn mình từ nền tảng Java đến thiết kế RESTful API, kết nối cơ sở dữ liệu, làm việc trong các nhóm Agile thật sự, và cuối cùng là cùng xây những nền tảng như **The MC Hub** — một marketplace kết nối MC sự kiện với khách hàng, có chat thời gian thực, tích hợp thanh toán và cả ứng dụng di động.\n\nNgoài chuyện code, mình từng làm MC cho **các sự kiện trường với 600–1000+ khán giả**, sáng lập **The Dreamers** — một tổ chức thiện nguyện sinh viên mang giáo dục công nghệ đến trẻ em mồ côi — và tham gia nhiều cuộc thi lập trình cấp quốc gia, lọt vào chung kết **FPT Code Talent** và **Innocode Camp**.\n\nMình tin rằng lập trình viên giỏi không chỉ là người viết code tốt, mà còn là người biết giao tiếp, dẫn dắt và thích nghi. Đó là kiểu lập trình viên mình đang cố gắng trở thành.",
-    "title": "Back-End Developer | Sinh viên Khoa học Máy tính",
-    "intro": "Sinh viên Khoa học Máy tính với nền tảng vững chắc về phát triển web. Thành thạo Java Spring Boot, .NET, JavaScript, React, NodeJS, Python FastAPI; đam mê xây dựng các ứng dụng sạch, có khả năng mở rộng và sẵn sàng ứng dụng công nghệ AI để tạo ra các giải pháp thông minh hơn trong môi trường cộng tác."
+    "storyContent": "Mình là **Lê Trí Trung** — Tech Lead và kỹ sư phần mềm tại Đà Nẵng, hiện dẫn dắt **[đội ngũ 5 kỹ sư](/dich-vu)** chuyên phát triển Website kinh doanh, SaaS Automation và tích hợp AI Agent cho cá nhân, chủ shop và doanh nghiệp vừa & nhỏ.\n\nSau khi hoàn thành xuất sắc chương trình thực tập tại **[FPT Software](/achievements?tab=education)** (09–12/2025) và giành **[Giải Nhất Quán Quân Hackathon Computer Vision 2026](/achievements?tab=prizes)** cùng **[Top 5 ResFes Toàn Quốc](/achievements?tab=prizes)** tại Đại học FPT Đà Nẵng, mình đã đưa những kiến thức kỹ thuật vào thực tế bằng việc tự thiết kế, xây dựng và vận hành **[biensovip.com](/projects/26)** — sàn giao dịch thương mại biển số xe với cổng thanh toán VietQR tự động, xử lý 100+ lượt truy cập/ngày và khớp lệnh thanh toán tức thời dưới 0.5 giây.\n\nĐiều mình đam mê nhất là **tự động hóa luồng kinh doanh (SaaS Automation)**: tích hợp VietQR Webhook thời gian thực, AI Agent DeepSeek tư vấn bán hàng 24/7, và kịch bản n8n đồng bộ đa nền tảng — giúp cắt giảm tối đa nhân sự vận hành thủ công. Với triết lý làm việc **[No Middlemen](/dich-vu)** — khách hàng làm việc trực tiếp 1-1 với Tech Lead — cam kết bàn giao sản phẩm chuẩn production, tiến độ rõ ràng và tối ưu chi phí đầu tư.\n\nNgoài lập trình, mình từng là **MC dẫn chương trình cho các sự kiện 600–1000+ khán giả** tại FPT University, sáng lập **[The Dreamers](/activities)** — tổ chức thiện nguyện mang giáo dục công nghệ đến trẻ em mồ côi, và đạt nhiều giải thưởng tại các cuộc thi lập trình cấp quốc gia.\n\nKhám phá thêm các phân tích kỹ thuật chuyên sâu tại **[Góc Kỹ Thuật (Blog)](/blog)** hoặc tham khảo bảng giá dịch vụ tại **[Dịch Vụ & Báo Giá](/dich-vu)**.",
+    "title": "Tech Lead & Full-Stack Engineer | SaaS Automation",
+    "intro": "Tech Lead dẫn dắt đội 5 kỹ sư tại Đà Nẵng — chuyên phát triển Website thương mại, SaaS Automation và tích hợp AI Agent cho doanh nghiệp vừa & nhỏ. Quán quân Hackathon Computer Vision 2026 (FPT University). Đang vận hành biensovip.com — nền tảng marketplace giao dịch biển số xe với VietQR tự động."
   },
   "highlights": [
     {
-      "title": "Tư duy Backend-First",
-      "description": "Thế mạnh cốt lõi của mình là Java Spring Boot — thiết kế RESTful API, bảo mật dịch vụ bằng JWT, làm việc với cả cơ sở dữ liệu quan hệ lẫn document, và xây hệ thống backend có kiến trúc vẫn sạch ngay cả khi phát triển thêm."
+      "title": "SaaS & AI Automation",
+      "description": "Chuyên sâu thiết kế luồng tự động hóa kinh doanh: VietQR Webhook thời gian thực, AI Agent DeepSeek tư vấn 24/7, kịch bản n8n kết nối đa nền tảng — cắt giảm tối đa nhân sự vận hành thủ công."
     },
     {
-      "title": "Năng lực Full-Stack",
-      "description": "Mình thoải mái làm việc trên toàn bộ stack — React 19 + Vite ở frontend, Spring Boot ở backend — với kinh nghiệm thực tế triển khai trên Vercel và tích hợp các dịch vụ bên thứ ba như PayOS và Cloudinary."
+      "title": "Full-Stack Production Systems",
+      "description": "Vận hành biensovip.com thực tế: 100+ lượt/ngày, độ trễ API <120ms, uptime 99.98%, khớp lệnh VietQR <0.5s. Kinh nghiệm thực chiến từ Java Spring Boot, .NET 8, React/Next.js đến PostgreSQL và Redis Cache."
     },
     {
-      "title": "Lập trình viên thi đấu",
-      "description": "Mình đã lọt vào chung kết FPT Code Talent, Innocode Camp và ResFes — thi đấu đều đặn giúp rèn tư duy thuật toán và khả năng giữ bình tĩnh dưới áp lực."
+      "title": "Nghiên cứu & Thi đấu đỉnh cao",
+      "description": "Quán quân Hackathon Computer Vision 2026, Top 5 ResFes Toàn Quốc (nghiên cứu AI bảo mật đa luồng). Từng vào vòng cuối FPT Code Talent và Innocode Camp — tư duy thuật toán sắc bén dưới áp lực."
     },
     {
-      "title": "Lãnh đạo & Xây dựng cộng đồng",
-      "description": "Mình sáng lập tổ chức thiện nguyện The Dreamers, dẫn dắt các nhóm phát triển 5 người, và tổ chức sự kiện trường cho 600–1000+ người tham dự — bằng chứng cho thấy giỏi code và giỏi làm việc với con người không hề mâu thuẫn."
+      "title": "Tech Lead & Cộng đồng",
+      "description": "Dẫn dắt đội 5 kỹ sư phát triển sản phẩm thực tế. Sáng lập The Dreamers (từ thiện công nghệ), MC sự kiện 600–1000+ khán giả — kỹ sư không chỉ viết code mà còn tạo ra giá trị xã hội bền vững."
     }
   ],
   "funFacts": [
     {
+      "title": "Quán quân Hackathon CV 2026",
+      "description": "Giành Giải Nhất cuộc thi Hackathon Computer Vision 2026 tại FPT University — xây dựng giải pháp thị giác máy tính nhận diện và xử lý hình ảnh thời gian thực."
+    },
+    {
       "title": "MC cho hơn 1.000 khán giả",
-      "description": "Mình từng dẫn chương trình các sự kiện trường với khán giả trực tiếp lên đến 1.000 người — quản lý chương trình, phối hợp diễn giả, và xử lý những tình huống bất ngờ ngay trên sân khấu."
+      "description": "Từng dẫn chương trình các sự kiện trường với khán giả trực tiếp lên đến 1.000 người — điều phối sân khấu, ứng biến linh hoạt và truyền năng lượng tích cực."
     },
     {
-      "title": "Diễn viên quảng cáo & Model",
-      "description": "Mình từng xuất hiện trong các clip quảng cáo cho đại lý Honda Tiến Thủ và làm mẫu ảnh cho bộ ảnh chính thức của Đại học FPT cùng thương hiệu váy cưới LenDoan."
+      "title": "Sáng lập The Dreamers năm 19 tuổi",
+      "description": "Thành lập tổ chức từ thiện The Dreamers, phát triển lên 30 thành viên và tổ chức hơn 6 dự án cộng đồng mang giáo dục công nghệ đến trẻ em có hoàn cảnh khó khăn."
     },
     {
-      "title": "5 lần vào chung kết cuộc thi",
-      "description": "Lọt vào chung kết FPT Code Talent, Innocode Camp, ResFes (2 lần) và Code Mosaic — trong khi vẫn phải cân bằng giữa thực tập và công việc tổ chức."
+      "title": "5 lần vào chung kết cuộc thi công nghệ",
+      "description": "Lọt vào chung kết và đạt giải cao tại FPT Code Talent, Innocode Camp, ResFes toàn quốc (2 lần) và Code Mosaic trong khi vẫn duy trì thành tích học tập xuất sắc."
     },
     {
-      "title": "Sáng lập tổ chức từ thiện năm 19 tuổi",
-      "description": "Thành lập The Dreamers năm 19 tuổi, phát triển lên hơn 15 thành viên và tổ chức hơn 6 sự kiện cộng đồng xoay quanh giáo dục công nghệ cho trẻ mồ côi."
+      "title": "Kỷ luật thể thao từ 5:30 sáng",
+      "description": "Duy trì thói quen chạy bộ và đá bóng sáng sớm trước khi bắt đầu ngày làm việc. Kỷ luật thể chất giúp duy trì sự bền bỉ và tập trung cao độ khi xử lý dự án lớn."
     },
     {
-      "title": "Tự học tiếng Nhật",
-      "description": "Đang tự học tiếng Nhật từ con số 0 — đã qua được Hiragana và Katakana trong lúc vẫn học CS toàn thời gian và đi thực tập. Vì sao không thử."
-    },
-    {
-      "title": "Thức dậy lúc 5:30 sáng",
-      "description": "Chạy bộ và đá bóng trước 7 giờ sáng hầu hết các ngày. Kỷ luật thể chất đó ảnh hưởng nhiều đến cách mình xử lý deadline và áp lực."
+      "title": "Tự học ngôn ngữ & công nghệ mới",
+      "description": "Liên tục cập nhật công nghệ AI, Cloud và tự học thêm tiếng Nhật — tinh thần không ngừng học hỏi và thử thách bản thân vượt khỏi giới hạn an toàn."
     }
   ],
   "experience": [
@@ -494,12 +498,12 @@
       "description": "MC cho hơn 50 sự kiện trường và lễ khai giảng. Trọng tài cuộc thi FPTU AI & Robotics 2025 và Đại sứ sinh viên Dự án Kinh tế Đà Nẵng 'Working Space'."
     },
     {
-      "role": "Freelance Full-Stack Developer",
-      "company": "Biensovip (Khách hàng freelance)",
-      "type": "Freelance",
+      "role": "Tech Lead & Co-Founder",
+      "company": "Biensovip.com & Team 5 Kỹ Sư Đà Nẵng",
+      "type": "Tech Lead & Sản phẩm",
       "duration": "05/2026 – Hiện tại",
       "status": "Hiện tại",
-      "description": "Thiết kế và xây dựng độc lập nền tảng marketplace solo (biensovip.com) — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth và VPS deployment. Làm chủ quy trình bàn giao freelancer: thu thập yêu cầu, đề xuất giải pháp kỹ thuật, lộ trình MVP 30 ngày, tích hợp Cloudinary, AWS SES, DeepSeek AI chatbot."
+      "description": "Dẫn dắt đội ngũ 5 kỹ sư tại Đà Nẵng thiết kế và vận hành nền tảng marketplace biensovip.com và cung cấp giải pháp Website & SaaS trọn gói cho khách hàng. Trực tiếp thiết kế kiến trúc .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, VietQR webhook khớp lệnh tức thì <0.5s, tích hợp AI DeepSeek và tự động hóa n8n."
     }
   ],
   "skills": [
@@ -832,12 +836,16 @@
   ],
   "educationItems": [
     {
+      "degree": "Tech Lead & Kỹ Sư Trưởng (Khởi Nghiệp Đa Công Nghệ)",
+      "description": "Dẫn dắt **đội ngũ 5 kỹ sư** tại Đà Nẵng phát triển Website thương mại, SaaS Automation và AI Agent bằng **đa công nghệ** (.NET 8, React/Next.js, Python FastAPI, PostgreSQL, VietQR Webhook, n8n). Trực tiếp thiết kế và vận hành **biensovip.com** — nền tảng marketplace biển số xe với VietQR tự động, xử lý 100+ lượt truy cập/ngày, uptime 99.98%, khớp lệnh <0.5s."
+    },
+    {
       "degree": "Thực tập sinh Software Developer",
       "description": "Phát triển các ứng dụng doanh nghiệp sử dụng **OutSystems Reactive Web** trong môi trường Agile tại FPT Software. Debug và tối ưu hóa code nhằm nâng cao hiệu năng hệ thống và trải nghiệm người dùng."
     },
     {
       "degree": "Đại học (Khoa học Máy tính)",
-      "description": "Hiện đang theo học **Cử nhân Khoa học Máy tính** tại Đại học FPT (GPA 3.3/4.0 - 8.2/10.0). Chương trình học tập trung chuyên sâu vào kỹ thuật phần mềm, cấu trúc dữ liệu, giải thuật, và hệ thống backend với Java Spring Boot, .NET và Python FastAPI."
+      "description": "Hiện đang theo học **Cử nhân Khoa học Máy tính** tại Đại học FPT (GPA 3.3/4.0 - 8.2/10.0). Đạt **Giải Nhất Quán Quân Hackathon Computer Vision 2026** và **Top 5 ResFes Toàn Quốc**. Chuyên sâu Java Spring Boot, .NET, Python FastAPI và kiến trúc phần mềm."
     },
     {
       "degree": "Chương trình Trao đổi Sinh viên Quốc tế (FPTU Student Exchange)",

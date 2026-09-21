@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaTags, FaArrowLeft } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaTags, FaArrowLeft, FaRocket, FaNewspaper, FaArrowRight, FaBookOpen } from 'react-icons/fa';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
@@ -20,8 +20,9 @@ const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { t } = useTranslation();
-  const { projects } = useTranslatedData();
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language === 'en';
+  const { projects, posts = [] } = useTranslatedData();
   const project = projects.find(p => String(p.id) === id);
 
   const heroRef = useRef(null);
@@ -29,6 +30,15 @@ const ProjectDetail = () => {
   const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroSpring = { stiffness: 200, damping: 30 };
   const heroImgY = useSpring(useTransform(heroScroll, [0, 1], [0, prefersReducedMotion ? 0 : 60]), heroSpring);
+
+  const relatedPosts = (posts || []).filter(pItem => {
+    if (!project) return false;
+    if (project.id === 26 && pItem.slug?.includes('biensovip')) return true;
+    if (pItem.relatedProjectId && String(pItem.relatedProjectId) === String(project.id)) return true;
+    const itemTags = pItem.tags || [];
+    const projTechs = (project.tags || []).concat(project.technologies || []);
+    return itemTags.some(t => projTechs.some(pt => pt.toLowerCase().includes(t.toLowerCase()) || t.toLowerCase().includes(pt.toLowerCase())));
+  });
 
   if (!project) {
     return (
@@ -337,25 +347,20 @@ const ProjectDetail = () => {
             </p>
           </div>
 
-          {/* Quick links in sidebar */}
-          {(project.githubUrl && project.githubUrl !== '#') || (project.liveUrl && project.liveUrl !== '#') ? (
-            <div style={{ backgroundColor: '#f7f7f5', borderRadius: '16px', padding: '20px' }}>
-              <p style={{
-                fontFamily: 'JetBrains Mono, monospace', fontSize: '10px',
-                letterSpacing: '0.5px', textTransform: 'uppercase',
-                color: '#888888', margin: '0 0 12px 0',
-              }}>
-                {t('projects.links')}
-              </p>
+          {/* Links */}
+          {(project.githubUrl || (project.liveUrl && project.liveUrl !== '#')) ? (
+            <div>
+              <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.5px', textTransform: 'uppercase', color: '#888888', display: 'block', marginBottom: '12px' }}>
+                {t('projects.linksLabel')}
+              </span>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {project.githubUrl && project.githubUrl !== '#' && (
+                {project.githubUrl && (
                   <a
                     href={project.githubUrl} target="_blank" rel="noopener noreferrer"
                     style={{
                       display: 'flex', alignItems: 'center', gap: '8px',
                       fontSize: '14px', fontWeight: '400', color: '#000000',
                       textDecoration: 'none', padding: '8px 0',
-                      borderBottom: '1px solid #e6e6e6',
                     }}
                     onMouseEnter={e => e.currentTarget.style.opacity = '0.6'}
                     onMouseLeave={e => e.currentTarget.style.opacity = '1'}
@@ -382,6 +387,139 @@ const ProjectDetail = () => {
           ) : null}
         </motion.div>
       </div>
+
+      {/* Related Engineering Deep-Dives from Blog */}
+      {relatedPosts.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          style={{
+            marginTop: '56px',
+            padding: '28px 32px',
+            backgroundColor: '#f8fafc',
+            borderRadius: '24px',
+            border: '1px solid #e2e8f0',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+            <FaBookOpen style={{ color: '#6d3fc9' }} size={16} />
+            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.5px', textTransform: 'uppercase', color: '#64748b', fontWeight: 600 }}>
+              {isEn ? "Technical Deep-Dives & Architecture" : "Phân Tích Kiến Trúc Kỹ Thuật (Blog)"}
+            </span>
+          </div>
+          <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#0f172a', margin: '0 0 16px 0' }}>
+            {isEn ? "Read the engineering case studies behind this project:" : "Đọc các bài viết phân tích chuyên sâu về hệ thống này:"}
+          </h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+            {relatedPosts.map(pItem => (
+              <Link
+                key={pItem.slug}
+                to={`/blog/${pItem.slug}`}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  padding: '18px 20px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '16px',
+                  border: '1px solid #e2e8f0',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = '#6d3fc9'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(109,63,201,0.08)'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
+              >
+                <div>
+                  <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '8px' }}>
+                    {pItem.tags?.slice(0, 2).map(tag => (
+                      <span key={tag} style={{ fontSize: '10px', fontFamily: 'JetBrains Mono, monospace', padding: '2px 8px', borderRadius: '50px', backgroundColor: '#ede5fb', color: '#6d3fc9' }}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h4 style={{ fontSize: '15px', fontWeight: 600, color: '#0f172a', margin: '0 0 8px 0', lineHeight: '1.4' }}>
+                    {pItem.title}
+                  </h4>
+                  <p style={{ fontSize: '13px', color: '#64748b', margin: '0 0 14px 0', lineHeight: '1.5' }}>
+                    {pItem.excerpt ? `${pItem.excerpt.slice(0, 110)}...` : ''}
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', fontWeight: 600, color: '#6d3fc9', marginTop: 'auto' }}>
+                  <span>{isEn ? "Read Article" : "Đọc Bài Viết"}</span>
+                  <FaArrowRight size={11} />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+      )}
+
+      {/* Cross-linking CTA to Services & Contact */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        style={{
+          marginTop: '40px',
+          padding: '32px',
+          borderRadius: '24px',
+          backgroundColor: '#111827',
+          color: '#ffffff',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          gap: '16px',
+        }}
+      >
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', borderRadius: '50px', backgroundColor: 'rgba(255,255,255,0.1)', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#dceeb1' }}>
+          <FaRocket size={11} /> {isEn ? "Need a similar system?" : "Cần xây dựng hệ thống tương tự?"}
+        </div>
+        <h3 style={{ fontSize: 'clamp(20px, 2.5vw, 24px)', fontWeight: 600, margin: 0, lineHeight: '1.3' }}>
+          {isEn
+            ? "Looking to build a production-grade web or SaaS platform with proven scalability?"
+            : "Bạn muốn sở hữu một hệ thống website / SaaS thương mại với độ hoàn thiện cao tương tự?"}
+        </h3>
+        <p style={{ fontSize: '15px', color: '#9ca3af', margin: 0, maxWidth: '680px', lineHeight: '1.6' }}>
+          {isEn
+            ? "Our 5-engineer team in Da Nang specializes in high-performance web systems, SaaS automation, and VietQR integration. Direct 1-on-1 collaboration with Tech Lead Lê Trí Trung."
+            : "Đội ngũ 5 kỹ sư tại Đà Nẵng chuyên xây dựng Website thương mại, SaaS Automation và cổng VietQR tự động. Làm việc trực tiếp 1-1 với Tech Lead Lê Trí Trung, cam kết deadline và chất lượng production."}
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '8px' }}>
+          <Link
+            to="/dich-vu"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              padding: '11px 22px', borderRadius: '50px',
+              backgroundColor: '#6d3fc9', color: '#ffffff',
+              fontSize: '14px', fontWeight: 600, textDecoration: 'none',
+              transition: 'opacity 0.15s ease',
+            }}
+            onMouseEnter={e => e.currentTarget.style.opacity = '0.9'}
+            onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+          >
+            <span>{isEn ? "View Services & Manday Pricing" : "Xem Dịch Vụ & Báo Giá Manday"}</span>
+            <FaArrowRight size={12} />
+          </Link>
+          <Link
+            to="/contact"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              padding: '11px 22px', borderRadius: '50px',
+              backgroundColor: 'rgba(255,255,255,0.1)', color: '#ffffff',
+              fontSize: '14px', fontWeight: '500', textDecoration: 'none',
+              border: '1px solid rgba(255,255,255,0.2)',
+              transition: 'all 0.15s ease',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)'; }}
+            onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'; }}
+          >
+            <span>{isEn ? "Direct 1-on-1 Consultation" : "Đặt Lịch Tư Vấn 1-1"}</span>
+          </Link>
+        </div>
+      </motion.div>
 
       {/* Other projects */}
       <OtherProjects current={project} />

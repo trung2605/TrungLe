@@ -236,7 +236,7 @@ export const personalInfo = {
     "Tech Lead dẫn dắt đội 5 kỹ sư tại Đà Nẵng — chuyên phát triển Website thương mại, SaaS Automation và tích hợp AI Agent cho doanh nghiệp vừa & nhỏ. Quán quân Hackathon Computer Vision 2026 (FPT University). Đang vận hành biensovip.com — nền tảng marketplace giao dịch biển số xe với VietQR tự động.",
   contact: {
     email: "letritrung2605@gmail.com",
-    phone: "(+84) 912 158 715",
+    phone: "(+84) 782 399 721",
     birthday: "26/05/2005",
     location: "Ngũ Hành Sơn, TP. Đà Nẵng, Việt Nam",
     facebook: "https://www.facebook.com/trung.le.2605",
@@ -377,52 +377,101 @@ export const experienceBlocks = [
 export const education = [
   {
     id: 1,
-    school: "Đội Ngũ Kỹ Sư Đà Nẵng (Tự Khởi Nghiệp)",
+    commitHash: "f8e21a9",
+    branch: "main",
+    branchLabel: "main / production",
+    school: "Đội Ngũ Kỹ Sư Đà Nẵng (Khởi Nghiệp Đa Công Nghệ)",
     degree: "Tech Lead & Kỹ Sư Trưởng",
     duration: "01/2026 - Hiện tại",
     gpa: "Đang hoạt động",
     status: "Current",
+    techStack: [".NET 8", "React / Next.js", "Python FastAPI", "PostgreSQL", "VietQR Webhook", "n8n Automation", "DeepSeek AI"],
+    diffStat: "+14,280 / -340 lines · 5 engineers · Production",
+    highlights: [
+      "Dẫn dắt trực tiếp đội ngũ 5 kỹ sư xây dựng giải pháp SaaS & Website thương mại cho khách hàng SME",
+      "Vận hành nền tảng thực tế biensovip.com — tích hợp cổng VietQR tự động <0.5s, 100+ visits/ngày",
+      "Thiết kế kiến trúc Clean Architecture, tối ưu query PostgreSQL Composite Index từ 350ms xuống <8ms"
+    ],
     description:
-      "Dẫn dắt **đội 5 kỹ sư** phát triển Website thương mại, SaaS Automation và AI Agent cho khách hàng SME. Đang vận hành **biensovip.com** — sàn marketplace giao dịch biển số xe với VietQR tự động, xử lý 100+ lượt truy cập/ngày, uptime 99.98%, độ trễ API <120ms.",
+      "Dẫn dắt **đội 5 kỹ sư** phát triển Website thương mại, SaaS Automation và AI Agent bằng **đa công nghệ** (.NET 8, React/Next.js, Python FastAPI, PostgreSQL, VietQR Webhook, n8n). Đang trực tiếp vận hành **biensovip.com** — sàn marketplace giao dịch biển số xe với VietQR tự động, xử lý 100+ lượt truy cập/ngày, uptime 99.98%, độ trễ API <120ms.",
   },
   {
     id: 2,
+    commitHash: "e7b04c2",
+    branch: "feature/enterprise-ojt",
+    branchLabel: "enterprise / agile",
     school: "FPT Software (FSoft)",
     degree: "Software Developer Intern",
     duration: "08/2025 - 12/2025",
-    gpa: "Passed",
+    gpa: "Passed (Xuất sắc)",
     status: "Completed",
+    techStack: ["OutSystems Reactive Web", "Agile / Scrum", "Enterprise Architecture", "RESTful API", "SQL Optimization"],
+    diffStat: "+8,950 / -420 lines · Enterprise Client Delivery",
+    highlights: [
+      "Phát triển ứng dụng doanh nghiệp OutSystems Reactive Web trong môi trường Agile chuẩn FSoft",
+      "Tiếp thu mô hình 4-Layer Canvas Architecture, tối ưu hóa Database Aggregate và API tích hợp",
+      "Hoàn thành xuất sắc kỳ OJT thực tập doanh nghiệp được nhà trường và FSoft công nhận"
+    ],
     description:
       "Phát triển ứng dụng enterprise bằng **OutSystems Reactive Web** trong môi trường Agile. Tối ưu hiệu năng và refactor code hệ thống. Hoàn thành chứng chỉ OJT được FPT University công nhận.",
   },
   {
     id: 3,
-    school: "FPT University",
+    commitHash: "d6a13b5",
+    branch: "academic/cs-research",
+    branchLabel: "academic / ai-research",
+    school: "FPT University (Đại học FPT Đà Nẵng)",
     degree: "University (Computer Science)",
     duration: "09/2023 - Present",
     gpa: "3.3/4.0 - 8.2/10.0",
     status: "Current",
+    techStack: ["Java Spring Boot", ".NET Core", "Python / PyTorch", "Computer Vision (YOLO/CNN)", "Distributed Systems"],
+    diffStat: "+22,400 / -1,150 lines · Top 5 ResFes · Quán Quân 2026",
+    highlights: [
+      "Quán quân Giải Nhất Cuộc thi Hackathon Computer Vision 2026 tại FPT University",
+      "Top 5 ResFes Toàn Quốc — Đề tài nghiên cứu khoa học công nghệ AI bảo mật đa luồng",
+      "GPA 3.3/4.0 chuyên ngành Kỹ thuật Phần mềm & Khoa học Máy tính"
+    ],
     description:
       "Đang theo học **Cử nhân Khoa học Máy tính** (GPA 3.3/4.0). Đạt **Giải Nhất Hackathon Computer Vision 2026** và **Top 5 ResFes Toàn Quốc** về nghiên cứu AI bảo mật đa luồng. Chuyên sâu Java Spring Boot, .NET, Python FastAPI và kiến trúc phần mềm.",
   },
   {
     id: 4,
-    school:
-      "Tunku Abdul Rahman University of Management and Technology (TAR UMT)",
+    commitHash: "b4f98e1",
+    branch: "global/mobility-exchange",
+    branchLabel: "global / international",
+    school: "Tunku Abdul Rahman University of Management and Technology (TAR UMT)",
     degree: "FPTU Student Exchange / Inbound Mobility Programme",
     duration: "12/2023",
     gpa: "Passed",
     status: "Completed",
+    techStack: ["Global Communication", "Cross-Cultural Collaboration", "International Agile Workflow"],
+    diffStat: "+1,200 lines · Kuala Lumpur, Malaysia",
+    highlights: [
+      "Tham gia chương trình Trao đổi Sinh viên Quốc tế FPTU tại Kuala Lumpur, Malaysia",
+      "Mở rộng tư duy phát triển phần mềm toàn cầu, nâng cao kỹ năng làm việc nhóm đa quốc gia",
+      "Giao tiếp tiếng Anh chuyên ngành công nghệ thuần thục"
+    ],
     description:
       "Tham gia **Chương trình Trao đổi Sinh viên FPTU** tại **Kuala Lumpur, Malaysia**. Mở rộng góc nhìn học thuật đa văn hóa và phát triển kỹ năng giao tiếp quốc tế.",
   },
   {
     id: 5,
-    school: "Phan Chau Trinh High School",
+    commitHash: "a1c72f0",
+    branch: "foundation/stem-roots",
+    branchLabel: "roots / foundation",
+    school: "Phan Chau Trinh High School (THPT Phan Châu Trinh)",
     degree: "High School Diploma",
     duration: "09/2020 - 06/2023",
     gpa: "9.0/10.0",
     status: "Graduated",
+    techStack: ["Advanced Mathematics", "Logical Algorithms", "Analytical Thinking"],
+    diffStat: "+Initial Commit · 9.0 GPA",
+    highlights: [
+      "Tốt nghiệp với điểm trung bình GPA xuất sắc 9.0/10.0",
+      "Nền tảng Toán học và tư duy giải thuật phản biện đạt chuẩn đầu vào đại học xuất sắc",
+      "Tham gia các hoạt động Đoàn thể và câu lạc bộ học thuật trường"
+    ],
     description:
       "Tốt nghiệp với **GPA 9.0/10.0**. Xây dựng nền tảng tư duy phân tích và toán học vững chắc.",
   },

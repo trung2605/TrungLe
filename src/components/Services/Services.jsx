@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaCheckCircle, 
@@ -263,15 +264,50 @@ const Services = () => {
                 </li>
               </ul>
 
-              <div className="showcase-cta-row">
+              <div className="showcase-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
                 <a 
                   href="https://biensovip.com" 
                   target="_blank" 
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer" 
                   className="btn-view-live"
                 >
                   {isEn ? "Explore Live Marketplace" : "Trải Nghiệm Sàn Thực Tế"} <FaExternalLinkAlt size={12} />
                 </a>
+
+                <Link
+                  to="/projects/26"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '8px',
+                    padding: '10px 18px', borderRadius: '50px',
+                    backgroundColor: '#ffffff', color: '#111827',
+                    fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
+                    border: '1px solid #d1d5db',
+                    transition: 'all 0.15s ease',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.backgroundColor = '#f9fafb'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.backgroundColor = '#ffffff'; }}
+                >
+                  <span>{isEn ? "Technical Case Study" : "Case Study Kỹ Thuật"}</span>
+                  <FaArrowRight size={11} />
+                </Link>
+
+                <Link
+                  to="/blog/biensovip-postgresql-vs-mongodb-multi-filter"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '8px',
+                    padding: '10px 18px', borderRadius: '50px',
+                    backgroundColor: '#ede5fb', color: '#6d3fc9',
+                    fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
+                    border: '1px solid rgba(109, 63, 201, 0.2)',
+                    transition: 'all 0.15s ease',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#e3d6fa'; }}
+                  onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#ede5fb'; }}
+                >
+                  <span>{isEn ? "PostgreSQL 8ms Deep-Dive" : "Bài Viết CSDL PostgreSQL 8ms"}</span>
+                  <FaArrowRight size={11} />
+                </Link>
+
                 <span className="metric-badge">⚡ Lighthouse: 98/100</span>
               </div>
             </div>
@@ -508,35 +544,35 @@ const Services = () => {
             </div>
             <div className="funnel-steps-row">
               <div className="funnel-step">
-                <span className="step-count">18</span>
-                <span className="step-name">{isEn ? "Active Visitors" : "Lượt Xem Độc Bản"}</span>
-                <span className="step-pct">+100% Traffic</span>
+                <span className="step-count">1,250+</span>
+                <span className="step-name">{isEn ? "Unique Visitors" : "Lượt Xem Độc Bản"}</span>
+                <span className="step-pct">{isEn ? "Targeted Buyer Traffic" : "Lượng Khách Tiếp Cận"}</span>
               </div>
               <div className="funnel-arrow">➔</div>
               <div className="funnel-step highlight">
-                <span className="step-count">24</span>
-                <span className="step-name">{isEn ? "Leads Collected" : "Yêu Cầu Liên Hệ"}</span>
-                <span className="step-pct">133.3% Tương Tác</span>
+                <span className="step-count">180+</span>
+                <span className="step-name">{isEn ? "Plates Searched & Leads" : "Yêu Cầu Tra Cứu & Liên Hệ"}</span>
+                <span className="step-pct">{isEn ? "14.4% Conversion" : "14.4% Tỷ Lệ Tương Tác"}</span>
               </div>
               <div className="funnel-arrow">➔</div>
               <div className="funnel-step">
-                <span className="step-count">4</span>
-                <span className="step-name">{isEn ? "In Active Negotiation" : "Đang Tư Vấn Chuyên Sâu"}</span>
-                <span className="step-pct">Phân luồng tự động</span>
+                <span className="step-count">24</span>
+                <span className="step-name">{isEn ? "In Consultation & Booking" : "Tư Vấn Chuyên Sâu & Giữ Chỗ"}</span>
+                <span className="step-pct">{isEn ? "VietQR Deposit Flow" : "Phân Luồng Đặt Cọc VietQR"}</span>
               </div>
               <div className="funnel-arrow">➔</div>
               <div className="funnel-step success">
                 <span className="step-count">9</span>
-                <span className="step-name">{isEn ? "Deals Closed" : "Đã Chốt Thành Công"}</span>
-                <span className="step-pct">+125% Tăng trưởng</span>
+                <span className="step-name">{isEn ? "Deals Closed in Cycle" : "Giao Dịch Đã Chốt (30 Ngày)"}</span>
+                <span className="step-pct">{isEn ? "37.5% Close Rate" : "37.5% Tỷ Lệ Chốt"}</span>
               </div>
             </div>
 
             <div className="funnel-footer-details">
               <div className="tag-group">
-                <span className="intent-tag">📌 15 Hỏi thông tin chung</span>
-                <span className="intent-tag">📌 5 Đặt cọc giữ chỗ</span>
-                <span className="intent-tag">📌 4 Mua đứt tức thì</span>
+                <span className="intent-tag">{isEn ? "📌 12 Auto-deposits via VietQR Webhook" : "📌 12 Đặt cọc tự động qua VietQR Webhook"}</span>
+                <span className="intent-tag">{isEn ? "📌 8 Outright Purchases Handed Over" : "📌 8 Mua đứt và bàn giao giấy tờ"}</span>
+                <span className="intent-tag">{isEn ? "📌 4 Finalizing Ownership Transfer" : "📌 4 Đang hoàn tất thủ tục sang tên"}</span>
               </div>
               <div className="rating-pill">
                 <FaStar style={{ color: '#f59e0b' }} /> {isEn ? "Client Satisfaction: 5.0 / 5.0 ★ Absolute" : "Đánh Giá Hài Lòng: 5.0 / 5.0 ★ Tuyệt Đối"}
@@ -837,8 +873,23 @@ const Services = () => {
             <div className="leader-row">
               <img src={NewAvatar} alt="Lê Trí Trung - Leader" className="avatar" />
               <div>
-                <h3>Lê Trí Trung</h3>
-                <p>Team Leader & Software Architect (Đà Nẵng)</p>
+                <h3 style={{ margin: '0 0 2px 0' }}>Lê Trí Trung</h3>
+                <p style={{ margin: '0 0 6px 0' }}>Team Leader & Software Architect (Đà Nẵng)</p>
+                <Link 
+                  to="/about"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '5px',
+                    fontSize: '12.5px',
+                    fontWeight: '600',
+                    color: '#6d3fc9',
+                    textDecoration: 'none',
+                    borderBottom: '1px dashed #6d3fc9',
+                  }}
+                >
+                  {isEn ? "Read Full Background & Story →" : "Xem Hành Trình & Giới Thiệu Bản Thân →"}
+                </Link>
               </div>
             </div>
 

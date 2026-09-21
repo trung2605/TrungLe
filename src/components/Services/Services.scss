@@ -487,8 +487,16 @@
   /* Empathy 4-Cards Grid */
   .empathy-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+
+    @media (max-width: 1120px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 580px) {
+      grid-template-columns: 1fr;
+    }
 
     .empathy-card {
       background: var(--color-canvas);
@@ -511,14 +519,14 @@
       }
 
       .card-svg-wrap {
-        padding: 20px 20px 0;
+        padding: 16px 16px 0;
         display: flex;
         align-items: center;
         justify-content: center;
 
         .service-svg {
           width: 100%;
-          max-height: 120px;
+          max-height: 110px;
           display: block;
         }
       }
@@ -703,16 +711,27 @@
       }
 
       .funnel-steps-row {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
         align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        flex-wrap: wrap;
+        gap: 8px;
         margin-bottom: 16px;
 
+        @media (max-width: 900px) {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+
+          .funnel-arrow {
+            display: none;
+          }
+        }
+
+        @media (max-width: 500px) {
+          grid-template-columns: 1fr;
+        }
+
         .funnel-step {
-          flex: 1;
-          min-width: 140px;
+          width: 100%;
           background: var(--color-canvas);
           border: 1px solid var(--color-hairline);
           border-radius: 12px;
@@ -879,9 +898,16 @@
   /* Pricing Cards Grid */
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-bottom: 40px;
+
+    @media (max-width: 1040px) {
+      grid-template-columns: 1fr;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     .pricing-card {
       background: var(--color-card-bg);

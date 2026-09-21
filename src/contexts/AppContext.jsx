@@ -6,10 +6,10 @@ const AppContext = createContext();
 const initialState = {
   user: {
     name: 'Lê Trí Trung',
-    title: 'Java Developer | Computer Science Student',
+    title: 'Tech Lead & Full-Stack Engineer',
     email: 'letritrung2605@gmail.com',
-    phone: '(+84) 912 158 715',
-    location: 'Hai Chau, Da Nang, Viet Nam',
+    phone: '(+84) 782 399 721',
+    location: 'Ngũ Hành Sơn, TP. Đà Nẵng, Việt Nam',
     birthday: '26/05/2005',
     facebook: 'Trung Lê',
   },

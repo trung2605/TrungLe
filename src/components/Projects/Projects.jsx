@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaInbox } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaInbox, FaRocket, FaNewspaper, FaArrowRight } from 'react-icons/fa';
 import { skillTaxonomy } from '../../data';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import SkillChart from './SkillChart';
@@ -400,6 +400,73 @@ const Projects = () => {
           <div>{t('projects.noResults')}</div>
         </div>
       )}
+
+      {/* Cross-linking Banner to Services & Blog */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        style={{
+          marginTop: '64px',
+          padding: '36px 32px',
+          borderRadius: '24px',
+          backgroundColor: '#f8fafc',
+          border: '1px solid #e2e8f0',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '24px',
+        }}
+      >
+        <div style={{ maxWidth: '640px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', borderRadius: '50px', backgroundColor: '#ede5fb', color: '#6d3fc9', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', marginBottom: '12px' }}>
+            <FaRocket size={11} /> Team 5 Kỹ Sư Đà Nẵng
+          </div>
+          <h3 style={{ fontSize: 'clamp(20px, 2.5vw, 24px)', fontWeight: '600', color: '#0f172a', margin: '0 0 8px 0', lineHeight: '1.3' }}>
+            Bạn muốn xây dựng một hệ thống Website thương mại hoặc ứng dụng SaaS chất lượng cao?
+          </h3>
+          <p style={{ fontSize: '15px', color: '#64748b', margin: 0, lineHeight: '1.6' }}>
+            Đội ngũ 5 kỹ sư công nghệ tại Đà Nẵng cung cấp dịch vụ phát triển website & SaaS trọn gói, tính giá theo Manday minh bạch, làm việc trực tiếp 1-1 với Tech Lead.
+          </p>
+        </div>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+          <Link
+            to="/dich-vu"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              padding: '12px 24px', borderRadius: '50px',
+              backgroundColor: '#6d3fc9', color: '#ffffff',
+              fontSize: '14px', fontWeight: '600', textDecoration: 'none',
+              boxShadow: '0 4px 14px rgba(109,63,201,0.25)',
+              transition: 'opacity 0.15s ease',
+            }}
+            onMouseEnter={e => e.currentTarget.style.opacity = '0.9'}
+            onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+          >
+            <span>Xem Bảng Giá & Dịch Vụ</span>
+            <FaArrowRight size={12} />
+          </Link>
+          <Link
+            to="/blog"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              padding: '12px 24px', borderRadius: '50px',
+              backgroundColor: '#ffffff', color: '#1e293b',
+              fontSize: '14px', fontWeight: '500', textDecoration: 'none',
+              border: '1px solid #cbd5e1',
+              transition: 'all 0.15s ease',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#6d3fc9'; e.currentTarget.style.color = '#6d3fc9'; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.color = '#1e293b'; }}
+          >
+            <FaNewspaper size={12} />
+            <span>Đọc Kỹ Thuật Blog</span>
+          </Link>
+        </div>
+      </motion.div>
     </div>
   );
 };

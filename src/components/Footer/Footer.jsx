@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaArrowUp, FaMapMarkerAlt, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaArrowUp, FaMapMarkerAlt, FaInstagram, FaPhoneAlt } from 'react-icons/fa';
 import { socialLinks } from '../../data';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import { useTranslation } from 'react-i18next';
@@ -123,6 +123,16 @@ const Footer = () => {
                             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', color: 'var(--color-ink-soft)' }}>
                                 <FaMapMarkerAlt size={13} style={{ marginTop: '2px', flexShrink: 0 }} />
                                 {t('footer.location')}
+                            </li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
+                                <FaPhoneAlt size={13} style={{ flexShrink: 0 }} />
+                                <a
+                                    href="tel:0782399721"
+                                    className="hover-ink"
+                                    style={{ color: 'var(--color-ink-soft)', textDecoration: 'none', transition: 'color 0.15s ease' }}
+                                >
+                                    (+84) 782 399 721 (Zalo)
+                                </a>
                             </li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
                                 <FaEnvelope size={13} style={{ flexShrink: 0 }} />

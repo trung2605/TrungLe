@@ -2,9 +2,24 @@ import { motion } from "framer-motion";
 import { stats } from "../../data";
 import { useTranslatedData } from "../../hooks/useTranslatedData";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import Markdown from "react-markdown";
 import ImageSlider from "./ImageSlider";
-import { FaBirthdayCake, FaMapMarkerAlt, FaGraduationCap, FaBriefcase, FaCalendarAlt, FaCheckCircle } from "react-icons/fa";
+import { 
+  FaBirthdayCake, 
+  FaMapMarkerAlt, 
+  FaGraduationCap, 
+  FaBriefcase, 
+  FaCalendarAlt, 
+  FaCheckCircle,
+  FaPhoneAlt,
+  FaRocket,
+  FaLaptopCode,
+  FaNewspaper,
+  FaTrophy,
+  FaEnvelope,
+  FaArrowRight
+} from "react-icons/fa";
 import BlurText from "../../animations/BlurText";
 import DecryptedText from "../../animations/DecryptedText";
 import TechIcon from "../../common/TechIcon";
@@ -20,7 +35,8 @@ const STATUS_STYLE = {
 };
 
 const About = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language === 'en';
   const { personalInfo, highlights, skills, experience, languages, funFacts } = useTranslatedData();
 
   return (
@@ -39,7 +55,7 @@ const About = () => {
       }}>
         <span style={{ color: '#1ea64a' }}>{'// '}</span>
         <span>about.js</span>
-        <span style={{ color: '#888888', marginLeft: '16px' }}>{'/* Initialized 2002 · Running in Da Nang, VN */'}</span>
+        <span style={{ color: '#888888', marginLeft: '16px' }}>{'/* Initialized 2005 · Tech Lead & Full-Stack @ Da Nang, VN */'}</span>
       </div>
 
       {/* ── STORY + INFO ── */}
@@ -58,7 +74,129 @@ const About = () => {
             {personalInfo.story?.title || 'My Journey'}
           </h2>
           <div style={{ fontSize: '16px', fontWeight: '330', lineHeight: '1.7', color: 'var(--color-ink-soft)' }}>
-            <Markdown>{personalInfo.story?.content || personalInfo.bio}</Markdown>
+            <Markdown
+              components={{
+                a: ({ href, children, ...props }) => {
+                  const isInternal = href && (href.startsWith('/') || href.startsWith('#'));
+                  if (isInternal) {
+                    return (
+                      <Link
+                        to={href}
+                        style={{
+                          color: '#6d3fc9',
+                          fontWeight: '500',
+                          textDecoration: 'underline',
+                          textUnderlineOffset: '3px',
+                          transition: 'opacity 0.15s ease',
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.opacity = '0.8'}
+                        onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+                        {...props}
+                      >
+                        {children}
+                      </Link>
+                    );
+                  }
+                  return (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: '#6d3fc9',
+                        fontWeight: '500',
+                        textDecoration: 'underline',
+                        textUnderlineOffset: '3px',
+                      }}
+                      {...props}
+                    >
+                      {children}
+                    </a>
+                  );
+                }
+              }}
+            >
+              {personalInfo.story?.content || personalInfo.bio}
+            </Markdown>
+          </div>
+
+          {/* Quick interconnected pill links */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '24px' }}>
+            <Link
+              to="/dich-vu"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                padding: '6px 14px', borderRadius: '50px',
+                backgroundColor: '#ede5fb', color: '#6d3fc9',
+                fontSize: '12.5px', fontWeight: '500', textDecoration: 'none',
+                border: '1px solid rgba(109, 63, 201, 0.2)',
+                transition: 'all 0.15s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.backgroundColor = '#e3d6fa'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.backgroundColor = '#ede5fb'; }}
+            >
+              <FaRocket size={11} /> {isEn ? "Team 5 Devs Service" : "Dịch Vụ Team 5 Devs"}
+            </Link>
+            <Link
+              to="/projects/26"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                padding: '6px 14px', borderRadius: '50px',
+                backgroundColor: '#e0f2fe', color: '#0369a1',
+                fontSize: '12.5px', fontWeight: '500', textDecoration: 'none',
+                border: '1px solid rgba(3, 105, 161, 0.2)',
+                transition: 'all 0.15s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.backgroundColor = '#bae6fd'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.backgroundColor = '#e0f2fe'; }}
+            >
+              <FaLaptopCode size={11} /> {isEn ? "Biensovip Case Study" : "Case Study Biển Số VIP"}
+            </Link>
+            <Link
+              to="/achievements?tab=prizes"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                padding: '6px 14px', borderRadius: '50px',
+                backgroundColor: '#fef3c7', color: '#b45309',
+                fontSize: '12.5px', fontWeight: '500', textDecoration: 'none',
+                border: '1px solid rgba(180, 83, 9, 0.2)',
+                transition: 'all 0.15s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.backgroundColor = '#fde68a'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.backgroundColor = '#fef3c7'; }}
+            >
+              <FaTrophy size={11} /> {isEn ? "Hackathon Champion 2026" : "Quán Quân Hackathon 2026"}
+            </Link>
+            <Link
+              to="/blog/biensovip-postgresql-vs-mongodb-multi-filter"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                padding: '6px 14px', borderRadius: '50px',
+                backgroundColor: '#dcfce7', color: '#15803d',
+                fontSize: '12.5px', fontWeight: '500', textDecoration: 'none',
+                border: '1px solid rgba(21, 128, 61, 0.2)',
+                transition: 'all 0.15s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.backgroundColor = '#bbf7d0'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.backgroundColor = '#dcfce7'; }}
+            >
+              <FaNewspaper size={11} /> {isEn ? "PostgreSQL Deep-Dive" : "Bài Viết PostgreSQL 8ms"}
+            </Link>
+            <Link
+              to="/contact"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                padding: '6px 14px', borderRadius: '50px',
+                backgroundColor: '#f3f4f6', color: '#374151',
+                fontSize: '12.5px', fontWeight: '500', textDecoration: 'none',
+                border: '1px solid rgba(55, 65, 81, 0.2)',
+                transition: 'all 0.15s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.backgroundColor = '#e5e7eb'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.backgroundColor = '#f3f4f6'; }}
+            >
+              <FaEnvelope size={11} /> {isEn ? "Direct Contact" : "Liên Hệ Trực Tiếp"}
+            </Link>
           </div>
         </motion.div>
 
@@ -78,6 +216,7 @@ const About = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {[
               { icon: FaBirthdayCake, label: t('about.dateOfBirth'), value: personalInfo.contact?.birthday },
+              { icon: FaPhoneAlt,      label: t('about.phoneLabel') || (isEn ? "Phone / Zalo" : "Điện thoại / Zalo"), value: personalInfo.contact?.phone || "(+84) 782 399 721" },
               { icon: FaMapMarkerAlt,  label: t('about.location'),    value: personalInfo.contact?.location },
               { icon: FaGraduationCap, label: t('about.education'),   value: t('about.educationValue') },
               { icon: FaBriefcase,     label: t('about.specialization'), value: t('about.specializationValue') },
@@ -448,6 +587,135 @@ const About = () => {
               <div style={{ fontSize: '26px', marginBottom: '12px', marginTop: '4px', display: 'flex', alignItems: 'center' }}>{fact.icon}</div>
               <h3 style={{ fontSize: '16px', fontWeight: '540', color: '#000000', margin: '0 0 8px 0', lineHeight: '1.3' }}>{fact.title}</h3>
               <p style={{ fontSize: '14px', fontWeight: '330', lineHeight: '1.6', color: '#555555', margin: 0 }}>{fact.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── ECOSYSTEM & INTERCONNECTED NAVIGATION ── */}
+      <section style={{ marginBottom: '72px' }}>
+        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} style={{ marginBottom: '32px' }}>
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.6px', textTransform: 'uppercase', color: '#666666', marginBottom: '12px' }}>
+            {t('about.ecosystemLabel') || 'Hệ sinh thái & Kết nối'}
+          </p>
+          <h2 style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: '540', lineHeight: '1.15', letterSpacing: '-0.5px', color: '#000000', margin: '0 0 12px 0' }}>
+            {t('about.ecosystemTitle') || 'Khám phá các trang liên kết'}
+          </h2>
+          <p style={{ fontSize: '15px', fontWeight: '330', color: '#666666', margin: 0, maxWidth: '680px' }}>
+            {t('about.ecosystemSubtitle') || 'Khám phá dịch vụ phát triển website của team 5 kỹ sư, showcase dự án thực chiến, bài viết kỹ thuật chuyên sâu và hồ sơ giải thưởng.'}
+          </p>
+        </motion.div>
+
+        <div className="grid-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          {[
+            {
+              title: isEn ? "Web & SaaS Development (Team 5 Devs)" : "Dịch Vụ Làm Website & SaaS (Team 5 Kỹ Sư)",
+              badge: isEn ? "Core Service" : "Dịch vụ nòng cốt",
+              desc: isEn ? "Transparent 5-step engineering process, priced per manday with No Middlemen. Direct collaboration with Tech Lead." : "Quy trình kỹ thuật 5 bước minh bạch, tính giá theo Manday, không qua trung gian. Làm việc 1-1 trực tiếp cùng Tech Lead.",
+              path: "/dich-vu",
+              cta: isEn ? "Explore Services & Pricing" : "Xem bảng giá & quy trình",
+              icon: <FaRocket style={{ color: '#6d3fc9' }} size={22} />,
+              bg: '#ede5fb',
+              accent: '#6d3fc9',
+            },
+            {
+              title: isEn ? "Production Projects Showcase" : "Showcase Dự Án Thực Chiến (28+ Projects)",
+              badge: isEn ? "Production Code" : "Sản phẩm thực tế",
+              desc: isEn ? "Explore live marketplace biensovip.com, ThreadLearn AI, The MC Hub, and full-stack software architectures." : "Khám phá sàn giao dịch biensovip.com, hệ thống AI ThreadLearn, The MC Hub và kiến trúc phần mềm chuẩn production.",
+              path: "/projects",
+              cta: isEn ? "View All Projects" : "Khám phá danh mục dự án",
+              icon: <FaLaptopCode style={{ color: '#0d9488' }} size={22} />,
+              bg: '#ccfbf1',
+              accent: '#0d9488',
+            },
+            {
+              title: isEn ? "Engineering Deep-Dives (Blog)" : "Bài Viết Phân Tích Kỹ Thuật (Blog)",
+              badge: isEn ? "Tech Writing" : "Góc kỹ thuật",
+              desc: isEn ? "In-depth case studies: PostgreSQL multi-filter query optimization under 8ms, Java 21 multithreading, and AI Agents." : "Phân tích case study thực tế: Tối ưu CSDL PostgreSQL từ 350ms xuống 8ms, lập trình đa luồng Java 21, tích hợp AI.",
+              path: "/blog",
+              cta: isEn ? "Read Tech Articles" : "Đọc các bài viết kỹ thuật",
+              icon: <FaNewspaper style={{ color: '#2563eb' }} size={22} />,
+              bg: '#dbeafe',
+              accent: '#2563eb',
+            },
+            {
+              title: isEn ? "Honors & Credentials" : "Hồ Sơ Giải Thưởng & Thành Tựu",
+              badge: isEn ? "Champion 2026" : "Quán quân 2026",
+              desc: isEn ? "Computer Vision Hackathon Champion 2026, Top 5 National ResFes, verified certifications, and leadership roles." : "Quán quân Hackathon Computer Vision 2026, Top 5 ResFes Toàn Quốc, chứng chỉ công nghệ và hoạt động cộng đồng.",
+              path: "/achievements",
+              cta: isEn ? "View Honors & Certificates" : "Xem giải thưởng & chứng chỉ",
+              icon: <FaTrophy style={{ color: '#d97706' }} size={22} />,
+              bg: '#fef3c7',
+              accent: '#d97706',
+            },
+            {
+              title: isEn ? "Direct Consultation & Contact" : "Đặt Lịch Trao Đổi 1-1 Với Tech Lead",
+              badge: isEn ? "<24h Response" : "Phản hồi <24h",
+              desc: isEn ? "Have a project or technical challenge? Let's discuss architecture, feasibility, and get a precise quote." : "Bạn có dự án hoặc bài toán kỹ thuật cần giải quyết? Trao đổi trực tiếp giải pháp và nhận báo giá chi tiết trong 24 giờ.",
+              path: "/contact",
+              cta: isEn ? "Get In Touch Now" : "Gửi thông điệp ngay",
+              icon: <FaEnvelope style={{ color: '#db2777' }} size={22} />,
+              bg: '#fce7f3',
+              accent: '#db2777',
+            },
+          ].map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.08, duration: 0.5 }}
+              whileHover={{ y: -6 }}
+              style={{
+                backgroundColor: '#ffffff',
+                border: '1px solid #e6e6e6',
+                borderRadius: '20px',
+                padding: '24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                position: 'relative',
+                overflow: 'hidden',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = item.accent; e.currentTarget.style.boxShadow = '0 12px 28px rgba(0,0,0,0.09)'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
+            >
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: item.accent }} />
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', marginTop: '4px' }}>
+                  <div style={{ width: '44px', height: '44px', borderRadius: '12px', backgroundColor: item.bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {item.icon}
+                  </div>
+                  <span style={{
+                    padding: '3px 10px', borderRadius: '50px',
+                    fontSize: '11px', fontFamily: 'JetBrains Mono, monospace',
+                    letterSpacing: '0.4px', textTransform: 'uppercase',
+                    backgroundColor: item.bg, color: item.accent, fontWeight: '600',
+                  }}>
+                    {item.badge}
+                  </span>
+                </div>
+                <h3 style={{ fontSize: '17px', fontWeight: '600', color: '#000000', margin: '0 0 8px 0', lineHeight: '1.3' }}>
+                  {item.title}
+                </h3>
+                <p style={{ fontSize: '14px', fontWeight: '330', lineHeight: '1.6', color: '#555555', margin: '0 0 20px 0' }}>
+                  {item.desc}
+                </p>
+              </div>
+
+              <Link
+                to={item.path}
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  fontSize: '13.5px', fontWeight: '600',
+                  color: item.accent, textDecoration: 'none',
+                  marginTop: 'auto',
+                }}
+              >
+                <span>{item.cta}</span>
+                <FaArrowRight size={12} />
+              </Link>
             </motion.div>
           ))}
         </div>

@@ -74,13 +74,13 @@
     "badge": "Available for opportunities",
     "greeting": "Xin chào,",
     "roles": [
-      "Back-End Developer",
-      "Java & .NET Engineer",
-      "Full-Stack Developer",
-      "AI & Problem Solver"
+      "Tech Lead & Full-Stack",
+      "SaaS Automation Specialist",
+      "Java & .NET / AI Engineer",
+      "Problem Solver"
     ],
     "iAm": "I'm a",
-    "heroDesc": "Computer Science student at FPT University. Specializing in Java Spring Boot and modern web development — building clean, scalable applications.",
+    "heroDesc": "Tech Lead leading a 5-engineer team in Da Nang — specializing in commercial websites, SaaS Automation, and AI Agent integrations for SMEs. Operating live marketplace biensovip.com.",
     "viewProjects": "View Projects",
     "downloadCV": "Download CV",
     "statsByNumbers": "By the numbers",
@@ -113,7 +113,7 @@
     "ctaLabel": "Let's build something",
     "ctaTitle": "Open to internship & collaboration opportunities",
     "getInTouch": "Get in touch",
-    "terminalRole": "Software Developer Intern @ FPT Software"
+    "terminalRole": "Tech Lead & Full-Stack Engineer"
   },
   "about": {
     "personalInfoLabel": "Personal Info",
@@ -121,8 +121,8 @@
     "location": "Location",
     "education": "Education",
     "specialization": "Specialization",
-    "educationValue": "FPT University",
-    "specializationValue": "Java Developer",
+    "educationValue": "FPT University Da Nang (Computer Science)",
+    "specializationValue": "Tech Lead & Full-Stack / SaaS Automation",
     "atAGlance": "At a glance",
     "experienceLabel": "Experience",
     "experienceTitle": "Where I've worked & led",
@@ -134,7 +134,11 @@
     "languagesTitle": "How I communicate",
     "funFactsLabel": "Beyond the Resume",
     "funFactsTitle": "Things you won't find on my CV",
-    "galleryLabel": "Gallery"
+    "galleryLabel": "Gallery",
+    "phoneLabel": "Phone / Zalo",
+    "ecosystemLabel": "Ecosystem & Connections",
+    "ecosystemTitle": "Explore Connected Work & Pages",
+    "ecosystemSubtitle": "Explore engineering services, production showcases, deep-dive tech articles, and verified credentials."
   },
   "contact": {
     "label": "Get in touch",
@@ -420,52 +424,52 @@
   ],
   "personalInfo": {
     "storyTitle": "My Journey",
-    "storyContent": "I'm **Lê Trí Trung** — a Computer Science student at **FPT University Da Nang**, currently interning at **FPT Software** as a Software Developer. I specialize in **Java Spring Boot** on the backend and love building full-stack apps that are clean, scalable, and actually useful to someone.\n\nIt all started with just being curious about how things work under the hood. That curiosity took me from Java fundamentals to designing RESTful APIs, wiring up databases, working on real Agile teams, and eventually co-building platforms like **The MC Hub** — a marketplace connecting event MCs with clients, complete with real-time chat, payment integration, and a mobile app.\n\nOutside of code, I've emceed **university events with 600–1000+ attendees**, founded **The Dreamers** — a student charity bringing tech education to orphaned children — and competed in several national-scale coding competitions, making the final rounds at **FPT Code Talent** and **Innocode Camp**.\n\nI believe the best developers aren't just the ones who ship code — they're the ones who can also communicate, lead, and adapt. That's the developer I'm working to become.",
-    "title": "Back-End Developer | Computer Science Student",
-    "intro": "Highly motivated Computer Science student with a strong foundation in web development. Proficient in Java Spring Boot, .NET, JavaScript, React, NodeJS, Python FastAPI and passionate about creating clean, scalable applications and eager to leverage AI technologies to build smarter solutions in a collaborative environment."
+    "storyContent": "I'm **Lê Trí Trung** — Tech Lead and software engineer based in Da Nang, currently leading a **[5-engineer team](/dich-vu)** specializing in business website development, SaaS Automation, and AI Agent integrations for SMEs and shop owners.\n\nAfter completing my Software Developer internship at **[FPT Software](/achievements?tab=education)** (09–12/2025) and winning **[First Prize at the Computer Vision Hackathon 2026](/achievements?tab=prizes)** along with **[Top 5 National ResFes](/achievements?tab=prizes)** at FPT University Da Nang, I translated technical knowledge into real-world impact by designing, engineering, and operating **[biensovip.com](/projects/26)** — an e-commerce marketplace for license plates with automated VietQR payment matching in under 0.5 seconds, handling 100+ visits/day.\n\nWhat drives me most is **business workflow automation (SaaS Automation)**: real-time VietQR webhooks, 24/7 DeepSeek AI consulting agents, and multi-platform n8n automation scenarios — drastically eliminating repetitive human overhead. With our **[No Middlemen philosophy](/dich-vu)**, clients collaborate directly 1-on-1 with the Tech Lead — ensuring rapid iterations, production-grade quality, and optimal investment ROI.\n\nBeyond programming, I've served as an **MC for university events with 600–1000+ attendees**, founded **[The Dreamers](/activities)** — a student charity bringing tech education to orphaned children, and reached final rounds across prestigious national hackathons.\n\nExplore detailed technical breakdowns in our **[Engineering Blog](/blog)** or review packages and pricing at **[Services & Pricing](/dich-vu)**.",
+    "title": "Tech Lead & Full-Stack Engineer | SaaS Automation",
+    "intro": "Tech Lead heading a 5-engineer team in Da Nang — specializing in commercial web platforms, SaaS Automation, and AI Agent integration for SMEs. Winner of Computer Vision Hackathon 2026 (FPT University). Operator of live production marketplace biensovip.com."
   },
   "highlights": [
     {
-      "title": "Backend-First Mindset",
-      "description": "My core strength is Java Spring Boot — designing RESTful APIs, locking down services with JWT, working with both relational and document databases, and building backend systems with an architecture that stays clean even as it grows."
+      "title": "SaaS & AI Automation",
+      "description": "Specialized in end-to-end business automation: real-time VietQR webhooks, 24/7 DeepSeek AI sales agents, and cross-platform n8n orchestration to eliminate manual operations."
     },
     {
-      "title": "Full-Stack Capable",
-      "description": "I'm comfortable moving across the whole stack — React 19 + Vite on the frontend, Spring Boot on the backend — with hands-on experience deploying to Vercel and wiring up third-party services like PayOS and Cloudinary."
+      "title": "Full-Stack Production Systems",
+      "description": "Operating biensovip.com in production: 100+ daily visits, <120ms API latency, 99.98% uptime, and <0.5s payment matching. Practical mastery spanning Java Spring Boot, .NET 8, React/Next.js, PostgreSQL, and Redis."
     },
     {
-      "title": "Competitive Programmer",
-      "description": "I've reached the final rounds at FPT Code Talent, Innocode Camp, and ResFes — competing regularly has sharpened my algorithmic thinking and taught me how to stay sharp under pressure."
+      "title": "Competitive Coding & Research",
+      "description": "Champion of Computer Vision Hackathon 2026, Top 5 National ResFes (multithreaded security AI research). Finalist at FPT Code Talent and Innocode Camp — sharp algorithmic thinking under pressure."
     },
     {
-      "title": "Leader & Community Builder",
-      "description": "I founded The Dreamers charity, led 5-person dev teams, and hosted university events for 600–1000+ attendees — proof that being good at code and being good with people aren't mutually exclusive."
+      "title": "Tech Leadership & Community",
+      "description": "Leading an active 5-engineer development team. Founded The Dreamers tech charity, hosted 600–1000+ attendee events — proving engineers excel in both code and community impact."
     }
   ],
   "funFacts": [
     {
+      "title": "Champion: Hackathon CV 2026",
+      "description": "Won 1st Prize at the Computer Vision Hackathon 2026 at FPT University — building real-time computer vision detection and inference pipelines."
+    },
+    {
       "title": "MC for 1,000+ Attendees",
-      "description": "I've hosted university events with live crowds up to 1,000 people — running the program, wrangling speakers, and rolling with whatever surprises hit the stage."
-    },
-    {
-      "title": "Commercial Actor & Model",
-      "description": "I've appeared in commercial spots for Honda Tien Thu dealership and modeled for FPT University's official photography and its bridal brand LenDoan."
-    },
-    {
-      "title": "5× Competition Finalist",
-      "description": "Made the final rounds at FPT Code Talent, Innocode Camp, ResFes (twice), and Code Mosaic — all while juggling an internship and running an organization."
+      "description": "Hosted major university ceremonies and conferences with live crowds exceeding 1,000 people — managing stage flow, improvisation, and dynamic crowd engagement."
     },
     {
       "title": "Founded a Charity at 19",
-      "description": "Started The Dreamers at 19, grew it to 15+ members, and ran 6+ community events centered on tech education for orphaned children."
+      "description": "Founded The Dreamers at age 19, scaling it to 30 active members and delivering 6+ community projects bringing tech literacy to underprivileged youth."
     },
     {
-      "title": "Self-Learning Japanese",
-      "description": "Teaching myself Japanese from zero — I've gotten through Hiragana and Katakana alongside full-time CS studies and an internship. Because why not."
+      "title": "5× Competition Finalist",
+      "description": "Reached national finals and won top honors across FPT Code Talent, Innocode Camp, ResFes (twice), and Code Mosaic while maintaining strong academic standing."
     },
     {
-      "title": "Wakes Up at 5:30 AM",
-      "description": "Morning runs and football before 7 AM most days. That physical discipline carries over into how I handle deadlines and pressure."
+      "title": "Morning Athletics from 5:30 AM",
+      "description": "Committed to early-morning running and football before work begins. Physical endurance cultivates resilience, focus, and sharp decision-making during high-stakes project releases."
+    },
+    {
+      "title": "Continuous Learning & Languages",
+      "description": "Constantly learning cutting-edge AI frameworks, Cloud orchestration, and conversational Japanese — constantly embracing challenges beyond the comfort zone."
     }
   ],
   "experience": [
@@ -494,12 +498,12 @@
       "description": "MC for 50+ university events and orientation ceremonies. Referee for FPTU AI & Robotics 2025 Competition and Student Ambassador of Danang Economic Project 'Working Space'."
     },
     {
-      "role": "Freelance Full-Stack Developer",
-      "company": "Biensovip (Freelance Client)",
-      "type": "Freelance",
+      "role": "Tech Lead & Co-Founder",
+      "company": "Biensovip.com & Da Nang Dev Team (5 Engineers)",
+      "type": "Tech Lead & Product",
       "duration": "05/2026 – Present",
       "status": "Current",
-      "description": "Independently designed and built full-stack marketplace platform solo (biensovip.com) — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth, and VPS deployment. Owned full delivery as freelancer: client requirements gathering, technical proposal, 30-day MVP roadmap, third-party integrations (Cloudinary, AWS SES, DeepSeek AI chatbot)."
+      "description": "Leading a 5-engineer team based in Da Nang building and operating biensovip.com marketplace, as well as delivering full-cycle web and SaaS solutions. Architected .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, PostgreSQL), React 19, VietQR instant matching, DeepSeek AI, and n8n."
     }
   ],
   "skills": [
@@ -832,12 +836,16 @@
   ],
   "educationItems": [
     {
+      "degree": "Tech Lead & Lead Engineer (Multi-Tech Stack Startup)",
+      "description": "Leading a **5-engineer team** in Da Nang developing commercial websites, SaaS automation, and AI agents with a **multi-tech stack** (.NET 8, React/Next.js, Python FastAPI, PostgreSQL, VietQR Webhook, n8n). Directly designed and operating **biensovip.com** — an automotive plate marketplace with automated VietQR settlement, 100+ daily visits, 99.98% uptime, and <0.5s transaction speed."
+    },
+    {
       "degree": "Software Developer Intern",
       "description": "Developed enterprise applications using **OutSystems Reactive Web** within an Agile team at FPT Software. Debugged and refactored code to optimize system performance and user experience."
     },
     {
       "degree": "University (Computer Science)",
-      "description": "Currently pursuing a **Bachelor of Science in Computer Science** at FPT University (GPA 3.3/4.0 - 8.2/10.0). Coursework emphasizes software engineering, data structures, algorithms, and backend systems in Java Spring Boot, .NET, and Python FastAPI."
+      "description": "Currently pursuing a **Bachelor of Science in Computer Science** at FPT University (GPA 3.3/4.0 - 8.2/10.0). Winner of **Champion of Hackathon Computer Vision 2026** and **Top 5 Nationwide ResFes**. Specialized in Java Spring Boot, .NET, Python FastAPI, and software architecture."
     },
     {
       "degree": "FPTU Student Exchange / Inbound Mobility Programme",

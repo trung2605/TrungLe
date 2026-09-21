@@ -1,17 +1,19 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaArrowLeft, FaClock, FaCalendarAlt } from 'react-icons/fa';
+import { FaArrowLeft, FaClock, FaCalendarAlt, FaRocket, FaLaptopCode, FaArrowRight, FaCommentDots } from 'react-icons/fa';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useTranslation } from 'react-i18next';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
+import NewAvatar from '../../assets/information/image.png';
 import './BlogPost.scss';
 
 const BlogPost = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
-    const { t } = useTranslation();
-    const { posts } = useTranslatedData();
+    const { t, i18n } = useTranslation();
+    const isEn = i18n.language === 'en';
+    const { posts, projects = [] } = useTranslatedData();
     const post = posts.find(p => p.slug === slug);
 
     if (!post) {
@@ -27,6 +29,17 @@ const BlogPost = () => {
             </div>
         );
     }
+
+    const relatedProject = projects.find(proj => {
+        const slugLower = (post.slug || '').toLowerCase();
+        const titleLower = (proj.title || '').toLowerCase();
+        if (slugLower.includes('biensovip') && titleLower.includes('biensovip')) return true;
+        if (slugLower.includes('threadlearn') && titleLower.includes('threadlearn')) return true;
+        if (slugLower.includes('mchub') && titleLower.includes('mc hub')) return true;
+        if (slugLower.includes('jobfinder') && titleLower.includes('job finder')) return true;
+        if (slugLower.includes('servlets') && titleLower.includes('dola bakery')) return true;
+        return false;
+    });
 
     return (
         <div style={{ paddingTop: '40px', paddingBottom: '96px' }}>
@@ -54,7 +67,7 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                style={{ maxWidth: '760px', margin: '0 auto' }}
+                style={{ maxWidth: '780px', margin: '0 auto' }}
             >
                 <h1 style={{
                     fontFamily: 'Outfit, system-ui, sans-serif',
@@ -87,7 +100,190 @@ const BlogPost = () => {
                 </div>
 
                 <div className="blog-post-body" style={{ fontSize: '17px', fontWeight: '330', lineHeight: '1.8', color: 'var(--color-ink)' }}>
-                    <Markdown remarkPlugins={[remarkGfm]}>{post.content}</Markdown>
+                    <Markdown
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                            a: ({ href, children, ...props }) => {
+                                const isInternal = href && (href.startsWith('/') || href.startsWith('#'));
+                                if (isInternal) {
+                                    return (
+                                        <Link to={href} style={{ color: '#6d3fc9', fontWeight: '500', textDecoration: 'underline', textUnderlineOffset: '3px' }} {...props}>
+                                            {children}
+                                        </Link>
+                                    );
+                                }
+                                return (
+                                    <a href={href} target="_blank" rel="noopener noreferrer" style={{ color: '#6d3fc9', fontWeight: '500', textDecoration: 'underline', textUnderlineOffset: '3px' }} {...props}>
+                                        {children}
+                                    </a>
+                                );
+                            }
+                        }}
+                    >
+                        {post.content}
+                    </Markdown>
+                </div>
+
+                {/* Related Project Showcase Card */}
+                {relatedProject && (
+                    <div style={{
+                        marginTop: '56px',
+                        padding: '24px 28px',
+                        backgroundColor: '#f8fafc',
+                        borderRadius: '20px',
+                        border: '1px solid #e2e8f0',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        flexWrap: 'wrap',
+                        gap: '16px',
+                    }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                            <div style={{ width: '48px', height: '48px', borderRadius: '12px', backgroundColor: '#e0f2fe', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0284c7' }}>
+                                <FaLaptopCode size={22} />
+                            </div>
+                            <div>
+                                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.4px', color: '#64748b' }}>
+                                    {isEn ? "Related Project" : "Dự án liên quan"}
+                                </span>
+                                <h4 style={{ fontSize: '16px', fontWeight: 600, color: '#0f172a', margin: '2px 0 0 0' }}>
+                                    {relatedProject.title}
+                                </h4>
+                            </div>
+                        </div>
+
+                        <Link
+                            to={`/projects/${relatedProject.id}`}
+                            style={{
+                                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                                padding: '10px 20px', borderRadius: '50px',
+                                backgroundColor: '#0f172a', color: '#ffffff',
+                                fontSize: '13.5px', fontWeight: 500, textDecoration: 'none',
+                                transition: 'opacity 0.15s ease',
+                            }}
+                            onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
+                            onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+                        >
+                            <span>{isEn ? "View Project Detail" : "Xem Chi Tiết Dự Án"}</span>
+                            <FaArrowRight size={11} />
+                        </Link>
+                    </div>
+                )}
+
+                {/* Author Info Box */}
+                <div style={{
+                    marginTop: '40px',
+                    padding: '28px 32px',
+                    backgroundColor: '#faf5ff',
+                    borderRadius: '24px',
+                    border: '1px solid #f3e8ff',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '16px',
+                }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                        <img
+                            src={NewAvatar}
+                            alt="Lê Trí Trung - Tech Lead"
+                            style={{ width: '56px', height: '56px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #c5b0f4' }}
+                        />
+                        <div>
+                            <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#0f172a', margin: '0 0 4px 0' }}>
+                                Lê Trí Trung
+                            </h3>
+                            <p style={{ fontSize: '13.5px', color: '#6b21a8', fontWeight: 500, margin: 0 }}>
+                                Tech Lead & Software Architect — Team 5 Kỹ Sư Đà Nẵng
+                            </p>
+                        </div>
+                    </div>
+                    <p style={{ fontSize: '14.5px', color: '#475569', lineHeight: '1.6', margin: 0 }}>
+                        {isEn
+                            ? "Heading a 5-engineer team in Da Nang specializing in commercial web applications, SaaS Automation, and AI Agents. Winner of Computer Vision Hackathon 2026."
+                            : "Dẫn dắt đội ngũ 5 kỹ sư công nghệ tại Đà Nẵng, chuyên phát triển Website thương mại, SaaS Automation và tích hợp AI Agent. Quán quân Hackathon Computer Vision 2026."}
+                    </p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', paddingTop: '8px' }}>
+                        <Link
+                            to="/about"
+                            style={{
+                                fontSize: '13px', fontWeight: 600, color: '#6d3fc9', textDecoration: 'none',
+                                display: 'inline-flex', alignItems: 'center', gap: '5px',
+                            }}
+                        >
+                            <span>{isEn ? "About the Author →" : "Hành trình & Giới thiệu →"}</span>
+                        </Link>
+                        <span style={{ color: '#cbd5e1' }}>•</span>
+                        <Link
+                            to="/dich-vu"
+                            style={{
+                                fontSize: '13px', fontWeight: 600, color: '#6d3fc9', textDecoration: 'none',
+                                display: 'inline-flex', alignItems: 'center', gap: '5px',
+                            }}
+                        >
+                            <span>{isEn ? "Engineering Services →" : "Dịch vụ làm web & SaaS →"}</span>
+                        </Link>
+                        <span style={{ color: '#cbd5e1' }}>•</span>
+                        <Link
+                            to="/contact"
+                            style={{
+                                fontSize: '13px', fontWeight: 600, color: '#6d3fc9', textDecoration: 'none',
+                                display: 'inline-flex', alignItems: 'center', gap: '5px',
+                            }}
+                        >
+                            <span>{isEn ? "Direct Contact →" : "Liên hệ tư vấn →"}</span>
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Services Cross-linking CTA */}
+                <div style={{
+                    marginTop: '32px',
+                    padding: '32px',
+                    borderRadius: '24px',
+                    backgroundColor: '#111827',
+                    color: '#ffffff',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '16px',
+                }}>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', borderRadius: '50px', backgroundColor: 'rgba(255,255,255,0.1)', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#dceeb1' }}>
+                        <FaRocket size={11} /> {isEn ? "Production Engineering" : "Triển khai thực tế"}
+                    </div>
+                    <h3 style={{ fontSize: '20px', fontWeight: 600, margin: 0, lineHeight: '1.3' }}>
+                        {isEn
+                            ? "Need this architectural level for your business website or app?"
+                            : "Bạn muốn áp dụng chuẩn kiến trúc này cho website hoặc hệ thống của mình?"}
+                    </h3>
+                    <p style={{ fontSize: '14.5px', color: '#9ca3af', margin: 0, lineHeight: '1.6' }}>
+                        {isEn
+                            ? "From high-performance database design to automated VietQR payment funnels and AI assistants, our 5-engineer team delivers end-to-end with guaranteed milestones."
+                            : "Từ tối ưu cơ sở dữ liệu tốc độ cao đến tích hợp cổng VietQR tự động và trợ lý AI, đội ngũ 5 kỹ sư Đà Nẵng cam kết bàn giao chuẩn tiến độ và tính giá theo Manday minh bạch."}
+                    </p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
+                        <Link
+                            to="/dich-vu"
+                            style={{
+                                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                                padding: '10px 20px', borderRadius: '50px',
+                                backgroundColor: '#6d3fc9', color: '#ffffff',
+                                fontSize: '13.5px', fontWeight: 600, textDecoration: 'none',
+                            }}
+                        >
+                            <span>{isEn ? "Explore Services & Pricing" : "Xem Bảng Giá & Dịch Vụ"}</span>
+                            <FaArrowRight size={11} />
+                        </Link>
+                        <Link
+                            to="/contact"
+                            style={{
+                                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                                padding: '10px 20px', borderRadius: '50px',
+                                backgroundColor: 'rgba(255,255,255,0.1)', color: '#ffffff',
+                                fontSize: '13.5px', fontWeight: 500, textDecoration: 'none',
+                                border: '1px solid rgba(255,255,255,0.2)',
+                            }}
+                        >
+                            <span>{isEn ? "Consult with Tech Lead" : "Trao Đổi 1-1 Với Tech Lead"}</span>
+                        </Link>
+                    </div>
                 </div>
             </motion.div>
         </div>
