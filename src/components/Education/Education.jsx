@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaCodeBranch, 
   FaCalendarAlt, 
   FaStar, 
   FaArrowLeft, 
@@ -11,8 +10,10 @@ import {
   FaGraduationCap, 
   FaGlobeAmericas, 
   FaRocket,
-  FaCheck,
-  FaCopy
+  FaMapMarkerAlt,
+  FaUsers,
+  FaBriefcase,
+  FaAward
 } from 'react-icons/fa';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import Markdown from 'react-markdown';
@@ -20,41 +21,96 @@ import { useTranslation } from 'react-i18next';
 import MemoryGallery from './MemoryGallery';
 import './Education.scss';
 
-const BRANCH_CONFIG = {
+const CATEGORY_CONFIG = {
   'main': {
-    color: '#10b981',
-    bg: 'rgba(16, 185, 129, 0.15)',
-    border: 'rgba(16, 185, 129, 0.35)',
+    color: '#059669',
+    lightBg: '#ecfdf5',
+    border: '#a7f3d0',
     icon: FaRocket,
-    category: 'startup'
+    category: 'startup',
+    labelVi: 'Khởi nghiệp & Tech Lead',
+    labelEn: 'Startup & Tech Lead',
+    locationVi: 'Đà Nẵng, Việt Nam',
+    locationEn: 'Da Nang, Vietnam',
+    roleTagVi: 'Quản lý kỹ thuật & Nhà sáng lập',
+    roleTagEn: 'Technical Lead & Founder',
+    metrics: [
+      { labelVi: 'Quy mô đội ngũ', labelEn: 'Team Size', val: '5 Kỹ sư phần mềm' },
+      { labelVi: 'Sản phẩm vận hành', labelEn: 'Live Product', val: 'biensovip.com' },
+      { labelVi: 'Hiệu năng hệ thống', labelEn: 'Performance', val: 'Uptime 99.98% · <8ms DB' }
+    ]
   },
   'feature/enterprise-ojt': {
-    color: '#f59e0b',
-    bg: 'rgba(245, 158, 11, 0.15)',
-    border: 'rgba(245, 158, 11, 0.35)',
+    color: '#d97706',
+    lightBg: '#fffbeb',
+    border: '#fde68a',
     icon: FaLaptopCode,
-    category: 'enterprise'
+    category: 'enterprise',
+    labelVi: 'Kinh nghiệm Doanh nghiệp (FSoft)',
+    labelEn: 'Enterprise Experience (FSoft)',
+    locationVi: 'FPT Software Đà Nẵng',
+    locationEn: 'FPT Software Da Nang',
+    roleTagVi: 'Thực tập sinh OJT xuất sắc',
+    roleTagEn: 'Distinction OJT Intern',
+    metrics: [
+      { labelVi: 'Môi trường làm việc', labelEn: 'Environment', val: 'Agile / Scrum chuẩn FSoft' },
+      { labelVi: 'Nền tảng công nghệ', labelEn: 'Tech Platform', val: 'OutSystems Reactive Web' },
+      { labelVi: 'Đánh giá thực tập', labelEn: 'OJT Rating', val: 'Passed (Xuất sắc)' }
+    ]
   },
   'academic/cs-research': {
-    color: '#a855f7',
-    bg: 'rgba(168, 85, 247, 0.15)',
-    border: 'rgba(168, 85, 247, 0.35)',
+    color: '#7c3aed',
+    lightBg: '#faf5ff',
+    border: '#ddd6fe',
     icon: FaGraduationCap,
-    category: 'academic'
+    category: 'academic',
+    labelVi: 'Đại học & Nghiên cứu AI',
+    labelEn: 'University & AI Research',
+    locationVi: 'Đại học FPT Đà Nẵng',
+    locationEn: 'FPT University Da Nang',
+    roleTagVi: 'Khoa học Máy tính & AI',
+    roleTagEn: 'Computer Science & AI',
+    metrics: [
+      { labelVi: 'Giải thưởng Hackathon', labelEn: 'Hackathon Award', val: 'Quán Quân CV 2026' },
+      { labelVi: 'Nghiên cứu khoa học', labelEn: 'Scientific Research', val: 'Top 5 ResFes Toàn Quốc' },
+      { labelVi: 'Điểm trung bình tích lũy', labelEn: 'Cumulative GPA', val: 'GPA 3.3/4.0 (8.2/10)' }
+    ]
   },
   'global/mobility-exchange': {
-    color: '#3b82f6',
-    bg: 'rgba(59, 130, 246, 0.15)',
-    border: 'rgba(59, 130, 246, 0.35)',
+    color: '#2563eb',
+    lightBg: '#eff6ff',
+    border: '#bfdbfe',
     icon: FaGlobeAmericas,
-    category: 'global'
+    category: 'global',
+    labelVi: 'Giao lưu Trao đổi Quốc tế',
+    labelEn: 'Global Mobility & Exchange',
+    locationVi: 'Kuala Lumpur, Malaysia',
+    locationEn: 'Kuala Lumpur, Malaysia',
+    roleTagVi: 'Sinh viên trao đổi FPTU',
+    roleTagEn: 'FPTU Exchange Student',
+    metrics: [
+      { labelVi: 'Tổ chức giáo dục', labelEn: 'Institution', val: 'TAR UMT Malaysia' },
+      { labelVi: 'Ngôn ngữ làm việc', labelEn: 'Working Language', val: 'Tiếng Anh chuyên ngành' },
+      { labelVi: 'Kỹ năng nâng cao', labelEn: 'Core Gain', val: 'Hội nhập đa văn hóa' }
+    ]
   },
   'foundation/stem-roots': {
-    color: '#06b6d4',
-    bg: 'rgba(6, 182, 212, 0.15)',
-    border: 'rgba(6, 182, 212, 0.35)',
+    color: '#0891b2',
+    lightBg: '#ecfeff',
+    border: '#a5f3fc',
     icon: FaStar,
-    category: 'roots'
+    category: 'roots',
+    labelVi: 'Nền tảng học vấn cơ bản',
+    labelEn: 'Educational Foundation',
+    locationVi: 'THPT Phan Châu Trinh, Đà Nẵng',
+    locationEn: 'Phan Chau Trinh High School',
+    roleTagVi: 'Tốt nghiệp loại Xuất sắc',
+    roleTagEn: 'Graduated with Honors',
+    metrics: [
+      { labelVi: 'Điểm tốt nghiệp', labelEn: 'Graduation GPA', val: '9.0 / 10.0' },
+      { labelVi: 'Năng lực cốt lõi', labelEn: 'Core Strength', val: 'Toán học & Giải thuật logic' },
+      { labelVi: 'Định hướng ban đầu', labelEn: 'Career Orientation', val: 'Kỹ thuật Phần mềm' }
+    ]
   }
 };
 
@@ -63,36 +119,29 @@ const Education = () => {
   const isEn = i18n.language === 'en';
   const { education = [] } = useTranslatedData();
 
-  const [selectedCommitId, setSelectedCommitId] = useState(education[0]?.id || 1);
+  const [selectedMilestoneId, setSelectedMilestoneId] = useState(education[0]?.id || 1);
   const [filterCategory, setFilterCategory] = useState('all');
-  const [copiedSha, setCopiedSha] = useState(false);
 
-  // Filter commits
+  // Filter education items
   const filteredEducation = education.filter(item => {
     if (filterCategory === 'all') return true;
-    const cfg = BRANCH_CONFIG[item.branch];
+    const cfg = CATEGORY_CONFIG[item.branch];
     return cfg?.category === filterCategory;
   });
 
-  const activeEdu = education.find(e => e.id === selectedCommitId) || education[0];
-  const activeIdx = education.findIndex(e => e.id === selectedCommitId);
-  const activeCfg = BRANCH_CONFIG[activeEdu?.branch] || BRANCH_CONFIG['main'];
-
-  const handleCopySha = (sha) => {
-    navigator.clipboard.writeText(sha);
-    setCopiedSha(true);
-    setTimeout(() => setCopiedSha(false), 2000);
-  };
+  const activeEdu = education.find(e => e.id === selectedMilestoneId) || education[0];
+  const activeIdx = education.findIndex(e => e.id === selectedMilestoneId);
+  const activeCfg = CATEGORY_CONFIG[activeEdu?.branch] || CATEGORY_CONFIG['main'];
 
   const handlePrev = () => {
     if (activeIdx > 0) {
-      setSelectedCommitId(education[activeIdx - 1].id);
+      setSelectedMilestoneId(education[activeIdx - 1].id);
     }
   };
 
   const handleNext = () => {
     if (activeIdx < education.length - 1) {
-      setSelectedCommitId(education[activeIdx + 1].id);
+      setSelectedMilestoneId(education[activeIdx + 1].id);
     }
   };
 
@@ -101,265 +150,318 @@ const Education = () => {
 
       {/* SECTION INTRO */}
       <div style={{ marginBottom: '32px' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 14px', borderRadius: '50px', backgroundColor: 'var(--color-neutral-subtle, #f0f0ee)', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.5px', textTransform: 'uppercase', color: 'var(--color-ink-soft, #555555)', marginBottom: '12px' }}>
-          <FaCodeBranch size={11} />
-          {isEn ? "Interactive Milestone Pipeline" : "Lộ Trình Cột Mốc & Năng Lực"}
+        <div style={{ 
+          display: 'inline-flex', 
+          alignItems: 'center', 
+          gap: '8px', 
+          padding: '6px 14px', 
+          borderRadius: '50px', 
+          backgroundColor: '#ecfdf5', 
+          fontSize: '12px', 
+          fontFamily: 'var(--font-sans, sans-serif)',
+          fontWeight: '600',
+          color: '#059669', 
+          marginBottom: '12px' 
+        }}>
+          <FaBriefcase size={12} />
+          {isEn ? "Career & Professional Milestones" : "Lộ Trình Năng Lực & Kinh Nghiệm Thực Chiến"}
         </div>
-        <h2 style={{ fontSize: 'clamp(24px, 3.2vw, 36px)', fontWeight: '600', letterSpacing: '-0.5px', margin: '0 0 10px 0', color: 'var(--color-ink, #000000)' }}>
-          {isEn ? "Git Graph: Career & Academic Evolution" : "Hành Trình Kỹ Sư: Cấu Trúc Git Pipeline Tương Tác"}
+        <h2 style={{ fontSize: 'clamp(24px, 3.2vw, 36px)', fontWeight: '700', letterSpacing: '-0.5px', margin: '0 0 10px 0', color: '#0f172a' }}>
+          {isEn ? "Professional Experience & Academic Journey" : "Hành Trình Sự Nghiệp & Nền Tảng Học Vấn"}
         </h2>
-        <p style={{ fontSize: '15.5px', color: 'var(--color-ink-soft, #555555)', margin: 0, maxWidth: '780px', lineHeight: '1.6' }}>
+        <p style={{ fontSize: '15.5px', color: '#475569', margin: 0, maxWidth: '820px', lineHeight: '1.65' }}>
           {isEn
-            ? "Inspect each milestone commit along our production-ready journey. Click any commit node or branch to inspect technical architecture, real-world impact, and tech stack evolution."
-            : "Khám phá các cột mốc thực chiến qua sơ đồ nhánh Git tương tác. Bấm vào từng commit để xem chi tiết kiến trúc kỹ thuật, thành tựu thực tế và bước chuyển mình từ kỳ thực tập doanh nghiệp đến vị trí Tech Lead khởi nghiệp."}
+            ? "A comprehensive overview tailored for Recruiters and Hiring Managers — tracking my journey from leading a 5-engineer startup and interning at FPT Software, to academic research and hackathon championships at FPT University."
+            : "Hồ sơ năng lực tổng hợp dành cho Nhà tuyển dụng — phản ánh trọn vẹn lộ trình phát triển từ vai trò Tech Lead dẫn dắt 5 kỹ sư khởi nghiệp, kinh nghiệm thực tập tại FPT Software, đến các giải thưởng Quán quân và đề tài nghiên cứu AI tại Đại học FPT."}
         </p>
       </div>
 
-      {/* INTERACTIVE GIT PIPELINE TERMINAL */}
-      <div className="git-pipeline-wrapper">
-        <div className="terminal-window">
+      {/* EXECUTIVE CAREER DOSSIER CONTAINER (LIGHT THEME) */}
+      <div className="career-dossier-wrapper">
+        <div className="dossier-card">
 
-          {/* Terminal Header */}
-          <div className="terminal-header">
-            <div className="terminal-dots">
-              <span className="dot-red" />
-              <span className="dot-yellow" />
-              <span className="dot-green" />
+          {/* Dossier Top Bar */}
+          <div className="dossier-topbar">
+            <div className="dossier-status-pill">
+              <span className="live-dot" />
+              <span>
+                {isEn 
+                  ? "Current Status: Active Tech Lead & Full-Stack Engineer in Da Nang" 
+                  : "Trạng thái hiện tại: Tech Lead & Kỹ sư trưởng tại Đà Nẵng"}
+              </span>
             </div>
 
-            <div className="terminal-title">
-              <span className="prompt-user">trung@fedora</span>
-              <span className="prompt-path">:~/journey</span>
-              <span className="prompt-cmd">$ git log --graph --all --decorate --oneline</span>
-            </div>
-
-            <div className="terminal-actions">
-              <span className="branch-indicator">
-                <FaCodeBranch size={11} />
-                <span>HEAD: {activeEdu?.branch || 'main'}</span>
+            <div className="dossier-counter">
+              <FaAward style={{ color: '#059669', marginRight: '6px' }} />
+              <span>
+                {isEn 
+                  ? `${education.length} Milestones Verified` 
+                  : `${education.length} Cột mốc thực chiến`}
               </span>
             </div>
           </div>
 
-          {/* Branch Filter Tabs */}
-          <div className="branch-filter-bar">
-            <span className="filter-label">{isEn ? "FILTER BRANCH:" : "LỌC NHÁNH:"}</span>
-            <button
-              onClick={() => setFilterCategory('all')}
-              className={`filter-btn ${filterCategory === 'all' ? 'active' : ''}`}
-            >
-              <span className="btn-dot" />
-              {isEn ? `All Branches (${education.length})` : `Tất cả (${education.length})`}
-            </button>
-            <button
-              onClick={() => setFilterCategory('startup')}
-              className={`filter-btn ${filterCategory === 'startup' ? 'active' : ''}`}
-            >
-              <span className="btn-dot" style={{ color: '#10b981' }} />
-              main / startup
-            </button>
-            <button
-              onClick={() => setFilterCategory('enterprise')}
-              className={`filter-btn ${filterCategory === 'enterprise' ? 'active' : ''}`}
-            >
-              <span className="btn-dot" style={{ color: '#f59e0b' }} />
-              enterprise / ojt
-            </button>
-            <button
-              onClick={() => setFilterCategory('academic')}
-              className={`filter-btn ${filterCategory === 'academic' ? 'active' : ''}`}
-            >
-              <span className="btn-dot" style={{ color: '#a855f7' }} />
-              academic / ai-research
-            </button>
-            <button
-              onClick={() => setFilterCategory('global')}
-              className={`filter-btn ${filterCategory === 'global' ? 'active' : ''}`}
-            >
-              <span className="btn-dot" style={{ color: '#3b82f6' }} />
-              global / exchange
-            </button>
+          {/* Category Filter Tabs */}
+          <div className="category-filter-bar">
+            <span className="filter-title">{isEn ? "FILTER BY AREA:" : "LỌC THEO LĨNH VỰC:"}</span>
+            <div className="filter-buttons-scroll">
+              <button
+                onClick={() => setFilterCategory('all')}
+                className={`category-btn ${filterCategory === 'all' ? 'active' : ''}`}
+              >
+                {isEn ? `All Milestones (${education.length})` : `Tất cả giai đoạn (${education.length})`}
+              </button>
+              <button
+                onClick={() => setFilterCategory('startup')}
+                className={`category-btn ${filterCategory === 'startup' ? 'active' : ''}`}
+              >
+                <span className="btn-indicator" style={{ backgroundColor: '#059669' }} />
+                {isEn ? "Startup & Tech Lead" : "Khởi nghiệp & Tech Lead"}
+              </button>
+              <button
+                onClick={() => setFilterCategory('enterprise')}
+                className={`category-btn ${filterCategory === 'enterprise' ? 'active' : ''}`}
+              >
+                <span className="btn-indicator" style={{ backgroundColor: '#d97706' }} />
+                {isEn ? "FPT Software (OJT)" : "Doanh nghiệp (FPT Software)"}
+              </button>
+              <button
+                onClick={() => setFilterCategory('academic')}
+                className={`category-btn ${filterCategory === 'academic' ? 'active' : ''}`}
+              >
+                <span className="btn-indicator" style={{ backgroundColor: '#7c3aed' }} />
+                {isEn ? "University & AI Research" : "Đại học & Nghiên cứu AI"}
+              </button>
+              <button
+                onClick={() => setFilterCategory('global')}
+                className={`category-btn ${filterCategory === 'global' ? 'active' : ''}`}
+              >
+                <span className="btn-indicator" style={{ backgroundColor: '#2563eb' }} />
+                {isEn ? "Global Exchange (Malaysia)" : "Trao đổi Quốc tế (Malaysia)"}
+              </button>
+              <button
+                onClick={() => setFilterCategory('roots')}
+                className={`category-btn ${filterCategory === 'roots' ? 'active' : ''}`}
+              >
+                <span className="btn-indicator" style={{ backgroundColor: '#0891b2' }} />
+                {isEn ? "High School Foundation" : "Nền tảng phổ thông (THPT)"}
+              </button>
+            </div>
           </div>
 
-          {/* Main Pipeline Content Grid */}
-          <div className="pipeline-grid">
+          {/* Main Dossier Content Layout */}
+          <div className="dossier-layout">
 
-            {/* Left Column: Commits Graph List */}
-            <div className="commits-column">
-              {filteredEducation.map((edu, idx) => {
-                const isSelected = edu.id === selectedCommitId;
-                const cfg = BRANCH_CONFIG[edu.branch] || BRANCH_CONFIG['main'];
-                const IconComponent = cfg.icon;
+            {/* Left Column: Milestones Stream */}
+            <div className="milestones-sidebar">
+              <div className="sidebar-header">
+                <span>{isEn ? "CAREER TIMELINE" : "DANH SÁCH CỘT MỐC"}</span>
+                <span className="count-badge">{filteredEducation.length}</span>
+              </div>
 
-                return (
-                  <motion.div
-                    key={edu.id}
-                    layout
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.2, delay: idx * 0.05 }}
-                    onClick={() => setSelectedCommitId(edu.id)}
-                    className={`commit-node-item ${isSelected ? 'selected' : ''}`}
-                  >
-                    <div className="graph-lane">
-                      <div
-                        className="commit-dot"
-                        style={{
-                          backgroundColor: cfg.color,
-                          color: cfg.color,
-                        }}
+              <div className="milestones-list">
+                {filteredEducation.map((edu) => {
+                  const isSelected = edu.id === selectedMilestoneId;
+                  const cfg = CATEGORY_CONFIG[edu.branch] || CATEGORY_CONFIG['main'];
+                  const IconComp = cfg.icon;
+
+                  return (
+                    <motion.div
+                      key={edu.id}
+                      layout
+                      onClick={() => setSelectedMilestoneId(edu.id)}
+                      className={`milestone-item-card ${isSelected ? 'selected' : ''}`}
+                      style={{
+                        borderColor: isSelected ? cfg.color : '#e2e8f0',
+                        backgroundColor: isSelected ? '#ffffff' : '#f8fafc'
+                      }}
+                    >
+                      {/* Left color bar indicator */}
+                      <div 
+                        className="active-indicator-bar" 
+                        style={{ backgroundColor: cfg.color, opacity: isSelected ? 1 : 0 }} 
                       />
-                      {idx < filteredEducation.length - 1 && (
-                        <div
-                          className="commit-line"
-                          style={{
-                            background: isSelected ? `linear-gradient(to bottom, ${cfg.color}, #30363d)` : '#30363d'
-                          }}
-                        />
-                      )}
-                    </div>
 
-                    <div className="commit-meta">
-                      <div className="commit-top">
-                        <span className="commit-hash">
-                          commit {edu.commitHash || `c7a0${edu.id}f`}
-                        </span>
-                        <span
-                          className="branch-badge"
-                          style={{
-                            borderColor: cfg.border,
-                            color: cfg.color
-                          }}
-                        >
-                          <IconComponent style={{ marginRight: '4px', verticalAlign: '-1px' }} />
-                          {edu.branchLabel || edu.branch || 'main'}
-                        </span>
-                      </div>
+                      <div className="item-content">
+                        <div className="item-top-row">
+                          <span 
+                            className="item-category-tag"
+                            style={{ backgroundColor: cfg.lightBg, color: cfg.color, borderColor: cfg.border }}
+                          >
+                            <IconComp size={10} style={{ marginRight: '4px' }} />
+                            {isEn ? cfg.labelEn : cfg.labelVi}
+                          </span>
 
-                      <h4 className="commit-school">{edu.school}</h4>
-                      <div className="commit-degree">{edu.degree}</div>
-                      <div className="commit-time">
-                        <FaCalendarAlt size={10} style={{ marginRight: '5px' }} />
-                        {edu.duration}
+                          <span className="item-status-pill">
+                            {edu.status === 'Current' 
+                              ? (isEn ? 'Present' : 'Hiện tại') 
+                              : (isEn ? 'Completed' : 'Hoàn thành')}
+                          </span>
+                        </div>
+
+                        <h4 className="item-org-name">{edu.school}</h4>
+                        <div className="item-role-title">{edu.degree}</div>
+
+                        <div className="item-footer-row">
+                          <span className="item-duration">
+                            <FaCalendarAlt size={11} style={{ marginRight: '5px', color: '#64748b' }} />
+                            {edu.duration}
+                          </span>
+                          {edu.gpa && (
+                            <span className="item-gpa-badge">
+                              {edu.gpa}
+                            </span>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Right Column: Terminal Commit Inspector */}
-            <div className="inspector-column">
+            {/* Right Column: Executive Detail Dossier */}
+            <div className="milestone-detail-view">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeEdu?.id}
-                  initial={{ opacity: 0, y: 12 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.25, ease: 'easeOut' }}
-                  style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.22, ease: 'easeOut' }}
+                  className="detail-inner"
                 >
-                  {/* Header Line */}
-                  <div className="inspector-header-box">
-                    <div className="inspector-log-line">
-                      <span>commit</span>
-                      <span className="sha-highlight">{activeEdu?.commitHash || 'f8e21a9'}</span>
-                      <button
-                        onClick={() => handleCopySha(activeEdu?.commitHash || 'f8e21a9')}
-                        style={{ background: 'transparent', border: 'none', color: '#8b949e', cursor: 'pointer', padding: 0 }}
-                        title="Copy Commit SHA"
+                  {/* Detail Header */}
+                  <div className="detail-header-card">
+                    <div className="detail-meta-pills">
+                      <span 
+                        className="category-badge-large"
+                        style={{ backgroundColor: activeCfg.lightBg, color: activeCfg.color, borderColor: activeCfg.border }}
                       >
-                        {copiedSha ? <FaCheck size={11} style={{ color: '#7ee787' }} /> : <FaCopy size={11} />}
-                      </button>
-                      <span className="head-tag">{activeEdu?.status === 'Current' ? 'CURRENT HEAD' : 'MERGED'}</span>
-                      <span className="status-pill-small" style={{ borderColor: activeCfg.border, color: activeCfg.color }}>
-                        {activeEdu?.branchLabel || activeEdu?.branch}
+                        <activeCfg.icon size={13} style={{ marginRight: '6px' }} />
+                        {isEn ? activeCfg.labelEn : activeCfg.labelVi}
+                      </span>
+
+                      <span className="role-tag-pill">
+                        {isEn ? activeCfg.roleTagEn : activeCfg.roleTagVi}
                       </span>
                     </div>
 
-                    <div className="inspector-author-line">
-                      Author: Lê Trí Trung &lt;letritrung2605@gmail.com&gt; · Date: {activeEdu?.duration}
-                    </div>
+                    <h3 className="detail-org-heading">{activeEdu?.school}</h3>
+                    <div className="detail-role-heading">{activeEdu?.degree}</div>
 
-                    <h3 className="inspector-school-title">{activeEdu?.school}</h3>
-                    <div className="inspector-degree-subtitle">
-                      <span>{activeEdu?.degree}</span>
-                      {activeEdu?.gpa && (
-                        <span style={{ fontSize: '13px', color: '#ffbd2e', fontWeight: 600 }}>
-                          ★ {activeEdu?.gpa}
-                        </span>
-                      )}
+                    {/* Metadata strip */}
+                    <div className="detail-info-strip">
+                      <div className="info-cell">
+                        <FaCalendarAlt className="info-icon" />
+                        <div>
+                          <div className="info-label">{isEn ? "Duration" : "Thời gian"}</div>
+                          <div className="info-val">{activeEdu?.duration}</div>
+                        </div>
+                      </div>
+
+                      <div className="info-cell">
+                        <FaMapMarkerAlt className="info-icon" />
+                        <div>
+                          <div className="info-label">{isEn ? "Location" : "Địa điểm"}</div>
+                          <div className="info-val">{isEn ? activeCfg.locationEn : activeCfg.locationVi}</div>
+                        </div>
+                      </div>
+
+                      <div className="info-cell">
+                        <FaUsers className="info-icon" />
+                        <div>
+                          <div className="info-label">{isEn ? "Status / Result" : "Kết quả / Đánh giá"}</div>
+                          <div className="info-val" style={{ color: activeCfg.color, fontWeight: '600' }}>
+                            {activeEdu?.gpa || (isEn ? "Verified" : "Đã xác thực")}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Diff Stats Banner */}
-                  <div className="diff-stats-banner">
-                    <div className="stat-badge">
-                      <FaCheckCircle size={13} />
-                      <span>{activeEdu?.diffStat || '+Verified Milestone Production Code'}</span>
-                    </div>
-                    {activeEdu?.gpa && (
-                      <span className="gpa-badge">
-                        Status / GPA: {activeEdu?.gpa}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Highlights Bulleted */}
-                  {activeEdu?.highlights && activeEdu.highlights.length > 0 && (
-                    <div className="inspector-highlights">
-                      {activeEdu.highlights.map((item, idx) => (
-                        <div key={idx} className="highlight-item">
-                          <span className="terminal-plus">+</span>
-                          <span>{item}</span>
+                  {/* Quantitative Impact & Key Metrics */}
+                  {activeCfg.metrics && (
+                    <div className="metrics-cards-row">
+                      {activeCfg.metrics.map((m, i) => (
+                        <div key={i} className="metric-box">
+                          <div className="metric-title">{isEn ? m.labelEn : m.labelVi}</div>
+                          <div className="metric-value">{m.val}</div>
                         </div>
                       ))}
                     </div>
                   )}
 
-                  {/* Tech Stack Chips */}
+                  {/* Key Contributions & Achievements */}
+                  {activeEdu?.highlights && activeEdu.highlights.length > 0 && (
+                    <div className="achievements-section">
+                      <h4 className="section-title">
+                        <FaCheckCircle style={{ color: activeCfg.color, marginRight: '8px' }} />
+                        {isEn ? "Key Responsibilities & Measurable Impact" : "Trách Nhiệm Cốt Lõi & Thành Tựu Thực Tế"}
+                      </h4>
+                      <div className="highlights-list">
+                        {activeEdu.highlights.map((item, idx) => (
+                          <div key={idx} className="highlight-row">
+                            <div className="check-bullet" style={{ color: activeCfg.color }}>
+                              ✓
+                            </div>
+                            <div className="highlight-text">{item}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Core Competencies & Tech Stack */}
                   {activeEdu?.techStack && activeEdu.techStack.length > 0 && (
-                    <div className="inspector-tech-section">
-                      <div className="tech-label">{isEn ? "STACK & ARCHITECTURE" : "CÔNG NGHỆ & KIẾN TRÚC"}</div>
-                      <div className="tech-tags-wrap">
-                        {activeEdu.techStack.map(tech => (
-                          <span key={tech} className="tech-pill">
-                            # {tech}
+                    <div className="competencies-section">
+                      <h4 className="section-title">
+                        {isEn ? "Core Competencies & Technologies" : "Năng Lực Chuyên Môn & Công Nghệ"}
+                      </h4>
+                      <div className="tags-flex">
+                        {activeEdu.techStack.map((tech) => (
+                          <span key={tech} className="skill-chip">
+                            {tech}
                           </span>
                         ))}
                       </div>
                     </div>
                   )}
 
-                  {/* Detailed Description */}
+                  {/* Executive Summary */}
                   {activeEdu?.description && (
-                    <div className="inspector-desc-box">
-                      <Markdown>{activeEdu.description}</Markdown>
+                    <div className="executive-summary-card">
+                      <div className="summary-title">
+                        {isEn ? "Executive Overview" : "Đánh Giá & Tóm Tắt Tổng Quan"}
+                      </div>
+                      <div className="summary-content">
+                        <Markdown>{activeEdu.description}</Markdown>
+                      </div>
                     </div>
                   )}
 
-                  {/* Navigation Controls */}
-                  <div className="inspector-controls">
+                  {/* Step Navigation Controls */}
+                  <div className="dossier-navigation">
                     <button
                       onClick={handlePrev}
                       disabled={activeIdx === 0}
-                      className="nav-btn"
+                      className="step-btn"
                     >
-                      <FaArrowLeft size={10} />
-                      <span>{isEn ? "Newer Commit" : "Commit Mới Hơn"}</span>
+                      <FaArrowLeft size={11} />
+                      <span>{isEn ? "Previous Milestone" : "Cột mốc trước"}</span>
                     </button>
 
-                    <span className="step-counter">
-                      {activeIdx + 1} / {education.length} {isEn ? "Milestones" : "Cột mốc"}
+                    <span className="step-tracker">
+                      {isEn ? "Milestone" : "Giai đoạn"} <strong>{activeIdx + 1}</strong> / {education.length}
                     </span>
 
                     <button
                       onClick={handleNext}
                       disabled={activeIdx === education.length - 1}
-                      className="nav-btn"
+                      className="step-btn"
                     >
-                      <span>{isEn ? "Older Commit" : "Commit Cũ Hơn"}</span>
-                      <FaArrowRight size={10} />
+                      <span>{isEn ? "Next Milestone" : "Cột mốc tiếp theo"}</span>
+                      <FaArrowRight size={11} />
                     </button>
                   </div>
 
@@ -377,12 +479,18 @@ const Education = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        style={{ backgroundColor: '#f3c9b6', borderRadius: '24px', padding: '40px 32px' }}
+        style={{ 
+          backgroundColor: '#ffffff', 
+          border: '1px solid #e2e8f0', 
+          boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.05)', 
+          borderRadius: '24px', 
+          padding: '40px 32px' 
+        }}
       >
-        <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', letterSpacing: '0.6px', textTransform: 'uppercase', color: '#444444', marginBottom: '10px' }}>
+        <p style={{ fontFamily: 'var(--font-sans, sans-serif)', fontWeight: '600', fontSize: '12px', letterSpacing: '0.6px', textTransform: 'uppercase', color: '#059669', marginBottom: '8px' }}>
           {t('education.memoriesLabel')}
         </p>
-        <h2 style={{ fontSize: 'clamp(22px, 3vw, 40px)', fontWeight: '340', lineHeight: '1.15', letterSpacing: '-0.5px', color: '#000000', marginBottom: '28px' }}>
+        <h2 style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: '700', lineHeight: '1.2', letterSpacing: '-0.5px', color: '#0f172a', marginBottom: '24px' }}>
           {t('education.memoriesTitle')}
         </h2>
         <MemoryGallery />

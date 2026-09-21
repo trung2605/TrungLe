@@ -1,510 +1,619 @@
-/* Interactive Git Graph & Terminal Commit Pipeline */
+/* Executive Career & Academic Milestones Dossier (Light / White Theme) */
 
-.git-pipeline-wrapper {
+.career-dossier-wrapper {
   margin-top: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
   font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
 
-  /* Terminal Window Shell */
-  .terminal-window {
-    background: #0d1117;
-    border: 1px solid #30363d;
-    border-radius: 18px;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  .dossier-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    box-shadow: 0 12px 32px -12px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.02);
     overflow: hidden;
-    color: #c9d1d9;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #0f172a;
+    transition: all 0.3s ease;
   }
 
-  .terminal-header {
-    background: #161b22;
-    padding: 12px 18px;
-    border-bottom: 1px solid #30363d;
+  /* Top Bar */
+  .dossier-topbar {
+    background: #f8fafc;
+    padding: 12px 24px;
+    border-bottom: 1px solid #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
 
-    .terminal-dots {
-      display: flex;
+    .dossier-status-pill {
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-
-      span {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        display: inline-block;
-
-        &.dot-red { background: #ff5f56; }
-        &.dot-yellow { background: #ffbd2e; }
-        &.dot-green { background: #27c93f; }
-      }
-    }
-
-    .terminal-title {
-      font-family: 'JetBrains Mono', monospace;
       font-size: 12.5px;
-      color: #8b949e;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-weight: 500;
+      color: #334155;
 
-      .prompt-user { color: #58a6ff; }
-      .prompt-path { color: #7ee787; }
-      .prompt-cmd { color: #f0883e; font-weight: 600; }
+      .live-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #10b981;
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        animation: pulseLive 2s infinite;
+      }
     }
 
-    .terminal-actions {
-      display: flex;
+    .dossier-counter {
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-
-      .branch-indicator {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 11px;
-        padding: 4px 10px;
-        border-radius: 50px;
-        background: rgba(56, 139, 253, 0.15);
-        color: #58a6ff;
-        border: 1px solid rgba(56, 139, 253, 0.3);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
+      font-size: 12px;
+      font-weight: 600;
+      color: #059669;
+      background: #ecfdf5;
+      padding: 4px 12px;
+      border-radius: 50px;
+      border: 1px solid #a7f3d0;
     }
   }
 
-  /* Branch Filter Bar */
-  .branch-filter-bar {
-    background: #090d12;
-    padding: 10px 18px;
-    border-bottom: 1px solid #21262d;
+  /* Filter Tabs */
+  .category-filter-bar {
+    background: #ffffff;
+    padding: 12px 24px;
+    border-bottom: 1px solid #f1f5f9;
     display: flex;
     align-items: center;
-    gap: 10px;
-    overflow-x: auto;
-    scrollbar-width: thin;
+    gap: 12px;
 
-    .filter-label {
-      font-family: 'JetBrains Mono', monospace;
+    .filter-title {
       font-size: 11px;
-      color: #6e7681;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      color: #64748b;
       white-space: nowrap;
-      margin-right: 4px;
+      text-transform: uppercase;
     }
 
-    .filter-btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      padding: 5px 12px;
-      border-radius: 6px;
-      background: transparent;
-      border: 1px solid #30363d;
-      color: #8b949e;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
+    .filter-buttons-scroll {
       display: flex;
       align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      padding-bottom: 2px;
+
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+    }
+
+    .category-btn {
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 50px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #475569;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
       gap: 6px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+      .btn-indicator {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        display: inline-block;
+      }
 
       &:hover {
-        background: #161b22;
-        color: #f0f6fc;
-        border-color: #8b949e;
+        background: #e2e8f0;
+        color: #0f172a;
       }
 
       &.active {
-        background: #1f6feb;
+        background: #0f172a;
         color: #ffffff;
-        border-color: #58a6ff;
-        box-shadow: 0 0 12px rgba(31, 111, 235, 0.4);
-      }
+        border-color: #0f172a;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
 
-      .btn-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: currentColor;
+        .btn-indicator {
+          background-color: #ffffff !important;
+        }
       }
     }
   }
 
-  /* Main Pipeline Grid: Git Graph Column + Inspector Column */
-  .pipeline-grid {
+  /* Main Dossier Layout */
+  .dossier-layout {
     display: grid;
-    grid-template-columns: 380px 1fr;
-    min-height: 540px;
+    grid-template-columns: 370px 1fr;
+    min-height: 620px;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
     }
   }
 
-  /* Commit List & Graph Column */
-  .commits-column {
-    border-right: 1px solid #21262d;
-    background: #0d1117;
-    padding: 16px 12px;
+  /* Sidebar Timeline */
+  .milestones-sidebar {
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    overflow-y: auto;
-    max-height: 620px;
 
     @media (max-width: 960px) {
       border-right: none;
-      border-bottom: 1px solid #21262d;
-      max-height: 380px;
+      border-bottom: 1px solid #e2e8f0;
+      max-height: 400px;
     }
 
-    .commit-node-item {
-      position: relative;
+    .sidebar-header {
+      padding: 16px 20px 12px;
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 10px;
-      border: 1px solid transparent;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      color: #64748b;
+      text-transform: uppercase;
+      border-bottom: 1px solid #edf2f7;
+
+      .count-badge {
+        background: #e2e8f0;
+        color: #334155;
+        padding: 2px 8px;
+        border-radius: 50px;
+        font-size: 11px;
+      }
+    }
+
+    .milestones-list {
+      padding: 12px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+    }
+
+    .milestone-item-card {
+      position: relative;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      padding: 14px 16px;
       cursor: pointer;
-      transition: all 0.2s ease;
-      background: rgba(22, 27, 34, 0.4);
+      transition: all 0.22s ease;
+      overflow: hidden;
 
       &:hover {
-        background: #161b22;
-        border-color: #30363d;
+        border-color: #cbd5e1;
+        background: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
       }
 
       &.selected {
-        background: rgba(56, 139, 253, 0.1);
-        border-color: #58a6ff;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), inset 3px 0 0 #58a6ff;
-
-        .commit-hash {
-          color: #58a6ff;
-          font-weight: 700;
-        }
-
-        .commit-dot {
-          transform: scale(1.3);
-          box-shadow: 0 0 10px currentColor;
-        }
+        box-shadow: 0 6px 16px -4px rgba(15, 23, 42, 0.08);
       }
 
-      .graph-lane {
+      .active-indicator-bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        transition: opacity 0.2s ease;
+      }
+
+      .item-content {
+        padding-left: 4px;
+      }
+
+      .item-top-row {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        flex-shrink: 0;
-        padding-top: 3px;
-
-        .commit-dot {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          border: 2px solid #0d1117;
-          transition: transform 0.2s ease;
-        }
-
-        .commit-line {
-          width: 2px;
-          height: 100%;
-          min-height: 36px;
-          background: #30363d;
-          margin-top: 4px;
-        }
+        justify-content: space-between;
+        margin-bottom: 8px;
+        gap: 8px;
       }
 
-      .commit-meta {
-        flex: 1;
-        min-width: 0;
+      .item-category-tag {
+        font-size: 11px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 50px;
+        border: 1px solid transparent;
+        display: inline-flex;
+        align-items: center;
+      }
 
-        .commit-top {
-          display: flex;
+      .item-status-pill {
+        font-size: 10.5px;
+        color: #64748b;
+        font-weight: 500;
+      }
+
+      .item-org-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: #0f172a;
+        margin: 0 0 4px 0;
+        line-height: 1.35;
+      }
+
+      .item-role-title {
+        font-size: 12.5px;
+        font-weight: 500;
+        color: #475569;
+        margin-bottom: 8px;
+        line-height: 1.35;
+      }
+
+      .item-footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 11.5px;
+        color: #64748b;
+        padding-top: 4px;
+        border-top: 1px dashed #f1f5f9;
+
+        .item-duration {
+          display: inline-flex;
           align-items: center;
-          justify-content: space-between;
-          gap: 6px;
-          margin-bottom: 4px;
         }
 
-        .commit-hash {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 11px;
-          color: #f0883e;
-        }
-
-        .branch-badge {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 10px;
-          padding: 1px 7px;
-          border-radius: 4px;
-          background: rgba(255, 255, 255, 0.06);
-          color: #8b949e;
-        }
-
-        .commit-school {
-          font-size: 14px;
+        .item-gpa-badge {
           font-weight: 600;
-          color: #f0f6fc;
-          margin: 0 0 2px 0;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-
-        .commit-degree {
-          font-size: 12.5px;
-          color: #8b949e;
-          margin: 0 0 6px 0;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-
-        .commit-time {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 11px;
-          color: #6e7681;
+          color: #059669;
+          background: #ecfdf5;
+          padding: 1px 6px;
+          border-radius: 4px;
         }
       }
     }
   }
 
-  /* Terminal Inspector Pane */
-  .inspector-column {
-    background: #0d1117;
-    padding: 24px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  /* Right Column: Executive Detail Pane */
+  .milestone-detail-view {
+    background: #ffffff;
+    padding: 32px 36px;
     overflow-y: auto;
 
-    @media (max-width: 640px) {
-      padding: 18px 16px;
+    @media (max-width: 768px) {
+      padding: 24px 20px;
     }
 
-    .inspector-header-box {
-      border-bottom: 1px solid #21262d;
-      padding-bottom: 18px;
-
-      .inspector-log-line {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 12px;
-        color: #8b949e;
-        margin-bottom: 6px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 8px;
-
-        .sha-highlight {
-          color: #f0883e;
-          font-weight: 600;
-        }
-
-        .head-tag {
-          background: #238636;
-          color: #ffffff;
-          padding: 2px 8px;
-          border-radius: 4px;
-          font-size: 10.5px;
-          font-weight: 600;
-        }
-
-        .status-pill-small {
-          background: rgba(56, 139, 253, 0.15);
-          color: #58a6ff;
-          border: 1px solid rgba(56, 139, 253, 0.3);
-          padding: 2px 8px;
-          border-radius: 4px;
-          font-size: 10.5px;
-        }
-      }
-
-      .inspector-author-line {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 12px;
-        color: #6e7681;
-        margin-bottom: 12px;
-      }
-
-      .inspector-school-title {
-        font-size: clamp(20px, 2.5vw, 26px);
-        font-weight: 700;
-        color: #ffffff;
-        margin: 0 0 6px 0;
-        letter-spacing: -0.3px;
-      }
-
-      .inspector-degree-subtitle {
-        font-size: 16px;
-        font-weight: 500;
-        color: #58a6ff;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-    }
-
-    /* Diff Stats & Highlights Banner */
-    .diff-stats-banner {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 12px;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-
-      .stat-badge {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 12px;
-        color: #7ee787;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .gpa-badge {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 12px;
-        color: #ffbd2e;
-        background: rgba(255, 189, 46, 0.1);
-        border: 1px solid rgba(255, 189, 46, 0.25);
-        padding: 3px 10px;
-        border-radius: 50px;
-      }
-    }
-
-    /* Highlights list */
-    .inspector-highlights {
+    .detail-inner {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-
-      .highlight-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        font-size: 14px;
-        line-height: 1.55;
-        color: #c9d1d9;
-
-        .terminal-plus {
-          font-family: 'JetBrains Mono', monospace;
-          color: #7ee787;
-          font-weight: 700;
-          flex-shrink: 0;
-          margin-top: 1px;
-        }
-      }
+      gap: 24px;
     }
 
-    /* Tech Stack Pills */
-    .inspector-tech-section {
-      .tech-label {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: #8b949e;
-        margin-bottom: 8px;
+    /* Detail Header */
+    .detail-header-card {
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f1f5f9;
+
+      .detail-meta-pills {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+
+        .category-badge-large {
+          font-size: 12px;
+          font-weight: 600;
+          padding: 4px 12px;
+          border-radius: 50px;
+          border: 1px solid transparent;
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .role-tag-pill {
+          font-size: 12px;
+          font-weight: 500;
+          color: #475569;
+          background: #f1f5f9;
+          padding: 4px 12px;
+          border-radius: 50px;
+          border: 1px solid #e2e8f0;
+        }
       }
 
-      .tech-tags-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+      .detail-org-heading {
+        font-size: clamp(20px, 2.2vw, 26px);
+        font-weight: 800;
+        color: #0f172a;
+        margin: 0 0 6px 0;
+        line-height: 1.3;
+      }
 
-        .tech-pill {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 11.5px;
-          padding: 4px 10px;
-          border-radius: 6px;
-          background: #21262d;
-          color: #c9d1d9;
-          border: 1px solid #30363d;
-          transition: all 0.15s ease;
+      .detail-role-heading {
+        font-size: 16px;
+        font-weight: 600;
+        color: #2563eb;
+        margin-bottom: 18px;
+      }
 
-          &:hover {
-            border-color: #58a6ff;
-            color: #58a6ff;
-            background: rgba(56, 139, 253, 0.1);
+      .detail-info-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 14px 18px;
+
+        @media (max-width: 680px) {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .info-cell {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+
+          .info-icon {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 3px;
+          }
+
+          .info-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 2px;
+          }
+
+          .info-val {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
           }
         }
       }
     }
 
-    /* Markdown description block */
-    .inspector-desc-box {
-      background: rgba(22, 27, 34, 0.6);
-      border: 1px solid #21262d;
-      border-radius: 12px;
-      padding: 16px 20px;
-      font-size: 14px;
-      line-height: 1.65;
-      color: #adbac7;
+    /* Quantitative Metrics Row */
+    .metrics-cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
 
-      p {
-        margin: 0 0 10px 0;
-        &:last-child { margin-bottom: 0; }
+      @media (max-width: 680px) {
+        grid-template-columns: 1fr;
       }
 
-      strong {
-        color: #f0f6fc;
-        font-weight: 600;
+      .metric-box {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 14px 16px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: #ffffff;
+          border-color: #cbd5e1;
+          box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+        }
+
+        .metric-title {
+          font-size: 11.5px;
+          color: #64748b;
+          font-weight: 500;
+          margin-bottom: 6px;
+        }
+
+        .metric-value {
+          font-size: 14px;
+          font-weight: 700;
+          color: #0f172a;
+          line-height: 1.35;
+        }
       }
     }
 
-    /* Terminal Nav Controls */
-    .inspector-controls {
+    /* Highlights Section */
+    .achievements-section {
+      .section-title {
+        font-size: 13.5px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #334155;
+        margin: 0 0 14px 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .highlights-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .highlight-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        background: #f8fafc;
+        border: 1px solid #f1f5f9;
+        border-radius: 10px;
+        padding: 12px 14px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: #ffffff;
+          border-color: #e2e8f0;
+          box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+        }
+
+        .check-bullet {
+          font-size: 13px;
+          font-weight: 800;
+          margin-top: 1px;
+          flex-shrink: 0;
+        }
+
+        .highlight-text {
+          font-size: 13.5px;
+          color: #334155;
+          line-height: 1.55;
+        }
+      }
+    }
+
+    /* Competencies & Tech Chips */
+    .competencies-section {
+      .section-title {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #475569;
+        margin: 0 0 12px 0;
+      }
+
+      .tags-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-chip {
+        font-size: 12.5px;
+        font-weight: 500;
+        color: #1e293b;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        padding: 5px 12px;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: #e2e8f0;
+          color: #0f172a;
+        }
+      }
+    }
+
+    /* Executive Summary Card */
+    .executive-summary-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #2563eb;
+      border-radius: 10px;
+      padding: 16px 20px;
+
+      .summary-title {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #2563eb;
+        margin-bottom: 8px;
+      }
+
+      .summary-content {
+        font-size: 14px;
+        color: #334155;
+        line-height: 1.65;
+
+        p {
+          margin: 0;
+        }
+
+        strong {
+          color: #0f172a;
+          font-weight: 600;
+        }
+      }
+    }
+
+    /* Navigation Footer */
+    .dossier-navigation {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding-top: 8px;
-      border-top: 1px solid #21262d;
+      padding-top: 20px;
+      border-top: 1px solid #f1f5f9;
+      gap: 16px;
 
-      .nav-btn {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 12px;
+      .step-btn {
+        font-size: 12.5px;
+        font-weight: 600;
         padding: 8px 16px;
         border-radius: 8px;
-        background: #21262d;
-        color: #c9d1d9;
-        border: 1px solid #30363d;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        color: #334155;
         cursor: pointer;
-        transition: all 0.2s ease;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         gap: 8px;
+        transition: all 0.2s ease;
 
         &:hover:not(:disabled) {
-          background: #30363d;
-          color: #ffffff;
-          border-color: #8b949e;
+          background: #f8fafc;
+          border-color: #cbd5e1;
+          color: #0f172a;
+          transform: translateY(-1px);
         }
 
         &:disabled {
-          opacity: 0.35;
+          opacity: 0.4;
           cursor: not-allowed;
         }
       }
 
-      .step-counter {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 11px;
-        color: #8b949e;
+      .step-tracker {
+        font-size: 12.5px;
+        color: #64748b;
+
+        strong {
+          color: #0f172a;
+        }
       }
     }
+  }
+}
+
+@keyframes pulseLive {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 5px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
   }
 }
