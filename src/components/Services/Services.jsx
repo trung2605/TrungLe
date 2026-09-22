@@ -18,7 +18,13 @@ import {
   FaChartLine, 
   FaSyncAlt, 
   FaStar,
-  FaGraduationCap 
+  FaGraduationCap,
+  FaUserTie,
+  FaLaptopCode,
+  FaCode,
+  FaAward,
+  FaServer,
+  FaDownload
 } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -57,6 +63,119 @@ const BIENSOVIP_SHOTS = [
     titleVi: "Cổng quản trị Admin & Đối soát VietQR",
     titleEn: "Admin Management & VietQR Audit",
     url: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579613/my-website/assets/projects/screenshots/vl8kafmfubidwk3mugcb.png"
+  }
+];
+
+const TEAM_MEMBERS = [
+  {
+    name: "Lê Trí Trung",
+    roleVi: "Tech Lead & Solutions Architect",
+    roleEn: "Tech Lead & Solutions Architect",
+    highlightVi: "Chủ nhiệm kỹ thuật & Trực tiếp làm việc 1-1 với khách hàng",
+    highlightEn: "Technical Lead & Direct 1-on-1 Client Engagement",
+    eduVi: "Đại học FPT Đà Nẵng • Cựu Kỹ sư FPT Software",
+    eduEn: "FPT University • Ex-FPT Software Engineer",
+    achievementsVi: [
+      "Quán quân Hackathon Computer Vision 2026 (FPT Education)",
+      "Top 5 Nghiên cứu khoa học ResFes toàn quốc (Báo cáo ICTA 2026)",
+      "Trực tiếp thiết kế & vận hành sàn Biensovip.com, The MC Hub, ThreadLearn"
+    ],
+    achievementsEn: [
+      "Champion of Hackathon Computer Vision 2026 (FPT Education)",
+      "Top 5 National Scientific Research ResFes (ICTA 2026 paper)",
+      "Directly architected & operating Biensovip.com, The MC Hub, ThreadLearn"
+    ],
+    skills: [".NET 8", "Java Spring Boot", "React 19", "Python FastAPI", "VietQR", "PostgreSQL", "Redis"],
+    cvUrl: "/Team_CV/CV_Le-Tri-Trung_Tech-Lead.pdf",
+    color: "#dceeb1"
+  },
+  {
+    name: "Hà Văn Ân",
+    roleVi: "Full-stack & AI Integration Engineer",
+    roleEn: "Full-stack & AI Integration Engineer",
+    highlightVi: "Chuyên sâu Next.js App Router, Tích hợp AI DeepSeek/Gemini & RAG",
+    highlightEn: "Next.js App Router, AI DeepSeek/Gemini Integration & RAG",
+    eduVi: "Đại học FPT Đà Nẵng • Cựu Kỹ sư FPT Software",
+    eduEn: "FPT University • Ex-FPT Software Intern",
+    achievementsVi: [
+      "Cựu kỹ sư FPT Software (Warehouse Inventory Systems & WebSockets)",
+      "Tác giả nền tảng học tập STEMGO (stemgo.net) tích hợp AI Tutor Gemini",
+      "Đồng tác giả nghiên cứu ThreadLearn: Fine-tuned LLM đạt tỷ lệ fix bug 73.3%"
+    ],
+    achievementsEn: [
+      "Ex-FPT Software Intern (Warehouse Inventory Systems & WebSockets)",
+      "Author of STEMGO (stemgo.net) gamified platform with Gemini AI Tutor",
+      "Co-author of ThreadLearn AI research: 73.3% bug-fixing benchmark"
+    ],
+    skills: ["Next.js", "React", "Node.js", "Python FastAPI", "DeepSeek / Gemini", "Tailwind", "MongoDB"],
+    cvUrl: "/Team_CV/CV_Ha-Van-An_Fullstack-AI.pdf",
+    color: "#c5b0f4"
+  },
+  {
+    name: "Nguyễn Thành Lộc",
+    roleVi: "Backend .NET & AI Data Pipeline Engineer",
+    roleEn: "Backend .NET & AI Data Pipeline Engineer",
+    highlightVi: "Chuyên sâu ASP.NET Core Clean Architecture & Pipeline cào dữ liệu AI",
+    highlightEn: "ASP.NET Core Clean Architecture & AI Data Ingestion Pipelines",
+    eduVi: "Đại học FPT Đà Nẵng (GPA 3.5/4.0) • Cựu Kỹ sư FPT Software",
+    eduEn: "FPT University (GPA 3.5/4.0) • Ex-FPT Software Intern",
+    achievementsVi: [
+      "AI Team Lead dự án BrandHub (Hệ thống AI Brand Intelligence & RAG pipeline)",
+      "Team Lead UniNest (Nền tảng ghép phòng & sinh viên ASP.NET Core)",
+      "Chứng chỉ chuyên môn AI Agents Using RAG and LangChain (Coursera 2026)"
+    ],
+    achievementsEn: [
+      "AI Team Lead at BrandHub (AI-Driven Brand Intelligence & RAG pipeline)",
+      "Team Lead at UniNest (Student Housing & Roommate ASP.NET Core platform)",
+      "Coursera Certification: AI Agents Using RAG & LangChain (2026)"
+    ],
+    skills: ["ASP.NET Core", "C# Clean Arch", "FastAPI", "RAG LangChain", "Data Crawling", "PostgreSQL"],
+    cvUrl: "/Team_CV/CV_Nguyen-Thanh-Loc_Backend-AI.pdf",
+    color: "#f4ecd6"
+  },
+  {
+    name: "Nguyễn Minh Tuấn",
+    roleVi: "Backend .NET & Enterprise Systems Engineer",
+    roleEn: "Backend .NET & Enterprise Systems Engineer",
+    highlightVi: "Chứng chỉ Microsoft Professional • Core .NET 8 & Dashboard Báo Cáo",
+    highlightEn: "Microsoft Certified Professional • Core .NET 8 & Analytics Dashboards",
+    eduVi: "Đại học FPT Đà Nẵng • Cựu Kỹ sư FPT Software",
+    eduEn: "FPT University • Ex-FPT Software Intern",
+    achievementsVi: [
+      "Chứng chỉ quốc tế: Microsoft Certified: Back-End Developer Professional (08/2026)",
+      "Cựu kỹ sư FPT Software (Chuyển đổi hệ thống C# sang ASP.NET Core Web API + Vite)",
+      "Team Lead dự án VivuCar (Dashboard xuất Excel/PDF, Voucher, Hive AI, API DVC BCA)"
+    ],
+    achievementsEn: [
+      "International Cert: Microsoft Certified Back-End Developer Professional (2026)",
+      "Ex-FPT Software Intern (Legacy C# migration to ASP.NET Core Web API + Vite)",
+      "Team Lead of VivuCar (Excel/PDF Reporting Dashboard, Voucher, Hive AI, Gov APIs)"
+    ],
+    skills: [".NET 8", "EF Core", "SQL Server", "PostgreSQL", "Hive AI", "PDF/Excel Export", "Docker"],
+    cvUrl: "/Team_CV/CV_Nguyen-Minh-Tuan_DotNet-Backend.pdf",
+    color: "#c8e6cd"
+  },
+  {
+    name: "Nguyễn Chơn Phước",
+    roleVi: "Java Backend & DevOps / Real-time Engineer",
+    roleEn: "Java Backend & DevOps / Real-time Engineer",
+    highlightVi: "Chuyên sâu Java Spring Boot, Socket.IO Real-time & Hạ Tầng Uptime 24/7",
+    highlightEn: "Java Spring Boot, Socket.IO Real-time & 24/7 Uptime Infrastructure",
+    eduVi: "Đại học FPT Đà Nẵng • Finalist InnoCodeCamp FPT",
+    eduEn: "FPT University • Finalist InnoCodeCamp FPT",
+    achievementsVi: [
+      "Cựu kỹ sư Acronic Solutions (Hệ thống giám sát Anti-DDoS, Socket.IO IPC, Nginx/Linux 24/7)",
+      "Kỹ sư Full-stack Danatour (Java Spring Boot, JWT, tối ưu chỉ mục PostgreSQL)",
+      "Dự án V-Try (Giao diện 3D React/Next.js kết hợp MediaPipe ước lượng hình thể AI)"
+    ],
+    achievementsEn: [
+      "Ex-Acronic Solutions Intern (Anti-DDoS SPA Dashboard, Socket.IO IPC, Linux/Nginx 24/7)",
+      "Full-stack Engineer at Danatour (Java Spring Boot, JWT, PostgreSQL indexing)",
+      "V-Try 3D Virtual Fitting project (React/Next.js + MediaPipe Computer Vision)"
+    ],
+    skills: ["Java Spring Boot", "Socket.IO", "TypeScript", "Docker", "Linux / Nginx", "MediaPipe 3D"],
+    cvUrl: "/Team_CV/CV_Nguyen-Chon-Phuoc_Java-DevOps.pdf",
+    color: "#efd4d4"
   }
 ];
 
@@ -621,6 +740,131 @@ const Services = () => {
             </div>
             <p>{isEn ? "Over 75% of your investment flows directly into software craft, licensed plugins, and high-speed hosting." : "Hơn 75% chi phí đầu tư trực tiếp vào lập trình và tài nguyên cao cấp (theme, plugin, server xịn), mang lại giá trị thực."}</p>
           </div>
+        </div>
+      </section>
+
+      {/* 5.5. CORE ENGINEERING TEAM (100% FPT UNIVERSITY — EX-FPT SOFTWARE) */}
+      <section id="team-section" className="section-container team-bench-section">
+        <div className="section-header">
+          <div className="section-eyebrow">{isEn ? "VERIFIED ENGINEERING TEAM" : "ĐỘI NGŨ KỸ SƯ CHÍNH QUY"}</div>
+          <h2 className="section-heading">
+            {isEn ? "Meet Our 5 Engineers: 100% FPT University — Ex-FPT Software" : "Đội Ngũ 05 Kỹ Sư Thực Chiến: 100% Đại Học FPT — Cựu FPT Software"}
+          </h2>
+          <p className="section-desc">
+            {isEn
+              ? "No agency middlemen, no sales markups. You collaborate directly 1-on-1 with Tech Lead Le Tri Trung alongside 4 dedicated engineers specializing in .NET 8, Java Spring Boot, Next.js, and AI automation."
+              : "Xóa bỏ hoàn toàn chi phí sales trung gian. Khách hàng làm việc trực tiếp 1-1 với Tech Lead Lê Trí Trung cùng 4 kỹ sư chuyên trách, sở hữu chứng chỉ quốc tế và kinh nghiệm thực chiến dày dặn tại FPT Software."}
+          </p>
+        </div>
+
+        {/* Highlight Trust Stats */}
+        <div className="team-trust-banner">
+          <div className="trust-stat">
+            <span className="stat-value">05</span>
+            <span className="stat-label">{isEn ? "Engineers In Da Nang" : "Kỹ Sư Chính Quy Tại Đà Nẵng"}</span>
+          </div>
+          <div className="stat-divider" />
+          <div className="trust-stat">
+            <span className="stat-value">100%</span>
+            <span className="stat-label">{isEn ? "FPT University Software Engineers" : "Đại Học FPT Chuyên Ngành SE"}</span>
+          </div>
+          <div className="stat-divider" />
+          <div className="trust-stat">
+            <span className="stat-value">4 / 5</span>
+            <span className="stat-label">{isEn ? "Ex-FPT Software Interns" : "Đã Thực Tập & Làm Việc Tại FPT Software"}</span>
+          </div>
+          <div className="stat-divider" />
+          <div className="trust-stat">
+            <span className="stat-value">01</span>
+            <span className="stat-label">{isEn ? "Microsoft Certified Professional" : "Chứng Chỉ Quốc Tế Microsoft Pro"}</span>
+          </div>
+        </div>
+
+        {/* 5 Members Grid */}
+        <div className="team-members-grid">
+          {TEAM_MEMBERS.map((member, idx) => (
+            <div key={idx} className={`team-member-card ${idx === 0 ? 'lead-card' : ''}`}>
+              <div className="card-top-stripe" style={{ backgroundColor: member.color }} />
+              <div className="member-card-body">
+                <div className="member-header">
+                  <div className="member-avatar-box" style={{ background: member.color }}>
+                    {idx === 0 ? <FaUserTie size={22} /> : idx === 1 ? <FaLaptopCode size={22} /> : idx === 2 ? <FaCode size={22} /> : idx === 3 ? <FaAward size={22} /> : <FaServer size={22} />}
+                  </div>
+                  <div className="member-meta">
+                    <div className="member-role-badge">{isEn ? member.roleEn : member.roleVi}</div>
+                    <h3 className="member-name">{member.name}</h3>
+                  </div>
+                </div>
+
+                <div className="member-edu-tag">
+                  <FaGraduationCap size={13} />
+                  <span>{isEn ? member.eduEn : member.eduVi}</span>
+                </div>
+
+                <p className="member-highlight">
+                  {isEn ? member.highlightEn : member.highlightVi}
+                </p>
+
+                <div className="member-achievements-list">
+                  {(isEn ? member.achievementsEn : member.achievementsVi).map((ach, aIdx) => (
+                    <div key={aIdx} className="achievement-row">
+                      <FaCheckCircle className="check-icon" />
+                      <span>{ach}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="member-skills-row">
+                  {member.skills.map((skill, sIdx) => (
+                    <span key={sIdx} className="skill-pill">{skill}</span>
+                  ))}
+                </div>
+
+                <div className="member-card-footer">
+                  <a
+                    href={member.cvUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-member-cv"
+                  >
+                    <FaFileContract size={13} />
+                    <span>{isEn ? "View Verified CV" : "Xem CV Kỹ Sư"}</span>
+                    <FaExternalLinkAlt size={10} />
+                  </a>
+
+                  {idx === 0 && (
+                    <Link
+                      to="/achievements?tab=education&milestone=1"
+                      className="btn-lead-milestone"
+                    >
+                      <FaAward size={13} />
+                      <span>{isEn ? "Lead Dossier" : "Hồ Sơ Năng Lực"}</span>
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Callout: Full Dossier Download */}
+        <div className="team-download-dossier-box">
+          <div className="dossier-info">
+            <FaShieldAlt size={30} className="dossier-icon" />
+            <div>
+              <h4>{isEn ? "Download Comprehensive Company Profile & Technical Quotation (PDF)" : "Tải Về Hồ Sơ Năng Lực Kỹ Thuật & Báo Giá 3 Gói Dịch Vụ (PDF)"}</h4>
+              <p>{isEn ? "Official 5-page dossier: Detailed Man-day effort breakdown, verified live Biensovip.com metrics, and guaranteed SLAs." : "Bản PDF 5 trang chính thức: Bóc tách minh bạch chi phí theo Man-day, minh chứng năng lực thực tế Biensovip.com và cam kết tiến độ."}</p>
+            </div>
+          </div>
+          <a
+            href="/docs/Ho_So_Nang_Luc_Va_Bao_Gia_Website.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-download-pdf-profile"
+          >
+            <FaDownload size={14} />
+            <span>{isEn ? "Download PDF Profile (5 Pages)" : "Tải PDF Hồ Sơ Năng Lực (5 Trang)"}</span>
+          </a>
         </div>
       </section>
 

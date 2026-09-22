@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zalo Outreach Assistant — Kịch Bản Tiếp Cận Khách Hàng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-dark: #020617;
+            --secondary: #1e293b;
+            --accent: #059669;
+            --accent-hover: #047857;
+            --accent-light: #ecfdf5;
+            --accent-border: #a7f3d0;
+            --zalo-blue: #0068ff;
+            --zalo-light: #e8f2ff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --bg-page: #f8fafc;
+            --card-bg: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Top Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: white;
+            padding: 2.2rem 1.5rem 1.8rem;
+            border-bottom: 3px solid var(--accent);
+            position: relative;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
+        .header-title h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .badge-live {
+            background: var(--accent);
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .header-title p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-top: 0.35rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.6rem 1.1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .btn-header:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .btn-header.primary {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .btn-header.primary:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Interactive Personalization Bar */
+        .personalize-bar {
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 1.5rem;
+        }
+
+        .personalize-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) auto;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .input-group label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+        }
+
+        .input-group input {
+            padding: 0.65rem 0.85rem;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.92rem;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .input-group input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+        }
+
+        .btn-reset {
+            padding: 0.65rem 1rem;
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            height: 42px;
+        }
+
+        .btn-reset:hover {
+            background: #e2e8f0;
+            color: var(--text-main);
+        }
+
+        /* Main Content Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Filter Navigation Tabs */
+        .filter-nav {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.8rem;
+            scrollbar-width: thin;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.6rem 1.1rem;
+            border-radius: 9999px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Category Header */
+        .category-header {
+            margin: 2.5rem 0 1.2rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .category-header h2 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-header .pain-point {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Cards Grid */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .template-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .template-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #cbd5e1;
+        }
+
+        .card-header {
+            padding: 1rem 1.25rem;
+            background: #fafafa;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title-group h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .card-title-group .target-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 0.2rem 0.55rem;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .card-view-toggle {
+            display: flex;
+            background: #e2e8f0;
+            padding: 2px;
+            border-radius: 6px;
+        }
+
+        .toggle-btn {
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            padding: 0.35rem 0.65rem;
+            border-radius: 4px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.15s;
+        }
+
+        .toggle-btn.active {
+            background: white;
+            color: var(--text-main);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .card-body {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Mockup Zalo Chat UI */
+        .zalo-mockup {
+            background: #ebedf0;
+            border-radius: 10px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .zalo-bubble {
+            background: white;
+            color: #111827;
+            padding: 0.9rem 1.1rem;
+            border-radius: 12px 12px 12px 2px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+            line-height: 1.55;
+            white-space: pre-wrap;
+            position: relative;
+        }
+
+        .zalo-bubble .interpolated-val {
+            color: var(--accent);
+            font-weight: 700;
+            background: rgba(5, 150, 105, 0.08);
+            padding: 0 3px;
+            border-radius: 3px;
+        }
+
+        .zalo-attachment-card {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .pdf-icon {
+            width: 38px;
+            height: 44px;
+            background: #ef4444;
+            color: white;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+        }
+
+        .attachment-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .attachment-info .filename {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .attachment-info .filesize {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Raw Text View */
+        .raw-text-view {
+            display: none;
+            background: #f8fafc;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            font-size: 0.88rem;
+            color: #334155;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            font-family: inherit;
+        }
+
+        /* Card Actions */
+        .card-actions {
+            margin-top: 1rem;
+            padding-top: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-copy {
+            background: var(--zalo-blue);
+            color: white;
+            border: none;
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 104, 255, 0.2);
+        }
+
+        .btn-copy:hover {
+            background: #0056d6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 104, 255, 0.25);
+        }
+
+        .btn-copy.copied {
+            background: var(--accent);
+            box-shadow: 0 2px 4px rgba(5, 150, 105, 0.2);
+        }
+
+        .btn-sub-action {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s;
+        }
+
+        .btn-sub-action:hover {
+            color: var(--accent);
+        }
+
+        /* Toast Alert */
+        #toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-dark);
+            color: white;
+            padding: 0.9rem 1.4rem;
+            border-radius: 10px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 4px solid var(--accent);
+        }
+
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Quick Info Box */
+        .info-box {
+            background: var(--accent-light);
+            border: 1px solid var(--accent-border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-box-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .info-box-content h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #065f46;
+        }
+
+        .info-box-content p {
+            font-size: 0.85rem;
+            color: #047857;
+            margin-top: 0.2rem;
+        }
+
+        footer {
+            background: white;
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="header-title">
+                <h1>
+                    Zalo Outreach Assistant
+                    <span class="badge-live">Kỹ Sư 1-1</span>
+                </h1>
+                <p>Công cụ tạo kịch bản tiếp cận khách hàng qua Zalo & dẫn dắt gửi File PDF Báo Giá</p>
+            </div>
+            <div class="header-actions">
+                <a href="../docs/Ho_So_Nang_Luc_Va_Bao_Gia_Website.pdf" target="_blank" class="btn-header primary">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Xem File PDF Báo Giá
+                </a>
+                <a href="https://chat.zalo.me/" target="_blank" class="btn-header">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    Mở Zalo Web
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Personalization Bar -->
+    <div class="personalize-bar">
+        <div class="personalize-container">
+            <div class="input-group">
+                <label for="inputTenKhach">Tên Khách Hàng</label>
+                <input type="text" id="inputTenKhach" value="anh/chị" placeholder="Ví dụ: Anh Nam, Chị Hương">
+            </div>
+            <div class="input-group">
+                <label for="inputTenShop">Tên Cửa Hàng / Doanh Nghiệp</label>
+                <input type="text" id="inputTenShop" value="bên mình" placeholder="Ví dụ: Dola Bakery, Tiệm Hoa Xinh">
+            </div>
+            <div class="input-group">
+                <label for="inputLinhVuc">Lĩnh Vực Hoạt Động</label>
+                <input type="text" id="inputLinhVuc" value="kinh doanh bán lẻ" placeholder="Ví dụ: F&B, Thời trang, Xây dựng">
+            </div>
+            <button class="btn-reset" onclick="resetForm()">Đặt Lại Mặc Định</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-container">
+
+        <!-- Tips Info Box -->
+        <div class="info-box">
+            <div class="info-box-icon">💡</div>
+            <div class="info-box-content">
+                <h4>Chiến Lược Gửi Tin Nhắn 2 Bước Hiệu Quả</h4>
+                <p><strong>Bước 1:</strong> Chọn mẫu phù hợp $\rightarrow$ Nhập tên khách ở thanh trên $\rightarrow$ Bấm <strong>Sao Chép</strong> và dán vào Zalo.<br>
+                <strong>Bước 2:</strong> Gửi ngay kèm file <code>Ho_So_Nang_Luc_Va_Bao_Gia_Website.pdf</code> (đã được đính kèm trực tiếp trong tin nhắn).</p>
+            </div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-nav" id="filterNav">
+            <button class="filter-btn active" data-filter="all">Tất Cả Mẫu (10)</button>
+            <button class="filter-btn" data-filter="cat-retail">🍰 Shop Bán Lẻ & F&B</button>
+            <button class="filter-btn" data-filter="cat-sme">🏢 Doanh Nghiệp SME & B2B</button>
+            <button class="filter-btn" data-filter="cat-saas">🚀 Sàn TMĐT & AI DeepSeek</button>
+            <button class="filter-btn" data-filter="cat-quick">⚡ Tiếp Cận Nhanh (1 Phút)</button>
+            <button class="filter-btn" data-filter="cat-followup">🔄 Chăm Sóc & Follow-Up</button>
+            <button class="filter-btn" data-filter="cat-cta">☕ Mời Hẹn Gặp (CTA)</button>
+        </div>
+
+        <!-- Container for dynamically rendered templates -->
+        <div id="templatesRoot">
+            <!-- Will be populated by JS from markdown -->
+        </div>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast">
+        <svg width="20" height="20" fill="none" stroke="#10b981" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        <span>Đã sao chép tin nhắn vào Clipboard! Sẵn sàng dán vào Zalo.</span>
+    </div>
+
+    <footer>
+        <p>Hệ thống Kịch Bản Outreach Zalo & Hồ Sơ Kỹ Thuật $\cdot$ <strong>Lê Trí Trung & Nhóm Kỹ Sư Đà Nẵng</strong></p>
+        <p style="margin-top: 0.3rem;">Hotline/Zalo: <strong>0782.399.721</strong> $\cdot$ Website: <a href="https://letritrung.id.vn" target="_blank" style="color: var(--accent); text-decoration: none;">letritrung.id.vn</a></p>
+    </footer>
+
+    <!-- Embedded Markdown Fallback to ensure offline / file:// local execution without CORS issues -->
+    <script type="text/markdown" id="embedded-markdown">
+# BỘ KỊCH BẢN TIN NHẮN ZALO OUTREACH & TIẾP CẬN KHÁCH HÀNG
+
+## 1. DÀNH CHO CHỦ SHOP BÁN LẺ & CHUỖI F&B (CỬA HÀNG, TIỆM BÁNH, QUÁN ĂN)
+*Đánh vào nỗi đau: Mất thời gian canh sao kê ngân hàng, khách giục bill, sót đơn hàng khi đông khách, web chậm làm khách thoát.*
+
+### Mẫu 1A: Tiếp cận tiệm bánh / Quán ăn / Chuỗi F&B (Case study Dola Bakery)
+- **Tiêu đề:** Tự động hóa khâu đặt món & VietQR tự gạch nợ cho tiệm F&B
+- **Đối tượng:** Chủ quán ăn, tiệm bánh, chuỗi đồ uống
+- **Nội dung tin nhắn:**
+```text
+Dạ em chào {ten_khach} ạ! Em là Trung, kỹ sư phát triển phần mềm tại Đà Nẵng.
+
+Em có theo dõi {ten_shop} và thấy menu bên mình rất chỉn chu, khách tương tác rất tốt. Tuy nhiên em để ý khâu đặt hàng qua inbox/tin nhắn thường tốn thời gian nhắn qua lại và nhân viên phải canh chụp màn hình chuyển khoản để đối soát.
+
+Bên em vừa hoàn thiện hệ thống đặt món tự động cho chuỗi Dola Bakery với các tính năng giúp tối ưu 100% khâu này:
+1. Khách đặt hàng chỉ trong 2 chạm trên điện thoại (không cần tạo tài khoản rườm rà).
+2. Tự sinh mã VietQR đúng số tiền & mã đơn — khách quét là tiền về tài khoản, hệ thống tự gạch đơn và báo ngay về Zalo/Telegram trong 0.5s.
+3. Tự tính phí ship theo khoảng cách bản đồ thực tế và phân chia đơn theo ca giao.
+
+Thời gian chốt 1 đơn hàng giảm từ 5 phút nhắn tin xuống còn 45 giây trên web.
+
+Em xin phép gửi kèm {ten_khach} file PDF "Hồ Sơ Năng Lực & Bảng Báo Giá 3 Gói Dịch Vụ" bên dưới để mình tham khảo qua ạ. Bên em làm việc trực tiếp 1-1 không qua trung gian agency nên chi phí rất hợp lý cho chủ quán ạ!
+```
+
+### Mẫu 1B: Tiếp cận shop thời trang, mỹ phẩm, phụ kiện bán lẻ
+- **Tiêu đề:** Tự động hóa quét VietQR & báo đơn Telegram/Zalo tức thì
+- **Đối tượng:** Chủ shop quần áo, giày dép, mỹ phẩm, đồ gia dụng
+- **Nội dung tin nhắn:**
+```text
+Em chào {ten_khach} ạ! Em là Trung, phụ trách nhóm kỹ sư phát triển website bán hàng tại Đà Nẵng.
+
+Em thấy {ten_shop} bên mình có lượng mẫu sản phẩm rất đẹp và phong phú. Thường các shop bán lẻ hay gặp bài toán: khi có nhiều khách chuyển khoản cùng lúc, nhân sự phải đối soát thủ công từng giao dịch ngân hàng, rất dễ nhầm lẫn hoặc giao chậm cho khách.
+
+Đội ngũ em chuyên dựng website bán lẻ chuẩn Mobile First tích hợp sẵn:
+• Thanh toán VietQR tự động 0đ phí duy trì: Khách quét QR xong, hệ thống tự động xác nhận đơn hàng thành công trong 0.5 giây mà không cần nhân viên kiểm tra sao kê.
+• Tự động gửi thông báo đơn hàng chi tiết về Telegram / Zalo của {ten_khach}.
+• Tốc độ tải trang siêu tốc chuẩn Google Core Web Vitals, giúp khách bấm xem là hiển thị ngay, không bị nản lòng thoát trang.
+
+Em xin gửi {ten_khach} file PDF Hồ Sơ Năng Lực Kỹ Thuật & Báo Giá chi tiết bên dưới. Nếu mình có dự định làm mới hoặc nâng cấp website thì em xin phép được tư vấn phương án tối ưu nhất cho {ten_shop} nhé ạ!
+```
+
+## 2. DÀNH CHO DOANH NGHIỆP VỪA & NHỎ (SME) & DỊCH VỤ B2B
+*Đánh vào nỗi đau: Cần website chuyên nghiệp tăng uy tín công ty, chuẩn SEO lên top Google, không muốn bị agency đội giá qua nhiều cấp sales.*
+
+### Mẫu 2A: Website doanh nghiệp chuẩn SEO & Google Core Web Vitals
+- **Tiêu đề:** Xây dựng website hiện diện thương hiệu chuẩn Google & tối ưu chuyển đổi
+- **Đối tượng:** Công ty xây dựng, nội thất, du lịch, giáo dục, dịch vụ tư vấn
+- **Nội dung tin nhắn:**
+```text
+Kính chào {ten_khach} ({ten_shop}) ạ! Em là Lê Trí Trung, Trưởng nhóm kỹ sư phát triển phần mềm tại Đà Nẵng.
+
+Em nhận thấy thương hiệu của bên mình rất uy tín trong ngành {linh_vuc}. Để gia tăng lợi thế cạnh tranh và tiếp cận thêm nhiều khách hàng tiềm năng trên Google tìm kiếm, việc sở hữu một website tốc độ cao và chuẩn SEO bền vững là đòn bẩy rất quan trọng.
+
+Khác với các agency thông thường, đội ngũ em gồm 5 kỹ sư chuyên trách làm việc trực tiếp 1-1 với khách hàng:
+• Chuẩn Google Core Web Vitals (Điểm Lighthouse 95-100/100): Tốc độ mở trang tức thì dưới 1.5s, giúp website được Google ưu tiên xếp hạng hàng đầu.
+• Thiết kế giao diện sang trọng, chuẩn Responsive trên mọi kích thước màn hình.
+• Tích hợp form thu thập khách hàng tiềm năng (Lead Generation) đồng bộ trực tiếp về Google Sheets / Email / CRM.
+• Bàn giao trọn vẹn 100% mã nguồn (Source Code) và không thu phí bản quyền hàng năm.
+
+Em xin gửi đính kèm file PDF "Hồ Sơ Năng Lực & Bảng Báo Giá Dự Án" để {ten_khach} xem qua phương pháp luận và tiến độ triển khai của nhóm em ạ!
+```
+
+### Mẫu 2B: Doanh nghiệp muốn tiết kiệm ngân sách, làm việc trực tiếp kỹ sư
+- **Tiêu đề:** Mô hình hợp tác 1-1 trực tiếp với Kỹ sư trưởng (Tiết kiệm 30-40% so với Agency)
+- **Đối tượng:** Giám đốc SME, Trưởng phòng Marketing, Startup founder
+- **Nội dung tin nhắn:**
+```text
+Dạ em chào {ten_khach}! Em là Trung (Tech Lead nhóm kỹ sư tại Đà Nẵng).
+
+Khi làm việc với các bên agency thiết kế web, các anh/chị thường phải qua nhiều khâu trung gian (Sales -> Account -> Quản lý dự án -> Lập trình viên), vừa đội chi phí lên 30%-40%, vừa dễ bị sai lệch yêu cầu kỹ thuật thực tế.
+
+Nhóm em áp dụng mô hình kỹ sư 1-1:
+1. {ten_khach} làm việc và thống nhất trực tiếp mọi tính năng với em ngay từ ngày đầu.
+2. Cam kết tiến độ bàn giao sản phẩm chạy thật chuẩn chỉn chu (~1.5 - 2 tháng với 2 kỹ sư code song song Frontend & Backend).
+3. Hợp đồng dân sự rõ ràng: Cơ chế 40% cọc / 60% nghiệm thu sau khi chạy thật 48h không lỗi, điều khoản phạt 1%/ngày nếu trễ tiến độ.
+
+Em gửi kèm file PDF chi tiết các gói triển khai và định mức ngày công kỹ thuật (Man-day) minh bạch để {ten_khach} tiện theo dõi ạ. Em rất sẵn sàng demo thử cho bên mình xem ạ!
+```
+
+## 3. DÀNH CHO NỀN TẢNG TMĐT, MARKETPLACE & TỰ ĐỘNG HÓA AI (SAAS)
+*Đánh vào nỗi đau: Hệ thống tải cao, sợ lỗi trùng giao dịch/trừ tiền 2 lần, muốn ứng dụng AI tư vấn 24/7 cắt giảm nhân sự.*
+
+### Mẫu 3A: Minh chứng thực tế từ Sàn Biensovip.com (Xử lý giao dịch an toàn)
+- **Tiêu đề:** Giải pháp sàn thương mại điện tử tải cao & chống xung đột dữ liệu
+- **Đối tượng:** Sàn giao dịch, hệ thống bán vé, đặt lịch (booking), trang TMĐT lớn
+- **Nội dung tin nhắn:**
+```text
+Dạ em chào {ten_khach} ạ! Em là Trung, người trực tiếp thiết kế và vận hành sàn giao dịch định danh Biensovip.com.
+
+Đối với các hệ thống thương mại điện tử và giao dịch trực tuyến, thách thức lớn nhất là đảm bảo an toàn thanh toán và chống trùng lặp (Double-spending) khi nhiều người cùng đặt mua 1 mặt hàng cùng lúc.
+
+Ở dự án Biensovip.com, nhóm em đã giải quyết trọn vẹn:
+• Cơ chế khóa bi quan (Pessimistic Lock) trong PostgreSQL kết hợp Redis Cache: Độ trễ API < 120ms, Uptime 99.98%, triệt tiêu 100% nguy cơ bán trùng sản phẩm.
+• Tích hợp Webhooks đa ngân hàng: Khớp lệnh thanh toán VietQR tự động chỉ dưới 0.5s.
+• Hệ thống Admin Dashboard & Analytics đo lường doanh số, lượng khách real-time.
+
+Nếu {ten_shop} đang chuẩn bị xây dựng hoặc nâng cấp nền tảng bán hàng trực tuyến tương tự, em xin gửi kèm file PDF Hồ Sơ Năng Lực & Phương Án Kỹ Thuật bên dưới để {ten_khach} tham khảo ạ.
+```
+
+### Mẫu 3B: Tích hợp AI Agent DeepSeek 24/7 tư vấn bán hàng tự động
+- **Tiêu đề:** Tích hợp Nhân viên AI DeepSeek tư vấn chốt đơn 24/7 (Tiết kiệm 90% chi phí API)
+- **Đối tượng:** Chủ shop có lượng tin nhắn lớn, doanh nghiệp muốn tự động hóa CSKH
+- **Nội dung tin nhắn:**
+```text
+Chào {ten_khach} ạ! Em là Trung từ nhóm giải pháp phần mềm & AI tại Đà Nẵng.
+
+Hiện nay các mô hình AI tư vấn bán hàng thường khá tốn kém nếu dùng OpenAI GPT-4. Bên em vừa ứng dụng thành công mô hình DeepSeek thế hệ mới vào website bán hàng, với chi phí API rẻ hơn đến 90% (chỉ khoảng vài chục nghìn VNĐ/tháng) mà hiệu quả rất ấn tượng:
+• AI Agent tự học toàn bộ danh mục sản phẩm của {ten_shop}.
+• Tư vấn đặc tính, báo giá và giải đáp thắc mắc của khách tự nhiên như nhân viên thật 24/7.
+• Tự động gợi ý mua kèm (Up-sell / Cross-sell) và điều hướng khách quét mã VietQR thanh toán ngay tại khung chat.
+
+Em xin phép gửi {ten_khach} bản PDF Hồ sơ năng lực & Báo giá trọn gói bên dưới. Bên em có chính sách trợ giá 20-30% cho các dự án ứng dụng công nghệ mới trong tháng này ạ!
+```
+
+## 4. TIN NHẮN MỞ LỜI NHANH (1 PHÚT ĐỌC - ELEVATOR PITCH)
+*Dành cho trường hợp muốn nhắn cực ngắn, lịch sự, không làm phiền khách, khách đọc lướt qua là hiểu ngay.*
+
+### Mẫu 4A: Tiếp cận siêu tốc - Đánh thẳng 3 lợi ích cốt lõi
+- **Tiêu đề:** 1 Phút giới thiệu giải pháp Website bán hàng không qua trung gian
+- **Đối tượng:** Tất cả khách hàng bận rộn
+- **Nội dung tin nhắn:**
+```text
+Dạ em chào {ten_khach}! Em xin phép 1 phút giới thiệu nhanh ạ.
+
+Em là Trung, Trưởng nhóm 5 kỹ sư phần mềm tại Đà Nẵng. Bên em chuyên nhận xây dựng website bán hàng trọn gói cho shop và doanh nghiệp với 3 điểm khác biệt lớn:
+1. Thanh toán VietQR tự động 0đ phí: Khách quét QR là hệ thống tự gạch đơn trong 0.5s, không cần canh sao kê.
+2. Tốc độ web cực nhanh đạt chuẩn Google Core Web Vitals (95-100 điểm Lighthouse).
+3. Làm việc 1-1 trực tiếp với kỹ sư: Bàn giao 100% mã nguồn, 2 kỹ sư làm song song tối ưu tiến độ, tiết kiệm 30-40% chi phí agency.
+
+Em xin gửi kèm file PDF "Hồ Sơ Năng Lực & Báo Giá 3 Gói Dịch Vụ" bên dưới để {ten_khach} tiện tham khảo khi có nhu cầu ạ. Em cảm ơn {ten_khach} rất nhiều!
+```
+
+### Mẫu 4B: Tiếp cận bằng câu hỏi gợi mở vấn đề đối soát chuyển khoản
+- **Tiêu đề:** Giải pháp tự động gạch nợ chuyển khoản VietQR cho shop
+- **Đối tượng:** Cửa hàng có đơn hàng chuyển khoản ngân hàng nhiều
+- **Nội dung tin nhắn:**
+```text
+Dạ em chào {ten_khach} ạ! 
+
+Cho em hỏi hiện tại ở {ten_shop}, khi khách chuyển khoản mua hàng thì nhân viên bên mình vẫn đang chụp màn hình gửi qua Zalo để kiểm tra sao kê thủ công đúng không ạ?
+
+Bên em đang triển khai giải pháp Website bán hàng tích hợp VietQR tự động:
+• Khách quét mã là tiền vào thẳng tài khoản ngân hàng của {ten_khach}.
+• Hệ thống tự kiểm tra và gạch nợ thành công ngay lập tức (<0.5 giây).
+• Báo chuông ting ting về Zalo/Telegram chủ shop kèm tên khách và danh sách món.
+
+Hệ thống hoạt động 24/7 hoàn toàn tự động, 0đ phí duy trì cổng trung gian. Em gửi {ten_khach} file PDF Báo giá & Năng lực thực tế đính kèm bên dưới để mình xem qua giải pháp nhé ạ!
+```
+
+## 5. TIN NHẮN CHĂM SÓC & FOLLOW-UP (SAU KHI ĐÃ GỬI FILE PDF)
+*Gợi mở sau 24h - 48h để thúc đẩy khách phản hồi mà không gây cảm giác chèo kéo.*
+
+### Mẫu 5A: Hỏi thăm sau 24h gửi tài liệu & Đề xuất demo miễn phí
+- **Tiêu đề:** Lời thăm hỏi & Gợi ý dựng bản demo giao diện mẫu 0đ
+- **Đối tượng:** Khách hàng đã nhận file PDF nhưng chưa phản hồi
+- **Nội dung tin nhắn:**
+```text
+Dạ em chào {ten_khach} ạ! 
+
+Hôm qua em có gửi {ten_khach} file PDF Hồ Sơ Năng Lực & Báo Giá Website của nhóm em. Không biết {ten_khach} đã có thời gian xem qua các gói dịch vụ chưa ạ?
+
+Nếu {ten_khach} đang băn khoăn về giao diện thực tế sẽ như thế nào cho {ten_shop}, em có thể làm sẵn 1 bản demo giao diện mẫu (Figma/Web thử nghiệm) hoàn toàn miễn phí theo phong cách của bên mình để {ten_khach} xem trước nhé ạ. 
+
+{ten_khach} thấy phương án này thế nào ạ? Em cảm ơn {ten_khach}!
+```
+
+### Mẫu 5B: Gợi ý phương án trợ giá 20-30% hoặc bóc tách module theo ngân sách
+- **Tiêu đề:** Tháo gỡ nỗi lo ngân sách - Bóc tách tính năng linh hoạt
+- **Đối tượng:** Khách hàng có nhu cầu nhưng đang phân vân về mức giá
+- **Nội dung tin nhắn:**
+```text
+Dạ em chào {ten_khach} ạ!
+
+Em nhắn thêm một chút về phần ngân sách trong file báo giá hôm trước: Mức giá trong hồ sơ là chi phí cho gói hoàn thiện kỹ thuật tiêu chuẩn cao nhất. 
+
+Tuy nhiên nhóm em luôn có chính sách hỗ trợ cực kỳ linh hoạt cho các đối tác:
+• Trợ giá 20% - 30% cho shop mới mở hoặc startup giai đoạn đầu.
+• Có thể bóc tách tính năng: Mình có thể chọn làm trước phần khung website bán hàng + VietQR tự động để chạy trước, các phần nâng cao như AI Agent hay Báo cáo chuyên sâu sẽ nâng cấp sau khi cửa hàng đã có doanh thu ổn định.
+• Cơ chế thanh toán an toàn: Chỉ cọc 40%, nghiệm thu chạy ổn định 48h mới thanh toán 60% còn lại.
+
+Bên mình dự kiến mức ngân sách khoảng bao nhiêu, {ten_khach} cứ chia sẻ để em cân đối gói kỹ thuật phù hợp nhất cho {ten_shop} nhé ạ!
+```
+
+## 6. LỜI KẾT & MỜI HẸN GẶP (CALL TO ACTION)
+*Chốt cuộc gọi ngắn 15 phút hoặc gặp gỡ trực tiếp tại Đà Nẵng.*
+
+### Mẫu 6A: Mời cà phê gặp trực tiếp tại Đà Nẵng
+- **Tiêu đề:** Lời mời trao đổi trực tiếp 20 phút tại Đà Nẵng
+- **Đối tượng:** Khách hàng tại Đà Nẵng hoặc khu vực lân cận
+- **Nội dung tin nhắn:**
+```text
+Dạ {ten_khach} ơi, nhóm kỹ sư bên em hiện đang đặt trụ sở tại Ngũ Hành Sơn, Đà Nẵng. 
+
+Nếu tiện, em rất mong có dịp mời {ten_khach} một ly cà phê khoảng 20-30 phút để em lắng nghe nhu cầu của {ten_shop} và demo trực tiếp các hệ thống đang chạy thật trên điện thoại để mình trải nghiệm độ mượt ạ.
+
+Không biết trong tuần này hôm nào {ten_khach} tiện thời gian hơn ạ? Em cảm ơn {ten_khach} nhiều ạ!
+```
+
+### Mẫu 6B: Hẹn gọi thoại Zalo / Google Meet 15 phút
+- **Tiêu đề:** Đặt lịch gọi thoại 15 phút tư vấn giải pháp
+- **Đối tượng:** Khách hàng ở xa hoặc bận rộn
+- **Nội dung tin nhắn:**
+```text
+Dạ nếu {ten_khach} đang bận công việc, em xin phép đặt một cuộc gọi nhanh khoảng 10-15 phút qua Zalo hoặc Google Meet vào khung giờ rảnh của {ten_khach} để em tóm tắt nhanh phương án tối ưu nhất và giải đáp các câu hỏi kỹ thuật cho bên mình ạ.
+
+{ten_khach} có thể cho em xin khung giờ thuận tiện nhất trong ngày mai được không ạ? Em cảm ơn {ten_khach}!
+```
+    </script>
+
+    <script>
+        // Data Store
+        let categoriesData = [];
+
+        // Parse Markdown Content
+        function parseMarkdown(mdText) {
+            const categories = [];
+            const sections = mdText.split(/^##\s+/m);
+
+            // Skip first chunk before first ##
+            for (let i = 1; i < sections.length; i++) {
+                const sec = sections[i];
+                const lines = sec.split('\n');
+                const catTitle = lines[0].trim();
+                
+                // Find pain point / subtitle
+                let painPoint = '';
+                const painPointMatch = sec.match(/\*([^*]+)\*/);
+                if (painPointMatch) {
+                    painPoint = painPointMatch[1].trim();
+                }
+
+                // Category slug
+                let catSlug = 'cat-other';
+                if (catTitle.includes('F&B') || catTitle.includes('BÁN LẺ')) catSlug = 'cat-retail';
+                else if (catTitle.includes('DOANH NGHIỆP') || catTitle.includes('SME')) catSlug = 'cat-sme';
+                else if (catTitle.includes('TMĐT') || catTitle.includes('SAAS') || catTitle.includes('AI')) catSlug = 'cat-saas';
+                else if (catTitle.includes('1 PHÚT') || catTitle.includes('NHANH')) catSlug = 'cat-quick';
+                else if (catTitle.includes('FOLLOW-UP') || catTitle.includes('CHĂM SÓC')) catSlug = 'cat-followup';
+                else if (catTitle.includes('LỜI KẾT') || catTitle.includes('CALL TO ACTION')) catSlug = 'cat-cta';
+
+                // Parse Templates under ###
+                const templateChunks = sec.split(/^###\s+/m);
+                const templates = [];
+
+                for (let j = 1; j < templateChunks.length; j++) {
+                    const tChunk = templateChunks[j];
+                    const tLines = tChunk.split('\n');
+                    const tTitle = tLines[0].trim();
+
+                    // Extract title, target, content
+                    let title = tTitle;
+                    let target = 'Khách hàng mục tiêu';
+                    const titleMatch = tChunk.match(/-\s+\*\*Tiêu đề:\*\*\s*(.+)/);
+                    if (titleMatch) title = titleMatch[1].trim();
+
+                    const targetMatch = tChunk.match(/-\s+\*\*Đối tượng:\*\*\s*(.+)/);
+                    if (targetMatch) target = targetMatch[1].trim();
+
+                    // Content inside ```text ... ```
+                    let content = '';
+                    const codeMatch = tChunk.match(/```text([\s\S]*?)```/);
+                    if (codeMatch) {
+                        content = codeMatch[1].trim();
+                    }
+
+                    if (content) {
+                        templates.push({
+                            id: `tpl-${i}-${j}`,
+                            rawTitle: tTitle,
+                            title: title,
+                            target: target,
+                            content: content
+                        });
+                    }
+                }
+
+                if (templates.length > 0) {
+                    categories.push({
+                        title: catTitle,
+                        slug: catSlug,
+                        painPoint: painPoint,
+                        templates: templates
+                    });
+                }
+            }
+
+            return categories;
+        }
+
+        // Get Current Interpolation Values
+        function getReplacements() {
+            const tenKhach = document.getElementById('inputTenKhach').value.trim() || 'anh/chị';
+            const tenShop = document.getElementById('inputTenShop').value.trim() || 'bên mình';
+            const linhVuc = document.getElementById('inputLinhVuc').value.trim() || 'kinh doanh';
+            return { tenKhach, tenShop, linhVuc };
+        }
+
+        // Interpolate text
+        function interpolateText(text, highlight = false) {
+            const { tenKhach, tenShop, linhVuc } = getReplacements();
+
+            let res = text;
+            if (highlight) {
+                res = res
+                    .replace(/{ten_khach}/g, `<span class="interpolated-val">${escapeHtml(tenKhach)}</span>`)
+                    .replace(/{ten_shop}/g, `<span class="interpolated-val">${escapeHtml(tenShop)}</span>`)
+                    .replace(/{linh_vuc}/g, `<span class="interpolated-val">${escapeHtml(linhVuc)}</span>`);
+            } else {
+                res = res
+                    .replace(/{ten_khach}/g, tenKhach)
+                    .replace(/{ten_shop}/g, tenShop)
+                    .replace(/{linh_vuc}/g, linhVuc);
+            }
+            return res;
+        }
+
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        // Render Templates to DOM
+        function renderCategories(filter = 'all') {
+            const container = document.getElementById('templatesRoot');
+            container.innerHTML = '';
+
+            categoriesData.forEach(cat => {
+                if (filter !== 'all' && cat.slug !== filter) return;
+
+                const catEl = document.createElement('div');
+                catEl.className = 'category-section';
+                catEl.setAttribute('data-category', cat.slug);
+
+                catEl.innerHTML = `
+                    <div class="category-header">
+                        <h2>${escapeHtml(cat.title)}</h2>
+                        ${cat.painPoint ? `<div class="pain-point">${escapeHtml(cat.painPoint)}</div>` : ''}
+                    </div>
+                    <div class="templates-grid" id="grid-${cat.slug}"></div>
+                `;
+
+                container.appendChild(catEl);
+                const grid = catEl.querySelector('.templates-grid');
+
+                cat.templates.forEach(tpl => {
+                    const card = createCardElement(tpl);
+                    grid.appendChild(card);
+                });
+            });
+        }
+
+        // Create Individual Template Card
+        function createCardElement(tpl) {
+            const card = document.createElement('div');
+            card.className = 'template-card';
+            card.id = `card-${tpl.id}`;
+
+            const htmlContent = interpolateText(tpl.content, true);
+            const plainContent = interpolateText(tpl.content, false);
+
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <h3>${escapeHtml(tpl.title)}</h3>
+                        <span class="target-badge">${escapeHtml(tpl.target)}</span>
+                    </div>
+                    <div class="card-view-toggle">
+                        <button class="toggle-btn active" onclick="switchView('${tpl.id}', 'zalo')">Zalo</button>
+                        <button class="toggle-btn" onclick="switchView('${tpl.id}', 'raw')">Văn bản</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Zalo Mockup View -->
+                    <div class="zalo-mockup" id="zalo-view-${tpl.id}">
+                        <div class="zalo-bubble" id="bubble-${tpl.id}">${htmlContent}</div>
+                        <div class="zalo-attachment-card">
+                            <div class="pdf-icon">PDF</div>
+                            <div class="attachment-info">
+                                <div class="filename">Ho_So_Nang_Luc_Va_Bao_Gia_Website.pdf</div>
+                                <div class="filesize">1.2 MB $\cdot$ 5 Trang $\cdot$ Kèm Bảng Báo Giá 3 Gói</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Raw Text View -->
+                    <pre class="raw-text-view" id="raw-view-${tpl.id}">${escapeHtml(plainContent)}</pre>
+
+                    <!-- Actions -->
+                    <div class="card-actions">
+                        <button class="btn-copy" onclick="copyMessage('${tpl.id}')" id="copy-btn-${tpl.id}">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                            <span>Sao Chép Tin Nhắn</span>
+                        </button>
+                        <a href="../docs/Ho_So_Nang_Luc_Va_Bao_Gia_Website.pdf" target="_blank" class="btn-sub-action">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            Mở File PDF
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Switch between Zalo chat bubble and raw text view
+        function switchView(tplId, mode) {
+            const zaloView = document.getElementById(`zalo-view-${tplId}`);
+            const rawView = document.getElementById(`raw-view-${tplId}`);
+            const card = document.getElementById(`card-${tplId}`);
+            const toggleBtns = card.querySelectorAll('.toggle-btn');
+
+            if (mode === 'zalo') {
+                zaloView.style.display = 'flex';
+                rawView.style.display = 'none';
+                toggleBtns[0].classList.add('active');
+                toggleBtns[1].classList.remove('active');
+            } else {
+                zaloView.style.display = 'none';
+                rawView.style.display = 'block';
+                toggleBtns[0].classList.remove('active');
+                toggleBtns[1].classList.add('active');
+            }
+        }
+
+        // Copy interpolated message to clipboard
+        function copyMessage(tplId) {
+            let targetTpl = null;
+            for (const cat of categoriesData) {
+                const found = cat.templates.find(t => t.id === tplId);
+                if (found) {
+                    targetTpl = found;
+                    break;
+                }
+            }
+
+            if (!targetTpl) return;
+
+            const textToCopy = interpolateText(targetTpl.content, false);
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showToast();
+
+                // Button state feedback
+                const btn = document.getElementById(`copy-btn-${tplId}`);
+                const originalHtml = btn.innerHTML;
+                btn.classList.add('copied');
+                btn.innerHTML = `
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>Đã Sao Chép!</span>
+                `;
+
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = originalHtml;
+                }, 2200);
+            }).catch(err => {
+                console.error('Copy failed: ', err);
+                // Fallback prompt
+                prompt('Nhấn Ctrl+C để sao chép tin nhắn:', textToCopy);
+            });
+        }
+
+        // Toast Popup
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Live Real-time Update on Typing
+        function setupLiveUpdate() {
+            const inputs = ['inputTenKhach', 'inputTenShop', 'inputLinhVuc'];
+            inputs.forEach(id => {
+                const inputEl = document.getElementById(id);
+                inputEl.addEventListener('input', () => {
+                    categoriesData.forEach(cat => {
+                        cat.templates.forEach(tpl => {
+                            const bubble = document.getElementById(`bubble-${tpl.id}`);
+                            const raw = document.getElementById(`raw-view-${tpl.id}`);
+                            if (bubble) {
+                                bubble.innerHTML = interpolateText(tpl.content, true);
+                            }
+                            if (raw) {
+                                raw.textContent = interpolateText(tpl.content, false);
+                            }
+                        });
+                    });
+                });
+            });
+        }
+
+        // Reset Inputs to Defaults
+        function resetForm() {
+            document.getElementById('inputTenKhach').value = 'anh/chị';
+            document.getElementById('inputTenShop').value = 'bên mình';
+            document.getElementById('inputLinhVuc').value = 'kinh doanh bán lẻ';
+            
+            // Trigger input event
+            document.getElementById('inputTenKhach').dispatchEvent(new Event('input'));
+        }
+
+        // Filter Nav Handling
+        function setupFilterNav() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.getAttribute('data-filter');
+                    renderCategories(filter);
+                });
+            });
+        }
+
+        // Init App: Try to fetch templates.md, fallback to embedded markdown
+        async function initApp() {
+            let mdText = '';
+
+            try {
+                const res = await fetch('templates.md');
+                if (res.ok) {
+                    mdText = await res.text();
+                } else {
+                    throw new Error('Fetch failed, using embedded fallback');
+                }
+            } catch (err) {
+                console.warn('Loading from embedded markdown fallback...', err);
+                const embeddedEl = document.getElementById('embedded-markdown');
+                if (embeddedEl) {
+                    mdText = embeddedEl.textContent;
+                }
+            }
+
+            if (mdText) {
+                categoriesData = parseMarkdown(mdText);
+                renderCategories('all');
+                setupLiveUpdate();
+                setupFilterNav();
+            } else {
+                document.getElementById('templatesRoot').innerHTML = '<p style="color:red; text-align:center; padding: 2rem;">Không thể tải dữ liệu kịch bản.</p>';
+            }
+        }
+
+        // Start when DOM is ready
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
