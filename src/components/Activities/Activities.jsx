@@ -175,7 +175,7 @@ const Activities = () => {
 
             {/* Grid */}
             {current.length > 0 ? (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px', marginBottom: '48px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 290px), 1fr))', gap: '20px', marginBottom: '48px' }}>
                     {current.map((act, i) => (
                         <ActivityCard key={act.id || i} act={act} index={i} onSelect={setSelectedActivity} t={t} />
                     ))}

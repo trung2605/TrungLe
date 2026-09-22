@@ -515,11 +515,16 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
               className="lg:hidden"
               data-testid="mobile-menu-toggle"
               style={{
-                padding: '8px',
+                width: '40px',
+                height: '40px',
+                padding: '10px 9px',
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',
                 color: 'var(--color-ink)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
               aria-label={t('nav.toggleMenu')}
             >
@@ -560,6 +565,9 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                   top: 'calc(100% + 8px)',
                   left: 0,
                   right: 0,
+                  maxHeight: 'calc(100vh - 84px)',
+                  overflowY: 'auto',
+                  WebkitOverflowScrolling: 'touch',
                   backgroundColor: isDarkMode ? 'rgba(18, 18, 22, 0.96)' : 'rgba(255, 255, 255, 0.96)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',

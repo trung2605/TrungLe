@@ -382,7 +382,7 @@ const Projects = () => {
 
       {/* Grid — the first project gets a wider "bento" tile when unfiltered */}
       {filteredProjects.length > 0 ? (
-        <div className="projects-bento-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
+        <div className="projects-bento-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap: '24px' }}>
           {filteredProjects.map((project, i) => (
             <ProjectCard
               key={project.id}

@@ -146,13 +146,13 @@ const ProjectDetail = () => {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="project-hero-media"
         style={{
           position: 'relative',
           borderRadius: '28px',
           overflow: 'hidden',
           backgroundColor: '#f7f7f5',
-          marginBottom: '48px',
-          aspectRatio: '21/9',
+          marginBottom: '40px',
         }}
       >
         <motion.img
@@ -167,17 +167,18 @@ const ProjectDetail = () => {
 
         {/* Status badge */}
         <div style={{
-          position: 'absolute', top: '24px', right: '24px',
+          position: 'absolute', top: '20px', right: '20px',
           padding: '5px 14px', borderRadius: '50px',
           fontSize: '11px', fontFamily: 'JetBrains Mono, monospace',
           letterSpacing: '0.4px', textTransform: 'uppercase',
           backgroundColor: status.bg, color: status.color,
+          zIndex: 2,
         }}>
           {STATUS_KEY[project.status] ? t(`projects.statuses.${STATUS_KEY[project.status]}`) : project.status}
         </div>
 
         {/* Title overlay */}
-        <div style={{ position: 'absolute', bottom: '32px', left: '36px', right: '36px' }}>
+        <div className="project-hero-title-wrap" style={{ position: 'absolute', zIndex: 2 }}>
           <h1 style={{
             fontFamily: 'Outfit, system-ui, sans-serif',
             fontSize: 'clamp(24px, 4vw, 52px)',

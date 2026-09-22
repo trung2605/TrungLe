@@ -29,7 +29,7 @@ const Blog = () => {
             </motion.div>
 
             {posts.length > 0 ? (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap: '24px' }}>
                     {posts.map((post, i) => (
                         <motion.article
                             key={post.id}

@@ -35,9 +35,10 @@ const MainLayout = () => {
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label={t('recruiterMatch.widgetLabel')}
+                className="recruiter-floating-btn"
                 style={{
                     position: 'fixed', bottom: '28px', left: '28px',
-                    display: 'flex', alignItems: 'center', gap: '10px',
+                    display: 'flex', alignItems: 'center', gap: '8px',
                     padding: '13px 20px', borderRadius: '9999px',
                     backgroundColor: '#000000', color: '#ffffff',
                     border: 'none', cursor: 'pointer',
@@ -45,7 +46,7 @@ const MainLayout = () => {
                     zIndex: 40, boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
                 }}
             >
-                <FaBriefcase size={14} /> {t('recruiterMatch.widgetLabel')}
+                <FaBriefcase size={14} /> <span>{t('recruiterMatch.widgetLabel')}</span>
             </motion.button>
             <a
                 href="#main-content"
@@ -77,10 +78,9 @@ const MainLayout = () => {
                 </div>
             )}
 
-            <main id="main-content" style={{
+            <main id="main-content" className={`layout-main ${isHome ? 'is-home' : ''}`} style={{
                 maxWidth: '1280px',
                 margin: '0 auto',
-                padding: isHome ? '74px 32px 0' : '0 32px',
             }}>
                 <motion.div
                     key={pathname}

@@ -297,6 +297,7 @@ const Home = () => {
             <MotionLink
               ref={magnetic.ref}
               to="/projects"
+              className="hero-cta-btn"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -329,7 +330,7 @@ const Home = () => {
             <a
               href={personalInfo.cv}
               download="Le_Tri_Trung_CV.pdf"
-              className="hover-surface"
+              className="hover-surface hero-cta-btn"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -411,21 +412,37 @@ const Home = () => {
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
+        marginBottom: '64px',
       }}>
-        <div className="marquee-track" style={{ display: 'flex', gap: '48px', animation: 'marqueeScroll 25s linear infinite', whiteSpace: 'nowrap' }}>
-          {TECH_MARQUEE.map((t, i) => (
-            <span key={i} style={{ fontSize: '12px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', opacity: 0.8 }}>
-              {t} <span style={{ opacity: 0.3, margin: '0 12px' }}>·</span>
+        <div className="marquee-track" style={{
+          display: 'flex',
+          gap: '32px',
+          whiteSpace: 'nowrap',
+          animation: 'marquee 28s linear infinite',
+          willChange: 'transform',
+        }}>
+          {TECH_MARQUEE.map((tech, i) => (
+            <span key={i} style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '12.5px',
+              letterSpacing: '0.4px',
+              color: 'rgba(255, 255, 255, 0.75)',
+            }}>
+              <span style={{ color: '#22c55e', fontSize: '9px' }}>✦</span>
+              {tech}
             </span>
           ))}
         </div>
       </div>
 
       {/* ── STATS — LIME BLOCK ── */}
-      <section style={{ padding: '72px 0' }}>
+      <section style={{ paddingBottom: '72px' }}>
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, rotate: -0.8 }}
-          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           style={{ backgroundColor: '#dceeb1', borderRadius: '24px', padding: '40px 36px' }}
@@ -437,7 +454,7 @@ const Home = () => {
           }}>{t('home.statsByNumbers')}</p>
           <div
             className="stats-grid"
-            style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr 1fr 1fr', gap: '24px' }}
+            style={{ gap: '24px' }}
           >
             {[
               { value: 11, suffix: '+', labelKey: 'home.stats.0.label' },

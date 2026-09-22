@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
@@ -16,8 +16,16 @@ const ResumeViewer = () => {
     const { t } = useTranslation();
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
-    const [pageWidth] = useState(Math.min(720, window.innerWidth - 64));
+    const [pageWidth, setPageWidth] = useState(() => Math.min(720, Math.max(280, (typeof window !== 'undefined' ? window.innerWidth : 720) - 48)));
     const [failed, setFailed] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setPageWidth(Math.min(720, Math.max(280, window.innerWidth - 48)));
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>

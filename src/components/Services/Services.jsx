@@ -24,7 +24,12 @@ import {
   FaCode,
   FaAward,
   FaServer,
-  FaDownload
+  FaDownload,
+  FaEnvelope,
+  FaBell,
+  FaShareAlt,
+  FaBalanceScale,
+  FaUsers
 } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -79,24 +84,39 @@ const cardPop = {
 
 const BIENSOVIP_SHOTS = [
   {
-    titleVi: "Trang chủ & Tìm kiếm tức thời",
-    titleEn: "Home & Real-time Plate Search",
-    url: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353578/my-website/assets/projects/screenshots/biensovip_1_home.png"
+    titleVi: "Admin Dashboard: 150 biển đã bán, tỷ lệ chốt 33.3%",
+    titleEn: "Live Admin Dashboard: 150 Sold, 33.3% Conversion Rate",
+    url: "/docs/images/biensovip_real_dashboard.png"
   },
   {
-    titleVi: "Chi tiết biển số & Đặt cọc giữ chỗ",
-    titleEn: "Plate Detail & Deposit Reservation",
-    url: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353581/my-website/assets/projects/screenshots/biensovip_2_detail.png"
+    titleVi: "Quản trị Kho 26 trang: Lọc 8ms & Sinh ảnh AI",
+    titleEn: "26-Page Inventory CMS: 8ms Query & AI Mockup Generator",
+    url: "/docs/images/biensovip_real_plates.png"
   },
   {
-    titleVi: "Bộ lọc đa chiều nâng cao & Phong thủy",
-    titleEn: "Multi-filter & Numerological Categories",
-    url: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579610/my-website/assets/projects/screenshots/nxlufqwkaozhvd5h7tk2.png"
+    titleVi: "Cổng Mạng lưới CTV: 14 CTV & Mã UTM định danh",
+    titleEn: "Affiliate Portal: 14 Live Agents & Unique UTM Tracking",
+    url: "/docs/images/biensovip_real_ctv.png"
   },
   {
-    titleVi: "Cổng quản trị Admin & Đối soát VietQR",
-    titleEn: "Admin Management & VietQR Audit",
-    url: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579613/my-website/assets/projects/screenshots/vl8kafmfubidwk3mugcb.png"
+    titleVi: "Nhật ký Hệ thống Bất biến & Giám sát Rủi ro",
+    titleEn: "Immutable Audit Log & Agent Risk Monitoring",
+    url: "/docs/images/biensovip_real_audit.png"
+  },
+  {
+    titleVi: "Công cụ Quản trị Phong thủy 4 trụ cột & Ngũ hành",
+    titleEn: "4-Pillar Numerology & Elemental Admin Suite",
+    url: "/docs/images/biensovip_real_fengshui.png"
+  },
+  {
+    titleVi: "Phân tích 96 phiên So sánh Đa biển & 6.380 lượt tìm kiếm",
+    titleEn: "Analytics: 96 Comparison Sessions & 6.380 Keyword Searches",
+    url: "/docs/images/biensovip_real_comparison.png"
+  },
+  {
+    titleVi: "Giao diện Sàn Biensovip.com: 3.240 biển số & Cổng cọc VietQR",
+    titleEn: "Live Marketplace: 3,240 Plates & Real-time VietQR Flow",
+    url: "/docs/images/biensovip_home_real.png"
   }
 ];
 
@@ -414,19 +434,31 @@ const Services = () => {
               <ul className="specs-list">
                 <li>
                   <FaSearch />
-                  <div><strong>{isEn ? "Sub-8ms Multi-filter" : "Lọc đa chiều dưới 8ms"}:</strong> {isEn ? "Composite indexing for thousands of plates" : "Tìm kiếm theo ngũ quý, sảnh tiến, dải giá tức thời"}</div>
+                  <div><strong>{isEn ? "Sub-8ms Multi-filter" : "Lọc đa chiều dưới 8ms"}:</strong> {isEn ? "Composite indexing for thousands of plates" : "Tìm kiếm theo ngũ quý, sảnh tiến, dải giá tức thời (Postgres GIN Index)"}</div>
                 </li>
                 <li>
                   <FaQrcode />
-                  <div><strong>{isEn ? "VietQR 2-Step Deposit Flow" : "Xác thực cọc VietQR 2 bước"}:</strong> {isEn ? "0% transaction fee, zero chargeback fraud risk" : "Phí giao dịch 0đ, an toàn tuyệt đối, kế toán duyệt nhanh"}</div>
+                  <div><strong>{isEn ? "VietQR Auto Deposit & Lock" : "Cổng cọc VietQR & Khóa độc bản"}:</strong> {isEn ? "0% transaction fee, auto Webhook <0.5s & Redis 15-min lock" : "Khớp lệnh Webhook <0.5s, 0đ phí cổng trung gian, khóa bi quan chống bán trùng"}</div>
                 </li>
                 <li>
-                  <FaRobot />
-                  <div><strong>{isEn ? "DeepSeek AI Sales Agent" : "Trợ lý AI DeepSeek tư vấn 24/7"}:</strong> {isEn ? "Automated numerology suggestions directly from stock" : "Tư vấn biển số hợp tuổi, mệnh phong thủy theo thời gian thực"}</div>
+                  <FaEnvelope />
+                  <div><strong>{isEn ? "Drag-Drop Email Builder (UC27)" : "Soạn Email Kéo-Thả (UC27)"}:</strong> {isEn ? "Visual builder + corporate Gmail SMTP, zero spam & 0đ cost" : "Dựng email marketing trực quan, liên kết Gmail doanh nghiệp 0đ chi phí"}</div>
                 </li>
                 <li>
-                  <FaShieldAlt />
-                  <div><strong>{isEn ? "Delivered in 30 Days" : "Bàn giao đúng 30 ngày"}:</strong> {isEn ? "Clean Architecture backend (.NET 8) + React 19 web" : "Đạt Google Lighthouse 98/100, bảo hành kỹ thuật 12 tháng"}</div>
+                  <FaBell />
+                  <div><strong>{isEn ? "Auto Alerts & Broadcast (UC17/24)" : "Thông Báo Biển Mới & Broadcast"}:</strong> {isEn ? "Instant push when matching plates arrive; 1-click sales broadcast" : "Tự động gửi mail/Zalo khi có biển đúng sở thích; phát thông báo xả kho 1-click"}</div>
+                </li>
+                <li>
+                  <FaShareAlt />
+                  <div><strong>{isEn ? "Social Video & AI Mockups (UC22/42)" : "Video TikTok/Reels & Mockup AI"}:</strong> {isEn ? "Embed viral short videos + 1-click batch social mockups" : "Nhúng video thực tế xe biển đẹp + 1-click sinh hàng nghìn ảnh chuẩn Facebook/TikTok"}</div>
+                </li>
+                <li>
+                  <FaBalanceScale />
+                  <div><strong>{isEn ? "Feng Shui & Plate Comparison (UC16/23)" : "Phong Thủy Hợp Mệnh & So Sánh"}:</strong> {isEn ? "MeaningAnalyzer engine + side-by-side 3-plate comparison" : "Giải mã ngũ hành theo ngày sinh + so sánh song song 3 biển tăng 35% tỷ lệ chốt"}</div>
+                </li>
+                <li>
+                  <FaUsers />
+                  <div><strong>{isEn ? "Affiliate Partner Portal (UC25/34)" : "Cổng CTV & Hoa Hồng Tự Động"}:</strong> {isEn ? "Unique UTM links, transparent tiered commission & auto payout" : "Cấp mã UTM riêng, tự động tính hoa hồng ví điện tử, quản lý 14 CTV thực tế"}</div>
                 </li>
               </ul>
 
@@ -574,6 +606,58 @@ const Services = () => {
                 : "Trợ lý AI được huấn luyện theo danh mục sản phẩm của shop. Tự động tính toán nhu cầu chuyên sâu (như phân tích ngũ hành, phong thủy, so sánh giá) và hướng dẫn khách chốt đơn 24/7 kể cả nửa đêm."}
             </p>
             <div className="feature-chip">{isEn ? "RAG-Trained DeepSeek Model" : "AI Hiểu Sâu Dữ Liệu Shop"}</div>
+          </motion.div>
+
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
+            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
+              <FaUserTie size={20} />
+            </div>
+            <h3>{isEn ? "5. Affiliate & Broker Portal (Transparent Commission)" : "5. Cổng Cộng Tác Viên & Quản Lý Hoa Hồng Tự Động (UC25, UC34)"}</h3>
+            <p>
+              {isEn
+                ? "Eliminate messy Excel tracking. Issue unique UTM referral links to brokers, auto-attribute deposit orders, provide real-time commission dashboards, and streamline withdrawal payouts."
+                : "Đập tan nỗi đau quản lý môi giới bằng file Excel thủ công dễ tranh chấp. Hệ thống tự cấp link UTM riêng cho từng CTV, ghi nhận hoa hồng theo từng đơn cọc và mở cổng rút tiền tự động."}
+            </p>
+            <div className="feature-chip">{isEn ? "UTM Tracking • Auto Payout Portal" : "Tracking UTM • Bảng Kê Minh Bạch"}</div>
+          </motion.div>
+
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
+            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
+              <FaLaptopCode size={20} />
+            </div>
+            <h3>{isEn ? "6. Batch Social Media Mockup Image Generator" : "6. Công Cụ Tự Động Sinh Ảnh Mockup Hàng Loạt (UC42)"}</h3>
+            <p>
+              {isEn
+                ? "Cut tens of millions in design agency fees. With a single click, batch-render thousands of polished social media banner images (FB, Zalo, TikTok) branded with logos, prices, and QR codes."
+                : "Tiết kiệm hàng chục triệu tiền thuê Designer. Tiến trình 1-click tự động sinh hàng loạt ảnh sản phẩm chuẩn tỉ lệ mạng xã hội kèm khung viền, logo thương hiệu, giá bán và mã QR tư vấn tức thì."}
+            </p>
+            <div className="feature-chip">{isEn ? "1-Click Multi-Ratio Canvas" : "1 Click Xuất Hàng Nghìn Ảnh"}</div>
+          </motion.div>
+
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
+            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
+              <FaShieldAlt size={20} />
+            </div>
+            <h3>{isEn ? "7. Immutable Audit Trail & RBAC VIP Data Security" : "7. Hệ Thống Audit Log Bất Biến & Bảo Mật Dữ Liệu VIP (UC31)"}</h3>
+            <p>
+              {isEn
+                ? "Prevent internal data leaks and price tampering. Every admin action (who exported phone numbers, edited prices, or changed order status) is logged immutably with IP and timestamp."
+                : "Triệt tiêu nguy cơ nhân viên nội bộ tuồn dữ liệu khách VIP cho đối thủ hoặc tự ý sửa giá. Mọi hành vi quản trị đều được ghi nhật ký bất biến kèm IP, phân quyền RBAC đa cấp độ nghiêm ngặt."}
+            </p>
+            <div className="feature-chip">{isEn ? "100% Immutable Audit Trail" : "Ghi Vết 100% Hành Vi Quản Trị"}</div>
+          </motion.div>
+
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
+            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
+              <FaStar size={20} />
+            </div>
+            <h3>{isEn ? "8. Interactive Engagement Tools & Social Proof Boost" : "8. Công Cụ Tương Tác Giữ Chân & Social Proof Kích Cọc (UC23, UC38)"}</h3>
+            <p>
+              {isEn
+                ? "Cut high bounce rates on expensive ads. Interactive tools (numerology, compatibility) 3x on-site engagement time, while live visitor counters and recent order popups trigger instant buyer FOMO."
+                : "Giải quyết bài toán chi phí chạy quảng cáo đắt đỏ nhưng khách thoát ngay. Công cụ tra cứu phong thủy/hợp mệnh tăng thời gian on-site gấp 3 lần, kết hợp bộ đếm người đang xem kích thích chốt cọc."}
+            </p>
+            <div className="feature-chip">{isEn ? "3x Time-on-Site • Real-time FOMO" : "Tăng Gấp 3 Lần On-Site Time"}</div>
           </motion.div>
         </motion.div>
       </section>

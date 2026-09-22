@@ -292,6 +292,11 @@
         grid-template-columns: 1fr;
         padding: 24px;
       }
+
+      @media (max-width: 580px) {
+        padding: 16px;
+        gap: 20px;
+      }
     }
 
     .showcase-visuals {
@@ -1869,6 +1874,23 @@
     gap: 20px;
     transition: border-color 0.2s ease;
 
+    @media (max-width: 680px) {
+      padding: 20px 16px;
+      flex-direction: column;
+      align-items: stretch;
+
+      .dossier-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .btn-download-pdf-profile {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
     &:hover {
       border-color: var(--color-ink);
     }
@@ -1958,6 +1980,28 @@
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+
+    @media (max-width: 640px) {
+      max-height: 92vh;
+      border-radius: 18px;
+
+      .modal-top-bar {
+        padding: 16px 18px 12px;
+      }
+      .modal-body-content {
+        padding: 16px 18px;
+      }
+      .modal-footer-bar {
+        padding: 14px 18px;
+        flex-direction: column;
+        align-items: stretch;
+
+        .btn-modal-download, .btn-modal-contact {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    }
 
     .modal-top-bar {
       display: flex;
