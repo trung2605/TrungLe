@@ -1595,11 +1595,20 @@
 
   .team-members-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    grid-template-columns: repeat(6, 1fr);
     gap: 24px;
     margin-bottom: 36px;
 
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 680px) {
+      grid-template-columns: 1fr;
+    }
+
     .team-member-card {
+      grid-column: span 2;
       background: var(--color-canvas);
       border: 1px solid var(--color-hairline);
       border-radius: 20px;
@@ -1616,17 +1625,57 @@
       }
 
       &.lead-card {
-        border-color: rgba(30, 166, 74, 0.35);
-        background: linear-gradient(180deg, rgba(220, 238, 177, 0.08) 0%, var(--color-canvas) 35%);
+        border: 1.5px solid var(--color-ink);
+        background: var(--color-canvas);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 
         &:hover {
-          border-color: #1ea64a;
+          border-color: var(--color-ink);
+          box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-top-stripe {
+          background: var(--color-ink) !important;
+        }
+
+        .member-avatar-box {
+          background: var(--color-ink) !important;
+          color: var(--color-canvas) !important;
+          border-color: var(--color-ink) !important;
         }
       }
 
+      // Desktop: 3 cards row 1, 2 cards centered row 2
+      @media (min-width: 1025px) {
+        &:nth-child(4) {
+          grid-column: 2 / span 2;
+        }
+        &:nth-child(5) {
+          grid-column: 4 / span 2;
+        }
+      }
+
+      // Tablet: 2 cards row 1, 2 cards row 2, 1 card centered row 3
+      @media (min-width: 681px) and (max-width: 1024px) {
+        grid-column: span 1;
+
+        &:nth-child(5) {
+          grid-column: 1 / -1;
+          max-width: 480px;
+          justify-self: center;
+          width: 100%;
+        }
+      }
+
+      // Mobile
+      @media (max-width: 680px) {
+        grid-column: span 1;
+      }
+
       .card-top-stripe {
-        height: 5px;
+        height: 4px;
         width: 100%;
+        background: var(--color-hairline) !important;
       }
 
       .member-card-body {
@@ -1649,9 +1698,11 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #111827;
+          background: var(--color-surface-soft) !important;
+          color: var(--color-ink);
+          border: 1px solid var(--color-hairline);
           flex-shrink: 0;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .member-meta {
@@ -1662,13 +1713,15 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             font-weight: 700;
-            color: #1ea64a;
+            color: var(--color-ink-soft);
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
             margin-bottom: 4px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal;
+            line-height: 1.35;
+            min-height: 30px;
+            display: flex;
+            align-items: flex-end;
           }
 
           .member-name {
@@ -1705,6 +1758,7 @@
         margin-bottom: 14px;
         padding-bottom: 12px;
         border-bottom: 1px solid var(--color-hairline);
+        min-height: 42px;
       }
 
       .member-achievements-list {
@@ -1723,7 +1777,7 @@
           color: var(--color-ink-soft);
 
           .check-icon {
-            color: #1ea64a;
+            color: var(--color-ink);
             flex-shrink: 0;
             margin-top: 3px;
             font-size: 13px;
@@ -1788,14 +1842,15 @@
           border-radius: 50px;
           font-size: 13px;
           font-weight: 600;
-          color: #065f46;
-          background: #ecfdf5;
-          border: 1px solid #a7f3d0;
+          color: var(--color-canvas);
+          background: var(--color-ink);
+          border: 1px solid var(--color-ink);
           text-decoration: none;
           transition: all 0.15s ease;
 
           &:hover {
-            background: #d1fae5;
+            opacity: 0.88;
+            transform: translateY(-1px);
           }
         }
       }
@@ -1815,7 +1870,7 @@
     transition: border-color 0.2s ease;
 
     &:hover {
-      border-color: #1ea64a;
+      border-color: var(--color-ink);
     }
 
     .dossier-info {
@@ -1825,7 +1880,7 @@
       max-width: 680px;
 
       .dossier-icon {
-        color: #1ea64a;
+        color: var(--color-ink);
         flex-shrink: 0;
       }
 

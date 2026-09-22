@@ -41,7 +41,41 @@ import {
 import infographicTeam from '../../assets/landing/infographic_team.png';
 import './Services.scss';
 
-const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d4', '#f3c9b6'];
+const fadeInUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.09,
+      delayChildren: 0.05
+    }
+  }
+};
+
+const cardPop = {
+  hidden: { opacity: 0, y: 22, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.45,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+};
 
 const BIENSOVIP_SHOTS = [
   {
@@ -257,32 +291,48 @@ const Services = () => {
           </button>
         </motion.div>
 
-        <div className="saas-tags-row">
-          <span className="saas-tag"><FaCogs /> {isEn ? "SaaS Automation Architecture" : "Chuyên Sâu Tự Động Hóa SaaS"}</span>
-          <span className="saas-tag"><FaQrcode /> {isEn ? "Zero-Fee Dynamic VietQR" : "Đối Soát VietQR Tự Động 0đ"}</span>
-          <span className="saas-tag"><FaRobot /> {isEn ? "24/7 DeepSeek AI Sales Agent" : "Trợ Lý AI Bán Hàng 24/7"}</span>
-          <span className="saas-tag"><FaSyncAlt /> {isEn ? "Real-time Multi-device Sync" : "Đồng Bộ Kho Đa Thiết Bị"}</span>
-        </div>
+        <motion.div 
+          className="saas-tags-row"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.span variants={cardPop} className="saas-tag"><FaCogs /> {isEn ? "SaaS Automation Architecture" : "Chuyên Sâu Tự Động Hóa SaaS"}</motion.span>
+          <motion.span variants={cardPop} className="saas-tag"><FaQrcode /> {isEn ? "Zero-Fee Dynamic VietQR" : "Đối Soát VietQR Tự Động 0đ"}</motion.span>
+          <motion.span variants={cardPop} className="saas-tag"><FaRobot /> {isEn ? "24/7 DeepSeek AI Sales Agent" : "Trợ Lý AI Bán Hàng 24/7"}</motion.span>
+          <motion.span variants={cardPop} className="saas-tag"><FaSyncAlt /> {isEn ? "Real-time Multi-device Sync" : "Đồng Bộ Kho Đa Thiết Bị"}</motion.span>
+        </motion.div>
 
-        <div className="trust-bar">
-          <div className="trust-item">
+        <motion.div 
+          className="trust-bar"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div variants={cardPop} className="trust-item">
             <FaCheckCircle /> {isEn ? "100% On-Time Guarantee" : "Cam Kết Đúng Hạn (Phạt nếu trễ)"}
-          </div>
-          <div className="trust-item">
+          </motion.div>
+          <motion.div variants={cardPop} className="trust-item">
             <FaFileContract /> {isEn ? "Civil Contract by Leader" : "Hợp Đồng Dân Sự Rõ Ràng"}
-          </div>
-          <div className="trust-item">
+          </motion.div>
+          <motion.div variants={cardPop} className="trust-item">
             <FaReceipt /> {isEn ? "Zero Client Tax Burden" : "Khách KHÔNG lo Thuế TNCN"}
-          </div>
-          <div className="trust-item">
+          </motion.div>
+          <motion.div variants={cardPop} className="trust-item">
             <FaShieldAlt /> {isEn ? "6 - 12 Months Free Warranty" : "Bảo Hành Miễn Phí 6 - 12 Tháng"}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* 2. FLAGSHIP CASE STUDY: BIENSOVIP AS PROOF */}
       <section className="section-container">
-        <div className="section-header">
+        <motion.div 
+          className="section-header"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="section-eyebrow">{isEn ? "FEATURED DELIVERABLE" : "THÀNH PHẨM THỰC TẾ TIÊU BIỂU"}</div>
           <h2 className="section-heading">{isEn ? "From Request to Production: Biensovip.com" : "Từ Yêu Cầu Khách Hàng Đến Sản Phẩm Thực Tế: Biensovip.com"}</h2>
           <p className="section-desc">
@@ -290,9 +340,15 @@ const Services = () => {
               ? "A specialized e-commerce marketplace engineered from scratch by our team in 30 days for a Da Nang automotive business."
               : "Minh chứng năng lực thực tế: Sàn thương mại điện tử chuyên biệt được team chúng tôi thiết kế và bàn giao chỉ trong 30 ngày cho đối tác doanh nghiệp tại Đà Nẵng."}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flagship-showcase">
+        <motion.div 
+          className="flagship-showcase"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
           <div className="showcase-header-bar">
             <div className="dots">
               <span />
@@ -303,7 +359,7 @@ const Services = () => {
               https://biensovip.com
             </div>
             <div className="status-pill">
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1ea64a', display: 'inline-block' }} />
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-ink)', display: 'inline-block' }} />
               {isEn ? "PRODUCTION LIVE" : "ĐANG HOẠT ĐỘNG"}
             </div>
           </div>
@@ -311,19 +367,30 @@ const Services = () => {
           <div className="showcase-content-grid">
             {/* Visuals column */}
             <div className="showcase-visuals">
-              <img 
-                src={BIENSOVIP_SHOTS[activeShotIndex].url} 
-                alt={BIENSOVIP_SHOTS[activeShotIndex].titleVi}
-                className="main-preview-img"
-                onClick={() => setLightboxImg(BIENSOVIP_SHOTS[activeShotIndex].url)}
-                title="Click to view full size"
-              />
+              <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px' }}>
+                <AnimatePresence mode="wait">
+                  <motion.img 
+                    key={activeShotIndex}
+                    src={BIENSOVIP_SHOTS[activeShotIndex].url} 
+                    alt={BIENSOVIP_SHOTS[activeShotIndex].titleVi}
+                    className="main-preview-img"
+                    onClick={() => setLightboxImg(BIENSOVIP_SHOTS[activeShotIndex].url)}
+                    title="Click to view full size"
+                    initial={{ opacity: 0.35, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0.35 }}
+                    transition={{ duration: 0.25 }}
+                  />
+                </AnimatePresence>
+              </div>
               <div className="thumbnails-row">
                 {BIENSOVIP_SHOTS.map((shot, idx) => (
-                  <img 
+                  <motion.img 
                     key={idx}
                     src={shot.url}
                     alt={shot.titleVi}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.96 }}
                     style={{
                       borderColor: activeShotIndex === idx ? 'var(--color-ink)' : 'var(--color-hairline)',
                       opacity: activeShotIndex === idx ? 1 : 0.65
@@ -378,13 +445,13 @@ const Services = () => {
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: '8px',
                     padding: '10px 18px', borderRadius: '50px',
-                    backgroundColor: '#ffffff', color: '#111827',
+                    backgroundColor: 'var(--color-canvas)', color: 'var(--color-ink)',
                     fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
-                    border: '1px solid #d1d5db',
+                    border: '1px solid var(--color-hairline)',
                     transition: 'all 0.15s ease',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.backgroundColor = '#f9fafb'; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.backgroundColor = '#ffffff'; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; e.currentTarget.style.backgroundColor = 'var(--color-canvas)'; }}
                 >
                   <span>{isEn ? "Technical Case Study" : "Case Study Kỹ Thuật"}</span>
                   <FaArrowRight size={11} />
@@ -395,13 +462,13 @@ const Services = () => {
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: '8px',
                     padding: '10px 18px', borderRadius: '50px',
-                    backgroundColor: '#ede5fb', color: '#6d3fc9',
+                    backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)',
                     fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
-                    border: '1px solid rgba(109, 63, 201, 0.2)',
+                    border: '1px solid var(--color-hairline)',
                     transition: 'all 0.15s ease',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#e3d6fa'; }}
-                  onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#ede5fb'; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; }}
                 >
                   <span>{isEn ? "PostgreSQL 8ms Deep-Dive" : "Bài Viết CSDL PostgreSQL 8ms"}</span>
                   <FaArrowRight size={11} />
@@ -412,13 +479,13 @@ const Services = () => {
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: '8px',
                     padding: '10px 18px', borderRadius: '50px',
-                    backgroundColor: '#ecfdf5', color: '#059669',
+                    backgroundColor: 'var(--color-ink)', color: 'var(--color-canvas)',
                     fontSize: '13.5px', fontWeight: '600', textDecoration: 'none',
-                    border: '1px solid #a7f3d0',
+                    border: '1px solid var(--color-ink)',
                     transition: 'all 0.15s ease',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#d1fae5'; }}
-                  onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#ecfdf5'; }}
+                  onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
+                  onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
                 >
                   <FaGraduationCap size={13} />
                   <span>{isEn ? "Tech Lead Milestone Dossier" : "Hồ Sơ Năng Lực Tech Lead"}</span>
@@ -429,12 +496,18 @@ const Services = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* 3. SAAS AUTOMATION DEEP DIVE */}
       <section className="section-container">
-        <div className="section-header">
+        <motion.div 
+          className="section-header"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="section-eyebrow">{isEn ? "CORE SPECIALIZATION" : "LĨNH VỰC TRỌNG TÂM"}</div>
           <h2 className="section-heading">{isEn ? "SaaS Automation: Turning Your Website into a 24/7 Sales Engine" : "Tự Động Hóa SaaS: Biến Website Thành Cỗ Máy Bán Hàng & Vận Hành Tự Động 24/7"}</h2>
           <p className="section-desc">
@@ -442,11 +515,17 @@ const Services = () => {
               ? "We don't just build static showcase sites. We engineer lean SaaS automation systems that eliminate manual repetitive tasks, accelerate lead conversions, and scale your revenue effortlessly."
               : "Chúng tôi không chỉ dựng website tĩnh đơn thuần. Trọng tâm cốt lõi là xây dựng các giải pháp Tự động hóa SaaS (SaaS Automation) tinh gọn, giải phóng 80% thời gian trực chốt của chủ shop và nhân đôi tỉ lệ chuyển đổi."}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="saas-features-grid">
-          <div className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: '#dceeb1' }}>
+        <motion.div 
+          className="saas-features-grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
+            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
               <FaCogs size={20} />
             </div>
             <h3>{isEn ? "1. Automated Lead & Funnel Routing" : "1. Tự Động Hóa Phễu Thu Thập & Phân Luồng Lead"}</h3>
@@ -456,10 +535,10 @@ const Services = () => {
                 : "Mỗi hành động của khách (Hỏi tư vấn, Đặt cọc giữ chỗ, Mua đứt tức thì) đều được hệ thống tự động gắn tag phân loại, gửi thông báo tức thời về Zalo / Telegram của chủ shop để chốt nóng trong 30 giây."}
             </p>
             <div className="feature-chip">{isEn ? "Instant Telegram/Zalo Webhook" : "Bắn Webhook Zalo/Telegram Tức Thời"}</div>
-          </div>
+          </motion.div>
 
-          <div className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: '#c5b0f4' }}>
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
+            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
               <FaQrcode size={20} />
             </div>
             <h3>{isEn ? "2. Zero-Fee Dynamic VietQR Reconciliation" : "2. Tự Động Hóa Thanh Toán & Đối Soát VietQR 0đ"}</h3>
@@ -469,10 +548,10 @@ const Services = () => {
                 : "Hệ thống tự động sinh mã VietQR động chứa chính xác số tiền cọc và mã đơn hàng. Webhook ngân hàng tự động bắt log xác nhận thành công 100%, chủ shop không cần ngồi rà sao kê thủ công."}
             </p>
             <div className="feature-chip">{isEn ? "0% Gateway Fee • Real-time Webhook" : "0% Phí Cổng • Xác Nhận Thời Gian Thực"}</div>
-          </div>
+          </motion.div>
 
-          <div className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: '#f4ecd6' }}>
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
+            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
               <FaSyncAlt size={20} />
             </div>
             <h3>{isEn ? "3. Real-time Inventory Locking & Sync" : "3. Tự Động Hóa Quản Lý Kho & Khóa Trạng Thái Hàng"}</h3>
@@ -482,10 +561,10 @@ const Services = () => {
                 : "Ngay khi lệnh cọc hoặc đơn hàng được xác nhận, hệ thống tự động khóa sản phẩm, chuyển trạng thái 'Đã cọc / Đang giao dịch' trên toàn bộ thiết bị khách hàng khác đang xem."}
             </p>
             <div className="feature-chip">{isEn ? "Zero Double-Booking Conflict" : "Triệt Tiêu Trùng Đơn & Lỗi Kho"}</div>
-          </div>
+          </motion.div>
 
-          <div className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: '#c8e6cd' }}>
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
+            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
               <FaRobot size={20} />
             </div>
             <h3>{isEn ? "4. 24/7 AI-Powered Advisory & Smart Recommendation" : "4. Tự Động Hóa CSKH & Đề Xuất Bằng AI (DeepSeek)"}</h3>
@@ -495,13 +574,19 @@ const Services = () => {
                 : "Trợ lý AI được huấn luyện theo danh mục sản phẩm của shop. Tự động tính toán nhu cầu chuyên sâu (như phân tích ngũ hành, phong thủy, so sánh giá) và hướng dẫn khách chốt đơn 24/7 kể cả nửa đêm."}
             </p>
             <div className="feature-chip">{isEn ? "RAG-Trained DeepSeek Model" : "AI Hiểu Sâu Dữ Liệu Shop"}</div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* 4. EMPATHY & PROBLEM/SOLUTION */}
       <section className="section-container">
-        <div className="section-header">
+        <motion.div 
+          className="section-header"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="section-eyebrow">{isEn ? "EMPATHY" : "THẤU HIỂU NỖI LO"}</div>
           <h2 className="section-heading">{isEn ? "What Anxieties Stop You From Making a Website?" : "Bạn Lo Lắng Gì Khi Bắt Đầu Làm Website?"}</h2>
           <p className="section-desc">
@@ -509,11 +594,17 @@ const Services = () => {
               ? "We understand non-technical owners have legitimate concerns. Here is how our team eliminates every single one of them."
               : "Chúng tôi thấu hiểu những băn khoăn thực tế của chủ cửa hàng khi chưa từng làm việc với đội ngũ lập trình."}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="empathy-grid">
-          <div className="empathy-card">
-            <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[0] }} />
+        <motion.div 
+          className="empathy-grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="empathy-card">
+            <div className="card-stripe" style={{ backgroundColor: 'var(--color-ink)' }} />
             <div className="card-svg-wrap">
               <CostConcernSVG />
             </div>
@@ -526,10 +617,10 @@ const Services = () => {
                 {isEn ? "Calculated strictly on actual man-day effort. Over 75% invested directly in your product, starting at just 11.5M VND with 20-30% startup subsidies." : "Báo giá theo man-day công việc thực tế, chính sách trợ giá 20-30% cho chủ shop, hơn 75% chi phí dồn vào sản phẩm thật."}
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="empathy-card">
-            <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[1] }} />
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="empathy-card">
+            <div className="card-stripe" style={{ backgroundColor: 'var(--color-hairline)' }} />
             <div className="card-svg-wrap">
               <TrustConcernSVG />
             </div>
@@ -542,10 +633,10 @@ const Services = () => {
                 {isEn ? "Transparent civil contract signed by Leader Le Tri Trung with explicit delay penalties and 6-12 months free warranty." : "Hợp đồng dân sự do Leader Lê Trí Trung đứng tên pháp lý. Có điều khoản phạt trễ tiến độ theo ngày, nghiệm thu ưng ý mới thanh toán."}
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="empathy-card">
-            <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[2] }} />
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="empathy-card">
+            <div className="card-stripe" style={{ backgroundColor: 'var(--color-hairline)' }} />
             <div className="card-svg-wrap">
               <TechComplexitySVG />
             </div>
@@ -558,10 +649,10 @@ const Services = () => {
                 {isEn ? "100% intuitive Vietnamese admin panel. Includes 1-on-1 personalized video screen recordings. Manageable in 10 minutes." : "Cổng quản trị 100% Tiếng Việt tối giản, tặng kèm video quay màn hình hướng dẫn 1-1, ai cũng tự cập nhật sản phẩm sau 10 phút."}
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="empathy-card">
-            <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[3] }} />
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="empathy-card">
+            <div className="card-stripe" style={{ backgroundColor: 'var(--color-hairline)' }} />
             <div className="card-svg-wrap">
               <TaxConcernSVG />
             </div>
@@ -574,13 +665,19 @@ const Services = () => {
                 {isEn ? "Our team self-declares and remits all Personal Income Tax directly with the state. Zero tax hassle for you." : "Team chúng tôi tự chủ động kê khai và nộp thuế TNCN đầy đủ theo quy định pháp luật. Khách hàng hoàn toàn an tâm!"}
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* 5. WHY CHOOSE US — LIVE AUDITED METRICS & INFOGRAPHIC */}
       <section className="section-container">
-        <div className="section-header">
+        <motion.div 
+          className="section-header"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="section-eyebrow">{isEn ? "PROVEN TRACK RECORD" : "MINH CHỨNG THỰC TẾ TỪ HỆ THỐNG VẬN HÀNH"}</div>
           <h2 className="section-heading">{isEn ? "Why Over 100+ Shop Owners Choose Our Team" : "Tại Sao Hơn 100+ Chủ Shop Đã Tin Tưởng Chúng Tôi?"}</h2>
           <p className="section-desc">
@@ -588,10 +685,16 @@ const Services = () => {
               ? "We don't sell empty promises. Here are the actual, verified operational metrics achieved on our production client platforms."
               : "Chúng tôi chứng minh năng lực bằng số liệu đo lường thực tế. Dưới đây là các chỉ số vận hành được trích xuất trực tiếp từ Bảng điều khiển quản trị (Admin Dashboard) của hệ thống Biensovip đang hoạt động tại Đà Nẵng."}
           </p>
-        </div>
+        </motion.div>
 
         {/* LIVE METRICS CARDS (DATA EXTRACTED FROM BIENSOVIP /admin/tong-quan) */}
-        <div className="live-metrics-banner">
+        <motion.div 
+          className="live-metrics-banner"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
           <div className="metrics-banner-header">
             <div className="source-tag">
               <span className="live-pulse" />
@@ -600,8 +703,14 @@ const Services = () => {
             <span className="audit-status">⚡ {isEn ? "Audited via Live Admin API" : "Dữ liệu đối soát hệ thống thật"}</span>
           </div>
 
-          <div className="metrics-kpi-grid">
-            <div className="kpi-card">
+          <motion.div 
+            className="metrics-kpi-grid"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <motion.div variants={cardPop} className="kpi-card">
               <div className="kpi-top">
                 <span className="kpi-num">37.5%</span>
                 <span className="kpi-trend positive">+125% MoM</span>
@@ -612,9 +721,9 @@ const Services = () => {
                   ? "3.5x higher than average e-commerce benchmark (~8-10%) via automated funnel." 
                   : "Gấp 3.5 lần trung bình ngành TMĐT (8-10%) nhờ tự động hóa phễu và báo giá minh bạch."}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="kpi-card">
+            <motion.div variants={cardPop} className="kpi-card">
               <div className="kpi-top">
                 <span className="kpi-num">+300%</span>
                 <span className="kpi-trend positive">🚀 Tăng Trưởng</span>
@@ -625,9 +734,9 @@ const Services = () => {
                   ? "Sub-8ms dynamic search and smart categories drove high qualified buyer engagement." 
                   : "Lượng khách chủ động liên hệ tăng gấp 4 lần ngay sau khi triển khai hệ thống lọc tức thời <8ms."}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="kpi-card">
+            <motion.div variants={cardPop} className="kpi-card">
               <div className="kpi-top">
                 <span className="kpi-num">36+ Đơn</span>
                 <span className="kpi-trend neutral">14 Trang Admin</span>
@@ -638,9 +747,9 @@ const Services = () => {
                   ? "36 high-value plates closed, managing active catalog across 14 admin pages with zero conflicts." 
                   : "Đã xử lý 36 giao dịch thành công, quản lý kho 280+ sản phẩm mượt mà với 14 trang quản trị."}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="kpi-card">
+            <motion.div variants={cardPop} className="kpi-card">
               <div className="kpi-top">
                 <span className="kpi-num">93+ Lần</span>
                 <span className="kpi-trend positive">100% Tự Động</span>
@@ -651,8 +760,8 @@ const Services = () => {
                   ? "Auto-computed Five Elements (Kim/Moc/Thuy/Hoa/Tho) matches and multi-plate comparisons." 
                   : "Hệ thống tự giải toán phong thủy ngũ hành theo năm sinh khách hàng và đối chiếu trực quan."}
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* VISUAL FUNNEL FLOW BREAKDOWN */}
           <div className="funnel-breakdown-box">
@@ -696,9 +805,15 @@ const Services = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="infographic-card">
+        <motion.div 
+          className="infographic-card"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <img 
             src={infographicTeam} 
             alt="Infographic mô hình 1 Leader + 4 Devs" 
@@ -706,46 +821,58 @@ const Services = () => {
             onClick={() => setLightboxImg(infographicTeam)}
             title="Bấm để xem phóng to"
           />
-        </div>
+        </motion.div>
 
-        <div className="pillars-grid">
-          <div className="pillar-item">
+        <motion.div 
+          className="pillars-grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <motion.div variants={cardPop} className="pillar-item">
             <div className="pillar-header">
               <div className="pillar-icon-box">01</div>
               <h4>{isEn ? "1 Leader + 4 Devs Model" : "Mô Hình Chuyên Nghiệp"}</h4>
             </div>
             <p>{isEn ? "1 Leader coordinates directly with you, while 4 specialized developers execute frontend, backend, UI/UX, and testing." : "Team 1 Leader + 4 Devs kiểm soát quy trình chặt chẽ, code review từng pull request, CI/CD tự động."}</p>
-          </div>
+          </motion.div>
 
-          <div className="pillar-item">
+          <motion.div variants={cardPop} className="pillar-item">
             <div className="pillar-header">
               <div className="pillar-icon-box">02</div>
               <h4>{isEn ? "Simple Civil Contract" : "Hợp Đồng Dân Sự Đơn Giản"}</h4>
             </div>
             <p>{isEn ? "Transparent contracting. Leader Le Tri Trung takes legal accountability for quality and timeline." : "Ký kết minh bạch, dễ dàng. Leader đứng tên pháp lý chịu trách nhiệm cam kết tiến độ và chất lượng."}</p>
-          </div>
+          </motion.div>
 
-          <div className="pillar-item">
+          <motion.div variants={cardPop} className="pillar-item">
             <div className="pillar-header">
               <div className="pillar-icon-box">03</div>
               <h4>{isEn ? "Zero Client Tax Hassle" : "Khách KHÔNG Lo Thuế TNCN"}</h4>
             </div>
             <p>{isEn ? "We self-declare and remit our own PIT taxes. Zero administrative paperwork for shop owners." : "Chúng tôi tự kê khai và nộp thuế thu nhập cá nhân đầy đủ. Chủ shop không phải lo thủ tục kế toán rắc rối."}</p>
-          </div>
+          </motion.div>
 
-          <div className="pillar-item">
+          <motion.div variants={cardPop} className="pillar-item">
             <div className="pillar-header">
               <div className="pillar-icon-box">04</div>
               <h4>{isEn ? "Maximum Value Efficiency" : "Cơ Chế Giá Trị Tối Ưu"}</h4>
             </div>
             <p>{isEn ? "Over 75% of your investment flows directly into software craft, licensed plugins, and high-speed hosting." : "Hơn 75% chi phí đầu tư trực tiếp vào lập trình và tài nguyên cao cấp (theme, plugin, server xịn), mang lại giá trị thực."}</p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* 5.5. CORE ENGINEERING TEAM (100% FPT UNIVERSITY — EX-FPT SOFTWARE) */}
       <section id="team-section" className="section-container team-bench-section">
-        <div className="section-header">
+        <motion.div 
+          className="section-header"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="section-eyebrow">{isEn ? "VERIFIED ENGINEERING TEAM" : "ĐỘI NGŨ KỸ SƯ CHÍNH QUY"}</div>
           <h2 className="section-heading">
             {isEn ? "Meet Our 5 Engineers: 100% FPT University — Ex-FPT Software" : "Đội Ngũ 05 Kỹ Sư Thực Chiến: 100% Đại Học FPT — Cựu FPT Software"}
@@ -755,10 +882,16 @@ const Services = () => {
               ? "No agency middlemen, no sales markups. You collaborate directly 1-on-1 with Tech Lead Le Tri Trung alongside 4 dedicated engineers specializing in .NET 8, Java Spring Boot, Next.js, and AI automation."
               : "Xóa bỏ hoàn toàn chi phí sales trung gian. Khách hàng làm việc trực tiếp 1-1 với Tech Lead Lê Trí Trung cùng 4 kỹ sư chuyên trách, sở hữu chứng chỉ quốc tế và kinh nghiệm thực chiến dày dặn tại FPT Software."}
           </p>
-        </div>
+        </motion.div>
 
         {/* Highlight Trust Stats */}
-        <div className="team-trust-banner">
+        <motion.div 
+          className="team-trust-banner"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="trust-stat">
             <span className="stat-value">05</span>
             <span className="stat-label">{isEn ? "Engineers In Da Nang" : "Kỹ Sư Chính Quy Tại Đà Nẵng"}</span>
@@ -778,16 +911,27 @@ const Services = () => {
             <span className="stat-value">01</span>
             <span className="stat-label">{isEn ? "Microsoft Certified Professional" : "Chứng Chỉ Quốc Tế Microsoft Pro"}</span>
           </div>
-        </div>
+        </motion.div>
 
         {/* 5 Members Grid */}
-        <div className="team-members-grid">
+        <motion.div 
+          className="team-members-grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {TEAM_MEMBERS.map((member, idx) => (
-            <div key={idx} className={`team-member-card ${idx === 0 ? 'lead-card' : ''}`}>
-              <div className="card-top-stripe" style={{ backgroundColor: member.color }} />
+            <motion.div 
+              key={idx} 
+              className={`team-member-card ${idx === 0 ? 'lead-card' : ''}`}
+              variants={cardPop}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+            >
+              <div className="card-top-stripe" />
               <div className="member-card-body">
                 <div className="member-header">
-                  <div className="member-avatar-box" style={{ background: member.color }}>
+                  <div className="member-avatar-box">
                     {idx === 0 ? <FaUserTie size={22} /> : idx === 1 ? <FaLaptopCode size={22} /> : idx === 2 ? <FaCode size={22} /> : idx === 3 ? <FaAward size={22} /> : <FaServer size={22} />}
                   </div>
                   <div className="member-meta">
@@ -843,12 +987,18 @@ const Services = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Bottom Callout: Full Dossier Download */}
-        <div className="team-download-dossier-box">
+        <motion.div 
+          className="team-download-dossier-box"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="dossier-info">
             <FaShieldAlt size={30} className="dossier-icon" />
             <div>
@@ -865,12 +1015,18 @@ const Services = () => {
             <FaDownload size={14} />
             <span>{isEn ? "Download PDF Profile (5 Pages)" : "Tải PDF Hồ Sơ Năng Lực (5 Trang)"}</span>
           </a>
-        </div>
+        </motion.div>
       </section>
 
       {/* 5. TRANSPARENT PRICING SECTION (FROM EXCEL) */}
       <section id="pricing-section" className="section-container">
-        <div className="section-header">
+        <motion.div 
+          className="section-header"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="section-eyebrow">{isEn ? "TRANSPARENT QUOTATION" : "BẢNG GIÁ MINH BẠCH"}</div>
           <h2 className="section-heading">{isEn ? "Engineered Packages for Small Businesses" : "Các Gói Dịch Vụ Thiết Kế Web Phù Hợp Từng Giai Đoạn"}</h2>
           <p className="section-desc">
@@ -878,12 +1034,22 @@ const Services = () => {
               ? "Calculated transparently on actual engineering man-days with a 50% discount policy applied for small shop owners."
               : "Chi phí tính minh bạch theo man-day công việc thực tế, đã áp dụng chính sách trợ giá 50% cho chủ shop khởi nghiệp."}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="pricing-grid">
+        <motion.div 
+          className="pricing-grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {/* Plan 1 */}
-          <div className="pricing-card">
-            <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[0] }} />
+          <motion.div 
+            className="pricing-card"
+            variants={cardPop}
+            whileHover={{ y: -8, transition: { duration: 0.2 } }}
+          >
+            <div className="card-stripe" style={{ backgroundColor: 'var(--color-hairline)' }} />
             <div className="card-inner">
               <div className="plan-badge-row">
                 <span className="plan-tag">GÓI 1 DEV</span>
@@ -911,11 +1077,15 @@ const Services = () => {
                 {isEn ? "Choose Starter MVP" : "Chọn Gói Khởi Nghiệp"}
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Plan 2 */}
-          <div className="pricing-card featured">
-            <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[1] }} />
+          <motion.div 
+            className="pricing-card featured"
+            variants={cardPop}
+            whileHover={{ y: -8, transition: { duration: 0.2 } }}
+          >
+            <div className="card-stripe" style={{ backgroundColor: 'var(--color-ink)' }} />
             <div className="card-inner">
               <div className="plan-badge-row">
                 <span className="plan-tag">GÓI 2 DEVS</span>
@@ -944,11 +1114,15 @@ const Services = () => {
                 {isEn ? "Choose Fast MVP" : "Chọn Gói Tốc Hành"}
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Plan 3 */}
-          <div className="pricing-card">
-            <div className="card-stripe" style={{ backgroundColor: BLOCK_COLORS[2] }} />
+          <motion.div 
+            className="pricing-card"
+            variants={cardPop}
+            whileHover={{ y: -8, transition: { duration: 0.2 } }}
+          >
+            <div className="card-stripe" style={{ backgroundColor: 'var(--color-hairline)' }} />
             <div className="card-inner">
               <div className="plan-badge-row">
                 <span className="plan-tag">FULL SCOPE (5 DEVS)</span>
@@ -976,11 +1150,17 @@ const Services = () => {
                 {isEn ? "Consult Enterprise" : "Tư Vấn Gói Toàn Diện"}
               </button>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* NEGOTIATION & STARTUP SUBSIDY HOOK BANNER */}
-        <div className="negotiation-banner">
+        <motion.div 
+          className="negotiation-banner"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
           <div className="banner-top-row">
             <div className="banner-badge">
               <span className="sparkle">✨</span>
@@ -1015,10 +1195,16 @@ const Services = () => {
               <FaArrowRight /> {isEn ? "Download PDF Profile (LaTeX)" : "Tải Hồ Sơ Năng Lực & Báo Giá (PDF)"}
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Policies */}
-        <div className="policy-box">
+        <motion.div 
+          className="policy-box"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
           <div className="policy-header">
             <FaShieldAlt size={18} />
             <span>{isEn ? "Transparent Policy Guarantees (Extracted from Contract Model)" : "Chính Sách Cam Kết Minh Bạch (Trích Từ Hợp Đồng Thực Tế)"}</span>
@@ -1037,12 +1223,18 @@ const Services = () => {
               {isEn ? "Start with the MVP package today and expand to full e-commerce later without re-writing your codebase from scratch." : "Chủ shop hoàn toàn có thể bắt đầu với gói MVP để tiết kiệm chi phí, sau này nâng cấp lên gói Đầy Đủ mà không cần đập đi xây lại!"}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* 6. 5-STEP PROCESS */}
       <section className="section-container">
-        <div className="section-header">
+        <motion.div 
+          className="section-header"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="section-eyebrow">{isEn ? "WORK PROCESS" : "QUY TRÌNH 5 BƯỚC"}</div>
           <h2 className="section-heading">{isEn ? "5 Steps to Your Perfect Website" : "Quy Trình 5 Bước Đến Website Hoàn Hảo"}</h2>
           <p className="section-desc">
@@ -1050,57 +1242,69 @@ const Services = () => {
               ? "From empathetic listening to verified code delivery. Transparent every step of the way."
               : "Từ sự lắng nghe thấu hiểu đến quy trình bàn giao code chuẩn mực, minh bạch trong từng giai đoạn."}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="process-grid">
-          <div className="process-card">
+        <motion.div 
+          className="process-grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="process-card">
             <div className="step-svg-box">
               <Step1ScopeSVG />
             </div>
             <span className="step-tag">BƯỚC 01</span>
             <h4 className="step-name">{isEn ? "1. Empathy & Scope" : "1. Lắng Nghe & Tư Vấn"}</h4>
             <p className="step-detail">{isEn ? "Analyze products, target buyers, and essential shop workflows." : "Tìm hiểu kỹ sản phẩm và khách hàng mục tiêu để chọn tính năng thiết thực nhất."}</p>
-          </div>
+          </motion.div>
 
-          <div className="process-card">
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="process-card">
             <div className="step-svg-box">
               <Step2DesignSVG />
             </div>
             <span className="step-tag">BƯỚC 02</span>
             <h4 className="step-name">{isEn ? "2. Visual Mockup" : "2. Thiết Kế Giao Diện"}</h4>
             <p className="step-detail">{isEn ? "Modern UI/UX layout crafted and approved before writing code." : "Lên bản mẫu giao diện trực quan chuẩn mobile để chủ shop duyệt trước khi lập trình."}</p>
-          </div>
+          </motion.div>
 
-          <div className="process-card">
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="process-card">
             <div className="step-svg-box">
               <Step3CodingSVG />
             </div>
             <span className="step-tag">BƯỚC 03</span>
             <h4 className="step-name">{isEn ? "3. Clean Coding" : "3. Lập Trình Chuẩn"}</h4>
             <p className="step-detail">{isEn ? "Clean code, sub-1s loading speed, and multi-layer security." : "Lập trình sạch sẽ, bảo mật cao, tối ưu tốc độ tải trang dưới 1 giây mượt mà."}</p>
-          </div>
+          </motion.div>
 
-          <div className="process-card">
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="process-card">
             <div className="step-svg-box">
               <Step4TestingSVG />
             </div>
             <span className="step-tag">BƯỚC 04</span>
             <h4 className="step-name">{isEn ? "4. Strict QA / CI/CD" : "4. Kiểm Thử Nghiêm Ngặt"}</h4>
             <p className="step-detail">{isEn ? "Tested across iPhone, Android, iPad, and desktop browsers." : "Thử nghiệm đặt hàng, thanh toán trên iPhone, Android và máy tính, không để lọt lỗi."}</p>
-          </div>
+          </motion.div>
 
-          <div className="process-card">
+          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="process-card">
             <div className="step-svg-box">
               <Step5HandoverSVG />
             </div>
             <span className="step-tag">BƯỚC 05</span>
             <h4 className="step-name">{isEn ? "5. Handover & Warranty" : "5. Bàn Giao & Bảo Hành"}</h4>
             <p className="step-detail">{isEn ? "1-on-1 video guide, keys handover, and 24/7 warranty activation." : "Gửi video hướng dẫn 1-1, bàn giao quyền sở hữu hoàn toàn và bảo hành 24/7."}</p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* PROCESS TO QUOTATION & CONTRACT CTA BANNER */}
-        <div className="process-cta-banner">
+        <motion.div 
+          className="process-cta-banner"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
           <div className="cta-banner-text">
             <h4>{isEn ? "Want to see how your money is broken down and calculated?" : "Bạn muốn hiểu rõ số tiền của mình được sử dụng và tính toán như thế nào?"}</h4>
             <p>{isEn ? "We believe in radical engineering transparency. See how engineering man-days translate directly into software craftsmanship and strict delay/bonus contract clauses." : "Minh bạch tuyệt đối trong từng dòng code và chi phí: Xem chi tiết cách tính Man-day từ file Báo Giá Excel, quy trình giải ngân an toàn 40/60 và điều khoản phạt trễ tiến độ."}</p>
@@ -1108,7 +1312,7 @@ const Services = () => {
           <button onClick={() => setShowWorkflowModal(true)} className="btn-open-workflow-modal">
             <FaFileContract /> {isEn ? "Explore Quotation & Contract Workflow" : "Khám Phá Quy Trình Báo Giá & Hợp Đồng"}
           </button>
-        </div>
+        </motion.div>
       </section>
 
       {/* Lightbox for Infographic & Screenshots */}
