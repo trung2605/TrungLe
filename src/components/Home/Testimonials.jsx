@@ -22,7 +22,7 @@ const Testimonials = () => {
                     color: '#666666', marginBottom: '12px',
                 }}>{t('home.testimonialsLabel')}</p>
                 <h2 style={{
-                    fontFamily: 'Outfit, system-ui, sans-serif',
+                    fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
                     fontSize: 'clamp(24px, 3.5vw, 44px)', fontWeight: '340',
                     lineHeight: '1.10', letterSpacing: '-0.72px',
                     color: 'var(--color-ink)', marginBottom: '32px',

@@ -176,7 +176,7 @@ const Home = () => {
           <motion.h1
             {...fadeUp(0.1)}
             style={{
-              fontFamily: 'Outfit, system-ui, sans-serif',
+              fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
               fontSize: 'clamp(44px, 7.5vw, 92px)',
               fontWeight: '400',
               lineHeight: '1.05',
@@ -490,7 +490,7 @@ const Home = () => {
             color: '#444444', marginBottom: '12px',
           }}>{t('home.skillsLabel')}</p>
           <h2 style={{
-            fontFamily: 'Outfit, system-ui, sans-serif',
+            fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
             fontSize: 'clamp(26px, 4vw, 48px)', fontWeight: '340',
             lineHeight: '1.10', letterSpacing: '-0.72px',
             color: '#000000', marginBottom: '40px',
@@ -574,7 +574,7 @@ const Home = () => {
             color: '#666666', marginBottom: '12px',
           }}>{t('home.exploreLabel')}</p>
           <h2 style={{
-            fontFamily: 'Outfit, system-ui, sans-serif',
+            fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
             fontSize: 'clamp(24px, 3.5vw, 48px)', fontWeight: '340',
             lineHeight: '1.10', letterSpacing: '-0.72px',
             color: '#000000', marginBottom: '36px',
@@ -615,7 +615,7 @@ const Home = () => {
                   >
                     <div style={{ fontSize: '28px', marginBottom: '14px', color: '#000000' }}>{item.icon}</div>
                     <h3 style={{
-                      fontFamily: 'Outfit, system-ui, sans-serif',
+                      fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
                       fontSize: '18px', fontWeight: '540',
                       color: '#000000', margin: '0 0 6px 0',
                       display: 'flex', alignItems: 'center', gap: '6px'
@@ -674,7 +674,7 @@ const Home = () => {
               color: 'rgba(255,255,255,0.6)', marginBottom: '12px',
             }}>{t('home.ctaLabel')}</p>
             <h2 style={{
-              fontFamily: 'Outfit, system-ui, sans-serif',
+              fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
               fontSize: 'clamp(22px, 3.5vw, 44px)', fontWeight: '600',
               lineHeight: '1.15', letterSpacing: '-0.025em',
               color: '#ffffff', margin: 0,

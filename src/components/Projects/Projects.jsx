@@ -162,7 +162,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         </div>
 
         <h3 style={{
-          fontFamily: 'Outfit, system-ui, sans-serif',
+          fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
           fontSize: '20px',
           fontWeight: '600',
           lineHeight: '1.35',

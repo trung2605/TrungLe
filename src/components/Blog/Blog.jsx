@@ -63,7 +63,7 @@ const Blog = () => {
                                     ))}
                                 </div>
                                 <h3 style={{
-                                    fontFamily: 'Outfit, system-ui, sans-serif',
+                                    fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
                                     fontSize: '20px', fontWeight: '540', lineHeight: '1.35',
                                     color: 'var(--color-ink)', margin: '0 0 10px 0',
                                 }}>

@@ -180,7 +180,7 @@ const ProjectDetail = () => {
         {/* Title overlay */}
         <div className="project-hero-title-wrap" style={{ position: 'absolute', zIndex: 2 }}>
           <h1 style={{
-            fontFamily: 'Outfit, system-ui, sans-serif',
+            fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
             fontSize: 'clamp(24px, 4vw, 52px)',
             fontWeight: '540',
             lineHeight: '1.1',

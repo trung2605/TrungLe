@@ -64,7 +64,7 @@ const CertificateCard = ({ cert, index, onSelect, t }) => {
             </div>
             <div style={{ padding: '20px' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px', marginBottom: '8px' }}>
-                    <h3 style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '16px', fontWeight: '540', color: 'var(--color-ink)', margin: 0, lineHeight: '1.4' }}>{cert.name}</h3>
+                    <h3 style={{ fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif', fontSize: '16px', fontWeight: '540', color: 'var(--color-ink)', margin: 0, lineHeight: '1.4' }}>{cert.name}</h3>
                     <FaCertificate size={16} style={{ color: '#888888', flexShrink: 0, marginTop: '2px' }} />
                 </div>
                 <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#666666', margin: '0 0 8px 0' }}>

@@ -70,11 +70,11 @@
     margin: 0 auto 56px;
 
     .hero-title {
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-heading);
       font-size: clamp(32px, 5vw, 54px);
       font-weight: 650;
       line-height: 1.15;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.015em;
       margin-bottom: 20px;
       color: var(--color-ink);
 
@@ -219,7 +219,7 @@
     }
 
     .section-heading {
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-heading);
       font-size: clamp(26px, 3.6vw, 36px);
       font-weight: 600;
       letter-spacing: -0.02em;
@@ -352,7 +352,7 @@
       }
 
       h3 {
-        font-family: 'Outfit', system-ui, sans-serif;
+        font-family: var(--font-heading);
         font-size: 26px;
         font-weight: 650;
         margin-bottom: 12px;
@@ -665,7 +665,7 @@
           min-height: 38px;
 
           .kpi-num {
-            font-family: 'Outfit', sans-serif;
+            font-family: var(--font-heading);
             font-size: clamp(20px, 1.8vw, 25px);
             font-weight: 700;
             color: var(--color-ink);
@@ -777,7 +777,7 @@
 
           .step-count {
             display: block;
-            font-family: 'Outfit', sans-serif;
+            font-family: var(--font-heading);
             font-size: 24px;
             font-weight: 700;
             color: var(--color-ink);
@@ -1005,7 +1005,7 @@
       }
 
       .plan-title {
-        font-family: 'Outfit', system-ui, sans-serif;
+        font-family: var(--font-heading);
         font-size: 22px;
         font-weight: 650;
         margin-bottom: 6px;
@@ -1035,7 +1035,7 @@
         }
 
         .price-num {
-          font-family: 'Outfit', system-ui, sans-serif;
+          font-family: var(--font-heading);
           font-size: 32px;
           font-weight: 700;
           color: var(--color-ink);
@@ -1159,7 +1159,7 @@
     }
 
     .banner-title {
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-heading);
       font-size: 20px;
       font-weight: 700;
       color: var(--color-ink);
@@ -1257,7 +1257,7 @@
       font-weight: 650;
       color: var(--color-ink);
       margin-bottom: 16px;
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-heading);
     }
 
     .policy-grid {
@@ -1571,7 +1571,7 @@
       gap: 6px;
 
       .stat-value {
-        font-family: 'Outfit', system-ui, sans-serif;
+        font-family: var(--font-heading);
         font-size: 32px;
         font-weight: 700;
         color: var(--color-ink);
@@ -1730,7 +1730,7 @@
           }
 
           .member-name {
-            font-family: 'Outfit', system-ui, sans-serif;
+            font-family: var(--font-heading);
             font-size: 20px;
             font-weight: 700;
             color: var(--color-ink);
@@ -1907,7 +1907,7 @@
       }
 
       h4 {
-        font-family: 'Outfit', system-ui, sans-serif;
+        font-family: var(--font-heading);
         font-size: 17px;
         font-weight: 700;
         color: var(--color-ink);
@@ -2023,7 +2023,7 @@
         }
 
         h3 {
-          font-family: 'Outfit', system-ui, sans-serif;
+          font-family: var(--font-heading);
           font-size: 19px;
           font-weight: 700;
           color: var(--color-ink);

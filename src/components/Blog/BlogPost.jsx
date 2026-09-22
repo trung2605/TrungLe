@@ -70,7 +70,7 @@ const BlogPost = () => {
                 style={{ maxWidth: '780px', margin: '0 auto' }}
             >
                 <h1 style={{
-                    fontFamily: 'Outfit, system-ui, sans-serif',
+                    fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
                     fontSize: 'clamp(28px, 4vw, 38px)',
                     fontWeight: '700',
                     lineHeight: '1.25',

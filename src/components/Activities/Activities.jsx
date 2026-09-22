@@ -64,7 +64,7 @@ const ActivityCard = ({ act, index, onSelect, t }) => {
                 <FaEye size={14} style={{ color: '#aaaaaa' }} />
             </div>
 
-            <h3 style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', fontWeight: '540', color: 'var(--color-ink)', margin: '0 0 8px 0', lineHeight: '1.35' }}>{act.title}</h3>
+            <h3 style={{ fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif', fontSize: '17px', fontWeight: '540', color: 'var(--color-ink)', margin: '0 0 8px 0', lineHeight: '1.35' }}>{act.title}</h3>
 
             <div style={{ fontSize: '13px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.3px', textTransform: 'uppercase', color: '#666666', marginBottom: '8px' }}>
                 {act.organization}

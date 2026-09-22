@@ -162,7 +162,7 @@ const PageBanner = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.18, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                             style={{
-                                fontFamily: 'Outfit, system-ui, sans-serif',
+                                fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
                                 fontSize: 'clamp(32px, 5vw, 64px)',
                                 fontWeight: '340',
                                 lineHeight: '1.05',
