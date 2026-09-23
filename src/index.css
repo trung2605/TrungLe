@@ -519,15 +519,13 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .recruiter-floating-btn {
-    bottom: 16px !important;
-    left: 16px !important;
-    padding: 9px 15px !important;
-    font-size: 12.5px !important;
-    gap: 6px !important;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25) !important;
+    display: none !important;
   }
+}
+
+@media (max-width: 640px) {
 
   /* Keep mobile headers balanced and readable */
   h1 {

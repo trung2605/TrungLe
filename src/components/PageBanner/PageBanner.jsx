@@ -83,7 +83,7 @@ const PageBanner = () => {
                 marginRight: 'calc(-50vw + 50%)',
                 marginTop: '0',
                 marginBottom: '0',
-                padding: '48px 32px 44px',
+                padding: 'clamp(20px, 3.5vw, 44px) clamp(16px, 3vw, 32px)',
                 position: 'relative',
                 overflow: 'hidden',
             }}
@@ -96,7 +96,7 @@ const PageBanner = () => {
                     initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.15, duration: 0.4 }}
-                    style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '20px', flexWrap: 'wrap' }}
+                    style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '10px', flexWrap: 'wrap' }}
                 >
                     <Link
                         to="/"
@@ -191,8 +191,9 @@ const PageBanner = () => {
                         </motion.p>
                     </div>
 
-                    {/* Decoration icon */}
+                    {/* Decoration icon - Desktop only */}
                     <motion.div
+                        className="hidden md:block"
                         initial={{ opacity: 0, scale: 0.7, rotate: -20 }}
                         animate={{ opacity: 0.15, scale: 1, rotate: 0 }}
                         transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}

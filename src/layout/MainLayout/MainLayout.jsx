@@ -37,10 +37,10 @@ const MainLayout = () => {
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label={t('recruiterMatch.widgetLabel')}
-                className="recruiter-floating-btn"
+                className="hidden md:flex recruiter-floating-btn"
                 style={{
                     position: 'fixed', bottom: '28px', left: '28px',
-                    display: 'flex', alignItems: 'center', gap: '8px',
+                    alignItems: 'center', gap: '8px',
                     padding: '13px 20px', borderRadius: '9999px',
                     backgroundColor: '#000000', color: '#ffffff',
                     border: 'none', cursor: 'pointer',

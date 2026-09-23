@@ -139,7 +139,7 @@ const GitHubStats = () => {
             )}
 
             {!heatmapFailed && (
-                <div style={{ marginTop: '28px', paddingTop: '24px', borderTop: '1px solid rgba(0,0,0,0.08)', overflowX: 'auto' }}>
+                <div className="hidden md:block" style={{ marginTop: '28px', paddingTop: '24px', borderTop: '1px solid rgba(0,0,0,0.08)', overflowX: 'auto' }}>
                     <img
                         src={`https://ghchart.rshah.org/6d3fc9/${GITHUB_USERNAME}`}
                         alt={t('home.githubHeatmapAlt')}

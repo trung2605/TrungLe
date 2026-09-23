@@ -729,8 +729,8 @@ const Services = () => {
   return (
     <div className="services-page" style={{ paddingTop: '52px' }}>
       <ServicesSubnav />
-      {/* TERMINAL PROMPT HEADER */}
-      <div className="terminal-prompt">
+      {/* TERMINAL PROMPT HEADER - Desktop only */}
+      <div className="terminal-prompt hidden md:flex">
         <span className="prompt-sym">$</span>
         <span className="prompt-cmd">web-dev --team "1 Leader + 4 Devs" --location "Da Nang"</span>
         <span className="prompt-tag">→ ready for projects</span>
