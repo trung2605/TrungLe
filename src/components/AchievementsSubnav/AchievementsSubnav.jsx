@@ -120,7 +120,7 @@ export const AchievementsSubnav = () => {
         zIndex: 42,
         display: 'flex',
         justifyContent: 'center',
-        padding: '0 16px',
+        padding: '0 12px',
         pointerEvents: 'none',
       }}
     >
@@ -130,16 +130,18 @@ export const AchievementsSubnav = () => {
           display: 'flex',
           alignItems: 'center',
           gap: '4px',
-          padding: '5px',
+          padding: '4px 6px',
           borderRadius: '9999px',
           backgroundColor: isDarkMode ? 'rgba(18, 18, 22, 0.88)' : 'rgba(255, 255, 255, 0.90)',
           backdropFilter: 'blur(24px) saturate(180%)',
           WebkitBackdropFilter: 'blur(24px) saturate(180%)',
           border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.12)' : '1px solid rgba(0, 0, 0, 0.08)',
           boxShadow: isDarkMode ? '0 10px 32px rgba(0, 0, 0, 0.6)' : '0 8px 30px rgba(0, 0, 0, 0.08)',
-          maxWidth: '100%',
+          maxWidth: 'calc(100vw - 24px)',
           overflowX: 'auto',
+          WebkitOverflowScrolling: 'touch',
           scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
         }}
       >
         {SUBNAV_SECTIONS.map((sec) => {
@@ -155,19 +157,20 @@ export const AchievementsSubnav = () => {
                 position: 'relative',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '7px',
-                padding: '8px 16px',
+                gap: '6px',
+                padding: '7px 14px',
                 borderRadius: '9999px',
                 border: 'none',
                 backgroundColor: 'transparent',
                 color: isActive ? activeText : 'var(--color-ink-soft)',
-                fontSize: '13px',
+                fontSize: '12.5px',
                 fontWeight: isActive ? 600 : 500,
                 cursor: 'pointer',
                 transition: 'color 0.18s ease',
                 whiteSpace: 'nowrap',
                 outline: 'none',
                 zIndex: 1,
+                flexShrink: 0,
               }}
               onMouseEnter={e => {
                 if (!isActive) e.currentTarget.style.color = 'var(--color-ink)';

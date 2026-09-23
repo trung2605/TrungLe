@@ -95,7 +95,20 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
     setIsMenuOpen(false);
   }, [location]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   const handleLinkClick = () => {
+    setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -156,9 +169,38 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
         pointerEvents: 'none',
       }}
     >
+      {/* Mobile Menu Backdrop Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setIsMenuOpen(false)}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: '100vw',
+              height: '100vh',
+              backgroundColor: 'rgba(0, 0, 0, 0.45)',
+              backdropFilter: 'blur(4px)',
+              WebkitBackdropFilter: 'blur(4px)',
+              zIndex: 51,
+              pointerEvents: 'auto',
+            }}
+          />
+        )}
+      </AnimatePresence>
+
       <div
         style={{
           pointerEvents: 'auto',
+          position: 'relative',
+          zIndex: 60,
           maxWidth: '1220px',
           width: '100%',
           height: '52px',
@@ -177,7 +219,6 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: '8px',
-          position: 'relative',
           transition: 'all 0.25s ease',
         }}
       >
@@ -612,7 +653,6 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
               onClick={onOpenRecruiterMatch}
               className="hidden lg:inline-flex hover-surface"
               style={{
-                display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
                 height: '36px',
@@ -639,7 +679,6 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
               download="Le_Tri_Trung_CV.pdf"
               className="hidden lg:inline-flex"
               style={{
-                display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
                 height: '36px',
@@ -671,7 +710,7 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
             {/* Hamburger */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden"
+              className="flex lg:hidden items-center justify-center"
               data-testid="mobile-menu-toggle"
               style={{
                 width: '40px',
@@ -681,9 +720,7 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                 border: 'none',
                 cursor: 'pointer',
                 color: 'var(--color-ink)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+                flexShrink: 0,
               }}
               aria-label={t('nav.toggleMenu')}
             >
@@ -840,9 +877,35 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                   })}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <button
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      onOpenRecruiterMatch?.();
+                    }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
+                      width: '100%',
+                      padding: '11px 20px',
+                      borderRadius: '50px',
+                      fontSize: '14px',
+                      fontWeight: '520',
+                      color: 'var(--color-ink)',
+                      backgroundColor: 'var(--color-surface-soft)',
+                      border: '1px solid var(--color-hairline)',
+                      cursor: 'pointer',
+                      transition: 'background-color 0.15s ease',
+                    }}
+                  >
+                    <FaBriefcase size={12} style={{ opacity: 0.85 }} />
+                    <span>{t('nav.forRecruiters')}</span>
+                  </button>
                   <a
                     href={personalInfo.cv}
                     download="Le_Tri_Trung_CV.pdf"
+                    onClick={() => setIsMenuOpen(false)}
                     style={{
                       display: 'flex',
                       alignItems: 'center',

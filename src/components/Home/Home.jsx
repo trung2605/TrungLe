@@ -1,7 +1,11 @@
 import { useRef, useMemo } from "react";
 import { motion, useReducedMotion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaDownload, FaGithub, FaLinkedin, FaInstagram, FaFacebook, FaArrowRight } from "react-icons/fa";
+import { 
+  FaDownload, FaGithub, FaLinkedin, FaInstagram, FaFacebook, FaArrowRight,
+  FaRocket, FaLaptopCode, FaGraduationCap, FaUser, FaNewspaper, FaEnvelope,
+  FaBolt, FaStore, FaUserCheck
+} from "react-icons/fa";
 import { personalInfo, allSkillsData } from "../../data";
 import TechIcon from "../../common/TechIcon";
 import { useTranslatedData } from "../../hooks/useTranslatedData";
@@ -44,9 +48,10 @@ const SkillBar = ({ skill }) => (
 
 const Home = () => {
   const prefersReducedMotion = useReducedMotion();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isEn = (i18n?.language || 'vi').startsWith('en');
   const { isDarkMode } = useCustomTheme();
-  const { skills, siteNavigation } = useTranslatedData();
+  const { skills } = useTranslatedData();
 
   const heroRoles = useMemo(() => {
     const raw = t('home.roles', { returnObjects: true });
@@ -285,24 +290,25 @@ const Home = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              gap: '14px',
+              gap: '12px',
               flexWrap: 'wrap',
               y: ctaY,
               paddingTop: '6px',
             }}
           >
+            {/* Primary CTA: Web Services & Pricing */}
             <MotionLink
               ref={magnetic.ref}
-              to="/projects"
+              to="/dich-vu"
               className="hero-cta-btn"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '13px 28px',
+                padding: '13px 26px',
                 borderRadius: '9999px',
-                fontSize: '15.5px',
-                fontWeight: '540',
+                fontSize: '15px',
+                fontWeight: '600',
                 color: 'var(--color-canvas)',
                 backgroundColor: 'var(--color-ink)',
                 textDecoration: 'none',
@@ -314,7 +320,7 @@ const Home = () => {
               onMouseMove={magnetic.handleMouseMove}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.opacity = '0.9';
+                e.currentTarget.style.opacity = '0.92';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -322,20 +328,32 @@ const Home = () => {
                 magnetic.handleMouseLeave();
               }}
             >
-              {t('home.viewProjects')} <FaArrowRight size={13} />
+              <FaRocket size={14} color="#10b981" />
+              <span>{isEn ? "Web Services & Pricing" : "Dịch Vụ & Báo Giá Website"}</span>
+              <span style={{
+                fontSize: '10px',
+                fontWeight: '700',
+                color: '#ffffff',
+                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                padding: '2px 6px',
+                borderRadius: '9999px',
+                letterSpacing: '0.4px',
+                marginLeft: '2px'
+              }}>HOT</span>
             </MotionLink>
-            <a
-              href={personalInfo.cv}
-              download="Le_Tri_Trung_CV.pdf"
-              className="hover-surface hero-cta-btn"
+
+            {/* Secondary CTA: Projects */}
+            <Link
+              to="/projects"
+              className="hero-cta-btn"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '13px 28px',
+                padding: '13px 24px',
                 borderRadius: '9999px',
-                fontSize: '15.5px',
-                fontWeight: '520',
+                fontSize: '15px',
+                fontWeight: '550',
                 color: 'var(--color-ink)',
                 backgroundColor: 'var(--color-surface-soft)',
                 border: '1px solid var(--color-hairline)',
@@ -343,10 +361,49 @@ const Home = () => {
                 boxShadow: '0 2px 10px rgba(0,0,0,0.04)',
                 transition: 'all 0.2s ease',
               }}
-              onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
-              onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.borderColor = 'var(--color-ink)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.borderColor = 'var(--color-hairline)';
+              }}
             >
-              <FaDownload size={13} /> {t('home.downloadCV')}
+              <FaLaptopCode size={14} />
+              <span>{isEn ? "11+ Projects" : "11+ Dự Án"}</span>
+              <FaArrowRight size={11} />
+            </Link>
+
+            {/* Tertiary CTA: Download CV */}
+            <a
+              href={personalInfo.cv}
+              download="Le_Tri_Trung_CV.pdf"
+              className="hover-surface hero-cta-btn"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '7px',
+                padding: '13px 22px',
+                borderRadius: '9999px',
+                fontSize: '14.5px',
+                fontWeight: '500',
+                color: 'var(--color-ink-soft)',
+                backgroundColor: 'transparent',
+                border: '1px solid var(--color-hairline)',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.color = 'var(--color-ink)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.color = 'var(--color-ink-soft)';
+              }}
+            >
+              <FaDownload size={12} /> {t('home.downloadCV')}
             </a>
           </motion.div>
 
@@ -358,7 +415,7 @@ const Home = () => {
               alignItems: 'center',
               justifyContent: 'center',
               gap: '12px',
-              paddingTop: '6px',
+              paddingTop: '4px',
               y: ctaY,
             }}
           >
@@ -378,8 +435,8 @@ const Home = () => {
                 aria-label={social.label}
                 className="hover-surface"
                 style={{
-                  width: '42px',
-                  height: '42px',
+                  width: '40px',
+                  height: '40px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -393,6 +450,155 @@ const Home = () => {
                 {social.icon}
               </motion.a>
             ))}
+          </motion.div>
+
+          {/* QUICK INTENT AUDIENCE PATHWAYS ("BẠN ĐANG TÌM KIẾM MỤC TIÊU NÀO?") */}
+          <motion.div
+            {...fadeUp(0.55)}
+            style={{
+              width: '100%',
+              maxWidth: '840px',
+              marginTop: '12px',
+              paddingTop: '20px',
+              borderTop: isDarkMode ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(0, 0, 0, 0.06)',
+            }}
+          >
+            <div style={{
+              fontSize: '11px',
+              fontFamily: 'JetBrains Mono, monospace',
+              letterSpacing: '0.8px',
+              textTransform: 'uppercase',
+              color: 'var(--color-ink-soft)',
+              marginBottom: '14px',
+              textAlign: 'center',
+              fontWeight: '600'
+            }}>
+              {isEn ? "QUICK NAVIGATION BY YOUR NEED" : "BẠN ĐANG TÌM KIẾM MỤC TIÊU NÀO?"}
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: '12px',
+              textAlign: 'left'
+            }}>
+              {/* Option 1: Shop owner / Client */}
+              <Link
+                to="/dich-vu"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '6px',
+                  padding: '14px 16px',
+                  borderRadius: '16px',
+                  backgroundColor: isDarkMode ? 'rgba(255, 255, 255, 0.03)' : 'rgba(255, 255, 255, 0.9)',
+                  border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(0, 0, 0, 0.07)',
+                  textDecoration: 'none',
+                  color: 'var(--color-ink)',
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = '#10b981';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 18px rgba(16, 185, 129, 0.12)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = isDarkMode ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.07)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.02)';
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', fontSize: '13.5px', fontWeight: '600', color: '#10b981' }}>
+                    <FaStore size={13} />
+                    {isEn ? "Client / Business" : "Chủ Shop & Doanh Nghiệp"}
+                  </span>
+                  <FaArrowRight size={10} color="var(--color-ink-soft)" />
+                </div>
+                <div style={{ fontSize: '12px', color: 'var(--color-ink-soft)', lineHeight: '1.45' }}>
+                  {isEn ? "Build custom websites, VietQR deposit & lean SaaS engines" : "Lập trình website kinh doanh, cọc VietQR 0đ & SaaS tự động"}
+                </div>
+              </Link>
+
+              {/* Option 2: Recruiter / HR */}
+              <Link
+                to="/achievements?tab=education&milestone=1"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '6px',
+                  padding: '14px 16px',
+                  borderRadius: '16px',
+                  backgroundColor: isDarkMode ? 'rgba(255, 255, 255, 0.03)' : 'rgba(255, 255, 255, 0.9)',
+                  border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(0, 0, 0, 0.07)',
+                  textDecoration: 'none',
+                  color: 'var(--color-ink)',
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = '#8b5cf6';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 18px rgba(139, 92, 246, 0.12)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = isDarkMode ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.07)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.02)';
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', fontSize: '13.5px', fontWeight: '600', color: '#8b5cf6' }}>
+                    <FaUserCheck size={13} />
+                    {isEn ? "Recruiter / Hiring Lead" : "Nhà Tuyển Dụng & HR"}
+                  </span>
+                  <FaArrowRight size={10} color="var(--color-ink-soft)" />
+                </div>
+                <div style={{ fontSize: '12px', color: 'var(--color-ink-soft)', lineHeight: '1.45' }}>
+                  {isEn ? "Review Tech Lead dossier, FPT degree & 18 credentials" : "Đánh giá hồ sơ năng lực Tech Lead, bằng FPT & 18 chứng chỉ"}
+                </div>
+              </Link>
+
+              {/* Option 3: Engineer / Developer */}
+              <Link
+                to="/projects/14"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '6px',
+                  padding: '14px 16px',
+                  borderRadius: '16px',
+                  backgroundColor: isDarkMode ? 'rgba(255, 255, 255, 0.03)' : 'rgba(255, 255, 255, 0.9)',
+                  border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(0, 0, 0, 0.07)',
+                  textDecoration: 'none',
+                  color: 'var(--color-ink)',
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = '#3b82f6';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 18px rgba(59, 130, 246, 0.12)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = isDarkMode ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.07)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.02)';
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', fontSize: '13.5px', fontWeight: '600', color: '#3b82f6' }}>
+                    <FaLaptopCode size={13} />
+                    {isEn ? "Engineer / Developer" : "Kỹ Sư & Đối Tác"}
+                  </span>
+                  <FaArrowRight size={10} color="var(--color-ink-soft)" />
+                </div>
+                <div style={{ fontSize: '12px', color: 'var(--color-ink-soft)', lineHeight: '1.45' }}>
+                  {isEn ? "Explore BrandHub Capstone, RabbitMQ DLQ & Microservices" : "Khám phá đồ án BrandHub Microservices, RabbitMQ DLQ & AI"}
+                </div>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -448,7 +654,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* ── STATS — LIME BLOCK ── */}
+      {/* ── STATS — LIME BLOCK (CLICKABLE INTERACTIVE CARDS) ── */}
       <section style={{ paddingBottom: '72px' }}>
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -457,28 +663,79 @@ const Home = () => {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           style={{ backgroundColor: '#dceeb1', borderRadius: '24px', padding: '40px 36px' }}
         >
-          <p style={{
-            fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
-            letterSpacing: '0.60px', textTransform: 'uppercase',
-            color: '#444444', marginBottom: '28px',
-          }}>{t('home.statsByNumbers')}</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '8px' }}>
+            <p style={{
+              fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
+              letterSpacing: '0.60px', textTransform: 'uppercase',
+              color: '#333333', margin: 0, fontWeight: 600,
+            }}>{t('home.statsByNumbers')}</p>
+            <span style={{ fontSize: '12px', color: '#4b5563', fontFamily: 'JetBrains Mono, monospace' }}>
+              {isEn ? "Click metric to explore proof" : "Bấm vào từng chỉ số để xem minh chứng"}
+            </span>
+          </div>
+
           <div
             className="stats-grid"
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}
           >
             {[
-              { value: 11, suffix: '+', labelKey: 'home.stats.0.label' },
-              { value: 27, suffix: '+', labelKey: 'home.stats.1.label' },
-              { value: 7,  suffix: '+', labelKey: 'home.stats.2.label' },
-              { value: 18, suffix: '+', labelKey: 'home.stats.3.label' },
-            ].map((stat, i) => (
-              <motion.div key={i} initial={{ opacity: 0, scale: 0.6, y: 12 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
-                <div style={{ fontSize: 'clamp(30px, 4vw, 52px)', fontWeight: '340', lineHeight: '1.0', letterSpacing: '-1px', color: '#000000' }}>
-                  <CountUp to={stat.value} from={0} duration={2} delay={i * 0.1} suffix={stat.suffix} />
-                </div>
-                <div style={{ fontSize: '14px', fontWeight: '400', color: '#444444', marginTop: '6px' }}>{t(stat.labelKey)}</div>
-              </motion.div>
-            ))}
+              { value: 11, suffix: '+', labelKey: 'home.stats.0.label', link: '/projects', hintVi: 'Xem Dự Án', hintEn: 'View Projects' },
+              { value: 27, suffix: '+', labelKey: 'home.stats.1.label', link: '#skills-section', isScroll: true, hintVi: 'Xem Kỹ Năng', hintEn: 'View Skills' },
+              { value: 7,  suffix: '+', labelKey: 'home.stats.2.label', link: '/achievements?tab=prizes', hintVi: 'Xem Giải Thưởng', hintEn: 'View Prizes' },
+              { value: 18, suffix: '+', labelKey: 'home.stats.3.label', link: '/achievements?tab=certificates', hintVi: 'Xem Chứng Chỉ', hintEn: 'View Certificates' },
+            ].map((stat, i) => {
+              const handleStatClick = (e) => {
+                if (stat.isScroll) {
+                  e.preventDefault();
+                  document.getElementById('skills-section')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              };
+              return (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, scale: 0.6, y: 12 }} 
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }} 
+                  viewport={{ once: true }} 
+                  transition={{ delay: i * 0.1, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <Link
+                    to={stat.link}
+                    onClick={handleStatClick}
+                    style={{
+                      display: 'block',
+                      textDecoration: 'none',
+                      color: '#000000',
+                      padding: '16px 18px',
+                      borderRadius: '16px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.4)',
+                      border: '1px solid rgba(0, 0, 0, 0.08)',
+                      transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                      cursor: 'pointer'
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.backgroundColor = '#ffffff';
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.09)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+                      <div style={{ fontSize: 'clamp(30px, 3.8vw, 50px)', fontWeight: '400', lineHeight: '1.0', letterSpacing: '-1px', color: '#000000' }}>
+                        <CountUp to={stat.value} from={0} duration={2} delay={i * 0.1} suffix={stat.suffix} />
+                      </div>
+                      <span style={{ fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', color: '#166534', fontWeight: 600 }}>
+                        {isEn ? stat.hintEn : stat.hintVi} ↗
+                      </span>
+                    </div>
+                    <div style={{ fontSize: '13.5px', fontWeight: '500', color: '#262626', marginTop: '8px', lineHeight: 1.35 }}>{t(stat.labelKey)}</div>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </section>
@@ -486,7 +743,7 @@ const Home = () => {
       <GitHubStats />
 
       {/* ── SKILLS — LILAC BLOCK ── */}
-      <section style={{ paddingBottom: '72px' }}>
+      <section id="skills-section" style={{ paddingBottom: '72px', scrollMarginTop: '100px' }}>
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -564,12 +821,75 @@ const Home = () => {
               </motion.span>
             ))}
           </div>
+
+          {/* Action strip to guide users to production projects */}
+          <div style={{
+            marginTop: '32px',
+            paddingTop: '20px',
+            borderTop: '1px solid rgba(0, 0, 0, 0.08)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '16px',
+            flexWrap: 'wrap'
+          }}>
+            <span style={{ fontSize: '13.5px', color: '#2e1065', fontWeight: '550' }}>
+              {isEn ? "Want to see how these engineering skills translate to production?" : "Bạn muốn xem các công nghệ này được áp dụng vào sản phẩm thực tế như thế nào?"}
+            </span>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <Link
+                to="/projects"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '9px 18px',
+                  borderRadius: '9999px',
+                  backgroundColor: '#000000',
+                  color: '#ffffff',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  transition: 'opacity 0.15s ease'
+                }}
+                onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
+                onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+              >
+                <FaLaptopCode size={12} />
+                <span>{isEn ? "Explore 11+ Projects" : "Xem 11+ Dự Án Thực Chiến"}</span>
+                <FaArrowRight size={10} />
+              </Link>
+              <Link
+                to="/projects/14"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '9px 18px',
+                  borderRadius: '9999px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                  color: '#000000',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  border: '1px solid rgba(0, 0, 0, 0.12)',
+                  transition: 'background-color 0.15s ease'
+                }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#ffffff'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.8)'}
+              >
+                <FaBolt size={11} color="#6d28d9" />
+                <span>{isEn ? "BrandHub Microservices" : "Đồ Án BrandHub"}</span>
+                <FaArrowRight size={10} />
+              </Link>
+            </div>
+          </div>
         </motion.div>
       </section>
 
       <Testimonials />
 
-      {/* ── EXPLORE — CREAM BLOCK ── */}
+      {/* ── EXPLORE — CREAM BLOCK (FULL 6-DESTINATION BENTO GRID) ── */}
       <section style={{ paddingBottom: '72px' }}>
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -578,82 +898,174 @@ const Home = () => {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           style={{ backgroundColor: '#f4ecd6', borderRadius: '24px', padding: '40px 36px' }}
         >
-          <p style={{
-            fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
-            letterSpacing: '0.60px', textTransform: 'uppercase',
-            color: '#666666', marginBottom: '12px',
-          }}>{t('home.exploreLabel')}</p>
-          <h2 style={{
-            fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
-            fontSize: 'clamp(24px, 3.5vw, 48px)', fontWeight: '340',
-            lineHeight: '1.10', letterSpacing: '-0.72px',
-            color: '#000000', marginBottom: '36px',
-          }}>{t('home.exploreTitle')}</h2>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '32px', flexWrap: 'wrap', gap: '12px' }}>
+            <div>
+              <p style={{
+                fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
+                letterSpacing: '0.60px', textTransform: 'uppercase',
+                color: '#666666', marginBottom: '8px',
+              }}>{t('home.exploreLabel')}</p>
+              <h2 style={{
+                fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
+                fontSize: 'clamp(24px, 3.5vw, 44px)', fontWeight: '400',
+                lineHeight: '1.10', letterSpacing: '-0.72px',
+                color: '#000000', margin: 0,
+              }}>{t('home.exploreTitle')}</h2>
+            </div>
+            <span style={{ fontSize: '12.5px', color: '#666666', fontFamily: 'JetBrains Mono, monospace' }}>
+              {isEn ? "6 Core Sections" : "6 Phân Khu Chuyên Biệt"}
+            </span>
+          </div>
 
           <div
             className="explore-bento-grid"
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px' }}
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}
           >
-            {siteNavigation.slice(2).map((item, i) => {
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ y: -4 }}
+            {[
+              {
+                title: isEn ? "Web Services & Pricing" : "Dịch Vụ & Báo Giá Website",
+                badge: isEn ? "HOT • 5-ENGINEER TEAM" : "HOT • ĐỘI 5 KỸ SƯ",
+                badgeColor: "#10b981",
+                badgeBg: "rgba(16, 185, 129, 0.12)",
+                desc: isEn 
+                  ? "Transparent 3-tier pricing, 5-step delivery process, live Biensovip.com case study, and lean SaaS automation." 
+                  : "Báo giá minh bạch 3 gói, quy trình 5 bước, dự án thực tế Biensovip.com và giải pháp tự động hóa SaaS.",
+                icon: <FaRocket color="#10b981" />,
+                path: "/dich-vu",
+                cta: isEn ? "View Pricing & SLAs" : "Xem Báo Giá & Quy Trình"
+              },
+              {
+                title: isEn ? "Production Projects" : "Dự Án Thực Chiến",
+                badge: isEn ? "11+ DELIVERABLES" : "11+ SẢN PHẨM",
+                badgeColor: "#3b82f6",
+                badgeBg: "rgba(59, 130, 246, 0.12)",
+                desc: isEn 
+                  ? "Real deliverables including Biensovip.com e-commerce and BrandHub Microservices Capstone." 
+                  : "Khám phá các sản phẩm thực tế: Sàn Biensovip.com, đồ án tốt nghiệp BrandHub Microservices...",
+                icon: <FaLaptopCode color="#3b82f6" />,
+                path: "/projects",
+                cta: isEn ? "Explore Projects" : "Khám Phá Dự Án"
+              },
+              {
+                title: isEn ? "Achievements & Credentials" : "Hồ Sơ & Thành Tích",
+                badge: isEn ? "18 CERTIFICATES" : "18 CHỨNG CHỈ & GIẢI",
+                badgeColor: "#8b5cf6",
+                badgeBg: "rgba(139, 92, 246, 0.12)",
+                desc: isEn 
+                  ? "FPT Software recognition, Microsoft & Cisco credentials, and Hackathon Championship." 
+                  : "Vinh danh FPT Software, chứng chỉ quốc tế Microsoft/Cisco và giải Nhất Hackathon 2026.",
+                icon: <FaGraduationCap color="#8b5cf6" />,
+                path: "/achievements",
+                cta: isEn ? "View Achievements" : "Xem Thành Tích"
+              },
+              {
+                title: isEn ? "About & Engineering Philosophy" : "Giới Thiệu & Triết Lý",
+                badge: isEn ? "TECH LEAD" : "TECH LEAD FPT",
+                badgeColor: "#f59e0b",
+                badgeBg: "rgba(245, 158, 11, 0.12)",
+                desc: isEn 
+                  ? "Journey from FPT Software to Tech Lead: Direct 1-on-1 collaboration, zero middlemen, guaranteed quality." 
+                  : "Hành trình từ FPT Software đến Tech Lead: Làm việc trực tiếp 1-1 không qua trung gian.",
+                icon: <FaUser color="#f59e0b" />,
+                path: "/about",
+                cta: isEn ? "Read Story" : "Xem Hành Trình"
+              },
+              {
+                title: isEn ? "Technical Blog" : "Blog Kỹ Thuật Chuyên Sâu",
+                badge: isEn ? "ARCHITECTURE" : "KIẾN TRÚC HỆ THỐNG",
+                badgeColor: "#ec4899",
+                badgeBg: "rgba(236, 72, 153, 0.12)",
+                desc: isEn 
+                  ? "In-depth case studies: Sub-8ms PostgreSQL queries, RabbitMQ DLQ retry resilience architecture." 
+                  : "Bài viết chuyên sâu: Tối ưu CSDL PostgreSQL dưới 8ms, kiến trúc hàng đợi RabbitMQ DLQ...",
+                icon: <FaNewspaper color="#ec4899" />,
+                path: "/blog",
+                cta: isEn ? "Read Articles" : "Đọc Bài Viết"
+              },
+              {
+                title: isEn ? "Contact & Consultation" : "Liên Hệ & Tư Vấn Kỹ Thuật",
+                badge: isEn ? "24/7 DIRECT" : "HỖ TRỢ TRỰC TIẾP",
+                badgeColor: "#059669",
+                badgeBg: "rgba(5, 150, 105, 0.12)",
+                desc: isEn 
+                  ? "Connect directly via Zalo/Hotline +84 912158715 or submit a free project quotation inquiry." 
+                  : "Kết nối trực tiếp qua Zalo/Hotline +84 912158715 hoặc gửi form yêu cầu tư vấn báo giá miễn phí.",
+                icon: <FaEnvelope color="#059669" />,
+                path: "/contact",
+                cta: isEn ? "Get In Touch" : "Liên Hệ Ngay"
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -4 }}
+              >
+                <Link
+                  to={item.path}
                   style={{
-                    gridColumn: 'span 1',
-                    gridRow: 'span 1',
+                    display: 'flex', flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%', minHeight: '190px', padding: '22px',
+                    backgroundColor: '#ffffff',
+                    borderRadius: '18px',
+                    border: '1px solid rgba(0,0,0,0.06)',
+                    textDecoration: 'none', color: '#000000',
+                    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                   }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.06)'; e.currentTarget.style.boxShadow = 'none'; }}
                 >
-                  <Link
-                    to={item.path}
-                    style={{
-                      display: 'flex', flexDirection: 'column',
-                      justifyContent: 'flex-start',
-                      height: '100%', minHeight: '170px', padding: '24px',
-                      backgroundColor: '#ffffff',
-                      borderRadius: '16px',
-                      border: '1px solid rgba(0,0,0,0.06)',
-                      textDecoration: 'none', color: '#000000',
-                      transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.08)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.06)'; e.currentTarget.style.boxShadow = 'none'; }}
-                  >
-                    <div style={{ fontSize: '28px', marginBottom: '14px', color: '#000000' }}>{item.icon}</div>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+                      <div style={{ fontSize: '24px' }}>{item.icon}</div>
+                      <span style={{
+                        fontSize: '9.5px',
+                        fontFamily: 'JetBrains Mono, monospace',
+                        fontWeight: '700',
+                        color: item.badgeColor,
+                        backgroundColor: item.badgeBg,
+                        padding: '3px 8px',
+                        borderRadius: '9999px',
+                        letterSpacing: '0.4px',
+                        textTransform: 'uppercase'
+                      }}>
+                        {item.badge}
+                      </span>
+                    </div>
+
                     <h3 style={{
                       fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
-                      fontSize: '18px', fontWeight: '540',
+                      fontSize: '17px', fontWeight: '600',
                       color: '#000000', margin: '0 0 6px 0',
-                      display: 'flex', alignItems: 'center', gap: '6px'
                     }}>
                       {item.title}
-                      {item.path === '/dich-vu' && (
-                        <span style={{
-                          fontSize: '9px',
-                          fontWeight: '700',
-                          color: '#ffffff',
-                          background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                          padding: '1px 5px',
-                          borderRadius: '4px',
-                          letterSpacing: '0.4px',
-                          lineHeight: '1.2',
-                          textTransform: 'uppercase'
-                        }}>HOT</span>
-                      )}
                     </h3>
                     <p style={{
-                      fontSize: '13.5px', fontWeight: '330',
+                      fontSize: '13px', fontWeight: '350',
                       color: '#555555',
-                      margin: 0, lineHeight: '1.5',
+                      margin: '0 0 16px 0', lineHeight: '1.5',
                     }}>{item.desc}</p>
-                  </Link>
-                </motion.div>
-              );
-            })}
+                  </div>
+
+                  <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '12.5px',
+                    fontWeight: '600',
+                    color: '#000000',
+                    paddingTop: '10px',
+                    borderTop: '1px solid rgba(0,0,0,0.05)'
+                  }}>
+                    <span>{item.cta}</span>
+                    <FaArrowRight size={10} />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </section>
@@ -692,13 +1104,13 @@ const Home = () => {
               {t('home.ctaTitle')}
             </h2>
           </div>
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
             <Link
               to="/contact"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
                 padding: '12px 24px', borderRadius: '9999px',
-                fontSize: '15px', fontWeight: '550',
+                fontSize: '15px', fontWeight: '600',
                 color: '#0f172a', backgroundColor: '#ffffff',
                 textDecoration: 'none', transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
@@ -708,21 +1120,40 @@ const Home = () => {
             >
               {t('home.getInTouch')} <FaArrowRight size={13} />
             </Link>
+
+            <Link
+              to="/dich-vu#pricing-section"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                padding: '12px 24px', borderRadius: '9999px',
+                fontSize: '15px', fontWeight: '550',
+                color: '#ffffff',
+                backgroundColor: 'rgba(255,255,255,0.1)',
+                border: '1px solid rgba(255,255,255,0.22)',
+                textDecoration: 'none', transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.18)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+            >
+              <FaRocket size={13} color="#34d399" />
+              <span>{isEn ? "View 3 Service Packages" : "Xem Báo Giá 3 Gói Dịch Vụ"}</span>
+            </Link>
+
             <a
               href={personalInfo.contact?.github || 'https://github.com/trung2605'}
               target="_blank"
               rel="noopener noreferrer"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
-                padding: '12px 24px', borderRadius: '9999px',
-                fontSize: '15px', fontWeight: '500',
-                color: '#ffffff',
-                backgroundColor: 'rgba(255,255,255,0.08)',
+                padding: '12px 22px', borderRadius: '9999px',
+                fontSize: '14.5px', fontWeight: '500',
+                color: 'rgba(255,255,255,0.85)',
+                backgroundColor: 'transparent',
                 border: '1px solid rgba(255,255,255,0.15)',
                 textDecoration: 'none', transition: 'all 0.2s ease',
               }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.16)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.transform = 'translateY(0)'; }}
             >
               <FaGithub size={15} /> GitHub
             </a>
