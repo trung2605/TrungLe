@@ -1,0 +1,460 @@
+/* DUAL SIDE STREAMS — INTERACTIVE SCROLLING & RICH DETAILS */
+
+.side-streams-container {
+  display: block;
+
+  /* Only hide on mobile/tablet screens where viewport < 1200px */
+  @media (max-width: 1200px) {
+    display: none !important;
+  }
+
+  .side-stream {
+    position: fixed;
+    top: 88px;
+    bottom: 84px;
+    width: 260px;
+    z-index: 25;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+
+    @media (max-width: 1480px) {
+      width: 220px;
+    }
+
+    &.left-stream {
+      left: 16px;
+      @media (max-width: 1480px) {
+        left: 8px;
+      }
+    }
+
+    &.right-stream {
+      right: 16px;
+      @media (max-width: 1480px) {
+        right: 8px;
+      }
+    }
+
+    .stream-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 12px;
+      margin-bottom: 6px;
+      background: var(--color-canvas);
+      border: 1px solid var(--color-hairline);
+      border-radius: 50px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      pointer-events: auto;
+
+      .header-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .live-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          flex-shrink: 0;
+
+          &.pulse-blue {
+            background: #0284c7;
+            box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.5);
+            animation: pulseDot 2s infinite;
+          }
+
+          &.pulse-green {
+            background: #16a34a;
+            box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.5);
+            animation: pulseDot 2s infinite;
+          }
+        }
+
+        .stream-title {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          color: var(--color-ink);
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      .scroll-controls {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        .btn-arrow-nav {
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          border: 1px solid var(--color-hairline);
+          background: var(--color-surface-soft);
+          color: var(--color-ink-soft);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.15s ease;
+          padding: 0;
+
+          &:hover {
+            color: var(--color-ink);
+            background: var(--color-canvas);
+            border-color: var(--color-ink);
+            transform: scale(1.08);
+          }
+        }
+      }
+    }
+
+    .scroll-hint-bar {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      color: var(--color-ink-soft);
+      text-align: center;
+      margin-bottom: 8px;
+      opacity: 0.75;
+      user-select: none;
+      letter-spacing: 0.02em;
+    }
+
+    /* TRACK WRAP WITH SMOOTH MOUSE WHEEL SCROLLING */
+    .stream-track-wrap {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+      pointer-events: auto;
+      overscroll-behavior: contain;
+      padding-right: 4px;
+
+      /* Elegant Custom Scrollbar */
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-hairline) transparent;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: var(--color-hairline);
+        border-radius: 4px;
+        transition: background 0.2s ease;
+      }
+
+      &:hover::-webkit-scrollbar-thumb {
+        background: var(--color-ink-soft);
+      }
+
+      .stream-track {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding-bottom: 20px;
+      }
+    }
+
+    .stream-card {
+      background: var(--color-canvas);
+      border: 1px solid var(--color-hairline);
+      border-radius: 14px;
+      padding: 13px;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
+
+      &:hover {
+        border-color: var(--color-ink);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    /* CARD FEATURE BULLETS */
+    .card-feature-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 7px;
+        font-size: 11px;
+        line-height: 1.35;
+        color: var(--color-ink);
+
+        .bullet-icon {
+          color: #0284c7;
+          flex-shrink: 0;
+          margin-top: 2px;
+
+          &.success {
+            color: #16a34a;
+          }
+        }
+      }
+    }
+
+    /* CARD ACTION BUTTON */
+    .card-action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: var(--color-surface-soft);
+      border: 1px solid var(--color-hairline);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-ink);
+      transition: all 0.15s ease;
+
+      svg {
+        transition: transform 0.2s ease;
+      }
+
+      &.is-service {
+        background: var(--color-ink);
+        color: var(--color-canvas);
+        border-color: var(--color-ink);
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+
+    .stream-card:hover .card-action-btn {
+      border-color: var(--color-ink);
+
+      svg {
+        transform: translateX(4px);
+      }
+    }
+
+    /* LEFT: REAL CODE PRODUCTS WITH PREVIEW IMAGE */
+    .product-preview-card {
+      .preview-image-box {
+        position: relative;
+        width: 100%;
+        height: 120px;
+        border-radius: 9px;
+        overflow: hidden;
+        background: #0f172a;
+        margin-bottom: 10px;
+
+        .preview-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.35s ease;
+        }
+
+        .metric-chip {
+          position: absolute;
+          bottom: 7px;
+          right: 7px;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 9.5px;
+          font-weight: 600;
+          background: rgba(0, 0, 0, 0.82);
+          color: #ffffff;
+          padding: 2.5px 8px;
+          border-radius: 4px;
+          backdrop-filter: blur(4px);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+      }
+
+      &:hover .preview-image-box .preview-img {
+        transform: scale(1.06);
+      }
+
+      .card-info {
+        .card-tag-row {
+          margin-bottom: 4px;
+
+          .card-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--color-ink-soft);
+            letter-spacing: 0.04em;
+          }
+        }
+
+        .card-title {
+          font-size: 13.5px;
+          font-weight: 650;
+          color: var(--color-ink);
+          line-height: 1.3;
+          margin: 0 0 3px;
+        }
+
+        .tech-badge {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 10px;
+          font-weight: 600;
+          color: #0284c7;
+          margin-bottom: 6px;
+        }
+
+        .card-desc {
+          font-size: 11.5px;
+          line-height: 1.45;
+          color: var(--color-ink-soft);
+          margin: 0 0 6px;
+        }
+      }
+    }
+
+    /* RIGHT: SERVICE PACKAGES */
+    .package-card {
+      .card-top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 7px;
+
+        .card-tag {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 9px;
+          font-weight: 700;
+          color: var(--color-ink-soft);
+          letter-spacing: 0.03em;
+        }
+
+        .badge-chip {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 9px;
+          font-weight: 600;
+          padding: 2px 7px;
+          border-radius: 4px;
+          background: var(--color-surface-soft);
+          color: var(--color-ink);
+          border: 1px solid var(--color-hairline);
+          white-space: nowrap;
+        }
+      }
+
+      .package-headline {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+
+        .icon-wrap {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 26px;
+          height: 26px;
+          border-radius: 7px;
+          background: var(--color-surface-soft);
+          flex-shrink: 0;
+        }
+
+        .package-title {
+          font-size: 13.5px;
+          font-weight: 650;
+          color: var(--color-ink);
+          line-height: 1.25;
+          margin: 0;
+        }
+      }
+
+      .price-box {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 6px;
+        margin-bottom: 7px;
+        padding-bottom: 7px;
+        border-bottom: 1px dashed var(--color-hairline);
+
+        .price-tag {
+          font-family: var(--font-heading);
+          font-size: 14.5px;
+          font-weight: 700;
+          letter-spacing: -0.01em;
+        }
+
+        .timeline-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 10px;
+          color: var(--color-ink-soft);
+        }
+      }
+
+      .card-desc {
+        font-size: 11.5px;
+        line-height: 1.45;
+        color: var(--color-ink-soft);
+        margin: 0 0 6px;
+      }
+    }
+  }
+}
+
+/* TOGGLE BUTTON FIXED BOTTOM */
+.side-streams-toggle {
+  position: fixed;
+  bottom: 28px;
+  right: 86px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 9999px;
+  background: var(--color-canvas);
+  color: var(--color-ink-soft);
+  border: 1px solid var(--color-hairline);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  @media (max-width: 1200px) {
+    display: none !important;
+  }
+
+  &:hover {
+    color: var(--color-ink);
+    border-color: var(--color-ink);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes pulseDot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(2, 132, 199, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(2, 132, 199, 0);
+  }
+}

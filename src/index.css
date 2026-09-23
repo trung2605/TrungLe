@@ -243,6 +243,13 @@
   .color-block-coral  { background-color: #f3c9b6; color: #000000; }
   .color-block-navy   { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; border: 1px solid rgba(255,255,255,0.08); }
 
+  /* Stats grid default: 4 columns */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
   /* Cards - Pro Max elevation with tinted borders */
   .fig-card {
     background-color: var(--color-card-bg);
@@ -343,6 +350,16 @@
 @keyframes marqueeScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeContinuous {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @keyframes blink {

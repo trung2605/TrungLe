@@ -88,7 +88,8 @@ const Certificates = () => {
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [selectedCert, setSelectedCert]       = useState(null);
     const [currentPage, setCurrentPage]         = useState(1);
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const isEn = (i18n?.language || 'vi').startsWith('en');
     const { certificates } = useTranslatedData();
 
     const years = ['all', ...new Set(certificates.map(c => c.year))].sort((a, b) => {
@@ -115,7 +116,38 @@ const Certificates = () => {
     };
 
     return (
-        <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
+        <div style={{ paddingTop: '28px', paddingBottom: '96px' }}>
+
+            {/* SECTION INTRO */}
+            <div style={{ marginBottom: '32px' }}>
+                <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '6px 14px',
+                    borderRadius: '50px',
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    border: '1px solid rgba(37, 99, 235, 0.25)',
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-sans, sans-serif)',
+                    fontWeight: '600',
+                    color: '#2563eb',
+                    letterSpacing: '0.5px',
+                    textTransform: 'uppercase',
+                    marginBottom: '12px'
+                }}>
+                    <FaCertificate size={13} />
+                    {isEn ? "02 · Verified Certifications" : "02 · Chứng Chỉ Chuyên Môn"}
+                </div>
+                <h2 style={{ fontSize: 'clamp(24px, 3.2vw, 36px)', fontWeight: '700', letterSpacing: '-0.5px', margin: '0 0 10px 0', color: 'var(--color-ink)' }}>
+                    {isEn ? "Professional Certifications & Licenses" : "Chứng Chỉ Nghề Nghiệp & Năng Lực Kỹ Thuật"}
+                </h2>
+                <p style={{ fontSize: '15.5px', color: 'var(--color-ink-soft)', margin: 0, maxWidth: '820px', lineHeight: '1.65' }}>
+                    {isEn
+                        ? "A curated collection of verified professional certifications across cloud technologies, software engineering, AI frameworks, and international language proficiencies."
+                        : "Bộ sưu tập các văn bằng, chứng chỉ kỹ thuật được xác thực về công nghệ đám mây, kiến trúc phần mềm, framework AI và năng lực ngoại ngữ quốc tế."}
+                </p>
+            </div>
 
             {/* Fetch prompt */}
             <motion.div

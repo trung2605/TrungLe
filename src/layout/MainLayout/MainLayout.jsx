@@ -10,6 +10,7 @@ import ScrollProgressBar from '../../common/ScrollProgressBar';
 import CommandPalette from '../../components/ui/CommandPalette';
 import InstallPrompt from '../../common/InstallPrompt';
 import RecruiterMatch from '../../components/RecruiterMatch/RecruiterMatch';
+import SideStreams from '../../components/ui/SideStreams/SideStreams';
 
 const MainLayout = () => {
     const { pathname } = useLocation();
@@ -29,6 +30,7 @@ const MainLayout = () => {
             <ScrollProgressBar />
             <CommandPalette />
             <InstallPrompt />
+            <SideStreams />
             <RecruiterMatch open={recruiterMatchOpen} onOpenChange={setRecruiterMatchOpen} />
             <motion.button
                 onClick={() => setRecruiterMatchOpen(true)}

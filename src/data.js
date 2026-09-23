@@ -234,7 +234,7 @@ export const personalInfo = {
     "Tech Lead dẫn dắt đội 5 kỹ sư tại Đà Nẵng — chuyên phát triển Website thương mại, SaaS Automation và tích hợp AI Agent cho doanh nghiệp vừa & nhỏ. Quán quân Hackathon Computer Vision 2026 (FPT University). Đang vận hành biensovip.com — nền tảng marketplace giao dịch biển số xe với VietQR tự động.",
   contact: {
     email: "letritrung2605@gmail.com",
-    phone: "(+84) 782 399 721",
+    phone: "+84 912158715",
     birthday: "26/05/2005",
     location: "Ngũ Hành Sơn, TP. Đà Nẵng, Việt Nam",
     facebook: "https://www.facebook.com/trung.le.2605",

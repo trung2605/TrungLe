@@ -8,7 +8,7 @@ const initialState = {
     name: 'Lê Trí Trung',
     title: 'Tech Lead & Full-Stack Engineer',
     email: 'letritrung2605@gmail.com',
-    phone: '(+84) 782 399 721',
+    phone: '+84 912158715',
     location: 'Ngũ Hành Sơn, TP. Đà Nẵng, Việt Nam',
     birthday: '26/05/2005',
     facebook: 'Trung Lê',

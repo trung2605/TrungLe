@@ -11,7 +11,6 @@ import ScrollToTop from './components/ScrollToTop';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
-const ActivitiesPage = lazy(() => import('./pages/ActivitiesPage'));
 const AchievementsPage = lazy(() => import('./pages/AchievementsPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'));
@@ -66,13 +65,13 @@ function App() {
                   <Route index element={<HomePage />} />
                   <Route path="about" element={<AboutPage />} />
                   <Route path="achievements" element={<AchievementsPage />} />
-                  <Route path="education" element={<Navigate to="/achievements?tab=education" replace />} />
-                  <Route path="certificates" element={<Navigate to="/achievements?tab=certificates" replace />} />
-                  <Route path="prizes" element={<Navigate to="/achievements?tab=prizes" replace />} />
+                  <Route path="education" element={<Navigate to="/achievements#education" replace />} />
+                  <Route path="certificates" element={<Navigate to="/achievements#certificates" replace />} />
+                  <Route path="prizes" element={<Navigate to="/achievements#prizes" replace />} />
+                  <Route path="activities" element={<Navigate to="/achievements#activities" replace />} />
 
                   <Route path="projects" element={<ProjectsPage />} />
                   <Route path="projects/:id" element={<ProjectDetailPage />} />
-                  <Route path="activities" element={<ActivitiesPage />} />
                   <Route path="contact" element={<ContactPage />} />
                   <Route path="resume" element={<ResumePage />} />
                   <Route path="blog" element={<BlogPage />} />

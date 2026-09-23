@@ -127,11 +127,11 @@ const Footer = () => {
                             <li style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
                                 <FaPhoneAlt size={13} style={{ flexShrink: 0 }} />
                                 <a
-                                    href="tel:0782399721"
+                                    href="tel:+84912158715"
                                     className="hover-ink"
                                     style={{ color: 'var(--color-ink-soft)', textDecoration: 'none', transition: 'color 0.15s ease' }}
                                 >
-                                    (+84) 782 399 721 (Zalo)
+                                    +84 912158715 (Zalo)
                                 </a>
                             </li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>

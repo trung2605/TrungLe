@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaInbox, FaRocket, FaNewspaper, FaArrowRight } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaInbox, FaRocket, FaNewspaper, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import { skillTaxonomy } from '../../data';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import SkillChart from './SkillChart';
@@ -115,7 +115,8 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
             color: '#ffffff',
             boxShadow: '0 2px 10px rgba(109,63,201,0.4)',
           }}>
-            ★ {t('projects.liveClientProject', 'Live Client Project')}
+            <FaCheckCircle size={10} style={{ marginRight: '6px' }} />
+            {t('projects.liveClientProject', 'Live Client Project')}
           </div>
         )}
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -18,6 +18,7 @@ import {
   FaChartLine, 
   FaSyncAlt, 
   FaStar,
+  FaBolt,
   FaGraduationCap,
   FaUserTie,
   FaLaptopCode,
@@ -29,7 +30,10 @@ import {
   FaBell,
   FaShareAlt,
   FaBalanceScale,
-  FaUsers
+  FaUsers,
+  FaClock,
+  FaTag,
+  FaLightbulb
 } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -44,6 +48,7 @@ import {
   Step5HandoverSVG
 } from './ServiceSVGs';
 import infographicTeam from '../../assets/landing/infographic_team.png';
+import ServicesSubnav from '../ServicesSubnav/ServicesSubnav';
 import './Services.scss';
 
 const fadeInUp = {
@@ -117,6 +122,44 @@ const BIENSOVIP_SHOTS = [
     titleVi: "Giao diện Sàn Biensovip.com: 3.240 biển số & Cổng cọc VietQR",
     titleEn: "Live Marketplace: 3,240 Plates & Real-time VietQR Flow",
     url: "/docs/images/biensovip_home_real.png"
+  }
+];
+
+const BRANDHUB_SHOTS = [
+  {
+    titleVi: "Dashboard Quản trị: Chiến dịch Influencer & Telemetry thời gian thực",
+    titleEn: "Core Dashboard: Influencer Campaigns & Real-time Task Telemetry",
+    url: "/docs/images/DA-D19-01.png"
+  },
+  {
+    titleVi: "Báo cáo Hiệu suất: Phân tích chỉ số chiến dịch & Giám sát tiến độ",
+    titleEn: "Performance Analytics: Campaign KPIs & Asynchronous Workload Metrics",
+    url: "/docs/images/DA-D19-02.png"
+  },
+  {
+    titleVi: "Omnichannel Social Publisher: Không gian lập lịch đăng bài tự động đa kênh",
+    titleEn: "Omnichannel Social Publisher: Scheduling & Multi-platform Publishing",
+    url: "/docs/images/DA-D19-03.png"
+  },
+  {
+    titleVi: "Pipeline AI Thông Minh: Sinh nội dung tự động đa định dạng với RAG Context",
+    titleEn: "AI Content Automation: Context-aware Generation via Python FastAPI & RAG",
+    url: "/docs/images/DA-D19-04.png"
+  },
+  {
+    titleVi: "Kiến trúc Microservices: Spring Boot 3, RabbitMQ DLQ & Docker Cluster",
+    titleEn: "Microservices Architecture: Spring Boot 3, RabbitMQ DLQ & Docker Infrastructure",
+    url: "/docs/images/DA-D19-05.png"
+  },
+  {
+    titleVi: "Phân quyền Tổ chức Đa cấp: Agency, Doanh nghiệp, Nhãn hàng & CTV",
+    titleEn: "Multi-tenant Access Control: Agency, Enterprise & Brand Management",
+    url: "/docs/images/DA-D19-06.png"
+  },
+  {
+    titleVi: "Quy trình Phê duyệt Nội dung & Tương tác Cộng tác Trực quan",
+    titleEn: "Collaborative Review & Approval Workflow Interface",
+    url: "/docs/images/DA-D19-07.png"
   }
 ];
 
@@ -233,27 +276,459 @@ const TEAM_MEMBERS = [
   }
 ];
 
+
+const SAAS_MODULES = [
+  {
+    id: "lead_funnel",
+    category: "sales",
+    num: "01",
+    iconName: "FaCogs",
+    metricVi: "Độ trễ < 30s",
+    metricEn: "Latency < 30s",
+    titleVi: "Phễu Thu Thập & Phân Luồng Lead Tức Thời",
+    titleEn: "Instant Lead Funnel & Automated Routing",
+    descVi: "Phân loại khách hàng theo độ nóng và bắn thông báo Telegram/Zalo trong 30s...",
+    descEn: "Auto-routes hot leads to Telegram/Zalo in 30s for instant conversion...",
+    specsVi: [
+      "Webhook Zalo & Telegram Bot thời gian thực",
+      "Gắn thẻ phân loại khách hàng tiềm năng tự động"
+    ],
+    specsEn: [
+      "Real-time Telegram & Zalo Webhook bots",
+      "Automated lead intent tagging and dispatch"
+    ],
+    techVi: "Webhook API • Telegram Bot",
+    techEn: "Webhook API • Telegram Bot",
+    image: "/docs/images/biensovip_admin_analytics.png",
+    captionVi: "Phễu phân tích lead thực tế & định tuyến thông báo Telegram tức thì từ hệ thống Biensovip",
+    captionEn: "Live lead attribution funnel & instant Telegram dispatch from Biensovip",
+    painPointVi: "Khách hàng có ý định mua thường tham khảo nhiều nơi cùng lúc. Nếu phản hồi chậm quá 15 phút, tỷ lệ chốt giảm hơn 70%. Hệ thống này tự động phân tích cấp độ nóng của khách và đẩy thông báo thẳng về Telegram / Zalo của chủ shop trong dưới 30 giây để tiếp cận ngay khi khách còn đang trên trang.",
+    painPointEn: "Potential buyers evaluate multiple options at once. Delays beyond 15 minutes drop deal closure rates by over 70%. This automated funnel scores lead intent and fires instant webhooks to Telegram/Zalo in under 30 seconds to engage prospects while they are still active on-site.",
+    workflowVi: [
+      { step: "01", title: "Khách tương tác trên website", desc: "Người mua bấm giữ cọc, yêu cầu tư vấn giá hoặc để lại thông tin liên hệ trên trang sản phẩm." },
+      { step: "02", title: "Phân loại & Định tuyến tức thời", desc: "Hệ thống gắn thẻ độ nóng (Hỏi giá, Giữ cọc, Chốt gấp) và bắn Webhook bảo mật về Telegram/Zalo chủ shop." },
+      { step: "03", title: "Tiếp cận & Chốt đơn trong 30s", desc: "Chủ shop mở thông báo có sẵn số điện thoại, nhu cầu cụ thể và lịch sử duyệt web để gọi điện chốt ngay." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Visitor Engagement", desc: "Customer reserves, requests price breakdown, or submits inquiry directly on the product page." },
+      { step: "02", title: "Intent Scoring & Webhook Routing", desc: "Engine tags intent level (Price Inquiry, Reservation, Urgent) and fires secure webhooks to Telegram/Zalo." },
+      { step: "03", title: "Immediate 30s Conversion", desc: "Merchant receives comprehensive dossier with phone number and browsing history to close deal instantly." }
+    ]
+  },
+  {
+    id: "vietqr_reconcile",
+    category: "sales",
+    num: "02",
+    iconName: "FaQrcode",
+    metricVi: "0% Phí cổng • Khớp cọc 0.5s",
+    metricEn: "0% Fee • 0.5s Match",
+    titleVi: "Thanh Toán & Đối Soát VietQR Động 0đ",
+    titleEn: "Zero-Fee Dynamic VietQR Settlement",
+    descVi: "Sinh VietQR động, webhook ngân hàng khớp cọc 0.5s với 0đ phí cổng trung gian...",
+    descEn: "Dynamic VietQR with 0.5s bank webhook reconciliation and 0% gateway fees...",
+    specsVi: [
+      "Tiết kiệm 100% chi phí trung gian thanh toán",
+      "Đối soát tự động không cần kiểm tra sao kê thủ công"
+    ],
+    specsEn: [
+      "Eliminates 100% third-party gateway commissions",
+      "Automated bank ledger match without manual audits"
+    ],
+    techVi: "VietQR API • Bank Webhook",
+    techEn: "VietQR API • Bank Webhook",
+    image: "/docs/images/biensovip_home_real.png",
+    captionVi: "Cổng cọc VietQR động và luồng đối soát tự động không qua trung gian trên sàn Biensovip.com",
+    captionEn: "Dynamic VietQR deposit checkout and zero-fee bank webhook reconciliation on Biensovip.com",
+    painPointVi: "Sử dụng cổng thanh toán bên thứ ba vừa tốn 1.5% - 2.5% phí giao dịch, vừa bị giữ tiền đối soát 3-7 ngày. Nếu yêu cầu khách chuyển khoản thủ công thì nhân viên phải mở app ngân hàng dò từng dòng sao kê rất dễ sót. VietQR động giải quyết triệt để 2 vấn đề này với 0đ phí cổng.",
+    painPointEn: "Third-party payment gateways charge 1.5% - 2.5% fees and hold payouts for 3-7 days. Manual bank transfers force employees to manually cross-check statements. Dynamic VietQR deposits directly to your bank account with zero gateway fee.",
+    workflowVi: [
+      { step: "01", title: "Sinh mã VietQR động chính xác", desc: "Khi khách bấm cọc, hệ thống sinh mã VietQR nhúng chuẩn xác số tiền và mã định danh đơn hàng duy nhất." },
+      { step: "02", title: "Webhook ngân hàng khớp cọc 0.5s", desc: "Khách quét mã thanh toán bằng bất kỳ app ngân hàng nào, webhook báo có tức thì trong 0.5 giây." },
+      { step: "03", title: "Tự động đổi trạng thái & Gửi biên nhận", desc: "Đơn hàng tự động chuyển sang 'Đã Cọc', kho tự động khóa và email biên lai điện tử được gửi ngay cho khách." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Dynamic VietQR Generation", desc: "Generates tailored QR code containing exact payment sum and unique transaction identifier." },
+      { step: "02", title: "0.5s Bank Webhook Reconciliation", desc: "Buyer scans via any banking application; bank webhook confirms settlement in 0.5 seconds." },
+      { step: "03", title: "Order Finalization & Receipt", desc: "Order status switches to 'Reserved', inventory locks instantly, and digital receipt is emailed." }
+    ]
+  },
+  {
+    id: "inventory_lock",
+    category: "sales",
+    num: "03",
+    iconName: "FaSyncAlt",
+    metricVi: "Khóa kho 8ms • Triệt tiêu trùng đơn",
+    metricEn: "8ms Lock • Zero Conflicts",
+    titleVi: "Quản Lý Kho & Khóa Trạng Thái Real-time",
+    titleEn: "Real-time Stock Locking & Multi-device Sync",
+    descVi: "Khóa phân tán Redis 8ms, đồng bộ trạng thái kho độc bản tức thời qua WebSockets...",
+    descEn: "Redis 8ms distributed locking syncing unique stock in real time across devices...",
+    specsVi: [
+      "Khóa phân tán Redis Lock độ trễ 8ms",
+      "Đồng bộ Socket.IO thời gian thực đa thiết bị"
+    ],
+    specsEn: [
+      "Redis distributed locking with 8ms latency",
+      "Real-time Socket.IO multi-device state sync"
+    ],
+    techVi: "Redis Lock • Socket.IO",
+    techEn: "Redis Lock • Socket.IO",
+    image: "/docs/images/biensovip_real_plates.png",
+    captionVi: "Giao diện quản lý kho 26 trang với cơ chế khóa phân tán Redis Lock độ trễ 8ms",
+    captionEn: "26-page inventory CMS powered by Redis distributed locks with 8ms latency",
+    painPointVi: "Đối với mặt hàng giá trị cao hoặc độc bản (biển số đẹp, ô tô, bất động sản, đồ sưu tầm), việc 2 khách hàng cùng đặt cọc một sản phẩm trong cùng một phút sẽ gây tranh chấp, bồi thường cọc và tổn hại uy tín thương hiệu. Khóa phân tán Redis Lock triệt tiêu 100% rủi ro này.",
+    painPointEn: "For high-value or one-of-a-kind inventory, simultaneous deposits from concurrent buyers trigger double bookings, refund friction, and reputation loss. Redis distributed locks eliminate race conditions with 8ms response.",
+    workflowVi: [
+      { step: "01", title: "Tạo khóa phân tán tạm thời", desc: "Ngay khi khách đầu tiên mở màn hình thanh toán, Redis Lock tạm giữ sản phẩm trong 10 phút." },
+      { step: "02", title: "Phát sóng WebSocket toàn hệ thống", desc: "Toàn bộ khách hàng khác trên mọi thiết bị đang xem sản phẩm đó thấy trạng thái đổi sang 'Đang giữ chỗ'." },
+      { step: "03", title: "Xác nhận khóa cứng hoặc Tự động mở", desc: "Nếu cọc thành công, sản phẩm khóa vĩnh viễn; nếu hết 10 phút chưa thanh toán, hệ thống tự động nhả lại kho." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Temporary Distributed Lock", desc: "As first shopper opens deposit modal, Redis Lock reserves the item for a 10-minute window." },
+      { step: "02", title: "Real-time WebSocket Broadcast", desc: "State updates across all live browser sessions globally, displaying 'Currently In Checkout'." },
+      { step: "03", title: "Permanent Lock or Auto-Release", desc: "Permanently marked 'Sold' upon deposit, or automatically returned to pool if checkout expires." }
+    ]
+  },
+  {
+    id: "ai_advisory",
+    category: "ai",
+    num: "04",
+    iconName: "FaRobot",
+    metricVi: "DeepSeek RAG • Trực đêm 24/7",
+    metricEn: "DeepSeek RAG • 24/7 Support",
+    titleVi: "Trợ Lý AI CSKH & Tư Vấn Phong Thủy 24/7",
+    titleEn: "24/7 DeepSeek AI Advisory & Recommendations",
+    descVi: "Trợ lý AI DeepSeek RAG phân tích ngũ hành và hướng dẫn khách cọc 24/7...",
+    descEn: "DeepSeek RAG AI advisor evaluating criteria and guiding checkout 24/7...",
+    specsVi: [
+      "Mô hình DeepSeek RAG tích hợp dữ liệu kho",
+      "Tự động tính toán phong thủy và điều hướng cọc"
+    ],
+    specsEn: [
+      "DeepSeek RAG architecture trained on inventory",
+      "Automated compatibility scoring and checkout routing"
+    ],
+    techVi: "DeepSeek RAG • Vector Search",
+    techEn: "DeepSeek RAG • Vector Search",
+    image: "/docs/images/biensovip_real_fengshui.png",
+    captionVi: "Module phân tích ngũ hành, độ hợp tuổi và tích hợp trợ lý AI DeepSeek RAG 24/7",
+    captionEn: "4-Pillar numerology engine and private DeepSeek RAG AI consultant running 24/7",
+    painPointVi: "Hơn 40% lượt truy cập diễn ra vào ban đêm (sau 22h) hoặc ngày nghỉ lễ khi đội ngũ tư vấn viên không trực. Khách hàng có nhu cầu hỏi chi tiết về thông số, sự phù hợp phong thủy hay chính sách sẽ thoát trang nếu không có câu trả lời. AI RAG trực 24/7 giải quyết bài toán này.",
+    painPointEn: "Over 40% of high-intent traffic arrives after 10 PM or holidays when human staff is offline. Inquiries left unanswered cause abandoned sessions. Our private DeepSeek RAG agent provides expert advisory 24/7.",
+    workflowVi: [
+      { step: "01", title: "Huấn luyện AI trên kho dữ liệu riêng", desc: "Mô hình DeepSeek được nhúng tri thức toàn bộ danh mục sản phẩm, chính sách giá và luật tư vấn riêng." },
+      { step: "02", title: "Hội thoại tự nhiên & Phân tích nhu cầu", desc: "Khách đặt câu hỏi tự do bằng tiếng Việt, AI tính toán tương hợp (ngũ hành, ngân sách) và trả lời chuyên sâu." },
+      { step: "03", title: "Điều hướng cọc & Bàn giao nhân sự", desc: "AI cung cấp link đặt cọc trực tiếp, hoặc thông báo tóm tắt cuộc trò chuyện cho nhân viên khi khách cần hỗ trợ đặc biệt." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Private Catalog Ingestion", desc: "DeepSeek model is fine-tuned and indexed with domain logic, specs, and pricing guidelines." },
+      { step: "02", title: "Semantic Dialogue & Need Analysis", desc: "Customer inquires naturally; AI performs semantic retrieval and delivers consultative guidance." },
+      { step: "03", title: "Deposit Routing & Lead Handover", desc: "AI offers direct deposit CTA or summarizes chat context for human agents when requested." }
+    ]
+  },
+  {
+    id: "mockup_gen",
+    category: "ai",
+    num: "05",
+    iconName: "FaLaptopCode",
+    metricVi: "Xuất 50+ ảnh/phút",
+    metricEn: "50+ Banners/Min",
+    titleVi: "Công Cụ Sinh Ảnh Mockup Hàng Loạt",
+    titleEn: "Batch Social Media Mockup Generator",
+    descVi: "Tiến trình 1-click xuất hàng loạt ảnh mockup sản phẩm chuẩn tỉ lệ mạng xã hội...",
+    descEn: "1-click batch rendering for multi-ratio social media cards and watermarks...",
+    specsVi: [
+      "Hỗ trợ đa tỉ lệ 1:1, 9:16 cho Facebook, Zalo, TikTok",
+      "Tự động đóng dấu watermark logo và mã QR"
+    ],
+    specsEn: [
+      "Multi-ratio export (1:1, 9:16) for social feeds",
+      "Automated logo watermarking and contact QR"
+    ],
+    techVi: "HTML5 Canvas • Batch Renderer",
+    techEn: "HTML5 Canvas • Batch Renderer",
+    image: "/docs/images/biensovip_real_plates.png",
+    captionVi: "Công cụ xuất mockup ảnh tự động chuẩn tỉ lệ đăng Facebook/TikTok tích hợp trong CMS",
+    captionEn: "Automated multi-ratio social media mockup generator built directly into admin CMS",
+    painPointVi: "Mỗi khi có sản phẩm mới về kho, nhân viên phải mất 10-15 phút cắt ghép hình ảnh, chèn logo, chèn giá và mã QR liên hệ lên Photoshop. Với hàng trăm sản phẩm, điều này tốn hàng tuần lễ công sức. Công cụ 1-click HTML5 Canvas sinh hàng chục ảnh hoàn chỉnh chỉ trong vài giây.",
+    painPointEn: "Pasting products into Photoshop, adding logos, prices, and contact QRs consumes 15 minutes per item. For large inventories, this is a massive operational drag. Our 1-click Canvas engine renders complete banners in seconds.",
+    workflowVi: [
+      { step: "01", title: "Tích chọn sản phẩm trong CMS", desc: "Chọn 1 hoặc toàn bộ danh sách sản phẩm cần đăng bài truyền thông từ bảng điều khiển kho." },
+      { step: "02", title: "Ghép khung & Đóng dấu tự động", desc: "Hệ thống HTML5 Canvas tự động áp template mockup, đóng logo mờ (watermark) và sinh mã QR quét liên hệ." },
+      { step: "03", title: "Xuất file chuẩn đa tỉ lệ mạng xã hội", desc: "Tải về trọn bộ ảnh chuẩn tỉ lệ 1:1 (bài đăng Facebook/Zalo) và 9:16 (Story/TikTok) sắc nét 2K." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Batch Selection in CMS", desc: "Select single or multiple inventory items requiring marketing creative from admin table." },
+      { step: "02", title: "Automated Compositing & Watermark", desc: "Canvas engine renders branded frames, dynamic pricing, watermarks, and contact QRs." },
+      { step: "03", title: "Multi-Ratio High-Res Export", desc: "Downloads production-ready 1:1 (Feed) and 9:16 (Stories/Reels) graphic assets in 2K resolution." }
+    ]
+  },
+  {
+    id: "email_builder",
+    category: "ai",
+    num: "06",
+    iconName: "FaEnvelope",
+    metricVi: "Email Automation 100%",
+    metricEn: "100% Automated Flows",
+    titleVi: "Email Builder Kéo Thả & Luồng Chăm Sóc Tự Động",
+    titleEn: "Drag & Drop Email Builder & Nurture Sequences",
+    descVi: "Trình kéo thả email tự động kích hoạt gửi hóa đơn, biên lai cọc và CSKH...",
+    descEn: "Visual drag & drop canvas with auto-triggers for receipts and retention...",
+    specsVi: [
+      "Thiết kế kéo thả trực quan không cần biết code",
+      "Kích hoạt tự động theo vòng đời giao dịch"
+    ],
+    specsEn: [
+      "Visual drag & drop canvas without coding",
+      "Automated transaction lifecycle triggers"
+    ],
+    techVi: "Canvas Builder • SMTP Engine",
+    techEn: "Canvas Builder • SMTP Engine",
+    image: "/docs/images/biensovip_real_dashboard.png",
+    captionVi: "Trung tâm quản trị vận hành tích hợp kịch bản email giao dịch & chăm sóc khách hàng tự động",
+    captionEn: "Admin dashboard featuring automated transactional email pipelines and lifecycle marketing",
+    painPointVi: "Các doanh nghiệp nhỏ thường tốn hàng triệu đồng tiền gói thuê dịch vụ email marketing hàng tháng mà chỉ dùng để gửi vài chục email xác nhận cọc. Email Builder nội bộ cho phép tự thiết kế kéo thả và gửi email tự động qua máy chủ riêng không tốn phí duy trì.",
+    painPointEn: "Small businesses pay high SaaS subscriptions for external email tools just to send order receipts. Our native Drag & Drop Email Builder sends triggered receipts, invoices, and follow-ups via your private SMTP at zero recurring software cost.",
+    workflowVi: [
+      { step: "01", title: "Kéo thả giao diện email trực quan", desc: "Tùy biến bố cục, màu sắc thương hiệu, chèn logo và các biến thông tin động ({ten_khach}, {ma_don}, {so_tien})." },
+      { step: "02", title: "Thiết lập kịch bản kích hoạt tự động", desc: "Kích hoạt tự động khi khách cọc thành công, khi hợp đồng được ký hoặc gửi email nhắc nhở sau 7 ngày." },
+      { step: "03", title: "Phát hành qua SMTP riêng an toàn", desc: "Hệ thống gửi thư qua máy chủ SMTP có chứng chỉ DKIM/SPF chống vào hòm spam, theo dõi tỉ lệ mở thực tế." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Visual Drag & Drop Design", desc: "Customize layouts, brand typography, logo, and dynamic tags ({customer_name}, {order_id})." },
+      { step: "02", title: "Lifecycle Trigger Setup", desc: "Automate triggers on successful deposit, contract signing, or 7-day post-sale follow-up." },
+      { step: "03", title: "Private SMTP Dispatch & Deliverability", desc: "Dispatches via private SMTP configured with SPF/DKIM for high inbox placement and open tracking." }
+    ]
+  },
+  {
+    id: "ctv_portal",
+    category: "retention",
+    num: "07",
+    iconName: "FaUserTie",
+    metricVi: "Quản lý CTV tự động",
+    metricEn: "Auto Affiliate Ops",
+    titleVi: "Cổng Mạng Lưới Cộng Tác Viên & Hoa Hồng",
+    titleEn: "Affiliate Network & Transparent Commission Portal",
+    descVi: "Cấp link UTM định danh cho môi giới, tự động cộng hoa hồng và rút tiền 1-click...",
+    descEn: "Unique UTM referral tracking with real-time wallet ledger and 1-click payout...",
+    specsVi: [
+      "Định danh doanh số chính xác theo từng link UTM",
+      "Bảng điều khiển theo dõi hoa hồng và rút tiền 1-click"
+    ],
+    specsEn: [
+      "Precise referral attribution via unique UTMs",
+      "Commission dashboard with 1-click payout workflow"
+    ],
+    techVi: "UTM Attribution • Wallet Ledger",
+    techEn: "UTM Attribution • Wallet Ledger",
+    image: "/docs/images/biensovip_real_ctv.png",
+    captionVi: "Cổng quản trị 14 cộng tác viên thực tế với cơ chế định danh UTM và bảng kê hoa hồng minh bạch",
+    captionEn: "Affiliate portal managing 14 live brokers with unique UTM tracking and commission ledger",
+    painPointVi: "Mô hình bán hàng qua mạng lưới cộng tác viên thường bị đứt gãy vì tính toán hoa hồng thủ công bằng Excel chậm trễ, dễ nhầm lẫn và thiếu minh bạch khiến CTV nghi ngờ chủ shop giấu đơn. Cổng CTV tự động trao quyền cho CTV theo dõi số dư thời gian thực.",
+    painPointEn: "Affiliate sales networks break down when commission reconciliation is manual, delayed, and opaque. Brokers lose trust and move elsewhere. This portal provides transparent real-time wallet tracking and individual UTM links.",
+    workflowVi: [
+      { step: "01", title: "Cấp link UTM định danh cá nhân", desc: "Mỗi cộng tác viên có link giới thiệu riêng biệt chứa mã UTM để đăng bài quảng bá lên mạng xã hội." },
+      { step: "02", title: "Ghi nhận hoa hồng tức thì khi có cọc", desc: "Khi khách vào qua link của CTV và hoàn tất cọc, hoa hồng được hệ thống tính toán và cộng thẳng vào ví số dư." },
+      { step: "03", title: "Duyệt lệnh rút tiền minh bạch 1-click", desc: "CTV bấm lệnh rút tiền về tài khoản ngân hàng, chủ shop duyệt chi trên bảng kê đối soát có lưu vết đầy đủ." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Unique UTM Provisioning", desc: "Each broker receives a unique tracking link containing their personal referral code." },
+      { step: "02", title: "Instant Ledger Attribution", desc: "When referred visitors reserve an item, the commission is credited instantly to the broker's balance." },
+      { step: "03", title: "1-Click Payout Approval", desc: "Brokers request withdrawal; administrators approve payouts with complete audit logs and bank export." }
+    ]
+  },
+  {
+    id: "audit_security",
+    category: "retention",
+    num: "08",
+    iconName: "FaShieldAlt",
+    metricVi: "Ghi vết SHA-256 bất biến",
+    metricEn: "Immutable Audit Trail",
+    titleVi: "Nhật Ký Audit Log Bất Biến & Bảo Mật Dữ Liệu VIP",
+    titleEn: "Immutable Audit Log & VIP Data Leak Prevention",
+    descVi: "Nhật ký kiểm toán mã hóa băm SHA-256 bất biến kèm IP, bảo vệ dữ liệu VIP...",
+    descEn: "Cryptographic SHA-256 audit trail with IP tracing to protect VIP records...",
+    specsVi: [
+      "Nhật ký bất biến chống chối bỏ kèm IP và thời gian",
+      "Phân quyền RBAC đa cấp bảo vệ tệp khách VIP"
+    ],
+    specsEn: [
+      "Non-repudiable cryptographic logging with IP",
+      "Multi-role RBAC protecting VIP customer records"
+    ],
+    techVi: "Audit Trail Hash • Phân Quyền RBAC",
+    techEn: "Audit Trail Hash • RBAC Controls",
+    image: "/docs/images/biensovip_real_audit.png",
+    captionVi: "Nhật ký kiểm toán hệ thống bất biến, ghi lại chi tiết IP, thời gian và hành vi của từng tài khoản",
+    captionEn: "Immutable security audit log tracing IP, timestamps, and granular admin action records",
+    painPointVi: "Rủi ro nội bộ là mối đe dọa lớn nhất: nhân viên tự ý sửa giá sản phẩm thấp đi để trục lợi, xóa dấu vết đơn hàng hoặc xuất trộm danh sách số điện thoại khách hàng VIP mang sang đối thủ. Hệ thống mã hóa băm SHA-256 ghi lại mọi hành vi bất biến không thể xóa sửa.",
+    painPointEn: "Internal risk is severe: rogue staff altering prices for kickbacks, deleting traces, or stealing VIP customer records. Our SHA-256 cryptographic audit trail records every database mutation with timestamp and IP, tamper-proof against deletion.",
+    workflowVi: [
+      { step: "01", title: "Chặn bắt & Ghi log mọi thao tác", desc: "Mọi yêu cầu xem số điện thoại, sửa giá, xóa dữ liệu đều đi qua middleware ghi nhận IP và mã định danh người dùng." },
+      { step: "02", title: "Mã hóa băm chống chối bỏ", desc: "Nhật ký được băm chuỗi bảo mật bất biến; kể cả tài khoản quản trị tối cao (Admin) cũng không thể can thiệp xóa log." },
+      { step: "03", title: "Phát hiện bất thường & Cảnh báo", desc: "Hệ thống tự động kích hoạt còi báo động khi có tài khoản thực hiện xuất dữ liệu số lượng lớn hoặc đăng nhập từ IP lạ." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Action Interception & Logging", desc: "Middleware intercepts phone number views, price edits, and data exports with user IP and timestamp." },
+      { step: "02", title: "Cryptographic Tamper-Proof Chain", desc: "Logs are cryptographically hashed; not even super-admins can erase or alter historical audit trails." },
+      { step: "03", title: "Anomaly Detection & Immediate Alert", desc: "Automated alert flags suspicious bulk export requests or administrative logins from unrecognized IPs." }
+    ]
+  },
+  {
+    id: "social_proof",
+    category: "retention",
+    num: "09",
+    iconName: "FaStar",
+    metricVi: "Tăng 3x thời gian on-site",
+    metricEn: "3x On-Site Engagement",
+    titleVi: "Tra Cứu Phong Thủy & Social Proof Kích Cọc",
+    titleEn: "Fengshui Numerology & Live Social Proof",
+    descVi: "Bộ công cụ tra cứu phong thủy và ticker đơn hàng thực tế kích thích chốt cọc...",
+    descEn: "Interactive numerology calculator and live buyer tickers stimulating FOMO...",
+    specsVi: [
+      "Thuật toán chấm điểm 4 trụ cột và ngũ hành",
+      "Bộ đếm người xem trực tiếp và đơn hàng vừa chốt"
+    ],
+    specsEn: [
+      "4-pillar elemental scoring algorithm",
+      "Live concurrent viewer counts and order tickers"
+    ],
+    techVi: "4 Trụ Phong Thủy • Live Ticker",
+    techEn: "4-Pillar Numerology • Live Ticker",
+    image: "/docs/images/biensovip_real_comparison.png",
+    captionVi: "Số liệu phân tích hơn 6.380 lượt tìm kiếm và các yếu tố kích thích tỷ lệ chuyển đổi thực tế",
+    captionEn: "Analytics tracking 6,380+ customer searches and live conversion-boosting triggers",
+    painPointVi: "Khách hàng vào website thấy yên ắng thường có tâm lý dè chừng, sợ lừa đảo hoặc phân vân chần chừ không muốn cọc ngay. Các công cụ tra cứu giá trị gia tăng (như phong thủy) giữ khách ở lại trang lâu gấp 3 lần, kết hợp thông báo hoạt động mua bán thực tế kích thích quyết định nhanh chóng.",
+    painPointEn: "Shoppers entering a static, lifeless site feel cautious and postpone deposit commitments. Interactive valuation tools triple visitor dwell time, while live activity tickers create authentic social proof and FOMO.",
+    workflowVi: [
+      { step: "01", title: "Tương tác nhập liệu tra cứu", desc: "Khách nhập ngày sinh, ngũ hành để nhận bảng phân tích độ hợp mệnh độc quyền với từng món hàng." },
+      { step: "02", title: "Hiển thị thang điểm trực quan", desc: "Biểu đồ phân tích đa yếu tố gia tăng sự gắn kết tâm lý và khẳng định giá trị độc nhất của sản phẩm." },
+      { step: "03", title: "Kích hoạt thông báo mua hàng thực", desc: "Góc màn hình hiển thị số người đang cùng xem và thông báo chốt đơn từ các khách hàng thực tế gần nhất." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Interactive Attribute Evaluation", desc: "Visitors input criteria to generate personalized affinity scores tailored to specific items." },
+      { step: "02", title: "Visual Scoring & Emotional Buy-In", desc: "Multi-axis compatibility charts foster emotional conviction and highlight unique value propositions." },
+      { step: "03", title: "Verified Real-time Tickers", desc: "Subtle indicators display concurrent live viewers and recent verified reservation notifications." }
+    ]
+  },
+  {
+    id: "comparison_social",
+    category: "retention",
+    num: "10",
+    iconName: "FaBalanceScale",
+    metricVi: "So sánh đa chiều & Video",
+    metricEn: "Multi-Item Radar & Video",
+    titleVi: "So Sánh Đa Sản Phẩm & Gán Video Mạng Xã Hội",
+    titleEn: "Multi-Item Comparison & Social Video Embeds",
+    descVi: "Bảng đối chiếu 2-4 sản phẩm cùng lúc và nhúng video TikTok/Reels thực tế...",
+    descEn: "Side-by-side spec comparison matrix with authentic video review embeds...",
+    specsVi: [
+      "Ma trận đối chiếu thông số và điểm phong thủy",
+      "Nhúng video TikTok/Reels thực tế tăng độ tin cậy"
+    ],
+    specsEn: [
+      "Side-by-side spec and compatibility radar",
+      "Native TikTok/Reels video embeds for authenticity"
+    ],
+    techVi: "Ma Trận So Sánh • Nhúng Video",
+    techEn: "Matrix Comparison • Native Video",
+    image: "/docs/images/biensovip_real_comparison.png",
+    captionVi: "Ma trận đối chiếu đa sản phẩm song song và tính năng nhúng video thực tế từ TikTok/Reels",
+    captionEn: "Side-by-side multi-item comparison matrix with integrated TikTok/Reels video embeds",
+    painPointVi: "Khách hàng thường phân vân giữa 2-4 sản phẩm có mức giá tương đương. Nếu phải chuyển qua chuyển lại nhiều trang con, khách sẽ mỏi mắt và thoát trang. Ma trận đối chiếu đặt các sản phẩm lên cùng một bảng so sánh, kèm video clip thực tế để khách tự tin bấm cọc ngay.",
+    painPointEn: "Buyers torn between several comparable items get fatigued opening multiple tabs and abandon the process. A side-by-side radar matrix contrasts attributes cleanly on one screen, enriched with video clips for full transparency.",
+    workflowVi: [
+      { step: "01", title: "Thêm sản phẩm vào bảng đối chiếu", desc: "Khách nhấp vào biểu tượng so sánh trên thẻ sản phẩm (hỗ trợ so sánh đồng thời 2-4 sản phẩm)." },
+      { step: "02", title: "Xem ma trận đối chiếu thông số", desc: "Bảng hiển thị song song giá cả, thông số chi tiết, điểm phong thủy và mức độ ưu tiên trên cùng một màn hình." },
+      { step: "03", title: "Xem video thực tế & Quyết định cọc", desc: "Xem trực tiếp video TikTok/Reels quay thực tế sản phẩm được nhúng mượt mà và bấm nút chốt cọc ngay tại bảng." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Add to Comparison Matrix", desc: "Shoppers click the comparison icon across 2 to 4 candidate products from catalog cards." },
+      { step: "02", title: "Side-by-Side Spec & Score Radar", desc: "Tabular matrix contrasts price, dimensions, rarity, and compatibility scores in parallel." },
+      { step: "03", title: "Embedded Authentic Video & Checkout", desc: "Shoppers watch authentic TikTok/Reels review videos directly on-page and click instant deposit." }
+    ]
+  }
+];
+
 const Services = () => {
   const { i18n } = useTranslation();
   const isEn = i18n.language === 'en';
   const navigate = useNavigate();
 
   const [activeShotIndex, setActiveShotIndex] = useState(0);
+  const [activeBrandhubShotIndex, setActiveBrandhubShotIndex] = useState(0);
+  const [activeFlagshipTab, setActiveFlagshipTab] = useState('biensovip');
   const [lightboxImg, setLightboxImg] = useState(null);
   const [showWorkflowModal, setShowWorkflowModal] = useState(false);
   const [activeModalTab, setActiveModalTab] = useState('manday');
+  const [activeSaasCategory, setActiveSaasCategory] = useState('all');
+  const [selectedSaasFeature, setSelectedSaasFeature] = useState(null);
+
+  // Close modals on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        if (lightboxImg) {
+          setLightboxImg(null);
+        } else if (selectedSaasFeature) {
+          setSelectedSaasFeature(null);
+        } else if (showWorkflowModal) {
+          setShowWorkflowModal(false);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxImg, selectedSaasFeature, showWorkflowModal]);
+
+  // Lock body scroll when modal or lightbox is active
+  useEffect(() => {
+    if (selectedSaasFeature || showWorkflowModal || lightboxImg) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedSaasFeature, showWorkflowModal, lightboxImg]);
 
   const scrollToContact = () => {
     navigate('/contact');
   };
 
+  
+    const getSaasIcon = (iconName) => {
+    switch (iconName) {
+      case 'FaCogs': return <FaCogs size={18} />;
+      case 'FaQrcode': return <FaQrcode size={18} />;
+      case 'FaSyncAlt': return <FaSyncAlt size={18} />;
+      case 'FaRobot': return <FaRobot size={18} />;
+      case 'FaLaptopCode': return <FaLaptopCode size={18} />;
+      case 'FaEnvelope': return <FaEnvelope size={18} />;
+      case 'FaUserTie': return <FaUserTie size={18} />;
+      case 'FaShieldAlt': return <FaShieldAlt size={18} />;
+      case 'FaStar': return <FaStar size={18} />;
+      case 'FaBalanceScale': return <FaBalanceScale size={18} />;
+      default: return <FaBolt size={18} />;
+    }
+  };
+
   const scrollToPricing = () => {
     const el = document.getElementById('pricing-section');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) {
+      if (window.__lenis) {
+        window.__lenis.scrollTo(el, { offset: -140 });
+      } else {
+        const top = el.getBoundingClientRect().top + window.pageYOffset - 140;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
   };
 
   return (
-    <div className="services-page">
+    <div className="services-page" style={{ paddingTop: '52px' }}>
+      <ServicesSubnav />
       {/* TERMINAL PROMPT HEADER */}
       <div className="terminal-prompt">
         <span className="prompt-sym">$</span>
@@ -262,7 +737,7 @@ const Services = () => {
       </div>
 
       {/* 1. HERO SECTION */}
-      <section className="hero-section">
+      <section id="overview" className="hero-section" style={{ scrollMarginTop: '170px' }}>
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -344,8 +819,8 @@ const Services = () => {
         </motion.div>
       </section>
 
-      {/* 2. FLAGSHIP CASE STUDY: BIENSOVIP AS PROOF */}
-      <section className="section-container">
+      {/* 2. FLAGSHIP PROJECTS SHOWCASE: BIENSOVIP & BRANDHUB */}
+      <section id="case-study" className="section-container" style={{ scrollMarginTop: '170px' }}>
         <motion.div 
           className="section-header"
           variants={fadeInUp}
@@ -353,186 +828,455 @@ const Services = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <div className="section-eyebrow">{isEn ? "FEATURED DELIVERABLE" : "THÀNH PHẨM THỰC TẾ TIÊU BIỂU"}</div>
-          <h2 className="section-heading">{isEn ? "From Request to Production: Biensovip.com" : "Từ Yêu Cầu Khách Hàng Đến Sản Phẩm Thực Tế: Biensovip.com"}</h2>
+          <div className="section-eyebrow">{isEn ? "FLAGSHIP PRODUCTION SYSTEMS" : "DỰ ÁN & HỆ THỐNG THỰC TẾ TIÊU BIỂU"}</div>
+          <h2 className="section-heading">
+            {isEn ? "Proven Engineering Delivery: Commercial Product & Capstone Platform" : "Hai Sản Phẩm Trọng Điểm Khẳng Định Năng Lực Của Team"}
+          </h2>
           <p className="section-desc">
             {isEn 
-              ? "A specialized e-commerce marketplace engineered from scratch by our team in 30 days for a Da Nang automotive business."
-              : "Minh chứng năng lực thực tế: Sàn thương mại điện tử chuyên biệt được team chúng tôi thiết kế và bàn giao chỉ trong 30 ngày cho đối tác doanh nghiệp tại Đà Nẵng."}
+              ? "We prove our team's elite capabilities through real deliverables: From our commercial e-commerce marketplace (Biensovip.com) to our flagship microservices graduation capstone project (BrandHub)."
+              : "Khẳng định uy tín và năng lực kỹ thuật qua thành phẩm thực tế: Sàn thương mại điện tử chuyên biệt bàn giao cho doanh nghiệp Đà Nẵng (Biensovip.com) và Đồ án tốt nghiệp trọng điểm kiến trúc Microservices & AI đa kênh (BrandHub)."}
           </p>
         </motion.div>
 
-        <motion.div 
-          className="flagship-showcase"
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <div className="showcase-header-bar">
-            <div className="dots">
-              <span />
-              <span />
-              <span />
-            </div>
-            <div style={{ color: 'var(--color-ink-soft)' }}>
-              https://biensovip.com
-            </div>
-            <div className="status-pill">
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-ink)', display: 'inline-block' }} />
-              {isEn ? "PRODUCTION LIVE" : "ĐANG HOẠT ĐỘNG"}
-            </div>
-          </div>
+        {/* PROJECT SWITCHER TABS */}
+        <div className="flagship-switcher-bar" style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginBottom: '28px', flexWrap: 'wrap' }}>
+          <button 
+            onClick={() => setActiveFlagshipTab('biensovip')} 
+            className={`flagship-switch-btn ${activeFlagshipTab === 'biensovip' ? 'active' : ''}`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              padding: '10px 22px',
+              borderRadius: '9999px',
+              fontSize: '14px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              border: activeFlagshipTab === 'biensovip' ? '1px solid var(--color-ink)' : '1px solid var(--color-hairline)',
+              backgroundColor: activeFlagshipTab === 'biensovip' ? 'var(--color-ink)' : 'var(--color-surface-soft)',
+              color: activeFlagshipTab === 'biensovip' ? 'var(--color-canvas)' : 'var(--color-ink)',
+              transition: 'all 0.2s ease',
+              boxShadow: activeFlagshipTab === 'biensovip' ? '0 4px 16px rgba(0, 0, 0, 0.15)' : 'none'
+            }}
+          >
+            <FaRocket size={14} />
+            <span>Biensovip.com</span>
+            <span style={{
+              fontSize: '11px',
+              fontFamily: 'JetBrains Mono, monospace',
+              padding: '2px 8px',
+              borderRadius: '9999px',
+              backgroundColor: activeFlagshipTab === 'biensovip' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.06)',
+              color: activeFlagshipTab === 'biensovip' ? '#ffffff' : 'var(--color-ink)',
+              fontWeight: 600,
+              textTransform: 'uppercase'
+            }}>
+              {isEn ? "Client Production" : "Khách Hàng Doanh Nghiệp"}
+            </span>
+          </button>
 
-          <div className="showcase-content-grid">
-            {/* Visuals column */}
-            <div className="showcase-visuals">
-              <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px' }}>
-                <AnimatePresence mode="wait">
-                  <motion.img 
-                    key={activeShotIndex}
-                    src={BIENSOVIP_SHOTS[activeShotIndex].url} 
-                    alt={BIENSOVIP_SHOTS[activeShotIndex].titleVi}
-                    className="main-preview-img"
-                    onClick={() => setLightboxImg(BIENSOVIP_SHOTS[activeShotIndex].url)}
-                    title="Click to view full size"
-                    initial={{ opacity: 0.35, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0.35 }}
-                    transition={{ duration: 0.25 }}
-                  />
-                </AnimatePresence>
+          <button 
+            onClick={() => setActiveFlagshipTab('brandhub')} 
+            className={`flagship-switch-btn ${activeFlagshipTab === 'brandhub' ? 'active' : ''}`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              padding: '10px 22px',
+              borderRadius: '9999px',
+              fontSize: '14px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              border: activeFlagshipTab === 'brandhub' ? '1px solid var(--color-ink)' : '1px solid var(--color-hairline)',
+              backgroundColor: activeFlagshipTab === 'brandhub' ? 'var(--color-ink)' : 'var(--color-surface-soft)',
+              color: activeFlagshipTab === 'brandhub' ? 'var(--color-canvas)' : 'var(--color-ink)',
+              transition: 'all 0.2s ease',
+              boxShadow: activeFlagshipTab === 'brandhub' ? '0 4px 16px rgba(0, 0, 0, 0.15)' : 'none'
+            }}
+          >
+            <FaServer size={14} />
+            <span>BrandHub</span>
+            <span style={{
+              fontSize: '11px',
+              fontFamily: 'JetBrains Mono, monospace',
+              padding: '2px 8px',
+              borderRadius: '9999px',
+              backgroundColor: activeFlagshipTab === 'brandhub' ? '#6366f1' : '#ede9fe',
+              color: activeFlagshipTab === 'brandhub' ? '#ffffff' : '#6d28d9',
+              fontWeight: 600,
+              textTransform: 'uppercase'
+            }}>
+              {isEn ? "Team Capstone" : "Đồ Án Trọng Điểm Team"}
+            </span>
+          </button>
+        </div>
+
+        {/* 2A. BIENSOVIP SHOWCASE */}
+        {activeFlagshipTab === 'biensovip' && (
+          <motion.div 
+            key="biensovip-showcase"
+            className="flagship-showcase"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.35 }}
+          >
+            <div className="showcase-header-bar">
+              <div className="dots">
+                <span />
+                <span />
+                <span />
               </div>
-              <div className="thumbnails-row">
-                {BIENSOVIP_SHOTS.map((shot, idx) => (
-                  <motion.img 
-                    key={idx}
-                    src={shot.url}
-                    alt={shot.titleVi}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.96 }}
+              <div style={{ color: 'var(--color-ink-soft)' }}>
+                https://biensovip.com
+              </div>
+              <div className="status-pill">
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1ea64a', display: 'inline-block' }} />
+                {isEn ? "PRODUCTION LIVE" : "ĐANG HOẠT ĐỘNG"}
+              </div>
+            </div>
+
+            <div className="showcase-content-grid">
+              {/* Visuals column */}
+              <div className="showcase-visuals">
+                <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px' }}>
+                  <AnimatePresence mode="wait">
+                    <motion.img 
+                      key={activeShotIndex}
+                      src={BIENSOVIP_SHOTS[activeShotIndex].url} 
+                      alt={BIENSOVIP_SHOTS[activeShotIndex].titleVi}
+                      className="main-preview-img"
+                      onClick={() => setLightboxImg(BIENSOVIP_SHOTS[activeShotIndex].url)}
+                      title="Click to view full size"
+                      initial={{ opacity: 0.35, scale: 0.98 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0.35 }}
+                      transition={{ duration: 0.25 }}
+                    />
+                  </AnimatePresence>
+                </div>
+                <div className="thumbnails-row">
+                  {BIENSOVIP_SHOTS.map((shot, idx) => (
+                    <motion.img 
+                      key={idx}
+                      src={shot.url}
+                      alt={shot.titleVi}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.96 }}
+                      style={{
+                        borderColor: activeShotIndex === idx ? 'var(--color-ink)' : 'var(--color-hairline)',
+                        opacity: activeShotIndex === idx ? 1 : 0.65
+                      }}
+                      onClick={() => setActiveShotIndex(idx)}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Details column */}
+              <div className="showcase-details">
+                <span className="client-tag">{isEn ? "DA NANG ENTERPRISE CLIENT" : "KHÁCH HÀNG DOANH NGHIỆP ĐÀ NẴNG"}</span>
+                <h3>Biensovip.com — Sàn Giao Dịch Biển Số Đẹp</h3>
+                <p className="client-story">
+                  {isEn 
+                    ? "The client required a lightning-fast, high-trust marketplace to display thousands of high-value license plates with zero gateway fees and automatic deposit tracking."
+                    : "Khách hàng yêu cầu một sàn giao dịch tốc độ cao, hiển thị hàng chục nghìn biển số giá trị lớn, triệt tiêu 100% phí cổng thanh toán và quản lý đặt cọc tự động qua VietQR."}
+                </p>
+
+                <ul className="specs-list">
+                  <li>
+                    <FaSearch />
+                    <div><strong>{isEn ? "Sub-8ms Multi-filter" : "Lọc đa chiều dưới 8ms"}:</strong> {isEn ? "Composite indexing for thousands of plates" : "Tìm kiếm theo ngũ quý, sảnh tiến, dải giá tức thời (Postgres GIN Index)"}</div>
+                  </li>
+                  <li>
+                    <FaQrcode />
+                    <div><strong>{isEn ? "VietQR Auto Deposit & Lock" : "Cổng cọc VietQR & Khóa độc bản"}:</strong> {isEn ? "0% transaction fee, auto Webhook <0.5s & Redis 15-min lock" : "Khớp lệnh Webhook <0.5s, 0đ phí cổng trung gian, khóa bi quan chống bán trùng"}</div>
+                  </li>
+                  <li>
+                    <FaEnvelope />
+                    <div><strong>{isEn ? "Drag-Drop Email Builder (UC27)" : "Soạn Email Kéo-Thả (UC27)"}:</strong> {isEn ? "Visual builder + corporate Gmail SMTP, zero spam & 0đ cost" : "Dựng email marketing trực quan, liên kết Gmail doanh nghiệp 0đ chi phí"}</div>
+                  </li>
+                  <li>
+                    <FaBell />
+                    <div><strong>{isEn ? "Auto Alerts & Broadcast (UC17/24)" : "Thông Báo Biển Mới & Broadcast"}:</strong> {isEn ? "Instant push when matching plates arrive; 1-click sales broadcast" : "Tự động gửi mail/Zalo khi có biển đúng sở thích; phát thông báo xả kho 1-click"}</div>
+                  </li>
+                  <li>
+                    <FaShareAlt />
+                    <div><strong>{isEn ? "Social Video & AI Mockups (UC22/42)" : "Video TikTok/Reels & Mockup AI"}:</strong> {isEn ? "Embed viral short videos + 1-click batch social mockups" : "Nhúng video thực tế xe biển đẹp + 1-click sinh hàng nghìn ảnh chuẩn Facebook/TikTok"}</div>
+                  </li>
+                  <li>
+                    <FaBalanceScale />
+                    <div><strong>{isEn ? "Feng Shui & Plate Comparison (UC16/23)" : "Phong Thủy Hợp Mệnh & So Sánh"}:</strong> {isEn ? "MeaningAnalyzer engine + side-by-side 3-plate comparison" : "Giải mã ngũ hành theo ngày sinh + so sánh song song 3 biển tăng 35% tỷ lệ chốt"}</div>
+                  </li>
+                  <li>
+                    <FaUsers />
+                    <div><strong>{isEn ? "Affiliate Partner Portal (UC25/34)" : "Cổng CTV & Hoa Hồng Tự Động"}:</strong> {isEn ? "Unique UTM links, transparent tiered commission & auto payout" : "Cấp mã UTM riêng, tự động tính hoa hồng ví điện tử, quản lý 14 CTV thực tế"}</div>
+                  </li>
+                </ul>
+
+                <div className="showcase-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
+                  <a 
+                    href="https://biensovip.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn-view-live"
+                  >
+                    {isEn ? "Explore Live Marketplace" : "Trải Nghiệm Sàn Thực Tế"} <FaExternalLinkAlt size={12} />
+                  </a>
+
+                  <Link
+                    to="/projects/26"
                     style={{
-                      borderColor: activeShotIndex === idx ? 'var(--color-ink)' : 'var(--color-hairline)',
-                      opacity: activeShotIndex === idx ? 1 : 0.65
+                      display: 'inline-flex', alignItems: 'center', gap: '8px',
+                      padding: '10px 18px', borderRadius: '50px',
+                      backgroundColor: 'var(--color-canvas)', color: 'var(--color-ink)',
+                      fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
+                      border: '1px solid var(--color-hairline)',
+                      transition: 'all 0.15s ease',
                     }}
-                    onClick={() => setActiveShotIndex(idx)}
-                  />
-                ))}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; e.currentTarget.style.backgroundColor = 'var(--color-canvas)'; }}
+                  >
+                    <span>{isEn ? "Technical Case Study" : "Case Study Kỹ Thuật"}</span>
+                    <FaArrowRight size={11} />
+                  </Link>
+
+                  <Link
+                    to="/blog/biensovip-postgresql-vs-mongodb-multi-filter"
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '8px',
+                      padding: '10px 18px', borderRadius: '50px',
+                      backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)',
+                      fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
+                      border: '1px solid var(--color-hairline)',
+                      transition: 'all 0.15s ease',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; }}
+                  >
+                    <span>{isEn ? "PostgreSQL 8ms Deep-Dive" : "Bài Viết CSDL PostgreSQL 8ms"}</span>
+                    <FaArrowRight size={11} />
+                  </Link>
+
+                  <Link
+                    to="/achievements?tab=education&milestone=1"
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '8px',
+                      padding: '10px 18px', borderRadius: '50px',
+                      backgroundColor: 'var(--color-ink)', color: 'var(--color-canvas)',
+                      fontSize: '13.5px', fontWeight: '600', textDecoration: 'none',
+                      border: '1px solid var(--color-ink)',
+                      transition: 'all 0.15s ease',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
+                    onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+                  >
+                    <FaGraduationCap size={13} />
+                    <span>{isEn ? "Tech Lead Milestone Dossier" : "Hồ Sơ Năng Lực Tech Lead"}</span>
+                    <FaArrowRight size={11} />
+                  </Link>
+
+                  <span className="metric-badge">
+                    <FaBolt size={10} style={{ marginRight: '5px' }} />
+                    Lighthouse: 98/100
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* 2B. BRANDHUB SHOWCASE */}
+        {activeFlagshipTab === 'brandhub' && (
+          <motion.div 
+            key="brandhub-showcase"
+            className="flagship-showcase"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.35 }}
+          >
+            <div className="showcase-header-bar">
+              <div className="dots">
+                <span />
+                <span />
+                <span />
+              </div>
+              <div style={{ color: 'var(--color-ink-soft)' }}>
+                https://github.com/BrandHubOrganization
+              </div>
+              <div className="status-pill" style={{ color: '#6366f1' }}>
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#6366f1', display: 'inline-block' }} />
+                {isEn ? "ENTERPRISE CAPSTONE • MICROSERVICES" : "ĐỒ ÁN CHỦ LỰC • MICROSERVICES"}
               </div>
             </div>
 
-            {/* Details column */}
-            <div className="showcase-details">
-              <span className="client-tag">{isEn ? "DA NANG ENTERPRISE CLIENT" : "KHÁCH HÀNG DOANH NGHIỆP ĐÀ NẴNG"}</span>
-              <h3>Biensovip.com — Sàn Giao Dịch Biển Số Đẹp</h3>
-              <p className="client-story">
-                {isEn 
-                  ? "The client required a lightning-fast, high-trust marketplace to display thousands of high-value license plates with zero gateway fees and automatic deposit tracking."
-                  : "Khách hàng yêu cầu một sàn giao dịch tốc độ cao, hiển thị hàng chục nghìn biển số giá trị lớn, triệt tiêu 100% phí cổng thanh toán và quản lý đặt cọc tự động qua VietQR."}
-              </p>
+            <div className="showcase-content-grid">
+              {/* Visuals column */}
+              <div className="showcase-visuals">
+                <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px' }}>
+                  <AnimatePresence mode="wait">
+                    <motion.img 
+                      key={activeBrandhubShotIndex}
+                      src={BRANDHUB_SHOTS[activeBrandhubShotIndex].url} 
+                      alt={BRANDHUB_SHOTS[activeBrandhubShotIndex].titleVi}
+                      className="main-preview-img"
+                      onClick={() => setLightboxImg(BRANDHUB_SHOTS[activeBrandhubShotIndex].url)}
+                      title="Click to view full size"
+                      initial={{ opacity: 0.35, scale: 0.98 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0.35 }}
+                      transition={{ duration: 0.25 }}
+                    />
+                  </AnimatePresence>
+                </div>
+                <div className="thumbnails-row">
+                  {BRANDHUB_SHOTS.map((shot, idx) => (
+                    <motion.img 
+                      key={idx}
+                      src={shot.url}
+                      alt={shot.titleVi}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.96 }}
+                      style={{
+                        borderColor: activeBrandhubShotIndex === idx ? '#6366f1' : 'var(--color-hairline)',
+                        opacity: activeBrandhubShotIndex === idx ? 1 : 0.65
+                      }}
+                      onClick={() => setActiveBrandhubShotIndex(idx)}
+                    />
+                  ))}
+                </div>
+              </div>
 
-              <ul className="specs-list">
-                <li>
-                  <FaSearch />
-                  <div><strong>{isEn ? "Sub-8ms Multi-filter" : "Lọc đa chiều dưới 8ms"}:</strong> {isEn ? "Composite indexing for thousands of plates" : "Tìm kiếm theo ngũ quý, sảnh tiến, dải giá tức thời (Postgres GIN Index)"}</div>
-                </li>
-                <li>
-                  <FaQrcode />
-                  <div><strong>{isEn ? "VietQR Auto Deposit & Lock" : "Cổng cọc VietQR & Khóa độc bản"}:</strong> {isEn ? "0% transaction fee, auto Webhook <0.5s & Redis 15-min lock" : "Khớp lệnh Webhook <0.5s, 0đ phí cổng trung gian, khóa bi quan chống bán trùng"}</div>
-                </li>
-                <li>
-                  <FaEnvelope />
-                  <div><strong>{isEn ? "Drag-Drop Email Builder (UC27)" : "Soạn Email Kéo-Thả (UC27)"}:</strong> {isEn ? "Visual builder + corporate Gmail SMTP, zero spam & 0đ cost" : "Dựng email marketing trực quan, liên kết Gmail doanh nghiệp 0đ chi phí"}</div>
-                </li>
-                <li>
-                  <FaBell />
-                  <div><strong>{isEn ? "Auto Alerts & Broadcast (UC17/24)" : "Thông Báo Biển Mới & Broadcast"}:</strong> {isEn ? "Instant push when matching plates arrive; 1-click sales broadcast" : "Tự động gửi mail/Zalo khi có biển đúng sở thích; phát thông báo xả kho 1-click"}</div>
-                </li>
-                <li>
-                  <FaShareAlt />
-                  <div><strong>{isEn ? "Social Video & AI Mockups (UC22/42)" : "Video TikTok/Reels & Mockup AI"}:</strong> {isEn ? "Embed viral short videos + 1-click batch social mockups" : "Nhúng video thực tế xe biển đẹp + 1-click sinh hàng nghìn ảnh chuẩn Facebook/TikTok"}</div>
-                </li>
-                <li>
-                  <FaBalanceScale />
-                  <div><strong>{isEn ? "Feng Shui & Plate Comparison (UC16/23)" : "Phong Thủy Hợp Mệnh & So Sánh"}:</strong> {isEn ? "MeaningAnalyzer engine + side-by-side 3-plate comparison" : "Giải mã ngũ hành theo ngày sinh + so sánh song song 3 biển tăng 35% tỷ lệ chốt"}</div>
-                </li>
-                <li>
-                  <FaUsers />
-                  <div><strong>{isEn ? "Affiliate Partner Portal (UC25/34)" : "Cổng CTV & Hoa Hồng Tự Động"}:</strong> {isEn ? "Unique UTM links, transparent tiered commission & auto payout" : "Cấp mã UTM riêng, tự động tính hoa hồng ví điện tử, quản lý 14 CTV thực tế"}</div>
-                </li>
-              </ul>
+              {/* Details column */}
+              <div className="showcase-details">
+                <span className="client-tag" style={{ background: '#ede9fe', color: '#6d28d9' }}>
+                  {isEn ? "CAPSTONE ENTERPRISE • 5-ENGINEER TEAM" : "ĐỒ ÁN TỐT NGHIỆP TRỌNG ĐIỂM • TEAM 5 KỸ SƯ FPT"}
+                </span>
+                <h3>BrandHub — Omnichannel Social Media & AI Intelligence</h3>
+                <p className="client-story">
+                  {isEn 
+                    ? "The flagship graduation capstone project developed end-to-end by our 5-engineer team. Engineered with enterprise-grade microservices to automate omnichannel content distribution across Facebook, TikTok, Instagram, Threads, and Zalo with AI-assisted copywriting and fault-tolerant message queuing."
+                    : "Đồ án tốt nghiệp trọng điểm được chính Team 5 Kỹ sư thiết kế và phát triển toàn diện. Hệ thống kiến trúc Microservices chuẩn doanh nghiệp, giải quyết bài toán tự động hóa quản trị nội dung đa kênh (Facebook, TikTok, Instagram, Threads, Zalo) với trợ lý AI và hạ tầng hàng đợi RabbitMQ bất tử."}
+                </p>
 
-              <div className="showcase-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
-                <a 
-                  href="https://biensovip.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn-view-live"
-                >
-                  {isEn ? "Explore Live Marketplace" : "Trải Nghiệm Sàn Thực Tế"} <FaExternalLinkAlt size={12} />
-                </a>
+                <ul className="specs-list">
+                  <li>
+                    <FaServer />
+                    <div><strong>{isEn ? "Enterprise Microservices" : "Kiến trúc Microservices Spring Boot 3"}:</strong> {isEn ? "Spring Cloud Gateway (WebFlux, JWT, Redis) + Java 21 domain services" : "API Gateway (WebFlux, JWT, Redis) + Spring Boot 3.3.5 (Java 21) độc lập"}</div>
+                  </li>
+                  <li>
+                    <FaCogs />
+                    <div><strong>{isEn ? "Resilient RabbitMQ & DLQ" : "Hàng đợi RabbitMQ & Dead Letter Queue (DLQ)"}:</strong> {isEn ? "Exponential backoff retry, strict idempotency, 0% lost publishing tasks" : "Cơ chế retry lũy thừa, đảm bảo tính Idempotency và không bao giờ mất tin nhắn"}</div>
+                  </li>
+                  <li>
+                    <FaRobot />
+                    <div><strong>{isEn ? "AI Content Generation & RAG" : "Trợ lý AI Sinh nội dung & RAG Pipeline"}:</strong> {isEn ? "Python FastAPI + DeepSeek AI for context-aware multi-format copywriting" : "Tích hợp Python FastAPI + DeepSeek LLM tự động hóa viết bài chuẩn SEO đa kênh"}</div>
+                  </li>
+                  <li>
+                    <FaSyncAlt />
+                    <div><strong>{isEn ? "Omnichannel Multi-platform Publisher" : "Xuất bản Đa kênh Tự động"}:</strong> {isEn ? "Schedule once, auto broadcast to Facebook, TikTok, Instagram, Threads, Zalo" : "Lên lịch 1 lần, tự động xuất bản đồng thời lên Facebook, TikTok, Instagram, Threads, Zalo"}</div>
+                  </li>
+                  <li>
+                    <FaShieldAlt />
+                    <div><strong>{isEn ? "Multi-tenant Access Control" : "Bảo mật Multi-tenant & Phân quyền tổ chức"}:</strong> {isEn ? "Strict isolation across Agency, Enterprise, Brand, and Content Collaborator" : "Phân tách dữ liệu an toàn giữa Agency, Nhãn hàng, Quản lý và CTV nội dung"}</div>
+                  </li>
+                  <li>
+                    <FaLaptopCode />
+                    <div><strong>{isEn ? "React 18 + TS + Vite & Mobile App" : "Giao diện React 18 TS & App Di động Expo"}:</strong> {isEn ? "High-performance responsive dashboard with companion React Native Expo app" : "Dashboard tốc độ cao kèm ứng dụng di động React Native Expo đồng bộ thời gian thực"}</div>
+                  </li>
+                  <li>
+                    <FaCheckCircle />
+                    <div><strong>{isEn ? "FPT Software Engineering Rigor" : "Chuẩn Mực Kỹ Thuật FPT Software"}:</strong> {isEn ? "Docker Compose cluster, automated CI/CD pipelines, Prometheus & Grafana alerting" : "Cụm Docker Compose, CI/CD tự động, cảnh báo Prometheus & Grafana Telegram tức thời"}</div>
+                  </li>
+                </ul>
 
-                <Link
-                  to="/projects/26"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: '8px',
-                    padding: '10px 18px', borderRadius: '50px',
-                    backgroundColor: 'var(--color-canvas)', color: 'var(--color-ink)',
-                    fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
-                    border: '1px solid var(--color-hairline)',
-                    transition: 'all 0.15s ease',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; e.currentTarget.style.backgroundColor = 'var(--color-canvas)'; }}
-                >
-                  <span>{isEn ? "Technical Case Study" : "Case Study Kỹ Thuật"}</span>
-                  <FaArrowRight size={11} />
-                </Link>
+                <div className="showcase-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
+                  <Link
+                    to="/projects/14"
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '8px',
+                      padding: '10px 20px', borderRadius: '50px',
+                      backgroundColor: 'var(--color-ink)', color: 'var(--color-canvas)',
+                      fontSize: '13.5px', fontWeight: '600', textDecoration: 'none',
+                      transition: 'all 0.15s ease',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.opacity = '0.88'; }}
+                    onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+                  >
+                    <span>{isEn ? "Explore Project Showcase" : "Xem Showcase Dự Án"}</span>
+                    <FaArrowRight size={11} />
+                  </Link>
 
-                <Link
-                  to="/blog/biensovip-postgresql-vs-mongodb-multi-filter"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: '8px',
-                    padding: '10px 18px', borderRadius: '50px',
-                    backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)',
-                    fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
-                    border: '1px solid var(--color-hairline)',
-                    transition: 'all 0.15s ease',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; }}
-                >
-                  <span>{isEn ? "PostgreSQL 8ms Deep-Dive" : "Bài Viết CSDL PostgreSQL 8ms"}</span>
-                  <FaArrowRight size={11} />
-                </Link>
+                  <Link
+                    to="/blog/brandhub-resilient-rabbitmq-dead-letter-retry-architecture"
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '8px',
+                      padding: '10px 18px', borderRadius: '50px',
+                      backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)',
+                      fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
+                      border: '1px solid var(--color-hairline)',
+                      transition: 'all 0.15s ease',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; }}
+                  >
+                    <span>{isEn ? "RabbitMQ DLQ Deep-Dive" : "Bài Viết Kiến Trúc RabbitMQ"}</span>
+                    <FaArrowRight size={11} />
+                  </Link>
 
-                <Link
-                  to="/achievements?tab=education&milestone=1"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: '8px',
-                    padding: '10px 18px', borderRadius: '50px',
-                    backgroundColor: 'var(--color-ink)', color: 'var(--color-canvas)',
-                    fontSize: '13.5px', fontWeight: '600', textDecoration: 'none',
-                    border: '1px solid var(--color-ink)',
-                    transition: 'all 0.15s ease',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
-                  onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
-                >
-                  <FaGraduationCap size={13} />
-                  <span>{isEn ? "Tech Lead Milestone Dossier" : "Hồ Sơ Năng Lực Tech Lead"}</span>
-                  <FaArrowRight size={11} />
-                </Link>
+                  <a 
+                    href="https://github.com/BrandHubOrganization" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '8px',
+                      padding: '10px 18px', borderRadius: '50px',
+                      backgroundColor: 'var(--color-canvas)', color: 'var(--color-ink)',
+                      fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
+                      border: '1px solid var(--color-hairline)',
+                      transition: 'all 0.15s ease',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; e.currentTarget.style.backgroundColor = 'var(--color-canvas)'; }}
+                  >
+                    <span>{isEn ? "GitHub Organization" : "Kho Mã Nguồn GitHub"}</span>
+                    <FaExternalLinkAlt size={11} />
+                  </a>
 
-                <span className="metric-badge">⚡ Lighthouse: 98/100</span>
+                  <Link
+                    to="/achievements?tab=education&milestone=1"
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '8px',
+                      padding: '10px 18px', borderRadius: '50px',
+                      backgroundColor: '#ede9fe', color: '#6d28d9',
+                      fontSize: '13.5px', fontWeight: '600', textDecoration: 'none',
+                      border: '1px solid #ddd6fe',
+                      transition: 'all 0.15s ease',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#ddd6fe'; }}
+                    onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#ede9fe'; }}
+                  >
+                    <FaGraduationCap size={13} />
+                    <span>{isEn ? "Team Lead Dossier" : "Hồ Sơ Năng Lực Tech Lead"}</span>
+                    <FaArrowRight size={11} />
+                  </Link>
+
+                  <span className="metric-badge" style={{ color: '#6d28d9', borderColor: '#ddd6fe' }}>
+                    <FaServer size={10} style={{ marginRight: '5px' }} />
+                    Architecture: 5 Microservices
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        )}
       </section>
 
-      {/* 3. SAAS AUTOMATION DEEP DIVE */}
-      <section className="section-container">
+            {/* 3. SAAS AUTOMATION DEEP DIVE — MINIMALIST TASTE-SKILL COMPLIANT */}
+      <section id="saas" className="section-container saas-showcase-section" style={{ scrollMarginTop: '170px' }}>
         <motion.div 
           className="section-header"
           variants={fadeInUp}
@@ -547,118 +1291,137 @@ const Services = () => {
               ? "We don't just build static showcase sites. We engineer lean SaaS automation systems that eliminate manual repetitive tasks, accelerate lead conversions, and scale your revenue effortlessly."
               : "Chúng tôi không chỉ dựng website tĩnh đơn thuần. Trọng tâm cốt lõi là xây dựng các giải pháp Tự động hóa SaaS (SaaS Automation) tinh gọn, giải phóng 80% thời gian trực chốt của chủ shop và nhân đôi tỉ lệ chuyển đổi."}
           </p>
+
+          {/* MINIMALIST KPI STRIP */}
+          <div className="saas-kpi-strip">
+            <div className="kpi-box">
+              <span className="kpi-num">80%</span>
+              <span className="kpi-txt">{isEn ? "Manual Work Eliminated" : "Giải phóng việc thủ công"}</span>
+            </div>
+            <div className="kpi-sep"></div>
+            <div className="kpi-box">
+              <span className="kpi-num">&lt; 0.5s</span>
+              <span className="kpi-txt">{isEn ? "VietQR Match Latency" : "Khớp cọc VietQR tức thời"}</span>
+            </div>
+            <div className="kpi-sep"></div>
+            <div className="kpi-box">
+              <span className="kpi-num">0 ₫</span>
+              <span className="kpi-txt">{isEn ? "Gateway Transaction Fee" : "Phí cổng trung gian"}</span>
+            </div>
+            <div className="kpi-sep"></div>
+            <div className="kpi-box">
+              <span className="kpi-num">24/7</span>
+              <span className="kpi-txt">{isEn ? "Autonomous Night Closing" : "Chốt đơn tự động xuyên đêm"}</span>
+            </div>
+          </div>
+
+          {/* MINIMALIST CATEGORY FILTER TABS */}
+          <div className="saas-category-tabs">
+            <button 
+              className={`cat-tab ${activeSaasCategory === 'all' ? 'active' : ''}`}
+              onClick={() => setActiveSaasCategory('all')}
+            >
+              {isEn ? "All Modules (10)" : "Tất Cả Module (10)"}
+            </button>
+            <button 
+              className={`cat-tab ${activeSaasCategory === 'sales' ? 'active' : ''}`}
+              onClick={() => setActiveSaasCategory('sales')}
+            >
+              {isEn ? "Sales & Cashflow" : "Dòng Tiền & Chốt Cọc"}
+            </button>
+            <button 
+              className={`cat-tab ${activeSaasCategory === 'ai' ? 'active' : ''}`}
+              onClick={() => setActiveSaasCategory('ai')}
+            >
+              {isEn ? "AI & Automation" : "AI & Tự Động Hóa"}
+            </button>
+            <button 
+              className={`cat-tab ${activeSaasCategory === 'retention' ? 'active' : ''}`}
+              onClick={() => setActiveSaasCategory('retention')}
+            >
+              {isEn ? "Retention & Operations" : "Tương Tác & Vận Hành"}
+            </button>
+          </div>
         </motion.div>
 
+        {/* REFINED EDITORIAL SHOWCASE GRID */}
         <motion.div 
           className="saas-features-grid"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
+          key={activeSaasCategory}
         >
-          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
-              <FaCogs size={20} />
-            </div>
-            <h3>{isEn ? "1. Automated Lead & Funnel Routing" : "1. Tự Động Hóa Phễu Thu Thập & Phân Luồng Lead"}</h3>
-            <p>
-              {isEn
-                ? "Every customer action (general inquiry, deposit request, instant purchase) is automatically classified and pushed instantly to your Telegram/Zalo bot with zero delay."
-                : "Mỗi hành động của khách (Hỏi tư vấn, Đặt cọc giữ chỗ, Mua đứt tức thì) đều được hệ thống tự động gắn tag phân loại, gửi thông báo tức thời về Zalo / Telegram của chủ shop để chốt nóng trong 30 giây."}
-            </p>
-            <div className="feature-chip">{isEn ? "Instant Telegram/Zalo Webhook" : "Bắn Webhook Zalo/Telegram Tức Thời"}</div>
-          </motion.div>
+          {SAAS_MODULES
+            .filter(item => activeSaasCategory === 'all' || item.category === activeSaasCategory)
+            .map((feat) => {
+              return (
+                <motion.div 
+                  key={feat.id}
+                  variants={cardPop} 
+                  whileHover={{ y: -3, transition: { duration: 0.18 } }} 
+                  className="saas-feature-card"
+                  onClick={() => setSelectedSaasFeature(feat)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={isEn ? `View details for ${feat.titleEn}` : `Xem chi tiết tính năng ${feat.titleVi}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setSelectedSaasFeature(feat);
+                    }
+                  }}
+                >
+                  {/* Card Top Row: Monochrome Icon + Number + Subtle Metric Pill */}
+                  <div className="card-top-row">
+                    <div className="feature-icon-box">
+                      {getSaasIcon(feat.iconName)}
+                    </div>
+                    <div className="card-top-meta">
+                      <span className="card-number">{feat.num}</span>
+                      <span className="card-metric-pill">
+                        {isEn ? feat.metricEn : feat.metricVi}
+                      </span>
+                    </div>
+                  </div>
 
-          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
-              <FaQrcode size={20} />
-            </div>
-            <h3>{isEn ? "2. Zero-Fee Dynamic VietQR Reconciliation" : "2. Tự Động Hóa Thanh Toán & Đối Soát VietQR 0đ"}</h3>
-            <p>
-              {isEn
-                ? "Dynamic QR generation embedded with exact order codes and amounts. Bank webhooks auto-verify settlements instantly without manual bank statement tracking or payment gateway cuts."
-                : "Hệ thống tự động sinh mã VietQR động chứa chính xác số tiền cọc và mã đơn hàng. Webhook ngân hàng tự động bắt log xác nhận thành công 100%, chủ shop không cần ngồi rà sao kê thủ công."}
-            </p>
-            <div className="feature-chip">{isEn ? "0% Gateway Fee • Real-time Webhook" : "0% Phí Cổng • Xác Nhận Thời Gian Thực"}</div>
-          </motion.div>
+                  {/* Card Visual Preview Thumbnail */}
+                  <div className="card-preview-thumb">
+                    <img 
+                      src={feat.image} 
+                      alt={isEn ? feat.titleEn : feat.titleVi}
+                      loading="lazy" 
+                    />
+                    <div className="thumb-hover-overlay">
+                      <FaSearch size={11} />
+                      <span>{isEn ? "Preview..." : "Xem demo..."}</span>
+                    </div>
+                  </div>
 
-          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
-              <FaSyncAlt size={20} />
-            </div>
-            <h3>{isEn ? "3. Real-time Inventory Locking & Sync" : "3. Tự Động Hóa Quản Lý Kho & Khóa Trạng Thái Hàng"}</h3>
-            <p>
-              {isEn
-                ? "As soon as a deposit is confirmed, product inventory locks instantly across all active browsers and devices, preventing double-booking and stock conflicts."
-                : "Ngay khi lệnh cọc hoặc đơn hàng được xác nhận, hệ thống tự động khóa sản phẩm, chuyển trạng thái 'Đã cọc / Đang giao dịch' trên toàn bộ thiết bị khách hàng khác đang xem."}
-            </p>
-            <div className="feature-chip">{isEn ? "Zero Double-Booking Conflict" : "Triệt Tiêu Trùng Đơn & Lỗi Kho"}</div>
-          </motion.div>
+                  {/* Title */}
+                  <h3 className="card-title">
+                    {isEn ? feat.titleEn : feat.titleVi}
+                  </h3>
 
-          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
-              <FaRobot size={20} />
-            </div>
-            <h3>{isEn ? "4. 24/7 AI-Powered Advisory & Smart Recommendation" : "4. Tự Động Hóa CSKH & Đề Xuất Bằng AI (DeepSeek)"}</h3>
-            <p>
-              {isEn
-                ? "Trained on your private catalog and pricing logic. The AI assistant consults customers, computes customized criteria (numerology, sizing, budget), and guides them to checkout."
-                : "Trợ lý AI được huấn luyện theo danh mục sản phẩm của shop. Tự động tính toán nhu cầu chuyên sâu (như phân tích ngũ hành, phong thủy, so sánh giá) và hướng dẫn khách chốt đơn 24/7 kể cả nửa đêm."}
-            </p>
-            <div className="feature-chip">{isEn ? "RAG-Trained DeepSeek Model" : "AI Hiểu Sâu Dữ Liệu Shop"}</div>
-          </motion.div>
+                  {/* Simplified Capability Description with ... */}
+                  <p className="card-desc">
+                    {isEn ? feat.descEn : feat.descVi}
+                  </p>
 
-          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
-              <FaUserTie size={20} />
-            </div>
-            <h3>{isEn ? "5. Affiliate & Broker Portal (Transparent Commission)" : "5. Cổng Cộng Tác Viên & Quản Lý Hoa Hồng Tự Động (UC25, UC34)"}</h3>
-            <p>
-              {isEn
-                ? "Eliminate messy Excel tracking. Issue unique UTM referral links to brokers, auto-attribute deposit orders, provide real-time commission dashboards, and streamline withdrawal payouts."
-                : "Đập tan nỗi đau quản lý môi giới bằng file Excel thủ công dễ tranh chấp. Hệ thống tự cấp link UTM riêng cho từng CTV, ghi nhận hoa hồng theo từng đơn cọc và mở cổng rút tiền tự động."}
-            </p>
-            <div className="feature-chip">{isEn ? "UTM Tracking • Auto Payout Portal" : "Tracking UTM • Bảng Kê Minh Bạch"}</div>
-          </motion.div>
-
-          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
-              <FaLaptopCode size={20} />
-            </div>
-            <h3>{isEn ? "6. Batch Social Media Mockup Image Generator" : "6. Công Cụ Tự Động Sinh Ảnh Mockup Hàng Loạt (UC42)"}</h3>
-            <p>
-              {isEn
-                ? "Cut tens of millions in design agency fees. With a single click, batch-render thousands of polished social media banner images (FB, Zalo, TikTok) branded with logos, prices, and QR codes."
-                : "Tiết kiệm hàng chục triệu tiền thuê Designer. Tiến trình 1-click tự động sinh hàng loạt ảnh sản phẩm chuẩn tỉ lệ mạng xã hội kèm khung viền, logo thương hiệu, giá bán và mã QR tư vấn tức thì."}
-            </p>
-            <div className="feature-chip">{isEn ? "1-Click Multi-Ratio Canvas" : "1 Click Xuất Hàng Nghìn Ảnh"}</div>
-          </motion.div>
-
-          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
-              <FaShieldAlt size={20} />
-            </div>
-            <h3>{isEn ? "7. Immutable Audit Trail & RBAC VIP Data Security" : "7. Hệ Thống Audit Log Bất Biến & Bảo Mật Dữ Liệu VIP (UC31)"}</h3>
-            <p>
-              {isEn
-                ? "Prevent internal data leaks and price tampering. Every admin action (who exported phone numbers, edited prices, or changed order status) is logged immutably with IP and timestamp."
-                : "Triệt tiêu nguy cơ nhân viên nội bộ tuồn dữ liệu khách VIP cho đối thủ hoặc tự ý sửa giá. Mọi hành vi quản trị đều được ghi nhật ký bất biến kèm IP, phân quyền RBAC đa cấp độ nghiêm ngặt."}
-            </p>
-            <div className="feature-chip">{isEn ? "100% Immutable Audit Trail" : "Ghi Vết 100% Hành Vi Quản Trị"}</div>
-          </motion.div>
-
-          <motion.div variants={cardPop} whileHover={{ y: -6, transition: { duration: 0.2 } }} className="saas-feature-card">
-            <div className="feature-icon-box" style={{ background: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)' }}>
-              <FaStar size={20} />
-            </div>
-            <h3>{isEn ? "8. Interactive Engagement Tools & Social Proof Boost" : "8. Công Cụ Tương Tác Giữ Chân & Social Proof Kích Cọc (UC23, UC38)"}</h3>
-            <p>
-              {isEn
-                ? "Cut high bounce rates on expensive ads. Interactive tools (numerology, compatibility) 3x on-site engagement time, while live visitor counters and recent order popups trigger instant buyer FOMO."
-                : "Giải quyết bài toán chi phí chạy quảng cáo đắt đỏ nhưng khách thoát ngay. Công cụ tra cứu phong thủy/hợp mệnh tăng thời gian on-site gấp 3 lần, kết hợp bộ đếm người đang xem kích thích chốt cọc."}
-            </p>
-            <div className="feature-chip">{isEn ? "3x Time-on-Site • Real-time FOMO" : "Tăng Gấp 3 Lần On-Site Time"}</div>
-          </motion.div>
+                  {/* Footer: Quiet Tech Stack Chip & Quick Link */}
+                  <div className="card-footer-row">
+                    <div className="feature-chip">
+                      <FaCode size={11} style={{ marginRight: '5px', opacity: 0.6 }} />
+                      <span>{isEn ? feat.techEn : feat.techVi}</span>
+                    </div>
+                    <span className="card-explore-link">
+                      {isEn ? "Details..." : "Chi tiết..."} <FaArrowRight size={10} />
+                    </span>
+                  </div>
+                </motion.div>
+              );
+            })}
         </motion.div>
       </section>
 
@@ -784,7 +1547,10 @@ const Services = () => {
               <span className="live-pulse" />
               <span>{isEn ? "LIVE METRICS: BIENSOVIP.COM/ADMIN/TONG-QUAN (RECENT 30 DAYS)" : "SỐ LIỆU ĐO LƯỜNG THỰC TẾ: BẢNG QUẢN TRỊ BIENSOVIP.COM (30 NGÀY GẦN NHẤT)"}</span>
             </div>
-            <span className="audit-status">⚡ {isEn ? "Audited via Live Admin API" : "Dữ liệu đối soát hệ thống thật"}</span>
+            <span className="audit-status">
+              <FaShieldAlt size={11} style={{ marginRight: '6px' }} />
+              {isEn ? "Audited via Live Admin API" : "Dữ liệu đối soát hệ thống thật"}
+            </span>
           </div>
 
           <motion.div 
@@ -810,7 +1576,10 @@ const Services = () => {
             <motion.div variants={cardPop} className="kpi-card">
               <div className="kpi-top">
                 <span className="kpi-num">+300%</span>
-                <span className="kpi-trend positive">🚀 Tăng Trưởng</span>
+                <span className="kpi-trend positive">
+                  <FaChartLine size={10} style={{ marginRight: '4px' }} />
+                  {isEn ? "Growth" : "Tăng Trưởng"}
+                </span>
               </div>
               <div className="kpi-label">{isEn ? "Inquiry & Booking Growth" : "Tăng Trưởng Yêu Cầu & Cọc"}</div>
               <div className="kpi-sub">
@@ -847,46 +1616,21 @@ const Services = () => {
             </motion.div>
           </motion.div>
 
-          {/* VISUAL FUNNEL FLOW BREAKDOWN */}
-          <div className="funnel-breakdown-box">
-            <div className="funnel-title">
-              <FaChartLine /> {isEn ? "Verified Sales Funnel Progression (Actual 30-Day Cycle)" : "Hành Trình Phễu Chuyển Đổi Thực Tế (Chu Kỳ Vận Hành 30 Ngày)"}
+          {/* VERIFIED AUDIT TRUST BAR */}
+          <div className="metrics-trust-bar">
+            <div className="trust-item">
+              <FaCheckCircle className="trust-icon success" />
+              <span>{isEn ? "100% automated deposit matching via VietQR Webhook (0 fee)" : "Khớp cọc tự động 100% qua VietQR Webhook (0đ phí cổng)"}</span>
             </div>
-            <div className="funnel-steps-row">
-              <div className="funnel-step">
-                <span className="step-count">1,250+</span>
-                <span className="step-name">{isEn ? "Unique Visitors" : "Lượt Xem Độc Bản"}</span>
-                <span className="step-pct">{isEn ? "Targeted Buyer Traffic" : "Lượng Khách Tiếp Cận"}</span>
-              </div>
-              <div className="funnel-arrow">➔</div>
-              <div className="funnel-step highlight">
-                <span className="step-count">180+</span>
-                <span className="step-name">{isEn ? "Plates Searched & Leads" : "Yêu Cầu Tra Cứu & Liên Hệ"}</span>
-                <span className="step-pct">{isEn ? "14.4% Conversion" : "14.4% Tỷ Lệ Tương Tác"}</span>
-              </div>
-              <div className="funnel-arrow">➔</div>
-              <div className="funnel-step">
-                <span className="step-count">24</span>
-                <span className="step-name">{isEn ? "In Consultation & Booking" : "Tư Vấn Chuyên Sâu & Giữ Chỗ"}</span>
-                <span className="step-pct">{isEn ? "VietQR Deposit Flow" : "Phân Luồng Đặt Cọc VietQR"}</span>
-              </div>
-              <div className="funnel-arrow">➔</div>
-              <div className="funnel-step success">
-                <span className="step-count">9</span>
-                <span className="step-name">{isEn ? "Deals Closed in Cycle" : "Giao Dịch Đã Chốt (30 Ngày)"}</span>
-                <span className="step-pct">{isEn ? "37.5% Close Rate" : "37.5% Tỷ Lệ Chốt"}</span>
-              </div>
+            <div className="trust-divider" />
+            <div className="trust-item">
+              <FaShieldAlt className="trust-icon info" />
+              <span>{isEn ? "Zero-data-leak SHA-256 audit ledger protection" : "Nhật ký đối soát SHA-256 bảo vệ toàn vẹn dữ liệu"}</span>
             </div>
-
-            <div className="funnel-footer-details">
-              <div className="tag-group">
-                <span className="intent-tag">{isEn ? "📌 12 Auto-deposits via VietQR Webhook" : "📌 12 Đặt cọc tự động qua VietQR Webhook"}</span>
-                <span className="intent-tag">{isEn ? "📌 8 Outright Purchases Handed Over" : "📌 8 Mua đứt và bàn giao giấy tờ"}</span>
-                <span className="intent-tag">{isEn ? "📌 4 Finalizing Ownership Transfer" : "📌 4 Đang hoàn tất thủ tục sang tên"}</span>
-              </div>
-              <div className="rating-pill">
-                <FaStar style={{ color: '#f59e0b' }} /> {isEn ? "Client Satisfaction: 5.0 / 5.0 ★ Absolute" : "Đánh Giá Hài Lòng: 5.0 / 5.0 ★ Tuyệt Đối"}
-              </div>
+            <div className="trust-divider" />
+            <div className="trust-item">
+              <FaStar className="trust-icon warning" />
+              <span>{isEn ? "Partner satisfaction rating: 5.0 / 5.0" : "Đánh giá hài lòng từ đối tác: 5.0 / 5.0"}</span>
             </div>
           </div>
         </motion.div>
@@ -949,7 +1693,7 @@ const Services = () => {
       </section>
 
       {/* 5.5. CORE ENGINEERING TEAM (100% FPT UNIVERSITY — EX-FPT SOFTWARE) */}
-      <section id="team-section" className="section-container team-bench-section">
+      <section id="team-section" className="section-container team-bench-section" style={{ scrollMarginTop: '170px' }}>
         <motion.div 
           className="section-header"
           variants={fadeInUp}
@@ -1103,7 +1847,7 @@ const Services = () => {
       </section>
 
       {/* 5. TRANSPARENT PRICING SECTION (FROM EXCEL) */}
-      <section id="pricing-section" className="section-container">
+      <section id="pricing-section" className="section-container" style={{ scrollMarginTop: '170px' }}>
         <motion.div 
           className="section-header"
           variants={fadeInUp}
@@ -1144,7 +1888,10 @@ const Services = () => {
               <div className="plan-pricing-row">
                 <span className="price-label">{isEn ? "Turnkey Standard Price" : "Chi Phí Niêm Yết"}</span>
                 <div className="price-num">11.500.000₫</div>
-                <div className="price-speed">⚡ {isEn ? "Average timeline: ~1.5 - 2 months" : "Thời gian thực hiện: ~1.5 - 2 tháng"}</div>
+                <div className="price-speed">
+                  <FaClock size={11} style={{ marginRight: '6px' }} />
+                  {isEn ? "Average timeline: ~1.5 - 2 months" : "Thời gian thực hiện: ~1.5 - 2 tháng"}
+                </div>
               </div>
 
               <ul className="features-list">
@@ -1181,7 +1928,10 @@ const Services = () => {
               <div className="plan-pricing-row">
                 <span className="price-label">{isEn ? "Turnkey Standard Price" : "Chi Phí Niêm Yết"}</span>
                 <div className="price-num">18.500.000₫</div>
-                <div className="price-speed">🚀 {isEn ? "Average timeline: ~1.5 - 2 months (2 Devs)" : "Thời gian thực hiện: ~1.5 - 2 tháng (2 Kỹ sư)"}</div>
+                <div className="price-speed">
+                  <FaClock size={11} style={{ marginRight: '6px' }} />
+                  {isEn ? "Average timeline: ~1.5 - 2 months (2 Devs)" : "Thời gian thực hiện: ~1.5 - 2 tháng (2 Kỹ sư)"}
+                </div>
               </div>
 
               <ul className="features-list">
@@ -1217,7 +1967,10 @@ const Services = () => {
               <div className="plan-pricing-row">
                 <span className="price-label">{isEn ? "Turnkey Standard Price" : "Chi Phí Niêm Yết"}</span>
                 <div className="price-num">33.000.000₫</div>
-                <div className="price-speed">⭐ {isEn ? "Average timeline: ~2 - 2.5 months (5 Devs)" : "Thời gian thực hiện: ~2 - 2.5 tháng (Team 5 kỹ sư)"}</div>
+                <div className="price-speed">
+                  <FaClock size={11} style={{ marginRight: '6px' }} />
+                  {isEn ? "Average timeline: ~2 - 2.5 months (5 Devs)" : "Thời gian thực hiện: ~2 - 2.5 tháng (Team 5 kỹ sư)"}
+                </div>
               </div>
 
               <ul className="features-list">
@@ -1247,10 +2000,13 @@ const Services = () => {
         >
           <div className="banner-top-row">
             <div className="banner-badge">
-              <span className="sparkle">✨</span>
+              <FaTag size={11} style={{ marginRight: '6px' }} />
               <span>{isEn ? "FLEXIBLE BUDGET NEGOTIATION POLICY" : "CHÍNH SÁCH THƯƠNG LƯỢNG & ĐÀM PHÁN GIÁ LINH HOẠT"}</span>
             </div>
-            <span className="sub-tag">🔥 {isEn ? "Startup Subsidies 20% – 30%" : "Trợ giá khởi nghiệp 20% – 30%"}</span>
+            <span className="sub-tag">
+              <FaAward size={11} style={{ marginRight: '5px' }} />
+              {isEn ? "Startup Subsidies 20% – 30%" : "Trợ giá khởi nghiệp 20% – 30%"}
+            </span>
           </div>
           <h3 className="banner-title">
             {isEn 
@@ -1311,7 +2067,7 @@ const Services = () => {
       </section>
 
       {/* 6. 5-STEP PROCESS */}
-      <section className="section-container">
+      <section id="process-section" className="section-container" style={{ scrollMarginTop: '170px' }}>
         <motion.div 
           className="section-header"
           variants={fadeInUp}
@@ -1503,7 +2259,10 @@ const Services = () => {
                 {activeModalTab === 'manday' && (
                   <div className="tab-pane">
                     <div className="alert-info-box">
-                      <strong>💡 {isEn ? "Core Value Exchange:" : "Số tiền của bạn được đánh đổi thế nào?"}</strong>
+                      <strong>
+                        <FaLightbulb size={12} style={{ marginRight: '6px' }} />
+                        {isEn ? "Core Value Exchange:" : "Số tiền của bạn được đánh đổi thế nào?"}
+                      </strong>
                       <p>{isEn 
                         ? "You are paying for genuine engineering hours, zero-bloat Clean Architecture code, dedicated Cloud VPS servers, and guaranteed delivery — not agency sales commissions." 
                         : "Khách hàng đầu tư trực tiếp vào giờ công kỹ sư thực tế, mã nguồn sạch không dùng template rác, máy chủ Cloud VPS tốc độ cao và cam kết nghiệm thu thực tế — không phải gánh chi phí văn phòng hay hoa hồng sales."}
@@ -1641,6 +2400,165 @@ const Services = () => {
                 <button onClick={() => { setShowWorkflowModal(false); scrollToContact(); }} className="btn-modal-contact">
                   <FaCommentDots /> {isEn ? "Contact Leader for Negotiation" : "Thương Lượng Ngân Sách Với Leader"}
                 </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+
+        {/* SAAS FEATURE DEEP DIVE MODAL */}
+        {selectedSaasFeature && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="saas-detail-modal-backdrop"
+            onClick={() => setSelectedSaasFeature(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 16 }}
+              transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
+              className="saas-detail-modal-dialog"
+              onClick={e => e.stopPropagation()}
+            >
+              {/* Modal Top Bar */}
+              <div className="saas-modal-header">
+                <div className="saas-modal-meta">
+                  <span className="modal-num-badge">MODULE {selectedSaasFeature.num}</span>
+                  <span className="modal-meta-dot">•</span>
+                  <span className="modal-cat-badge">
+                    {selectedSaasFeature.category === 'sales' 
+                      ? (isEn ? "Sales & Cashflow" : "Dòng Tiền & Chốt Cọc")
+                      : selectedSaasFeature.category === 'ai'
+                      ? (isEn ? "AI & Automation" : "AI & Tự Động Hóa")
+                      : (isEn ? "Retention & Operations" : "Tương Tác & Vận Hành")}
+                  </span>
+                  <span className="modal-metric-pill">
+                    {isEn ? selectedSaasFeature.metricEn : selectedSaasFeature.metricVi}
+                  </span>
+                </div>
+                <button 
+                  onClick={() => setSelectedSaasFeature(null)} 
+                  className="saas-modal-close-btn"
+                  aria-label="Close modal"
+                >
+                  <FaTimes size={14} />
+                </button>
+              </div>
+
+              {/* Modal Two-Column Split Body */}
+              <div className="saas-modal-body">
+                {/* Left Column: Visual Screenshot & Verification */}
+                <div className="saas-modal-visual-col">
+                  <div 
+                    className="screenshot-container"
+                    onClick={() => setLightboxImg(selectedSaasFeature.image)}
+                    title={isEn ? "Click to view full image in lightbox" : "Bấm để phóng to ảnh kích thước gốc"}
+                  >
+                    <img 
+                      src={selectedSaasFeature.image} 
+                      alt={isEn ? selectedSaasFeature.titleEn : selectedSaasFeature.titleVi}
+                      className="screenshot-img"
+                    />
+                    <div className="screenshot-zoom-overlay">
+                      <FaSearch size={13} />
+                      <span>{isEn ? "Click to view full image" : "Bấm phóng to ảnh thực tế"}</span>
+                    </div>
+                  </div>
+
+                  <div className="screenshot-caption">
+                    <FaCheckCircle className="caption-verified-icon" />
+                    <span>{isEn ? selectedSaasFeature.captionEn : selectedSaasFeature.captionVi}</span>
+                  </div>
+
+                  <div className="deployment-meta-card">
+                    <div className="deploy-row">
+                      <span className="deploy-label">{isEn ? "Tech Engine:" : "Hạ tầng kỹ thuật:"}</span>
+                      <span className="deploy-value font-mono">{isEn ? selectedSaasFeature.techEn : selectedSaasFeature.techVi}</span>
+                    </div>
+                    <div className="deploy-row">
+                      <span className="deploy-label">{isEn ? "Deliverable Status:" : "Trạng thái bàn giao:"}</span>
+                      <span className="deploy-value status-verified">Production Verified</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column: Business Pain Point & 3-Step Execution */}
+                <div className="saas-modal-content-col">
+                  <h2 className="saas-modal-title">
+                    {isEn ? selectedSaasFeature.titleEn : selectedSaasFeature.titleVi}
+                  </h2>
+
+                  {/* Section 1: Pain Point */}
+                  <div className="saas-modal-card-block painpoint-block">
+                    <div className="block-eyebrow">
+                      {isEn ? "BUSINESS PAIN POINT & ARCHITECTURAL SOLUTION" : "BÀI TOÁN KINH DOANH & GIẢI PHÁP NỀN TẢNG"}
+                    </div>
+                    <p className="block-paragraph">
+                      {isEn ? selectedSaasFeature.painPointEn : selectedSaasFeature.painPointVi}
+                    </p>
+                  </div>
+
+                  {/* Section 2: 3-Step Workflow */}
+                  <div className="saas-modal-card-block workflow-block">
+                    <div className="block-eyebrow">
+                      {isEn ? "3-STEP AUTOMATED EXECUTION WORKFLOW" : "QUY TRÌNH TỰ ĐỘNG HÓA 3 BƯỚC"}
+                    </div>
+                    <div className="steps-flow-container">
+                      {(isEn ? selectedSaasFeature.workflowEn : selectedSaasFeature.workflowVi).map((wf, idx) => (
+                        <div key={idx} className="step-flow-item">
+                          <div className="step-badge">{wf.step}</div>
+                          <div className="step-info">
+                            <h4 className="step-title">{wf.title}</h4>
+                            <p className="step-desc">{wf.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Section 3: Technical Specs */}
+                  <div className="saas-modal-card-block specs-block">
+                    <div className="block-eyebrow">
+                      {isEn ? "TECHNICAL DELIVERABLES & GUARANTEES" : "TIÊU CHÍ KỸ THUẬT & BÀN GIAO MÃ NGUỒN"}
+                    </div>
+                    <ul className="modal-specs-list">
+                      {(isEn ? selectedSaasFeature.specsEn : selectedSaasFeature.specsVi).map((spec, sIdx) => (
+                        <li key={sIdx}>
+                          <span className="spec-dot" />
+                          <span>{spec}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Section 4: Dual Action CTAs */}
+                  <div className="saas-modal-actions-bar">
+                    <a 
+                      href="https://zalo.me/84912158715" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="btn-action-zalo"
+                    >
+                      <FaCommentDots size={14} />
+                      <span>{isEn ? "Chat 1-1 with Tech Lead (Zalo)" : "Nhắn Zalo 1-1 Với Tech Lead"}</span>
+                    </a>
+
+                    <button 
+                      onClick={() => {
+                        const featTitle = selectedSaasFeature.titleVi;
+                        setSelectedSaasFeature(null);
+                        navigate('/contact', { state: { service: featTitle } });
+                      }} 
+                      className="btn-action-quote"
+                    >
+                      <span>{isEn ? "Request Quotation & Scope" : "Để Lại Thông Tin Báo Giá"}</span>
+                      <FaArrowRight size={12} />
+                    </button>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>

@@ -85,7 +85,8 @@ const ActivityCard = ({ act, index, onSelect, t }) => {
 };
 
 const Activities = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const isEn = (i18n?.language || 'vi').startsWith('en');
     const { activities } = useTranslatedData();
     const [selectedStatus, setSelectedStatus]   = useState("all");
     const [selectedOrg, setSelectedOrg]         = useState("all");
@@ -109,7 +110,38 @@ const Activities = () => {
     };
 
     return (
-        <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
+        <div style={{ paddingTop: '28px', paddingBottom: '96px' }}>
+
+            {/* SECTION INTRO */}
+            <div style={{ marginBottom: '32px' }}>
+                <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '6px 14px',
+                    borderRadius: '50px',
+                    backgroundColor: 'rgba(124, 58, 237, 0.1)',
+                    border: '1px solid rgba(124, 58, 237, 0.25)',
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-sans, sans-serif)',
+                    fontWeight: '600',
+                    color: '#7c3aed',
+                    letterSpacing: '0.5px',
+                    textTransform: 'uppercase',
+                    marginBottom: '12px'
+                }}>
+                    <FaUsers size={13} />
+                    {isEn ? "04 · Community & Leadership" : "04 · Hoạt Động & Cộng Đồng"}
+                </div>
+                <h2 style={{ fontSize: 'clamp(24px, 3.2vw, 36px)', fontWeight: '700', letterSpacing: '-0.5px', margin: '0 0 10px 0', color: 'var(--color-ink)' }}>
+                    {isEn ? "Community Initiatives & Extracurricular Activities" : "Hoạt Động Xã Hội & Đóng Góp Cộng Đồng"}
+                </h2>
+                <p style={{ fontSize: '15.5px', color: 'var(--color-ink-soft)', margin: 0, maxWidth: '820px', lineHeight: '1.65' }}>
+                    {isEn
+                        ? "Commitment to social responsibility, student mentorship, tech event coordination, and international cultural exchange programs."
+                        : "Các hoạt động thiện nguyện vì cộng đồng, ban tổ chức các hội thảo công nghệ, hỗ trợ sinh viên và giao lưu học thuật đa văn hóa."}
+                </p>
+            </div>
 
             {/* Stats — mint block */}
             <motion.div

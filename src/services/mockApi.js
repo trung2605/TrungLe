@@ -9,7 +9,7 @@ export const mockUserProfile = {
   name: 'Lê Trí Trung',
   title: 'Software Developer',
   email: 'letritrung@example.com',
-  phone: '+84 123 456 789',
+  phone: '+84 912158715',
   location: 'Ho Chi Minh City, Vietnam',
   bio: 'Passionate software developer with experience in modern web technologies. I love creating innovative solutions and learning new technologies.',
   avatar: '/images/profile.jpg',

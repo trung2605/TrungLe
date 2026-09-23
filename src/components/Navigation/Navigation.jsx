@@ -8,20 +8,30 @@ import { useTranslation } from "react-i18next";
 import { useTranslatedData } from "../../hooks/useTranslatedData";
 
 const ACHIEVEMENT_SUBTABS = [
-  { tab: 'education', labelKey: 'nav.education', path: '/achievements?tab=education' },
-  { tab: 'certificates', labelKey: 'nav.certificates', path: '/achievements?tab=certificates' },
-  { tab: 'prizes', labelKey: 'nav.prizes', path: '/achievements?tab=prizes' },
-  { tab: 'activities', labelKey: 'nav.activities', path: '/activities' },
+  { tab: 'education', labelKey: 'nav.education', path: '/achievements#education' },
+  { tab: 'certificates', labelKey: 'nav.certificates', path: '/achievements#certificates' },
+  { tab: 'prizes', labelKey: 'nav.prizes', path: '/achievements#prizes' },
+  { tab: 'activities', labelKey: 'nav.activities', path: '/achievements#activities' },
+];
+
+const SERVICES_SUBTABS = [
+  { tab: 'case-study', labelVi: 'Dự án thực tế (Biensovip)', labelEn: 'Flagship Case Study', path: '/dich-vu#case-study' },
+  { tab: 'saas', labelVi: 'Tự động hóa SaaS (VietQR & AI)', labelEn: 'SaaS Features', path: '/dich-vu#saas' },
+  { tab: 'team-section', labelVi: 'Đội ngũ 05 Kỹ sư FPT', labelEn: 'Team 5 Devs', path: '/dich-vu#team-section' },
+  { tab: 'pricing-section', labelVi: 'Bảng giá minh bạch (-50%)', labelEn: 'Transparent Pricing', path: '/dich-vu#pricing-section' },
+  { tab: 'process-section', labelVi: 'Quy trình 5 bước chuẩn mực', labelEn: '5-Step Work Process', path: '/dich-vu#process-section' },
 ];
 
 const Navigation = ({ onOpenRecruiterMatch }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [achievementsHover, setAchievementsHover] = useState(false);
+  const [servicesHover, setServicesHover] = useState(false);
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const { isDarkMode, toggleTheme } = useCustomTheme();
   const { t, i18n } = useTranslation();
+  const isEn = (i18n?.language || 'vi').startsWith('en');
   const { siteNavigation } = useTranslatedData();
 
   const navItemsRef = useRef({});
@@ -87,6 +97,49 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
 
   const handleLinkClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleSubtabClick = (e, path) => {
+    setIsMenuOpen(false);
+    setAchievementsHover(false);
+    if (location.pathname === '/achievements') {
+      const hash = path.split('#')[1];
+      if (hash) {
+        e.preventDefault();
+        const el = document.getElementById(hash);
+        if (el) {
+          if (window.__lenis) {
+            window.__lenis.scrollTo(el, { offset: -140 });
+          } else {
+            const top = el.getBoundingClientRect().top + window.pageYOffset - 140;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+          window.history.replaceState(null, '', `#${hash}`);
+        }
+      }
+    }
+  };
+
+  const handleServicesSubtabClick = (e, path) => {
+    setIsMenuOpen(false);
+    setServicesHover(false);
+    if (location.pathname === '/dich-vu') {
+      const hash = path.split('#')[1];
+      if (hash) {
+        e.preventDefault();
+        const el = document.getElementById(hash);
+        if (el) {
+          if (window.__lenis) {
+            window.__lenis.scrollTo(el, { offset: -160 });
+          } else {
+            const top = el.getBoundingClientRect().top + window.pageYOffset - 160;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+          window.history.replaceState(null, '', `#${hash}`);
+          window.dispatchEvent(new CustomEvent('services-subnav-change', { detail: hash }));
+        }
+      }
+    }
   };
 
   return (
@@ -213,7 +266,6 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
               const activeText = isDarkMode ? '#000000' : '#ffffff';
 
               if (item.path === '/achievements') {
-                const activeTab = searchParams.get('tab');
                 return (
                   <div
                     key={item.path}
@@ -281,14 +333,12 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                           }}
                         >
                           {ACHIEVEMENT_SUBTABS.map((sub) => {
-                            const subActive = sub.path === '/activities'
-                              ? location.pathname === '/activities'
-                              : location.pathname === '/achievements' && (activeTab === sub.tab || (!activeTab && sub.tab === 'education'));
+                            const subActive = location.pathname === '/achievements' && location.hash === `#${sub.tab}`;
                             return (
                               <Link
                                 key={sub.tab}
                                 to={sub.path}
-                                onClick={handleLinkClick}
+                                onClick={(e) => handleSubtabClick(e, sub.path)}
                                 style={{
                                   display: 'block',
                                   padding: '9px 14px',
@@ -314,11 +364,136 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                 );
               }
 
+              if (item.path === '/dich-vu') {
+                return (
+                  <div
+                    key={item.path}
+                    ref={(el) => { navItemsRef.current[index] = el; }}
+                    style={{ position: 'relative' }}
+                    onMouseEnter={() => setServicesHover(true)}
+                    onMouseLeave={() => setServicesHover(false)}
+                  >
+                    <Link
+                      to={item.path}
+                      onClick={handleLinkClick}
+                      style={{
+                        position: 'relative',
+                        zIndex: 1,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '5px',
+                        padding: '6px 14px',
+                        borderRadius: '50px',
+                        fontSize: '14px',
+                        fontWeight: isActive ? '600' : '480',
+                        color: isActive ? activeText : 'var(--color-ink-soft)',
+                        textDecoration: 'none',
+                        whiteSpace: 'nowrap',
+                        transition: 'color 0.18s ease',
+                      }}
+                      onMouseEnter={e => {
+                        if (!isActive) e.currentTarget.style.color = 'var(--color-ink)';
+                      }}
+                      onMouseLeave={e => {
+                        if (!isActive) e.currentTarget.style.color = 'var(--color-ink-soft)';
+                      }}
+                    >
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                        {item.title}
+                        <span style={{
+                          fontSize: '9px',
+                          fontWeight: '700',
+                          color: '#ffffff',
+                          background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                          padding: '1px 5px',
+                          borderRadius: '4px',
+                          letterSpacing: '0.4px',
+                          lineHeight: '1.2',
+                          textTransform: 'uppercase'
+                        }}>HOT</span>
+                      </span>
+                      <FaChevronDown
+                        size={9}
+                        style={{
+                          color: isActive ? activeText : 'currentColor',
+                          transition: 'transform 0.15s ease, color 0.18s ease',
+                          transform: servicesHover ? 'rotate(180deg)' : 'none',
+                        }}
+                      />
+                    </Link>
+
+                    <AnimatePresence>
+                      {servicesHover && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -4 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -4 }}
+                          transition={{ duration: 0.15 }}
+                          style={{
+                            position: 'absolute',
+                            top: 'calc(100% + 6px)',
+                            left: 0,
+                            minWidth: '220px',
+                            backgroundColor: isDarkMode ? 'rgba(20, 22, 31, 0.95)' : 'rgba(255, 255, 255, 0.95)',
+                            backdropFilter: 'blur(20px)',
+                            WebkitBackdropFilter: 'blur(20px)',
+                            border: '1px solid var(--color-hairline)',
+                            borderRadius: '14px',
+                            padding: '6px',
+                            boxShadow: isDarkMode ? '0 12px 32px rgba(0,0,0,0.5)' : '0 12px 32px rgba(15,23,42,0.1)',
+                            zIndex: 60,
+                          }}
+                        >
+                          {SERVICES_SUBTABS.map((sub) => {
+                            const subActive = location.pathname === '/dich-vu' && location.hash === `#${sub.tab}`;
+                            return (
+                              <Link
+                                key={sub.tab}
+                                to={sub.path}
+                                onClick={(e) => handleServicesSubtabClick(e, sub.path)}
+                                style={{
+                                  display: 'block',
+                                  padding: '8px 12px',
+                                  borderRadius: '8px',
+                                  fontSize: '13px',
+                                  fontWeight: subActive ? '600' : '480',
+                                  color: subActive ? 'var(--color-ink)' : 'var(--color-ink-soft)',
+                                  backgroundColor: subActive
+                                    ? (isDarkMode ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.05)')
+                                    : 'transparent',
+                                  textDecoration: 'none',
+                                  transition: 'background-color 0.15s ease, color 0.15s ease',
+                                }}
+                                onMouseEnter={(e) => {
+                                  if (!subActive) {
+                                    e.currentTarget.style.backgroundColor = isDarkMode
+                                      ? 'rgba(255,255,255,0.05)'
+                                      : 'rgba(0,0,0,0.03)';
+                                    e.currentTarget.style.color = 'var(--color-ink)';
+                                  }
+                                }}
+                                onMouseLeave={(e) => {
+                                  if (!subActive) {
+                                    e.currentTarget.style.backgroundColor = 'transparent';
+                                    e.currentTarget.style.color = 'var(--color-ink-soft)';
+                                  }
+                                }}
+                              >
+                                {isEn ? sub.labelEn : sub.labelVi}
+                              </Link>
+                            );
+                          })}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
               return (
                 <div
                   key={item.path}
                   ref={(el) => { navItemsRef.current[index] = el; }}
-                  style={{ position: 'relative' }}
                 >
                   <Link
                     to={item.path}
@@ -326,8 +501,7 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                     style={{
                       position: 'relative',
                       zIndex: 1,
-                      display: 'inline-flex',
-                      alignItems: 'center',
+                      display: 'block',
                       padding: '6px 14px',
                       borderRadius: '50px',
                       fontSize: '14px',
@@ -344,22 +518,7 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                       if (!isActive) e.currentTarget.style.color = 'var(--color-ink-soft)';
                     }}
                   >
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-                      {item.title}
-                      {item.path === '/dich-vu' && (
-                        <span style={{
-                          fontSize: '9px',
-                          fontWeight: '700',
-                          color: '#ffffff',
-                          background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                          padding: '1px 5px',
-                          borderRadius: '4px',
-                          letterSpacing: '0.4px',
-                          lineHeight: '1.2',
-                          textTransform: 'uppercase'
-                        }}>HOT</span>
-                      )}
-                    </span>
+                    <span>{item.title}</span>
                   </Link>
                 </div>
               );
@@ -627,15 +786,12 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                         {item.path === '/achievements' && (
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: '32px', marginTop: '4px' }}>
                             {ACHIEVEMENT_SUBTABS.map((sub) => {
-                              const activeTab = searchParams.get('tab');
-                              const subActive = sub.path === '/activities'
-                                ? location.pathname === '/activities'
-                                : location.pathname === '/achievements' && (activeTab === sub.tab || (!activeTab && sub.tab === 'education'));
+                              const subActive = location.pathname === '/achievements' && location.hash === `#${sub.tab}`;
                               return (
                                 <Link
                                   key={sub.tab}
                                   to={sub.path}
-                                  onClick={handleLinkClick}
+                                  onClick={(e) => handleSubtabClick(e, sub.path)}
                                   style={{
                                     padding: '8px 16px',
                                     borderRadius: '8px',
@@ -648,6 +804,32 @@ const Navigation = ({ onOpenRecruiterMatch }) => {
                                   }}
                                 >
                                   {t(sub.labelKey)}
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        )}
+                        {item.path === '/dich-vu' && (
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginLeft: '32px', marginTop: '4px' }}>
+                            {SERVICES_SUBTABS.map((sub) => {
+                              const subActive = location.pathname === '/dich-vu' && location.hash === `#${sub.tab}`;
+                              return (
+                                <Link
+                                  key={sub.tab}
+                                  to={sub.path}
+                                  onClick={(e) => handleServicesSubtabClick(e, sub.path)}
+                                  style={{
+                                    padding: '8px 16px',
+                                    borderRadius: '8px',
+                                    fontSize: '14px',
+                                    fontWeight: subActive ? '600' : '400',
+                                    color: subActive ? activeText : 'var(--color-ink-soft)',
+                                    textDecoration: 'none',
+                                    backgroundColor: subActive ? activeBg : 'transparent',
+                                    transition: 'all 0.15s ease',
+                                  }}
+                                >
+                                  {isEn ? sub.labelEn : sub.labelVi}
                                 </Link>
                               );
                             })}

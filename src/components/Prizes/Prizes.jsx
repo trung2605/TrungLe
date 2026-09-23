@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { FaTrophy, FaMedal, FaStar, FaCalendarAlt, FaBuilding } from "react-icons/fa";
+import { FaTrophy, FaMedal, FaStar, FaCalendarAlt, FaBuilding, FaCheck } from "react-icons/fa";
 import { useTranslatedData } from "../../hooks/useTranslatedData";
 import Markdown from "react-markdown";
 import { Dialog } from "../ui/Dialog";
@@ -23,7 +23,8 @@ const getPositionBadge = (position, t) => {
 };
 
 const Prizes = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const isEn = (i18n?.language || 'vi').startsWith('en');
     const { prizes } = useTranslatedData();
     const [selectedPrize, setSelectedPrize] = useState(null);
 
@@ -31,7 +32,38 @@ const Prizes = () => {
     const totalYears = new Set(prizes.map(p => p.year)).size;
 
     return (
-        <div style={{ paddingTop: '32px', paddingBottom: '96px' }}>
+        <div style={{ paddingTop: '28px', paddingBottom: '96px' }}>
+
+            {/* SECTION INTRO */}
+            <div style={{ marginBottom: '32px' }}>
+                <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '6px 14px',
+                    borderRadius: '50px',
+                    backgroundColor: 'rgba(217, 119, 6, 0.1)',
+                    border: '1px solid rgba(217, 119, 6, 0.25)',
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-sans, sans-serif)',
+                    fontWeight: '600',
+                    color: '#d97706',
+                    letterSpacing: '0.5px',
+                    textTransform: 'uppercase',
+                    marginBottom: '12px'
+                }}>
+                    <FaTrophy size={13} />
+                    {isEn ? "03 · Honors & Accolades" : "03 · Giải Thưởng & Vinh Danh"}
+                </div>
+                <h2 style={{ fontSize: 'clamp(24px, 3.2vw, 36px)', fontWeight: '700', letterSpacing: '-0.5px', margin: '0 0 10px 0', color: 'var(--color-ink)' }}>
+                    {isEn ? "Honors, Awards & Engineering Competitions" : "Giải Thưởng & Thành Tích Thi Đấu"}
+                </h2>
+                <p style={{ fontSize: '15.5px', color: 'var(--color-ink-soft)', margin: 0, maxWidth: '820px', lineHeight: '1.65' }}>
+                    {isEn
+                        ? "Recognitions and competitive achievements earned across national hackathons, university academic honors, and engineering challenges."
+                        : "Tổng hợp các danh hiệu Quán quân Hackathon, giải thưởng nghiên cứu khoa học công nghệ và vinh danh thành tích học thuật xuất sắc."}
+                </p>
+            </div>
 
             {/* Stats — lime block */}
             <motion.div
@@ -45,7 +77,7 @@ const Prizes = () => {
                     color: '#444444', marginBottom: '20px',
                     display: 'flex', gap: '6px', alignItems: 'center',
                 }}>
-                    <span style={{ color: '#1ea64a', fontWeight: '600' }}>✓</span>
+                    <FaCheck size={11} style={{ color: '#1ea64a' }} />
                     <span>npm run awards --list</span>
                     <span style={{ color: '#666666', marginLeft: '8px' }}>{'// '}output: {prizes.length} achievements unlocked</span>
                 </div>

@@ -216,7 +216,7 @@ const About = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {[
               { icon: FaBirthdayCake, label: t('about.dateOfBirth'), value: personalInfo.contact?.birthday },
-              { icon: FaPhoneAlt,      label: t('about.phoneLabel') || (isEn ? "Phone / Zalo" : "Điện thoại / Zalo"), value: personalInfo.contact?.phone || "(+84) 782 399 721" },
+              { icon: FaPhoneAlt,      label: t('about.phoneLabel') || (isEn ? "Phone / Zalo" : "Điện thoại / Zalo"), value: personalInfo.contact?.phone || "+84 912158715" },
               { icon: FaMapMarkerAlt,  label: t('about.location'),    value: personalInfo.contact?.location },
               { icon: FaGraduationCap, label: t('about.education'),   value: t('about.educationValue') },
               { icon: FaBriefcase,     label: t('about.specialization'), value: t('about.specializationValue') },

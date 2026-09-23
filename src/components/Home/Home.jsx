@@ -19,12 +19,9 @@ import Testimonials from "./Testimonials";
 const MotionLink = motion(Link);
 
 const TECH_MARQUEE = [
-  "Java Spring Boot", "React", "JavaScript", "Node.js",
-  "MongoDB", "SQL Server", "Docker", "Git", "REST APIs",
-  "React Native", "Tailwind CSS", "Spring Security",
-  "Java Spring Boot", "React", "JavaScript", "Node.js",
-  "MongoDB", "SQL Server", "Docker", "Git", "REST APIs",
-  "React Native", "Tailwind CSS", "Spring Security",
+  "Java Spring Boot", "PostgreSQL", "React", "Docker", "REST APIs",
+  "Node.js", "Redis", "TypeScript", "SQL Server", "Git & GitHub",
+  "Tailwind CSS", "Spring Security", "Next.js", "MongoDB", "Clean Architecture"
 ];
 
 const SkillBar = ({ skill }) => (
@@ -400,38 +397,51 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ── MARQUEE STRIP ── */}
+      {/* ── MARQUEE STRIP (SEAMLESS INFINITE LOOP) ── */}
       <div className="marquee-strip" style={{
-        marginLeft: 'calc(-50vw + 50%)',
-        marginRight: 'calc(-50vw + 50%)',
+        width: '100%',
         backgroundColor: isDarkMode ? '#12141c' : '#0f172a',
-        borderTop: '1px solid var(--color-hairline)',
-        borderBottom: '1px solid var(--color-hairline)',
+        border: '1px solid var(--color-hairline)',
+        borderRadius: '50px',
         color: '#ffffff',
-        height: '42px',
+        height: '44px',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
         marginBottom: '64px',
+        boxShadow: isDarkMode ? '0 4px 20px rgba(0,0,0,0.3)' : '0 2px 10px rgba(0,0,0,0.06)',
+        position: 'relative',
+        maskImage: 'linear-gradient(to right, transparent, black 3%, black 97%, transparent)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent, black 3%, black 97%, transparent)',
       }}>
         <div className="marquee-track" style={{
           display: 'flex',
-          gap: '32px',
+          gap: '36px',
+          width: 'max-content',
           whiteSpace: 'nowrap',
-          animation: 'marquee 28s linear infinite',
+          animation: 'marqueeContinuous 26s linear infinite',
           willChange: 'transform',
         }}>
-          {TECH_MARQUEE.map((tech, i) => (
+          {[...TECH_MARQUEE, ...TECH_MARQUEE].map((tech, i) => (
             <span key={i} style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px',
+              gap: '9px',
               fontFamily: 'JetBrains Mono, monospace',
               fontSize: '12.5px',
               letterSpacing: '0.4px',
-              color: 'rgba(255, 255, 255, 0.75)',
+              color: 'rgba(255, 255, 255, 0.85)',
+              userSelect: 'none',
             }}>
-              <span style={{ color: '#22c55e', fontSize: '9px' }}>✦</span>
+              <span style={{ 
+                width: '5px', 
+                height: '5px', 
+                borderRadius: '50%', 
+                backgroundColor: '#22c55e', 
+                boxShadow: '0 0 6px rgba(34, 197, 94, 0.7)',
+                display: 'inline-block', 
+                flexShrink: 0 
+              }} />
               {tech}
             </span>
           ))}
@@ -454,7 +464,7 @@ const Home = () => {
           }}>{t('home.statsByNumbers')}</p>
           <div
             className="stats-grid"
-            style={{ gap: '24px' }}
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}
           >
             {[
               { value: 11, suffix: '+', labelKey: 'home.stats.0.label' },

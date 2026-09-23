@@ -13,7 +13,6 @@ import {
   FaRocket,
   FaMapMarkerAlt,
   FaUsers,
-  FaBriefcase,
   FaAward,
   FaExternalLinkAlt
 } from 'react-icons/fa';
@@ -352,20 +351,23 @@ const Education = () => {
           gap: '8px', 
           padding: '6px 14px', 
           borderRadius: '50px', 
-          backgroundColor: '#ecfdf5', 
+          backgroundColor: 'rgba(5, 150, 105, 0.1)', 
+          border: '1px solid rgba(5, 150, 105, 0.25)',
           fontSize: '12px', 
           fontFamily: 'var(--font-sans, sans-serif)',
           fontWeight: '600',
           color: '#059669', 
+          letterSpacing: '0.5px',
+          textTransform: 'uppercase',
           marginBottom: '12px' 
         }}>
-          <FaBriefcase size={12} />
-          {isEn ? "Career & Professional Milestones" : "Lộ Trình Năng Lực & Kinh Nghiệm Thực Chiến"}
+          <FaGraduationCap size={13} />
+          {isEn ? "01 · Academic & Career Milestones" : "01 · Học Vấn & Cột Mốc Sự Nghiệp"}
         </div>
-        <h2 style={{ fontSize: 'clamp(24px, 3.2vw, 36px)', fontWeight: '700', letterSpacing: '-0.5px', margin: '0 0 10px 0', color: '#0f172a' }}>
+        <h2 style={{ fontSize: 'clamp(24px, 3.2vw, 36px)', fontWeight: '700', letterSpacing: '-0.5px', margin: '0 0 10px 0', color: 'var(--color-ink)' }}>
           {isEn ? "Professional Experience & Academic Journey" : "Hành Trình Sự Nghiệp & Nền Tảng Học Vấn"}
         </h2>
-        <p style={{ fontSize: '15.5px', color: '#475569', margin: 0, maxWidth: '820px', lineHeight: '1.65' }}>
+        <p style={{ fontSize: '15.5px', color: 'var(--color-ink-soft)', margin: 0, maxWidth: '820px', lineHeight: '1.65' }}>
           {isEn
             ? "A comprehensive overview tailored for Recruiters and Hiring Managers — tracking my journey from leading a 5-engineer startup and interning at FPT Software, to academic research and hackathon championships at FPT University."
             : "Hồ sơ năng lực tổng hợp dành cho Nhà tuyển dụng — phản ánh trọn vẹn lộ trình phát triển từ vai trò Tech Lead dẫn dắt 5 kỹ sư khởi nghiệp, kinh nghiệm thực tập tại FPT Software, đến các giải thưởng Quán quân và đề tài nghiên cứu AI tại Đại học FPT."}
@@ -599,7 +601,7 @@ const Education = () => {
                         {activeEdu.highlights.map((item, idx) => (
                           <div key={idx} className="highlight-row">
                             <div className="check-bullet" style={{ color: activeCfg.color }}>
-                              ✓
+                              <FaCheckCircle size={12} />
                             </div>
                             <div className="highlight-text">{item}</div>
                           </div>
