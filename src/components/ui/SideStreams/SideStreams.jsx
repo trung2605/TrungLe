@@ -14,7 +14,8 @@ import {
   FaClock,
   FaChevronUp,
   FaChevronDown,
-  FaCheck
+  FaCheck,
+  FaEnvelope
 } from 'react-icons/fa';
 import './SideStreams.scss';
 
@@ -39,7 +40,7 @@ const PRODUCT_ITEMS = [
       'Automated Five Elements feng-shui math',
       'Automated VietQR deposit matching'
     ],
-    link: '/du-an'
+    link: '/projects/26'
   },
   {
     id: 'p2',
@@ -60,7 +61,7 @@ const PRODUCT_ITEMS = [
       'SHA-256 audit trail protecting ledger',
       'Instant order alerts via Telegram webhook'
     ],
-    link: '/du-an'
+    link: '/projects/26'
   },
   {
     id: 'p3',
@@ -81,7 +82,7 @@ const PRODUCT_ITEMS = [
       'Smooth smart cart & intuitive categories',
       '100% responsive on mobile and tablets'
     ],
-    link: '/du-an'
+    link: '/projects/2'
   },
   {
     id: 'p4',
@@ -102,7 +103,7 @@ const PRODUCT_ITEMS = [
       'Strict Buyer / Seller / Admin role guards',
       'Regional farm produce query filters'
     ],
-    link: '/du-an'
+    link: '/projects/13'
   },
   {
     id: 'p5',
@@ -123,7 +124,7 @@ const PRODUCT_ITEMS = [
       'Instant sub-second streaming tokens',
       'Automated qualified lead capture'
     ],
-    link: '/du-an'
+    link: '/projects/11'
   },
   {
     id: 'p6',
@@ -144,7 +145,7 @@ const PRODUCT_ITEMS = [
       'One-click invoices & reconciliation export',
       'Maintainable Clean Architecture codebase'
     ],
-    link: '/du-an'
+    link: '/projects/7'
   }
 ];
 
@@ -557,9 +558,68 @@ const SideStreams = () => {
                         ))}
                       </ul>
 
-                      <div className="card-action-btn">
+                      <div className="card-action-btn" style={{ marginBottom: '6px' }}>
                         <span>{isEn ? "Explore Project" : "Khám Phá Chi Tiết"}</span>
                         <FaArrowRight size={10} />
+                      </div>
+
+                      {/* Quick Connect Row */}
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', paddingTop: '4px' }}>
+                        <span
+                          role="button"
+                          tabIndex={0}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            navigate('/dich-vu');
+                          }}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '4px',
+                            padding: '5px 8px',
+                            borderRadius: '6px',
+                            fontSize: '11px',
+                            fontWeight: '600',
+                            color: '#6d3fc9',
+                            backgroundColor: '#f3e8ff',
+                            border: '1px solid #e9d5ff',
+                            cursor: 'pointer',
+                            textAlign: 'center'
+                          }}
+                        >
+                          <FaRocket size={9} />
+                          <span>Dịch Vụ</span>
+                        </span>
+
+                        <span
+                          role="button"
+                          tabIndex={0}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            navigate('/contact');
+                          }}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '4px',
+                            padding: '5px 8px',
+                            borderRadius: '6px',
+                            fontSize: '11px',
+                            fontWeight: '600',
+                            color: '#0369a1',
+                            backgroundColor: '#e0f2fe',
+                            border: '1px solid #bae6fd',
+                            cursor: 'pointer',
+                            textAlign: 'center'
+                          }}
+                        >
+                          <FaEnvelope size={9} />
+                          <span>Liên Hệ</span>
+                        </span>
                       </div>
                     </div>
                   </Link>

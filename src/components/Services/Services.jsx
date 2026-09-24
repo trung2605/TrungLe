@@ -27,7 +27,6 @@ import {
   FaServer,
   FaDownload,
   FaEnvelope,
-  FaBell,
   FaShareAlt,
   FaBalanceScale,
   FaUsers,
@@ -179,175 +178,7 @@ const BRANDHUB_SHOTS = [
   }
 ];
 
-const BRANDHUB_METRICS = [
-  { value: "07", labelVi: "Microservices & Modules", labelEn: "Microservices & Modules", subVi: "Độc lập phân tán", subEn: "Distributed Services" },
-  { value: "32", labelVi: "Tuần phát triển (16 Sprints)", labelEn: "Weeks (16 Agile Sprints)", subVi: "Quy trình FSoft chuẩn", subEn: "Standard Agile / Scrum" },
-  { value: "430+", labelVi: "Tasks Jira hoàn thành", labelEn: "Completed Jira Tasks", subVi: "Spec → Plan → Code → Test", subEn: "Spec → Plan → Code → Test" },
-  { value: "05", labelVi: "Mạng xã hội tích hợp", labelEn: "Social Platforms Synced", subVi: "FB, TikTok, Insta, Threads, Zalo", subEn: "FB, TikTok, Insta, Threads, Zalo" },
-  { value: "0%", labelVi: "Tỷ lệ mất tin nhắn (DLQ)", labelEn: "Publishing Loss Rate", subVi: "RabbitMQ Retry lũy thừa", subEn: "Exponential Backoff DLQ" }
-];
 
-const BRANDHUB_TEAM_ROLES = [
-  {
-    name: "Lê Trí Trung",
-    roleVi: "Tech Lead & Solutions Architect",
-    roleEn: "Tech Lead & Solutions Architect",
-    avatarIcon: "FaUserTie",
-    contributionsVi: [
-      "Kiến trúc tổng thể hệ thống 7 Microservices & điều phối sprint Agile/Scrum",
-      "Xây dựng Spring Cloud Gateway (WebFlux, JWT token, Redis rate-limiting)",
-      "Thiết kế hàng đợi RabbitMQ Dead Letter Queue (DLQ) retry lũy thừa chống mất tin nhắn 100%",
-      "Cụm hạ tầng Docker Compose & cấu hình triển khai AWS EC2 production"
-    ],
-    contributionsEn: [
-      "Overall 7-microservice architecture & Agile/Scrum sprint coordination",
-      "Spring Cloud Gateway engineering (WebFlux, JWT, Redis rate limiting)",
-      "RabbitMQ DLQ with exponential backoff retry ensuring 100% zero message loss",
-      "Docker Compose cluster orchestration & AWS EC2 production deployment"
-    ],
-    tech: ["Spring Cloud Gateway", "RabbitMQ DLQ", "Docker Compose", "AWS EC2", "Java 21"],
-    color: "#dceeb1"
-  },
-  {
-    name: "Hà Văn Ân",
-    roleVi: "Fullstack & AI Integration Engineer",
-    roleEn: "Fullstack & AI Integration Engineer",
-    avatarIcon: "FaLaptopCode",
-    contributionsVi: [
-      "Phát triển AI Microservice bằng Python FastAPI độc lập phục vụ sinh nội dung",
-      "Tích hợp RAG Pipeline học ngữ điệu thương hiệu (Brand Voice) qua LangChain",
-      "Kết nối LLM Groq (Llama 3 siêu tốc) và cơ chế Fallback an toàn sang Claude",
-      "Xây dựng các module giao diện Web Dashboard bằng React 18, TypeScript & Vite"
-    ],
-    contributionsEn: [
-      "Python FastAPI AI microservice engineering for automated content generation",
-      "RAG pipeline with LangChain to capture and synthesize brand voice",
-      "Dual LLM engine: Groq (Llama 3 high-throughput) with Claude fallback",
-      "React 18 + TypeScript + Vite web dashboard module implementation"
-    ],
-    tech: ["Python FastAPI", "LangChain", "Groq Llama 3", "React 18", "TypeScript"],
-    color: "#c5b0f4"
-  },
-  {
-    name: "Nguyễn Thành Lộc",
-    roleVi: "AI Team Lead & Data Pipelines",
-    roleEn: "AI Team Lead & Data Pipelines",
-    avatarIcon: "FaCode",
-    contributionsVi: [
-      "Trưởng nhóm AI dự án BrandHub, thiết kế pipeline tìm kiếm ngữ nghĩa RAG",
-      "Xây dựng kiến trúc GraphRAG: Kết hợp ChromaDB (semantic search) + Neo4j (đồ thị quan hệ KOL/Brand/Hashtag)",
-      "Thiết kế thuật toán phân tích xu hướng (Trend Detection) đa chiều",
-      "Pipeline cào và tiền xử lý dữ liệu mạng xã hội quy mô lớn"
-    ],
-    contributionsEn: [
-      "BrandHub AI Team Lead, architected semantic RAG retrieval pipelines",
-      "GraphRAG architecture: ChromaDB (semantic vector) + Neo4j (KOL/Brand/Hashtag multi-hop graph)",
-      "Multidimensional trend detection algorithm engineering",
-      "Large-scale social data ingestion, crawling, and preprocessing pipelines"
-    ],
-    tech: ["GraphRAG", "Neo4j", "ChromaDB", "FastAPI", "Python", "Data Crawling"],
-    color: "#f4ecd6"
-  },
-  {
-    name: "Nguyễn Minh Tuấn",
-    roleVi: "Backend Systems & Analytics Engineer",
-    roleEn: "Backend Systems & Analytics Engineer",
-    avatarIcon: "FaAward",
-    contributionsVi: [
-      "Kiến trúc Polyglot Persistence: PostgreSQL (giao dịch ACID, billing) + MongoDB (schema bài đăng linh hoạt)",
-      "Thiết kế database schema tối ưu hóa phân quyền đa cấp Multi-tenant (Agency/Brand/CTV)",
-      "Xây dựng Analytics Dashboard bóc tách KPI hiệu suất chiến dịch theo thời gian thực",
-      "Module trích xuất báo cáo chuyên sâu định dạng Excel/PDF tự động"
-    ],
-    contributionsEn: [
-      "Polyglot Persistence: PostgreSQL (ACID billing transactions) + MongoDB (dynamic social post schemas)",
-      "Multi-tenant schema design for Agency, Enterprise, Brand, and Collaborator tiers",
-      "Real-time campaign KPI analytics and reporting dashboard backend",
-      "Automated enterprise Excel/PDF report generation engine"
-    ],
-    tech: ["PostgreSQL", "MongoDB", "Spring Boot 3", "Multi-tenant", "PDF/Excel Engine"],
-    color: "#c8e6cd"
-  },
-  {
-    name: "Nguyễn Chơn Phước",
-    roleVi: "Java Backend & DevOps / Real-time Engineer",
-    roleEn: "Java Backend & DevOps / Real-time Engineer",
-    avatarIcon: "FaServer",
-    contributionsVi: [
-      "Xây dựng Publisher Service tích hợp API xuất bản 5 nền tảng: Facebook, TikTok, Instagram, Threads, Zalo",
-      "Tích hợp Socket.IO và WebSockets cập nhật trạng thái đăng bài thời gian thực lên Dashboard",
-      "Thiết lập CI/CD pipeline tự động hóa với GitHub Actions kiểm thử & build Docker",
-      "Giám sát cụm server, cảnh báo tức thời qua Telegram Bot và cấu hình Nginx Reverse Proxy"
-    ],
-    contributionsEn: [
-      "Publisher Service integrating social APIs: Facebook, TikTok, Instagram, Threads, Zalo",
-      "Socket.IO & WebSockets for real-time publishing status telemetry to dashboard",
-      "Automated CI/CD pipeline using GitHub Actions for testing and containerization",
-      "Server cluster monitoring, Telegram Bot automated alerts & Nginx reverse proxy"
-    ],
-    tech: ["Spring Boot 3", "Socket.IO", "Social APIs", "GitHub Actions", "Nginx", "Telegram Bot"],
-    color: "#efd4d4"
-  }
-];
-
-const BRANDHUB_MICROSERVICES = [
-  {
-    id: "gateway",
-    name: "brandhub-api-gateway",
-    tag: "Port 8080 • Routing & Security",
-    tech: "Spring Cloud Gateway • WebFlux • JWT • Redis",
-    descVi: "Cổng định tuyến tập trung, xác thực JWT phân tán, bảo vệ chống brute-force và Redis Rate Limiting.",
-    descEn: "Unified entry gateway, distributed JWT authentication, brute-force protection & Redis rate limiting."
-  },
-  {
-    id: "business",
-    name: "brandhub-business-service",
-    tag: "Port 8081 • Domain Core",
-    tech: "Java 21 • Spring Boot 3.3.5 • PostgreSQL • MongoDB",
-    descVi: "Quản trị nghiệp vụ cốt lõi: Multi-tenant, phân quyền Agency/Brand/CTV, quy trình duyệt nội dung & thanh toán.",
-    descEn: "Core domain logic: Multi-tenancy, Agency/Brand/Collaborator ACL, approval workflows & billing."
-  },
-  {
-    id: "ai",
-    name: "brandhub-ai-service",
-    tag: "Port 8082 • AI & GraphRAG",
-    tech: "Python FastAPI • ChromaDB • Neo4j • Groq Llama 3",
-    descVi: "RAG học giọng điệu thương hiệu (Brand Voice), GraphRAG phân tích quan hệ KOL/Hashtag, sinh ảnh Stability AI.",
-    descEn: "Brand voice RAG synthesis, Neo4j GraphRAG for KOL/trend detection, Stability AI visual generation."
-  },
-  {
-    id: "publisher",
-    name: "brandhub-publisher-service",
-    tag: "Port 8083 • Omnichannel Async",
-    tech: "Spring Boot 3 • RabbitMQ DLQ • Social Media APIs",
-    descVi: "Tiêu thụ hàng đợi RabbitMQ, lập lịch tự động đăng bài lên Facebook, TikTok, Instagram, Threads, Zalo với DLQ retry.",
-    descEn: "RabbitMQ consumer, auto-publishes to Facebook, TikTok, Instagram, Threads, Zalo with DLQ retries."
-  },
-  {
-    id: "web",
-    name: "brandhub-web-dashboard",
-    tag: "Port 5173 / 3000 • Web App",
-    tech: "React 18 • TypeScript • Vite • Tailwind CSS",
-    descVi: "Dashboard điều khiển tập trung, quản lý chiến dịch, Kanban phê duyệt bài viết, lịch đăng bài trực quan.",
-    descEn: "Unified admin portal, campaign manager, Kanban content approval board & visual calendar scheduler."
-  },
-  {
-    id: "mobile",
-    name: "brandhub-mobile-app",
-    tag: "iOS & Android Companion",
-    tech: "React Native • Expo • Push Notifications",
-    descVi: "Ứng dụng di động đồng bộ thời gian thực, duyệt bài viết nhanh, nhận thông báo tiến độ chiến dịch tức thời.",
-    descEn: "Real-time companion app for instant content approvals and push notifications on mobile."
-  },
-  {
-    id: "infra",
-    name: "brandhub-infrastructure",
-    tag: "DevOps & Cloud Cluster",
-    tech: "Docker Compose • AWS EC2 • GitHub Actions • Nginx",
-    descVi: "Toàn bộ cụm container điều phối qua Docker Compose, CI/CD tự động kiểm thử và deploy lên AWS EC2.",
-    descEn: "Full container cluster orchestrated via Docker Compose, automated CI/CD and AWS EC2 deployment."
-  }
-];
 
 const OTHER_TEAM_PROJECTS = [
   {
@@ -792,31 +623,31 @@ const SAAS_MODULES = [
     category: "retention",
     num: "08",
     iconName: "FaShieldAlt",
-    metricVi: "Ghi vết SHA-256 bất biến",
+    metricVi: "Bảo mật chống thất thoát",
     metricEn: "Immutable Audit Trail",
-    titleVi: "Nhật Ký Audit Log Bất Biến & Bảo Mật Dữ Liệu VIP",
+    titleVi: "Bảo Mật Chống Thất Thoát Dữ Liệu & Khách VIP",
     titleEn: "Immutable Audit Log & VIP Data Leak Prevention",
-    descVi: "Nhật ký kiểm toán mã hóa băm SHA-256 bất biến kèm IP, bảo vệ dữ liệu VIP...",
+    descVi: "Ghi lại lịch sử mọi thao tác sửa giá, xóa đơn, ngăn chặn rò rỉ số điện thoại khách VIP...",
     descEn: "Cryptographic SHA-256 audit trail with IP tracing to protect VIP records...",
     specsVi: [
-      "Nhật ký bất biến chống chối bỏ kèm IP và thời gian",
-      "Phân quyền RBAC đa cấp bảo vệ tệp khách VIP"
+      "Nhật ký thao tác minh bạch, không thể chỉnh sửa hay xóa dấu vết",
+      "Phân quyền xem số điện thoại và dữ liệu khách hàng VIP"
     ],
     specsEn: [
       "Non-repudiable cryptographic logging with IP",
       "Multi-role RBAC protecting VIP customer records"
     ],
-    techVi: "Audit Trail Hash • Phân Quyền RBAC",
+    techVi: "Nhật Ký Bảo Mật • Phân Quyền Nhân Viên",
     techEn: "Audit Trail Hash • RBAC Controls",
     image: "/docs/images/biensovip_real_audit.png",
     captionVi: "Nhật ký kiểm toán hệ thống bất biến, ghi lại chi tiết IP, thời gian và hành vi của từng tài khoản",
     captionEn: "Immutable security audit log tracing IP, timestamps, and granular admin action records",
-    painPointVi: "Rủi ro nội bộ là mối đe dọa lớn nhất: nhân viên tự ý sửa giá sản phẩm thấp đi để trục lợi, xóa dấu vết đơn hàng hoặc xuất trộm danh sách số điện thoại khách hàng VIP mang sang đối thủ. Hệ thống mã hóa băm SHA-256 ghi lại mọi hành vi bất biến không thể xóa sửa.",
+    painPointVi: "Nỗi lo lớn của chủ doanh nghiệp là nhân viên nội bộ tự ý sửa giá sản phẩm thấp đi để trục lợi, xóa dấu vết đơn hàng hoặc copy trộm danh sách số điện thoại khách VIP mang sang cho đối thủ. Hệ thống lưu vết bảo mật tự động ghi lại từng lượt bấm xem số điện thoại, sửa giá kèm địa chỉ mạng và thời gian chính xác, giúp chủ shop kiểm soát 100% tài sản kinh doanh.",
     painPointEn: "Internal risk is severe: rogue staff altering prices for kickbacks, deleting traces, or stealing VIP customer records. Our SHA-256 cryptographic audit trail records every database mutation with timestamp and IP, tamper-proof against deletion.",
     workflowVi: [
-      { step: "01", title: "Chặn bắt & Ghi log mọi thao tác", desc: "Mọi yêu cầu xem số điện thoại, sửa giá, xóa dữ liệu đều đi qua middleware ghi nhận IP và mã định danh người dùng." },
-      { step: "02", title: "Mã hóa băm chống chối bỏ", desc: "Nhật ký được băm chuỗi bảo mật bất biến; kể cả tài khoản quản trị tối cao (Admin) cũng không thể can thiệp xóa log." },
-      { step: "03", title: "Phát hiện bất thường & Cảnh báo", desc: "Hệ thống tự động kích hoạt còi báo động khi có tài khoản thực hiện xuất dữ liệu số lượng lớn hoặc đăng nhập từ IP lạ." }
+      { step: "01", title: "Ghi nhận mọi lượt xem & chỉnh sửa", desc: "Bất kỳ nhân viên nào mở xem số điện thoại khách, thay đổi giá hay xuất file đều được hệ thống ghi vết tức thì." },
+      { step: "02", title: "Lưu vết bất biến không thể xóa sửa", desc: "Nhật ký được bảo mật tuyệt đối; không ai có thể vào xóa hay sửa lại lịch sử thao tác." },
+      { step: "03", title: "Cảnh báo khi có hành vi bất thường", desc: "Tự động gửi thông báo cho chủ shop khi phát hiện nhân viên tải hàng loạt thông tin khách hàng hoặc đăng nhập bất thường." }
     ],
     workflowEn: [
       { step: "01", title: "Action Interception & Logging", desc: "Middleware intercepts phone number views, price edits, and data exports with user IP and timestamp." },
@@ -829,31 +660,31 @@ const SAAS_MODULES = [
     category: "retention",
     num: "09",
     iconName: "FaStar",
-    metricVi: "Tăng 3x thời gian on-site",
+    metricVi: "Tăng 3x thời gian ở lại trang",
     metricEn: "3x On-Site Engagement",
-    titleVi: "Tra Cứu Phong Thủy & Social Proof Kích Cọc",
+    titleVi: "Tra Cứu Ý Nghĩa Phong Thủy & Kích Thích Mua Hàng",
     titleEn: "Fengshui Numerology & Live Social Proof",
-    descVi: "Bộ công cụ tra cứu phong thủy và ticker đơn hàng thực tế kích thích chốt cọc...",
+    descVi: "Công cụ chấm điểm hợp mệnh và thông báo có người đang xem/vừa đặt cọc...",
     descEn: "Interactive numerology calculator and live buyer tickers stimulating FOMO...",
     specsVi: [
-      "Thuật toán chấm điểm 4 trụ cột và ngũ hành",
-      "Bộ đếm người xem trực tiếp và đơn hàng vừa chốt"
+      "Bộ tính điểm hợp tuổi, hợp mệnh theo ngày tháng năm sinh",
+      "Hiển thị số người đang cùng xem và thông báo chốt đơn thực tế"
     ],
     specsEn: [
       "4-pillar elemental scoring algorithm",
       "Live concurrent viewer counts and order tickers"
     ],
-    techVi: "4 Trụ Phong Thủy • Live Ticker",
+    techVi: "Tra Cứu Tương Tác • Thông Báo Thời Gian Thực",
     techEn: "4-Pillar Numerology • Live Ticker",
     image: "/docs/images/biensovip_real_comparison.png",
     captionVi: "Số liệu phân tích hơn 6.380 lượt tìm kiếm và các yếu tố kích thích tỷ lệ chuyển đổi thực tế",
     captionEn: "Analytics tracking 6,380+ customer searches and live conversion-boosting triggers",
-    painPointVi: "Khách hàng vào website thấy yên ắng thường có tâm lý dè chừng, sợ lừa đảo hoặc phân vân chần chừ không muốn cọc ngay. Các công cụ tra cứu giá trị gia tăng (như phong thủy) giữ khách ở lại trang lâu gấp 3 lần, kết hợp thông báo hoạt động mua bán thực tế kích thích quyết định nhanh chóng.",
+    painPointVi: "Khách hàng vào website thấy yên ắng thường có tâm lý dè chừng, sợ lừa đảo hoặc phân vân chần chừ không muốn cọc ngay. Các công cụ tra cứu giá trị gia tăng (như phong thủy, hợp mệnh) giữ khách ở lại trang lâu gấp 3 lần, kết hợp thông báo hoạt động mua bán thực tế kích thích quyết định xuống cọc nhanh chóng.",
     painPointEn: "Shoppers entering a static, lifeless site feel cautious and postpone deposit commitments. Interactive valuation tools triple visitor dwell time, while live activity tickers create authentic social proof and FOMO.",
     workflowVi: [
-      { step: "01", title: "Tương tác nhập liệu tra cứu", desc: "Khách nhập ngày sinh, ngũ hành để nhận bảng phân tích độ hợp mệnh độc quyền với từng món hàng." },
-      { step: "02", title: "Hiển thị thang điểm trực quan", desc: "Biểu đồ phân tích đa yếu tố gia tăng sự gắn kết tâm lý và khẳng định giá trị độc nhất của sản phẩm." },
-      { step: "03", title: "Kích hoạt thông báo mua hàng thực", desc: "Góc màn hình hiển thị số người đang cùng xem và thông báo chốt đơn từ các khách hàng thực tế gần nhất." }
+      { step: "01", title: "Khách nhập năm sinh tra cứu", desc: "Khách nhập ngày sinh để xem ngay bản phân tích độ hợp tuổi, hợp mệnh với từng sản phẩm." },
+      { step: "02", title: "Hiển thị điểm số & Lời khuyên", desc: "Bảng điểm rõ ràng giúp khách an tâm và thêm yêu thích sản phẩm." },
+      { step: "03", title: "Nhắc nhở nhẹ nhàng để cọc ngay", desc: "Góc màn hình hiện thông báo có người đang cùng xem sản phẩm, tạo động lực để khách không bỏ lỡ." }
     ],
     workflowEn: [
       { step: "01", title: "Interactive Attribute Evaluation", desc: "Visitors input criteria to generate personalized affinity scores tailored to specific items." },
@@ -866,31 +697,31 @@ const SAAS_MODULES = [
     category: "retention",
     num: "10",
     iconName: "FaBalanceScale",
-    metricVi: "So sánh đa chiều & Video",
+    metricVi: "So sánh 2-4 món cùng lúc",
     metricEn: "Multi-Item Radar & Video",
-    titleVi: "So Sánh Đa Sản Phẩm & Gán Video Mạng Xã Hội",
+    titleVi: "So Sánh Sản Phẩm Song Song & Nhúng Video Clip",
     titleEn: "Multi-Item Comparison & Social Video Embeds",
-    descVi: "Bảng đối chiếu 2-4 sản phẩm cùng lúc và nhúng video TikTok/Reels thực tế...",
+    descVi: "Khách dễ dàng đặt 2-4 sản phẩm lên bàn cân so sánh giá và xem video thực tế...",
     descEn: "Side-by-side spec comparison matrix with authentic video review embeds...",
     specsVi: [
-      "Ma trận đối chiếu thông số và điểm phong thủy",
-      "Nhúng video TikTok/Reels thực tế tăng độ tin cậy"
+      "Bảng đối chiếu thông số, mức giá rõ ràng trên một màn hình",
+      "Gắn video quay thực tế từ TikTok/Reels giúp khách tin tưởng tuyệt đối"
     ],
     specsEn: [
       "Side-by-side spec and compatibility radar",
       "Native TikTok/Reels video embeds for authenticity"
     ],
-    techVi: "Ma Trận So Sánh • Nhúng Video",
+    techVi: "Bảng So Sánh • Nhúng Video TikTok/Reels",
     techEn: "Matrix Comparison • Native Video",
     image: "/docs/images/biensovip_real_comparison.png",
     captionVi: "Ma trận đối chiếu đa sản phẩm song song và tính năng nhúng video thực tế từ TikTok/Reels",
     captionEn: "Side-by-side multi-item comparison matrix with integrated TikTok/Reels video embeds",
-    painPointVi: "Khách hàng thường phân vân giữa 2-4 sản phẩm có mức giá tương đương. Nếu phải chuyển qua chuyển lại nhiều trang con, khách sẽ mỏi mắt và thoát trang. Ma trận đối chiếu đặt các sản phẩm lên cùng một bảng so sánh, kèm video clip thực tế để khách tự tin bấm cọc ngay.",
+    painPointVi: "Khách hàng thường đắn đo giữa 2-3 món hàng cùng tầm giá. Nếu phải mở nhiều tab rồi quay qua quay lại, khách rất dễ mỏi mắt và bỏ đi. Bảng so sánh đặt các sản phẩm lên cùng một màn hình đối chiếu, kèm video quay thực tế giúp khách tự tin đưa ra quyết định mua hàng ngay.",
     painPointEn: "Buyers torn between several comparable items get fatigued opening multiple tabs and abandon the process. A side-by-side radar matrix contrasts attributes cleanly on one screen, enriched with video clips for full transparency.",
     workflowVi: [
-      { step: "01", title: "Thêm sản phẩm vào bảng đối chiếu", desc: "Khách nhấp vào biểu tượng so sánh trên thẻ sản phẩm (hỗ trợ so sánh đồng thời 2-4 sản phẩm)." },
-      { step: "02", title: "Xem ma trận đối chiếu thông số", desc: "Bảng hiển thị song song giá cả, thông số chi tiết, điểm phong thủy và mức độ ưu tiên trên cùng một màn hình." },
-      { step: "03", title: "Xem video thực tế & Quyết định cọc", desc: "Xem trực tiếp video TikTok/Reels quay thực tế sản phẩm được nhúng mượt mà và bấm nút chốt cọc ngay tại bảng." }
+      { step: "01", title: "Bấm chọn các món cần so sánh", desc: "Khách bấm nút 'So sánh' trên 2-4 sản phẩm đang cân nhắc." },
+      { step: "02", title: "Xem bảng đối chiếu trực quan", desc: "Màn hình hiển thị song song giá cả, đặc điểm nổi bật và ưu nhược điểm của từng món." },
+      { step: "03", title: "Xem video thật & Bấm cọc luôn", desc: "Xem clip quay cận cảnh sản phẩm và bấm nút đặt cọc ngay trên bảng so sánh." }
     ],
     workflowEn: [
       { step: "01", title: "Add to Comparison Matrix", desc: "Shoppers click the comparison icon across 2 to 4 candidate products from catalog cards." },
@@ -903,33 +734,33 @@ const SAAS_MODULES = [
     category: "omnichannel",
     num: "11",
     iconName: "FaShareAlt",
-    systemBadgeVi: "Hệ thống BrandHub",
+    systemBadgeVi: "Công nghệ BrandHub",
     systemBadgeEn: "BrandHub System",
-    metricVi: "5 MXH • 0% Mất tin DLQ",
+    metricVi: "5 MXH • Không lo mất bài",
     metricEn: "5 Platforms • 0% Loss DLQ",
-    titleVi: "Phát Hành Đa Kênh Tự Động & Hàng Đợi RabbitMQ DLQ",
+    titleVi: "Đăng Bài Tự Động Lên 5 Mạng Xã Hội Đồng Thời",
     titleEn: "Omnichannel Auto-Publisher & RabbitMQ DLQ Pipeline",
-    descVi: "Đăng tải đồng thời lên 5 mạng xã hội qua Spring Boot 3 & RabbitMQ chống rớt tin...",
+    descVi: "Soạn nội dung 1 lần, tự động lên lịch đăng đồng loạt lên Facebook, TikTok, Instagram, Threads, Zalo...",
     descEn: "Dispatches scheduled content to 5 social channels via RabbitMQ DLQ with zero message loss...",
     specsVi: [
-      "Tích hợp OAuth đồng thời: Facebook, TikTok, Instagram, Threads, Zalo",
-      "Hàng đợi Dead Letter Queue (DLQ) retry lũy thừa chống rớt tin 100%"
+      "Kết nối chính thức: Facebook, TikTok, Instagram, Threads, Zalo",
+      "Cơ chế tự động gửi lại nếu mạng chập chờn — Cam kết không mất bài"
     ],
     specsEn: [
       "Unified OAuth gateway: Facebook, TikTok, Instagram, Threads, Zalo",
       "RabbitMQ Dead Letter Queue (DLQ) with exponential backoff retry"
     ],
-    techVi: "Spring Boot 3 • RabbitMQ DLQ",
+    techVi: "Tự Động Đăng Bài • Bộ Xử Lý Chống Rớt Tin",
     techEn: "Spring Boot 3 • RabbitMQ DLQ",
     image: "/docs/images/DA-D19-03.png",
     captionVi: "Giao diện lập lịch đăng bài tự động đa kênh và bảng điều khiển telemetry hàng đợi RabbitMQ từ hệ thống BrandHub",
     captionEn: "Live omnichannel scheduling console and RabbitMQ async queue telemetry from BrandHub platform",
-    painPointVi: "Doanh nghiệp hoặc Agency quản trị hàng chục Fanpage/Kênh mạng xã hội phải tốn 4-6 giờ mỗi ngày copy-paste nội dung thủ công sang từng nền tảng, dễ bị khóa tài khoản hoặc lỗi mạng làm mất bài đăng. Hệ thống Omnichannel Publisher điều phối qua Spring Boot 3 và RabbitMQ DLQ tự động retry lũy thừa, đảm bảo 100% bài viết được xuất bản đúng giờ với 0% tỷ lệ mất tin.",
+    painPointVi: "Doanh nghiệp hoặc chủ shop bán hàng đa kênh thường mất 3-5 tiếng mỗi ngày chỉ để copy-paste bài viết sang từng Fanpage, TikTok hay Zalo. Nhiều khi mạng lag hoặc nền tảng lỗi khiến bài không đăng được mà không hề hay biết. Hệ thống này giúp bạn chỉ cần viết 1 lần, đặt giờ hẹn là bài tự động xuất hiện trên cả 5 nền tảng, có sự cố sẽ tự động gửi lại đến khi thành công.",
     painPointEn: "Managing dozens of brand social pages manually drains 4-6 hours daily in repetitive copy-pasting, risking network dropouts and inconsistent campaign timing. Our Omnichannel Publisher leverages Spring Boot 3 and RabbitMQ DLQ with exponential retry, guaranteeing zero message loss and seamless scheduled dispatches across 5 social channels.",
     workflowVi: [
-      { step: "01", title: "Soạn thảo & Chọn 5 kênh phát hành", desc: "Người dùng tạo nội dung một lần duy nhất, tùy chỉnh định dạng riêng cho từng kênh (Facebook, TikTok, Instagram, Threads, Zalo)." },
-      { step: "02", title: "Điều phối hàng đợi RabbitMQ Asynchronous", desc: "Tin nhắn được đẩy vào hàng đợi RabbitMQ; cơ chế Dead Letter Queue giám sát, tự động retry khi API mạng xã hội nghẽn." },
-      { step: "03", title: "Xuất bản đồng bộ & Báo cáo Telemetry", desc: "Hệ thống bắn bài đăng đồng thời, cập nhật trạng thái thời gian thực và ghi nhận ID bài viết trả về từ từng nền tảng." }
+      { step: "01", title: "Soạn bài viết 1 lần duy nhất", desc: "Viết bài và gắn ảnh/video, hệ thống tự căn chỉnh kích thước chuẩn cho Facebook, TikTok, Instagram, Threads, Zalo." },
+      { step: "02", title: "Chọn ngày giờ xuất bản", desc: "Đặt lịch đăng bài theo khung giờ vàng nhiều người xem nhất trong ngày." },
+      { step: "03", title: "Hệ thống tự động phát hành & Báo cáo", desc: "Đến giờ hẹn, bài tự đăng lên mọi kênh; có thông báo kết quả và đường link xem trực tiếp." }
     ],
     workflowEn: [
       { step: "01", title: "Single-Editor Multi-Channel Authoring", desc: "Draft marketing copy once, fine-tune aspect ratios and tags for Facebook, TikTok, Instagram, Threads, and Zalo." },
@@ -942,33 +773,33 @@ const SAAS_MODULES = [
     category: "ai",
     num: "12",
     iconName: "FaRobot",
-    systemBadgeVi: "Hệ thống BrandHub",
+    systemBadgeVi: "Công nghệ BrandHub",
     systemBadgeEn: "BrandHub System",
-    metricVi: "RAG Llama 3 • Siêu tốc 1.2s",
+    metricVi: "AI Viết Bài Chuẩn Gu",
     metricEn: "RAG Llama 3 • 1.2s Fast",
-    titleVi: "AI Content RAG & Tự Động Chuẩn Hóa Brand Voice",
+    titleVi: "Trợ Lý AI Viết Bài Tự Động Theo Đúng Phong Cách Riêng",
     titleEn: "Context-Aware AI RAG & Brand-Voice Engine",
-    descVi: "Python FastAPI RAG học ngữ điệu thương hiệu, tự động sinh copy chuẩn SEO theo kênh...",
+    descVi: "AI học toàn bộ thông tin sản phẩm và giọng văn của thương hiệu, tự động viết bài quảng cáo trong 1 giây...",
     descEn: "Python FastAPI RAG pipeline synthesizing context-aware SEO captions tailored by platform...",
     specsVi: [
-      "Vector Search ChromaDB + Hybrid LLM (Groq Llama 3 & Claude)",
-      "Tự động cá nhân hóa văn phong theo Brand Guidelines độc quyền"
+      "Ghi nhớ thông tin sản phẩm, chính sách giá và từ ngữ thương hiệu riêng",
+      "Tự động biến tấu bài viết: TikTok giật tít thu hút, Facebook chi tiết thuyết phục"
     ],
     specsEn: [
       "ChromaDB semantic retrieval + Groq Llama 3 with Claude fallback",
       "Dynamic tone-of-voice adaptation strictly following Brand Guidelines"
     ],
-    techVi: "FastAPI • LangChain • ChromaDB",
+    techVi: "Trí Tuệ Nhân Tạo AI • Bộ Nhớ Thông Minh",
     techEn: "FastAPI • LangChain • ChromaDB",
     image: "/docs/images/DA-D19-04.png",
     captionVi: "Pipeline AI sinh nội dung tự động thông minh bằng Python FastAPI tích hợp RAG và kiểm soát văn phong thương hiệu",
     captionEn: "AI content automation pipeline with Python FastAPI, RAG context injection, and Brand-Voice compliance",
-    painPointVi: "Thuê đội ngũ Copywriter tốn kém chi phí cố định nhưng văn phong bài viết thường không đồng nhất, dễ lệch tông nhận diện thương hiệu hoặc mất hàng giờ để chỉnh sửa cho từng định dạng (TikTok cần giật gân, LinkedIn cần trang trọng). Pipeline AI RAG nhúng toàn bộ Brand Guidelines vào vector database, sinh hàng trăm bài viết chuẩn văn phong chỉ trong 1.2 giây.",
+    painPointVi: "Thuê nhân viên viết content thường tốn 8-15 triệu/tháng nhưng người mới vào viết hay bị lệch gu, sai thông tin sản phẩm hoặc cạn ý tưởng. Trợ lý AI này được 'dạy' riêng bằng chính bảng giá và phong cách thương hiệu của bạn, chỉ cần nhập ý tưởng sơ lược là AI viết ngay hàng chục bài quảng cáo hấp dẫn chỉ trong 1-2 giây.",
     painPointEn: "Hiring creative copywriters incurs heavy payroll while brand voice fluctuates wildly across channels. Content creators waste hours adapting formats for TikTok vs. LinkedIn. Our Python FastAPI RAG pipeline embeds your brand manual into vector storage, generating channel-perfect copy adhering strictly to brand identity in 1.2s.",
     workflowVi: [
-      { step: "01", title: "Nạp tài liệu Brand Guidelines vào ChromaDB", desc: "Hệ thống số hóa quy chuẩn thương hiệu, danh mục sản phẩm và từ khóa cấm/khuyến khích vào vector database." },
-      { step: "02", title: "RAG Context Retrieval & Sinh nội dung", desc: "LangChain trích xuất ngữ cảnh liên quan, Groq Llama 3 xử lý sinh nội dung siêu tốc (fallback Claude khi cần độ sâu)." },
-      { step: "03", title: "Tự động chia tách định dạng từng kênh", desc: "Xuất ra cùng lúc 5 phiên bản: Hook & Hashtag cho TikTok, Caption dài cho Facebook, Tone chuyên nghiệp cho LinkedIn." }
+      { step: "01", title: "Nạp thông tin thương hiệu vào AI", desc: "Đưa tài liệu giới thiệu shop, bảng giá và các bài viết mẫu thành công nhất vào bộ nhớ của AI." },
+      { step: "02", title: "Nhập ý tưởng sản phẩm muốn bán", desc: "Chủ shop chỉ cần nhập 1 câu: 'Hôm nay giảm giá biển tam hoa cho khách Đà Nẵng'." },
+      { step: "03", title: "Nhận bài viết hoàn chỉnh tức thì", desc: "AI xuất ngay 3 phiên bản bài viết hay, chuẩn SEO, có sẵn hashtag để đăng luôn." }
     ],
     workflowEn: [
       { step: "01", title: "Brand Guidelines Ingestion into ChromaDB", desc: "Digitizes brand identity manuals, catalog specs, and negative keywords into vector embeddings." },
@@ -981,33 +812,33 @@ const SAAS_MODULES = [
     category: "retention",
     num: "13",
     iconName: "FaUsers",
-    systemBadgeVi: "Hệ thống BrandHub",
+    systemBadgeVi: "Công nghệ BrandHub",
     systemBadgeEn: "BrandHub System",
-    metricVi: "Multi-tenant • Phân quyền 4 cấp",
+    metricVi: "Phân quyền an toàn 4 cấp",
     metricEn: "Multi-Tenant • 4-Tier RBAC",
-    titleVi: "Phân Quyền Tổ Chức Đa Cấp Agency & Doanh Nghiệp",
+    titleVi: "Phân Quyền Làm Việc Cho Quản Lý, Nhân Viên & Khách Hàng",
     titleEn: "Multi-Tenant Enterprise RBAC & Workspace Segregation",
-    descVi: "Kiến trúc Multi-tenant phân lập workspace giữa Agency, Brand, KOL và CTV...",
+    descVi: "Tạo không gian làm việc riêng biệt cho từng chi nhánh, quản lý ai được xem tiền, ai chỉ được soạn bài...",
     descEn: "Multi-tenant workspace isolation for Agencies, Brands, KOLs, and external partners...",
     specsVi: [
-      "Spring Cloud Gateway JWT & Redis Rate Limiting kiểm soát truy cập",
-      "Phân lập dữ liệu hoàn toàn giữa các Brand và Agency thành viên"
+      "Bảo mật tài khoản nhiều lớp, chống xâm nhập trái phép",
+      "Tách biệt hoàn toàn dữ liệu giữa các nhãn hàng, chi nhánh khác nhau"
     ],
     specsEn: [
       "Spring Cloud Gateway JWT tokens & Redis rate-limiting access control",
       "Strict data tenancy isolation between autonomous brands and agency units"
     ],
-    techVi: "Spring Cloud Gateway • RBAC",
+    techVi: "Phân Quyền Đa Cấp • Bảo Mật Cấp Doanh Nghiệp",
     techEn: "Spring Cloud Gateway • RBAC",
     image: "/docs/images/DA-D19-06.png",
     captionVi: "Màn hình phân quyền tổ chức đa cấp Multi-tenant (Agency, Doanh nghiệp, Brand, CTV) trên nền tảng BrandHub",
     captionEn: "Enterprise multi-tenant organizational structure and granular role-based access control interface in BrandHub",
-    painPointVi: "Khi doanh nghiệp mở rộng quy mô hoặc Agency cùng lúc quản lý nhiều khách hàng, việc dùng chung tài khoản dẫn đến nguy cơ lộ dữ liệu chiến dịch nhạy cảm giữa các bên đối thủ, hoặc nhân sự cấp dưới vô tình xóa nhầm tài nguyên quan trọng. Kiến trúc Multi-Tenant phân lập dữ liệu triệt để, phân quyền chặt chẽ 4 cấp độ với Spring Cloud Gateway.",
+    painPointVi: "Khi mở rộng thêm chi nhánh hoặc thuê cộng tác viên bên ngoài, việc dùng chung một tài khoản rất nguy hiểm: người ngoài có thể thấy hết doanh thu mật, hoặc nhân viên mới vô tình xóa mất dữ liệu quan trọng. Hệ thống phân quyền chặt chẽ giúp mỗi người chỉ thấy đúng việc của mình: người viết bài chỉ thấy bài, kế toán mới thấy tiền.",
     painPointEn: "Scaling businesses and agencies managing multiple clients face severe security risks when sharing shared logins, risking client data leaks across competing brands or accidental resource deletion. Our Multi-Tenant RBAC architecture enforces strict data isolation and granular 4-tier permissions via Spring Cloud Gateway.",
     workflowVi: [
-      { step: "01", title: "Khởi tạo Workspace & Định danh Tenant", desc: "Agency tạo không gian riêng biệt cho từng nhãn hàng (Brand), dữ liệu được cô lập logic ở tầng Database." },
-      { step: "02", title: "Gán quyền hạt nhân (Granular RBAC)", desc: "Phân chia vai trò rõ ràng: Admin (quản trị), Editor (sáng tạo), Reviewer (duyệt bài) và CTV (theo dõi số liệu)." },
-      { step: "03", title: "Spring Cloud Gateway kiểm soát truy cập", desc: "Mọi API request đều được Gateway xác thực JWT và giới hạn tần suất (Redis rate-limit) chống khai thác dữ liệu chéo." }
+      { step: "01", title: "Tạo tài khoản theo vai trò", desc: "Tạo tài khoản riêng cho từng nhân viên: Quản trị viên, Nhân viên bán hàng, Người duyệt bài hoặc Cộng tác viên." },
+      { step: "02", title: "Phân quyền xem dữ liệu", desc: "Giới hạn quyền hạn: Nhân viên chỉ thấy đơn của mình, không thấy tổng doanh thu của công ty." },
+      { step: "03", title: "An tâm mở rộng quy mô", desc: "Quản lý hàng chục nhân sự và chi nhánh trên một phần mềm duy nhất mà không lo lộ lọt bí mật kinh doanh." }
     ],
     workflowEn: [
       { step: "01", title: "Workspace Provisioning & Tenant Separation", desc: "Agency provisions dedicated workspaces for each brand; data is logically segregated at database layer." },
@@ -1022,9 +853,6 @@ const Services = () => {
   const isEn = i18n.language === 'en';
   const navigate = useNavigate();
 
-  const [activeShotIndex, setActiveShotIndex] = useState(0);
-  const [activeBrandhubShotIndex, setActiveBrandhubShotIndex] = useState(0);
-  const [activeDetailProject, setActiveDetailProject] = useState(null); // 'biensovip' | 'brandhub' | null
   const [lightboxImg, setLightboxImg] = useState(null);
   const [showWorkflowModal, setShowWorkflowModal] = useState(false);
   const [activeModalTab, setActiveModalTab] = useState('manday');
@@ -1037,8 +865,6 @@ const Services = () => {
       if (e.key === 'Escape') {
         if (lightboxImg) {
           setLightboxImg(null);
-        } else if (activeDetailProject) {
-          setActiveDetailProject(null);
         } else if (selectedSaasFeature) {
           setSelectedSaasFeature(null);
         } else if (showWorkflowModal) {
@@ -1047,12 +873,11 @@ const Services = () => {
       }
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxImg, activeDetailProject, selectedSaasFeature, showWorkflowModal]);
+  }, [lightboxImg, selectedSaasFeature, showWorkflowModal]);
 
   // Lock body scroll when modal or lightbox is active
   useEffect(() => {
-    if (selectedSaasFeature || showWorkflowModal || lightboxImg || activeDetailProject) {
+    if (selectedSaasFeature || showWorkflowModal || lightboxImg) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -1060,7 +885,7 @@ const Services = () => {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [selectedSaasFeature, showWorkflowModal, lightboxImg, activeDetailProject]);
+  }, [selectedSaasFeature, showWorkflowModal, lightboxImg]);
 
   const scrollToContact = () => {
     navigate('/contact');
@@ -1219,7 +1044,7 @@ const Services = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            onClick={() => setActiveDetailProject('biensovip')}
+            onClick={() => navigate('/projects/26', { state: { from: 'services' } })}
           >
             <div className="card-browser-bar">
               <div className="browser-dots">
@@ -1255,25 +1080,25 @@ const Services = () => {
               <p className="card-desc">
                 {isEn 
                   ? "Production high-performance marketplace managing thousands of high-value plates with sub-8ms composite search and 0% transaction fee auto VietQR deposit webhook."
-                  : "Sàn thương mại điện tử chuyên biệt quản lý hàng chục nghìn biển số giá trị lớn, tìm kiếm đa chiều PostgreSQL GIN dưới 8ms và cổng cọc VietQR 0đ phí."}
+                  : "Hệ thống sàn bán hàng trực tuyến quản lý hàng chục nghìn sản phẩm giá trị cao: khách gõ tìm kiếm ra ngay tức thì, nhận cọc tự động qua ngân hàng 0đ phí và tự động chốt đơn."}
               </p>
 
               <div className="card-highlights-list">
                 <div className="highlight-item">
                   <FaBolt className="hl-icon" />
-                  <span><strong>{isEn ? "Sub-8ms Multi-filter" : "Lọc đa tiêu chí <8ms"}:</strong> Postgres GIN index</span>
+                  <span><strong>{isEn ? "Sub-8ms Multi-filter" : "Tìm kiếm tức thời <8ms"}:</strong> Gõ đến đâu ra ngay đến đó</span>
                 </div>
                 <div className="highlight-item">
                   <FaQrcode className="hl-icon" />
-                  <span><strong>{isEn ? "VietQR 0% Fee" : "Cổng cọc VietQR 0đ"}:</strong> Khớp webhook &lt;0.5s</span>
+                  <span><strong>{isEn ? "VietQR 0% Fee" : "Nhận cọc VietQR 0đ phí"}:</strong> Khớp tiền về tài khoản sau 0.5s</span>
                 </div>
                 <div className="highlight-item">
                   <FaEnvelope className="hl-icon" />
-                  <span><strong>{isEn ? "Drag-Drop Email" : "Soạn Email Kéo-Thả"}:</strong> SMTP doanh nghiệp 0đ</span>
+                  <span><strong>{isEn ? "Drag-Drop Email" : "Gửi email xác nhận tự động"}:</strong> Kèm hóa đơn, không tốn phí duy trì</span>
                 </div>
                 <div className="highlight-item">
                   <FaUsers className="hl-icon" />
-                  <span><strong>{isEn ? "Affiliate Portal" : "Cổng 14 CTV Thực Tế"}:</strong> UTM & hoa hồng ví tự động</span>
+                  <span><strong>{isEn ? "Affiliate Portal" : "Quản lý 14 cộng tác viên"}:</strong> Tự động tính hoa hồng bán hàng</span>
                 </div>
               </div>
 
@@ -1296,10 +1121,7 @@ const Services = () => {
                 <button 
                   type="button"
                   className="btn-open-detail"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setActiveDetailProject('biensovip');
-                  }}
+                  onClick={(e) => { e.stopPropagation(); navigate('/projects/26', { state: { from: 'services' } }); }}
                 >
                   <span>{isEn ? "View Complete Details" : "Xem Chi Tiết Dự Án"}</span>
                   <FaArrowRight size={12} />
@@ -1326,7 +1148,7 @@ const Services = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            onClick={() => setActiveDetailProject('brandhub')}
+            onClick={() => navigate('/projects/14', { state: { from: 'services' } })}
           >
             <div className="card-browser-bar">
               <div className="browser-dots">
@@ -1362,25 +1184,25 @@ const Services = () => {
               <p className="card-desc">
                 {isEn 
                   ? "Enterprise-grade microservices system engineered by our 5-engineer team to automate omnichannel publishing across 5 platforms with AI copywriting & resilient message queuing."
-                  : "Hệ thống kiến trúc Microservices chuẩn doanh nghiệp tự chủ 100% bởi Team 5 Kỹ sư, tự động hóa phân phối nội dung đa kênh kèm AI sinh bài viết và RabbitMQ bất tử."}
+                  : "Nền tảng tự động hóa truyền thông đa kênh: viết 1 bài tự động đăng lên cả 5 mạng xã hội, tích hợp AI thông minh viết bài chuẩn thương hiệu và cam kết không bao giờ bị mất bài."}
               </p>
 
               <div className="card-highlights-list">
                 <div className="highlight-item">
                   <FaServer className="hl-icon purple" />
-                  <span><strong>{isEn ? "7 Microservices" : "7 Microservices Độc Lập"}:</strong> Spring Boot 3 & FastAPI</span>
+                  <span><strong>{isEn ? "7 Microservices" : "Hệ thống chịu tải cao"}:</strong> Hoạt động ổn định 24/7</span>
                 </div>
                 <div className="highlight-item">
                   <FaCogs className="hl-icon purple" />
-                  <span><strong>{isEn ? "Resilient RabbitMQ" : "RabbitMQ & DLQ Retry"}:</strong> 0% mất tin nhắn đăng bài</span>
+                  <span><strong>{isEn ? "Resilient RabbitMQ" : "Đăng bài 5 mạng xã hội"}:</strong> Tự động gửi lại nếu mạng lỗi, 0% rớt bài</span>
                 </div>
                 <div className="highlight-item">
                   <FaRobot className="hl-icon purple" />
-                  <span><strong>{isEn ? "AI Context RAG" : "AI Viết Bài Chuẩn SEO"}:</strong> Python FastAPI & DeepSeek</span>
+                  <span><strong>{isEn ? "AI Context RAG" : "Trợ lý AI viết bài tự động"}:</strong> Đúng văn phong thương hiệu, hút khách</span>
                 </div>
                 <div className="highlight-item">
                   <FaUsers className="hl-icon purple" />
-                  <span><strong>{isEn ? "5-Dev Bench" : "Ma Trận 5 Kỹ Sư FPT"}:</strong> 16 sprints kiểm thử khắt khe</span>
+                  <span><strong>{isEn ? "5-Dev Bench" : "Đội ngũ 5 Kỹ sư FPT"}:</strong> Trực tiếp phát triển, bảo hành chu đáo</span>
                 </div>
               </div>
 
@@ -1403,10 +1225,7 @@ const Services = () => {
                 <button 
                   type="button"
                   className="btn-open-detail brandhub-btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setActiveDetailProject('brandhub');
-                  }}
+                  onClick={(e) => { e.stopPropagation(); navigate('/projects/14', { state: { from: 'services' } }); }}
                 >
                   <span>{isEn ? "View Complete Details" : "Xem Chi Tiết Dự Án"}</span>
                   <FaArrowRight size={12} />
@@ -2857,380 +2676,7 @@ const Services = () => {
             </motion.div>
           </motion.div>
         )}
-              {/* FLAGSHIP PROJECT FULL DETAIL MODAL (BIENSOVIP & BRANDHUB) */}
-        {activeDetailProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="flagship-detail-modal-backdrop"
-            onClick={() => setActiveDetailProject(null)}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: 20 }}
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="flagship-detail-modal-dialog"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Modal Top Header */}
-              <div className="flagship-modal-header">
-                <div className="modal-title-group">
-                  <div className="modal-pill-tag">
-                    {activeDetailProject === 'biensovip' ? (
-                      <span className="pill-client">
-                        <span className="dot" />
-                        {isEn ? "ENTERPRISE CLIENT PRODUCTION" : "KHÁCH HÀNG DOANH NGHIỆP • ĐANG HOẠT ĐỘNG"}
-                      </span>
-                    ) : (
-                      <span className="pill-capstone">
-                        <span className="dot purple" />
-                        {isEn ? "FLAGSHIP CAPSTONE • 5-DEV BENCH" : "ĐỒ ÁN TRỌNG ĐIỂM • TEAM 5 KỸ SƯ FPT"}
-                      </span>
-                    )}
-                  </div>
-                  <h3>
-                    {activeDetailProject === 'biensovip' 
-                      ? "Biensovip.com — Sàn Giao Dịch Biển Số Đẹp (Đà Nẵng)" 
-                      : "BrandHub — Nền Tảng Tự Động Hoá Thương Hiệu & AI Đa Kênh"}
-                  </h3>
-                </div>
-
-                <div className="modal-header-actions">
-                  {activeDetailProject === 'biensovip' ? (
-                    <a 
-                      href="https://biensovip.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="btn-header-link"
-                    >
-                      <FaExternalLinkAlt size={12} />
-                      <span>{isEn ? "Open Live Site" : "Xem Sàn Thật"}</span>
-                    </a>
-                  ) : (
-                    <a 
-                      href="https://github.com/BrandHubOrganization" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="btn-header-link"
-                    >
-                      <FaExternalLinkAlt size={12} />
-                      <span>{isEn ? "GitHub Repo" : "Xem GitHub"}</span>
-                    </a>
-                  )}
-
-                  <button 
-                    onClick={() => setActiveDetailProject(null)} 
-                    className="btn-modal-close"
-                    aria-label="Close detail modal"
-                  >
-                    <FaTimes size={15} />
-                  </button>
-                </div>
-              </div>
-
-              {/* Modal Scrollable Body */}
-              <div className="flagship-modal-body">
-                {/* 1. VISUAL GALLERY & SPECS ROW */}
-                <div className="showcase-content-grid modal-visual-grid">
-                  {/* Visuals column */}
-                  <div className="showcase-visuals">
-                    <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px' }}>
-                      <AnimatePresence mode="wait">
-                        <motion.img 
-                          key={activeDetailProject === 'biensovip' ? activeShotIndex : activeBrandhubShotIndex}
-                          src={activeDetailProject === 'biensovip' ? BIENSOVIP_SHOTS[activeShotIndex].url : BRANDHUB_SHOTS[activeBrandhubShotIndex].url} 
-                          alt="Project Preview"
-                          className="main-preview-img"
-                          onClick={() => setLightboxImg(activeDetailProject === 'biensovip' ? BIENSOVIP_SHOTS[activeShotIndex].url : BRANDHUB_SHOTS[activeBrandhubShotIndex].url)}
-                          title="Click to view full size"
-                          initial={{ opacity: 0.35, scale: 0.98 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0.35 }}
-                          transition={{ duration: 0.25 }}
-                        />
-                      </AnimatePresence>
-                    </div>
-
-                    <div className="thumbnails-row">
-                      {(activeDetailProject === 'biensovip' ? BIENSOVIP_SHOTS : BRANDHUB_SHOTS).map((shot, idx) => {
-                        const isCurrent = activeDetailProject === 'biensovip' ? activeShotIndex === idx : activeBrandhubShotIndex === idx;
-                        return (
-                          <motion.img 
-                            key={idx}
-                            src={shot.url}
-                            alt={shot.titleVi}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.96 }}
-                            style={{
-                              borderColor: isCurrent ? (activeDetailProject === 'biensovip' ? 'var(--color-ink)' : '#6366f1') : 'var(--color-hairline)',
-                              opacity: isCurrent ? 1 : 0.65
-                            }}
-                            onClick={() => {
-                              if (activeDetailProject === 'biensovip') {
-                                setActiveShotIndex(idx);
-                              } else {
-                                setActiveBrandhubShotIndex(idx);
-                              }
-                            }}
-                          />
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Details column */}
-                  <div className="showcase-details">
-                    <p className="client-story">
-                      {activeDetailProject === 'biensovip' ? (
-                        isEn 
-                          ? "The client required a lightning-fast, high-trust marketplace to display thousands of high-value license plates with zero gateway fees and automatic deposit tracking."
-                          : "Khách hàng yêu cầu một sàn giao dịch tốc độ cao, hiển thị hàng chục nghìn biển số giá trị lớn, triệt tiêu 100% phí cổng thanh toán và quản lý đặt cọc tự động qua VietQR."
-                      ) : (
-                        isEn 
-                          ? "The flagship graduation capstone project developed end-to-end by our 5-engineer team. Engineered with enterprise-grade microservices to automate omnichannel content distribution across Facebook, TikTok, Instagram, Threads, and Zalo with AI-assisted copywriting and fault-tolerant message queuing."
-                          : "Đồ án tốt nghiệp trọng điểm được chính Team 5 Kỹ sư thiết kế và phát triển toàn diện. Hệ thống kiến trúc Microservices chuẩn doanh nghiệp, giải quyết bài toán tự động hóa quản trị nội dung đa kênh (Facebook, TikTok, Instagram, Threads, Zalo) với trợ lý AI và hạ tầng hàng đợi RabbitMQ bất tử."
-                      )}
-                    </p>
-
-                    <ul className="specs-list">
-                      {activeDetailProject === 'biensovip' ? (
-                        <>
-                          <li>
-                            <FaSearch />
-                            <div><strong>{isEn ? "Sub-8ms Multi-filter" : "Lọc đa chiều dưới 8ms"}:</strong> {isEn ? "Composite indexing for thousands of plates" : "Tìm kiếm theo ngũ quý, sảnh tiến, dải giá tức thời (Postgres GIN Index)"}</div>
-                          </li>
-                          <li>
-                            <FaQrcode />
-                            <div><strong>{isEn ? "VietQR Auto Deposit & Lock" : "Cổng cọc VietQR & Khóa độc bản"}:</strong> {isEn ? "0% transaction fee, auto Webhook <0.5s & Redis 15-min lock" : "Khớp lệnh Webhook <0.5s, 0đ phí cổng trung gian, khóa bi quan chống bán trùng"}</div>
-                          </li>
-                          <li>
-                            <FaEnvelope />
-                            <div><strong>{isEn ? "Drag-Drop Email Builder (UC27)" : "Soạn Email Kéo-Thả (UC27)"}:</strong> {isEn ? "Visual builder + corporate Gmail SMTP, zero spam & 0đ cost" : "Dựng email marketing trực quan, liên kết Gmail doanh nghiệp 0đ chi phí"}</div>
-                          </li>
-                          <li>
-                            <FaBell />
-                            <div><strong>{isEn ? "Auto Alerts & Broadcast (UC17/24)" : "Thông Báo Biển Mới & Broadcast"}:</strong> {isEn ? "Instant push when matching plates arrive; 1-click sales broadcast" : "Tự động gửi mail/Zalo khi có biển đúng sở thích; phát thông báo xả kho 1-click"}</div>
-                          </li>
-                          <li>
-                            <FaShareAlt />
-                            <div><strong>{isEn ? "Social Video & AI Mockups (UC22/42)" : "Video TikTok/Reels & Mockup AI"}:</strong> {isEn ? "Embed viral short videos + 1-click batch social mockups" : "Nhúng video thực tế xe biển đẹp + 1-click sinh hàng nghìn ảnh chuẩn Facebook/TikTok"}</div>
-                          </li>
-                          <li>
-                            <FaBalanceScale />
-                            <div><strong>{isEn ? "Feng Shui & Plate Comparison (UC16/23)" : "Phong Thủy Hợp Mệnh & So Sánh"}:</strong> {isEn ? "MeaningAnalyzer engine + side-by-side 3-plate comparison" : "Giải mã ngũ hành theo ngày sinh + so sánh song song 3 biển tăng 35% tỷ lệ chốt"}</div>
-                          </li>
-                          <li>
-                            <FaUsers />
-                            <div><strong>{isEn ? "Affiliate Partner Portal (UC25/34)" : "Cổng CTV & Hoa Hồng Tự Động"}:</strong> {isEn ? "Unique UTM links, transparent tiered commission & auto payout" : "Cấp mã UTM riêng, tự động tính hoa hồng ví điện tử, quản lý 14 CTV thực tế"}</div>
-                          </li>
-                        </>
-                      ) : (
-                        <>
-                          <li>
-                            <FaServer />
-                            <div><strong>{isEn ? "Enterprise Microservices" : "Kiến trúc Microservices Spring Boot 3"}:</strong> {isEn ? "Spring Cloud Gateway (WebFlux, JWT, Redis) + Java 21 domain services" : "API Gateway (WebFlux, JWT, Redis) + Spring Boot 3.3.5 (Java 21) độc lập"}</div>
-                          </li>
-                          <li>
-                            <FaCogs />
-                            <div><strong>{isEn ? "Resilient RabbitMQ & DLQ" : "Hàng đợi RabbitMQ & Dead Letter Queue (DLQ)"}:</strong> {isEn ? "Exponential backoff retry, strict idempotency, 0% lost publishing tasks" : "Cơ chế retry lũy thừa, đảm bảo tính Idempotency và không bao giờ mất tin nhắn"}</div>
-                          </li>
-                          <li>
-                            <FaRobot />
-                            <div><strong>{isEn ? "AI Content Generation & RAG" : "Trợ lý AI Sinh nội dung & RAG Pipeline"}:</strong> {isEn ? "Python FastAPI + DeepSeek AI for context-aware multi-format copywriting" : "Tích hợp Python FastAPI + DeepSeek LLM tự động hóa viết bài chuẩn SEO đa kênh"}</div>
-                          </li>
-                          <li>
-                            <FaSyncAlt />
-                            <div><strong>{isEn ? "Omnichannel Automation" : "Phát hành đa kênh đồng bộ"}:</strong> {isEn ? "Auto distribution to Facebook, TikTok, Instagram, Threads, Zalo" : "Đồng bộ hóa 5 nền tảng mạng xã hội, lên lịch đăng bài & cảnh báo tức thời"}</div>
-                          </li>
-                          <li>
-                            <FaUsers />
-                            <div><strong>{isEn ? "Multi-tenant Access Control" : "Phân quyền đa cấp bậc (RBAC)"}:</strong> {isEn ? "Workspaces for Agencies, Enterprise Brands, and Content Creators" : "Tách biệt dữ liệu cho Agency, Nhãn hàng, Creator và CTV với bảo mật JWT"}</div>
-                          </li>
-                          <li>
-                            <FaChartLine />
-                            <div><strong>{isEn ? "Deep Campaign Analytics" : "Báo cáo phân tích hiệu suất chuyên sâu"}:</strong> {isEn ? "Aggregated engagement KPIs & real-time async task telemetry" : "Đo lường tương tác, thống kê chuyển đổi và giám sát luồng tác vụ thời gian thực"}</div>
-                          </li>
-                          <li>
-                            <FaShieldAlt />
-                            <div><strong>{isEn ? "Zero Data Loss SLA" : "Cam kết độ bền vững tin nhắn 100%"}:</strong> {isEn ? "Docker Compose & AWS EC2 cluster with automatic failover" : "Cụm Docker Compose & AWS EC2 dự phòng nóng, tự hồi phục khi node gặp sự cố"}</div>
-                          </li>
-                        </>
-                      )}
-                    </ul>
-
-                    {/* Actions Inside Modal */}
-                    <div className="showcase-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', marginTop: '16px' }}>
-                      {activeDetailProject === 'biensovip' ? (
-                        <>
-                          <a 
-                            href="https://biensovip.com" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="btn-view-live"
-                          >
-                            {isEn ? "Explore Live Marketplace" : "Trải Nghiệm Sàn Thực Tế"} <FaExternalLinkAlt size={12} />
-                          </a>
-
-                          <Link
-                            to="/projects/26"
-                            className="btn-pill-subtle"
-                            onClick={() => setActiveDetailProject(null)}
-                          >
-                            <span>{isEn ? "Technical Case Study" : "Case Study Kỹ Thuật #26"}</span>
-                            <FaArrowRight size={11} />
-                          </Link>
-
-                          <Link
-                            to="/blog/biensovip-postgresql-vs-mongodb-multi-filter"
-                            className="btn-pill-subtle"
-                            onClick={() => setActiveDetailProject(null)}
-                          >
-                            <span>{isEn ? "PostgreSQL 8ms Deep-Dive" : "Bài Viết CSDL PostgreSQL 8ms"}</span>
-                            <FaArrowRight size={11} />
-                          </Link>
-                        </>
-                      ) : (
-                        <>
-                          <Link
-                            to="/projects/14"
-                            className="btn-view-live"
-                            style={{ background: '#6366f1' }}
-                            onClick={() => setActiveDetailProject(null)}
-                          >
-                            {isEn ? "Explore BrandHub Dossier" : "Khám Phá Chi Tiết Dự Án #14"} <FaArrowRight size={12} />
-                          </Link>
-
-                          <Link
-                            to="/blog/brandhub-resilient-rabbitmq-dead-letter-retry-architecture"
-                            className="btn-pill-subtle"
-                            onClick={() => setActiveDetailProject(null)}
-                          >
-                            <span>{isEn ? "RabbitMQ DLQ Deep-Dive" : "Bài Viết Kiến Trúc RabbitMQ"}</span>
-                            <FaArrowRight size={11} />
-                          </Link>
-
-                          <a 
-                            href="https://github.com/BrandHubOrganization" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="btn-pill-subtle"
-                          >
-                            <span>GitHub Organization</span>
-                            <FaExternalLinkAlt size={11} />
-                          </a>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {/* 2. FOR BRANDHUB: TELEMETRY + ARCHITECTURE + 5-DEV MATRIX */}
-                {activeDetailProject === 'brandhub' && (
-                  <>
-                    {/* BRANDHUB TELEMETRY STRIP */}
-                    <div className="brandhub-telemetry-banner" style={{ margin: '24px 0', borderRadius: '14px' }}>
-                      {BRANDHUB_METRICS.map((met, mIdx) => (
-                        <div key={mIdx} className="telemetry-item">
-                          <div className="telemetry-value">{met.value}</div>
-                          <div className="telemetry-label">{isEn ? met.labelEn : met.labelVi}</div>
-                          <div className="telemetry-sub">{isEn ? met.subEn : met.subVi}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* BRANDHUB 7 MICROSERVICES BLUEPRINT */}
-                    <div className="brandhub-architecture-section" style={{ borderRadius: '16px', border: '1px solid var(--color-hairline)', marginBottom: '24px' }}>
-                      <div className="section-sub-header">
-                        <span className="sub-badge">
-                          <FaProjectDiagram size={12} />
-                          {isEn ? "SYSTEM ARCHITECTURE BLUEPRINT" : "SƠ ĐỒ PHÂN RÃ HỆ THỐNG"}
-                        </span>
-                        <h4>
-                          {isEn 
-                            ? "7 Independent Microservices & Modules (Polyglot & Cloud-Native)" 
-                            : "Kiến Trúc 7 Dịch Vụ Độc Lập: Đa Ngôn Ngữ & Chuẩn Doanh Nghiệp"}
-                        </h4>
-                        <p>
-                          {isEn
-                            ? "Engineered with strict domain separation: Java Spring Boot for reliable business & publishing, Python FastAPI for AI RAG orchestration, and React 18 / Expo for multi-platform client interaction."
-                            : "Thiết kế theo nguyên tắc phân tách domain rõ ràng: Java Spring Boot cho giao dịch & xuất bản bất tử, Python FastAPI cho xử lý AI RAG đa chiều, và React 18 / Expo cho trải nghiệm người dùng đa thiết bị."}
-                        </p>
-                      </div>
-
-                      <div className="microservices-grid">
-                        {BRANDHUB_MICROSERVICES.map((srv) => (
-                          <div key={srv.id} className="microservice-card">
-                            <div className="service-top">
-                              <span className="service-code-name">{srv.name}</span>
-                              <span className="service-tag">{srv.tag}</span>
-                            </div>
-                            <div className="service-tech-pill">{srv.tech}</div>
-                            <p className="service-desc">{isEn ? srv.descEn : srv.descVi}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* BRANDHUB TEAM ROLES & OWNERSHIP MATRIX */}
-                    <div className="brandhub-team-roles-section" style={{ borderRadius: '16px', border: '1px solid var(--color-hairline)' }}>
-                      <div className="section-sub-header">
-                        <span className="sub-badge" style={{ background: '#ede9fe', color: '#6d28d9', borderColor: '#ddd6fe' }}>
-                          <FaUsers size={12} />
-                          {isEn ? "5-ENGINEER COLLABORATION MATRIX" : "MA TRẬN PHÂN CÔNG 5 KỸ SƯ TRONG BRANDHUB"}
-                        </span>
-                        <h4>
-                          {isEn 
-                            ? "Team Roles & Architectural Ownership in BrandHub" 
-                            : "Trách Nhiệm & Đóng Góp Kỹ Thuật Của Từng Kỹ Sư Trong Dự Án"}
-                        </h4>
-                        <p>
-                          {isEn
-                            ? "100% created and delivered by our 5-engineer bench. Each module was owned end-to-end by dedicated engineers with verified commits and production-tested stability."
-                            : "100% thành quả tự chủ của nhóm 5 kỹ sư chính quy. Mỗi thành phần được một kỹ sư chuyên trách kiến trúc và hiện thực hoá, cam kết tính ổn định qua 16 sprint kiểm thử khắt khe."}
-                        </p>
-                      </div>
-
-                      <div className="team-roles-grid">
-                        {BRANDHUB_TEAM_ROLES.map((mem, rIdx) => (
-                          <div key={rIdx} className="role-member-card">
-                            <div className="role-card-header">
-                              <div className="role-avatar-badge" style={{ backgroundColor: mem.color }}>
-                                {mem.avatarIcon === 'FaUserTie' ? <FaUserTie size={17} /> : mem.avatarIcon === 'FaLaptopCode' ? <FaLaptopCode size={17} /> : mem.avatarIcon === 'FaCode' ? <FaCode size={17} /> : mem.avatarIcon === 'FaAward' ? <FaAward size={17} /> : <FaServer size={17} />}
-                              </div>
-                              <div>
-                                <span className="role-label">{isEn ? mem.roleEn : mem.roleVi}</span>
-                                <h5 className="role-name">{mem.name}</h5>
-                              </div>
-                            </div>
-
-                            <ul className="role-contributions-list">
-                              {(isEn ? mem.contributionsEn : mem.contributionsVi).map((item, iIdx) => (
-                                <li key={iIdx}>
-                                  <FaCheckCircle className="check-ico" />
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-
-                            <div className="role-tech-tags">
-                              {mem.tech.map((t, tIdx) => (
-                                <span key={tIdx} className="tech-tag">{t}</span>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                    </AnimatePresence>
     </div>
   );
 };

@@ -30,8 +30,15 @@ const CATEGORY_COLORS = {
 const STATUS_KEY = { 'Active': 'active', 'In Development': 'inDevelopment', 'Completed': 'completed' };
 
 const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
+  const navigate = useNavigate();
   const status = STATUS_COLORS[project.status] || { bg: '#f7f7f5', color: '#000000' };
   const spotlight = useSpotlight();
+
+  const handleCardClick = (e) => {
+    // If the click came from an interactive element like a button or link, let that element handle it
+    if (e.target.closest('a') || e.target.closest('button')) return;
+    onClick(project);
+  };
 
   return (
     <motion.div
@@ -41,6 +48,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
       viewport={{ once: true }}
       transition={{ delay: index * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -4 }}
+      onClick={handleCardClick}
       className={featured ? 'card-spotlight bento-featured' : 'card-spotlight'}
       style={{
         display: 'flex',
@@ -197,74 +205,143 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
           <ReactMarkdown components={{ p: ({ children }) => <span style={{ display: 'block' }}>{children}</span> }}>{project.description}</ReactMarkdown>
         </div>
 
-        {/* Actions */}
-        <div style={{ display: 'flex', gap: '8px', marginTop: 'auto' }}>
-          <button
-            onClick={() => onClick(project)}
-            style={{
-              flex: 1,
-              padding: '10px 20px',
-              borderRadius: '9999px',
-              fontSize: '14px',
-              fontWeight: '550',
-              color: 'var(--color-canvas)',
-              backgroundColor: 'var(--color-ink)',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-              transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.opacity = '0.9'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-            onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}
-          >
-            {t('projects.viewDetails')}
-          </button>
-          {project.githubUrl && project.githubUrl !== '#' && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub Repository"
-              style={{
-                width: '40px', height: '40px',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                borderRadius: '9999px',
-                backgroundColor: 'var(--color-surface-soft)',
-                color: 'var(--color-ink)',
-                border: '1px solid var(--color-hairline)',
-                transition: 'all 0.2s ease',
-                textDecoration: 'none',
+        {/* Action Buttons: Chi Tiết + Dịch Vụ + Liên Hệ + Source / Live */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
+          {/* Main Action Bar */}
+          <div style={{ display: 'flex', gap: '8px' }}>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onClick(project);
               }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--color-hairline)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; e.currentTarget.style.transform = 'translateY(0)'; }}
-              onClick={e => e.stopPropagation()}
-            >
-              <FaGithub size={16} />
-            </a>
-          )}
-          {project.liveUrl && project.liveUrl !== '#' && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Live Project Website"
               style={{
-                width: '40px', height: '40px',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                flex: 1,
+                padding: '9px 16px',
                 borderRadius: '9999px',
-                backgroundColor: 'var(--color-surface-soft)',
-                color: 'var(--color-ink)',
-                border: '1px solid var(--color-hairline)',
-                transition: 'all 0.2s ease',
-                textDecoration: 'none',
+                fontSize: '13.5px',
+                fontWeight: '600',
+                color: 'var(--color-canvas)',
+                backgroundColor: 'var(--color-ink)',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px'
               }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--color-hairline)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; e.currentTarget.style.transform = 'translateY(0)'; }}
-              onClick={e => e.stopPropagation()}
+              onMouseEnter={e => { e.currentTarget.style.opacity = '0.9'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}
             >
-              <FaExternalLinkAlt size={14} />
-            </a>
-          )}
+              <span>{t('projects.viewDetails')}</span>
+              <FaArrowRight size={11} />
+            </button>
+
+            {project.githubUrl && project.githubUrl !== '#' && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Repository"
+                style={{
+                  width: '38px', height: '38px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  borderRadius: '9999px',
+                  backgroundColor: 'var(--color-surface-soft)',
+                  color: 'var(--color-ink)',
+                  border: '1px solid var(--color-hairline)',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--color-hairline)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                onClick={e => e.stopPropagation()}
+              >
+                <FaGithub size={15} />
+              </a>
+            )}
+            {project.liveUrl && project.liveUrl !== '#' && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Live Project Website"
+                style={{
+                  width: '38px', height: '38px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  borderRadius: '9999px',
+                  backgroundColor: 'var(--color-surface-soft)',
+                  color: 'var(--color-ink)',
+                  border: '1px solid var(--color-hairline)',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--color-hairline)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                onClick={e => e.stopPropagation()}
+              >
+                <FaExternalLinkAlt size={13} />
+              </a>
+            )}
+          </div>
+
+          {/* Quick Connect Row: Dịch Vụ & Liên Hệ */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', paddingTop: '4px' }}>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate('/dich-vu');
+              }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '5px',
+                padding: '6px 12px',
+                borderRadius: '8px',
+                fontSize: '12px',
+                fontWeight: '600',
+                color: '#6d3fc9',
+                backgroundColor: '#f3e8ff',
+                border: '1px solid #e9d5ff',
+                cursor: 'pointer',
+                transition: 'all 0.15s ease'
+              }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#6d3fc9'; e.currentTarget.style.color = '#ffffff'; }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#f3e8ff'; e.currentTarget.style.color = '#6d3fc9'; }}
+            >
+              <FaRocket size={10} />
+              <span>Dịch Vụ</span>
+            </button>
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate('/contact');
+              }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '5px',
+                padding: '6px 12px',
+                borderRadius: '8px',
+                fontSize: '12px',
+                fontWeight: '600',
+                color: '#0369a1',
+                backgroundColor: '#e0f2fe',
+                border: '1px solid #bae6fd',
+                cursor: 'pointer',
+                transition: 'all 0.15s ease'
+              }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#0284c7'; e.currentTarget.style.color = '#ffffff'; }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#e0f2fe'; e.currentTarget.style.color = '#0369a1'; }}
+            >
+              <FaUser size={10} />
+              <span>Liên Hệ</span>
+            </button>
+          </div>
         </div>
       </div>
     </motion.div>

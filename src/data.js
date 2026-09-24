@@ -559,7 +559,7 @@ export const projects = [
     ],
     githubUrl: "https://github.com/SWPGr",
     liveUrl: "https://fe-jobfinder.vercel.app/",
-    status: "In Development",
+    status: "Completed",
     category: "fullstack",
     tier: 3,
     challenge:
@@ -590,7 +590,7 @@ export const projects = [
     ],
     githubUrl: "https://github.com/trung2605/BakeryManagement",
     liveUrl: "https://themes.sapo.vn/demo/dola-bakery",
-    status: "Completed",
+    status: "Active",
     category: "ecommerce",
     tier: 3,
     challenge:
@@ -620,7 +620,7 @@ export const projects = [
     ],
     githubUrl: "https://github.com/trung2605/the_dreamers_backend",
     liveUrl: "#",
-    status: "Active",
+    status: "Completed",
     category: "ngo",
     tier: 2,
     challenge:
@@ -739,7 +739,7 @@ export const projects = [
     ],
     githubUrl: "#",
     liveUrl: "#",
-    status: "In Development",
+    status: "Active",
     category: "frontend",
     tier: 4,
     challenge:
@@ -763,7 +763,7 @@ export const projects = [
     techStack: ["React", "Java Spring Boot", "MySQL", "REST API", "Vercel"],
     githubUrl: "https://github.com/trung2605/bakery_assginment_fe",
     liveUrl: "https://bakery-assginment-fe.vercel.app/",
-    status: "Completed",
+    status: "Active",
     category: "fullstack",
     tier: 3,
     challenge:
@@ -797,7 +797,7 @@ export const projects = [
     ],
     githubUrl: "https://github.com/The-MC-Hub",
     liveUrl: "https://mc-voice-training.vercel.app/",
-    status: "Completed",
+    status: "Active",
     category: "fullstack",
     tier: 1,
     challenge:
@@ -830,7 +830,7 @@ export const projects = [
     ],
     githubUrl: "https://github.com/AgriLinkVN/agrilink-backend",
     liveUrl: "#",
-    status: "Active",
+    status: "Completed",
     category: "ecommerce",
     tier: 2,
     challenge:
@@ -863,7 +863,7 @@ export const projects = [
     ],
     githubUrl: "https://github.com/BrandHubOrganization",
     liveUrl: "#",
-    status: "Active",
+    status: "In Development",
     category: "fullstack",
     tier: 2,
     challenge:
@@ -925,7 +925,7 @@ export const projects = [
     ],
     githubUrl: "#",
     liveUrl: "#",
-    status: "Active",
+    status: "Completed",
     category: "fullstack",
     tier: 3,
     challenge:
@@ -948,7 +948,7 @@ export const projects = [
     techStack: ["React 18", "Vite", "Tailwind CSS 3"],
     githubUrl: "https://github.com/Yarnia0805/Instagram_ChatBot",
     liveUrl: "#",
-    status: "In Development",
+    status: "Completed",
     category: "frontend",
     tier: 4,
     challenge:
@@ -977,7 +977,7 @@ export const projects = [
     ],
     githubUrl: "https://github.com/trung2605/Study_Post_Graduate_Sydney",
     liveUrl: "#",
-    status: "Completed",
+    status: "Active",
     category: "frontend",
     tier: 4,
     challenge:
@@ -1007,7 +1007,7 @@ export const projects = [
     ],
     githubUrl: "https://github.com/trung2605/PapaSteak_Website",
     liveUrl: "#",
-    status: "Completed",
+    status: "Active",
     category: "frontend",
     tier: 4,
     challenge:
@@ -1064,7 +1064,7 @@ export const projects = [
     techStack: ["JavaScript (Web Components)", "CSS3", "Custom Router", "i18n"],
     githubUrl: "https://github.com/Garchomppy/Nursing-KTYH",
     liveUrl: "#",
-    status: "Completed",
+    status: "Active",
     category: "frontend",
     tier: 3,
     challenge:

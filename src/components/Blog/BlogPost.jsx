@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaArrowLeft, FaClock, FaCalendarAlt, FaRocket, FaLaptopCode, FaArrowRight } from 'react-icons/fa';
@@ -16,6 +17,24 @@ const BlogPost = () => {
     const { posts, projects = [] } = useTranslatedData();
     const post = posts.find(p => p.slug === slug);
 
+    // Dynamic SEO for Blog Post (Always called unconditionally at top of component)
+    useEffect(() => {
+        if (post) {
+            const postTitle = isEn ? (post.titleEn || post.titleVi) : (post.titleVi || post.titleEn);
+            const pageTitle = `${postTitle} | Lê Trí Trung Blog`;
+            document.title = pageTitle;
+
+            const postExcerpt = isEn ? (post.excerptEn || post.excerptVi) : (post.excerptVi || post.excerptEn);
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', postExcerpt);
+
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle) ogTitle.setAttribute('content', pageTitle);
+            const ogDesc = document.querySelector('meta[property="og:description"]');
+            if (ogDesc) ogDesc.setAttribute('content', postExcerpt);
+        }
+    }, [post, isEn]);
+
     if (!post) {
         return (
             <div style={{ paddingTop: '64px', paddingBottom: '96px', textAlign: 'center' }}>
@@ -31,7 +50,7 @@ const BlogPost = () => {
     }
 
     const relatedProject = projects.find(proj => {
-        const slugLower = (post.slug || '').toLowerCase();
+        const slugLower = (post?.slug || '').toLowerCase();
         const titleLower = (proj.title || '').toLowerCase();
         if (slugLower.includes('biensovip') && titleLower.includes('biensovip')) return true;
         if (slugLower.includes('threadlearn') && titleLower.includes('threadlearn')) return true;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -7,29 +7,93 @@
     <meta name="theme-color" content="#ffffff" />
     <meta
       name="description"
-      content="Lê Trí Trung - Java Developer & Computer Science Student. Portfolio showcasing projects, skills, and achievements in software development."
+      content="Lê Trí Trung — Tech Lead & Full-Stack Engineer tại Đà Nẵng. Chuyên thiết kế Website thương mại, SaaS Automation, tích hợp AI Agent bán hàng và hệ thống Microservices chuẩn doanh nghiệp."
     />
-    <meta name="keywords" content="Java Developer, Computer Science, React, Spring Boot, Portfolio, Software Development, FPT University" />
+    <meta name="keywords" content="Lê Trí Trung, Tech Lead Đà Nẵng, Full-Stack Engineer, thiết kế website, SaaS Automation, Biensovip, BrandHub, Java Spring Boot, React, AI Agent, VietQR đối soát" />
     <meta name="author" content="Lê Trí Trung" />
-    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Lê Trí Trung - Java Developer Portfolio" />
-    <meta property="og:description" content="Java Developer & Computer Science Student. Portfolio showcasing projects, skills, and achievements in software development." />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Lê Trí Trung Portfolio" />
+    <meta property="og:title" content="Lê Trí Trung — Tech Lead & Full-Stack Engineer | Portfolio & Dịch Vụ SaaS" />
+    <meta property="og:description" content="Tech Lead dẫn dắt đội 5 kỹ sư tại Đà Nẵng — chuyên thiết kế Website kinh doanh, SaaS Automation, tích hợp AI Agent và vận hành sàn thương mại điện tử thực chiến." />
     <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Lê Trí Trung - Java Developer Portfolio" />
-    <meta property="twitter:description" content="Java Developer & Computer Science Student. Portfolio showcasing projects, skills, and achievements in software development." />
+    <meta property="twitter:title" content="Lê Trí Trung — Tech Lead & Full-Stack Engineer | Portfolio & Dịch Vụ SaaS" />
+    <meta property="twitter:description" content="Tech Lead dẫn dắt đội 5 kỹ sư tại Đà Nẵng — chuyên thiết kế Website kinh doanh, SaaS Automation, tích hợp AI Agent và vận hành sàn thương mại điện tử thực chiến." />
     <meta property="twitter:image" content="%PUBLIC_URL%/og-image.png" />
     
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Structured Data: Person & ProfessionalService Schema (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://trung2605.github.io/#person",
+            "name": "Lê Trí Trung",
+            "jobTitle": "Tech Lead & Full-Stack Software Engineer",
+            "url": "https://trung2605.github.io",
+            "sameAs": [
+              "https://github.com/trung2605",
+              "https://www.linkedin.com/in/trung-l%C3%AA-7ba564283/",
+              "https://www.facebook.com/trung.le.2605"
+            ],
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "FPT University Da Nang"
+            },
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Da Nang 5-Engineer Team"
+            },
+            "knowsAbout": [
+              "Java Spring Boot",
+              "Microservices Architecture",
+              "RabbitMQ & Dead Letter Queue",
+              "React & Next.js",
+              "SaaS Automation",
+              "VietQR Dynamic Settlement",
+              "Python FastAPI RAG & LangChain",
+              "PostgreSQL & Redis Caching"
+            ]
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://trung2605.github.io/#service",
+            "name": "Dịch Vụ Thiết Kế Website & Tự Động Hóa SaaS — Team 5 Kỹ Sư Đà Nẵng",
+            "url": "https://trung2605.github.io/dich-vu",
+            "telephone": "+84912158715",
+            "priceRange": "11.500.000₫ - 32.500.000₫",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Ngũ Hành Sơn",
+              "addressRegion": "Đà Nẵng",
+              "addressCountry": "VN"
+            },
+            "areaServed": "VN",
+            "serviceType": [
+              "Thiết kế Website Doanh Nghiệp",
+              "Tự Động Hóa SaaS (SaaS Automation)",
+              "Tích Hợp VietQR Đối Soát Tự Động",
+              "Tích Hợp Trợ Lý AI CSKH 24/7",
+              "Xuất Bản Đa Kênh Tự Động Omnichannel"
+            ]
+          }
+        ]
+      }
+    </script>
+
     <!-- Fonts: Inter, Plus Jakarta Sans (Full Vietnamese glyphs) & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,29 +106,11 @@
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
     </noscript>
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Lê Trí Trung - Java Developer Portfolio</title>
+    <title>Lê Trí Trung — Tech Lead & Full-Stack Engineer | Portfolio & Dịch Vụ SaaS</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

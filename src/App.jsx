@@ -72,6 +72,8 @@ function App() {
 
                   <Route path="projects" element={<ProjectsPage />} />
                   <Route path="projects/:id" element={<ProjectDetailPage />} />
+                  <Route path="du-an" element={<Navigate to="/projects" replace />} />
+                  <Route path="du-an/:id" element={<Navigate to="/projects/:id" replace />} />
                   <Route path="contact" element={<ContactPage />} />
                   <Route path="resume" element={<ResumePage />} />
                   <Route path="blog" element={<BlogPage />} />
