@@ -897,6 +897,123 @@ const SAAS_MODULES = [
       { step: "02", title: "Side-by-Side Spec & Score Radar", desc: "Tabular matrix contrasts price, dimensions, rarity, and compatibility scores in parallel." },
       { step: "03", title: "Embedded Authentic Video & Checkout", desc: "Shoppers watch authentic TikTok/Reels review videos directly on-page and click instant deposit." }
     ]
+  },
+  {
+    id: "omnichannel_publisher",
+    category: "omnichannel",
+    num: "11",
+    iconName: "FaShareAlt",
+    systemBadgeVi: "Hệ thống BrandHub",
+    systemBadgeEn: "BrandHub System",
+    metricVi: "5 MXH • 0% Mất tin DLQ",
+    metricEn: "5 Platforms • 0% Loss DLQ",
+    titleVi: "Phát Hành Đa Kênh Tự Động & Hàng Đợi RabbitMQ DLQ",
+    titleEn: "Omnichannel Auto-Publisher & RabbitMQ DLQ Pipeline",
+    descVi: "Đăng tải đồng thời lên 5 mạng xã hội qua Spring Boot 3 & RabbitMQ chống rớt tin...",
+    descEn: "Dispatches scheduled content to 5 social channels via RabbitMQ DLQ with zero message loss...",
+    specsVi: [
+      "Tích hợp OAuth đồng thời: Facebook, TikTok, Instagram, Threads, Zalo",
+      "Hàng đợi Dead Letter Queue (DLQ) retry lũy thừa chống rớt tin 100%"
+    ],
+    specsEn: [
+      "Unified OAuth gateway: Facebook, TikTok, Instagram, Threads, Zalo",
+      "RabbitMQ Dead Letter Queue (DLQ) with exponential backoff retry"
+    ],
+    techVi: "Spring Boot 3 • RabbitMQ DLQ",
+    techEn: "Spring Boot 3 • RabbitMQ DLQ",
+    image: "/docs/images/DA-D19-03.png",
+    captionVi: "Giao diện lập lịch đăng bài tự động đa kênh và bảng điều khiển telemetry hàng đợi RabbitMQ từ hệ thống BrandHub",
+    captionEn: "Live omnichannel scheduling console and RabbitMQ async queue telemetry from BrandHub platform",
+    painPointVi: "Doanh nghiệp hoặc Agency quản trị hàng chục Fanpage/Kênh mạng xã hội phải tốn 4-6 giờ mỗi ngày copy-paste nội dung thủ công sang từng nền tảng, dễ bị khóa tài khoản hoặc lỗi mạng làm mất bài đăng. Hệ thống Omnichannel Publisher điều phối qua Spring Boot 3 và RabbitMQ DLQ tự động retry lũy thừa, đảm bảo 100% bài viết được xuất bản đúng giờ với 0% tỷ lệ mất tin.",
+    painPointEn: "Managing dozens of brand social pages manually drains 4-6 hours daily in repetitive copy-pasting, risking network dropouts and inconsistent campaign timing. Our Omnichannel Publisher leverages Spring Boot 3 and RabbitMQ DLQ with exponential retry, guaranteeing zero message loss and seamless scheduled dispatches across 5 social channels.",
+    workflowVi: [
+      { step: "01", title: "Soạn thảo & Chọn 5 kênh phát hành", desc: "Người dùng tạo nội dung một lần duy nhất, tùy chỉnh định dạng riêng cho từng kênh (Facebook, TikTok, Instagram, Threads, Zalo)." },
+      { step: "02", title: "Điều phối hàng đợi RabbitMQ Asynchronous", desc: "Tin nhắn được đẩy vào hàng đợi RabbitMQ; cơ chế Dead Letter Queue giám sát, tự động retry khi API mạng xã hội nghẽn." },
+      { step: "03", title: "Xuất bản đồng bộ & Báo cáo Telemetry", desc: "Hệ thống bắn bài đăng đồng thời, cập nhật trạng thái thời gian thực và ghi nhận ID bài viết trả về từ từng nền tảng." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Single-Editor Multi-Channel Authoring", desc: "Draft marketing copy once, fine-tune aspect ratios and tags for Facebook, TikTok, Instagram, Threads, and Zalo." },
+      { step: "02", title: "RabbitMQ Async Queue Orchestration", desc: "Payloads route through RabbitMQ with Dead Letter Queue protection, retrying dynamically under rate limits." },
+      { step: "03", title: "Concurrent Publish & Telemetry Verification", desc: "Posts dispatches concurrently; dashboard tracks live status and records returned post IDs from each platform API." }
+    ]
+  },
+  {
+    id: "ai_brand_rag",
+    category: "ai",
+    num: "12",
+    iconName: "FaRobot",
+    systemBadgeVi: "Hệ thống BrandHub",
+    systemBadgeEn: "BrandHub System",
+    metricVi: "RAG Llama 3 • Siêu tốc 1.2s",
+    metricEn: "RAG Llama 3 • 1.2s Fast",
+    titleVi: "AI Content RAG & Tự Động Chuẩn Hóa Brand Voice",
+    titleEn: "Context-Aware AI RAG & Brand-Voice Engine",
+    descVi: "Python FastAPI RAG học ngữ điệu thương hiệu, tự động sinh copy chuẩn SEO theo kênh...",
+    descEn: "Python FastAPI RAG pipeline synthesizing context-aware SEO captions tailored by platform...",
+    specsVi: [
+      "Vector Search ChromaDB + Hybrid LLM (Groq Llama 3 & Claude)",
+      "Tự động cá nhân hóa văn phong theo Brand Guidelines độc quyền"
+    ],
+    specsEn: [
+      "ChromaDB semantic retrieval + Groq Llama 3 with Claude fallback",
+      "Dynamic tone-of-voice adaptation strictly following Brand Guidelines"
+    ],
+    techVi: "FastAPI • LangChain • ChromaDB",
+    techEn: "FastAPI • LangChain • ChromaDB",
+    image: "/docs/images/DA-D19-04.png",
+    captionVi: "Pipeline AI sinh nội dung tự động thông minh bằng Python FastAPI tích hợp RAG và kiểm soát văn phong thương hiệu",
+    captionEn: "AI content automation pipeline with Python FastAPI, RAG context injection, and Brand-Voice compliance",
+    painPointVi: "Thuê đội ngũ Copywriter tốn kém chi phí cố định nhưng văn phong bài viết thường không đồng nhất, dễ lệch tông nhận diện thương hiệu hoặc mất hàng giờ để chỉnh sửa cho từng định dạng (TikTok cần giật gân, LinkedIn cần trang trọng). Pipeline AI RAG nhúng toàn bộ Brand Guidelines vào vector database, sinh hàng trăm bài viết chuẩn văn phong chỉ trong 1.2 giây.",
+    painPointEn: "Hiring creative copywriters incurs heavy payroll while brand voice fluctuates wildly across channels. Content creators waste hours adapting formats for TikTok vs. LinkedIn. Our Python FastAPI RAG pipeline embeds your brand manual into vector storage, generating channel-perfect copy adhering strictly to brand identity in 1.2s.",
+    workflowVi: [
+      { step: "01", title: "Nạp tài liệu Brand Guidelines vào ChromaDB", desc: "Hệ thống số hóa quy chuẩn thương hiệu, danh mục sản phẩm và từ khóa cấm/khuyến khích vào vector database." },
+      { step: "02", title: "RAG Context Retrieval & Sinh nội dung", desc: "LangChain trích xuất ngữ cảnh liên quan, Groq Llama 3 xử lý sinh nội dung siêu tốc (fallback Claude khi cần độ sâu)." },
+      { step: "03", title: "Tự động chia tách định dạng từng kênh", desc: "Xuất ra cùng lúc 5 phiên bản: Hook & Hashtag cho TikTok, Caption dài cho Facebook, Tone chuyên nghiệp cho LinkedIn." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Brand Guidelines Ingestion into ChromaDB", desc: "Digitizes brand identity manuals, catalog specs, and negative keywords into vector embeddings." },
+      { step: "02", title: "Semantic Retrieval & Dual-LLM Generation", desc: "LangChain extracts relevant context; Groq Llama 3 generates lightning-fast drafts with Claude fallback." },
+      { step: "03", title: "Platform-Specific Copy Formatting", desc: "Delivers tailored variations instantly: short hooks for TikTok, detailed Facebook copy, and professional LinkedIn tone." }
+    ]
+  },
+  {
+    id: "multitenant_rbac",
+    category: "retention",
+    num: "13",
+    iconName: "FaUsers",
+    systemBadgeVi: "Hệ thống BrandHub",
+    systemBadgeEn: "BrandHub System",
+    metricVi: "Multi-tenant • Phân quyền 4 cấp",
+    metricEn: "Multi-Tenant • 4-Tier RBAC",
+    titleVi: "Phân Quyền Tổ Chức Đa Cấp Agency & Doanh Nghiệp",
+    titleEn: "Multi-Tenant Enterprise RBAC & Workspace Segregation",
+    descVi: "Kiến trúc Multi-tenant phân lập workspace giữa Agency, Brand, KOL và CTV...",
+    descEn: "Multi-tenant workspace isolation for Agencies, Brands, KOLs, and external partners...",
+    specsVi: [
+      "Spring Cloud Gateway JWT & Redis Rate Limiting kiểm soát truy cập",
+      "Phân lập dữ liệu hoàn toàn giữa các Brand và Agency thành viên"
+    ],
+    specsEn: [
+      "Spring Cloud Gateway JWT tokens & Redis rate-limiting access control",
+      "Strict data tenancy isolation between autonomous brands and agency units"
+    ],
+    techVi: "Spring Cloud Gateway • RBAC",
+    techEn: "Spring Cloud Gateway • RBAC",
+    image: "/docs/images/DA-D19-06.png",
+    captionVi: "Màn hình phân quyền tổ chức đa cấp Multi-tenant (Agency, Doanh nghiệp, Brand, CTV) trên nền tảng BrandHub",
+    captionEn: "Enterprise multi-tenant organizational structure and granular role-based access control interface in BrandHub",
+    painPointVi: "Khi doanh nghiệp mở rộng quy mô hoặc Agency cùng lúc quản lý nhiều khách hàng, việc dùng chung tài khoản dẫn đến nguy cơ lộ dữ liệu chiến dịch nhạy cảm giữa các bên đối thủ, hoặc nhân sự cấp dưới vô tình xóa nhầm tài nguyên quan trọng. Kiến trúc Multi-Tenant phân lập dữ liệu triệt để, phân quyền chặt chẽ 4 cấp độ với Spring Cloud Gateway.",
+    painPointEn: "Scaling businesses and agencies managing multiple clients face severe security risks when sharing shared logins, risking client data leaks across competing brands or accidental resource deletion. Our Multi-Tenant RBAC architecture enforces strict data isolation and granular 4-tier permissions via Spring Cloud Gateway.",
+    workflowVi: [
+      { step: "01", title: "Khởi tạo Workspace & Định danh Tenant", desc: "Agency tạo không gian riêng biệt cho từng nhãn hàng (Brand), dữ liệu được cô lập logic ở tầng Database." },
+      { step: "02", title: "Gán quyền hạt nhân (Granular RBAC)", desc: "Phân chia vai trò rõ ràng: Admin (quản trị), Editor (sáng tạo), Reviewer (duyệt bài) và CTV (theo dõi số liệu)." },
+      { step: "03", title: "Spring Cloud Gateway kiểm soát truy cập", desc: "Mọi API request đều được Gateway xác thực JWT và giới hạn tần suất (Redis rate-limit) chống khai thác dữ liệu chéo." }
+    ],
+    workflowEn: [
+      { step: "01", title: "Workspace Provisioning & Tenant Separation", desc: "Agency provisions dedicated workspaces for each brand; data is logically segregated at database layer." },
+      { step: "02", title: "Granular Role-Based Assignment", desc: "Assign specific roles: Admin, Editor, Reviewer, and Affiliate Partner with restricted read/write scopes." },
+      { step: "03", title: "Gateway Authentication & Cross-Tenant Shield", desc: "Spring Cloud Gateway validates JWT tokens with Redis rate-limiting, blocking cross-tenant data leaks." }
+    ]
   }
 ];
 
@@ -907,7 +1024,7 @@ const Services = () => {
 
   const [activeShotIndex, setActiveShotIndex] = useState(0);
   const [activeBrandhubShotIndex, setActiveBrandhubShotIndex] = useState(0);
-  const [activeFlagshipTab, setActiveFlagshipTab] = useState('biensovip');
+  const [activeDetailProject, setActiveDetailProject] = useState(null); // 'biensovip' | 'brandhub' | null
   const [lightboxImg, setLightboxImg] = useState(null);
   const [showWorkflowModal, setShowWorkflowModal] = useState(false);
   const [activeModalTab, setActiveModalTab] = useState('manday');
@@ -920,6 +1037,8 @@ const Services = () => {
       if (e.key === 'Escape') {
         if (lightboxImg) {
           setLightboxImg(null);
+        } else if (activeDetailProject) {
+          setActiveDetailProject(null);
         } else if (selectedSaasFeature) {
           setSelectedSaasFeature(null);
         } else if (showWorkflowModal) {
@@ -929,11 +1048,11 @@ const Services = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxImg, selectedSaasFeature, showWorkflowModal]);
+  }, [lightboxImg, activeDetailProject, selectedSaasFeature, showWorkflowModal]);
 
   // Lock body scroll when modal or lightbox is active
   useEffect(() => {
-    if (selectedSaasFeature || showWorkflowModal || lightboxImg) {
+    if (selectedSaasFeature || showWorkflowModal || lightboxImg || activeDetailProject) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -941,7 +1060,7 @@ const Services = () => {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [selectedSaasFeature, showWorkflowModal, lightboxImg]);
+  }, [selectedSaasFeature, showWorkflowModal, lightboxImg, activeDetailProject]);
 
   const scrollToContact = () => {
     navigate('/contact');
@@ -960,6 +1079,8 @@ const Services = () => {
       case 'FaShieldAlt': return <FaShieldAlt size={18} />;
       case 'FaStar': return <FaStar size={18} />;
       case 'FaBalanceScale': return <FaBalanceScale size={18} />;
+      case 'FaShareAlt': return <FaShareAlt size={18} />;
+      case 'FaUsers': return <FaUsers size={18} />;
       default: return <FaBolt size={18} />;
     }
   };
@@ -1078,549 +1199,237 @@ const Services = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <div className="section-eyebrow">{isEn ? "FLAGSHIP PRODUCTION SYSTEMS" : "DỰ ÁN & HỆ THỐNG THỰC TẾ TIÊU BIỂU"}</div>
+          <div className="section-eyebrow">{isEn ? "DUAL FLAGSHIP SHOWCASE" : "HAI DỰ ÁN TRỌNG ĐIỂM TIÊU BIỂU"}</div>
           <h2 className="section-heading">
             {isEn ? "Proven Engineering Delivery: Commercial Product & Capstone Platform" : "Hai Sản Phẩm Trọng Điểm Khẳng Định Năng Lực Của Team"}
           </h2>
           <p className="section-desc">
             {isEn 
-              ? "We prove our team's elite capabilities through real deliverables: From our commercial e-commerce marketplace (Biensovip.com) to our flagship microservices graduation capstone project (BrandHub)."
-              : "Khẳng định uy tín và năng lực kỹ thuật qua thành phẩm thực tế: Sàn thương mại điện tử chuyên biệt bàn giao cho doanh nghiệp Đà Nẵng (Biensovip.com) và Đồ án tốt nghiệp trọng điểm kiến trúc Microservices & AI đa kênh (BrandHub)."}
+              ? "Directly explore our two crowning achievements: The commercial e-commerce marketplace (Biensovip.com) and our team's flagship microservices capstone platform (BrandHub) — presented side-by-side with full technical architectures."
+              : "Khám phá trực tiếp hai sản phẩm nổi bật của team mà không cần chuyển tab: Sàn thương mại điện tử chuyên biệt bàn giao cho doanh nghiệp Đà Nẵng (Biensovip.com) và Đồ án tốt nghiệp trọng điểm kiến trúc Microservices & AI đa kênh (BrandHub)."}
           </p>
         </motion.div>
 
-        {/* PROJECT SWITCHER TABS */}
-        <div className="flagship-switcher-bar" style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginBottom: '28px', flexWrap: 'wrap' }}>
-          <button 
-            onClick={() => setActiveFlagshipTab('biensovip')} 
-            className={`flagship-switch-btn ${activeFlagshipTab === 'biensovip' ? 'active' : ''}`}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              padding: '10px 22px',
-              borderRadius: '9999px',
-              fontSize: '14px',
-              fontWeight: 600,
-              cursor: 'pointer',
-              border: activeFlagshipTab === 'biensovip' ? '1px solid var(--color-ink)' : '1px solid var(--color-hairline)',
-              backgroundColor: activeFlagshipTab === 'biensovip' ? 'var(--color-ink)' : 'var(--color-surface-soft)',
-              color: activeFlagshipTab === 'biensovip' ? 'var(--color-canvas)' : 'var(--color-ink)',
-              transition: 'all 0.2s ease',
-              boxShadow: activeFlagshipTab === 'biensovip' ? '0 4px 16px rgba(0, 0, 0, 0.15)' : 'none'
-            }}
-          >
-            <FaRocket size={14} />
-            <span>Biensovip.com</span>
-            <span style={{
-              fontSize: '11px',
-              fontFamily: 'JetBrains Mono, monospace',
-              padding: '2px 8px',
-              borderRadius: '9999px',
-              backgroundColor: activeFlagshipTab === 'biensovip' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.06)',
-              color: activeFlagshipTab === 'biensovip' ? '#ffffff' : 'var(--color-ink)',
-              fontWeight: 600,
-              textTransform: 'uppercase'
-            }}>
-              {isEn ? "Client Production" : "Khách Hàng Doanh Nghiệp"}
-            </span>
-          </button>
-
-          <button 
-            onClick={() => setActiveFlagshipTab('brandhub')} 
-            className={`flagship-switch-btn ${activeFlagshipTab === 'brandhub' ? 'active' : ''}`}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              padding: '10px 22px',
-              borderRadius: '9999px',
-              fontSize: '14px',
-              fontWeight: 600,
-              cursor: 'pointer',
-              border: activeFlagshipTab === 'brandhub' ? '1px solid var(--color-ink)' : '1px solid var(--color-hairline)',
-              backgroundColor: activeFlagshipTab === 'brandhub' ? 'var(--color-ink)' : 'var(--color-surface-soft)',
-              color: activeFlagshipTab === 'brandhub' ? 'var(--color-canvas)' : 'var(--color-ink)',
-              transition: 'all 0.2s ease',
-              boxShadow: activeFlagshipTab === 'brandhub' ? '0 4px 16px rgba(0, 0, 0, 0.15)' : 'none'
-            }}
-          >
-            <FaServer size={14} />
-            <span>BrandHub</span>
-            <span style={{
-              fontSize: '11px',
-              fontFamily: 'JetBrains Mono, monospace',
-              padding: '2px 8px',
-              borderRadius: '9999px',
-              backgroundColor: activeFlagshipTab === 'brandhub' ? '#6366f1' : '#ede9fe',
-              color: activeFlagshipTab === 'brandhub' ? '#ffffff' : '#6d28d9',
-              fontWeight: 600,
-              textTransform: 'uppercase'
-            }}>
-              {isEn ? "Team Capstone" : "Đồ Án Trọng Điểm Team"}
-            </span>
-          </button>
-        </div>
-
-        {/* 2A. BIENSOVIP SHOWCASE */}
-        {activeFlagshipTab === 'biensovip' && (
+        {/* 2. BALANCED 2-COLUMN FLAGSHIP CARDS (GỌN GÀNG, KHÔNG DÀI TRANG) */}
+        <div className="flagship-cards-grid">
+          {/* CARD 1: BIENSOVIP */}
           <motion.div 
-            key="biensovip-showcase"
-            className="flagship-showcase"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.35 }}
+            className="flagship-summary-card"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            onClick={() => setActiveDetailProject('biensovip')}
           >
-            <div className="showcase-header-bar">
-              <div className="dots">
-                <span />
-                <span />
-                <span />
+            <div className="card-browser-bar">
+              <div className="browser-dots">
+                <span /><span /><span />
               </div>
-              <div style={{ color: 'var(--color-ink-soft)' }}>
-                https://biensovip.com
-              </div>
-              <div className="status-pill">
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1ea64a', display: 'inline-block' }} />
-                {isEn ? "PRODUCTION LIVE" : "ĐANG HOẠT ĐỘNG"}
+              <div className="browser-domain">https://biensovip.com</div>
+              <div className="browser-status live">
+                <span className="dot" />
+                {isEn ? "LIVE PRODUCTION" : "ĐANG CHẠY THẬT"}
               </div>
             </div>
 
-            <div className="showcase-content-grid">
-              {/* Visuals column */}
-              <div className="showcase-visuals">
-                <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px' }}>
-                  <AnimatePresence mode="wait">
-                    <motion.img 
-                      key={activeShotIndex}
-                      src={BIENSOVIP_SHOTS[activeShotIndex].url} 
-                      alt={BIENSOVIP_SHOTS[activeShotIndex].titleVi}
-                      className="main-preview-img"
-                      onClick={() => setLightboxImg(BIENSOVIP_SHOTS[activeShotIndex].url)}
-                      title="Click to view full size"
-                      initial={{ opacity: 0.35, scale: 0.98 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0.35 }}
-                      transition={{ duration: 0.25 }}
-                    />
-                  </AnimatePresence>
+            <div className="card-media-wrap">
+              <img 
+                src={BIENSOVIP_SHOTS[0].url} 
+                alt="Biensovip Marketplace" 
+                className="card-cover-img"
+              />
+              <div className="card-media-overlay">
+                <span className="overlay-pill">
+                  <FaSearch size={12} />
+                  {isEn ? "Click to view full architecture & gallery" : "Bấm để xem chi tiết & thư viện ảnh"}
+                </span>
+              </div>
+            </div>
+
+            <div className="card-body-wrap">
+              <div className="card-category-badge client">
+                {isEn ? "ENTERPRISE CLIENT • DA NANG" : "KHÁCH HÀNG DOANH NGHIỆP • ĐÀ NẴNG"}
+              </div>
+
+              <h3 className="card-title">Biensovip.com — Sàn Giao Dịch Biển Số Đẹp</h3>
+              <p className="card-desc">
+                {isEn 
+                  ? "Production high-performance marketplace managing thousands of high-value plates with sub-8ms composite search and 0% transaction fee auto VietQR deposit webhook."
+                  : "Sàn thương mại điện tử chuyên biệt quản lý hàng chục nghìn biển số giá trị lớn, tìm kiếm đa chiều PostgreSQL GIN dưới 8ms và cổng cọc VietQR 0đ phí."}
+              </p>
+
+              <div className="card-highlights-list">
+                <div className="highlight-item">
+                  <FaBolt className="hl-icon" />
+                  <span><strong>{isEn ? "Sub-8ms Multi-filter" : "Lọc đa tiêu chí <8ms"}:</strong> Postgres GIN index</span>
                 </div>
-                <div className="thumbnails-row">
-                  {BIENSOVIP_SHOTS.map((shot, idx) => (
-                    <motion.img 
-                      key={idx}
-                      src={shot.url}
-                      alt={shot.titleVi}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.96 }}
-                      style={{
-                        borderColor: activeShotIndex === idx ? 'var(--color-ink)' : 'var(--color-hairline)',
-                        opacity: activeShotIndex === idx ? 1 : 0.65
-                      }}
-                      onClick={() => setActiveShotIndex(idx)}
-                    />
-                  ))}
+                <div className="highlight-item">
+                  <FaQrcode className="hl-icon" />
+                  <span><strong>{isEn ? "VietQR 0% Fee" : "Cổng cọc VietQR 0đ"}:</strong> Khớp webhook &lt;0.5s</span>
+                </div>
+                <div className="highlight-item">
+                  <FaEnvelope className="hl-icon" />
+                  <span><strong>{isEn ? "Drag-Drop Email" : "Soạn Email Kéo-Thả"}:</strong> SMTP doanh nghiệp 0đ</span>
+                </div>
+                <div className="highlight-item">
+                  <FaUsers className="hl-icon" />
+                  <span><strong>{isEn ? "Affiliate Portal" : "Cổng 14 CTV Thực Tế"}:</strong> UTM & hoa hồng ví tự động</span>
                 </div>
               </div>
 
-              {/* Details column */}
-              <div className="showcase-details">
-                <span className="client-tag">{isEn ? "DA NANG ENTERPRISE CLIENT" : "KHÁCH HÀNG DOANH NGHIỆP ĐÀ NẴNG"}</span>
-                <h3>Biensovip.com — Sàn Giao Dịch Biển Số Đẹp</h3>
-                <p className="client-story">
-                  {isEn 
-                    ? "The client required a lightning-fast, high-trust marketplace to display thousands of high-value license plates with zero gateway fees and automatic deposit tracking."
-                    : "Khách hàng yêu cầu một sàn giao dịch tốc độ cao, hiển thị hàng chục nghìn biển số giá trị lớn, triệt tiêu 100% phí cổng thanh toán và quản lý đặt cọc tự động qua VietQR."}
-                </p>
-
-                <ul className="specs-list">
-                  <li>
-                    <FaSearch />
-                    <div><strong>{isEn ? "Sub-8ms Multi-filter" : "Lọc đa chiều dưới 8ms"}:</strong> {isEn ? "Composite indexing for thousands of plates" : "Tìm kiếm theo ngũ quý, sảnh tiến, dải giá tức thời (Postgres GIN Index)"}</div>
-                  </li>
-                  <li>
-                    <FaQrcode />
-                    <div><strong>{isEn ? "VietQR Auto Deposit & Lock" : "Cổng cọc VietQR & Khóa độc bản"}:</strong> {isEn ? "0% transaction fee, auto Webhook <0.5s & Redis 15-min lock" : "Khớp lệnh Webhook <0.5s, 0đ phí cổng trung gian, khóa bi quan chống bán trùng"}</div>
-                  </li>
-                  <li>
-                    <FaEnvelope />
-                    <div><strong>{isEn ? "Drag-Drop Email Builder (UC27)" : "Soạn Email Kéo-Thả (UC27)"}:</strong> {isEn ? "Visual builder + corporate Gmail SMTP, zero spam & 0đ cost" : "Dựng email marketing trực quan, liên kết Gmail doanh nghiệp 0đ chi phí"}</div>
-                  </li>
-                  <li>
-                    <FaBell />
-                    <div><strong>{isEn ? "Auto Alerts & Broadcast (UC17/24)" : "Thông Báo Biển Mới & Broadcast"}:</strong> {isEn ? "Instant push when matching plates arrive; 1-click sales broadcast" : "Tự động gửi mail/Zalo khi có biển đúng sở thích; phát thông báo xả kho 1-click"}</div>
-                  </li>
-                  <li>
-                    <FaShareAlt />
-                    <div><strong>{isEn ? "Social Video & AI Mockups (UC22/42)" : "Video TikTok/Reels & Mockup AI"}:</strong> {isEn ? "Embed viral short videos + 1-click batch social mockups" : "Nhúng video thực tế xe biển đẹp + 1-click sinh hàng nghìn ảnh chuẩn Facebook/TikTok"}</div>
-                  </li>
-                  <li>
-                    <FaBalanceScale />
-                    <div><strong>{isEn ? "Feng Shui & Plate Comparison (UC16/23)" : "Phong Thủy Hợp Mệnh & So Sánh"}:</strong> {isEn ? "MeaningAnalyzer engine + side-by-side 3-plate comparison" : "Giải mã ngũ hành theo ngày sinh + so sánh song song 3 biển tăng 35% tỷ lệ chốt"}</div>
-                  </li>
-                  <li>
-                    <FaUsers />
-                    <div><strong>{isEn ? "Affiliate Partner Portal (UC25/34)" : "Cổng CTV & Hoa Hồng Tự Động"}:</strong> {isEn ? "Unique UTM links, transparent tiered commission & auto payout" : "Cấp mã UTM riêng, tự động tính hoa hồng ví điện tử, quản lý 14 CTV thực tế"}</div>
-                  </li>
-                </ul>
-
-                <div className="showcase-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
-                  <a 
-                    href="https://biensovip.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="btn-view-live"
-                  >
-                    {isEn ? "Explore Live Marketplace" : "Trải Nghiệm Sàn Thực Tế"} <FaExternalLinkAlt size={12} />
-                  </a>
-
-                  <Link
-                    to="/projects/26"
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '8px',
-                      padding: '10px 18px', borderRadius: '50px',
-                      backgroundColor: 'var(--color-canvas)', color: 'var(--color-ink)',
-                      fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
-                      border: '1px solid var(--color-hairline)',
-                      transition: 'all 0.15s ease',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; e.currentTarget.style.backgroundColor = 'var(--color-canvas)'; }}
-                  >
-                    <span>{isEn ? "Technical Case Study" : "Case Study Kỹ Thuật"}</span>
-                    <FaArrowRight size={11} />
-                  </Link>
-
-                  <Link
-                    to="/blog/biensovip-postgresql-vs-mongodb-multi-filter"
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '8px',
-                      padding: '10px 18px', borderRadius: '50px',
-                      backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)',
-                      fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
-                      border: '1px solid var(--color-hairline)',
-                      transition: 'all 0.15s ease',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; }}
-                  >
-                    <span>{isEn ? "PostgreSQL 8ms Deep-Dive" : "Bài Viết CSDL PostgreSQL 8ms"}</span>
-                    <FaArrowRight size={11} />
-                  </Link>
-
-                  <Link
-                    to="/achievements?tab=education&milestone=1"
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '8px',
-                      padding: '10px 18px', borderRadius: '50px',
-                      backgroundColor: 'var(--color-ink)', color: 'var(--color-canvas)',
-                      fontSize: '13.5px', fontWeight: '600', textDecoration: 'none',
-                      border: '1px solid var(--color-ink)',
-                      transition: 'all 0.15s ease',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
-                    onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
-                  >
-                    <FaGraduationCap size={13} />
-                    <span>{isEn ? "Tech Lead Milestone Dossier" : "Hồ Sơ Năng Lực Tech Lead"}</span>
-                    <FaArrowRight size={11} />
-                  </Link>
-
-                  <span className="metric-badge">
-                    <FaBolt size={10} style={{ marginRight: '5px' }} />
-                    Lighthouse: 98/100
-                  </span>
+              <div className="card-mini-kpis">
+                <div className="mini-kpi">
+                  <span className="kpi-val">&lt; 8ms</span>
+                  <span className="kpi-lbl">{isEn ? "Search speed" : "Tốc độ lọc"}</span>
                 </div>
+                <div className="mini-kpi">
+                  <span className="kpi-val">0% / 0đ</span>
+                  <span className="kpi-lbl">{isEn ? "Gateway fee" : "Phí giao dịch"}</span>
+                </div>
+                <div className="mini-kpi">
+                  <span className="kpi-val">98/100</span>
+                  <span className="kpi-lbl">Lighthouse</span>
+                </div>
+              </div>
+
+              <div className="card-action-bar">
+                <button 
+                  type="button"
+                  className="btn-open-detail"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveDetailProject('biensovip');
+                  }}
+                >
+                  <span>{isEn ? "View Complete Details" : "Xem Chi Tiết Dự Án"}</span>
+                  <FaArrowRight size={12} />
+                </button>
+
+                <a 
+                  href="https://biensovip.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-card-live"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span>{isEn ? "Live Site" : "Trang Thật"}</span>
+                  <FaExternalLinkAlt size={11} />
+                </a>
               </div>
             </div>
           </motion.div>
-        )}
 
-        {/* 2B. BRANDHUB SHOWCASE */}
-        {activeFlagshipTab === 'brandhub' && (
+          {/* CARD 2: BRANDHUB */}
           <motion.div 
-            key="brandhub-showcase"
-            className="flagship-showcase"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.35 }}
+            className="flagship-summary-card brandhub-card"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            onClick={() => setActiveDetailProject('brandhub')}
           >
-            <div className="showcase-header-bar">
-              <div className="dots">
-                <span />
-                <span />
-                <span />
+            <div className="card-browser-bar">
+              <div className="browser-dots">
+                <span /><span /><span />
               </div>
-              <div style={{ color: 'var(--color-ink-soft)' }}>
-                https://github.com/BrandHubOrganization
-              </div>
-              <div className="status-pill" style={{ color: '#6366f1' }}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#6366f1', display: 'inline-block' }} />
-                {isEn ? "ENTERPRISE CAPSTONE • MICROSERVICES" : "ĐỒ ÁN CHỦ LỰC • MICROSERVICES"}
+              <div className="browser-domain">https://github.com/BrandHubOrganization</div>
+              <div className="browser-status capstone">
+                <span className="dot" />
+                {isEn ? "CAPSTONE PLATFORM" : "ĐỒ ÁN TRỌNG ĐIỂM"}
               </div>
             </div>
 
-            <div className="showcase-content-grid">
-              {/* Visuals column */}
-              <div className="showcase-visuals">
-                <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px' }}>
-                  <AnimatePresence mode="wait">
-                    <motion.img 
-                      key={activeBrandhubShotIndex}
-                      src={BRANDHUB_SHOTS[activeBrandhubShotIndex].url} 
-                      alt={BRANDHUB_SHOTS[activeBrandhubShotIndex].titleVi}
-                      className="main-preview-img"
-                      onClick={() => setLightboxImg(BRANDHUB_SHOTS[activeBrandhubShotIndex].url)}
-                      title="Click to view full size"
-                      initial={{ opacity: 0.35, scale: 0.98 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0.35 }}
-                      transition={{ duration: 0.25 }}
-                    />
-                  </AnimatePresence>
-                </div>
-                <div className="thumbnails-row">
-                  {BRANDHUB_SHOTS.map((shot, idx) => (
-                    <motion.img 
-                      key={idx}
-                      src={shot.url}
-                      alt={shot.titleVi}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.96 }}
-                      style={{
-                        borderColor: activeBrandhubShotIndex === idx ? '#6366f1' : 'var(--color-hairline)',
-                        opacity: activeBrandhubShotIndex === idx ? 1 : 0.65
-                      }}
-                      onClick={() => setActiveBrandhubShotIndex(idx)}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* Details column */}
-              <div className="showcase-details">
-                <span className="client-tag" style={{ background: '#ede9fe', color: '#6d28d9' }}>
-                  {isEn ? "CAPSTONE ENTERPRISE • 5-ENGINEER TEAM" : "ĐỒ ÁN TỐT NGHIỆP TRỌNG ĐIỂM • TEAM 5 KỸ SƯ FPT"}
-                </span>
-                <h3>BrandHub — Omnichannel Social Media & AI Intelligence</h3>
-                <p className="client-story">
-                  {isEn 
-                    ? "The flagship graduation capstone project developed end-to-end by our 5-engineer team. Engineered with enterprise-grade microservices to automate omnichannel content distribution across Facebook, TikTok, Instagram, Threads, and Zalo with AI-assisted copywriting and fault-tolerant message queuing."
-                    : "Đồ án tốt nghiệp trọng điểm được chính Team 5 Kỹ sư thiết kế và phát triển toàn diện. Hệ thống kiến trúc Microservices chuẩn doanh nghiệp, giải quyết bài toán tự động hóa quản trị nội dung đa kênh (Facebook, TikTok, Instagram, Threads, Zalo) với trợ lý AI và hạ tầng hàng đợi RabbitMQ bất tử."}
-                </p>
-
-                <ul className="specs-list">
-                  <li>
-                    <FaServer />
-                    <div><strong>{isEn ? "Enterprise Microservices" : "Kiến trúc Microservices Spring Boot 3"}:</strong> {isEn ? "Spring Cloud Gateway (WebFlux, JWT, Redis) + Java 21 domain services" : "API Gateway (WebFlux, JWT, Redis) + Spring Boot 3.3.5 (Java 21) độc lập"}</div>
-                  </li>
-                  <li>
-                    <FaCogs />
-                    <div><strong>{isEn ? "Resilient RabbitMQ & DLQ" : "Hàng đợi RabbitMQ & Dead Letter Queue (DLQ)"}:</strong> {isEn ? "Exponential backoff retry, strict idempotency, 0% lost publishing tasks" : "Cơ chế retry lũy thừa, đảm bảo tính Idempotency và không bao giờ mất tin nhắn"}</div>
-                  </li>
-                  <li>
-                    <FaRobot />
-                    <div><strong>{isEn ? "AI Content Generation & RAG" : "Trợ lý AI Sinh nội dung & RAG Pipeline"}:</strong> {isEn ? "Python FastAPI + DeepSeek AI for context-aware multi-format copywriting" : "Tích hợp Python FastAPI + DeepSeek LLM tự động hóa viết bài chuẩn SEO đa kênh"}</div>
-                  </li>
-                  <li>
-                    <FaSyncAlt />
-                    <div><strong>{isEn ? "Omnichannel Multi-platform Publisher" : "Xuất bản Đa kênh Tự động"}:</strong> {isEn ? "Schedule once, auto broadcast to Facebook, TikTok, Instagram, Threads, Zalo" : "Lên lịch 1 lần, tự động xuất bản đồng thời lên Facebook, TikTok, Instagram, Threads, Zalo"}</div>
-                  </li>
-                  <li>
-                    <FaShieldAlt />
-                    <div><strong>{isEn ? "Multi-tenant Access Control" : "Bảo mật Multi-tenant & Phân quyền tổ chức"}:</strong> {isEn ? "Strict isolation across Agency, Enterprise, Brand, and Content Collaborator" : "Phân tách dữ liệu an toàn giữa Agency, Nhãn hàng, Quản lý và CTV nội dung"}</div>
-                  </li>
-                  <li>
-                    <FaLaptopCode />
-                    <div><strong>{isEn ? "React 18 + TS + Vite & Mobile App" : "Giao diện React 18 TS & App Di động Expo"}:</strong> {isEn ? "High-performance responsive dashboard with companion React Native Expo app" : "Dashboard tốc độ cao kèm ứng dụng di động React Native Expo đồng bộ thời gian thực"}</div>
-                  </li>
-                  <li>
-                    <FaCheckCircle />
-                    <div><strong>{isEn ? "FPT Software Engineering Rigor" : "Chuẩn Mực Kỹ Thuật FPT Software"}:</strong> {isEn ? "Docker Compose cluster, automated CI/CD pipelines, Prometheus & Grafana alerting" : "Cụm Docker Compose, CI/CD tự động, cảnh báo Prometheus & Grafana Telegram tức thời"}</div>
-                  </li>
-                </ul>
-
-                <div className="showcase-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
-                  <Link
-                    to="/projects/14"
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '8px',
-                      padding: '10px 20px', borderRadius: '50px',
-                      backgroundColor: 'var(--color-ink)', color: 'var(--color-canvas)',
-                      fontSize: '13.5px', fontWeight: '600', textDecoration: 'none',
-                      transition: 'all 0.15s ease',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.opacity = '0.88'; }}
-                    onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
-                  >
-                    <span>{isEn ? "Explore Project Showcase" : "Xem Showcase Dự Án"}</span>
-                    <FaArrowRight size={11} />
-                  </Link>
-
-                  <Link
-                    to="/blog/brandhub-resilient-rabbitmq-dead-letter-retry-architecture"
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '8px',
-                      padding: '10px 18px', borderRadius: '50px',
-                      backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)',
-                      fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
-                      border: '1px solid var(--color-hairline)',
-                      transition: 'all 0.15s ease',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; }}
-                  >
-                    <span>{isEn ? "RabbitMQ DLQ Deep-Dive" : "Bài Viết Kiến Trúc RabbitMQ"}</span>
-                    <FaArrowRight size={11} />
-                  </Link>
-
-                  <a 
-                    href="https://github.com/BrandHubOrganization" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '8px',
-                      padding: '10px 18px', borderRadius: '50px',
-                      backgroundColor: 'var(--color-canvas)', color: 'var(--color-ink)',
-                      fontSize: '13.5px', fontWeight: '500', textDecoration: 'none',
-                      border: '1px solid var(--color-hairline)',
-                      transition: 'all 0.15s ease',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--color-hairline)'; e.currentTarget.style.backgroundColor = 'var(--color-canvas)'; }}
-                  >
-                    <span>{isEn ? "GitHub Organization" : "Kho Mã Nguồn GitHub"}</span>
-                    <FaExternalLinkAlt size={11} />
-                  </a>
-
-                  <Link
-                    to="/achievements?tab=education&milestone=1"
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '8px',
-                      padding: '10px 18px', borderRadius: '50px',
-                      backgroundColor: '#ede9fe', color: '#6d28d9',
-                      fontSize: '13.5px', fontWeight: '600', textDecoration: 'none',
-                      border: '1px solid #ddd6fe',
-                      transition: 'all 0.15s ease',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#ddd6fe'; }}
-                    onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#ede9fe'; }}
-                  >
-                    <FaGraduationCap size={13} />
-                    <span>{isEn ? "Team Lead Dossier" : "Hồ Sơ Năng Lực Tech Lead"}</span>
-                    <FaArrowRight size={11} />
-                  </Link>
-
-                  <span className="metric-badge" style={{ color: '#6d28d9', borderColor: '#ddd6fe' }}>
-                    <FaServer size={10} style={{ marginRight: '5px' }} />
-                    Architecture: 7 Microservices
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* BRANDHUB TELEMETRY STRIP */}
-            <div className="brandhub-telemetry-banner">
-              {BRANDHUB_METRICS.map((met, mIdx) => (
-                <div key={mIdx} className="telemetry-item">
-                  <div className="telemetry-value">{met.value}</div>
-                  <div className="telemetry-label">{isEn ? met.labelEn : met.labelVi}</div>
-                  <div className="telemetry-sub">{isEn ? met.subEn : met.subVi}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* BRANDHUB 7 MICROSERVICES BLUEPRINT */}
-            <div className="brandhub-architecture-section">
-              <div className="section-sub-header">
-                <span className="sub-badge">
+            <div className="card-media-wrap">
+              <img 
+                src={BRANDHUB_SHOTS[0].url} 
+                alt="BrandHub Platform" 
+                className="card-cover-img"
+              />
+              <div className="card-media-overlay">
+                <span className="overlay-pill brandhub-pill">
                   <FaProjectDiagram size={12} />
-                  {isEn ? "SYSTEM ARCHITECTURE BLUEPRINT" : "SƠ ĐỒ PHÂN RÃ HỆ THỐNG"}
+                  {isEn ? "Click to view 7 Microservices & 5 Devs" : "Bấm để xem 7 Microservices & 5 Kỹ sư"}
                 </span>
-                <h4>
-                  {isEn 
-                    ? "7 Independent Microservices & Modules (Polyglot & Cloud-Native)" 
-                    : "Kiến Trúc 7 Dịch Vụ Độc Lập: Đa Ngôn Ngữ & Chuẩn Doanh Nghiệp"}
-                </h4>
-                <p>
-                  {isEn
-                    ? "Engineered with strict domain separation: Java Spring Boot for reliable business & publishing, Python FastAPI for AI RAG orchestration, and React 18 / Expo for multi-platform client interaction."
-                    : "Thiết kế theo nguyên tắc phân tách domain rõ ràng: Java Spring Boot cho giao dịch & xuất bản bất tử, Python FastAPI cho xử lý AI RAG đa chiều, và React 18 / Expo cho trải nghiệm người dùng đa thiết bị."}
-                </p>
-              </div>
-
-              <div className="microservices-grid">
-                {BRANDHUB_MICROSERVICES.map((srv) => (
-                  <div key={srv.id} className="microservice-card">
-                    <div className="service-top">
-                      <span className="service-code-name">{srv.name}</span>
-                      <span className="service-tag">{srv.tag}</span>
-                    </div>
-                    <div className="service-tech-pill">{srv.tech}</div>
-                    <p className="service-desc">{isEn ? srv.descEn : srv.descVi}</p>
-                  </div>
-                ))}
               </div>
             </div>
 
-            {/* BRANDHUB TEAM ROLES & OWNERSHIP MATRIX */}
-            <div className="brandhub-team-roles-section">
-              <div className="section-sub-header">
-                <span className="sub-badge" style={{ background: '#ede9fe', color: '#6d28d9', borderColor: '#ddd6fe' }}>
-                  <FaUsers size={12} />
-                  {isEn ? "5-ENGINEER COLLABORATION MATRIX" : "MA TRẬN PHÂN CÔNG 5 KỸ SƯ TRONG BRANDHUB"}
-                </span>
-                <h4>
-                  {isEn 
-                    ? "Team Roles & Architectural Ownership in BrandHub" 
-                    : "Trách Nhiệm & Đóng Góp Kỹ Thuật Của Từng Kỹ Sư Trong Dự Án"}
-                </h4>
-                <p>
-                  {isEn
-                    ? "100% created and delivered by our 5-engineer bench. Each module was owned end-to-end by dedicated engineers with verified commits and production-tested stability."
-                    : "100% thành quả tự chủ của nhóm 5 kỹ sư chính quy. Mỗi thành phần được một kỹ sư chuyên trách kiến trúc và hiện thực hoá, cam kết tính ổn định qua 16 sprint kiểm thử khắt khe."}
-                </p>
+            <div className="card-body-wrap">
+              <div className="card-category-badge capstone">
+                {isEn ? "CAPSTONE PLATFORM • 5-ENGINEER TEAM" : "ĐỒ ÁN TỐT NGHIỆP TRỌNG ĐIỂM • TEAM 5 KỸ SƯ FPT"}
               </div>
 
-              <div className="team-roles-grid">
-                {BRANDHUB_TEAM_ROLES.map((mem, rIdx) => (
-                  <div key={rIdx} className="role-member-card">
-                    <div className="role-card-header">
-                      <div className="role-avatar-badge" style={{ backgroundColor: mem.color }}>
-                        {mem.avatarIcon === 'FaUserTie' ? <FaUserTie size={17} /> : mem.avatarIcon === 'FaLaptopCode' ? <FaLaptopCode size={17} /> : mem.avatarIcon === 'FaCode' ? <FaCode size={17} /> : mem.avatarIcon === 'FaAward' ? <FaAward size={17} /> : <FaServer size={17} />}
-                      </div>
-                      <div>
-                        <span className="role-label">{isEn ? mem.roleEn : mem.roleVi}</span>
-                        <h5 className="role-name">{mem.name}</h5>
-                      </div>
-                    </div>
+              <h3 className="card-title">BrandHub — Omnichannel Social Media & AI</h3>
+              <p className="card-desc">
+                {isEn 
+                  ? "Enterprise-grade microservices system engineered by our 5-engineer team to automate omnichannel publishing across 5 platforms with AI copywriting & resilient message queuing."
+                  : "Hệ thống kiến trúc Microservices chuẩn doanh nghiệp tự chủ 100% bởi Team 5 Kỹ sư, tự động hóa phân phối nội dung đa kênh kèm AI sinh bài viết và RabbitMQ bất tử."}
+              </p>
 
-                    <ul className="role-contributions-list">
-                      {(isEn ? mem.contributionsEn : mem.contributionsVi).map((item, iIdx) => (
-                        <li key={iIdx}>
-                          <FaCheckCircle className="check-ico" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+              <div className="card-highlights-list">
+                <div className="highlight-item">
+                  <FaServer className="hl-icon purple" />
+                  <span><strong>{isEn ? "7 Microservices" : "7 Microservices Độc Lập"}:</strong> Spring Boot 3 & FastAPI</span>
+                </div>
+                <div className="highlight-item">
+                  <FaCogs className="hl-icon purple" />
+                  <span><strong>{isEn ? "Resilient RabbitMQ" : "RabbitMQ & DLQ Retry"}:</strong> 0% mất tin nhắn đăng bài</span>
+                </div>
+                <div className="highlight-item">
+                  <FaRobot className="hl-icon purple" />
+                  <span><strong>{isEn ? "AI Context RAG" : "AI Viết Bài Chuẩn SEO"}:</strong> Python FastAPI & DeepSeek</span>
+                </div>
+                <div className="highlight-item">
+                  <FaUsers className="hl-icon purple" />
+                  <span><strong>{isEn ? "5-Dev Bench" : "Ma Trận 5 Kỹ Sư FPT"}:</strong> 16 sprints kiểm thử khắt khe</span>
+                </div>
+              </div>
 
-                    <div className="role-tech-tags">
-                      {mem.tech.map((t, tIdx) => (
-                        <span key={tIdx} className="tech-tag">{t}</span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+              <div className="card-mini-kpis brandhub-kpis">
+                <div className="mini-kpi">
+                  <span className="kpi-val">07</span>
+                  <span className="kpi-lbl">{isEn ? "Services" : "Dịch vụ"}</span>
+                </div>
+                <div className="mini-kpi">
+                  <span className="kpi-val">0%</span>
+                  <span className="kpi-lbl">{isEn ? "Loss (DLQ)" : "Mất tin (DLQ)"}</span>
+                </div>
+                <div className="mini-kpi">
+                  <span className="kpi-val">05 Devs</span>
+                  <span className="kpi-lbl">{isEn ? "Full Team" : "5 Kỹ Sư"}</span>
+                </div>
+              </div>
+
+              <div className="card-action-bar">
+                <button 
+                  type="button"
+                  className="btn-open-detail brandhub-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveDetailProject('brandhub');
+                  }}
+                >
+                  <span>{isEn ? "View Complete Details" : "Xem Chi Tiết Dự Án"}</span>
+                  <FaArrowRight size={12} />
+                </button>
+
+                <a 
+                  href="https://github.com/BrandHubOrganization" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-card-live"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span>GitHub</span>
+                  <FaExternalLinkAlt size={11} />
+                </a>
               </div>
             </div>
           </motion.div>
-        )}
+        </div>
       </section>
 
-            {/* 3. SAAS AUTOMATION DEEP DIVE — MINIMALIST TASTE-SKILL COMPLIANT */}
+      
+      {/* 3. SAAS AUTOMATION DEEP DIVE — MINIMALIST TASTE-SKILL COMPLIANT */}
       <section id="saas" className="section-container saas-showcase-section" style={{ scrollMarginTop: '170px' }}>
         <motion.div 
           className="section-header"
@@ -1633,8 +1442,8 @@ const Services = () => {
           <h2 className="section-heading">{isEn ? "SaaS Automation: Turning Your Website into a 24/7 Sales Engine" : "Tự Động Hóa SaaS: Biến Website Thành Cỗ Máy Bán Hàng & Vận Hành Tự Động 24/7"}</h2>
           <p className="section-desc">
             {isEn 
-              ? "We don't just build static showcase sites. We engineer lean SaaS automation systems that eliminate manual repetitive tasks, accelerate lead conversions, and scale your revenue effortlessly."
-              : "Chúng tôi không chỉ dựng website tĩnh đơn thuần. Trọng tâm cốt lõi là xây dựng các giải pháp Tự động hóa SaaS (SaaS Automation) tinh gọn, giải phóng 80% thời gian trực chốt của chủ shop và nhân đôi tỉ lệ chuyển đổi."}
+              ? "We engineer lean enterprise SaaS automation and omnichannel distribution engines drawn directly from our verified production platforms (Biensovip & BrandHub) — eliminating manual repetitive tasks, syncing 5 social channels, and running autonomous 24/7 conversion pipelines."
+              : "Chúng tôi không chỉ dựng website tĩnh đơn thuần. Trọng tâm cốt lõi là xây dựng các giải pháp Tự động hóa SaaS (SaaS Automation) tinh gọn đúc kết từ các hệ thống thực tế (Biensovip & BrandHub), giải phóng 80% thời gian vận hành, đồng bộ 5 mạng xã hội và nhân đôi tỉ lệ chuyển đổi tự động 24/7."}
           </p>
 
           {/* MINIMALIST KPI STRIP */}
@@ -1655,8 +1464,18 @@ const Services = () => {
             </div>
             <div className="kpi-sep"></div>
             <div className="kpi-box">
+              <span className="kpi-num">05</span>
+              <span className="kpi-txt">{isEn ? "Omnichannel Synced" : "Kênh MXH đồng bộ tự động"}</span>
+            </div>
+            <div className="kpi-sep"></div>
+            <div className="kpi-box">
+              <span className="kpi-num">0%</span>
+              <span className="kpi-txt">{isEn ? "Loss Rate (RabbitMQ DLQ)" : "Tỷ lệ mất tin (RabbitMQ DLQ)"}</span>
+            </div>
+            <div className="kpi-sep"></div>
+            <div className="kpi-box">
               <span className="kpi-num">24/7</span>
-              <span className="kpi-txt">{isEn ? "Autonomous Night Closing" : "Chốt đơn tự động xuyên đêm"}</span>
+              <span className="kpi-txt">{isEn ? "Autonomous Operations" : "Vận hành tự động xuyên đêm"}</span>
             </div>
           </div>
 
@@ -1666,7 +1485,7 @@ const Services = () => {
               className={`cat-tab ${activeSaasCategory === 'all' ? 'active' : ''}`}
               onClick={() => setActiveSaasCategory('all')}
             >
-              {isEn ? "All Modules (10)" : "Tất Cả Module (10)"}
+              {isEn ? "All Modules (13)" : "Tất Cả Module (13)"}
             </button>
             <button 
               className={`cat-tab ${activeSaasCategory === 'sales' ? 'active' : ''}`}
@@ -1679,6 +1498,12 @@ const Services = () => {
               onClick={() => setActiveSaasCategory('ai')}
             >
               {isEn ? "AI & Automation" : "AI & Tự Động Hóa"}
+            </button>
+            <button 
+              className={`cat-tab ${activeSaasCategory === 'omnichannel' ? 'active' : ''}`}
+              onClick={() => setActiveSaasCategory('omnichannel')}
+            >
+              {isEn ? "Omnichannel & Social" : "Đa Kênh & Mạng Xã Hội"}
             </button>
             <button 
               className={`cat-tab ${activeSaasCategory === 'retention' ? 'active' : ''}`}
@@ -1724,6 +1549,11 @@ const Services = () => {
                       {getSaasIcon(feat.iconName)}
                     </div>
                     <div className="card-top-meta">
+                      {feat.systemBadgeVi && (
+                        <span className="card-system-badge">
+                          {isEn ? feat.systemBadgeEn : feat.systemBadgeVi}
+                        </span>
+                      )}
                       <span className="card-number">{feat.num}</span>
                       <span className="card-metric-pill">
                         {isEn ? feat.metricEn : feat.metricVi}
@@ -2203,8 +2033,7 @@ const Services = () => {
             <div className="collab-actions">
               <button
                 onClick={() => {
-                  setActiveFlagshipTab('brandhub');
-                  const el = document.getElementById('case-study');
+                  const el = document.getElementById('brandhub-showcase');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
                 className="btn-collab-view"
@@ -2888,6 +2717,8 @@ const Services = () => {
                       ? (isEn ? "Sales & Cashflow" : "Dòng Tiền & Chốt Cọc")
                       : selectedSaasFeature.category === 'ai'
                       ? (isEn ? "AI & Automation" : "AI & Tự Động Hóa")
+                      : selectedSaasFeature.category === 'omnichannel'
+                      ? (isEn ? "Omnichannel & Social" : "Đa Kênh & Mạng Xã Hội")
                       : (isEn ? "Retention & Operations" : "Tương Tác & Vận Hành")}
                   </span>
                   <span className="modal-metric-pill">
@@ -2929,6 +2760,14 @@ const Services = () => {
                   </div>
 
                   <div className="deployment-meta-card">
+                    <div className="deploy-row">
+                      <span className="deploy-label">{isEn ? "System Origin:" : "Nguồn chứng thực:"}</span>
+                      <span className="deploy-value status-origin">
+                        {selectedSaasFeature.systemBadgeVi 
+                          ? (isEn ? "BrandHub Enterprise Architecture" : "Hệ thống BrandHub Thực tế")
+                          : (isEn ? "Biensovip Production Platform" : "Hệ thống Sàn Biensovip")}
+                      </span>
+                    </div>
                     <div className="deploy-row">
                       <span className="deploy-label">{isEn ? "Tech Engine:" : "Hạ tầng kỹ thuật:"}</span>
                       <span className="deploy-value font-mono">{isEn ? selectedSaasFeature.techEn : selectedSaasFeature.techVi}</span>
@@ -3014,6 +2853,379 @@ const Services = () => {
                     </button>
                   </div>
                 </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+              {/* FLAGSHIP PROJECT FULL DETAIL MODAL (BIENSOVIP & BRANDHUB) */}
+        {activeDetailProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="flagship-detail-modal-backdrop"
+            onClick={() => setActiveDetailProject(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 20 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="flagship-detail-modal-dialog"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Top Header */}
+              <div className="flagship-modal-header">
+                <div className="modal-title-group">
+                  <div className="modal-pill-tag">
+                    {activeDetailProject === 'biensovip' ? (
+                      <span className="pill-client">
+                        <span className="dot" />
+                        {isEn ? "ENTERPRISE CLIENT PRODUCTION" : "KHÁCH HÀNG DOANH NGHIỆP • ĐANG HOẠT ĐỘNG"}
+                      </span>
+                    ) : (
+                      <span className="pill-capstone">
+                        <span className="dot purple" />
+                        {isEn ? "FLAGSHIP CAPSTONE • 5-DEV BENCH" : "ĐỒ ÁN TRỌNG ĐIỂM • TEAM 5 KỸ SƯ FPT"}
+                      </span>
+                    )}
+                  </div>
+                  <h3>
+                    {activeDetailProject === 'biensovip' 
+                      ? "Biensovip.com — Sàn Giao Dịch Biển Số Đẹp (Đà Nẵng)" 
+                      : "BrandHub — Nền Tảng Tự Động Hoá Thương Hiệu & AI Đa Kênh"}
+                  </h3>
+                </div>
+
+                <div className="modal-header-actions">
+                  {activeDetailProject === 'biensovip' ? (
+                    <a 
+                      href="https://biensovip.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="btn-header-link"
+                    >
+                      <FaExternalLinkAlt size={12} />
+                      <span>{isEn ? "Open Live Site" : "Xem Sàn Thật"}</span>
+                    </a>
+                  ) : (
+                    <a 
+                      href="https://github.com/BrandHubOrganization" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="btn-header-link"
+                    >
+                      <FaExternalLinkAlt size={12} />
+                      <span>{isEn ? "GitHub Repo" : "Xem GitHub"}</span>
+                    </a>
+                  )}
+
+                  <button 
+                    onClick={() => setActiveDetailProject(null)} 
+                    className="btn-modal-close"
+                    aria-label="Close detail modal"
+                  >
+                    <FaTimes size={15} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Modal Scrollable Body */}
+              <div className="flagship-modal-body">
+                {/* 1. VISUAL GALLERY & SPECS ROW */}
+                <div className="showcase-content-grid modal-visual-grid">
+                  {/* Visuals column */}
+                  <div className="showcase-visuals">
+                    <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px' }}>
+                      <AnimatePresence mode="wait">
+                        <motion.img 
+                          key={activeDetailProject === 'biensovip' ? activeShotIndex : activeBrandhubShotIndex}
+                          src={activeDetailProject === 'biensovip' ? BIENSOVIP_SHOTS[activeShotIndex].url : BRANDHUB_SHOTS[activeBrandhubShotIndex].url} 
+                          alt="Project Preview"
+                          className="main-preview-img"
+                          onClick={() => setLightboxImg(activeDetailProject === 'biensovip' ? BIENSOVIP_SHOTS[activeShotIndex].url : BRANDHUB_SHOTS[activeBrandhubShotIndex].url)}
+                          title="Click to view full size"
+                          initial={{ opacity: 0.35, scale: 0.98 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0.35 }}
+                          transition={{ duration: 0.25 }}
+                        />
+                      </AnimatePresence>
+                    </div>
+
+                    <div className="thumbnails-row">
+                      {(activeDetailProject === 'biensovip' ? BIENSOVIP_SHOTS : BRANDHUB_SHOTS).map((shot, idx) => {
+                        const isCurrent = activeDetailProject === 'biensovip' ? activeShotIndex === idx : activeBrandhubShotIndex === idx;
+                        return (
+                          <motion.img 
+                            key={idx}
+                            src={shot.url}
+                            alt={shot.titleVi}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.96 }}
+                            style={{
+                              borderColor: isCurrent ? (activeDetailProject === 'biensovip' ? 'var(--color-ink)' : '#6366f1') : 'var(--color-hairline)',
+                              opacity: isCurrent ? 1 : 0.65
+                            }}
+                            onClick={() => {
+                              if (activeDetailProject === 'biensovip') {
+                                setActiveShotIndex(idx);
+                              } else {
+                                setActiveBrandhubShotIndex(idx);
+                              }
+                            }}
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Details column */}
+                  <div className="showcase-details">
+                    <p className="client-story">
+                      {activeDetailProject === 'biensovip' ? (
+                        isEn 
+                          ? "The client required a lightning-fast, high-trust marketplace to display thousands of high-value license plates with zero gateway fees and automatic deposit tracking."
+                          : "Khách hàng yêu cầu một sàn giao dịch tốc độ cao, hiển thị hàng chục nghìn biển số giá trị lớn, triệt tiêu 100% phí cổng thanh toán và quản lý đặt cọc tự động qua VietQR."
+                      ) : (
+                        isEn 
+                          ? "The flagship graduation capstone project developed end-to-end by our 5-engineer team. Engineered with enterprise-grade microservices to automate omnichannel content distribution across Facebook, TikTok, Instagram, Threads, and Zalo with AI-assisted copywriting and fault-tolerant message queuing."
+                          : "Đồ án tốt nghiệp trọng điểm được chính Team 5 Kỹ sư thiết kế và phát triển toàn diện. Hệ thống kiến trúc Microservices chuẩn doanh nghiệp, giải quyết bài toán tự động hóa quản trị nội dung đa kênh (Facebook, TikTok, Instagram, Threads, Zalo) với trợ lý AI và hạ tầng hàng đợi RabbitMQ bất tử."
+                      )}
+                    </p>
+
+                    <ul className="specs-list">
+                      {activeDetailProject === 'biensovip' ? (
+                        <>
+                          <li>
+                            <FaSearch />
+                            <div><strong>{isEn ? "Sub-8ms Multi-filter" : "Lọc đa chiều dưới 8ms"}:</strong> {isEn ? "Composite indexing for thousands of plates" : "Tìm kiếm theo ngũ quý, sảnh tiến, dải giá tức thời (Postgres GIN Index)"}</div>
+                          </li>
+                          <li>
+                            <FaQrcode />
+                            <div><strong>{isEn ? "VietQR Auto Deposit & Lock" : "Cổng cọc VietQR & Khóa độc bản"}:</strong> {isEn ? "0% transaction fee, auto Webhook <0.5s & Redis 15-min lock" : "Khớp lệnh Webhook <0.5s, 0đ phí cổng trung gian, khóa bi quan chống bán trùng"}</div>
+                          </li>
+                          <li>
+                            <FaEnvelope />
+                            <div><strong>{isEn ? "Drag-Drop Email Builder (UC27)" : "Soạn Email Kéo-Thả (UC27)"}:</strong> {isEn ? "Visual builder + corporate Gmail SMTP, zero spam & 0đ cost" : "Dựng email marketing trực quan, liên kết Gmail doanh nghiệp 0đ chi phí"}</div>
+                          </li>
+                          <li>
+                            <FaBell />
+                            <div><strong>{isEn ? "Auto Alerts & Broadcast (UC17/24)" : "Thông Báo Biển Mới & Broadcast"}:</strong> {isEn ? "Instant push when matching plates arrive; 1-click sales broadcast" : "Tự động gửi mail/Zalo khi có biển đúng sở thích; phát thông báo xả kho 1-click"}</div>
+                          </li>
+                          <li>
+                            <FaShareAlt />
+                            <div><strong>{isEn ? "Social Video & AI Mockups (UC22/42)" : "Video TikTok/Reels & Mockup AI"}:</strong> {isEn ? "Embed viral short videos + 1-click batch social mockups" : "Nhúng video thực tế xe biển đẹp + 1-click sinh hàng nghìn ảnh chuẩn Facebook/TikTok"}</div>
+                          </li>
+                          <li>
+                            <FaBalanceScale />
+                            <div><strong>{isEn ? "Feng Shui & Plate Comparison (UC16/23)" : "Phong Thủy Hợp Mệnh & So Sánh"}:</strong> {isEn ? "MeaningAnalyzer engine + side-by-side 3-plate comparison" : "Giải mã ngũ hành theo ngày sinh + so sánh song song 3 biển tăng 35% tỷ lệ chốt"}</div>
+                          </li>
+                          <li>
+                            <FaUsers />
+                            <div><strong>{isEn ? "Affiliate Partner Portal (UC25/34)" : "Cổng CTV & Hoa Hồng Tự Động"}:</strong> {isEn ? "Unique UTM links, transparent tiered commission & auto payout" : "Cấp mã UTM riêng, tự động tính hoa hồng ví điện tử, quản lý 14 CTV thực tế"}</div>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          <li>
+                            <FaServer />
+                            <div><strong>{isEn ? "Enterprise Microservices" : "Kiến trúc Microservices Spring Boot 3"}:</strong> {isEn ? "Spring Cloud Gateway (WebFlux, JWT, Redis) + Java 21 domain services" : "API Gateway (WebFlux, JWT, Redis) + Spring Boot 3.3.5 (Java 21) độc lập"}</div>
+                          </li>
+                          <li>
+                            <FaCogs />
+                            <div><strong>{isEn ? "Resilient RabbitMQ & DLQ" : "Hàng đợi RabbitMQ & Dead Letter Queue (DLQ)"}:</strong> {isEn ? "Exponential backoff retry, strict idempotency, 0% lost publishing tasks" : "Cơ chế retry lũy thừa, đảm bảo tính Idempotency và không bao giờ mất tin nhắn"}</div>
+                          </li>
+                          <li>
+                            <FaRobot />
+                            <div><strong>{isEn ? "AI Content Generation & RAG" : "Trợ lý AI Sinh nội dung & RAG Pipeline"}:</strong> {isEn ? "Python FastAPI + DeepSeek AI for context-aware multi-format copywriting" : "Tích hợp Python FastAPI + DeepSeek LLM tự động hóa viết bài chuẩn SEO đa kênh"}</div>
+                          </li>
+                          <li>
+                            <FaSyncAlt />
+                            <div><strong>{isEn ? "Omnichannel Automation" : "Phát hành đa kênh đồng bộ"}:</strong> {isEn ? "Auto distribution to Facebook, TikTok, Instagram, Threads, Zalo" : "Đồng bộ hóa 5 nền tảng mạng xã hội, lên lịch đăng bài & cảnh báo tức thời"}</div>
+                          </li>
+                          <li>
+                            <FaUsers />
+                            <div><strong>{isEn ? "Multi-tenant Access Control" : "Phân quyền đa cấp bậc (RBAC)"}:</strong> {isEn ? "Workspaces for Agencies, Enterprise Brands, and Content Creators" : "Tách biệt dữ liệu cho Agency, Nhãn hàng, Creator và CTV với bảo mật JWT"}</div>
+                          </li>
+                          <li>
+                            <FaChartLine />
+                            <div><strong>{isEn ? "Deep Campaign Analytics" : "Báo cáo phân tích hiệu suất chuyên sâu"}:</strong> {isEn ? "Aggregated engagement KPIs & real-time async task telemetry" : "Đo lường tương tác, thống kê chuyển đổi và giám sát luồng tác vụ thời gian thực"}</div>
+                          </li>
+                          <li>
+                            <FaShieldAlt />
+                            <div><strong>{isEn ? "Zero Data Loss SLA" : "Cam kết độ bền vững tin nhắn 100%"}:</strong> {isEn ? "Docker Compose & AWS EC2 cluster with automatic failover" : "Cụm Docker Compose & AWS EC2 dự phòng nóng, tự hồi phục khi node gặp sự cố"}</div>
+                          </li>
+                        </>
+                      )}
+                    </ul>
+
+                    {/* Actions Inside Modal */}
+                    <div className="showcase-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', marginTop: '16px' }}>
+                      {activeDetailProject === 'biensovip' ? (
+                        <>
+                          <a 
+                            href="https://biensovip.com" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="btn-view-live"
+                          >
+                            {isEn ? "Explore Live Marketplace" : "Trải Nghiệm Sàn Thực Tế"} <FaExternalLinkAlt size={12} />
+                          </a>
+
+                          <Link
+                            to="/projects/26"
+                            className="btn-pill-subtle"
+                            onClick={() => setActiveDetailProject(null)}
+                          >
+                            <span>{isEn ? "Technical Case Study" : "Case Study Kỹ Thuật #26"}</span>
+                            <FaArrowRight size={11} />
+                          </Link>
+
+                          <Link
+                            to="/blog/biensovip-postgresql-vs-mongodb-multi-filter"
+                            className="btn-pill-subtle"
+                            onClick={() => setActiveDetailProject(null)}
+                          >
+                            <span>{isEn ? "PostgreSQL 8ms Deep-Dive" : "Bài Viết CSDL PostgreSQL 8ms"}</span>
+                            <FaArrowRight size={11} />
+                          </Link>
+                        </>
+                      ) : (
+                        <>
+                          <Link
+                            to="/projects/14"
+                            className="btn-view-live"
+                            style={{ background: '#6366f1' }}
+                            onClick={() => setActiveDetailProject(null)}
+                          >
+                            {isEn ? "Explore BrandHub Dossier" : "Khám Phá Chi Tiết Dự Án #14"} <FaArrowRight size={12} />
+                          </Link>
+
+                          <Link
+                            to="/blog/brandhub-resilient-rabbitmq-dead-letter-retry-architecture"
+                            className="btn-pill-subtle"
+                            onClick={() => setActiveDetailProject(null)}
+                          >
+                            <span>{isEn ? "RabbitMQ DLQ Deep-Dive" : "Bài Viết Kiến Trúc RabbitMQ"}</span>
+                            <FaArrowRight size={11} />
+                          </Link>
+
+                          <a 
+                            href="https://github.com/BrandHubOrganization" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="btn-pill-subtle"
+                          >
+                            <span>GitHub Organization</span>
+                            <FaExternalLinkAlt size={11} />
+                          </a>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2. FOR BRANDHUB: TELEMETRY + ARCHITECTURE + 5-DEV MATRIX */}
+                {activeDetailProject === 'brandhub' && (
+                  <>
+                    {/* BRANDHUB TELEMETRY STRIP */}
+                    <div className="brandhub-telemetry-banner" style={{ margin: '24px 0', borderRadius: '14px' }}>
+                      {BRANDHUB_METRICS.map((met, mIdx) => (
+                        <div key={mIdx} className="telemetry-item">
+                          <div className="telemetry-value">{met.value}</div>
+                          <div className="telemetry-label">{isEn ? met.labelEn : met.labelVi}</div>
+                          <div className="telemetry-sub">{isEn ? met.subEn : met.subVi}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* BRANDHUB 7 MICROSERVICES BLUEPRINT */}
+                    <div className="brandhub-architecture-section" style={{ borderRadius: '16px', border: '1px solid var(--color-hairline)', marginBottom: '24px' }}>
+                      <div className="section-sub-header">
+                        <span className="sub-badge">
+                          <FaProjectDiagram size={12} />
+                          {isEn ? "SYSTEM ARCHITECTURE BLUEPRINT" : "SƠ ĐỒ PHÂN RÃ HỆ THỐNG"}
+                        </span>
+                        <h4>
+                          {isEn 
+                            ? "7 Independent Microservices & Modules (Polyglot & Cloud-Native)" 
+                            : "Kiến Trúc 7 Dịch Vụ Độc Lập: Đa Ngôn Ngữ & Chuẩn Doanh Nghiệp"}
+                        </h4>
+                        <p>
+                          {isEn
+                            ? "Engineered with strict domain separation: Java Spring Boot for reliable business & publishing, Python FastAPI for AI RAG orchestration, and React 18 / Expo for multi-platform client interaction."
+                            : "Thiết kế theo nguyên tắc phân tách domain rõ ràng: Java Spring Boot cho giao dịch & xuất bản bất tử, Python FastAPI cho xử lý AI RAG đa chiều, và React 18 / Expo cho trải nghiệm người dùng đa thiết bị."}
+                        </p>
+                      </div>
+
+                      <div className="microservices-grid">
+                        {BRANDHUB_MICROSERVICES.map((srv) => (
+                          <div key={srv.id} className="microservice-card">
+                            <div className="service-top">
+                              <span className="service-code-name">{srv.name}</span>
+                              <span className="service-tag">{srv.tag}</span>
+                            </div>
+                            <div className="service-tech-pill">{srv.tech}</div>
+                            <p className="service-desc">{isEn ? srv.descEn : srv.descVi}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* BRANDHUB TEAM ROLES & OWNERSHIP MATRIX */}
+                    <div className="brandhub-team-roles-section" style={{ borderRadius: '16px', border: '1px solid var(--color-hairline)' }}>
+                      <div className="section-sub-header">
+                        <span className="sub-badge" style={{ background: '#ede9fe', color: '#6d28d9', borderColor: '#ddd6fe' }}>
+                          <FaUsers size={12} />
+                          {isEn ? "5-ENGINEER COLLABORATION MATRIX" : "MA TRẬN PHÂN CÔNG 5 KỸ SƯ TRONG BRANDHUB"}
+                        </span>
+                        <h4>
+                          {isEn 
+                            ? "Team Roles & Architectural Ownership in BrandHub" 
+                            : "Trách Nhiệm & Đóng Góp Kỹ Thuật Của Từng Kỹ Sư Trong Dự Án"}
+                        </h4>
+                        <p>
+                          {isEn
+                            ? "100% created and delivered by our 5-engineer bench. Each module was owned end-to-end by dedicated engineers with verified commits and production-tested stability."
+                            : "100% thành quả tự chủ của nhóm 5 kỹ sư chính quy. Mỗi thành phần được một kỹ sư chuyên trách kiến trúc và hiện thực hoá, cam kết tính ổn định qua 16 sprint kiểm thử khắt khe."}
+                        </p>
+                      </div>
+
+                      <div className="team-roles-grid">
+                        {BRANDHUB_TEAM_ROLES.map((mem, rIdx) => (
+                          <div key={rIdx} className="role-member-card">
+                            <div className="role-card-header">
+                              <div className="role-avatar-badge" style={{ backgroundColor: mem.color }}>
+                                {mem.avatarIcon === 'FaUserTie' ? <FaUserTie size={17} /> : mem.avatarIcon === 'FaLaptopCode' ? <FaLaptopCode size={17} /> : mem.avatarIcon === 'FaCode' ? <FaCode size={17} /> : mem.avatarIcon === 'FaAward' ? <FaAward size={17} /> : <FaServer size={17} />}
+                              </div>
+                              <div>
+                                <span className="role-label">{isEn ? mem.roleEn : mem.roleVi}</span>
+                                <h5 className="role-name">{mem.name}</h5>
+                              </div>
+                            </div>
+
+                            <ul className="role-contributions-list">
+                              {(isEn ? mem.contributionsEn : mem.contributionsVi).map((item, iIdx) => (
+                                <li key={iIdx}>
+                                  <FaCheckCircle className="check-ico" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+
+                            <div className="role-tech-tags">
+                              {mem.tech.map((t, tIdx) => (
+                                <span key={tIdx} className="tech-tag">{t}</span>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
             </motion.div>
           </motion.div>

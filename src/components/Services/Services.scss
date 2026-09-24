@@ -275,6 +275,535 @@
     }
   }
 
+  /* 2-COLUMN BALANCED FLAGSHIP CARDS GRID */
+  .flagship-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-bottom: 36px;
+
+    @media (max-width: 960px) {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+  }
+
+  .flagship-summary-card {
+    background: var(--color-canvas);
+    border: 1.5px solid var(--color-hairline);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-ink);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
+
+      .card-media-wrap .card-cover-img {
+        transform: scale(1.03);
+      }
+
+      .card-media-overlay {
+        opacity: 1;
+      }
+
+      .btn-open-detail {
+        background: var(--color-ink);
+        color: var(--color-canvas);
+      }
+    }
+
+    &.brandhub-card {
+      &:hover {
+        border-color: #6366f1;
+        box-shadow: 0 16px 36px rgba(99, 102, 241, 0.12);
+
+        .btn-open-detail.brandhub-btn {
+          background: #6366f1;
+          color: #ffffff;
+          border-color: #6366f1;
+        }
+      }
+    }
+
+    /* Browser Bar */
+    .card-browser-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      background: var(--color-surface-soft);
+      border-bottom: 1px solid var(--color-hairline);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+
+      .browser-dots {
+        display: flex;
+        gap: 5px;
+        span {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: var(--color-hairline);
+          display: inline-block;
+        }
+      }
+
+      .browser-domain {
+        color: var(--color-ink-soft);
+        font-size: 11.5px;
+      }
+
+      .browser-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+
+        .dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          display: inline-block;
+        }
+
+        &.live {
+          color: #1ea64a;
+          .dot { background: #1ea64a; }
+        }
+
+        &.capstone {
+          color: #6366f1;
+          .dot { background: #6366f1; }
+        }
+      }
+    }
+
+    /* Media Cover */
+    .card-media-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: var(--color-surface-soft);
+
+      @media (max-width: 640px) {
+        height: 190px;
+      }
+
+      .card-cover-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        transition: transform 0.3s ease;
+      }
+
+      .card-media-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        padding: 16px;
+
+        .overlay-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 16px;
+          border-radius: 50px;
+          background: rgba(255, 255, 255, 0.95);
+          color: #111;
+          font-size: 12.5px;
+          font-weight: 600;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+
+          &.brandhub-pill {
+            background: #6366f1;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+
+    /* Body */
+    .card-body-wrap {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .card-category-badge {
+        display: inline-block;
+        align-self: flex-start;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+
+        &.client {
+          background: #dceeb1;
+          color: #1a1a1a;
+        }
+
+        &.capstone {
+          background: #ede9fe;
+          color: #6d28d9;
+        }
+      }
+
+      .card-title {
+        font-family: var(--font-heading);
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--color-ink);
+        line-height: 1.35;
+        margin-bottom: 10px;
+        min-height: 54px;
+        display: flex;
+        align-items: center;
+      }
+
+      .card-desc {
+        font-size: 13.5px;
+        line-height: 1.6;
+        color: var(--color-ink-soft);
+        margin-bottom: 18px;
+        min-height: 64px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .card-highlights-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 20px;
+        background: var(--color-surface-soft);
+        padding: 14px 16px;
+        border-radius: 12px;
+        border: 1px solid var(--color-hairline);
+
+        .highlight-item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 12.5px;
+          color: var(--color-ink);
+          line-height: 1.45;
+
+          .hl-icon {
+            color: #1ea64a;
+            flex-shrink: 0;
+            font-size: 13px;
+
+            &.purple {
+              color: #6366f1;
+            }
+          }
+
+          strong {
+            font-weight: 600;
+          }
+        }
+      }
+
+      .card-mini-kpis {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: auto;
+        padding-top: 14px;
+        border-top: 1px solid var(--color-hairline);
+        margin-bottom: 18px;
+
+        .mini-kpi {
+          text-align: center;
+          padding: 6px;
+          background: var(--color-surface-soft);
+          border-radius: 8px;
+
+          .kpi-val {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--color-ink);
+          }
+
+          .kpi-lbl {
+            display: block;
+            font-size: 10.5px;
+            color: var(--color-ink-soft);
+            margin-top: 2px;
+          }
+        }
+
+        &.brandhub-kpis {
+          .mini-kpi .kpi-val {
+            color: #6366f1;
+          }
+        }
+      }
+
+      .card-action-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .btn-open-detail {
+          flex: 1;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 10px 18px;
+          border-radius: 50px;
+          font-size: 13.5px;
+          font-weight: 600;
+          background: var(--color-surface-soft);
+          color: var(--color-ink);
+          border: 1px solid var(--color-hairline);
+          cursor: pointer;
+          transition: all 0.15s ease;
+
+          &:hover {
+            background: var(--color-ink);
+            color: var(--color-canvas);
+            border-color: var(--color-ink);
+          }
+
+          &.brandhub-btn:hover {
+            background: #6366f1;
+            border-color: #6366f1;
+            color: #ffffff;
+          }
+        }
+
+        .btn-card-live {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 10px 14px;
+          border-radius: 50px;
+          font-size: 13px;
+          font-weight: 500;
+          background: var(--color-canvas);
+          color: var(--color-ink-soft);
+          border: 1px solid var(--color-hairline);
+          text-decoration: none;
+          transition: all 0.15s ease;
+
+          &:hover {
+            border-color: var(--color-ink);
+            color: var(--color-ink);
+          }
+        }
+      }
+    }
+  }
+
+  /* FLAGSHIP FULL DETAIL MODAL */
+  .flagship-detail-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.68);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow-y: auto;
+
+    @media (max-width: 640px) {
+      padding: 10px;
+    }
+  }
+
+  .flagship-detail-modal-dialog {
+    background: var(--color-canvas);
+    border: 1px solid var(--color-hairline);
+    border-radius: 22px;
+    width: 100%;
+    max-width: 1120px;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
+
+    @media (max-width: 768px) {
+      max-height: 96vh;
+      border-radius: 16px;
+    }
+
+    .flagship-modal-header {
+      padding: 18px 26px;
+      border-bottom: 1px solid var(--color-hairline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: var(--color-surface-soft);
+      flex-shrink: 0;
+
+      @media (max-width: 640px) {
+        padding: 14px 18px;
+      }
+
+      .modal-title-group {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .modal-pill-tag {
+          .pill-client {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: #1ea64a;
+            .dot {
+              width: 7px;
+              height: 7px;
+              border-radius: 50%;
+              background: #1ea64a;
+            }
+          }
+
+          .pill-capstone {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: #6366f1;
+            .dot.purple {
+              width: 7px;
+              height: 7px;
+              border-radius: 50%;
+              background: #6366f1;
+            }
+          }
+        }
+
+        h3 {
+          font-family: var(--font-heading);
+          font-size: 19px;
+          font-weight: 700;
+          color: var(--color-ink);
+          margin: 0;
+
+          @media (max-width: 640px) {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .modal-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .btn-header-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 8px 14px;
+          border-radius: 50px;
+          font-size: 12.5px;
+          font-weight: 600;
+          background: var(--color-canvas);
+          color: var(--color-ink);
+          border: 1px solid var(--color-hairline);
+          text-decoration: none;
+          transition: all 0.15s ease;
+
+          &:hover {
+            border-color: var(--color-ink);
+          }
+
+          @media (max-width: 540px) {
+            display: none;
+          }
+        }
+
+        .btn-modal-close {
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+          border: 1px solid var(--color-hairline);
+          background: var(--color-canvas);
+          color: var(--color-ink);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.15s ease;
+
+          &:hover {
+            background: var(--color-ink);
+            color: var(--color-canvas);
+          }
+        }
+      }
+    }
+
+    .flagship-modal-body {
+      padding: 24px 28px 36px;
+      overflow-y: auto;
+      flex: 1;
+
+      @media (max-width: 640px) {
+        padding: 16px;
+      }
+
+      .modal-visual-grid {
+        padding: 0;
+        margin-bottom: 24px;
+      }
+
+      .btn-pill-subtle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 50px;
+        background-color: var(--color-surface-soft);
+        color: var(--color-ink);
+        font-size: 13.5px;
+        font-weight: 500;
+        text-decoration: none;
+        border: 1px solid var(--color-hairline);
+        transition: all 0.15s ease;
+
+        &:hover {
+          border-color: var(--color-ink);
+        }
+      }
+    }
+  }
+
   /* FLAGSHIP PRODUCT SHOWCASE (BIENSOVIP & BRANDHUB) */
   .flagship-showcase {
     background: var(--color-canvas);
@@ -892,6 +1421,18 @@
           align-items: center;
           justify-content: flex-end;
           gap: 8px;
+
+          .card-system-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 6.5px;
+            border-radius: 5px;
+            background: rgba(99, 102, 241, 0.1);
+            color: #6366f1;
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            white-space: nowrap;
+          }
 
           .card-number {
             font-family: 'JetBrains Mono', monospace;
@@ -3309,6 +3850,17 @@
                 color: var(--color-ink);
                 background: var(--color-canvas);
                 border: 1px solid var(--color-hairline);
+                padding: 2px 7px;
+                border-radius: 4px;
+              }
+
+              &.status-origin {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 11px;
+                font-weight: 600;
+                color: #6366f1;
+                background: rgba(99, 102, 241, 0.08);
+                border: 1px solid rgba(99, 102, 241, 0.2);
                 padding: 2px 7px;
                 border-radius: 4px;
               }
