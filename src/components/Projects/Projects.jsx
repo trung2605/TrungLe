@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaInbox, FaRocket, FaNewspaper, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCalendarAlt, FaUser, FaInbox, FaRocket, FaNewspaper, FaArrowRight, FaCheckCircle, FaSearch } from 'react-icons/fa';
 import { skillTaxonomy } from '../../data';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import SkillChart from './SkillChart';
@@ -90,10 +90,45 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
           src={project.image}
           alt={project.title}
           loading="lazy"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-          onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
-          onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)' }}
         />
+        {/* Hover quick preview hint */}
+        <div 
+          className="project-thumb-overlay"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: 'rgba(15, 23, 42, 0.42)',
+            backdropFilter: 'blur(2px)',
+            WebkitBackdropFilter: 'blur(2px)',
+            opacity: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+            color: '#ffffff',
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '12px',
+            fontWeight: '600',
+            letterSpacing: '0.4px',
+            transition: 'opacity 0.25s ease',
+            pointerEvents: 'none',
+          }}
+        >
+          <span style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '6px 14px',
+            borderRadius: '9999px',
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+            border: '1px solid rgba(255, 255, 255, 0.35)',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.25)'
+          }}>
+            <FaSearch size={11} />
+            {t('projects.viewDetails', 'Xem Chi Tiết...')}
+          </span>
+        </div>
         {/* Status badge */}
         <div style={{
           position: 'absolute', top: '16px', right: '16px',
@@ -297,21 +332,31 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '5px',
-                padding: '6px 12px',
+                gap: '6px',
+                padding: '7px 12px',
                 borderRadius: '8px',
                 fontSize: '12px',
                 fontWeight: '600',
-                color: '#6d3fc9',
-                backgroundColor: '#f3e8ff',
-                border: '1px solid #e9d5ff',
+                color: 'var(--color-ink)',
+                backgroundColor: 'var(--color-surface-soft)',
+                border: '1px solid var(--color-hairline)',
                 cursor: 'pointer',
-                transition: 'all 0.15s ease'
+                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#6d3fc9'; e.currentTarget.style.color = '#ffffff'; }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#f3e8ff'; e.currentTarget.style.color = '#6d3fc9'; }}
+              onMouseEnter={e => { 
+                e.currentTarget.style.backgroundColor = 'var(--color-ink)'; 
+                e.currentTarget.style.color = 'var(--color-canvas)';
+                e.currentTarget.style.borderColor = 'var(--color-ink)';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={e => { 
+                e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; 
+                e.currentTarget.style.color = 'var(--color-ink)';
+                e.currentTarget.style.borderColor = 'var(--color-hairline)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
             >
-              <FaRocket size={10} />
+              <FaRocket size={10} style={{ color: '#8b5cf6' }} />
               <span>Dịch Vụ</span>
             </button>
 
@@ -324,21 +369,31 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '5px',
-                padding: '6px 12px',
+                gap: '6px',
+                padding: '7px 12px',
                 borderRadius: '8px',
                 fontSize: '12px',
                 fontWeight: '600',
-                color: '#0369a1',
-                backgroundColor: '#e0f2fe',
-                border: '1px solid #bae6fd',
+                color: 'var(--color-ink)',
+                backgroundColor: 'var(--color-surface-soft)',
+                border: '1px solid var(--color-hairline)',
                 cursor: 'pointer',
-                transition: 'all 0.15s ease'
+                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#0284c7'; e.currentTarget.style.color = '#ffffff'; }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#e0f2fe'; e.currentTarget.style.color = '#0369a1'; }}
+              onMouseEnter={e => { 
+                e.currentTarget.style.backgroundColor = 'var(--color-ink)'; 
+                e.currentTarget.style.color = 'var(--color-canvas)';
+                e.currentTarget.style.borderColor = 'var(--color-ink)';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={e => { 
+                e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; 
+                e.currentTarget.style.color = 'var(--color-ink)';
+                e.currentTarget.style.borderColor = 'var(--color-hairline)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
             >
-              <FaUser size={10} />
+              <FaUser size={10} style={{ color: '#0ea5e9' }} />
               <span>Liên Hệ</span>
             </button>
           </div>

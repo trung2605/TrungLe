@@ -24,3 +24,16 @@
     overflow: hidden;
   }
 }
+
+/* Card hover micro-interactions */
+.card-spotlight {
+  &:hover {
+    img {
+      transform: scale(1.045);
+    }
+
+    .project-thumb-overlay {
+      opacity: 1 !important;
+    }
+  }
+}

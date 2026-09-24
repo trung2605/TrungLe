@@ -224,6 +224,11 @@
       "title": "Resume",
       "subtitle": "Xem CV trực tuyến, hoặc tải file PDF."
     },
+    "services": {
+      "eyebrow": "Dịch vụ phát triển",
+      "title": "Dịch Vụ & Giải Pháp",
+      "subtitle": "Phát triển phần mềm chất lượng cao, bàn giao nhanh, chi phí minh bạch và bảo hành dài hạn."
+    },
     "projectDetail": "Chi tiết dự án",
     "home": "Trang chủ"
   },
@@ -824,6 +829,27 @@
         "Phân tích EDA: mất cân bằng lớp giữa các tập train/test/val (5,856 ảnh)",
         "Thiết kế pipeline data augmentation cho CNN tự xây (không transfer learning)",
         "Làm việc song song 2 sub-team trong deadline 3 tiếng, TensorFlow/Keras"
+      ]
+    },
+    {
+      "role": "Kiến trúc sư Backend & Trưởng nhóm",
+      "description": "Nền tảng kể chuyện kỹ thuật số và luyện đọc tương tác dành cho trẻ em từ 3–12 tuổi. Thiết kế kiến trúc backend hiệu năng cao theo chuẩn Clean Architecture với **.NET 10** (ASP.NET Core Web API) và cơ sở dữ liệu **MongoDB** (30 collections) kết hợp xác thực Google OAuth, JWT, streaming audio qua AWS S3/CloudFront, lưu trữ media Cloudinary và xử lý thanh toán tự động qua **PayOS webhook**.\n\nXây dựng các module hoàn chỉnh: wizard hồ sơ bé, gamification tiến độ đọc sách và pipeline chuyển văn bản thành giọng nói (TTS) phục vụ luyện phát âm trực quan.",
+      "challenge": "Xây dựng nền tảng kể chuyện và luyện đọc đa kênh (Web/Mobile) cho trẻ em 3-12 tuổi với yêu cầu streaming audio tức thời, tích hợp cổng thanh toán PayOS webhook và quản lý dữ liệu 30 MongoDB collections theo chuẩn Clean Architecture.",
+      "highlights": [
+        "Kiến trúc backend Clean Architecture trên .NET 10 (Domain / Application / Infrastructure / API) với 30 collections MongoDB",
+        "Tích hợp xác thực kép Google OAuth + JWT, Cloudinary quản lý ảnh, AWS S3 + CloudFront tối ưu streaming audio",
+        "Xây dựng pipeline thanh toán gói gia đình tự động qua PayOS webhook và hệ thống gamification tiến độ đọc",
+        "Thiết lập bộ test toàn diện: xUnit, NSubstitute, FluentAssertions và Mongo2Go integration tests"
+      ]
+    },
+    {
+      "role": "Full-Stack & Mobile Developer (Dự án nhóm)",
+      "description": "Hệ sinh thái theo dõi thời tiết và cảnh báo thông minh đa nền tảng. Xây dựng ứng dụng di động **Flutter 3.x** hiệu năng cao (quản lý state Riverpod, GoRouter, bảng màu thời tiết thích ứng) kết hợp backend serverless **Firebase Cloud Functions (Node.js 24)** với Cloud Firestore, Firebase Auth, Cloud Storage và thông báo đẩy khẩn cấp qua **Firebase Cloud Messaging (FCM)**.",
+      "challenge": "Cung cấp thông tin dự báo thời tiết và cảnh báo thiên tai theo thời gian thực tới người dùng di động với độ trễ thấp và kiến trúc serverless tiết kiệm chi phí vận hành.",
+      "highlights": [
+        "Xây dựng ứng dụng di động Flutter 3.x mượt mà với kiến trúc Riverpod và bảng màu thời tiết thích ứng",
+        "Backend serverless Node.js 24 trên Firebase Cloud Functions kết hợp Cloud Firestore phân tán",
+        "Hệ thống thông báo đẩy thời gian thực FCM gửi cảnh báo thời tiết cực đoan theo tọa độ địa lý"
       ]
     }
   ],

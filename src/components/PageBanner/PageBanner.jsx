@@ -1,7 +1,8 @@
+import { useEffect, useMemo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaChevronRight } from 'react-icons/fa';
-import { FiCircle, FiCode, FiAward, FiUsers, FiEdit3, FiFileText, FiMail } from 'react-icons/fi';
+import { FiCircle, FiCode, FiAward, FiUsers, FiEdit3, FiFileText, FiMail, FiLayers } from 'react-icons/fi';
 import { useTranslatedData } from '../../hooks/useTranslatedData';
 import { useTranslation } from 'react-i18next';
 
@@ -13,6 +14,8 @@ const PAGE_META = {
     '/blog':         { color: '#c8e6cd', decoration: FiEdit3,           key: 'blog' },
     '/resume':       { color: '#dceeb1', decoration: FiFileText,        key: 'resume' },
     '/contact':      { color: '#efd4d4', decoration: FiMail,            key: 'contact' },
+    '/dich-vu':      { color: '#dbeafe', decoration: FiLayers,          key: 'services' },
+    '/services':     { color: '#dbeafe', decoration: FiLayers,          key: 'services' },
 };
 
 const PageBanner = () => {
@@ -21,22 +24,24 @@ const PageBanner = () => {
     const { t } = useTranslation();
     const { projects, posts } = useTranslatedData();
 
-    const meta = PAGE_META[pathname];
-    let config = meta ? {
-        eyebrow: t(`pageBanner.${meta.key}.eyebrow`),
-        title:    t(`pageBanner.${meta.key}.title`),
-        subtitle: t(`pageBanner.${meta.key}.subtitle`),
-        color: meta.color,
-        decoration: meta.decoration,
-    } : null;
+    const config = useMemo(() => {
+        const meta = PAGE_META[pathname];
+        if (meta) {
+            return {
+                eyebrow: t(`pageBanner.${meta.key}.eyebrow`),
+                title:    t(`pageBanner.${meta.key}.title`),
+                subtitle: t(`pageBanner.${meta.key}.subtitle`),
+                color: meta.color,
+                decoration: meta.decoration,
+            };
+        }
 
-    // Dynamic blog post pages: /blog/:slug
-    if (!config) {
+        // Dynamic blog post pages: /blog/:slug
         const blogMatch = pathname.match(/^\/blog\/([^/]+)$/);
         if (blogMatch) {
             const post = posts.find(p => p.slug === blogMatch[1]);
             if (post) {
-                config = {
+                return {
                     eyebrow: t('pageBanner.blog.eyebrow'),
                     title: post.title,
                     subtitle: post.excerpt,
@@ -47,15 +52,13 @@ const PageBanner = () => {
                 };
             }
         }
-    }
 
-    // Dynamic project detail pages: /projects/:id
-    if (!config) {
+        // Dynamic project detail pages: /projects/:id
         const projectMatch = pathname.match(/^\/projects\/(\d+)$/);
         if (projectMatch) {
             const project = projects.find(p => String(p.id) === projectMatch[1]);
             if (project) {
-                config = {
+                return {
                     eyebrow: t('pageBanner.projectDetail'),
                     title: project.title,
                     subtitle: project.role + ' · ' + project.duration,
@@ -66,7 +69,65 @@ const PageBanner = () => {
                 };
             }
         }
-    }
+
+        return null;
+    }, [pathname, posts, projects, t]);
+
+    // Dynamic Breadcrumb JSON-LD Structured Data
+    useEffect(() => {
+        if (!config) return;
+
+        const items = [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": t('pageBanner.home'),
+                "item": "https://trung2605.github.io/"
+            }
+        ];
+
+        if (config.parentPath) {
+            items.push({
+                "@type": "ListItem",
+                "position": 2,
+                "name": config.parentLabel,
+                "item": `https://trung2605.github.io${config.parentPath}`
+            });
+            items.push({
+                "@type": "ListItem",
+                "position": 3,
+                "name": config.title,
+                "item": `https://trung2605.github.io${pathname}`
+            });
+        } else {
+            items.push({
+                "@type": "ListItem",
+                "position": 2,
+                "name": config.title,
+                "item": `https://trung2605.github.io${pathname}`
+            });
+        }
+
+        const breadcrumbData = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": items
+        };
+
+        let script = document.getElementById('page-banner-breadcrumb-jsonld');
+        if (!script) {
+            script = document.createElement('script');
+            script.id = 'page-banner-breadcrumb-jsonld';
+            script.type = 'application/ld+json';
+            document.head.appendChild(script);
+        }
+        script.text = JSON.stringify(breadcrumbData);
+
+        return () => {
+            const existingScript = document.getElementById('page-banner-breadcrumb-jsonld');
+            if (existingScript) existingScript.remove();
+        };
+    }, [pathname, config, t]);
 
     if (!config) return null;
 
@@ -91,54 +152,81 @@ const PageBanner = () => {
             {/* Max-width wrapper */}
             <div style={{ maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
-                {/* Breadcrumb */}
-                <motion.div
+                {/* Breadcrumb Navigation */}
+                <motion.nav
+                    aria-label="Breadcrumb"
                     initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.15, duration: 0.4 }}
-                    style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '10px', flexWrap: 'wrap' }}
+                    style={{ marginBottom: '10px' }}
                 >
-                    <Link
-                        to="/"
-                        style={{
-                            display: 'flex', alignItems: 'center', gap: '5px',
-                            fontFamily: 'JetBrains Mono, monospace',
-                            fontSize: '12px', letterSpacing: '0.4px',
-                            textTransform: 'uppercase', color: 'rgba(0,0,0,0.45)',
-                            textDecoration: 'none', transition: 'color 0.15s ease',
-                        }}
-                        onMouseEnter={e => e.currentTarget.style.color = '#000000'}
-                        onMouseLeave={e => e.currentTarget.style.color = 'rgba(0,0,0,0.45)'}
-                    >
-                        <FaHome size={11} /> {t('pageBanner.home')}
-                    </Link>
-                    {config.parentPath && (
-                        <>
-                            <FaChevronRight size={9} style={{ color: 'rgba(0,0,0,0.3)' }} />
+                    <ol style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        margin: 0,
+                        padding: 0,
+                        listStyle: 'none',
+                        flexWrap: 'wrap'
+                    }}>
+                        <li style={{ display: 'inline-flex', alignItems: 'center' }}>
                             <Link
-                                to={config.parentPath}
+                                to="/"
+                                style={{
+                                    display: 'flex', alignItems: 'center', gap: '5px',
+                                    fontFamily: 'JetBrains Mono, monospace',
+                                    fontSize: '12px', letterSpacing: '0.4px',
+                                    textTransform: 'uppercase', color: 'rgba(0,0,0,0.55)',
+                                    textDecoration: 'none', transition: 'color 0.15s ease',
+                                    fontWeight: 500,
+                                }}
+                                onMouseEnter={e => e.currentTarget.style.color = '#000000'}
+                                onMouseLeave={e => e.currentTarget.style.color = 'rgba(0,0,0,0.55)'}
+                            >
+                                <FaHome size={11} /> {t('pageBanner.home')}
+                            </Link>
+                        </li>
+                        {config.parentPath && (
+                            <>
+                                <li aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                                    <FaChevronRight size={9} style={{ color: 'rgba(0,0,0,0.35)' }} />
+                                </li>
+                                <li style={{ display: 'inline-flex', alignItems: 'center' }}>
+                                    <Link
+                                        to={config.parentPath}
+                                        style={{
+                                            fontFamily: 'JetBrains Mono, monospace',
+                                            fontSize: '12px', letterSpacing: '0.4px',
+                                            textTransform: 'uppercase', color: 'rgba(0,0,0,0.55)',
+                                            textDecoration: 'none', transition: 'color 0.15s ease',
+                                            fontWeight: 500,
+                                        }}
+                                        onMouseEnter={e => e.currentTarget.style.color = '#000000'}
+                                        onMouseLeave={e => e.currentTarget.style.color = 'rgba(0,0,0,0.55)'}
+                                    >
+                                        {config.parentLabel}
+                                    </Link>
+                                </li>
+                            </>
+                        )}
+                        <li aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                            <FaChevronRight size={9} style={{ color: 'rgba(0,0,0,0.35)' }} />
+                        </li>
+                        <li style={{ display: 'inline-flex', alignItems: 'center' }}>
+                            <span 
+                                aria-current="page"
                                 style={{
                                     fontFamily: 'JetBrains Mono, monospace',
                                     fontSize: '12px', letterSpacing: '0.4px',
-                                    textTransform: 'uppercase', color: 'rgba(0,0,0,0.45)',
-                                    textDecoration: 'none', transition: 'color 0.15s ease',
+                                    textTransform: 'uppercase', color: 'rgba(0,0,0,0.85)',
+                                    fontWeight: 600,
                                 }}
-                                onMouseEnter={e => e.currentTarget.style.color = '#000000'}
-                                onMouseLeave={e => e.currentTarget.style.color = 'rgba(0,0,0,0.45)'}
                             >
-                                {config.parentLabel}
-                            </Link>
-                        </>
-                    )}
-                    <FaChevronRight size={9} style={{ color: 'rgba(0,0,0,0.3)' }} />
-                    <span style={{
-                        fontFamily: 'JetBrains Mono, monospace',
-                        fontSize: '12px', letterSpacing: '0.4px',
-                        textTransform: 'uppercase', color: 'rgba(0,0,0,0.7)',
-                    }}>
-                        {config.eyebrow}
-                    </span>
-                </motion.div>
+                                {config.eyebrow}
+                            </span>
+                        </li>
+                    </ol>
+                </motion.nav>
 
                 {/* Title row */}
                 <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '24px', flexWrap: 'wrap' }}>

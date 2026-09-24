@@ -86,9 +86,12 @@ const MainLayout = () => {
             }}>
                 <motion.div
                     key={pathname}
-                    initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: prefersReducedMotion ? 0.01 : 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 16, scale: prefersReducedMotion ? 1 : 0.995 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ 
+                        duration: prefersReducedMotion ? 0.01 : 0.42, 
+                        ease: [0.22, 1, 0.36, 1] 
+                    }}
                 >
                     <Outlet />
                 </motion.div>

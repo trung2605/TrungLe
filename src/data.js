@@ -1144,6 +1144,71 @@ export const projects = [
     ],
     screenshots: [],
   },
+  {
+    id: 28,
+    title: "Yarnia — Interactive Storytelling Platform for Children",
+    role: "Backend Architect & Team Lead (Team Project)",
+    duration: "05/2026 – Present",
+    image: TikTokUIImage,
+    description:
+      "A comprehensive digital storytelling and reading practice platform designed for children aged 3–12. Architected a high-throughput, clean-architecture backend using **.NET 10** (ASP.NET Core Web API) and **MongoDB** (30 collections) paired with Google OAuth, JWT authentication, AWS S3/CloudFront audio streaming, Cloudinary media storage, and **PayOS webhook** payment processing.\n\nDesigned modular subsystems covering Kid Profile wizards, reading gamification with achievement tracking, and AI-powered text-to-speech audio pipelines for interactive pronunciation practice.",
+    techStack: [
+      ".NET 10",
+      "ASP.NET Core",
+      "MongoDB",
+      "Clean Architecture",
+      "AWS S3 & CloudFront",
+      "PayOS",
+      "JWT & OAuth",
+      "Cloudinary",
+      "xUnit",
+    ],
+    githubUrl: "https://github.com/trung2605/Yarnia-Backend",
+    liveUrl: "#",
+    status: "In Development",
+    category: "fullstack",
+    tier: 2,
+    challenge:
+      "Xây dựng nền tảng kể chuyện và luyện đọc đa kênh (Web/Mobile) cho trẻ em 3-12 tuổi với yêu cầu streaming audio tức thời, tích hợp cổng thanh toán PayOS webhook và quản lý dữ liệu 30 MongoDB collections theo chuẩn Clean Architecture.",
+    highlights: [
+      "Kiến trúc backend Clean Architecture trên .NET 10 (Domain / Application / Infrastructure / API) với 30 collections MongoDB",
+      "Tích hợp xác thực kép Google OAuth + JWT, Cloudinary quản lý ảnh, AWS S3 + CloudFront tối ưu streaming audio",
+      "Xây dựng pipeline thanh toán gói gia đình tự động qua PayOS webhook và hệ thống gamification tiến độ đọc",
+      "Thiết lập bộ test toàn diện: xUnit, NSubstitute, FluentAssertions và Mongo2Go integration tests",
+    ],
+    screenshots: [],
+  },
+  {
+    id: 29,
+    title: "Smart WeatherTracking — Cloud Ecosystem",
+    role: "Full-Stack & Mobile Developer (Team Project)",
+    duration: "05/2026 – 08/2026",
+    image: TikTokUIImage,
+    description:
+      "A cross-platform smart weather monitoring and alerting ecosystem. Built with a high-performance **Flutter 3.x** mobile client (Riverpod state management, GoRouter, adaptive weather color palettes) backed by a serverless **Firebase Cloud Functions (Node.js 24)** backend with Cloud Firestore, Firebase Authentication, Cloud Storage, and real-time **Firebase Cloud Messaging (FCM)** push alerts.",
+    techStack: [
+      "Flutter",
+      "Dart",
+      "Firebase Cloud Functions",
+      "Cloud Firestore",
+      "Node.js",
+      "FCM (Push Notifications)",
+      "Riverpod",
+    ],
+    githubUrl: "https://github.com/PRM393r/WeatherTracking_BE",
+    liveUrl: "#",
+    status: "Completed",
+    category: "fullstack",
+    tier: 3,
+    challenge:
+      "Cung cấp thông tin dự báo thời tiết và cảnh báo thiên tai theo thời gian thực tới người dùng di động với độ trễ thấp và kiến trúc serverless tiết kiệm chi phí vận hành.",
+    highlights: [
+      "Xây dựng ứng dụng di động Flutter 3.x mượt mà với kiến trúc Riverpod và bảng màu thời tiết thích ứng",
+      "Backend serverless Node.js 24 trên Firebase Cloud Functions kết hợp Cloud Firestore phân tán",
+      "Hệ thống thông báo đẩy thời gian thực FCM gửi cảnh báo thời tiết cực đoan theo tọa độ địa lý",
+    ],
+    screenshots: [],
+  },
 ];
 
 export const certificates = [

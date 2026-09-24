@@ -224,6 +224,11 @@
       "title": "Resume",
       "subtitle": "View my resume online, or download the PDF."
     },
+    "services": {
+      "eyebrow": "Engineering Services",
+      "title": "Services & Solutions",
+      "subtitle": "High-performance software development, fast delivery, transparent cost, and long-term warranty."
+    },
     "projectDetail": "Project Detail",
     "home": "Home"
   },
@@ -824,6 +829,27 @@
         "EDA: class imbalance analysis across train/test/val splits (5,856 images)",
         "Designed the data augmentation pipeline for a from-scratch CNN (no transfer learning)",
         "Parallel work across 2 sub-teams under a 3-hour deadline, TensorFlow/Keras"
+      ]
+    },
+    {
+      "role": "Backend Architect & Team Lead (Team Project)",
+      "description": "A comprehensive digital storytelling and reading practice platform designed for children aged 3–12. Architected a high-throughput, clean-architecture backend using **.NET 10** (ASP.NET Core Web API) and **MongoDB** (30 collections) paired with Google OAuth, JWT authentication, AWS S3/CloudFront audio streaming, Cloudinary media storage, and **PayOS webhook** payment processing.\n\nDesigned modular subsystems covering Kid Profile wizards, reading gamification with achievement tracking, and AI-powered text-to-speech audio pipelines for interactive pronunciation practice.",
+      "challenge": "Build an omni-channel storytelling and reading platform (Web/Mobile) for children aged 3–12 with ultra-low latency audio streaming, automated PayOS webhook payments, and a 30-collection MongoDB database following Clean Architecture.",
+      "highlights": [
+        "Clean Architecture backend on .NET 10 (Domain / Application / Infrastructure / API) with 30 MongoDB collections",
+        "Dual authentication (Google OAuth + JWT), Cloudinary media management, and AWS S3 + CloudFront audio streaming",
+        "Automated family subscription billing via PayOS webhook and reading gamification progress engine",
+        "Comprehensive testing: xUnit, NSubstitute, FluentAssertions, and Mongo2Go integration tests"
+      ]
+    },
+    {
+      "role": "Full-Stack & Mobile Developer (Team Project)",
+      "description": "A cross-platform smart weather monitoring and alerting ecosystem. Built with a high-performance **Flutter 3.x** mobile client (Riverpod state management, GoRouter, adaptive weather color palettes) backed by a serverless **Firebase Cloud Functions (Node.js 24)** backend with Cloud Firestore, Firebase Authentication, Cloud Storage, and real-time **Firebase Cloud Messaging (FCM)** push alerts.",
+      "challenge": "Provide real-time weather forecasts and extreme disaster alerts to mobile users with minimal latency using a cost-effective serverless cloud architecture.",
+      "highlights": [
+        "Crafted a fluid Flutter 3.x mobile client using Riverpod architecture and adaptive weather styling",
+        "Node.js 24 serverless backend on Firebase Cloud Functions with distributed Cloud Firestore",
+        "Real-time emergency push notification pipeline via FCM triggered by geographic weather anomalies"
       ]
     }
   ],

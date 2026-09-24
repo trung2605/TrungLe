@@ -1377,8 +1377,8 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: none;
+      transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-soft);
       cursor: pointer;
       user-select: none;
       outline: none;
@@ -1389,9 +1389,16 @@
       }
 
       &:hover {
-        border-color: var(--color-ink-soft);
-        transform: translateY(-2px);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+        border-color: var(--color-ink);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+
+        .feature-icon-box {
+          border-color: var(--color-ink);
+          background: var(--color-ink);
+          color: var(--color-canvas);
+          transform: scale(1.05);
+        }
       }
 
       /* Card Top Row */
@@ -2193,7 +2200,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 10px 22px;
+        padding: 11px 24px;
         border-radius: 50px;
         font-size: 14px;
         font-weight: 600;
@@ -2201,10 +2208,16 @@
         color: var(--color-canvas);
         border: none;
         cursor: pointer;
-        transition: opacity 0.15s ease;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 
         &:hover {
-          opacity: 0.88;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        &:active {
+          transform: scale(0.98);
         }
       }
 
@@ -2212,7 +2225,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 9px 20px;
+        padding: 10px 22px;
         border-radius: 50px;
         font-size: 13.5px;
         font-weight: 600;
@@ -2220,11 +2233,16 @@
         color: var(--color-ink);
         border: 1.5px solid var(--color-hairline);
         cursor: pointer;
-        transition: all 0.15s ease;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
         &:hover {
           border-color: var(--color-ink);
           background: var(--color-surface-soft);
+          transform: translateY(-2px);
+        }
+
+        &:active {
+          transform: scale(0.98);
         }
       }
 
@@ -2232,18 +2250,25 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 9px 20px;
+        padding: 10px 22px;
         border-radius: 50px;
         font-size: 13.5px;
         font-weight: 600;
-        background: #dceeb1;
-        color: #14532d;
-        border: 1px solid #bbf7d0;
+        background: var(--color-surface-soft);
+        color: var(--color-ink);
+        border: 1.5px solid var(--color-hairline);
         text-decoration: none;
-        transition: all 0.15s ease;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
         &:hover {
-          background: #c8e6cd;
+          background: var(--color-ink);
+          color: var(--color-canvas);
+          border-color: var(--color-ink);
+          transform: translateY(-2px);
+        }
+
+        &:active {
+          transform: scale(0.98);
         }
       }
     }
