@@ -33,7 +33,8 @@ import {
   FaUsers,
   FaClock,
   FaTag,
-  FaLightbulb
+  FaLightbulb,
+  FaProjectDiagram
 } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -160,6 +161,255 @@ const BRANDHUB_SHOTS = [
     titleVi: "Quy trình Phê duyệt Nội dung & Tương tác Cộng tác Trực quan",
     titleEn: "Collaborative Review & Approval Workflow Interface",
     url: "/docs/images/DA-D19-07.png"
+  },
+  {
+    titleVi: "Trình chỉnh sửa nội dung đa kênh & Tối ưu hóa định dạng MXH",
+    titleEn: "Multichannel Content Editor & Social Platform Auto-Formatting",
+    url: "/docs/images/DA-D19-08.png"
+  },
+  {
+    titleVi: "Quản lý Tài khoản MXH & OAuth đa nền tảng (Facebook, TikTok, Instagram, Threads, Zalo)",
+    titleEn: "Connected Social Accounts & Unified Multi-Platform OAuth Gateway",
+    url: "/docs/images/DA-D19-09.png"
+  },
+  {
+    titleVi: "Bảng điều khiển tác vụ Asynchronous & Giám sát hàng đợi RabbitMQ",
+    titleEn: "Async Task Management & RabbitMQ Queue Telemetry Dashboard",
+    url: "/docs/images/DA-D19-12.png"
+  }
+];
+
+const BRANDHUB_METRICS = [
+  { value: "07", labelVi: "Microservices & Modules", labelEn: "Microservices & Modules", subVi: "Độc lập phân tán", subEn: "Distributed Services" },
+  { value: "32", labelVi: "Tuần phát triển (16 Sprints)", labelEn: "Weeks (16 Agile Sprints)", subVi: "Quy trình FSoft chuẩn", subEn: "Standard Agile / Scrum" },
+  { value: "430+", labelVi: "Tasks Jira hoàn thành", labelEn: "Completed Jira Tasks", subVi: "Spec → Plan → Code → Test", subEn: "Spec → Plan → Code → Test" },
+  { value: "05", labelVi: "Mạng xã hội tích hợp", labelEn: "Social Platforms Synced", subVi: "FB, TikTok, Insta, Threads, Zalo", subEn: "FB, TikTok, Insta, Threads, Zalo" },
+  { value: "0%", labelVi: "Tỷ lệ mất tin nhắn (DLQ)", labelEn: "Publishing Loss Rate", subVi: "RabbitMQ Retry lũy thừa", subEn: "Exponential Backoff DLQ" }
+];
+
+const BRANDHUB_TEAM_ROLES = [
+  {
+    name: "Lê Trí Trung",
+    roleVi: "Tech Lead & Solutions Architect",
+    roleEn: "Tech Lead & Solutions Architect",
+    avatarIcon: "FaUserTie",
+    contributionsVi: [
+      "Kiến trúc tổng thể hệ thống 7 Microservices & điều phối sprint Agile/Scrum",
+      "Xây dựng Spring Cloud Gateway (WebFlux, JWT token, Redis rate-limiting)",
+      "Thiết kế hàng đợi RabbitMQ Dead Letter Queue (DLQ) retry lũy thừa chống mất tin nhắn 100%",
+      "Cụm hạ tầng Docker Compose & cấu hình triển khai AWS EC2 production"
+    ],
+    contributionsEn: [
+      "Overall 7-microservice architecture & Agile/Scrum sprint coordination",
+      "Spring Cloud Gateway engineering (WebFlux, JWT, Redis rate limiting)",
+      "RabbitMQ DLQ with exponential backoff retry ensuring 100% zero message loss",
+      "Docker Compose cluster orchestration & AWS EC2 production deployment"
+    ],
+    tech: ["Spring Cloud Gateway", "RabbitMQ DLQ", "Docker Compose", "AWS EC2", "Java 21"],
+    color: "#dceeb1"
+  },
+  {
+    name: "Hà Văn Ân",
+    roleVi: "Fullstack & AI Integration Engineer",
+    roleEn: "Fullstack & AI Integration Engineer",
+    avatarIcon: "FaLaptopCode",
+    contributionsVi: [
+      "Phát triển AI Microservice bằng Python FastAPI độc lập phục vụ sinh nội dung",
+      "Tích hợp RAG Pipeline học ngữ điệu thương hiệu (Brand Voice) qua LangChain",
+      "Kết nối LLM Groq (Llama 3 siêu tốc) và cơ chế Fallback an toàn sang Claude",
+      "Xây dựng các module giao diện Web Dashboard bằng React 18, TypeScript & Vite"
+    ],
+    contributionsEn: [
+      "Python FastAPI AI microservice engineering for automated content generation",
+      "RAG pipeline with LangChain to capture and synthesize brand voice",
+      "Dual LLM engine: Groq (Llama 3 high-throughput) with Claude fallback",
+      "React 18 + TypeScript + Vite web dashboard module implementation"
+    ],
+    tech: ["Python FastAPI", "LangChain", "Groq Llama 3", "React 18", "TypeScript"],
+    color: "#c5b0f4"
+  },
+  {
+    name: "Nguyễn Thành Lộc",
+    roleVi: "AI Team Lead & Data Pipelines",
+    roleEn: "AI Team Lead & Data Pipelines",
+    avatarIcon: "FaCode",
+    contributionsVi: [
+      "Trưởng nhóm AI dự án BrandHub, thiết kế pipeline tìm kiếm ngữ nghĩa RAG",
+      "Xây dựng kiến trúc GraphRAG: Kết hợp ChromaDB (semantic search) + Neo4j (đồ thị quan hệ KOL/Brand/Hashtag)",
+      "Thiết kế thuật toán phân tích xu hướng (Trend Detection) đa chiều",
+      "Pipeline cào và tiền xử lý dữ liệu mạng xã hội quy mô lớn"
+    ],
+    contributionsEn: [
+      "BrandHub AI Team Lead, architected semantic RAG retrieval pipelines",
+      "GraphRAG architecture: ChromaDB (semantic vector) + Neo4j (KOL/Brand/Hashtag multi-hop graph)",
+      "Multidimensional trend detection algorithm engineering",
+      "Large-scale social data ingestion, crawling, and preprocessing pipelines"
+    ],
+    tech: ["GraphRAG", "Neo4j", "ChromaDB", "FastAPI", "Python", "Data Crawling"],
+    color: "#f4ecd6"
+  },
+  {
+    name: "Nguyễn Minh Tuấn",
+    roleVi: "Backend Systems & Analytics Engineer",
+    roleEn: "Backend Systems & Analytics Engineer",
+    avatarIcon: "FaAward",
+    contributionsVi: [
+      "Kiến trúc Polyglot Persistence: PostgreSQL (giao dịch ACID, billing) + MongoDB (schema bài đăng linh hoạt)",
+      "Thiết kế database schema tối ưu hóa phân quyền đa cấp Multi-tenant (Agency/Brand/CTV)",
+      "Xây dựng Analytics Dashboard bóc tách KPI hiệu suất chiến dịch theo thời gian thực",
+      "Module trích xuất báo cáo chuyên sâu định dạng Excel/PDF tự động"
+    ],
+    contributionsEn: [
+      "Polyglot Persistence: PostgreSQL (ACID billing transactions) + MongoDB (dynamic social post schemas)",
+      "Multi-tenant schema design for Agency, Enterprise, Brand, and Collaborator tiers",
+      "Real-time campaign KPI analytics and reporting dashboard backend",
+      "Automated enterprise Excel/PDF report generation engine"
+    ],
+    tech: ["PostgreSQL", "MongoDB", "Spring Boot 3", "Multi-tenant", "PDF/Excel Engine"],
+    color: "#c8e6cd"
+  },
+  {
+    name: "Nguyễn Chơn Phước",
+    roleVi: "Java Backend & DevOps / Real-time Engineer",
+    roleEn: "Java Backend & DevOps / Real-time Engineer",
+    avatarIcon: "FaServer",
+    contributionsVi: [
+      "Xây dựng Publisher Service tích hợp API xuất bản 5 nền tảng: Facebook, TikTok, Instagram, Threads, Zalo",
+      "Tích hợp Socket.IO và WebSockets cập nhật trạng thái đăng bài thời gian thực lên Dashboard",
+      "Thiết lập CI/CD pipeline tự động hóa với GitHub Actions kiểm thử & build Docker",
+      "Giám sát cụm server, cảnh báo tức thời qua Telegram Bot và cấu hình Nginx Reverse Proxy"
+    ],
+    contributionsEn: [
+      "Publisher Service integrating social APIs: Facebook, TikTok, Instagram, Threads, Zalo",
+      "Socket.IO & WebSockets for real-time publishing status telemetry to dashboard",
+      "Automated CI/CD pipeline using GitHub Actions for testing and containerization",
+      "Server cluster monitoring, Telegram Bot automated alerts & Nginx reverse proxy"
+    ],
+    tech: ["Spring Boot 3", "Socket.IO", "Social APIs", "GitHub Actions", "Nginx", "Telegram Bot"],
+    color: "#efd4d4"
+  }
+];
+
+const BRANDHUB_MICROSERVICES = [
+  {
+    id: "gateway",
+    name: "brandhub-api-gateway",
+    tag: "Port 8080 • Routing & Security",
+    tech: "Spring Cloud Gateway • WebFlux • JWT • Redis",
+    descVi: "Cổng định tuyến tập trung, xác thực JWT phân tán, bảo vệ chống brute-force và Redis Rate Limiting.",
+    descEn: "Unified entry gateway, distributed JWT authentication, brute-force protection & Redis rate limiting."
+  },
+  {
+    id: "business",
+    name: "brandhub-business-service",
+    tag: "Port 8081 • Domain Core",
+    tech: "Java 21 • Spring Boot 3.3.5 • PostgreSQL • MongoDB",
+    descVi: "Quản trị nghiệp vụ cốt lõi: Multi-tenant, phân quyền Agency/Brand/CTV, quy trình duyệt nội dung & thanh toán.",
+    descEn: "Core domain logic: Multi-tenancy, Agency/Brand/Collaborator ACL, approval workflows & billing."
+  },
+  {
+    id: "ai",
+    name: "brandhub-ai-service",
+    tag: "Port 8082 • AI & GraphRAG",
+    tech: "Python FastAPI • ChromaDB • Neo4j • Groq Llama 3",
+    descVi: "RAG học giọng điệu thương hiệu (Brand Voice), GraphRAG phân tích quan hệ KOL/Hashtag, sinh ảnh Stability AI.",
+    descEn: "Brand voice RAG synthesis, Neo4j GraphRAG for KOL/trend detection, Stability AI visual generation."
+  },
+  {
+    id: "publisher",
+    name: "brandhub-publisher-service",
+    tag: "Port 8083 • Omnichannel Async",
+    tech: "Spring Boot 3 • RabbitMQ DLQ • Social Media APIs",
+    descVi: "Tiêu thụ hàng đợi RabbitMQ, lập lịch tự động đăng bài lên Facebook, TikTok, Instagram, Threads, Zalo với DLQ retry.",
+    descEn: "RabbitMQ consumer, auto-publishes to Facebook, TikTok, Instagram, Threads, Zalo with DLQ retries."
+  },
+  {
+    id: "web",
+    name: "brandhub-web-dashboard",
+    tag: "Port 5173 / 3000 • Web App",
+    tech: "React 18 • TypeScript • Vite • Tailwind CSS",
+    descVi: "Dashboard điều khiển tập trung, quản lý chiến dịch, Kanban phê duyệt bài viết, lịch đăng bài trực quan.",
+    descEn: "Unified admin portal, campaign manager, Kanban content approval board & visual calendar scheduler."
+  },
+  {
+    id: "mobile",
+    name: "brandhub-mobile-app",
+    tag: "iOS & Android Companion",
+    tech: "React Native • Expo • Push Notifications",
+    descVi: "Ứng dụng di động đồng bộ thời gian thực, duyệt bài viết nhanh, nhận thông báo tiến độ chiến dịch tức thời.",
+    descEn: "Real-time companion app for instant content approvals and push notifications on mobile."
+  },
+  {
+    id: "infra",
+    name: "brandhub-infrastructure",
+    tag: "DevOps & Cloud Cluster",
+    tech: "Docker Compose • AWS EC2 • GitHub Actions • Nginx",
+    descVi: "Toàn bộ cụm container điều phối qua Docker Compose, CI/CD tự động kiểm thử và deploy lên AWS EC2.",
+    descEn: "Full container cluster orchestrated via Docker Compose, automated CI/CD and AWS EC2 deployment."
+  }
+];
+
+const OTHER_TEAM_PROJECTS = [
+  {
+    id: "biensovip",
+    title: "Biensovip.com",
+    badgeVi: "Dự Án Doanh Nghiệp Khách Hàng",
+    badgeEn: "Client Enterprise Project",
+    leadVi: "Team 5 Kỹ sư triển khai bàn giao",
+    leadEn: "Delivered by 5-Engineer Team",
+    descVi: "Sàn thương mại điện tử chuyên biệt biển số xe: 3.240 biển số, lọc 8ms, cổng thanh toán VietQR tự động.",
+    descEn: "High-performance e-commerce marketplace: 3,240 plates, 8ms query response, automated VietQR gateway.",
+    tech: [".NET 8", "React 19", "VietQR", "PostgreSQL", "Tailwind"],
+    linkUrl: "/projects/26"
+  },
+  {
+    id: "stemgo",
+    title: "STEMGO (stemgo.net)",
+    badgeVi: "Dự Án EdTech AI Nhóm",
+    badgeEn: "Team AI EdTech Platform",
+    leadVi: "KS Hà Văn Ân (Full-stack & AI)",
+    leadEn: "Eng. Ha Van An (Full-stack & AI)",
+    descVi: "Nền tảng học lập trình gamified tích hợp AI Tutor Gemini, hỗ trợ giải thích code và phản hồi bài tập theo thời gian thực.",
+    descEn: "Gamified coding platform with Gemini AI Tutor for real-time code debugging and interactive feedback.",
+    tech: ["Next.js", "Gemini AI", "Node.js", "WebSockets", "MongoDB"],
+    linkUrl: "https://stemgo.net",
+    isExternal: true
+  },
+  {
+    id: "uninest",
+    title: "UniNest Platform",
+    badgeVi: "Dự Án Nhà Trọ Sinh Viên",
+    badgeEn: "Student Housing Platform",
+    leadVi: "KS Nguyễn Thành Lộc (Team Lead)",
+    leadEn: "Eng. Nguyen Thanh Loc (Team Lead)",
+    descVi: "Nền tảng ghép phòng và kết nối sinh viên Đại học FPT: ASP.NET Core Clean Architecture, xác thực sinh viên và tìm kiếm thông minh.",
+    descEn: "Student housing & roommate matching: ASP.NET Core Clean Architecture, verified student IDs & smart matching.",
+    tech: ["ASP.NET Core", "C# Clean Arch", "PostgreSQL", "React", "Docker"],
+    linkUrl: "#"
+  },
+  {
+    id: "vivucar",
+    title: "VivuCar Enterprise",
+    badgeVi: "Dự Án Quản Trị Xe Du Lịch",
+    badgeEn: "Car Rental & Analytics",
+    leadVi: "KS Nguyễn Minh Tuấn (Team Lead)",
+    leadEn: "Eng. Nguyen Minh Tuan (Team Lead)",
+    descVi: "Hệ thống quản lý thuê xe & Dashboard báo cáo: Tích hợp Hive AI kiểm duyệt bằng lái, trích xuất báo cáo Excel/PDF tự động.",
+    descEn: "Fleet management & reporting dashboard: Hive AI license verification, automated enterprise Excel/PDF export.",
+    tech: [".NET 8", "EF Core", "Hive AI", "Excel/PDF Engine", "SQL Server"],
+    linkUrl: "#"
+  },
+  {
+    id: "vtry",
+    title: "V-Try 3D Fitting",
+    badgeVi: "Dự Án Computer Vision 3D",
+    badgeEn: "3D Fitting Computer Vision",
+    leadVi: "KS Nguyễn Chơn Phước (Full-stack)",
+    leadEn: "Eng. Nguyen Chon Phuoc (Full-stack)",
+    descVi: "Giao diện thử đồ 3D thế hệ mới: Kết hợp React/Next.js cùng MediaPipe AI ước lượng hình thể và dựng khung avatar 3D tương tác.",
+    descEn: "Next-gen 3D virtual fitting room: React/Next.js with MediaPipe AI for 3D body mesh estimation.",
+    tech: ["Next.js", "MediaPipe AI", "Three.js", "TypeScript", "FastAPI"],
+    linkUrl: "#"
   }
 ];
 
@@ -1266,9 +1516,104 @@ const Services = () => {
 
                   <span className="metric-badge" style={{ color: '#6d28d9', borderColor: '#ddd6fe' }}>
                     <FaServer size={10} style={{ marginRight: '5px' }} />
-                    Architecture: 5 Microservices
+                    Architecture: 7 Microservices
                   </span>
                 </div>
+              </div>
+            </div>
+
+            {/* BRANDHUB TELEMETRY STRIP */}
+            <div className="brandhub-telemetry-banner">
+              {BRANDHUB_METRICS.map((met, mIdx) => (
+                <div key={mIdx} className="telemetry-item">
+                  <div className="telemetry-value">{met.value}</div>
+                  <div className="telemetry-label">{isEn ? met.labelEn : met.labelVi}</div>
+                  <div className="telemetry-sub">{isEn ? met.subEn : met.subVi}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* BRANDHUB 7 MICROSERVICES BLUEPRINT */}
+            <div className="brandhub-architecture-section">
+              <div className="section-sub-header">
+                <span className="sub-badge">
+                  <FaProjectDiagram size={12} />
+                  {isEn ? "SYSTEM ARCHITECTURE BLUEPRINT" : "SƠ ĐỒ PHÂN RÃ HỆ THỐNG"}
+                </span>
+                <h4>
+                  {isEn 
+                    ? "7 Independent Microservices & Modules (Polyglot & Cloud-Native)" 
+                    : "Kiến Trúc 7 Dịch Vụ Độc Lập: Đa Ngôn Ngữ & Chuẩn Doanh Nghiệp"}
+                </h4>
+                <p>
+                  {isEn
+                    ? "Engineered with strict domain separation: Java Spring Boot for reliable business & publishing, Python FastAPI for AI RAG orchestration, and React 18 / Expo for multi-platform client interaction."
+                    : "Thiết kế theo nguyên tắc phân tách domain rõ ràng: Java Spring Boot cho giao dịch & xuất bản bất tử, Python FastAPI cho xử lý AI RAG đa chiều, và React 18 / Expo cho trải nghiệm người dùng đa thiết bị."}
+                </p>
+              </div>
+
+              <div className="microservices-grid">
+                {BRANDHUB_MICROSERVICES.map((srv) => (
+                  <div key={srv.id} className="microservice-card">
+                    <div className="service-top">
+                      <span className="service-code-name">{srv.name}</span>
+                      <span className="service-tag">{srv.tag}</span>
+                    </div>
+                    <div className="service-tech-pill">{srv.tech}</div>
+                    <p className="service-desc">{isEn ? srv.descEn : srv.descVi}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* BRANDHUB TEAM ROLES & OWNERSHIP MATRIX */}
+            <div className="brandhub-team-roles-section">
+              <div className="section-sub-header">
+                <span className="sub-badge" style={{ background: '#ede9fe', color: '#6d28d9', borderColor: '#ddd6fe' }}>
+                  <FaUsers size={12} />
+                  {isEn ? "5-ENGINEER COLLABORATION MATRIX" : "MA TRẬN PHÂN CÔNG 5 KỸ SƯ TRONG BRANDHUB"}
+                </span>
+                <h4>
+                  {isEn 
+                    ? "Team Roles & Architectural Ownership in BrandHub" 
+                    : "Trách Nhiệm & Đóng Góp Kỹ Thuật Của Từng Kỹ Sư Trong Dự Án"}
+                </h4>
+                <p>
+                  {isEn
+                    ? "100% created and delivered by our 5-engineer bench. Each module was owned end-to-end by dedicated engineers with verified commits and production-tested stability."
+                    : "100% thành quả tự chủ của nhóm 5 kỹ sư chính quy. Mỗi thành phần được một kỹ sư chuyên trách kiến trúc và hiện thực hoá, cam kết tính ổn định qua 16 sprint kiểm thử khắt khe."}
+                </p>
+              </div>
+
+              <div className="team-roles-grid">
+                {BRANDHUB_TEAM_ROLES.map((mem, rIdx) => (
+                  <div key={rIdx} className="role-member-card">
+                    <div className="role-card-header">
+                      <div className="role-avatar-badge" style={{ backgroundColor: mem.color }}>
+                        {mem.avatarIcon === 'FaUserTie' ? <FaUserTie size={17} /> : mem.avatarIcon === 'FaLaptopCode' ? <FaLaptopCode size={17} /> : mem.avatarIcon === 'FaCode' ? <FaCode size={17} /> : mem.avatarIcon === 'FaAward' ? <FaAward size={17} /> : <FaServer size={17} />}
+                      </div>
+                      <div>
+                        <span className="role-label">{isEn ? mem.roleEn : mem.roleVi}</span>
+                        <h5 className="role-name">{mem.name}</h5>
+                      </div>
+                    </div>
+
+                    <ul className="role-contributions-list">
+                      {(isEn ? mem.contributionsEn : mem.contributionsVi).map((item, iIdx) => (
+                        <li key={iIdx}>
+                          <FaCheckCircle className="check-ico" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="role-tech-tags">
+                      {mem.tech.map((t, tIdx) => (
+                        <span key={tIdx} className="tech-tag">{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -1817,6 +2162,116 @@ const Services = () => {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Flagship Collaborative Team Deliverable: BrandHub */}
+        <motion.div
+          className="team-flagship-collaborative-card"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <div className="collaborative-badge-row">
+            <span className="collab-pill">
+              <FaUsers size={12} />
+              {isEn ? "FLAGSHIP COLLABORATIVE DELIVERABLE" : "SẢN PHẨM HỢP TÁC CHUNG TIÊU BIỂU"}
+            </span>
+            <span className="collab-tag">
+              {isEn ? "100% In-house Engineering • 5 Dedicated Engineers" : "100% Nội Lực Đội Ngũ • 5 Kỹ Sư FPT"}
+            </span>
+          </div>
+
+          <div className="collaborative-content-split">
+            <div className="collab-text">
+              <h3>BrandHub — Omnichannel Social Media & AI Intelligence</h3>
+              <p>
+                {isEn 
+                  ? "A living proof of our team's synchronized delivery: 5 engineers co-architected 7 microservices across 16 Agile sprints (32 weeks), closing 430+ Jira tasks. From resilient RabbitMQ queues to Neo4j GraphRAG and polyglot persistence, this platform verifies our enterprise engineering caliber."
+                  : "Minh chứng rõ nét nhất cho khả năng tác chiến đồng bộ của đội ngũ: Cả 5 kỹ sư đã cùng kiến trúc 7 microservices qua 16 sprint Agile (32 tuần), hoàn thành 430+ task Jira. Từ hàng đợi RabbitMQ Dead Letter Queue đến GraphRAG Neo4j và phân quyền Multi-tenant, hệ thống khẳng định chuẩn mực kỹ thuật cao nhất của team."}
+              </p>
+
+              <div className="collab-metrics-strip">
+                <div className="metric-chip"><strong>07</strong> {isEn ? "Services" : "Dịch vụ"}</div>
+                <div className="metric-chip"><strong>32</strong> {isEn ? "Weeks (16 Sprints)" : "Tuần (16 Sprints)"}</div>
+                <div className="metric-chip"><strong>430+</strong> {isEn ? "Jira Tasks" : "Tasks Jira"}</div>
+                <div className="metric-chip"><strong>05</strong> {isEn ? "Social Networks" : "Mạng Xã Hội"}</div>
+                <div className="metric-chip"><strong>0%</strong> {isEn ? "Message Loss (DLQ)" : "Mất tin (DLQ)"}</div>
+              </div>
+            </div>
+
+            <div className="collab-actions">
+              <button
+                onClick={() => {
+                  setActiveFlagshipTab('brandhub');
+                  const el = document.getElementById('case-study');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="btn-collab-view"
+              >
+                <FaRocket size={13} />
+                <span>{isEn ? "Deep-Dive BrandHub Showcase" : "Khám Phá Chi Tiết BrandHub"}</span>
+                <FaArrowRight size={11} />
+              </button>
+
+              <Link
+                to="/projects/14"
+                className="btn-collab-dossier"
+              >
+                <FaExternalLinkAlt size={11} />
+                <span>{isEn ? "Project Case Study #14" : "Hồ Sơ Dự Án #14"}</span>
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Other Notable Team Projects */}
+        <motion.div
+          className="other-team-projects-block"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <div className="sub-header-row">
+            <div>
+              <span className="sub-eyebrow">{isEn ? "PROVEN PORTFOLIO" : "HỆ THỐNG THỰC TẾ"}</span>
+              <h3 className="sub-title">{isEn ? "Other Notable Projects Developed by Our Engineers" : "Các Dự Án Nhóm & Hệ Thống Khác Đội Ngũ Đã Triển Khai"}</h3>
+            </div>
+          </div>
+
+          <div className="other-projects-grid">
+            {OTHER_TEAM_PROJECTS.map((proj) => (
+              <div key={proj.id} className="other-project-card">
+                <div className="card-top-meta">
+                  <span className="proj-badge">{isEn ? proj.badgeEn : proj.badgeVi}</span>
+                  <span className="proj-lead">{isEn ? proj.leadEn : proj.leadVi}</span>
+                </div>
+                <h4 className="proj-title">{proj.title}</h4>
+                <p className="proj-desc">{isEn ? proj.descEn : proj.descVi}</p>
+                <div className="proj-tech-row">
+                  {proj.tech.map((t, tIdx) => (
+                    <span key={tIdx} className="tech-badge">{t}</span>
+                  ))}
+                </div>
+                {proj.linkUrl && proj.linkUrl !== '#' && (
+                  <div className="proj-footer">
+                    {proj.isExternal ? (
+                      <a href={proj.linkUrl} target="_blank" rel="noopener noreferrer" className="proj-link">
+                        <span>{isEn ? "Visit Live Site" : "Truy Cập Trực Tiếp"}</span>
+                        <FaExternalLinkAlt size={10} />
+                      </a>
+                    ) : (
+                      <Link to={proj.linkUrl} className="proj-link">
+                        <span>{isEn ? "View Details" : "Xem Chi Tiết"}</span>
+                        <FaArrowRight size={10} />
+                      </Link>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Bottom Callout: Full Dossier Download */}

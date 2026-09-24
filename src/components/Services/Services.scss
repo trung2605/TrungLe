@@ -463,6 +463,277 @@
         }
       }
     }
+
+    /* BrandHub Telemetry Banner */
+    .brandhub-telemetry-banner {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      padding: 24px 28px;
+      background: var(--color-surface-soft);
+      border-top: 1px solid var(--color-hairline);
+      border-bottom: 1px solid var(--color-hairline);
+
+      @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        padding: 20px;
+      }
+
+      @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+      }
+
+      .telemetry-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .telemetry-value {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 28px;
+          font-weight: 750;
+          line-height: 1.1;
+          color: #6366f1;
+        }
+
+        .telemetry-label {
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--color-ink);
+          margin-top: 6px;
+        }
+
+        .telemetry-sub {
+          font-size: 11.5px;
+          color: var(--color-ink-soft);
+          margin-top: 2px;
+          font-family: 'JetBrains Mono', monospace;
+        }
+      }
+    }
+
+    /* Sub-section headers inside Showcase */
+    .section-sub-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 28px;
+
+      .sub-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border-radius: 50px;
+        font-size: 11px;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 600;
+        text-transform: uppercase;
+        background: #ede9fe;
+        color: #6d28d9;
+        border: 1px solid #ddd6fe;
+        margin-bottom: 10px;
+      }
+
+      h4 {
+        font-family: var(--font-heading);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--color-ink);
+        margin: 0 0 8px;
+        line-height: 1.3;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--color-ink-soft);
+        margin: 0;
+      }
+    }
+
+    /* BrandHub 7 Microservices Grid */
+    .brandhub-architecture-section {
+      padding: 36px 32px;
+      background: var(--color-canvas);
+      border-bottom: 1px solid var(--color-hairline);
+
+      @media (max-width: 768px) {
+        padding: 24px 16px;
+      }
+
+      .microservices-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+        gap: 16px;
+
+        .microservice-card {
+          background: var(--color-surface-soft);
+          border: 1px solid var(--color-hairline);
+          border-radius: 14px;
+          padding: 18px 20px;
+          transition: all 0.2s ease;
+
+          &:hover {
+            border-color: #6366f1;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(99, 102, 241, 0.08);
+          }
+
+          .service-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+
+            .service-code-name {
+              font-family: 'JetBrains Mono', monospace;
+              font-size: 13.5px;
+              font-weight: 700;
+              color: var(--color-ink);
+              word-break: break-all;
+            }
+
+            .service-tag {
+              font-size: 10.5px;
+              font-family: 'JetBrains Mono', monospace;
+              background: rgba(99, 102, 241, 0.1);
+              color: #4f46e5;
+              padding: 2px 7px;
+              border-radius: 6px;
+              white-space: nowrap;
+            }
+          }
+
+          .service-tech-pill {
+            font-size: 11.5px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #6d28d9;
+            margin-bottom: 10px;
+            font-weight: 550;
+          }
+
+          .service-desc {
+            font-size: 12.5px;
+            line-height: 1.55;
+            color: var(--color-ink-soft);
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    /* BrandHub Team Roles Matrix */
+    .brandhub-team-roles-section {
+      padding: 36px 32px 42px;
+      background: var(--color-surface-soft);
+
+      @media (max-width: 768px) {
+        padding: 24px 16px 32px;
+      }
+
+      .team-roles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 18px;
+
+        .role-member-card {
+          background: var(--color-canvas);
+          border: 1px solid var(--color-hairline);
+          border-radius: 16px;
+          padding: 22px;
+          display: flex;
+          flex-direction: column;
+          transition: all 0.2s ease;
+
+          &:hover {
+            border-color: var(--color-ink);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+          }
+
+          .role-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-hairline);
+
+            .role-avatar-badge {
+              width: 38px;
+              height: 38px;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #1a1a1a;
+              flex-shrink: 0;
+            }
+
+            .role-label {
+              display: block;
+              font-size: 11px;
+              font-family: 'JetBrains Mono', monospace;
+              text-transform: uppercase;
+              color: var(--color-ink-soft);
+              font-weight: 600;
+              line-height: 1.2;
+            }
+
+            .role-name {
+              font-family: var(--font-heading);
+              font-size: 17px;
+              font-weight: 700;
+              color: var(--color-ink);
+              margin: 2px 0 0;
+            }
+          }
+
+          .role-contributions-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px;
+            flex-grow: 1;
+
+            li {
+              display: flex;
+              align-items: flex-start;
+              gap: 8px;
+              font-size: 12.5px;
+              line-height: 1.5;
+              color: var(--color-ink);
+              margin-bottom: 8px;
+
+              .check-ico {
+                color: #1ea64a;
+                font-size: 12px;
+                flex-shrink: 0;
+                margin-top: 3px;
+              }
+            }
+          }
+
+          .role-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+
+            .tech-tag {
+              font-size: 11px;
+              font-family: 'JetBrains Mono', monospace;
+              padding: 2px 8px;
+              background: var(--color-surface-soft);
+              border: 1px solid var(--color-hairline);
+              border-radius: 9999px;
+              color: var(--color-ink);
+            }
+          }
+        }
+      }
+    }
   }
 
   /* SaaS Automation Showcase Section */
@@ -2052,6 +2323,281 @@
           &:hover {
             opacity: 0.88;
             transform: translateY(-1px);
+          }
+        }
+      }
+    }
+  }
+
+  /* Flagship Collaborative Team Card in Team Section */
+  .team-flagship-collaborative-card {
+    background: linear-gradient(135deg, var(--color-canvas) 0%, var(--color-surface-soft) 100%);
+    border: 1.5px solid #c5b0f4;
+    border-radius: 24px;
+    padding: 32px 36px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 30px rgba(197, 176, 244, 0.12);
+
+    @media (max-width: 768px) {
+      padding: 24px 20px;
+    }
+
+    .collaborative-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+
+      .collab-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        border-radius: 50px;
+        background: #ede9fe;
+        color: #6d28d9;
+        border: 1px solid #ddd6fe;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .collab-tag {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        color: var(--color-ink-soft);
+        font-weight: 500;
+      }
+    }
+
+    .collaborative-content-split {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 32px;
+      align-items: center;
+
+      @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .collab-text {
+        h3 {
+          font-family: var(--font-heading);
+          font-size: 24px;
+          font-weight: 700;
+          color: var(--color-ink);
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 14.5px;
+          line-height: 1.65;
+          color: var(--color-ink-soft);
+          margin-bottom: 18px;
+        }
+
+        .collab-metrics-strip {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+
+          .metric-chip {
+            padding: 5px 12px;
+            background: var(--color-canvas);
+            border: 1px solid var(--color-hairline);
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--color-ink);
+
+            strong {
+              color: #6366f1;
+              font-family: 'JetBrains Mono', monospace;
+            }
+          }
+        }
+      }
+
+      .collab-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .btn-collab-view {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 12px 24px;
+          border-radius: 50px;
+          background: #6366f1;
+          color: #ffffff;
+          font-size: 14px;
+          font-weight: 600;
+          border: none;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+
+          &:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+          }
+        }
+
+        .btn-collab-dossier {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 11px 22px;
+          border-radius: 50px;
+          background: var(--color-canvas);
+          color: var(--color-ink);
+          border: 1px solid var(--color-hairline);
+          font-size: 13.5px;
+          font-weight: 500;
+          text-decoration: none;
+          transition: all 0.2s ease;
+
+          &:hover {
+            border-color: var(--color-ink);
+            background: var(--color-surface-soft);
+          }
+        }
+      }
+    }
+  }
+
+  /* Other Notable Team Projects Mini-Grid */
+  .other-team-projects-block {
+    margin-top: 36px;
+    margin-bottom: 48px;
+
+    .sub-header-row {
+      margin-bottom: 24px;
+
+      .sub-eyebrow {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        color: #1ea64a;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .sub-title {
+        font-family: var(--font-heading);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--color-ink);
+        margin: 0;
+      }
+    }
+
+    .other-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+
+      @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+      }
+
+      .other-project-card {
+        background: var(--color-canvas);
+        border: 1px solid var(--color-hairline);
+        border-radius: 18px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-color: var(--color-ink);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-top-meta {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 12px;
+
+          .proj-badge {
+            font-size: 10.5px;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: var(--color-surface-soft);
+            color: var(--color-ink);
+            font-weight: 600;
+            border: 1px solid var(--color-hairline);
+          }
+
+          .proj-lead {
+            font-size: 11.5px;
+            color: var(--color-ink-soft);
+            font-weight: 500;
+          }
+        }
+
+        .proj-title {
+          font-family: var(--font-heading);
+          font-size: 18px;
+          font-weight: 700;
+          color: var(--color-ink);
+          margin: 0 0 8px;
+        }
+
+        .proj-desc {
+          font-size: 13px;
+          line-height: 1.55;
+          color: var(--color-ink-soft);
+          margin: 0 0 16px;
+          flex-grow: 1;
+        }
+
+        .proj-tech-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-bottom: 14px;
+
+          .tech-badge {
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 2px 7px;
+            background: var(--color-surface-soft);
+            border-radius: 4px;
+            color: var(--color-ink);
+          }
+        }
+
+        .proj-footer {
+          padding-top: 12px;
+          border-top: 1px solid var(--color-hairline);
+
+          .proj-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--color-ink);
+            text-decoration: none;
+            transition: color 0.15s ease;
+
+            &:hover {
+              color: #6366f1;
+            }
           }
         }
       }
