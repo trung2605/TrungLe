@@ -15,6 +15,7 @@ import SideStreams from '../../components/ui/SideStreams/SideStreams';
 const MainLayout = () => {
     const { pathname } = useLocation();
     const isHome = pathname === '/';
+    const isServicesPage = pathname === '/dich-vu' || pathname === '/services';
     const prefersReducedMotion = useReducedMotion();
     const { t } = useTranslation();
     const [recruiterMatchOpen, setRecruiterMatchOpen] = useState(false);
@@ -30,7 +31,7 @@ const MainLayout = () => {
             <ScrollProgressBar />
             <CommandPalette />
             <InstallPrompt />
-            <SideStreams />
+            {!isServicesPage && <SideStreams />}
             <RecruiterMatch open={recruiterMatchOpen} onOpenChange={setRecruiterMatchOpen} />
             <motion.button
                 onClick={() => setRecruiterMatchOpen(true)}
@@ -74,7 +75,7 @@ const MainLayout = () => {
             <Navigation onOpenRecruiterMatch={() => setRecruiterMatchOpen(true)} />
 
             {/* PageBanner sits full-bleed below nav, above main content */}
-            {!isHome && (
+            {!isHome && pathname !== '/dich-vu' && pathname !== '/services' && (
                 <div style={{ paddingTop: '74px' }}>
                     <PageBanner />
                 </div>

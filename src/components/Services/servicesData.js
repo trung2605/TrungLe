@@ -1,6 +1,29 @@
 // File: src/components/Services/servicesData.js
 // Extracted data constants for Services view to maintain modular architecture
 
+export const SYNAPFORGE_STUDIO_INFO = {
+  name: "SynapForge",
+  legalName: "SynapForge Venture & Engineering Studio",
+  slogan: "Forging Intelligence. Engineering Scale.",
+  sloganVi: "Tôi luyện Trí tuệ. Kiến tạo Quy mô.",
+  actionTagline: "ARCHITECT. CODE. FORGE. SCALE.",
+  logoUrl: "/branding/synapforge-logo-full.png",
+  logoDarkUrl: "/branding/synapforge-logo-dark.png",
+  iconUrl: "/branding/synapforge-icon.png",
+  appIconUrl: "/branding/synapforge-app-icon.png",
+  founder: "Lê Trí Trung",
+  leadRoleVi: "Founder & Head of Technology (Tech Lead / System Architect)",
+  leadRoleEn: "Founder & Head of Technology (Tech Lead / System Architect)",
+  locationVi: "Hải Châu, TP. Đà Nẵng, Việt Nam",
+  locationEn: "Da Nang City, Vietnam",
+  phone: "0912 158 715",
+  email: "contact@synapforge.dev",
+  escrowPolicyVi: "Hợp đồng Dân sự Ký quỹ 40/60 (Chỉ thanh toán 60% khi nghiệm thu hài lòng 100%)",
+  escrowPolicyEn: "40/60 Milestone Escrow (Final 60% paid only upon 100% satisfactory acceptance)",
+  warrantyDays: 60,
+  emergencySlaHours: 4
+};
+
 export const BIENSOVIP_SHOTS = [
   {
     titleVi: "Admin Dashboard: 150 biển đã bán, tỷ lệ chốt 33.3%",
@@ -159,21 +182,21 @@ export const OTHER_TEAM_PROJECTS = [
 export const TEAM_MEMBERS = [
   {
     name: "Lê Trí Trung",
-    roleVi: "Tech Lead & Solutions Architect",
-    roleEn: "Tech Lead & Solutions Architect",
-    highlightVi: "Chủ nhiệm kỹ thuật & Trực tiếp làm việc 1-1 với khách hàng",
-    highlightEn: "Technical Lead & Direct 1-on-1 Client Engagement",
+    roleVi: "Founder & Head of Technology — SynapForge Studio",
+    roleEn: "Founder & Head of Technology — SynapForge Studio",
+    highlightVi: "Chủ nhiệm kỹ thuật SynapForge Studio & Trực tiếp làm việc 1-1 với khách hàng",
+    highlightEn: "SynapForge Tech Lead & Direct 1-on-1 Client Engagement",
     eduVi: "Đại học FPT Đà Nẵng • Cựu Kỹ sư FPT Software",
     eduEn: "FPT University • Ex-FPT Software Engineer",
     achievementsVi: [
       "Quán quân Hackathon Computer Vision 2026 (FPT Education)",
       "Top 5 Nghiên cứu khoa học ResFes toàn quốc (Báo cáo ICTA 2026)",
-      "Trực tiếp thiết kế & vận hành sàn Biensovip.com, The MC Hub, ThreadLearn"
+      "Tổng đạo diễn kiến trúc hệ thống Biensovip.com, BrandHub Platform, The MC Hub"
     ],
     achievementsEn: [
       "Champion of Hackathon Computer Vision 2026 (FPT Education)",
       "Top 5 National Scientific Research ResFes (ICTA 2026 paper)",
-      "Directly architected & operating Biensovip.com, The MC Hub, ThreadLearn"
+      "Lead System Architect of Biensovip.com, BrandHub Platform, The MC Hub"
     ],
     skills: [".NET 8", "Java Spring Boot", "React 19", "Python FastAPI", "VietQR", "PostgreSQL", "Redis"],
     cvUrl: "/Team_CV/CV_Le-Tri-Trung_Tech-Lead.pdf",

@@ -15,11 +15,11 @@ const ACHIEVEMENT_SUBTABS = [
 ];
 
 const SERVICES_SUBTABS = [
-  { tab: 'case-study', labelVi: 'Dự án thực tế (Biensovip)', labelEn: 'Flagship Case Study', path: '/dich-vu#case-study' },
-  { tab: 'saas', labelVi: 'Tự động hóa SaaS (VietQR & AI)', labelEn: 'SaaS Features', path: '/dich-vu#saas' },
-  { tab: 'team-section', labelVi: 'Đội ngũ 05 Kỹ sư FPT', labelEn: 'Team 5 Devs', path: '/dich-vu#team-section' },
-  { tab: 'pricing-section', labelVi: 'Bảng giá minh bạch (-50%)', labelEn: 'Transparent Pricing', path: '/dich-vu#pricing-section' },
-  { tab: 'process-section', labelVi: 'Quy trình 5 bước chuẩn mực', labelEn: '5-Step Work Process', path: '/dich-vu#process-section' },
+  { tab: 'case-study', labelVi: 'Dự án SynapForge (Biensovip)', labelEn: 'SynapForge Flagships', path: '/dich-vu#case-study' },
+  { tab: 'saas', labelVi: '13 Module Tự động hóa SaaS', labelEn: '13 SaaS Modules', path: '/dich-vu#saas' },
+  { tab: 'team-section', labelVi: 'Đội ngũ Kỹ sư Cốt lõi FPT', labelEn: 'SynapForge Core Bench', path: '/dich-vu#team-section' },
+  { tab: 'pricing-section', labelVi: 'Bảng giá & Ký quỹ 40/60', labelEn: 'Pricing & 40/60 Escrow', path: '/dich-vu#pricing-section' },
+  { tab: 'process-section', labelVi: 'Quy trình Kỹ nghệ 5 bước', labelEn: '5-Step Forge Process', path: '/dich-vu#process-section' },
 ];
 
 const Navigation = ({ onOpenRecruiterMatch }) => {

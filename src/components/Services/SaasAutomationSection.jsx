@@ -53,12 +53,12 @@ export const SaasAutomationSection = ({
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <div className="section-eyebrow">{isEn ? "CORE SPECIALIZATION" : "LĨNH VỰC TRỌNG TÂM"}</div>
+        <div className="section-eyebrow">{isEn ? "SYNAPFORGE SAAS SUITE • 13 MODULES" : "13 MODULE TỰ ĐỘNG HÓA SAAS • SYNAPFORGE STUDIO"}</div>
         <h2 className="section-heading">{isEn ? "SaaS Automation: Turning Your Website into a 24/7 Sales Engine" : "Tự Động Hóa SaaS: Biến Website Thành Cỗ Máy Bán Hàng & Vận Hành Tự Động 24/7"}</h2>
         <p className="section-desc">
           {isEn 
             ? "We engineer lean enterprise SaaS automation and omnichannel distribution engines drawn directly from our verified production platforms (Biensovip & BrandHub) — eliminating manual repetitive tasks, syncing 5 social channels, and running autonomous 24/7 conversion pipelines."
-            : "Chúng tôi không chỉ dựng website tĩnh đơn thuần. Trọng tâm cốt lõi là xây dựng các giải pháp Tự động hóa SaaS (SaaS Automation) tinh gọn đúc kết từ các hệ thống thực tế (Biensovip & BrandHub), giải phóng 80% thời gian vận hành, đồng bộ 5 mạng xã hội và nhân đôi tỉ lệ chuyển đổi tự động 24/7."}
+            : "SynapForge Studio đúc kết 13 module tự động hóa độc quyền từ các hệ thống thực chiến (Biensovip & BrandHub), giải phóng 80% thời gian vận hành, tự động hóa thanh toán, chốt đơn, đồng bộ 5 mạng xã hội và nhân đôi tỉ lệ chuyển đổi tự động 24/7."}
         </p>
 
         {/* MINIMALIST KPI STRIP */}

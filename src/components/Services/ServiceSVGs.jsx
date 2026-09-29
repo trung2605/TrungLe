@@ -115,3 +115,11 @@ export const Step5HandoverSVG = () => (
     <rect x="11" y="25" width="18" height="4" rx="2" fill="#9a3412" />
   </svg>
 );
+
+export const SynapForgeMonogramSVG = ({ size = 36, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <rect width="44" height="44" rx="10" fill="#FF5500" />
+    <text x="22" y="29" textAnchor="middle" fill="#FFFFFF" fontFamily="Plus Jakarta Sans, Inter, system-ui, sans-serif" fontWeight="800" fontSize="20" letterSpacing="-0.5px">SF</text>
+  </svg>
+);
+

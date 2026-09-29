@@ -1,0 +1,136 @@
+/* ============================================================
+   TECH STACK SECTION — ENTERPRISE CURATED STACK
+   ============================================================ */
+
+.synap-tech-stack-section {
+  text-align: center;
+  max-width: 1100px;
+  margin: 48px auto 0;
+  padding: 0 16px;
+
+  .stack-header {
+    margin-bottom: 36px;
+
+    .stack-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: #f9510d;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+
+      .text-orange {
+        color: #f9510d;
+      }
+    }
+
+    .stack-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+
+      @media (max-width: 640px) {
+        font-size: 22px;
+      }
+    }
+
+    .stack-desc {
+      max-width: 740px;
+      margin: 0 auto;
+      font-size: 14.5px;
+      color: var(--color-ink-soft);
+      line-height: 1.6;
+    }
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stack-card {
+      padding: 20px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(249, 81, 13, 0.16);
+      background: var(--color-surface-soft);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      transition: all 0.25s ease;
+
+      &:hover {
+        border-color: rgba(249, 81, 13, 0.45);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px -4px rgba(249, 81, 13, 0.14);
+
+        .stack-icon-box {
+          background: rgba(249, 81, 13, 0.16);
+          color: #f9510d;
+          transform: scale(1.1);
+        }
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+
+      .stack-icon-box {
+        width: 50px;
+        height: 50px;
+        border-radius: 13px;
+        background: rgba(249, 81, 13, 0.08);
+        border: 1px solid rgba(249, 81, 13, 0.22);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #f9510d;
+        font-size: 24px;
+        transition: all 0.25s ease;
+      }
+
+      .stack-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+
+        .stack-name {
+          font-size: 14.5px;
+          font-weight: 700;
+          color: var(--color-ink);
+        }
+
+        .stack-role {
+          font-size: 12px;
+          color: var(--color-ink-soft);
+        }
+
+        .stack-highlight {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11px;
+          font-weight: 600;
+          color: #f9510d;
+          margin-top: 4px;
+          font-variant-numeric: tabular-nums;
+        }
+      }
+    }
+  }
+}

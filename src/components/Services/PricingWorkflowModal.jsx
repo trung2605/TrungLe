@@ -136,7 +136,7 @@ export const PricingWorkflowModal = ({
                 <div className="timeline-card">
                   <div className="t-badge">GIAI ĐOẠN 1</div>
                   <h5>Ký Hợp Đồng Dân Sự & Đặt Cọc 40%</h5>
-                  <p>Leader Lê Trí Trung đứng tên đại diện pháp lý, ký hợp đồng có đầy đủ phụ lục yêu cầu kỹ thuật, mốc deadline và điều khoản cam kết bồi thường.</p>
+                  <p>Founder & Head of Technology Lê Trí Trung đại diện SynapForge Studio đứng tên hợp đồng dân sự ký quỹ 40/60, có đầy đủ phụ lục yêu cầu kỹ thuật, mốc milestone và điều khoản cam kết bồi thường minh bạch.</p>
                 </div>
                 <div className="timeline-card">
                   <div className="t-badge">GIAI ĐOẠN 2</div>

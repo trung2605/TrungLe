@@ -29,14 +29,14 @@ export const TeamBenchSection = ({ isEn }) => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <div className="section-eyebrow">{isEn ? "VERIFIED ENGINEERING TEAM" : "ĐỘI NGŨ KỸ SƯ CHÍNH QUY"}</div>
+        <div className="section-eyebrow">{isEn ? "SYNAPFORGE STUDIO CORE BENCH" : "ĐỘI NGŨ KỸ SƯ CỐT LÕI SYNAPFORGE STUDIO"}</div>
         <h2 className="section-heading">
-          {isEn ? "Meet Our 5 Engineers: 100% FPT University — Ex-FPT Software" : "Đội Ngũ 05 Kỹ Sư Thực Chiến: 100% Đại Học FPT — Cựu FPT Software"}
+          {isEn ? "The SynapForge Engineering Bench: 5 Senior Engineers, 100% FPT Software Pedigree" : "Đội Ngũ Kỹ Sư Cốt Lõi SynapForge Studio: 5 Kỹ Sư Thực Chiến FPT Software"}
         </h2>
         <p className="section-desc">
           {isEn
-            ? "No agency middlemen, no sales markups. You collaborate directly 1-on-1 with Tech Lead Le Tri Trung alongside 4 dedicated engineers specializing in .NET 8, Java Spring Boot, Next.js, and AI automation."
-            : "Xóa bỏ hoàn toàn chi phí sales trung gian. Khách hàng làm việc trực tiếp 1-1 với Tech Lead Lê Trí Trung cùng 4 kỹ sư chuyên trách, sở hữu chứng chỉ quốc tế và kinh nghiệm thực chiến dày dặn tại FPT Software."}
+            ? "No agency middlemen, no sales markups. You collaborate directly 1-on-1 with Founder & Tech Lead Le Tri Trung alongside our 4 dedicated engineers specializing in .NET 8, Java Spring Boot, Next.js, and AI automation."
+            : "Xóa bỏ hoàn toàn chi phí sales trung gian. Khách hàng làm việc trực tiếp 1-1 với Founder & Tech Lead Lê Trí Trung cùng 4 kỹ sư cốt lõi FPT Software, sở hữu chứng chỉ quốc tế và kinh nghiệm thực chiến dày dặn."}
         </p>
       </motion.div>
 

@@ -6,7 +6,6 @@ import {
   FaShieldAlt, 
   FaRocket, 
   FaFileContract, 
-  FaReceipt, 
   FaArrowRight, 
   FaTimes, 
   FaCogs, 
@@ -30,13 +29,15 @@ import {
 } from './ServiceSVGs';
 import infographicTeam from '../../assets/landing/infographic_team.png';
 import ServicesSubnav from '../ServicesSubnav/ServicesSubnav';
-import { fadeInUp, staggerContainer, cardPop } from './servicesData';
+import { fadeInUp, staggerContainer, cardPop, SYNAPFORGE_STUDIO_INFO } from './servicesData';
 import { FlagshipShowcase } from './FlagshipShowcase';
 import { SaasAutomationSection } from './SaasAutomationSection';
 import { TeamBenchSection } from './TeamBenchSection';
 import { PricingSection } from './PricingSection';
 import { PricingWorkflowModal } from './PricingWorkflowModal';
 import { SaasFeatureModal } from './SaasFeatureModal';
+import { HeroTechSimulator } from './HeroTechSimulator';
+import { TechStackSection } from './TechStackSection';
 import './Services.scss';
 
 const Services = () => {
@@ -96,25 +97,47 @@ const Services = () => {
   };
 
   return (
-    <div className="services-page" style={{ paddingTop: '52px' }}>
+    <div className="services-page" style={{ paddingTop: '124px' }}>
       <ServicesSubnav />
       {/* TERMINAL PROMPT HEADER - Desktop only */}
       <div className="terminal-prompt hidden md:flex">
         <span className="prompt-sym">$</span>
-        <span className="prompt-cmd">web-dev --team "1 Leader + 4 Devs" --location "Da Nang"</span>
-        <span className="prompt-tag">→ ready for projects</span>
+        <span className="prompt-cmd">synapforge --studio "Venture & Engineering" --lead "Le Tri Trung" --team "5 Elite Devs"</span>
+        <span className="prompt-tag">→ forking intelligence, engineering scale</span>
       </div>
 
       {/* 1. HERO SECTION */}
       <section id="overview" className="hero-section" style={{ scrollMarginTop: '170px' }}>
+        {/* SYNAPFORGE BRAND BANNER */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="badge-pill"
+          className="synap-brand-banner"
         >
-          <span className="pulse-dot" />
-          <span>{isEn ? "Team 5 Da Nang Engineers • Flexible • 100% On-Time" : "Team 5 Kỹ Sư Đà Nẵng • Làm Việc Linh Hoạt • Cam Kết Đúng Deadline"}</span>
+          <div className="synap-brand-left">
+            <div className="synap-logo-wrapper">
+              <img 
+                src="/branding/04_app-icon/synapforge-app-icon-512.png" 
+                alt="SynapForge Studio Monogram" 
+                className="synap-logo-img"
+                style={{ width: '36px', height: '36px', display: 'block', borderRadius: '8px', objectFit: 'contain' }}
+              />
+            </div>
+            <div className="synap-brand-meta">
+              <div className="synap-brand-header">
+                <span className="synap-title">SYNAPFORGE STUDIO</span>
+                <span className="synap-type-pill">{isEn ? "Venture & Engineering" : "Studio Kỹ Nghệ Phần Mềm"}</span>
+              </div>
+              <span className="synap-slogan-text">
+                {isEn ? SYNAPFORGE_STUDIO_INFO.slogan : SYNAPFORGE_STUDIO_INFO.sloganVi}
+              </span>
+            </div>
+          </div>
+          <div className="synap-brand-right">
+            <span className="pulse-dot" />
+            <span className="synap-engineers-tag">{isEn ? "5 Core FPT Engineers • Da Nang" : "5 Kỹ Sư Cốt Lõi FPT / FSoft • Đà Nẵng"}</span>
+          </div>
         </motion.div>
 
         <motion.h1
@@ -124,9 +147,9 @@ const Services = () => {
           className="hero-title"
         >
           {isEn ? (
-            <>SaaS Automation & High-Converting Websites:<br /><span className="text-accent-underline">Engineered for Shops & Scalable Growth</span></>
+            <>High-Performance E-Commerce & SaaS Systems:<br /><span className="text-accent-underline">Built for 900+ Products • Sub-8ms Speed • Auto-Closing</span></>
           ) : (
-            <>Website & Tự Động Hóa SaaS Cho Chủ Shop:<br /><span className="text-accent-underline">Tự Động Bán Hàng - Chốt Đơn - Tối Ưu Chi Phí</span></>
+            <>Kỹ Nghệ Website Bán Hàng & Tự Động Hóa SaaS:<br /><span className="text-accent-underline">Xử Lý 900+ Sản Phẩm • Lọc Dưới 8ms • Tự Động Khớp Đơn</span></>
           )}
         </motion.h1>
 
@@ -137,8 +160,8 @@ const Services = () => {
           className="hero-subtitle"
         >
           {isEn
-            ? "Turnkey web systems & SaaS automation engineered by 1 Lead Architect + 4 Senior Engineers. Turn your website into an automated sales, VietQR settlement, and 24/7 AI-driven operation engine. Transparent civil contracts, zero tax hassle."
-            : "Giải pháp thiết kế website kết hợp Tự Động Hóa SaaS (SaaS Automation) từ Team 1 Leader + 4 Kỹ Sư Đà Nẵng. Tự động hóa phễu bán hàng, đối soát VietQR 0đ phí, quản lý kho thời gian thực và CSKH bằng AI. Hợp đồng dân sự rõ ràng, không lo thủ tục thuế!"}
+            ? "Turnkey e-commerce & SaaS systems engineered by SynapForge Studio (1 Lead Architect + 4 Senior Engineers). Optimized to handle 900+ to tens of thousands of products with sub-8ms query latency, dynamic VietQR & VNPay zero-fee reconciliation, Redis distributed inventory locking, and 24/7 AI advisory. 40/60 Milestone Escrow safety contract with zero risk."
+            : "Giải pháp thiết kế website bán hàng cao cấp & Tự Động Hóa SaaS từ SynapForge Studio (1 Tech Lead + 4 Kỹ Sư FPT Đà Nẵng). Tối ưu hóa tải nặng từ 900+ đến hàng ngàn sản phẩm với tốc độ lọc dưới 8ms, tích hợp VNPay & đối soát VietQR Pro 0đ phí, khóa phân tán Redis Lock chống bán trùng và AI CSKH 24/7. Hợp đồng dân sự ký quỹ 40/60 an toàn tuyệt đối!"}
         </motion.p>
 
         <motion.div
@@ -148,10 +171,10 @@ const Services = () => {
           className="hero-cta-group"
         >
           <button onClick={scrollToContact} className="btn-pill-primary">
-            <FaRocket size={14} /> {isEn ? "Book Free Consultation" : "Nhận Tư Vấn Miễn Phí Ngay"}
+            <FaRocket size={14} /> {isEn ? "Book Free Consultation" : "Nhận Tư Vấn & Báo Giá Trong 24h"}
           </button>
           <button onClick={scrollToPricing} className="btn-pill-secondary">
-            {isEn ? "View Pricing & Specs" : "Xem Bảng Giá & Quy Trình"} <FaArrowRight size={12} />
+            {isEn ? "View Pricing & 40/60 Escrow" : "Xem Bảng Giá & Ký Quỹ 40/60"} <FaArrowRight size={12} />
           </button>
         </motion.div>
 
@@ -161,10 +184,11 @@ const Services = () => {
           initial="hidden"
           animate="visible"
         >
-          <motion.span variants={cardPop} className="saas-tag"><FaCogs /> {isEn ? "SaaS Automation Architecture" : "Chuyên Sâu Tự Động Hóa SaaS"}</motion.span>
-          <motion.span variants={cardPop} className="saas-tag"><FaQrcode /> {isEn ? "Zero-Fee Dynamic VietQR" : "Đối Soát VietQR Tự Động 0đ"}</motion.span>
-          <motion.span variants={cardPop} className="saas-tag"><FaRobot /> {isEn ? "24/7 DeepSeek AI Sales Agent" : "Trợ Lý AI Bán Hàng 24/7"}</motion.span>
-          <motion.span variants={cardPop} className="saas-tag"><FaSyncAlt /> {isEn ? "Real-time Multi-device Sync" : "Đồng Bộ Kho Đa Thiết Bị"}</motion.span>
+          <motion.span variants={cardPop} className="saas-tag"><FaCogs /> {isEn ? "900+ Products Sub-8ms Filter" : "Lọc 900+ Sản Phẩm < 8ms"}</motion.span>
+          <motion.span variants={cardPop} className="saas-tag"><FaQrcode /> {isEn ? "VietQR Pro & VNPay Integration" : "Tích Hợp VNPay & VietQR 0đ Phí"}</motion.span>
+          <motion.span variants={cardPop} className="saas-tag"><FaSyncAlt /> {isEn ? "Redis Lock Zero-Collision" : "Khóa Redis Chống Bán Trùng"}</motion.span>
+          <motion.span variants={cardPop} className="saas-tag"><FaRobot /> {isEn ? "24/7 AI Sales Assistant" : "Trợ Lý AI CSKH 24/7"}</motion.span>
+          <motion.span variants={cardPop} className="saas-tag"><FaShieldAlt /> {isEn ? "40/60 Milestone Escrow" : "Hợp Đồng Ký Quỹ 40/60"}</motion.span>
         </motion.div>
 
         <motion.div 
@@ -174,22 +198,37 @@ const Services = () => {
           animate="visible"
         >
           <motion.div variants={cardPop} className="trust-item">
-            <FaCheckCircle /> {isEn ? "100% On-Time Guarantee" : "Cam Kết Đúng Hạn (Phạt nếu trễ)"}
+            <FaCheckCircle /> {isEn ? "100% On-Time Guarantee" : "Cam Kết Đúng Hạn (Phạt 200k/ngày nếu trễ)"}
           </motion.div>
           <motion.div variants={cardPop} className="trust-item">
-            <FaFileContract /> {isEn ? "Civil Contract by Leader" : "Hợp Đồng Dân Sự Rõ Ràng"}
+            <FaFileContract /> {isEn ? "40/60 Safe Escrow Contract" : "Hợp Đồng Ký Quỹ 40/60 An Toàn"}
           </motion.div>
           <motion.div variants={cardPop} className="trust-item">
-            <FaReceipt /> {isEn ? "Zero Client Tax Burden" : "Khách KHÔNG lo Thuế TNCN"}
+            <FaShieldAlt /> {isEn ? "100% IP & Clean Source Code" : "Bàn Giao 100% Mã Nguồn & Cloud VPS"}
           </motion.div>
           <motion.div variants={cardPop} className="trust-item">
-            <FaShieldAlt /> {isEn ? "6 - 12 Months Free Warranty" : "Bảo Hành Miễn Phí 6 - 12 Tháng"}
+            <FaStar /> {isEn ? "60-90 Days Warranty (SLA < 4h)" : "Bảo Hành Miễn Phí 60–90 Ngày (SLA < 4h)"}
           </motion.div>
+        </motion.div>
+
+        {/* HERO LIVE ARCHITECTURE SIMULATOR */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          style={{ marginTop: '36px' }}
+        >
+          <HeroTechSimulator isEn={isEn} />
         </motion.div>
       </section>
 
       {/* 2. FLAGSHIP PROJECTS SHOWCASE: BIENSOVIP & BRANDHUB */}
       <FlagshipShowcase isEn={isEn} />
+
+      {/* SYNAPFORGE CURATED ENTERPRISE TECH STACK */}
+      <section className="section-container" style={{ paddingTop: '16px', paddingBottom: '32px' }}>
+        <TechStackSection isEn={isEn} />
+      </section>
 
       {/* 3. SAAS AUTOMATION DEEP DIVE */}
       <SaasAutomationSection 

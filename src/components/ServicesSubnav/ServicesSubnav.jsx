@@ -14,10 +14,10 @@ import { useCustomTheme } from '../../contexts/ThemeContext';
 
 const SERVICES_SUBNAV_SECTIONS = [
   { id: 'overview', icon: FaBolt, labelVi: 'Tổng quan', labelEn: 'Overview', targetId: 'overview' },
-  { id: 'case-study', icon: FaRocket, labelVi: 'Dự án thực tế', labelEn: 'Case Study', targetId: 'case-study' },
-  { id: 'saas', icon: FaCogs, labelVi: 'Tính năng SaaS', labelEn: 'SaaS Features', targetId: 'saas' },
-  { id: 'team', icon: FaUsers, labelVi: 'Đội ngũ Dev', labelEn: 'Team 5 Devs', targetId: 'team-section' },
-  { id: 'pricing', icon: FaReceipt, labelVi: 'Bảng giá', labelEn: 'Pricing', targetId: 'pricing-section' },
+  { id: 'case-study', icon: FaRocket, labelVi: 'Dự án Flagship', labelEn: 'Flagships', targetId: 'case-study' },
+  { id: 'saas', icon: FaCogs, labelVi: '13 Module SaaS', labelEn: '13 SaaS Modules', targetId: 'saas' },
+  { id: 'team', icon: FaUsers, labelVi: 'Kỹ sư Cốt lõi', labelEn: 'Core Bench', targetId: 'team-section' },
+  { id: 'pricing', icon: FaReceipt, labelVi: 'Báo giá & Ký quỹ', labelEn: 'Pricing & Escrow', targetId: 'pricing-section' },
   { id: 'process', icon: FaCheckCircle, labelVi: 'Quy trình', labelEn: 'Process', targetId: 'process-section' },
 ];
 
@@ -138,8 +138,8 @@ export const ServicesSubnav = () => {
     setActiveSection('overview');
   };
 
-  const activeBg = isDarkMode ? '#ffffff' : '#000000';
-  const activeText = isDarkMode ? '#000000' : '#ffffff';
+  const activeBg = 'linear-gradient(135deg, #F9510D 0%, #FF6827 100%)';
+  const activeText = '#ffffff';
 
   return (
     <nav
@@ -205,7 +205,7 @@ export const ServicesSubnav = () => {
                 flexShrink: 0,
               }}
               onMouseEnter={e => {
-                if (!isActive) e.currentTarget.style.color = 'var(--color-ink)';
+                if (!isActive) e.currentTarget.style.color = '#F9510D';
               }}
               onMouseLeave={e => {
                 if (!isActive) e.currentTarget.style.color = 'var(--color-ink-soft)';
@@ -219,9 +219,9 @@ export const ServicesSubnav = () => {
                     position: 'absolute',
                     inset: 0,
                     borderRadius: '9999px',
-                    backgroundColor: activeBg,
+                    background: activeBg,
                     zIndex: -1,
-                    boxShadow: isDarkMode ? '0 2px 12px rgba(255, 255, 255, 0.2)' : '0 2px 10px rgba(0, 0, 0, 0.22)',
+                    boxShadow: '0 3px 16px rgba(249, 81, 13, 0.45)',
                   }}
                 />
               )}
