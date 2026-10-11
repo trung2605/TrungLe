@@ -37,28 +37,28 @@
     "close": "Đóng",
     "roles": {
       "backend": {
-        "label": "Backend / Phát triển API",
-        "blurb": "Mình chuyên về Java Spring Boot ở backend, có kinh nghiệm thực tế với ASP.NET Core, Node.js và Python — thiết kế REST API, làm việc với cả database quan hệ lẫn document, và xây hệ thống chịu được tải thật."
+        "label": "Backend & Kiến trúc Hệ thống",
+        "blurb": "Mình chuyên sâu kiến trúc Clean Architecture & Microservices với .NET 8 / ASP.NET Core và Java 21 Spring Boot 3 — thiết kế 61 database entities PostgreSQL, xử lý hàng đợi RabbitMQ DLQ, Redis distributed lock và tối ưu hóa truy vấn dữ liệu lớn dưới 8ms."
       },
       "frontend": {
-        "label": "Frontend / Xây dựng giao diện",
-        "blurb": "Mình xây giao diện sạch, responsive bằng React và Tailwind CSS, chú trọng animation (Framer Motion) và hiệu năng. Mình quan tâm đến việc giao diện phải được cân nhắc kỹ, không chỉ chạy được là xong."
+        "label": "Frontend / Giao diện & Trải nghiệm",
+        "blurb": "Mình xây dựng web app hiện đại với React 19, Next.js, Vite và TypeScript, chú trọng trải nghiệm người dùng cao cấp, animations mượt mà bằng Framer Motion, chuẩn hóa SEO và tối ưu hiệu năng Core Web Vitals."
       },
       "fullstack": {
-        "label": "Full-Stack Development",
-        "blurb": "Mình thoải mái khi nhận trọn một tính năng từ đầu đến cuối — React hoặc Next.js ở frontend, Spring Boot hoặc .NET ở backend, cùng database và pipeline deploy ở giữa."
+        "label": "Full-Stack & Venture Lead",
+        "blurb": "Founder & Tech Lead nhận trọn gói từ khâu thiết kế kiến trúc, backend, frontend đến triển khai hạ tầng Docker/VPS — đã đưa The MC Hub và biensovip.com từ bản vẽ ra thị trường thực tế với doanh thu và giao dịch thật."
       },
       "ai-ml": {
-        "label": "AI / Machine Learning",
-        "blurb": "Mình từng fine-tune language model bằng QLoRA, xây RAG retrieval pipeline, và tự huấn luyện CNN từ đầu — tập trung vào việc làm cho model nhỏ, chuyên biệt vượt trội hơn model tổng quát lớn hơn trên bài toán hẹp."
+        "label": "AI Engineering & Machine Learning",
+        "blurb": "Quán quân Hackathon Computer Vision 2026, đồng tác giả bài báo khoa học ICTA 2026. Có kinh nghiệm thực chiến fine-tune LLM bằng QLoRA, triển khai Whisper AI voice analysis, và kiến trúc GraphRAG (ChromaDB + Neo4j)."
       },
       "lowcode": {
-        "label": "Low-Code / Triển khai Enterprise",
-        "blurb": "Qua kỳ thực tập tại FPT Software, mình đã triển khai ứng dụng trên OutSystems trong môi trường Agile doanh nghiệp — hữu ích nếu team bạn cần giao hàng nhanh, có quy trình mà không đánh đổi chất lượng."
+        "label": "Enterprise Delivery / FPT Software",
+        "blurb": "Đã hoàn thành xuất sắc kỳ thực tập OJT tại FPT Software, phát triển ứng dụng OutSystems Reactive Web trong môi trường Agile/Scrum chuyên nghiệp chuẩn doanh nghiệp."
       },
       "freelance": {
-        "label": "Dự án Website Freelance",
-        "blurb": "Mình nhận dự án website freelance solo, trọn gói từ kiến trúc, backend, frontend, đến deploy — và hiện đang vận hành một marketplace thật cho một khách hàng trả phí."
+        "label": "Kiến trúc sư Phần mềm & Startup",
+        "blurb": "Founder tại SynapForge Venture Studio — làm việc trực tiếp 1-1 không qua trung gian (No Middlemen), cam kết sản phẩm chuẩn production, tài liệu minh bạch và độ tin cậy tuyệt đối."
       }
     }
   },
@@ -74,13 +74,13 @@
     "badge": "Sẵn sàng cho cơ hội mới",
     "greeting": "Xin chào,",
     "roles": [
-      "Tech Lead & Full-Stack",
-      "Chuyên Gia SaaS Automation",
-      "Kỹ Sư Java & .NET / AI",
-      "Problem Solver"
+      "Founder & Tech Lead @ SynapForge",
+      "Software Architect (.NET 8 & Java 21)",
+      "SaaS Automation & AI Engineer",
+      "Quán quân Hackathon CV 2026"
     ],
     "iAm": "Tôi là",
-    "heroDesc": "Tech Lead dẫn dắt đội ngũ 5 kỹ sư tại Đà Nẵng — chuyên phát triển Website thương mại, SaaS Automation và tích hợp AI Agent cho doanh nghiệp vừa & nhỏ. Đang vận hành sàn giao dịch biensovip.com thực tế.",
+    "heroDesc": "Founder & Head of Technology tại SynapForge Venture Studio. Chuyên sâu kiến trúc hệ thống Clean Architecture (.NET 8 & Java 21), SaaS Automation và AI Engineering. Quán quân Hackathon Computer Vision 2026, đồng tác giả bài báo quốc tế ICTA 2026 và kiến trúc sư trưởng vận hành biensovip.com.",
     "viewProjects": "Xem dự án",
     "downloadCV": "Tải CV",
     "statsByNumbers": "Những con số",
@@ -113,7 +113,7 @@
     "ctaLabel": "Hãy cùng tạo ra điều gì đó",
     "ctaTitle": "Sẵn sàng cho thực tập & cơ hội hợp tác",
     "getInTouch": "Liên hệ ngay",
-    "terminalRole": "Thực tập sinh Software Developer @ FPT Software"
+    "terminalRole": "Founder & Head of Technology @ SynapForge Venture Studio"
   },
   "about": {
     "personalInfoLabel": "Thông tin cá nhân",
@@ -121,8 +121,8 @@
     "location": "Địa chỉ",
     "education": "Học vấn",
     "specialization": "Chuyên môn",
-    "educationValue": "Đại học FPT Đà Nẵng (Khoa học Máy tính)",
-    "specializationValue": "Tech Lead & Full-Stack / SaaS Automation",
+    "educationValue": "Đại học FPT Đà Nẵng (Kỹ thuật Phần mềm — GPA 3.3/4.0)",
+    "specializationValue": "Founder, Tech Lead & Software Architect (SynapForge)",
     "atAGlance": "Tóm lược",
     "experienceLabel": "Kinh nghiệm",
     "experienceTitle": "Nơi tôi đã làm việc & dẫn dắt",
@@ -138,7 +138,7 @@
     "phoneLabel": "Điện thoại / Zalo",
     "ecosystemLabel": "Hệ sinh thái & Kết nối",
     "ecosystemTitle": "Khám phá các trang liên kết",
-    "ecosystemSubtitle": "Khám phá dịch vụ phát triển website của team 5 kỹ sư, showcase dự án thực chiến, bài viết kỹ thuật chuyên sâu và hồ sơ giải thưởng."
+    "ecosystemSubtitle": "Khám phá dịch vụ công nghệ của SynapForge Venture Studio, showcase các sản phẩm thực chiến, bài viết kỹ thuật chuyên sâu và hồ sơ giải thưởng."
   },
   "contact": {
     "label": "Liên hệ",
@@ -392,63 +392,68 @@
       "description": "Đạt **Quán quân (Giải Nhất)** tại cuộc thi **Hackathon Computer Vision 2026** do FPT Education tổ chức (06/08/2026) — nghiên cứu và phát triển mô hình thị giác máy tính, giải pháp AI chính xác cao dưới áp lực gay cấn của hackathon."
     },
     {
-      "title": "Cuộc Thi Thuật Toán Code Mosaic",
-      "position": "Vào Chung Kết",
-      "description": "Lọt vào **vòng chung kết** cuộc thi thuật toán Code Mosaic do FPT Education tổ chức — một cuộc thi kiểm tra khả năng nắm cấu trúc dữ liệu, độ phức tạp thuật toán, và tốc độ xử lý vấn đề khi đồng hồ đang chạy. Đối thủ là các sinh viên CNTT giỏi nhất từ nhiều cơ sở FPT."
+      "title": "Đồng Tác Giả Bài Báo Khoa Học Quốc Tế (ICTA 2026)",
+      "position": "Đồng Tác Giả & Nhà Nghiên Cứu",
+      "description": "Đồng tác giả bài báo khoa học quốc tế được chấp thuận và công bố tại hội nghị **ICTA 2026** — nghiên cứu mô hình AI Fine-tuning (Qwen2.5-Coder-1.5B + QLoRA + BM25 AST RAG) phát hiện và tự động sửa chữa lỗ hổng bất đồng bộ (Race-Condition) trong mã nguồn với độ chính xác 73.3%, vượt trội hơn GPT-3.5-turbo."
+    },
+    {
+      "title": "Innocode Camp SU25",
+      "position": "Chung Kết Toàn Quốc (Team Leader)",
+      "description": "Vào **Chung kết Toàn quốc (08/07/2025)** cuộc thi Innocode Camp 2025 với vai trò Team Leader — dẫn dắt toàn diện quy trình phát triển sản phẩm phần mềm hoàn chỉnh bằng Java Spring Boot và MySQL."
+    },
+    {
+      "title": "Hội Nghị Nghiên Cứu (ResFres 2024)",
+      "position": "Chung Kết Toàn Quốc",
+      "description": "Lọt vào **Chung kết Toàn quốc (20/06/2024)** Hội nghị Nghiên cứu Khoa học Sinh viên FPT University — thực hiện nghiên cứu gốc, viết báo cáo học thuật chuyên sâu và bảo vệ trước hội đồng giám khảo toàn quốc."
+    },
+    {
+      "title": "FPT ResFes 2024 – Quy Mô 5 Cơ Sở",
+      "position": "Chung Kết Nghiên Cứu Toàn Quốc",
+      "description": "Được chọn làm thí sinh chung kết nghiên cứu ở quy mô liên cơ sở của FPT ResFes 2024, cạnh tranh với các đội nghiên cứu từ toàn bộ 5 cơ sở Đại học FPT trên cả nước."
     },
     {
       "title": "Cuộc Thi FPT Code Talent",
       "position": "Vào Chung Kết",
-      "description": "Vào đến **vòng chung kết** FPT Code Talent — một trong những cuộc thi lập trình thường niên hàng đầu của FPT, trải dài từ thuật toán, thiết kế OOP đến giải quyết vấn đề cấp hệ thống. Một kết quả xứng đáng cho quá trình luyện thi đấu bền bỉ suốt nhiều tháng."
+      "description": "Vào đến **vòng chung kết** FPT Code Talent — một trong những cuộc thi lập trình thường niên hàng đầu của FPT, trải dài từ thuật toán, thiết kế OOP đến giải quyết vấn đề cấp hệ thống."
     },
     {
-      "title": "Innocode Camp SU25",
+      "title": "Cuộc Thi Thuật Toán Code Mosaic",
       "position": "Vào Chung Kết",
-      "description": "Vào **vòng chung kết** Innocode Camp Mùa Hè 2025 — cuộc thi lập trình theo dự án, nơi các đội phải xây và demo một sản phẩm hoàn chỉnh trong thời gian rất gấp. Mình dẫn dắt phần backend của đội bằng Java Spring Boot và MySQL."
-    },
-    {
-      "title": "Hội Nghị Nghiên Cứu (ResFres 2024)",
-      "position": "Vào Chung Kết",
-      "description": "Vào **vòng chung kết** Hội nghị Nghiên cứu Đại học FPT — cuộc thi học thuật toàn trường, yêu cầu các đội làm nghiên cứu gốc, viết báo cáo chính thức, rồi bảo vệ trước hội đồng giám khảo. Kinh nghiệm này giúp mình rèn kỹ năng phương pháp nghiên cứu, phân tích dữ liệu và thuyết trình học thuật."
-    },
-    {
-      "title": "FPT ResFes 2024 – Quy Mô 5 Cơ Sở",
-      "position": "Vào Chung Kết Nghiên Cứu",
-      "description": "Được chọn làm **thí sinh chung kết nghiên cứu** ở quy mô liên cơ sở của FPT ResFes 2024, cạnh tranh với các đội nghiên cứu từ toàn bộ 5 cơ sở Đại học FPT trên cả nước. Một trong những thành tích khó đạt nhất của mình — đòi hỏi cả chiều sâu kỹ thuật lẫn khả năng trình bày khoa học rõ ràng."
+      "description": "Lọt vào **vòng chung kết** cuộc thi thuật toán Code Mosaic do FPT Education tổ chức — kiểm tra cấu trúc dữ liệu, độ phức tạp thuật toán và tốc độ xử lý vấn đề dưới áp lực thời gian."
     },
     {
       "title": "Cuộc Thi Tài Năng – Vòng Phỏng Vấn Chung Kết",
       "position": "Giải Nhất",
-      "description": "Giành **Giải Nhất** vòng chung kết Cuộc thi Tài năng cấp trường thời phổ thông — cuộc thi toàn trường đánh giá qua phần trình diễn, sức hút cá nhân và kỹ năng phỏng vấn. Nhìn lại, đây là dấu hiệu sớm cho sự tự tin trên sân khấu và khả năng nói trước công chúng, sau này phát triển thành kinh nghiệm dẫn chương trình cho các sự kiện hơn 1000 người."
+      "description": "Giành **Giải Nhất** vòng chung kết Cuộc thi Tài năng cấp trường thời phổ thông — đánh giá qua phần trình diễn, sức hút cá nhân và kỹ năng phỏng vấn, nền tảng cho năng lực MC sự kiện hơn 1000 người sau này."
     },
     {
       "title": "Cuộc Thi Tài Năng & Sắc Đẹp (Mister)",
       "position": "Á Quân 1",
-      "description": "Giành **Á quân 1 (Mister)** trong Cuộc thi Tài năng và Sắc đẹp thường niên của trường — đánh giá qua phần trình diễn, tài năng và phỏng vấn cá nhân, cạnh tranh với các đại diện nam xuất sắc nhất trường."
+      "description": "Giành **Á quân 1 (Mister)** trong Cuộc thi Tài năng và Sắc đẹp thường niên của trường THPT Chuyên Phan Châu Trinh."
     }
   ],
   "personalInfo": {
     "storyTitle": "Hành trình của tôi",
-    "storyContent": "Mình là **Lê Trí Trung** — Tech Lead và kỹ sư phần mềm tại Đà Nẵng, hiện dẫn dắt **[đội ngũ 5 kỹ sư](/dich-vu)** chuyên phát triển Website kinh doanh, SaaS Automation và tích hợp AI Agent cho cá nhân, chủ shop và doanh nghiệp vừa & nhỏ.\n\nSau khi hoàn thành xuất sắc chương trình thực tập tại **[FPT Software](/achievements?tab=education)** (09–12/2025) và giành **[Giải Nhất Quán Quân Hackathon Computer Vision 2026](/achievements?tab=prizes)** cùng **[Top 5 ResFes Toàn Quốc](/achievements?tab=prizes)** tại Đại học FPT Đà Nẵng, mình đã đưa những kiến thức kỹ thuật vào thực tế bằng việc tự thiết kế, xây dựng và vận hành **[biensovip.com](/projects/26)** — sàn giao dịch thương mại biển số xe với cổng thanh toán VietQR tự động, xử lý 100+ lượt truy cập/ngày và khớp lệnh thanh toán tức thời dưới 0.5 giây.\n\nĐiều mình đam mê nhất là **tự động hóa luồng kinh doanh (SaaS Automation)**: tích hợp VietQR Webhook thời gian thực, AI Agent DeepSeek tư vấn bán hàng 24/7, và kịch bản n8n đồng bộ đa nền tảng — giúp cắt giảm tối đa nhân sự vận hành thủ công. Với triết lý làm việc **[No Middlemen](/dich-vu)** — khách hàng làm việc trực tiếp 1-1 với Tech Lead — cam kết bàn giao sản phẩm chuẩn production, tiến độ rõ ràng và tối ưu chi phí đầu tư.\n\nNgoài lập trình, mình từng là **MC dẫn chương trình cho các sự kiện 600–1000+ khán giả** tại FPT University, sáng lập **[The Dreamers](/activities)** — tổ chức thiện nguyện mang giáo dục công nghệ đến trẻ em mồ côi, và đạt nhiều giải thưởng tại các cuộc thi lập trình cấp quốc gia.\n\nKhám phá thêm các phân tích kỹ thuật chuyên sâu tại **[Góc Kỹ Thuật (Blog)](/blog)** hoặc tham khảo bảng giá dịch vụ tại **[Dịch Vụ & Báo Giá](/dich-vu)**.",
-    "title": "Tech Lead & Full-Stack Engineer | SaaS Automation",
-    "intro": "Tech Lead dẫn dắt đội 5 kỹ sư tại Đà Nẵng — chuyên phát triển Website thương mại, SaaS Automation và tích hợp AI Agent cho doanh nghiệp vừa & nhỏ. Quán quân Hackathon Computer Vision 2026 (FPT University). Đang vận hành biensovip.com — nền tảng marketplace giao dịch biển số xe với VietQR tự động."
+    "storyContent": "Mình là **Lê Trí Trung** (sinh năm 2005) — Founder & Head of Technology (Tech Lead / Software Architect) tại **SynapForge Venture Studio** ở Đà Nẵng, chuyên kiến trúc và vận hành các nền tảng số hiệu năng cao, SaaS Automation và AI Engineering cho doanh nghiệp.\n\nHành trình kỹ thuật của mình được rèn luyện qua nền tảng học thuật vững chắc tại **[Đại học FPT Đà Nẵng](/achievements?tab=education)** (chuyên ngành Kỹ thuật Phần mềm, **GPA 3.3/4.0 - 8.2/10.0**), từng được chọn làm **[Đại diện Trao đổi Sinh viên Quốc tế](/achievements?tab=education)** tại **Technology Kuala Lumpur, Malaysia** (12/2023), sở hữu chứng chỉ **IELTS 6.0** (IDP Education cấp 04/2026) và tốt nghiệp **THPT Chuyên Phan Châu Trinh** với **GPA 9.0/10.0**.\n\nVề thành tựu công nghệ, mình vinh dự đạt danh hiệu **[Quán quân (Winner) Hackathon Computer Vision 2026](/achievements?tab=prizes)** (FPT Education), lọt vào **[Chung kết Toàn quốc InnoCodeCamp 2025](/achievements?tab=prizes)** với vai trò Team Leader, **[Chung kết Toàn quốc ResFres 2024](/achievements?tab=prizes)**, và là **[Đồng tác giả bài báo khoa học quốc tế (ICTA 2026)](/achievements?tab=prizes)** về mô hình AI Fine-tuning phát hiện và tự động sửa lỗi Race-Condition trong mã nguồn.\n\nỞ khía cạnh thực chiến sản phẩm, mình ghi dấu ấn với 3 trụ cột dự án:\n1. **[Biensovip.com](/projects/26) (Solo Software Architect):** Tự tay thiết kế và lập trình trọn gói sàn giao dịch & định giá biển số đẹp từ số 0 trên nền tảng .NET 8 / ASP.NET Core (Clean Architecture), thiết kế 61 bảng thực thể PostgreSQL tối ưu truy vấn GIN Index <8ms, cổng cọc VietQR Webhook <0.5s, tích hợp DeepSeek AI Chatbot và vận hành Linux VPS.\n2. **[The MC Hub](/projects/11) (CEO & Tech Lead):** Dẫn dắt đội ngũ 6 kỹ sư xây dựng nền tảng luyện giọng nói AI (React 19 + Spring Boot 3.3 + Python FastAPI & Whisper), thương mại hóa thành công ngay tháng đầu tiên với 87 MC chuyên nghiệp và 20 giao dịch đăng ký.\n3. **[BrandHub](/projects/14) (Tech Lead & Solutions Architect):** Kiến trúc cụm 7 microservices quản trị thương hiệu đa kênh (Spring Cloud Gateway, RabbitMQ DLQ retry lũy thừa, Java 21, Python GraphRAG).\n\nBên cạnh kỹ thuật, mình từng là **MC chuyên nghiệp dẫn dắt hơn 50 sự kiện lớn (600–1000+ khán giả)**, là Trọng tài giải đấu FPTU AI & Robotics 2025, và là **[Founder Quỹ thiện nguyện The Dreamers](/activities)** (hơn 30 thành viên) lan tỏa giá trị giáo dục công nghệ đến cộng đồng.",
+    "title": "Founder, Head of Technology & Software Architect",
+    "intro": "Founder & Head of Technology tại SynapForge Venture Studio. Chuyên sâu kiến trúc hệ thống Clean Architecture (.NET 8 & Java 21 Spring Boot 3), SaaS Automation và AI Engineering. Quán quân Hackathon Computer Vision 2026 (FPT Education), đồng tác giả bài báo quốc tế ICTA 2026, kiến trúc sư trưởng vận hành biensovip.com & The MC Hub."
   },
   "highlights": [
     {
-      "title": "SaaS & AI Automation",
-      "description": "Chuyên sâu thiết kế luồng tự động hóa kinh doanh: VietQR Webhook thời gian thực, AI Agent DeepSeek tư vấn 24/7, kịch bản n8n kết nối đa nền tảng — cắt giảm tối đa nhân sự vận hành thủ công."
+      "title": "Kiến Trúc Hệ Thống & Clean Architecture",
+      "description": "Chuyên sâu thiết kế Clean Architecture (.NET 8 / C# 12) và Microservices (Java 21 / Spring Boot 3): 61 database entities PostgreSQL, hàng đợi RabbitMQ DLQ, Redis distributed lock và API latency <8ms."
     },
     {
-      "title": "Full-Stack Production Systems",
-      "description": "Vận hành biensovip.com thực tế: 100+ lượt/ngày, độ trễ API <120ms, uptime 99.98%, khớp lệnh VietQR <0.5s. Kinh nghiệm thực chiến từ Java Spring Boot, .NET 8, React/Next.js đến PostgreSQL và Redis Cache."
+      "title": "Venture Builder & Production Systems",
+      "description": "Founder tại SynapForge Venture Studio: Trực tiếp xây dựng và vận hành biensovip.com (100+ visits/ngày, VietQR Webhook <0.5s) và The MC Hub (87 MCs onboarded, 20 subscription transactions trong tháng đầu)."
     },
     {
-      "title": "Nghiên cứu & Thi đấu đỉnh cao",
-      "description": "Quán quân Hackathon Computer Vision 2026, Top 5 ResFes Toàn Quốc (nghiên cứu AI bảo mật đa luồng). Từng vào vòng cuối FPT Code Talent và Innocode Camp — tư duy thuật toán sắc bén dưới áp lực."
+      "title": "Nghiên Cứu Khoa Học & Giải Thưởng",
+      "description": "Quán quân Hackathon Computer Vision 2026 (FPT Education), Đồng tác giả Bài báo Khoa học Quốc tế (ICTA 2026), Chung kết Toàn quốc InnoCodeCamp 2025 (Team Leader) và ResFres 2024."
     },
     {
-      "title": "Tech Lead & Cộng đồng",
-      "description": "Dẫn dắt đội 5 kỹ sư phát triển sản phẩm thực tế. Sáng lập The Dreamers (từ thiện công nghệ), MC sự kiện 600–1000+ khán giả — kỹ sư không chỉ viết code mà còn tạo ra giá trị xã hội bền vững."
+      "title": "Tech Lead & Tác Động Xã Hội",
+      "description": "Dẫn dắt các đội ngũ kỹ sư 5–6 người từ số 0 ra thị trường. Sáng lập The Dreamers Organization (30+ thành viên, từ thiện công nghệ), MC chuyên nghiệp dẫn dắt 50+ sự kiện (600–1000+ người)."
     }
   ],
   "funFacts": [
@@ -479,20 +484,44 @@
   ],
   "experience": [
     {
-      "role": "Thực tập sinh Software Developer",
-      "company": "FPT Software",
-      "type": "Thực tập",
-      "duration": "08/2025 – 12/2025",
-      "status": "Đã hoàn thành",
-      "description": "Phát triển các ứng dụng doanh nghiệp sử dụng **OutSystems Reactive Web** trong môi trường Agile. Debug và tái cấu trúc mã nguồn nhằm tối ưu hiệu năng hệ thống và nâng cao trải nghiệm người dùng."
+      "role": "Founder & Head of Technology",
+      "company": "SynapForge Venture Studio",
+      "type": "Lãnh đạo / Sáng lập",
+      "duration": "01/2026 – Hiện tại",
+      "status": "Hiện tại",
+      "description": "Founder & Head of Technology (Tech Lead / Software Architect) tại SynapForge Venture Studio. Định hình kiến trúc tổng thể, dẫn dắt các dòng sản phẩm trọng điểm: Biensovip.com (.NET 8 Clean Architecture), The MC Hub (AI Voice Training), BrandHub (7 Microservices)."
     },
     {
-      "role": "Người sáng lập (Founder)",
+      "role": "Solo Software Architect & Full-Stack Engineer",
+      "company": "Biensovip.com",
+      "type": "Sản phẩm Thực chiến",
+      "duration": "05/2026 – Hiện tại",
+      "status": "Hiện tại",
+      "description": "Thiết kế và lập trình trọn gói sàn giao dịch & định giá biển số đẹp từ con số 0: Backend .NET 8 / ASP.NET Core theo chuẩn Clean Architecture, 61 database entities PostgreSQL tối ưu GIN Index <8ms, cổng cọc VietQR Webhook <0.5s, xác thực kép JWT, DeepSeek AI Chatbot và vận hành Linux VPS độc lập."
+    },
+    {
+      "role": "CEO & Tech Lead (Team 6 Kỹ sư)",
+      "company": "The MC Hub",
+      "type": "Khởi nghiệp AI",
+      "duration": "01/2026 – 07/2026",
+      "status": "Đã hoàn thành",
+      "description": "Dẫn dắt đội ngũ 6 kỹ sư đưa nền tảng luyện giọng nói AI ra thị trường trong 6 tháng. Onboard 87 MC chuyên nghiệp ngay tháng đầu, tạo doanh thu thực tế qua 20 gói đăng ký. Xây dựng microservice AI bằng Python FastAPI + OpenAI Whisper đánh giá phát âm, ngữ điệu, ngắt nghỉ."
+    },
+    {
+      "role": "Thực tập sinh Software Developer",
+      "company": "FPT Software (FSoft Đà Nẵng)",
+      "type": "Thực tập Doanh nghiệp",
+      "duration": "08/2025 – 12/2025",
+      "status": "Đã hoàn thành",
+      "description": "Phát triển các ứng dụng doanh nghiệp sử dụng OutSystems Reactive Web trong môi trường Agile/Scrum chuẩn FSoft. Trực tiếp debug, tối ưu hóa cơ sở dữ liệu và tái cấu trúc mã nguồn theo 4-Layer Architecture."
+    },
+    {
+      "role": "Founder & Chủ tịch",
       "company": "The Dreamers Organization",
-      "type": "Lãnh đạo",
+      "type": "Lãnh đạo / Tác động Xã hội",
       "duration": "15/06/2024 – Hiện tại",
       "status": "Hiện tại",
-      "description": "Người sáng lập tổ chức thiện nguyện cộng đồng gồm 30 thành viên, cống hiến cho các hoạt động thúc đẩy tác động xã hội tích cực thông qua giáo dục công nghệ và hoạt động cộng đồng."
+      "description": "Người sáng lập và điều hành tổ chức thiện nguyện cộng đồng gồm hơn 30 thành viên, thực hiện các dự án lan tỏa giá trị giáo dục công nghệ và hỗ trợ trẻ em có hoàn cảnh khó khăn tại miền Trung."
     },
     {
       "role": "Trưởng nhóm & MC Sự kiện",
@@ -500,83 +529,75 @@
       "type": "Lãnh đạo / Dẫn chương trình",
       "duration": "01/2024 – Hiện tại",
       "status": "Hiện tại",
-      "description": "MC cho hơn 50 sự kiện trường và lễ khai giảng. Trọng tài cuộc thi FPTU AI & Robotics 2025 và Đại sứ sinh viên Dự án Kinh tế Đà Nẵng 'Working Space'."
-    },
-    {
-      "role": "Tech Lead & Co-Founder",
-      "company": "Biensovip.com & Team 5 Kỹ Sư Đà Nẵng",
-      "type": "Tech Lead & Sản phẩm",
-      "duration": "05/2026 – Hiện tại",
-      "status": "Hiện tại",
-      "description": "Dẫn dắt đội ngũ 5 kỹ sư tại Đà Nẵng thiết kế và vận hành nền tảng marketplace biensovip.com và cung cấp giải pháp Website & SaaS trọn gói cho khách hàng. Trực tiếp thiết kế kiến trúc .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, VietQR webhook khớp lệnh tức thì <0.5s, tích hợp AI DeepSeek và tự động hóa n8n."
+      "description": "MC chuyên nghiệp cho hơn 50 sự kiện trường và diễn đàn công nghệ (600–1000+ người). Trọng tài cuộc thi FPTU AI & Robotics 2025 và Đại sứ sinh viên Dự án Kinh tế Đà Nẵng 'Working Space'."
     }
   ],
   "skills": [
     {
-      "category": "Ngôn ngữ lập trình",
+      "category": "Kiến trúc & Backend",
       "items": [
         {
-          "name": "Java"
+          "name": "Clean Architecture & DDD"
         },
         {
-          "name": "JavaScript / TypeScript"
+          "name": "Java 21 & Spring Boot 3"
         },
         {
-          "name": "C# (.NET)"
+          "name": ".NET 8 / ASP.NET Core & EF Core"
         },
         {
-          "name": "Python"
+          "name": "Python FastAPI & Node.js"
         }
       ]
     },
     {
-      "category": "Framework & Thư viện",
+      "category": "Frontend & Giao diện Hiện đại",
       "items": [
         {
-          "name": "Java Spring Boot"
+          "name": "React 19 / Next.js / Vite"
         },
         {
-          "name": "ASP.NET Core"
+          "name": "TypeScript & JavaScript ES6+"
         },
         {
-          "name": "React"
+          "name": "Tailwind CSS & Framer Motion"
         },
         {
-          "name": "Python FastAPI & NodeJS"
+          "name": "Flutter & OutSystems Reactive"
         }
       ]
     },
     {
-      "category": "Cơ sở dữ liệu & Công cụ",
+      "category": "AI Engineering & Tự Động Hóa",
       "items": [
         {
-          "name": "PostgreSQL & SQL Server"
+          "name": "VietQR Webhook Integration"
         },
         {
-          "name": "MongoDB & Redis"
+          "name": "Whisper AI Voice Microservice"
         },
         {
-          "name": "Docker & Git / GitHub"
+          "name": "DeepSeek / LLM Fine-tuning (QLoRA)"
         },
         {
-          "name": "Jira & Notion"
+          "name": "n8n Workflow & RAG Pipeline"
         }
       ]
     },
     {
-      "category": "Kỹ năng mềm",
+      "category": "Cơ sở Dữ liệu & Hạ tầng Cloud",
       "items": [
         {
-          "name": "Kỹ năng giao tiếp"
+          "name": "PostgreSQL 16 (GIN Index) & SQL Server"
         },
         {
-          "name": "Lãnh đạo nhóm"
+          "name": "RabbitMQ (DLQ Async Queue)"
         },
         {
-          "name": "Giải quyết vấn đề"
+          "name": "Redis Distributed Lock & MongoDB"
         },
         {
-          "name": "Làm việc Agile"
+          "name": "Docker Compose & Linux VPS"
         }
       ]
     }
@@ -585,17 +606,17 @@
     {
       "name": "Tiếng Việt",
       "level": "Bản ngữ",
-      "description": "Tiếng mẹ đẻ — thành thạo hoàn toàn trong giao tiếp và chuyên nghiệp"
+      "description": "Tiếng mẹ đẻ — thành thạo hoàn toàn trong giao tiếp và chuyên môn"
     },
     {
       "name": "Tiếng Anh",
       "level": "Chuyên nghiệp (IELTS 6.0)",
-      "description": "Thành thạo làm việc — đọc, viết, thuyết trình và giao tiếp hàng ngày"
+      "description": "IELTS 6.0 (IDP Education 04/2026) — Trao đổi sinh viên quốc tế tại Malaysia, đọc hiểu tài liệu kỹ thuật chuyên sâu"
     },
     {
       "name": "Tiếng Nhật",
       "level": "Sơ cấp",
-      "description": "Đã hoàn thành Hiragana & Katakana — đang tự học"
+      "description": "Đã hoàn thành Hiragana & Katakana — đang tự học giao tiếp cơ bản"
     }
   ],
   "siteNavigation": [
@@ -731,13 +752,14 @@
       ]
     },
     {
-      "role": "Backend Developer (Dự án nhóm)",
-      "description": "Nền tảng **agency quản lý nội dung thương hiệu khách hàng** trên mạng xã hội — Facebook, Instagram, TikTok, Threads, và Zalo — với workflow tạo/duyệt nội dung, sinh nội dung hỗ trợ AI, lên lịch chiến dịch, và tự động đăng đa nền tảng.\n\nXây dựng theo **kiến trúc microservices**: **API Gateway** (Spring Cloud Gateway, WebFlux, JWT + Redis auth), **business-service** (Spring Boot 3.3.5, Java 21) xử lý logic domain cốt lõi, **publisher-service** tiêu thụ từ **RabbitMQ** với retry/backoff để đăng bài đáng tin cậy, và **AI service** (Python FastAPI, RAG) cho sinh nội dung. Frontend là dashboard **React 18 + TypeScript + Vite**, kèm app mobile **Expo/React Native**, tất cả được orchestrate qua **Docker Compose**.",
-      "challenge": "Đăng nội dung đồng thời lên nhiều mạng xã hội (Facebook, Instagram, TikTok, Threads, Zalo) một cách đáng tin cậy — cần kiến trúc chịu lỗi (retry/backoff) và tách biệt rõ giữa domain logic, việc publish, và AI content generation.",
+      "role": "Tech Lead & Solutions Architect (Team 5 Kỹ Sư)",
+      "description": "Nền tảng **agency quản lý nội dung thương hiệu khách hàng** trên 5 mạng xã hội — Facebook, Instagram, TikTok, Threads, và Zalo — với workflow tạo/duyệt nội dung, AI học giọng điệu thương hiệu (Brand Voice), lên lịch chiến dịch, và tự động đăng đa nền tảng.\n\nXây dựng theo **kiến trúc 7 microservices phân tán**: **API Gateway** (Spring Cloud Gateway, WebFlux, JWT + Redis auth & rate-limiting), **business-service** (Spring Boot 3.3.5, Java 21) xử lý logic multi-tenant và campaign, **publisher-service** tiêu thụ từ **RabbitMQ với Dead Letter Queue (DLQ)** retry lũy thừa chống mất tin nhắn 100%, và **AI service** (Python FastAPI, RAG & GraphRAG với ChromaDB và Neo4j) cho sinh nội dung. Frontend là dashboard **React 18 + TypeScript + Vite**, kèm app mobile **Expo/React Native**, tất cả được orchestrate qua **Docker Compose** trên AWS EC2.",
+      "challenge": "Đăng nội dung đồng thời lên 5 mạng xã hội (Facebook, Instagram, TikTok, Threads, Zalo) với độ tin cậy tuyệt đối 100% — đòi hỏi kiến trúc 7 microservices phân tán chịu lỗi cao (RabbitMQ DLQ retry lũy thừa), bảo vệ gateway và AI RAG học giọng điệu thương hiệu.",
       "highlights": [
-        "Kiến trúc microservices: API Gateway (Spring Cloud Gateway, WebFlux, JWT+Redis auth), business-service (Spring Boot 3.3.5), publisher-service (RabbitMQ với retry/backoff), AI service (Python FastAPI + RAG)",
-        "Toàn bộ hệ thống orchestrate qua Docker Compose",
-        "Frontend dashboard React 18 + TypeScript + Vite, kèm mobile app Expo/React Native"
+        "Kiến trúc tổng thể 7 Microservices: API Gateway (Spring Cloud Gateway, WebFlux, JWT+Redis), business-service (Java 21), publisher-service (RabbitMQ DLQ), AI service (FastAPI GraphRAG)",
+        "Thiết kế cơ chế Dead Letter Queue (DLQ) retry lũy thừa đảm bảo tỷ lệ mất tin nhắn khi xuất bản bằng 0%",
+        "Tích hợp RAG & GraphRAG (ChromaDB + Neo4j) học Brand Voice và phân tích quan hệ KOL/xu hướng",
+        "Frontend dashboard React 18 + TypeScript + Vite, mobile app Expo React Native, điều phối cụm Docker Compose"
       ]
     },
     {
@@ -812,13 +834,14 @@
       ]
     },
     {
-      "role": "Freelance Full-Stack Developer",
-      "description": "Thiết kế và xây dựng độc lập nền tảng marketplace solo — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth và triển khai hệ thống.\n\nĐưa ra và bảo vệ các quyết định kiến trúc then chốt: PostgreSQL thay vì MongoDB cho truy vấn lọc đa điều kiện quan hệ, và loại trừ cổng thanh toán để loại bỏ rủi ro PCI-DSS.\n\nChịu trách nhiệm toàn bộ bàn giao dự án freelance: lấy yêu cầu khách hàng, đề xuất kỹ thuật, lộ trình MVP 30 ngày, tích hợp bên thứ ba (Cloudinary, AWS SES, DeepSeek AI chatbot) và deploy trên VPS.",
-      "challenge": "Dự án freelance thật cho khách hàng — cần giao MVP hoàn chỉnh trong 30 ngày, một mình xử lý toàn bộ từ kiến trúc Clean Architecture, 61 entities PostgreSQL, đến quyết định bảo mật loại trừ cổng thanh toán online.",
+      "role": "Solo Software Architect & Full-Stack Engineer",
+      "description": "Tự tay thiết kế, kiến trúc và lập trình trọn gói sàn giao dịch và định giá biển số đẹp độc bản từ con số 0 — .NET 8 / ASP.NET Core (Clean Architecture: Domain, Application, Infrastructure, API), 61 bảng thực thể trên PostgreSQL 16 với EF Core và React 19.\n\nĐưa ra và bảo vệ các quyết định kiến trúc chiến lược: chọn PostgreSQL thay vì MongoDB để đảm bảo tính toàn vẹn giao dịch ACID và tối ưu truy vấn lọc đa tiêu chí dưới 8ms bằng Composite và GIN Index. Tích hợp cổng cọc VietQR Webhook tự động khớp lệnh <0.5s với khóa phân tán Redis 15 phút triệt tiêu 100% rủi ro bán trùng. Bảo mật kép JWT (Access Token ngắn hạn + Refresh Token HttpOnly Cookie), DeepSeek AI chatbot tư vấn 24/7, Cloudinary, AWS SES và trực tiếp quản trị cụm VPS Linux độc lập bằng Docker & Nginx.",
+      "challenge": "Thiết kế và triển khai trọn gói sàn giao dịch biển số quy mô lớn solo từ con số 0 trong 30 ngày: giải quyết bài toán lọc đa tiêu chí siêu tốc giữa hàng chục nghìn biển số, khớp lệnh cọc thời gian thực không bán trùng, và loại bỏ hoàn toàn rủi ro chứng chỉ PCI-DSS.",
       "highlights": [
-        "Thiết kế và xây dựng độc lập nền tảng marketplace solo — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth và triển khai hệ thống",
-        "Đưa ra và bảo vệ các quyết định kiến trúc then chốt: PostgreSQL thay vì MongoDB cho truy vấn lọc đa điều kiện quan hệ, và loại trừ cổng thanh toán để loại bỏ rủi ro PCI-DSS",
-        "Chịu trách nhiệm toàn bộ bàn giao dự án freelance: lấy yêu cầu khách hàng, đề xuất kỹ thuật, lộ trình MVP 30 ngày, tích hợp Cloudinary, AWS SES, DeepSeek AI chatbot và deploy VPS"
+        "Kiến trúc độc lập toàn diện trên .NET 8 Clean Architecture với 61 bảng thực thể PostgreSQL và EF Core",
+        "Tối ưu truy vấn lọc đa tiêu chí GIN Index từ 350ms xuống dưới 8ms, phản hồi tức thời",
+        "Cổng cọc VietQR Webhook tự động khớp lệnh <0.5s kết hợp khóa phân tán Redis 15 phút triệt tiêu 100% rủi ro bán trùng",
+        "Bảo mật kép JWT, DeepSeek AI Chatbot tư vấn 24/7, Cloudinary, AWS SES và tự cấu hình vận hành Linux VPS"
       ]
     },
     {
@@ -862,24 +885,24 @@
   ],
   "educationItems": [
     {
-      "degree": "Tech Lead & Kỹ Sư Trưởng (Khởi Nghiệp Đa Công Nghệ)",
-      "description": "Dẫn dắt **đội ngũ 5 kỹ sư** tại Đà Nẵng phát triển Website thương mại, SaaS Automation và AI Agent bằng **đa công nghệ** (.NET 8, React/Next.js, Python FastAPI, PostgreSQL, VietQR Webhook, n8n). Trực tiếp thiết kế và vận hành **biensovip.com** — nền tảng marketplace biển số xe với VietQR tự động, xử lý 100+ lượt truy cập/ngày, uptime 99.98%, khớp lệnh <0.5s."
+      "degree": "Founder, Head of Technology & Software Architect (SynapForge)",
+      "description": "Founder & Head of Technology tại **SynapForge Venture Studio**. Trực tiếp thiết kế kiến trúc hệ thống, chuẩn hóa Clean Architecture và dẫn dắt phát triển các sản phẩm công nghệ trọng điểm: **biensovip.com**, **The MC Hub** và **BrandHub**, phục vụ khách hàng doanh nghiệp và hàng nghìn người dùng cuối."
     },
     {
-      "degree": "Thực tập sinh Software Developer",
-      "description": "Phát triển các ứng dụng doanh nghiệp sử dụng **OutSystems Reactive Web** trong môi trường Agile tại FPT Software. Debug và tối ưu hóa code nhằm nâng cao hiệu năng hệ thống và trải nghiệm người dùng."
+      "degree": "Thực tập sinh Software Developer (FPT Software)",
+      "description": "Phát triển các ứng dụng doanh nghiệp sử dụng OutSystems Reactive Web trong môi trường Agile/Scrum chuẩn FSoft. Trực tiếp debug, tối ưu hóa cơ sở dữ liệu và tái cấu trúc mã nguồn theo 4-Layer Architecture."
     },
     {
-      "degree": "Đại học (Khoa học Máy tính)",
-      "description": "Hiện đang theo học **Cử nhân Khoa học Máy tính** tại Đại học FPT (GPA 3.3/4.0 - 8.2/10.0). Đạt **Giải Nhất Quán Quân Hackathon Computer Vision 2026** và **Top 5 ResFes Toàn Quốc**. Chuyên sâu Java Spring Boot, .NET, Python FastAPI và kiến trúc phần mềm."
+      "degree": "Cử nhân Kỹ thuật Phần mềm (Software Engineering)",
+      "description": "Theo học chuyên ngành **Kỹ thuật Phần mềm** tại Đại học FPT với **GPA 3.3/4.0 (8.2/10.0)**. Đạt **Quán quân Hackathon Computer Vision 2026**, **Chung kết Toàn quốc InnoCodeCamp 2025**, và là **Đồng tác giả Bài báo Khoa học Quốc tế ICTA 2026**."
     },
     {
-      "degree": "Chương trình Trao đổi Sinh viên Quốc tế (FPTU Student Exchange)",
-      "description": "Hoàn thành **Chương trình Trao đổi Sinh viên Quốc tế** của Đại học FPT tại TAR UMT ở **Kuala Lumpur, Malaysia**. Tích lũy trải nghiệm học thuật quốc tế, nâng cao khả năng thích nghi và kỹ năng giao tiếp đa văn hóa."
+      "degree": "Đại diện Trao đổi Sinh viên Quốc tế (FPT Student Exchange)",
+      "description": "Đại diện sinh viên FPT University tham gia **Chương trình Trao đổi Sinh viên Quốc tế** tại **Kuala Lumpur, Malaysia** (12/2023). Mở rộng góc nhìn học thuật đa văn hóa, phát triển kỹ năng giao tiếp quốc tế và tiếng Anh chuyên ngành (IELTS 6.0)."
     },
     {
-      "degree": "Bằng Tốt nghiệp Trung học Phổ thông",
-      "description": "Tốt nghiệp Trường THPT Phan Châu Trinh với **GPA 9.0/10.0**. Nền tảng vững chắc về Toán học, tư duy logic phản biện và tinh thần trách nhiệm."
+      "degree": "Bằng Tốt nghiệp THPT (Chuyên Phan Châu Trinh)",
+      "description": "Tốt nghiệp Trường THPT Chuyên Phan Châu Trinh với **GPA 9.0/10.0**. Nền tảng tư duy toán học, thuật toán và khả năng diễn đạt trước công chúng vững chắc."
     }
   ],
   "memoryItems": [

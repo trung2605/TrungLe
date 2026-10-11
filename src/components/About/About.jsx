@@ -55,7 +55,7 @@ const About = () => {
       }}>
         <span style={{ color: '#1ea64a' }}>{'// '}</span>
         <span>about.js</span>
-        <span style={{ color: '#888888', marginLeft: '16px' }}>{'/* Initialized 2005 · Tech Lead & Full-Stack @ Da Nang, VN */'}</span>
+        <span style={{ color: '#888888', marginLeft: '16px' }}>{'/* Initialized 2005 · Founder & Tech Lead @ SynapForge Venture Studio */'}</span>
       </div>
 
       {/* ── STORY + INFO ── */}
@@ -135,7 +135,7 @@ const About = () => {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.backgroundColor = '#e3d6fa'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.backgroundColor = '#ede5fb'; }}
             >
-              <FaRocket size={11} /> {isEn ? "Team 5 Devs Service" : "Dịch Vụ Team 5 Devs"}
+              <FaRocket size={11} /> {isEn ? "SynapForge Tech Studio" : "Dịch Vụ SynapForge Studio"}
             </Link>
             <Link
               to="/projects/26"

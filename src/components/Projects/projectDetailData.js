@@ -25,18 +25,28 @@ export const BLOCK_COLORS = ['#dceeb1', '#c5b0f4', '#f4ecd6', '#c8e6cd', '#efd4d
 export const PROJECT_MILESTONE_MAP = {
   26: {
     milestoneId: 1,
-    titleVi: "Đội Ngũ Kỹ Sư Đà Nẵng (Khởi Nghiệp Đa Công Nghệ)",
-    titleEn: "Da Nang Engineering Team (Multi-Tech Startup)",
-    roleVi: "Tech Lead & Kỹ Sư Trưởng",
-    roleEn: "Tech Lead & Chief Engineer",
+    titleVi: "SynapForge Venture Studio (Biensovip.com)",
+    titleEn: "SynapForge Venture Studio (Biensovip.com)",
+    roleVi: "Founder & Solo Software Architect",
+    roleEn: "Founder & Solo Software Architect",
     color: "#059669",
     bg: "#ecfdf5",
     border: "#a7f3d0"
   },
+  11: {
+    milestoneId: 1,
+    titleVi: "SynapForge Venture Studio (The MC Hub)",
+    titleEn: "SynapForge Venture Studio (The MC Hub)",
+    roleVi: "CEO & Tech Lead (Team 6 Kỹ sư)",
+    roleEn: "CEO & Tech Lead (6-Engineer Team)",
+    color: "#7c3aed",
+    bg: "#faf5ff",
+    border: "#ddd6fe"
+  },
   14: {
     milestoneId: 3,
-    titleVi: "Đại học FPT Đà Nẵng (Capstone Project Khóa 19)",
-    titleEn: "FPT University Da Nang (Graduation Capstone)",
+    titleVi: "Đại học FPT Đà Nẵng (BrandHub MarTech Platform)",
+    titleEn: "FPT University Da Nang (BrandHub MarTech Platform)",
     roleVi: "Tech Lead & Solutions Architect (Team 5 Kỹ sư)",
     roleEn: "Tech Lead & Solutions Architect (5-Engineer Team)",
     color: "#6366f1",
@@ -45,10 +55,10 @@ export const PROJECT_MILESTONE_MAP = {
   },
   24: {
     milestoneId: 3,
-    titleVi: "Đại học FPT Đà Nẵng (AI Research)",
-    titleEn: "FPT University Da Nang (AI Research)",
-    roleVi: "Cử nhân KHMT & Quán Quân Hackathon 2026",
-    roleEn: "CS Student & Hackathon Champion 2026",
+    titleVi: "Đại học FPT Đà Nẵng (ThreadLearn AI Research)",
+    titleEn: "FPT University Da Nang (ThreadLearn AI Research)",
+    roleVi: "AI Engineer & Đồng tác giả ICTA 2026",
+    roleEn: "AI Engineer & ICTA 2026 Co-Author",
     color: "#7c3aed",
     bg: "#faf5ff",
     border: "#ddd6fe"

@@ -37,28 +37,28 @@
     "close": "Close",
     "roles": {
       "backend": {
-        "label": "Backend / API Development",
-        "blurb": "I specialize in Java Spring Boot on the backend, with hands-on experience in ASP.NET Core, Node.js, and Python too — designing REST APIs, working with relational and document databases, and building systems meant to hold up under real load."
+        "label": "Backend & System Architecture",
+        "blurb": "Specialized in Clean Architecture & Microservices with .NET 8 / ASP.NET Core and Java 21 Spring Boot 3 — architected 61 PostgreSQL database entities, RabbitMQ DLQ asynchronous queues, Redis distributed locking, and optimized high-scale queries under 8ms."
       },
       "frontend": {
-        "label": "Frontend / UI Engineering",
-        "blurb": "I build clean, responsive interfaces with React and Tailwind CSS, with an eye for animation (Framer Motion) and performance. I care about interfaces that feel considered, not just functional."
+        "label": "Frontend / UI & Experience",
+        "blurb": "Building modern, responsive web applications with React 19, Next.js, Vite, and TypeScript. Focused on high-end aesthetics, fluid animations with Framer Motion, SEO best practices, and Core Web Vitals optimization."
       },
       "fullstack": {
-        "label": "Full-Stack Development",
-        "blurb": "I'm comfortable owning a feature end-to-end — React or Next.js on the frontend, Spring Boot or .NET on the backend, and the database and deployment pipeline in between."
+        "label": "Full-Stack & Venture Lead",
+        "blurb": "Founder & Tech Lead owning products end-to-end — from system architecture, backend, and frontend to Docker and Linux VPS orchestration. Shipped The MC Hub and biensovip.com from blueprints to live production with real revenue."
       },
       "ai-ml": {
-        "label": "AI / Machine Learning",
-        "blurb": "I've fine-tuned language models with QLoRA, built RAG retrieval pipelines, and trained CNNs from scratch — focused on making small, specialized models outperform larger general-purpose ones on narrow tasks."
+        "label": "AI Engineering & Machine Learning",
+        "blurb": "Winner of Hackathon Computer Vision 2026, co-author of international research paper at ICTA 2026. Hands-on experience fine-tuning LLMs via QLoRA, deploying Whisper AI voice evaluation microservices, and architecting GraphRAG (ChromaDB + Neo4j)."
       },
       "lowcode": {
-        "label": "Low-Code / Enterprise Delivery",
-        "blurb": "Through my internship at FPT Software, I've shipped applications on OutSystems in an enterprise Agile environment — useful if your team needs fast, structured delivery without sacrificing process."
+        "label": "Enterprise Delivery / FPT Software",
+        "blurb": "Completed high-performing OJT software engineering internship at FPT Software, delivering OutSystems Reactive Web enterprise applications within professional Agile/Scrum sprints."
       },
       "freelance": {
-        "label": "Freelance Web Project",
-        "blurb": "I take on freelance web projects solo, end-to-end — architecture, backend, frontend, and deployment — and I'm currently running a live production marketplace for a paying client."
+        "label": "Software Architect & Startup Founder",
+        "blurb": "Founder at SynapForge Venture Studio — working direct 1-on-1 with clients (No Middlemen), guaranteeing production-grade engineering, full documentation transparency, and absolute reliability."
       }
     }
   },
@@ -74,13 +74,13 @@
     "badge": "Available for opportunities",
     "greeting": "Xin chào,",
     "roles": [
-      "Tech Lead & Full-Stack",
-      "SaaS Automation Specialist",
-      "Java & .NET / AI Engineer",
-      "Problem Solver"
+      "Founder & Tech Lead @ SynapForge",
+      "Software Architect (.NET 8 & Java 21)",
+      "SaaS Automation & AI Engineer",
+      "Hackathon CV 2026 Champion"
     ],
     "iAm": "I'm a",
-    "heroDesc": "Tech Lead leading a 5-engineer team in Da Nang — specializing in commercial websites, SaaS Automation, and AI Agent integrations for SMEs. Operating live marketplace biensovip.com.",
+    "heroDesc": "Founder & Head of Technology at SynapForge Venture Studio. Specialized in Clean Architecture (.NET 8 & Java 21), SaaS Automation, and AI Engineering. Winner of Computer Vision Hackathon 2026, co-author of international research paper at ICTA 2026, and lead architect operating biensovip.com.",
     "viewProjects": "View Projects",
     "downloadCV": "Download CV",
     "statsByNumbers": "By the numbers",
@@ -113,7 +113,7 @@
     "ctaLabel": "Let's build something",
     "ctaTitle": "Open to internship & collaboration opportunities",
     "getInTouch": "Get in touch",
-    "terminalRole": "Tech Lead & Full-Stack Engineer"
+    "terminalRole": "Founder & Head of Technology @ SynapForge Venture Studio"
   },
   "about": {
     "personalInfoLabel": "Personal Info",
@@ -121,8 +121,8 @@
     "location": "Location",
     "education": "Education",
     "specialization": "Specialization",
-    "educationValue": "FPT University Da Nang (Computer Science)",
-    "specializationValue": "Tech Lead & Full-Stack / SaaS Automation",
+    "educationValue": "FPT University Da Nang (Software Engineering — GPA 3.3/4.0)",
+    "specializationValue": "Founder, Tech Lead & Software Architect (SynapForge)",
     "atAGlance": "At a glance",
     "experienceLabel": "Experience",
     "experienceTitle": "Where I've worked & led",
@@ -138,7 +138,7 @@
     "phoneLabel": "Phone / Zalo",
     "ecosystemLabel": "Ecosystem & Connections",
     "ecosystemTitle": "Explore Connected Work & Pages",
-    "ecosystemSubtitle": "Explore engineering services, production showcases, deep-dive tech articles, and verified credentials."
+    "ecosystemSubtitle": "Explore technology services by SynapForge Venture Studio, live production showcases, deep-dive engineering blogs, and certified achievements."
   },
   "contact": {
     "label": "Get in touch",
@@ -389,66 +389,71 @@
     {
       "title": "Hackathon Computer Vision 2026",
       "position": "Winner (First Place)",
-      "description": "Awarded **Winner (First Place)** at the **Hackathon Computer Vision 2026** organized by FPT Education (06/08/2026) — designing and implementing high-accuracy computer vision and AI models under intense competition constraints."
+      "description": "Awarded **Winner (First Place)** at the **Hackathon Computer Vision 2026** organized by FPT Education (06/08/2026) — designing and developing high-accuracy computer vision and AI models under intense hackathon competition constraints."
     },
     {
-      "title": "Code Mosaic Algorithm Contest",
-      "position": "Finalist",
-      "description": "Made it to the **final round** of Code Mosaic, an algorithmic contest run by FPT Education that tests data structures, algorithmic complexity, and how fast you can think under a ticking clock. I was up against top CS students from across FPT's campuses."
+      "title": "Co-Author of International Scientific Paper (ICTA 2026)",
+      "position": "Co-Author & Researcher",
+      "description": "Co-authored international research paper accepted and presented at **ICTA 2026** — presenting an AI fine-tuning model (Qwen2.5-Coder-1.5B + QLoRA + BM25 AST RAG) for automated race-condition vulnerability remediation in source code with 73.3% accuracy, outperforming GPT-3.5-turbo."
+    },
+    {
+      "title": "Innocode Camp SU25",
+      "position": "National Finalist (Team Leader)",
+      "description": "Advanced to the **National Final Round (08/07/2025)** of Innocode Camp 2025 as Team Leader — orchestrating the full-lifecycle delivery of a complete software platform using Java Spring Boot and MySQL."
+    },
+    {
+      "title": "Research Festival (ResFres 2024)",
+      "position": "National Finalist",
+      "description": "Advanced to the **National Final Round (20/06/2024)** of the FPT University Research Festival — conducting original scientific research, structured academic reporting, and formal defense before national jury panels."
+    },
+    {
+      "title": "FPT ResFes 2024 – 5 Campus Scale",
+      "position": "National Research Finalist",
+      "description": "Selected as a research finalist at the multi-campus nationwide scale of FPT ResFes 2024, competing against research teams across all 5 FPT University campuses."
     },
     {
       "title": "FPT Code Talent Contest",
       "position": "Finalist",
-      "description": "Reached the **final round** of FPT Code Talent, one of FPT's flagship annual coding competitions spanning algorithms, OOP design, and system-level problem solving. A solid result that paid off months of steady competitive-programming practice."
+      "description": "Reached the **final round** of FPT Code Talent — one of FPT's premier annual programming competitions spanning algorithms, OOP system design, and complex problem solving."
     },
     {
-      "title": "Innocode Camp SU25",
+      "title": "Code Mosaic Algorithm Contest",
       "position": "Finalist",
-      "description": "Made it to the **final round** of Innocode Camp Summer 2025, a project-based competition where teams build and demo a working product on a tight clock. I led the backend side of things, using Java Spring Boot and MySQL."
-    },
-    {
-      "title": "Research Festival (ResFres 2024)",
-      "position": "Finalist",
-      "description": "Advanced to the **final round** of the FPT University Research Festival — a campus-wide academic competition where teams run original research, write it up formally, and defend it in front of a judging panel. It sharpened my research methodology, data analysis, and academic presentation skills."
-    },
-    {
-      "title": "FPT ResFes 2024 – 5 Campus Scale",
-      "position": "Research Finalist",
-      "description": "Selected as a **research finalist** at the multi-campus level of FPT ResFes 2024, competing against research teams from all 5 FPT University campuses nationwide. One of my more selective wins — it demanded both technical depth and being able to explain the science clearly."
+      "description": "Advanced to the **final round** of Code Mosaic algorithmic competition organized by FPT Education — testing data structures, algorithmic complexity, and rapid problem-solving under strict time limits."
     },
     {
       "title": "Talent Contest – Final Interview Round",
       "position": "Winner (First Place)",
-      "description": "Took **First Place** in my high school's Talent Contest final round, a school-wide competition judged on performance, charisma, and interview skills. Looking back, it was an early sign of the stage confidence and public-speaking chops that later grew into MC work for events with 1000+ attendees."
+      "description": "Awarded **First Place** in the school-wide Talent Contest final interview round during high school — evaluated on performance, personal charisma, and interview agility; the foundation for hosting events with 1,000+ attendees."
     },
     {
       "title": "Talent & Beauty Contest (Mister)",
       "position": "First Runner-up",
-      "description": "Won **First Runner-up (Mister)** in my school's annual Talent and Beauty Contest, judged on presentation, talent, and a personal interview — up against the school's top male contenders."
+      "description": "Awarded **First Runner-up (Mister)** in the annual Talent and Beauty Contest at Phan Chau Trinh High School."
     }
   ],
   "personalInfo": {
     "storyTitle": "My Journey",
-    "storyContent": "I'm **Lê Trí Trung** — Tech Lead and software engineer based in Da Nang, currently leading a **[5-engineer team](/dich-vu)** specializing in business website development, SaaS Automation, and AI Agent integrations for SMEs and shop owners.\n\nAfter completing my Software Developer internship at **[FPT Software](/achievements?tab=education)** (09–12/2025) and winning **[First Prize at the Computer Vision Hackathon 2026](/achievements?tab=prizes)** along with **[Top 5 National ResFes](/achievements?tab=prizes)** at FPT University Da Nang, I translated technical knowledge into real-world impact by designing, engineering, and operating **[biensovip.com](/projects/26)** — an e-commerce marketplace for license plates with automated VietQR payment matching in under 0.5 seconds, handling 100+ visits/day.\n\nWhat drives me most is **business workflow automation (SaaS Automation)**: real-time VietQR webhooks, 24/7 DeepSeek AI consulting agents, and multi-platform n8n automation scenarios — drastically eliminating repetitive human overhead. With our **[No Middlemen philosophy](/dich-vu)**, clients collaborate directly 1-on-1 with the Tech Lead — ensuring rapid iterations, production-grade quality, and optimal investment ROI.\n\nBeyond programming, I've served as an **MC for university events with 600–1000+ attendees**, founded **[The Dreamers](/activities)** — a student charity bringing tech education to orphaned children, and reached final rounds across prestigious national hackathons.\n\nExplore detailed technical breakdowns in our **[Engineering Blog](/blog)** or review packages and pricing at **[Services & Pricing](/dich-vu)**.",
-    "title": "Tech Lead & Full-Stack Engineer | SaaS Automation",
-    "intro": "Tech Lead heading a 5-engineer team in Da Nang — specializing in commercial web platforms, SaaS Automation, and AI Agent integration for SMEs. Winner of Computer Vision Hackathon 2026 (FPT University). Operator of live production marketplace biensovip.com."
+    "storyContent": "I am **Lê Trí Trung** (born 2005) — Founder & Head of Technology (Tech Lead / Software Architect) at **SynapForge Venture Studio** in Da Nang, specializing in architecting and operating high-performance digital platforms, SaaS Automation, and AI Engineering for businesses.\n\nMy technical foundation is grounded in strong academics at **[FPT University Da Nang](/achievements?tab=education)** (Software Engineering major, **GPA 3.3/4.0 - 8.2/10.0**), having been selected as an **[International Student Exchange Representative](/achievements?tab=education)** in **Technology Kuala Lumpur, Malaysia** (12/2023), certified with **IELTS 6.0** (IDP Education issued 04/2026), and graduated from **Phan Chau Trinh Gifted High School** with a **GPA of 9.0/10.0**.\n\nIn terms of technological honors, I was awarded **[Winner (First Place) of the Hackathon Computer Vision 2026](/achievements?tab=prizes)** (FPT Education), reached the **[National Finals of InnoCodeCamp 2025](/achievements?tab=prizes)** as Team Leader, the **[National Finals of ResFres 2024](/achievements?tab=prizes)**, and co-authored an **[International Scientific Research Paper (ICTA 2026)](/achievements?tab=prizes)** on AI Fine-tuning for automated detection and remediation of race-condition vulnerabilities in codebases.\n\nIn real-world product delivery, I have led 3 core venture pillars:\n1. **[Biensovip.com](/projects/26) (Solo Software Architect):** Architected and coded end-to-end an exclusive license plate marketplace and valuation platform from scratch on .NET 8 / ASP.NET Core (Clean Architecture), 61 PostgreSQL entity tables optimized with GIN indexing (<8ms queries), VietQR Webhook auto-settlement (<0.5s), DeepSeek AI Chatbot, and Linux VPS orchestration.\n2. **[The MC Hub](/projects/11) (CEO & Tech Lead):** Led a 6-engineer team launching an AI voice training platform (React 19 + Spring Boot 3.3 + Python FastAPI & Whisper), successfully monetizing in month one with 87 professional MCs and 20 subscription transactions.\n3. **[BrandHub](/projects/14) (Tech Lead & Solutions Architect):** Architected a 7-microservice multi-channel brand management ecosystem (Spring Cloud Gateway, RabbitMQ DLQ exponential retry, Java 21, Python GraphRAG).\n\nBeyond software, I have served as a **professional MC hosting 50+ major events (600–1,000+ attendees)**, served as Head Referee for FPTU AI & Robotics 2025, and am the **[Founder of The Dreamers Charity Organization](/activities)** (30+ members) spreading technology education to underprivileged children.",
+    "title": "Founder, Head of Technology & Software Architect",
+    "intro": "Founder & Head of Technology at SynapForge Venture Studio. Specialized in Clean Architecture (.NET 8 & Java 21 Spring Boot 3), SaaS Automation, and AI Engineering. Winner of Computer Vision Hackathon 2026 (FPT Education), co-author of international paper at ICTA 2026, and lead architect operating biensovip.com & The MC Hub."
   },
   "highlights": [
     {
-      "title": "SaaS & AI Automation",
-      "description": "Specialized in end-to-end business automation: real-time VietQR webhooks, 24/7 DeepSeek AI sales agents, and cross-platform n8n orchestration to eliminate manual operations."
+      "title": "System Architecture & Clean Architecture",
+      "description": "Specialized in Clean Architecture (.NET 8 / C# 12) and Microservices (Java 21 / Spring Boot 3): 61 PostgreSQL database entities, RabbitMQ DLQ message queues, Redis distributed locking, and sub-8ms API latency."
     },
     {
-      "title": "Full-Stack Production Systems",
-      "description": "Operating biensovip.com in production: 100+ daily visits, <120ms API latency, 99.98% uptime, and <0.5s payment matching. Practical mastery spanning Java Spring Boot, .NET 8, React/Next.js, PostgreSQL, and Redis."
+      "title": "Venture Builder & Production Systems",
+      "description": "Founder at SynapForge Venture Studio: Built and operating biensovip.com (100+ visits/day, VietQR Webhook <0.5s) and The MC Hub (87 MCs onboarded, 20 subscription transactions in month 1)."
     },
     {
-      "title": "Competitive Coding & Research",
-      "description": "Champion of Computer Vision Hackathon 2026, Top 5 National ResFes (multithreaded security AI research). Finalist at FPT Code Talent and Innocode Camp — sharp algorithmic thinking under pressure."
+      "title": "Scientific Research & Honors",
+      "description": "Winner of Hackathon Computer Vision 2026 (FPT Education), Co-Author of International Scientific Paper (ICTA 2026), National Finalist at InnoCodeCamp 2025 (Team Leader) and ResFres 2024."
     },
     {
-      "title": "Tech Leadership & Community",
-      "description": "Leading an active 5-engineer development team. Founded The Dreamers tech charity, hosted 600–1000+ attendee events — proving engineers excel in both code and community impact."
+      "title": "Tech Leadership & Social Impact",
+      "description": "Led engineering teams of 5–6 developers from inception to market launch. Founded The Dreamers Organization (30+ members, tech charity), professional MC hosting 50+ major events (600–1,000+ people)."
     }
   ],
   "funFacts": [
@@ -479,104 +484,120 @@
   ],
   "experience": [
     {
-      "role": "Software Developer Intern",
-      "company": "FPT Software",
-      "type": "Internship",
-      "duration": "08/2025 – 12/2025",
-      "status": "Completed",
-      "description": "Developed enterprise applications using **OutSystems Reactive Web** within an Agile team. Debugged and refactored code to optimize system performance and user experience."
+      "role": "Founder & Head of Technology",
+      "company": "SynapForge Venture Studio",
+      "type": "Founding / Leadership",
+      "duration": "01/2026 – Present",
+      "status": "Current",
+      "description": "Founder & Head of Technology (Tech Lead / Software Architect) at SynapForge Venture Studio. Defining holistic architecture and leading flagship product lines: Biensovip.com (.NET 8 Clean Architecture), The MC Hub (AI Voice Training), BrandHub (7 Microservices)."
     },
     {
-      "role": "Founder",
+      "role": "Solo Software Architect & Full-Stack Engineer",
+      "company": "Biensovip.com",
+      "type": "Production Venture",
+      "duration": "05/2026 – Present",
+      "status": "Current",
+      "description": "Designed and developed end-to-end an exclusive license plate trading and valuation platform from scratch: .NET 8 / ASP.NET Core Clean Architecture, 61 PostgreSQL entities with GIN indexing (<8ms queries), VietQR Webhook instant settlement (<0.5s), dual JWT security, DeepSeek AI Chatbot, and self-managed Linux VPS."
+    },
+    {
+      "role": "CEO & Tech Lead (Team of 6 Engineers)",
+      "company": "The MC Hub",
+      "type": "AI Commercial Venture",
+      "duration": "01/2026 – 07/2026",
+      "status": "Completed",
+      "description": "Led a team of 6 engineers launching an AI speech evaluation platform to production in 6 months. Onboarded 87 professional MCs in month one with real revenue across 20 paid subscription packages. Built Python FastAPI + Whisper microservice evaluating pronunciation, intonation, and pacing."
+    },
+    {
+      "role": "Software Developer Intern",
+      "company": "FPT Software (FSoft Da Nang)",
+      "type": "Enterprise Internship",
+      "duration": "08/2025 – 12/2025",
+      "status": "Completed",
+      "description": "Engineered enterprise applications with OutSystems Reactive Web within professional Agile/Scrum teams at FPT Software. Directly debugged, optimized database performance, and refactored codebase following 4-Layer Architecture."
+    },
+    {
+      "role": "Founder & President",
       "company": "The Dreamers Organization",
-      "type": "Leadership",
+      "type": "Leadership / Social Impact",
       "duration": "15/06/2024 – Present",
       "status": "Current",
-      "description": "Founder of a community-driven charity organization including 30 members dedicated to fostering positive social impact through technology education and community initiatives."
+      "description": "Founder and leader of a community-driven youth charity organization with 30+ members, delivering tech education and humanitarian projects to orphaned and underprivileged youth across Central Vietnam."
     },
     {
       "role": "Team Leader & Event MC",
-      "company": "FPT University / Various Events",
+      "company": "FPT University / Public Events",
       "type": "Leadership / Hosting",
       "duration": "01/2024 – Present",
       "status": "Current",
-      "description": "MC for 50+ university events and orientation ceremonies. Referee for FPTU AI & Robotics 2025 Competition and Student Ambassador of Danang Economic Project 'Working Space'."
-    },
-    {
-      "role": "Tech Lead & Co-Founder",
-      "company": "Biensovip.com & Da Nang Dev Team (5 Engineers)",
-      "type": "Tech Lead & Product",
-      "duration": "05/2026 – Present",
-      "status": "Current",
-      "description": "Leading a 5-engineer team based in Da Nang building and operating biensovip.com marketplace, as well as delivering full-cycle web and SaaS solutions. Architected .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, PostgreSQL), React 19, VietQR instant matching, DeepSeek AI, and n8n."
+      "description": "Professional MC hosting 50+ university events and tech symposiums (600–1,000+ attendees). Head Referee for FPTU AI & Robotics 2025 Competition and Student Ambassador for the Da Nang Economic Project 'Working Space'."
     }
   ],
   "skills": [
     {
-      "category": "Programming Languages",
+      "category": "Architecture & Backend",
       "items": [
         {
-          "name": "Java"
+          "name": "Clean Architecture & DDD"
         },
         {
-          "name": "JavaScript / TypeScript"
+          "name": "Java 21 & Spring Boot 3"
         },
         {
-          "name": "C# (.NET)"
+          "name": ".NET 8 / ASP.NET Core & EF Core"
         },
         {
-          "name": "Python"
+          "name": "Python FastAPI & Node.js"
         }
       ]
     },
     {
-      "category": "Frameworks & Libraries",
+      "category": "Frontend & Modern UI",
       "items": [
         {
-          "name": "Java Spring Boot"
+          "name": "React 19 / Next.js / Vite"
         },
         {
-          "name": "ASP.NET Core"
+          "name": "TypeScript & JavaScript ES6+"
         },
         {
-          "name": "React"
+          "name": "Tailwind CSS & Framer Motion"
         },
         {
-          "name": "Python FastAPI & NodeJS"
+          "name": "Flutter & OutSystems Reactive"
         }
       ]
     },
     {
-      "category": "Databases & Tools",
+      "category": "AI Engineering & Automation",
       "items": [
         {
-          "name": "PostgreSQL & SQL Server"
+          "name": "VietQR Webhook Integration"
         },
         {
-          "name": "MongoDB & Redis"
+          "name": "Whisper AI Voice Microservice"
         },
         {
-          "name": "Docker & Git / GitHub"
+          "name": "DeepSeek / LLM Fine-tuning (QLoRA)"
         },
         {
-          "name": "Jira & Notion"
+          "name": "n8n Workflow & RAG Pipeline"
         }
       ]
     },
     {
-      "category": "Soft Skills",
+      "category": "Databases & Cloud Infrastructure",
       "items": [
         {
-          "name": "Communication Skills"
+          "name": "PostgreSQL 16 (GIN Index) & SQL Server"
         },
         {
-          "name": "Team Leadership"
+          "name": "RabbitMQ (DLQ Async Queue)"
         },
         {
-          "name": "Problem Solving"
+          "name": "Redis Distributed Lock & MongoDB"
         },
         {
-          "name": "Agile Collaboration"
+          "name": "Docker Compose & Linux VPS"
         }
       ]
     }
@@ -590,12 +611,12 @@
     {
       "name": "English",
       "level": "Professional (IELTS 6.0)",
-      "description": "Professional working proficiency — reading, writing, presentations, and daily communication"
+      "description": "IELTS 6.0 (IDP Education 04/2026) — International student exchange in Malaysia, reading technical documentation"
     },
     {
       "name": "Japanese",
       "level": "Beginner",
-      "description": "Hiragana & Katakana completed — self-study"
+      "description": "Hiragana & Katakana completed — self-studying conversational basics"
     }
   ],
   "siteNavigation": [
@@ -731,13 +752,14 @@
       ]
     },
     {
-      "role": "Backend Developer (Team Project)",
-      "description": "An **agency platform for managing client brand content** across social media — Facebook, Instagram, TikTok, Threads, and Zalo — with content creation/approval workflows, AI-assisted content generation, campaign scheduling, and automated multi-platform publishing.\n\nBuilt as a **microservices architecture**: an **API Gateway** (Spring Cloud Gateway, WebFlux, JWT + Redis auth), a **business-service** (Spring Boot 3.3.5, Java 21) handling the core domain logic, a **publisher-service** consuming from **RabbitMQ** with retry/backoff for reliable social posting, and an **AI service** (Python FastAPI, RAG) for content generation. The frontend is a **React 18 + TypeScript + Vite** dashboard, with a companion **Expo/React Native** mobile app, all orchestrated through **Docker Compose**.",
-      "challenge": "Publish content to multiple social networks (Facebook, Instagram, TikTok, Threads, Zalo) at once, reliably — which meant needing fault-tolerant architecture (retry/backoff) and a clean split between domain logic, publishing, and AI content generation.",
+      "role": "Tech Lead & Solutions Architect (Team of 5 Engineers)",
+      "description": "An **agency platform for managing client brand content** across 5 social networks — Facebook, Instagram, TikTok, Threads, and Zalo — with content creation/approval workflows, AI Brand Voice modeling, campaign scheduling, and automated multi-platform publishing.\n\nArchitected as a **distributed 7-microservices system**: **API Gateway** (Spring Cloud Gateway, WebFlux, JWT + Redis auth & rate-limiting), **business-service** (Spring Boot 3.3.5, Java 21) handling multi-tenant logic and campaigns, **publisher-service** consuming from **RabbitMQ with Dead Letter Queue (DLQ)** exponential backoff ensuring 0% message loss, and an **AI service** (Python FastAPI, RAG & GraphRAG with ChromaDB and Neo4j) for brand voice learning and trend analysis. The frontend is a **React 18 + TypeScript + Vite** dashboard with an **Expo/React Native** companion app, fully orchestrated via **Docker Compose** on AWS EC2.",
+      "challenge": "Simultaneously publishing content across 5 social networks (Facebook, Instagram, TikTok, Threads, Zalo) with 100% mission-critical reliability — requiring a 7-microservice fault-tolerant architecture (RabbitMQ DLQ exponential retry), gateway rate-limiting, and AI GraphRAG modeling brand voice.",
       "highlights": [
-        "Microservices architecture: API Gateway (Spring Cloud Gateway, WebFlux, JWT+Redis auth), business-service (Spring Boot 3.3.5), publisher-service (RabbitMQ with retry/backoff), AI service (Python FastAPI + RAG)",
-        "Entire system orchestrated via Docker Compose",
-        "React 18 + TypeScript + Vite dashboard frontend, with a companion Expo/React Native mobile app"
+        "Overall architecture of 7 distributed microservices: API Gateway (Spring Cloud Gateway, WebFlux, JWT+Redis), business-service (Java 21), publisher-service (RabbitMQ DLQ), AI service (FastAPI GraphRAG)",
+        "Engineered Dead Letter Queue (DLQ) exponential retry mechanism guaranteeing 0% message loss during publishing outages",
+        "Integrated RAG & GraphRAG (ChromaDB + Neo4j) to learn Brand Voice and analyze influencer/trend graph relations",
+        "React 18 + TypeScript + Vite dashboard frontend, Expo React Native mobile app, orchestrated with Docker Compose"
       ]
     },
     {
@@ -812,13 +834,14 @@
       ]
     },
     {
-      "role": "Freelance Full-Stack Developer",
-      "description": "Independently designed and built a full-stack marketplace platform solo (biensovip.com) — .NET 8 / ASP.NET Core (Clean Architecture, 61 entities, EF Core + PostgreSQL), React 19, JWT dual auth, and deployment.\n\nMade and justified key architecture decisions: PostgreSQL over MongoDB for relational multi-filter queries, and excluded a payment gateway (manual confirmation flow instead) to cut PCI-DSS risk.\n\nOwned full delivery as freelancer — client requirements gathering, technical proposal, 30-day MVP roadmap, third-party integrations (Cloudinary, AWS SES, DeepSeek AI chatbot) and deploy on VPS.",
-      "challenge": "A real freelance client project — shipped a complete 30-day MVP solo, handling Clean Architecture (.NET 8, 61 entities, PostgreSQL), dual auth, and deliberate security scoping (excluding payment gateway to eliminate PCI-DSS compliance risks).",
+      "role": "Solo Software Architect & Full-Stack Engineer",
+      "description": "Architected, designed, and coded end-to-end an exclusive license plate trading and valuation marketplace from scratch — .NET 8 / ASP.NET Core (Clean Architecture: Domain, Application, Infrastructure, API), 61 PostgreSQL 16 entity tables with EF Core, and React 19.\n\nMade and defended strategic architecture decisions: selected PostgreSQL over MongoDB for ACID transaction integrity and sub-8ms multi-criteria filtering via Composite and GIN Indexing. Integrated automated VietQR Webhook deposit matching in <0.5s paired with 15-minute Redis distributed locking eliminating 100% duplicate-booking risks. Implemented dual JWT security (short-lived Access Tokens + HttpOnly Cookie Refresh Tokens), 24/7 DeepSeek AI sales chatbot, Cloudinary, AWS SES, and self-managed Linux VPS via Docker & Nginx.",
+      "challenge": "Solely architecting and shipping a full-scale e-commerce marketplace from ground zero within 30 days: solving real-time multi-criteria filtering across tens of thousands of items, instant conflict-free deposit matching, and eliminating PCI-DSS compliance risks.",
       "highlights": [
-        "Independently designed and built full-stack marketplace platform solo — .NET 8 Clean Architecture, 61 entities, EF Core + PostgreSQL, React 19, JWT dual auth",
-        "Justified key architecture choices: PostgreSQL for multi-filter relational queries, manual confirmation flow instead of payment gateway to cut PCI-DSS risk",
-        "Owned full delivery: client requirements, technical proposal, 30-day MVP roadmap, Cloudinary, AWS SES, DeepSeek AI chatbot, and VPS deployment"
+        "Comprehensive solo architecture on .NET 8 Clean Architecture with 61 PostgreSQL entity tables and EF Core",
+        "Optimized multi-criteria search queries via GIN Indexing from 350ms down to sub-8ms instant response",
+        "VietQR Webhook automated deposit settlement in <0.5s with 15-minute Redis distributed mutex lock eliminating double-selling",
+        "Dual JWT security, 24/7 DeepSeek AI consulting chatbot, Cloudinary, AWS SES, and autonomous Linux VPS management"
       ]
     },
     {
@@ -862,24 +885,24 @@
   ],
   "educationItems": [
     {
-      "degree": "Tech Lead & Lead Engineer (Multi-Tech Stack Startup)",
-      "description": "Leading a **5-engineer team** in Da Nang developing commercial websites, SaaS automation, and AI agents with a **multi-tech stack** (.NET 8, React/Next.js, Python FastAPI, PostgreSQL, VietQR Webhook, n8n). Directly designed and operating **biensovip.com** — an automotive plate marketplace with automated VietQR settlement, 100+ daily visits, 99.98% uptime, and <0.5s transaction speed."
+      "degree": "Founder, Head of Technology & Software Architect (SynapForge)",
+      "description": "Founder & Head of Technology at **SynapForge Venture Studio**. Directly architecting systems, standardizing Clean Architecture, and leading key technology ventures: **biensovip.com**, **The MC Hub**, and **BrandHub**, serving enterprise clients and thousands of end users."
     },
     {
-      "degree": "Software Developer Intern",
-      "description": "Developed enterprise applications using **OutSystems Reactive Web** within an Agile team at FPT Software. Debugged and refactored code to optimize system performance and user experience."
+      "degree": "Software Developer Intern (FPT Software)",
+      "description": "Engineered enterprise applications using OutSystems Reactive Web within professional Agile/Scrum teams at FPT Software. Directly debugged, optimized database performance, and refactored codebase following 4-Layer Architecture."
     },
     {
-      "degree": "University (Computer Science)",
-      "description": "Currently pursuing a **Bachelor of Science in Computer Science** at FPT University (GPA 3.3/4.0 - 8.2/10.0). Winner of **Champion of Hackathon Computer Vision 2026** and **Top 5 Nationwide ResFes**. Specialized in Java Spring Boot, .NET, Python FastAPI, and software architecture."
+      "degree": "Bachelor of Software Engineering (FPT University)",
+      "description": "Pursuing **Software Engineering** at FPT University with **GPA 3.3/4.0 (8.2/10.0)**. Awarded **Winner of Hackathon Computer Vision 2026**, **National Finalist at InnoCodeCamp 2025**, and **Co-Author of International Scientific Paper (ICTA 2026)**."
     },
     {
-      "degree": "FPTU Student Exchange / Inbound Mobility Programme",
-      "description": "Completed the **FPT University Student Exchange / Inbound Mobility Programme** at TAR UMT in **Kuala Lumpur, Malaysia**. Gained international academic exposure and cross-cultural communication skills."
+      "degree": "FPT Student Exchange Representative (International Exchange)",
+      "description": "Selected as FPT University student representative in the **International Student Exchange Programme** in **Kuala Lumpur, Malaysia** (12/2023). Broadened cross-cultural academic perspective and professional English communication (IELTS 6.0)."
     },
     {
-      "degree": "High School Diploma",
-      "description": "Graduated from Phan Chau Trinh High School with an **academic GPA of 9.0/10.0**. Built a strong foundation in Mathematics, analytical thinking, and leadership."
+      "degree": "High School Diploma (Phan Chau Trinh High School)",
+      "description": "Graduated from Phan Chau Trinh High School with **GPA 9.0/10.0**. Built a strong foundation in mathematics, algorithms, and public speaking."
     }
   ],
   "memoryItems": [
