@@ -11,10 +11,10 @@ import { Tabs, TabsList, TabsTrigger } from '../ui/Tabs';
 const ITEMS_PER_PAGE = 9;
 
 const CATEGORY_COLORS = {
-    Technology: '#c5b0f4',
-    Language: '#c8e6cd',
-    Event: '#f4ecd6',
-    Other: '#efd4d4',
+    Technology: '#F5C242',
+    Language: '#B8E8D0',
+    Event: '#F7E49A',
+    Other: '#EC4899',
 };
 
 const CertificateCard = ({ cert, index, onSelect, t }) => {
@@ -31,47 +31,48 @@ const CertificateCard = ({ cert, index, onSelect, t }) => {
             onClick={() => onSelect(cert)}
             className="card-spotlight"
             style={{
-                backgroundColor: 'var(--color-canvas)',
-                border: '1px solid #e6e6e6',
-                borderRadius: '24px',
+                backgroundColor: 'var(--color-card-bg)',
+                border: '1.5px solid var(--color-border-strong)',
+                borderRadius: '8px',
+                boxShadow: '4px 4px 0px #18181B',
                 overflow: 'hidden',
                 cursor: 'pointer',
-                transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
             }}
             onMouseMove={spotlight.onMouseMove}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
+            onMouseEnter={e => { e.currentTarget.style.boxShadow = '6px 6px 0px #18181B'; }}
+            onMouseLeave={e => { e.currentTarget.style.boxShadow = '4px 4px 0px #18181B'; }}
         >
-            <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden', backgroundColor: '#f7f7f5' }}>
+            <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden', backgroundColor: '#F3EFE6', borderBottom: '1.5px solid #18181B' }}>
                 <img src={cert.image} alt={cert.name} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
                     onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
                     onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
                 />
-                <div style={{ position: 'absolute', top: '12px', right: '12px', padding: '4px 10px', borderRadius: '50px', backgroundColor: '#dceeb1', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px' }}>
+                <div style={{ position: 'absolute', top: '10px', right: '10px', padding: '3px 9px', borderRadius: '4px', backgroundColor: '#F5C242', color: '#18181B', border: '1.5px solid #18181B', boxShadow: '2px 2px 0px #18181B', fontSize: '10.5px', fontFamily: 'var(--font-mono)', fontWeight: 700, letterSpacing: '0.4px' }}>
                     {cert.dateIssued || cert.year}
                 </div>
                 {cert.category && (
-                    <div style={{ position: 'absolute', top: '12px', left: '12px', padding: '4px 10px', borderRadius: '6px', backgroundColor: CATEGORY_COLORS[cert.category] || '#e6e6e6', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px' }}>
+                    <div style={{ position: 'absolute', top: '10px', left: '10px', padding: '3px 9px', borderRadius: '4px', backgroundColor: CATEGORY_COLORS[cert.category] || '#FAF8F3', color: cert.category === 'Other' ? '#FFFFFF' : '#18181B', border: '1.5px solid #18181B', boxShadow: '2px 2px 0px #18181B', fontSize: '10.5px', fontFamily: 'var(--font-mono)', fontWeight: 700, letterSpacing: '0.4px' }}>
                         {t(`certificates.categories.${cert.category}`)}
                     </div>
                 )}
-                <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)', opacity: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'opacity 0.2s ease' }}
+                <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(24,24,27,0.45)', opacity: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'opacity 0.2s ease' }}
                     onMouseEnter={e => e.currentTarget.style.opacity = '1'}
                     onMouseLeave={e => e.currentTarget.style.opacity = '0'}
                 >
-                    <FaEye size={24} style={{ color: '#ffffff' }} />
+                    <FaEye size={24} style={{ color: '#F5C242' }} />
                 </div>
             </div>
-            <div style={{ padding: '20px' }}>
+            <div style={{ padding: '18px 20px' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px', marginBottom: '8px' }}>
-                    <h3 style={{ fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif', fontSize: '16px', fontWeight: '540', color: 'var(--color-ink)', margin: 0, lineHeight: '1.4' }}>{cert.name}</h3>
-                    <FaCertificate size={16} style={{ color: '#888888', flexShrink: 0, marginTop: '2px' }} />
+                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '16px', fontWeight: 700, color: 'var(--color-ink)', margin: 0, lineHeight: '1.4' }}>{cert.name}</h3>
+                    <FaCertificate size={15} style={{ color: '#F5C242', flexShrink: 0, marginTop: '2px' }} />
                 </div>
-                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', textTransform: 'uppercase', color: '#666666', margin: '0 0 8px 0' }}>
+                <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.4px', textTransform: 'uppercase', color: 'var(--color-ink-soft)', margin: '0 0 8px 0' }}>
                     {cert.issuer}
                 </p>
                 {cert.description && (
-                    <div style={{ fontSize: '14px', fontWeight: '330', color: '#666666', lineHeight: '1.5', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                    <div style={{ fontSize: '13.5px', fontWeight: 400, color: 'var(--color-ink-soft)', lineHeight: '1.5', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
                         <Markdown>{cert.description}</Markdown>
                     </div>
                 )}

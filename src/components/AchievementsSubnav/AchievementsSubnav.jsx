@@ -106,15 +106,15 @@ export const AchievementsSubnav = () => {
     setActiveSection('education');
   };
 
-  const activeBg = isDarkMode ? '#ffffff' : '#000000';
-  const activeText = isDarkMode ? '#000000' : '#ffffff';
+  const activeBg = '#F5C242';
+  const activeText = '#18181B';
 
   return (
     <nav
       aria-label="Achievements Sub Navigation"
       style={{
         position: 'fixed',
-        top: '68px',
+        top: '58px',
         left: 0,
         right: 0,
         zIndex: 42,
@@ -129,14 +129,12 @@ export const AchievementsSubnav = () => {
           pointerEvents: 'auto',
           display: 'flex',
           alignItems: 'center',
-          gap: '4px',
-          padding: '4px 6px',
-          borderRadius: '9999px',
-          backgroundColor: isDarkMode ? 'rgba(18, 18, 22, 0.88)' : 'rgba(255, 255, 255, 0.90)',
-          backdropFilter: 'blur(24px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-          border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.12)' : '1px solid rgba(0, 0, 0, 0.08)',
-          boxShadow: isDarkMode ? '0 10px 32px rgba(0, 0, 0, 0.6)' : '0 8px 30px rgba(0, 0, 0, 0.08)',
+          gap: '6px',
+          padding: '5px 8px',
+          borderRadius: '8px',
+          backgroundColor: isDarkMode ? '#222227' : '#FAF8F3',
+          border: '2px solid #18181B',
+          boxShadow: '4px 4px 0px #18181B',
           maxWidth: 'calc(100vw - 24px)',
           overflowX: 'auto',
           WebkitOverflowScrolling: 'touch',
@@ -158,25 +156,22 @@ export const AchievementsSubnav = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '7px 14px',
-                borderRadius: '9999px',
-                border: 'none',
+                padding: '6px 12px',
+                borderRadius: '5px',
+                border: isActive ? '1.5px solid #18181B' : '1.5px solid transparent',
                 backgroundColor: 'transparent',
-                color: isActive ? activeText : 'var(--color-ink-soft)',
-                fontSize: '12.5px',
-                fontWeight: isActive ? 600 : 500,
+                color: isActive ? activeText : 'var(--color-ink)',
+                fontFamily: 'var(--font-mono)',
+                fontSize: '11.5px',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.03em',
                 cursor: 'pointer',
                 transition: 'color 0.18s ease',
                 whiteSpace: 'nowrap',
                 outline: 'none',
                 zIndex: 1,
                 flexShrink: 0,
-              }}
-              onMouseEnter={e => {
-                if (!isActive) e.currentTarget.style.color = 'var(--color-ink)';
-              }}
-              onMouseLeave={e => {
-                if (!isActive) e.currentTarget.style.color = 'var(--color-ink-soft)';
               }}
             >
               {isActive && (
@@ -186,14 +181,14 @@ export const AchievementsSubnav = () => {
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    borderRadius: '9999px',
+                    borderRadius: '4px',
                     backgroundColor: activeBg,
                     zIndex: -1,
-                    boxShadow: isDarkMode ? '0 2px 12px rgba(255, 255, 255, 0.2)' : '0 2px 10px rgba(0, 0, 0, 0.22)',
+                    boxShadow: '2px 2px 0px #18181B',
                   }}
                 />
               )}
-              <Icon size={13} style={{ color: isActive ? activeText : 'currentColor' }} />
+              <Icon size={12} style={{ color: isActive ? activeText : 'currentColor' }} />
               <span>{t(sec.labelKey, label)}</span>
             </button>
           );

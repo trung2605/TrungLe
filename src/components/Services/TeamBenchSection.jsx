@@ -167,11 +167,11 @@ export const TeamBenchSection = ({ isEn }) => {
 
         <div className="collaborative-content-split">
           <div className="collab-text">
-            <h3>BrandHub — Omnichannel Social Media & AI Intelligence</h3>
+            <h3>BrandHub: Omnichannel Social Media & AI Intelligence</h3>
             <p>
               {isEn 
-                ? "A living proof of our team's synchronized delivery: 5 engineers co-architected 7 microservices across 16 Agile sprints (32 weeks), closing 430+ Jira tasks. From resilient RabbitMQ queues to Neo4j GraphRAG and polyglot persistence, this platform verifies our enterprise engineering caliber."
-                : "Minh chứng rõ nét nhất cho khả năng tác chiến đồng bộ của đội ngũ: Cả 5 kỹ sư đã cùng kiến trúc 7 microservices qua 16 sprint Agile (32 tuần), hoàn thành 430+ task Jira. Từ hàng đợi RabbitMQ Dead Letter Queue đến GraphRAG Neo4j và phân quyền Multi-tenant, hệ thống khẳng định chuẩn mực kỹ thuật cao nhất của team."}
+                ? "Built in-house by our 5 engineers: we co-architected 7 microservices across 16 Agile sprints (32 weeks) and closed 430+ Jira tasks, combining RabbitMQ Dead Letter Queues, Neo4j GraphRAG, and multi-tenant RBAC."
+                : "Dự án do cả 5 anh em kỹ sư trong team cùng kiến trúc và lập trình: 7 microservices phát triển qua 16 sprint Agile (32 tuần) với hơn 430 task Jira, kết hợp hàng đợi RabbitMQ Dead Letter Queue, GraphRAG Neo4j và phân quyền Multi-tenant."}
             </p>
 
             <div className="collab-metrics-strip">

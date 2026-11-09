@@ -18,28 +18,24 @@ const MemoryGallery = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px' }}
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '24px', paddingTop: '12px' }}
             >
                 {educationMemories.map((memory, i) => (
                     <motion.div
                         key={memory.id}
-                        variants={{ hidden: { opacity: 0, scale: 0.88, rotate: i % 2 === 0 ? -2 : 2 }, visible: { opacity: 1, scale: 1, rotate: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } } }}
-                        whileHover={{ y: -4 }}
+                        variants={{ hidden: { opacity: 0, scale: 0.88, rotate: i % 2 === 0 ? -2 : 2 }, visible: { opacity: 1, scale: 1, rotate: i % 2 === 0 ? -1.5 : 1.5, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } } }}
+                        whileHover={{ y: -6, rotate: 0 }}
                         onMouseEnter={() => setHoveredId(memory.id)}
                         onMouseLeave={() => setHoveredId(null)}
                         onClick={() => setSelectedMemory(memory)}
+                        className="polaroid-frame"
                         style={{
-                            backgroundColor: '#ffffff',
-                            borderRadius: '16px',
-                            overflow: 'hidden',
+                            position: 'relative',
                             cursor: 'pointer',
-                            border: '1px solid',
-                            borderColor: hoveredId === memory.id ? '#000000' : 'rgba(0,0,0,0.08)',
-                            boxShadow: hoveredId === memory.id ? '0 8px 24px rgba(0,0,0,0.10)' : 'none',
-                            transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                         }}
                     >
-                        <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden', backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length] }}>
+                        <div className={i % 2 === 0 ? 'washi-tape-tl' : 'washi-tape-tr'} />
+                        <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden', backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length], border: '1px solid #E4E4E7' }}>
                             <img
                                 src={memory.source}
                                 alt={memory.alt}
@@ -51,12 +47,12 @@ const MemoryGallery = () => {
                                 }}
                             />
                         </div>
-                        <div style={{ padding: '14px 16px' }}>
-                            <p style={{ fontSize: '14px', fontWeight: '480', color: '#000000', margin: '0 0 4px 0', lineHeight: '1.4' }}>
+                        <div style={{ paddingTop: '12px', textAlign: 'center' }}>
+                            <p style={{ fontFamily: 'var(--font-hand)', fontSize: '19px', fontWeight: 600, color: '#18181B', margin: '0 0 2px 0', lineHeight: '1.25' }}>
                                 {memory.caption}
                             </p>
                             {memory.year && (
-                                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', color: '#888888' }}>
+                                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10.5px', fontWeight: 700, letterSpacing: '0.4px', color: '#71717A' }}>
                                     {memory.year}
                                 </span>
                             )}

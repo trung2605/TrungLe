@@ -22,13 +22,13 @@
     "step1Of2": "Bước 1/2",
     "step2Of2": "Bước 2/2",
     "step1Title": "Bạn đang tuyển vị trí nào?",
-    "step1Desc": "Chọn vị trí gần đúng nhất — mình sẽ tuỳ chỉnh phần giới thiệu và dự án bên dưới theo đó.",
+    "step1Desc": "Chọn vị trí gần đúng nhất, mình sẽ lọc phần giới thiệu và dự án bên dưới theo đó.",
     "step2Title": "Bạn quan tâm kỹ năng cụ thể nào không?",
-    "step2Desc": "Không bắt buộc — chọn tối đa 3. Bỏ trống để xem kết quả phù hợp tổng quát nhất cho vị trí này.",
+    "step2Desc": "Không bắt buộc, chọn tối đa 3. Bỏ trống để xem tổng quan phù hợp nhất cho vị trí này.",
     "back": "Quay lại",
     "seeMatch": "Xem kết quả phù hợp",
     "skip": "Bỏ qua, xem kết quả",
-    "resultGreeting": "Cảm ơn bạn đã xem qua! Đây là tóm tắt nhanh phù hợp với vị trí bạn đang tìm.",
+    "resultGreeting": "Cảm ơn bạn đã ghé xem. Đây là tóm tắt nhanh các dự án và kinh nghiệm sát với vị trí bạn đang tìm.",
     "matchingProjects": "Dự án liên quan",
     "relevantExperience": "Kinh nghiệm liên quan",
     "downloadCV": "Tải CV",
@@ -38,27 +38,27 @@
     "roles": {
       "backend": {
         "label": "Backend & Kiến trúc Hệ thống",
-        "blurb": "Mình chuyên sâu kiến trúc Clean Architecture & Microservices với .NET 8 / ASP.NET Core và Java 21 Spring Boot 3 — thiết kế 61 database entities PostgreSQL, xử lý hàng đợi RabbitMQ DLQ, Redis distributed lock và tối ưu hóa truy vấn dữ liệu lớn dưới 8ms."
+        "blurb": "Mình làm việc sâu với Clean Architecture và Microservices trên .NET 8 / ASP.NET Core và Java 21 Spring Boot 3: thiết kế 61 bảng PostgreSQL (<8ms GIN Index trên 1,1M+ bản ghi VPA), xử lý hàng đợi RabbitMQ DLQ 0% mất gói tin, khóa phân tán Redis và viết hơn 370 Atomic Functional Requirements."
       },
       "frontend": {
-        "label": "Frontend / Giao diện & Trải nghiệm",
-        "blurb": "Mình xây dựng web app hiện đại với React 19, Next.js, Vite và TypeScript, chú trọng trải nghiệm người dùng cao cấp, animations mượt mà bằng Framer Motion, chuẩn hóa SEO và tối ưu hiệu năng Core Web Vitals."
+        "label": "Frontend / Giao diện & 3D Realtime",
+        "blurb": "Mình xây dựng web app với React 19, Next.js, Vite, TypeScript và Three.js WebGL 3D (12 game TikTok Live 9:16 thời gian thực), tập trung vào giao diện gọn, chuyển động mượt bằng Framer Motion và điểm Core Web Vitals thực tế."
       },
       "fullstack": {
-        "label": "Full-Stack & Venture Lead",
-        "blurb": "Founder & Tech Lead nhận trọn gói từ khâu thiết kế kiến trúc, backend, frontend đến triển khai hạ tầng Docker/VPS — đã đưa The MC Hub và biensovip.com từ bản vẽ ra thị trường thực tế với doanh thu và giao dịch thật."
+        "label": "Full-Stack, Technical BA & Venture Lead",
+        "blurb": "Founder, Tech Lead và Technical BA phụ trách từ khâu viết đặc tả SRS chuẩn Karl Wiegers (370+ Atomic FRs), thiết kế kiến trúc, code backend/frontend cho đến vận hành Docker/VPS. Đã đưa Biensovip.com, BrandHub và The MC Hub vào chạy thực tế."
       },
       "ai-ml": {
-        "label": "AI Engineering & Machine Learning",
-        "blurb": "Quán quân Hackathon Computer Vision 2026, đồng tác giả bài báo khoa học ICTA 2026. Có kinh nghiệm thực chiến fine-tune LLM bằng QLoRA, triển khai Whisper AI voice analysis, và kiến trúc GraphRAG (ChromaDB + Neo4j)."
+        "label": "AI Engineering & Acoustic DSP",
+        "blurb": "Quán quân Hackathon Computer Vision 2026, đồng tác giả bài báo khoa học ICTA 2026. Trực tiếp fine-tune LLM bằng QLoRA, viết bộ xử lý tín hiệu 10-Metric Acoustic DSP kèm Whisper AI voice engine, và dựng pipeline GraphRAG (ChromaDB + Neo4j)."
       },
       "lowcode": {
         "label": "Enterprise Delivery / FPT Software",
-        "blurb": "Đã hoàn thành xuất sắc kỳ thực tập OJT tại FPT Software, phát triển ứng dụng OutSystems Reactive Web trong môi trường Agile/Scrum chuyên nghiệp chuẩn doanh nghiệp."
+        "blurb": "Hoàn thành kỳ thực tập OJT tại FPT Software Đà Nẵng, tham gia phát triển ứng dụng doanh nghiệp bằng OutSystems Reactive Web theo quy trình Agile/Scrum và 4-Layer Architecture."
       },
       "freelance": {
         "label": "Kiến trúc sư Phần mềm & Startup",
-        "blurb": "Founder tại SynapForge Venture Studio — làm việc trực tiếp 1-1 không qua trung gian (No Middlemen), cam kết sản phẩm chuẩn production, tài liệu minh bạch và độ tin cậy tuyệt đối."
+        "blurb": "Founder tại SynapForge Venture Studio. Mình làm việc trực tiếp 1-1 với khách hàng, không qua trung gian, bàn giao đầy đủ mã nguồn, tài liệu kỹ thuật rõ ràng và hỗ trợ vận hành dài hạn."
       }
     }
   },
@@ -75,12 +75,12 @@
     "greeting": "Xin chào,",
     "roles": [
       "Founder & Tech Lead @ SynapForge",
+      "Technical BA & Product Architect (370+ FRs)",
       "Software Architect (.NET 8 & Java 21)",
-      "SaaS Automation & AI Engineer",
       "Quán quân Hackathon CV 2026"
     ],
     "iAm": "Tôi là",
-    "heroDesc": "Founder & Head of Technology tại SynapForge Venture Studio. Chuyên sâu kiến trúc hệ thống Clean Architecture (.NET 8 & Java 21), SaaS Automation và AI Engineering. Quán quân Hackathon Computer Vision 2026, đồng tác giả bài báo quốc tế ICTA 2026 và kiến trúc sư trưởng vận hành biensovip.com.",
+    "heroDesc": "Founder, Head of Technology & Technical BA tại SynapForge Venture Studio. Chuyên sâu phân tích nghiệp vụ chuẩn Karl Wiegers (370+ Atomic FRs), kiến trúc Clean Architecture (.NET 8 & Java 21), SaaS Automation và AI Engineering. Quán quân Hackathon Computer Vision 2026, đồng tác giả bài báo quốc tế ICTA 2026 và kiến trúc sư trưởng vận hành biensovip.com & BrandHub.",
     "viewProjects": "Xem dự án",
     "downloadCV": "Tải CV",
     "statsByNumbers": "Những con số",
@@ -97,13 +97,13 @@
         "label": "Dự án đã xây dựng"
       },
       {
-        "label": "Chứng chỉ"
+        "label": "Chứng chỉ quốc tế"
       },
       {
-        "label": "Giải thưởng"
+        "label": "Giải thưởng & Chung kết"
       },
       {
-        "label": "Hoạt động"
+        "label": "Atomic FRs (SRS Karl Wiegers)"
       }
     ],
     "skillsLabel": "Kỹ năng & Chuyên môn",
@@ -111,7 +111,7 @@
     "exploreLabel": "Tìm hiểu thêm",
     "exploreTitle": "Khám phá hành trình của tôi",
     "ctaLabel": "Hãy cùng tạo ra điều gì đó",
-    "ctaTitle": "Sẵn sàng cho thực tập & cơ hội hợp tác",
+    "ctaTitle": "Sẵn sàng cho vị trí Technical BA, Kỹ sư Phần mềm & dự án hợp tác",
     "getInTouch": "Liên hệ ngay",
     "terminalRole": "Founder & Head of Technology @ SynapForge Venture Studio"
   },
@@ -121,7 +121,7 @@
     "location": "Địa chỉ",
     "education": "Học vấn",
     "specialization": "Chuyên môn",
-    "educationValue": "Đại học FPT Đà Nẵng (Kỹ thuật Phần mềm — GPA 3.3/4.0)",
+    "educationValue": "Đại học FPT Đà Nẵng (Kỹ thuật Phần mềm, GPA 3.3/4.0)",
     "specializationValue": "Founder, Tech Lead & Software Architect (SynapForge)",
     "atAGlance": "Tóm lược",
     "experienceLabel": "Kinh nghiệm",
@@ -138,14 +138,14 @@
     "phoneLabel": "Điện thoại / Zalo",
     "ecosystemLabel": "Hệ sinh thái & Kết nối",
     "ecosystemTitle": "Khám phá các trang liên kết",
-    "ecosystemSubtitle": "Khám phá dịch vụ công nghệ của SynapForge Venture Studio, showcase các sản phẩm thực chiến, bài viết kỹ thuật chuyên sâu và hồ sơ giải thưởng."
+    "ecosystemSubtitle": "Xem thêm dịch vụ phát triển phần mềm của SynapForge Venture Studio, các sản phẩm đang vận hành, bài viết kỹ thuật và hồ sơ giải thưởng."
   },
   "contact": {
     "label": "Liên hệ",
     "title": "Liên hệ với tôi",
-    "desc": "Sẵn sàng cho cơ hội thực tập, nhận làm website freelance, hợp tác, hoặc chỉ là một cuộc trò chuyện về công nghệ.",
-    "freelanceTitle": "Cần làm website?",
-    "freelanceDesc": "Mình nhận làm website freelance — landing page, website doanh nghiệp, hệ thống thương mại điện tử nhỏ, công cụ nội bộ — trọn gói từ thiết kế đến deploy. Điền thông tin vào form bên dưới, hoặc nhắn Zalo trực tiếp để phản hồi nhanh hơn.",
+    "desc": "Mình sẵn sàng trao đổi về cơ hội việc làm (Technical BA, Software Engineer), dự án phát triển phần mềm hoặc hợp tác kỹ thuật.",
+    "freelanceTitle": "Cần xây dựng website hoặc hệ thống?",
+    "freelanceDesc": "Mình nhận thiết kế và lập trình trọn gói từ đặc tả SRS, giao diện, backend cho tới triển khai server: landing page, website doanh nghiệp, sàn thương mại điện tử và công cụ nội bộ. Bạn có thể để lại lời nhắn bên dưới hoặc nhắn trực tiếp qua Zalo.",
     "freelanceZaloCta": "Nhắn Zalo",
     "infoTitle": "Thông tin liên hệ",
     "infoDesc": "Hãy liên lạc. Tôi thường phản hồi trong vòng 24 giờ.",
@@ -182,7 +182,7 @@
     "projects": {
       "eyebrow": "Danh mục dự án",
       "title": "Dự án",
-      "subtitle": "Những gì tôi đã xây dựng — từ dự án cá nhân đến ứng dụng thực tế."
+      "subtitle": "Các phần mềm mình đã thiết kế, viết code và đưa vào vận hành thực tế."
     },
     "education": {
       "eyebrow": "Hành trình học vấn",
@@ -362,10 +362,10 @@
     "quickLinks": "Liên kết nhanh",
     "contactInfo": "Thông tin liên hệ",
     "letsConnect": "Kết nối với tôi",
-    "builtWith": "Xây dựng bằng React & Framer Motion",
+    "builtWith": "Xây dựng bằng React 19 & Robin Notebook System",
     "backToTop": "Về đầu trang",
-    "tagline": "Sinh viên Khoa học Máy tính tại Đại học FPT. Đam mê xây dựng ứng dụng sạch, có khả năng mở rộng với Java Spring Boot và React.",
-    "location": "Đà Nẵng, Việt Nam"
+    "tagline": "Founder, Head of Technology & Technical BA tại SynapForge Venture Studio. Chuyên sâu phân tích SRS chuẩn Karl Wiegers (370+ Atomic FRs), Clean Architecture (.NET 8 & Java 21 Spring Boot 3), SaaS Automation và AI Engineering.",
+    "location": "Hải Châu & Ngũ Hành Sơn, Đà Nẵng, Việt Nam"
   },
   "notFound": {
     "badge": "Lỗi 404",
@@ -389,123 +389,123 @@
     {
       "title": "Hackathon Computer Vision 2026",
       "position": "Quán quân (Giải Nhất)",
-      "description": "Đạt **Quán quân (Giải Nhất)** tại cuộc thi **Hackathon Computer Vision 2026** do FPT Education tổ chức (06/08/2026) — nghiên cứu và phát triển mô hình thị giác máy tính, giải pháp AI chính xác cao dưới áp lực gay cấn của hackathon."
+      "description": "Đạt Giải Nhất tại cuộc thi Hackathon Computer Vision 2026 do FPT Education phối hợp cùng SIT Singapore tổ chức (06/08/2026). Xây dựng và tối ưu pipeline thị giác máy tính xử lý hình ảnh thời gian thực trong thời gian thi đấu giới hạn."
     },
     {
       "title": "Đồng Tác Giả Bài Báo Khoa Học Quốc Tế (ICTA 2026)",
       "position": "Đồng Tác Giả & Nhà Nghiên Cứu",
-      "description": "Đồng tác giả bài báo khoa học quốc tế được chấp thuận và công bố tại hội nghị **ICTA 2026** — nghiên cứu mô hình AI Fine-tuning (Qwen2.5-Coder-1.5B + QLoRA + BM25 AST RAG) phát hiện và tự động sửa chữa lỗ hổng bất đồng bộ (Race-Condition) trong mã nguồn với độ chính xác 73.3%, vượt trội hơn GPT-3.5-turbo."
+      "description": "Đồng tác giả bài báo khoa học quốc tế được chấp thuận tại hội nghị ICTA 2026. Nghiên cứu kết hợp fine-tune mô hình Qwen2.5-Coder-1.5B bằng QLoRA với BM25 AST RAG để phát hiện và sửa lỗi Race-Condition trong JavaScript, đạt độ chính xác 73.3% (vượt GPT-3.5-turbo 65.0%)."
     },
     {
       "title": "Innocode Camp SU25",
       "position": "Chung Kết Toàn Quốc (Team Leader)",
-      "description": "Vào **Chung kết Toàn quốc (08/07/2025)** cuộc thi Innocode Camp 2025 với vai trò Team Leader — dẫn dắt toàn diện quy trình phát triển sản phẩm phần mềm hoàn chỉnh bằng Java Spring Boot và MySQL."
+      "description": "Vào Chung kết Toàn quốc (08/07/2025) cuộc thi Innocode Camp 2025 với vai trò Team Leader, phụ trách kiến trúc backend và điều phối nhóm phát triển sản phẩm bằng Java Spring Boot và MySQL."
     },
     {
       "title": "Hội Nghị Nghiên Cứu (ResFres 2024)",
       "position": "Chung Kết Toàn Quốc",
-      "description": "Lọt vào **Chung kết Toàn quốc (20/06/2024)** Hội nghị Nghiên cứu Khoa học Sinh viên FPT University — thực hiện nghiên cứu gốc, viết báo cáo học thuật chuyên sâu và bảo vệ trước hội đồng giám khảo toàn quốc."
+      "description": "Vào Chung kết Toàn quốc (20/06/2024) Hội nghị Nghiên cứu Khoa học Sinh viên FPT University: thực hiện nghiên cứu, viết báo cáo học thuật và bảo vệ trước hội đồng giám khảo."
     },
     {
       "title": "FPT ResFes 2024 – Quy Mô 5 Cơ Sở",
       "position": "Chung Kết Nghiên Cứu Toàn Quốc",
-      "description": "Được chọn làm thí sinh chung kết nghiên cứu ở quy mô liên cơ sở của FPT ResFes 2024, cạnh tranh với các đội nghiên cứu từ toàn bộ 5 cơ sở Đại học FPT trên cả nước."
+      "description": "Đại diện thi đấu tại vòng chung kết liên cơ sở của FPT ResFes 2024 cùng các đội nghiên cứu từ 5 cơ sở Đại học FPT trên cả nước."
     },
     {
       "title": "Cuộc Thi FPT Code Talent",
       "position": "Vào Chung Kết",
-      "description": "Vào đến **vòng chung kết** FPT Code Talent — một trong những cuộc thi lập trình thường niên hàng đầu của FPT, trải dài từ thuật toán, thiết kế OOP đến giải quyết vấn đề cấp hệ thống."
+      "description": "Vào vòng chung kết FPT Code Talent, cuộc thi lập trình thường niên của FPT kiểm tra thuật toán, thiết kế hướng đối tượng (OOP) và giải quyết bài toán hệ thống."
     },
     {
       "title": "Cuộc Thi Thuật Toán Code Mosaic",
       "position": "Vào Chung Kết",
-      "description": "Lọt vào **vòng chung kết** cuộc thi thuật toán Code Mosaic do FPT Education tổ chức — kiểm tra cấu trúc dữ liệu, độ phức tạp thuật toán và tốc độ xử lý vấn đề dưới áp lực thời gian."
+      "description": "Vào vòng chung kết cuộc thi thuật toán Code Mosaic do FPT Education tổ chức, thi đấu giải các bài toán cấu trúc dữ liệu và tối ưu độ phức tạp thuật toán dưới áp lực thời gian."
     },
     {
       "title": "Cuộc Thi Tài Năng – Vòng Phỏng Vấn Chung Kết",
       "position": "Giải Nhất",
-      "description": "Giành **Giải Nhất** vòng chung kết Cuộc thi Tài năng cấp trường thời phổ thông — đánh giá qua phần trình diễn, sức hút cá nhân và kỹ năng phỏng vấn, nền tảng cho năng lực MC sự kiện hơn 1000 người sau này."
+      "description": "Đạt Giải Nhất vòng chung kết Cuộc thi Tài năng cấp trường thời phổ thông qua phần thi trình diễn và trả lời phỏng vấn trực tiếp trên sân khấu."
     },
     {
       "title": "Cuộc Thi Tài Năng & Sắc Đẹp (Mister)",
       "position": "Á Quân 1",
-      "description": "Giành **Á quân 1 (Mister)** trong Cuộc thi Tài năng và Sắc đẹp thường niên của trường THPT Chuyên Phan Châu Trinh."
+      "description": "Đạt giải Á quân 1 (Mister) trong Cuộc thi Tài năng và Sắc đẹp thường niên của trường THPT Chuyên Phan Châu Trinh."
     }
   ],
   "personalInfo": {
     "storyTitle": "Hành trình của tôi",
-    "storyContent": "Mình là **Lê Trí Trung** (sinh năm 2005) — Founder & Head of Technology (Tech Lead / Software Architect) tại **SynapForge Venture Studio** ở Đà Nẵng, chuyên kiến trúc và vận hành các nền tảng số hiệu năng cao, SaaS Automation và AI Engineering cho doanh nghiệp.\n\nHành trình kỹ thuật của mình được rèn luyện qua nền tảng học thuật vững chắc tại **[Đại học FPT Đà Nẵng](/achievements?tab=education)** (chuyên ngành Kỹ thuật Phần mềm, **GPA 3.3/4.0 - 8.2/10.0**), từng được chọn làm **[Đại diện Trao đổi Sinh viên Quốc tế](/achievements?tab=education)** tại **Technology Kuala Lumpur, Malaysia** (12/2023), sở hữu chứng chỉ **IELTS 6.0** (IDP Education cấp 04/2026) và tốt nghiệp **THPT Chuyên Phan Châu Trinh** với **GPA 9.0/10.0**.\n\nVề thành tựu công nghệ, mình vinh dự đạt danh hiệu **[Quán quân (Winner) Hackathon Computer Vision 2026](/achievements?tab=prizes)** (FPT Education), lọt vào **[Chung kết Toàn quốc InnoCodeCamp 2025](/achievements?tab=prizes)** với vai trò Team Leader, **[Chung kết Toàn quốc ResFres 2024](/achievements?tab=prizes)**, và là **[Đồng tác giả bài báo khoa học quốc tế (ICTA 2026)](/achievements?tab=prizes)** về mô hình AI Fine-tuning phát hiện và tự động sửa lỗi Race-Condition trong mã nguồn.\n\nỞ khía cạnh thực chiến sản phẩm, mình ghi dấu ấn với 3 trụ cột dự án:\n1. **[Biensovip.com](/projects/26) (Solo Software Architect):** Tự tay thiết kế và lập trình trọn gói sàn giao dịch & định giá biển số đẹp từ số 0 trên nền tảng .NET 8 / ASP.NET Core (Clean Architecture), thiết kế 61 bảng thực thể PostgreSQL tối ưu truy vấn GIN Index <8ms, cổng cọc VietQR Webhook <0.5s, tích hợp DeepSeek AI Chatbot và vận hành Linux VPS.\n2. **[The MC Hub](/projects/11) (CEO & Tech Lead):** Dẫn dắt đội ngũ 6 kỹ sư xây dựng nền tảng luyện giọng nói AI (React 19 + Spring Boot 3.3 + Python FastAPI & Whisper), thương mại hóa thành công ngay tháng đầu tiên với 87 MC chuyên nghiệp và 20 giao dịch đăng ký.\n3. **[BrandHub](/projects/14) (Tech Lead & Solutions Architect):** Kiến trúc cụm 7 microservices quản trị thương hiệu đa kênh (Spring Cloud Gateway, RabbitMQ DLQ retry lũy thừa, Java 21, Python GraphRAG).\n\nBên cạnh kỹ thuật, mình từng là **MC chuyên nghiệp dẫn dắt hơn 50 sự kiện lớn (600–1000+ khán giả)**, là Trọng tài giải đấu FPTU AI & Robotics 2025, và là **[Founder Quỹ thiện nguyện The Dreamers](/activities)** (hơn 30 thành viên) lan tỏa giá trị giáo dục công nghệ đến cộng đồng.",
-    "title": "Founder, Head of Technology & Software Architect",
-    "intro": "Founder & Head of Technology tại SynapForge Venture Studio. Chuyên sâu kiến trúc hệ thống Clean Architecture (.NET 8 & Java 21 Spring Boot 3), SaaS Automation và AI Engineering. Quán quân Hackathon Computer Vision 2026 (FPT Education), đồng tác giả bài báo quốc tế ICTA 2026, kiến trúc sư trưởng vận hành biensovip.com & The MC Hub."
+    "storyContent": "Mình là **Lê Trí Trung** (sinh năm 2005), Founder, Head of Technology kiêm Technical Business Analyst tại **SynapForge Venture Studio** ở Đà Nẵng. Công việc hàng ngày của mình là phân tích đặc tả yêu cầu phần mềm theo chuẩn Karl Wiegers (3rd Ed.), thiết kế kiến trúc hệ thống và trực tiếp viết code cho các nền tảng web, SaaS Automation và ứng dụng AI.\n\nMình theo học chuyên ngành Kỹ thuật Phần mềm tại **[Đại học FPT Đà Nẵng](/achievements?tab=education)** (**GPA 3.3/4.0 - 8.2/10.0**), từng được chọn tham gia **[Chương trình Trao đổi Sinh viên Quốc tế](/achievements?tab=education)** tại **TAR UMT Kuala Lumpur, Malaysia** (12/2023), có chứng chỉ **IELTS 6.0** (IDP Education cấp 04/2026) và tốt nghiệp **THPT Chuyên Phan Châu Trinh** với **GPA 9.0/10.0**.\n\nTrong quá trình học và làm nghiên cứu, mình đạt **[Quán quân (Winner) Hackathon Computer Vision 2026](/achievements?tab=prizes)** (FPT Education × SIT Singapore), vào **[Chung kết Toàn quốc InnoCodeCamp 2025](/achievements?tab=prizes)** với vai trò Team Leader, **[Chung kết Toàn quốc ResFres 2024](/achievements?tab=prizes)**, và là **[Đồng tác giả bài báo khoa học quốc tế (ICTA 2026)](/achievements?tab=prizes)** về fine-tune mô hình ngôn ngữ nhỏ để phát hiện và sửa lỗi Race-Condition trong JavaScript.\n\nBốn dự án sản phẩm và phân tích nghiệp vụ (Technical BA) mình dành nhiều tâm huyết nhất:\n1. **[Biensovip.com](/projects/26) (Solo Software Architect & Lead BA):** Tự phân tích nghiệp vụ (57 Use Cases, 85 Business Rules) và lập trình từ đầu sàn giao dịch, định giá biển số đẹp trên .NET 8 Clean Architecture. Hệ thống gồm 61 bảng PostgreSQL (<8ms GIN Index), đồng bộ **1,1+ triệu bản ghi đấu giá VPA Quốc gia**, máy trạng thái **4-Tab FSM**, bộ công cụ **TikTok Live 9:16 Safe-Zone Assistant & F1-F6 Soundboard**, thanh toán cọc tự động qua VietQR Webhook (<0.5s) và DeepSeek AI Chatbot.\n2. **[BrandHub](/projects/14) (Tech Lead, Solutions Architect & Lead BA):** Chuẩn hóa 109 yêu cầu thô của agency thành **141 Atomic Functional Requirements** (Karl Wiegers Zero-Manage Rule), thiết kế cụm 7 microservices đa kênh (Spring Cloud Gateway, RabbitMQ DLQ 0% mất tin, Java 21, Python GraphRAG), ứng dụng di động **79 màn hình React Native**, cùng **2.500+ test cases & 320+ file Playwright E2E** (đang chạy tại `brandhub.id.vn`).\n3. **[The MC Hub](/projects/11) (CEO, Tech Lead & Lead BA):** Cùng đội ngũ 6 kỹ sư xây dựng nền tảng luyện giọng nói AI (React 19 + Spring Boot 3.3 + Python FastAPI & **10-Metric Acoustic DSP + Whisper Engine**), viết **116 Atomic FRs** kèm 139 sơ đồ Visual Paradigm, có 87 MC đăng ký sử dụng và tạo doanh thu ngay trong tháng đầu ra mắt.\n4. **[Live TikTok 3D Interactive Game Ecosystem](/projects/30) (`cungchuaonline`):** Thiết kế hệ thống 12 game 3D tương tác TikTok Live 9:16 thời gian thực (Cúng Chùa Online 3D, Cuộc Đua Kỳ Thú 3D, AdminTong 21 biểu đồ ApexCharts), vượt qua 193/193 bài test tự động.\n\nNgoài giờ làm việc với code, mình từng làm **MC cho hơn 50 sự kiện (600–1.000+ khán giả)**, làm Trọng tài trưởng giải đấu FPTU AI & Robotics 2025, và sáng lập **[Quỹ thiện nguyện The Dreamers](/activities)** (hơn 30 thành viên) để tổ chức các lớp học máy tính và hoạt động hỗ trợ trẻ em khó khăn tại miền Trung.",
+    "title": "Founder, Technical BA & Software Architect",
+    "intro": "Founder, Head of Technology & Technical BA tại SynapForge Venture Studio. Chuyên phân tích nghiệp vụ theo chuẩn Karl Wiegers (370+ Atomic FRs cho 4 hệ thống lớn), thiết kế Clean Architecture (.NET 8 & Java 21 Spring Boot 3), SaaS Automation và AI Engineering. Quán quân Hackathon Computer Vision 2026 (FPT Education), đồng tác giả bài báo quốc tế ICTA 2026, trực tiếp xây dựng và vận hành biensovip.com, BrandHub và The MC Hub."
   },
   "highlights": [
     {
-      "title": "Kiến Trúc Hệ Thống & Clean Architecture",
-      "description": "Chuyên sâu thiết kế Clean Architecture (.NET 8 / C# 12) và Microservices (Java 21 / Spring Boot 3): 61 database entities PostgreSQL, hàng đợi RabbitMQ DLQ, Redis distributed lock và API latency <8ms."
+      "title": "Technical BA & Clean Architecture",
+      "description": "Biên soạn đặc tả SRS chuẩn Karl Wiegers (370+ Atomic FRs) và thiết kế Clean Architecture (.NET 8) / Microservices (Java 21 Spring Boot 3): 61 bảng PostgreSQL, hàng đợi RabbitMQ DLQ, khóa phân tán Redis và truy vấn GIN Index dưới 8ms."
     },
     {
-      "title": "Venture Builder & Production Systems",
-      "description": "Founder tại SynapForge Venture Studio: Trực tiếp xây dựng và vận hành biensovip.com (100+ visits/ngày, VietQR Webhook <0.5s) và The MC Hub (87 MCs onboarded, 20 subscription transactions trong tháng đầu)."
+      "title": "Xây Dựng & Vận Hành Sản Phẩm Thực Tế",
+      "description": "Founder tại SynapForge Venture Studio: Trực tiếp thiết kế và vận hành biensovip.com (1,1M+ bản ghi đấu giá VPA, VietQR Webhook <0.5s), BrandHub (141 FRs, 2.5K+ test cases) và The MC Hub (87 MCs tháng đầu, 10-Metric DSP)."
     },
     {
       "title": "Nghiên Cứu Khoa Học & Giải Thưởng",
       "description": "Quán quân Hackathon Computer Vision 2026 (FPT Education), Đồng tác giả Bài báo Khoa học Quốc tế (ICTA 2026), Chung kết Toàn quốc InnoCodeCamp 2025 (Team Leader) và ResFres 2024."
     },
     {
-      "title": "Tech Lead & Tác Động Xã Hội",
-      "description": "Dẫn dắt các đội ngũ kỹ sư 5–6 người từ số 0 ra thị trường. Sáng lập The Dreamers Organization (30+ thành viên, từ thiện công nghệ), MC chuyên nghiệp dẫn dắt 50+ sự kiện (600–1000+ người)."
+      "title": "Dẫn Dắt Đội Nhóm & Hoạt Động Cộng Đồng",
+      "description": "Điều phối nhóm 5–6 kỹ sư từ giai đoạn phân tích yêu cầu đến khi ra mắt sản phẩm. Sáng lập The Dreamers Organization (30+ thành viên), MC dẫn hơn 50 sự kiện lớn nhỏ (600–1.000+ người)."
     }
   ],
   "funFacts": [
     {
       "title": "Quán quân Hackathon CV 2026",
-      "description": "Giành Giải Nhất cuộc thi Hackathon Computer Vision 2026 tại FPT University — xây dựng giải pháp thị giác máy tính nhận diện và xử lý hình ảnh thời gian thực."
+      "description": "Đạt Giải Nhất cuộc thi Hackathon Computer Vision 2026 tại FPT University với bài toán nhận diện và xử lý hình ảnh thời gian thực."
     },
     {
       "title": "MC cho hơn 1.000 khán giả",
-      "description": "Từng dẫn chương trình các sự kiện trường với khán giả trực tiếp lên đến 1.000 người — điều phối sân khấu, ứng biến linh hoạt và truyền năng lượng tích cực."
+      "description": "Cầm mic dẫn hơn 50 sự kiện trường và hội thảo công nghệ có quy mô lên đến 1.000 người, rèn cho mình phản xạ xử lý tình huống sân khấu và cách nói chuyện gãy gọn."
     },
     {
       "title": "Sáng lập The Dreamers năm 19 tuổi",
-      "description": "Thành lập tổ chức từ thiện The Dreamers, phát triển lên 30 thành viên và tổ chức hơn 6 dự án cộng đồng mang giáo dục công nghệ đến trẻ em có hoàn cảnh khó khăn."
+      "description": "Lập nhóm thiện nguyện The Dreamers từ năm nhất đại học, cùng hơn 30 bạn thành viên duy trì 6 dự án dạy tin học và gây quỹ hỗ trợ trẻ em mồ côi tại Đà Nẵng - Quảng Nam."
     },
     {
       "title": "5 lần vào chung kết cuộc thi công nghệ",
-      "description": "Lọt vào chung kết và đạt giải cao tại FPT Code Talent, Innocode Camp, ResFes toàn quốc (2 lần) và Code Mosaic trong khi vẫn duy trì thành tích học tập xuất sắc."
+      "description": "Góp mặt ở vòng chung kết FPT Code Talent, Innocode Camp, ResFes toàn quốc (2 lần) và Code Mosaic, song song với việc giữ GPA 3.3/4.0 ở trường."
     },
     {
-      "title": "Kỷ luật thể thao từ 5:30 sáng",
-      "description": "Duy trì thói quen chạy bộ và đá bóng sáng sớm trước khi bắt đầu ngày làm việc. Kỷ luật thể chất giúp duy trì sự bền bỉ và tập trung cao độ khi xử lý dự án lớn."
+      "title": "Chạy bộ & đá bóng lúc 5:30 sáng",
+      "description": "Mình giữ thói quen dậy sớm chạy bộ hoặc đá bóng trước khi ngồi vào bàn làm việc để đầu óc tỉnh táo cho những ngày làm việc dài."
     },
     {
-      "title": "Tự học ngôn ngữ & công nghệ mới",
-      "description": "Liên tục cập nhật công nghệ AI, Cloud và tự học thêm tiếng Nhật — tinh thần không ngừng học hỏi và thử thách bản thân vượt khỏi giới hạn an toàn."
+      "title": "Đọc tài liệu mới & học tiếng Nhật",
+      "description": "Thời gian rảnh mình thường đọc thêm về kiến trúc hệ thống, thử các công cụ AI mới và tự học bảng chữ cái cùng giao tiếp tiếng Nhật cơ bản."
     }
   ],
   "experience": [
     {
-      "role": "Founder & Head of Technology",
+      "role": "Founder, Head of Technology & Technical BA",
       "company": "SynapForge Venture Studio",
-      "type": "Lãnh đạo / Sáng lập",
+      "type": "Lãnh đạo / Kiến trúc & BA",
       "duration": "01/2026 – Hiện tại",
       "status": "Hiện tại",
-      "description": "Sáng lập SynapForge Venture Studio — một studio công nghệ product-led, nơi tôi giữ vai trò Head of Technology: định hình kiến trúc hệ thống, đặt chuẩn kỹ thuật và dẫn dắt đội ngũ 5–6 kỹ sư từ ý tưởng đến sản phẩm thực chiến.\n• Stack công nghệ: .NET 8 / ASP.NET Core, React, Python FastAPI, PostgreSQL, Redis, RabbitMQ, Docker, Linux VPS\n• Sản phẩm trọng điểm: Biensovip.com (sàn giao dịch biển số), The MC Hub (luyện giọng nói AI), BrandHub (quản trị thương hiệu đa kênh AI)"
+      "description": "Sáng lập SynapForge Venture Studio (synapforge.id.vn), phụ trách kiến trúc hệ thống, viết đặc tả nghiệp vụ chuẩn Karl Wiegers (370+ Atomic FRs) và làm việc cùng nhóm 5–6 kỹ sư để đưa sản phẩm vào vận hành.\n• Công nghệ sử dụng: .NET 8 / ASP.NET Core, Java 21 Spring Boot 3, React 19, Python FastAPI, PostgreSQL, Redis, RabbitMQ DLQ, Three.js 3D\n• Sản phẩm chính: Biensovip.com (1,1M+ bản ghi đấu giá VPA), BrandHub (7 Microservices, 141 FRs, 2.5K+ test cases), The MC Hub (10-Metric Acoustic DSP), Hệ thống 12 Game TikTok Live 3D"
     },
     {
-      "role": "Solo Software Architect & Full-Stack Engineer",
+      "role": "Solo Software Architect, Lead BA & Full-Stack Engineer",
       "company": "Biensovip.com",
       "type": "Sản phẩm Thực chiến",
       "duration": "05/2026 – Hiện tại",
       "status": "Hiện tại",
-      "description": "Thiết kế và lập trình trọn gói sàn giao dịch & định giá biển số đẹp từ con số 0: Backend .NET 8 / ASP.NET Core theo chuẩn Clean Architecture, 61 database entities PostgreSQL tối ưu GIN Index <8ms, cổng cọc VietQR Webhook <0.5s, xác thực kép JWT, DeepSeek AI Chatbot và vận hành Linux VPS độc lập."
+      "description": "Độc lập phân tích nghiệp vụ (57 Use Cases, 85 Business Rules) và lập trình trọn gói sàn giao dịch & đấu giá biển số đẹp quốc gia từ con số 0: Backend .NET 8 Clean Architecture, 61 bảng PostgreSQL tối ưu GIN Index <8ms, đồng bộ 1,1+ triệu bản ghi đấu giá VPA, máy trạng thái 4-Tab FSM, công cụ TikTok Live 9:16 Safe-Zone Assistant & F1–F6 Soundboard, cổng cọc VietQR Webhook <0.5s và DeepSeek AI Chatbot."
     },
     {
-      "role": "CEO & Tech Lead (Team 6 Kỹ sư)",
+      "role": "CEO, Tech Lead & Lead BA (Team 6 Kỹ sư)",
       "company": "The MC Hub",
       "type": "Khởi nghiệp AI",
-      "duration": "01/2026 – 07/2026",
-      "status": "Đã hoàn thành",
-      "description": "Dẫn dắt đội ngũ 6 kỹ sư đưa nền tảng luyện giọng nói AI ra thị trường trong 6 tháng. Onboard 87 MC chuyên nghiệp ngay tháng đầu, tạo doanh thu thực tế qua 20 gói đăng ký. Xây dựng microservice AI bằng Python FastAPI + OpenAI Whisper đánh giá phát âm, ngữ điệu, ngắt nghỉ."
+      "duration": "01/2026 – 11/2026",
+      "status": "Hiện tại",
+      "description": "Dẫn dắt đội ngũ 6 kỹ sư đưa nền tảng luyện giọng nói AI ra thị trường, onboard 87 MC chuyên nghiệp và 20 gói đăng ký ngay tháng đầu. Xây dựng 10-Metric Acoustic DSP & Whisper AI Engine (F0, HNR, Jitter, Shimmer, Timbre, Pauses, WPM, Filler) chấm điểm 5 trụ cột có Baseline Calibration và biên soạn 116 Atomic FRs + 139 sơ đồ Visual Paradigm."
     },
     {
       "role": "Thực tập sinh Software Developer",
@@ -606,281 +606,281 @@
     {
       "name": "Tiếng Việt",
       "level": "Bản ngữ",
-      "description": "Tiếng mẹ đẻ — thành thạo hoàn toàn trong giao tiếp và chuyên môn"
+      "description": "Tiếng mẹ đẻ, sử dụng thành thạo trong giao tiếp và viết tài liệu kỹ thuật, SRS"
     },
     {
       "name": "Tiếng Anh",
       "level": "Chuyên nghiệp (IELTS 6.0)",
-      "description": "IELTS 6.0 (IDP Education 04/2026) — Trao đổi sinh viên quốc tế tại Malaysia, đọc hiểu tài liệu kỹ thuật chuyên sâu"
+      "description": "IELTS 6.0 (IDP Education 04/2026), trao đổi sinh viên quốc tế tại Malaysia, đọc hiểu và viết tài liệu kỹ thuật"
     },
     {
       "name": "Tiếng Nhật",
       "level": "Sơ cấp",
-      "description": "Đã hoàn thành Hiragana & Katakana — đang tự học giao tiếp cơ bản"
+      "description": "Đã hoàn thành Hiragana & Katakana (Japan Foundation), đang tự học giao tiếp cơ bản"
     }
   ],
   "siteNavigation": [
     {
       "title": "Giới thiệu",
-      "desc": "Tìm hiểu về hành trình và đam mê của tôi"
+      "desc": "Nền tảng học thuật, kinh nghiệm làm việc và câu chuyện cá nhân"
     },
     {
       "title": "Dự án",
-      "desc": "Phần mềm tôi đã xây dựng và ra mắt"
+      "desc": "Các hệ thống phần mềm mình đã thiết kế và triển khai"
     },
     {
       "title": "Thành tích",
-      "desc": "Học vấn, chứng chỉ và giải thưởng"
+      "desc": "Học vấn, chứng chỉ quốc tế và giải thưởng công nghệ"
     },
     {
       "title": "Dịch vụ",
-      "desc": "Thiết kế website chuyên nghiệp cho chủ shop nhỏ"
+      "desc": "Phát triển Web, SaaS, AI và tư vấn đặc tả nghiệp vụ BA/SRS"
     },
     {
       "title": "Blog",
-      "desc": "Bài viết kỹ thuật và phân tích chuyên sâu dự án"
+      "desc": "Bài viết kỹ thuật đúc kết từ các dự án thực tế"
     },
     {
       "title": "Liên hệ",
-      "desc": "Liên lạc với tôi"
+      "desc": "Kết nối qua Email, Zalo hoặc đặt lịch trao đổi"
     }
   ],
   "projectItems": [
     {
       "role": "Backend Developer (Dự án nhóm)",
-      "description": "Nền tảng **tìm kiếm việc làm** full-stack, xây dựng cùng một đội Agile 6 người liên chức năng. Mình phụ trách **kiến trúc backend** — thiết kế và xây RESTful API bằng **Java Spring Boot**, quản lý dữ liệu quan hệ trên **SQL Server**, và tích hợp **chatbot AI** để hỗ trợ ứng viên với mẹo viết CV và gợi ý việc làm phù hợp.\n\nĐóng góp chính của mình là **hệ thống xác thực** (đăng nhập/đăng ký dựa trên JWT), **API luồng đăng tin và ứng tuyển**, và thiết lập **chiến lược Git branching** (feature branch + pull request) giữ cho công việc của cả team sạch sẽ suốt 4 tháng phát triển.\n\nNền tảng hiện chạy trên Vercel và vẫn đang được cải tiến thêm, với thông báo việc làm real-time và dashboard nhà tuyển dụng đang trong kế hoạch.",
-      "challenge": "Cần một nền tảng tìm việc cho phép ứng viên vừa tìm kiếm/ứng tuyển vừa nhận hỗ trợ AI (mẹo viết CV, gợi ý việc làm), trong khi team 6 người phải phối hợp Agile trên cùng một codebase suốt 4 tháng mà không dẫm chân nhau.",
+      "description": "Nền tảng tìm kiếm việc làm full-stack, xây dựng cùng nhóm Agile 6 thành viên. Mình phụ trách kiến trúc backend: thiết kế RESTful API bằng Java Spring Boot, quản lý dữ liệu quan hệ trên SQL Server và tích hợp chatbot AI hỗ trợ ứng viên sửa CV, gợi ý việc làm phù hợp.\n\nĐóng góp chính của mình gồm hệ thống xác thực JWT (đăng nhập/đăng ký), API luồng đăng tin và ứng tuyển, cùng việc thiết lập quy trình Git branching (feature branch + pull request) để giữ codebase của nhóm 6 người gọn gàng suốt 4 tháng làm việc.\n\nNền tảng được triển khai trên Vercel, hỗ trợ tìm kiếm việc làm theo bộ lọc và quản lý hồ sơ ứng tuyển.",
+      "challenge": "Xây dựng nền tảng tìm việc cho phép ứng viên vừa tìm kiếm, ứng tuyển vừa nhận gợi ý CV từ AI, đồng thời giữ cho nhóm 6 người làm việc chung trên một codebase suốt 4 tháng không bị xung đột code.",
       "highlights": [
-        "Thiết kế và xây toàn bộ RESTful API bằng Java Spring Boot, quản lý dữ liệu quan hệ trên SQL Server",
-        "Xây dựng hệ thống xác thực JWT-based (login/register) từ đầu",
-        "Thiết lập Git branching strategy (feature branch + pull request) giữ công việc của team 6 người sạch sẽ suốt 4 tháng",
-        "Tích hợp AI chatbot hỗ trợ mẹo viết CV và gợi ý việc làm cho ứng viên"
+        "Thiết kế và xây dựng RESTful API bằng Java Spring Boot, quản lý dữ liệu quan hệ trên SQL Server",
+        "Xây dựng hệ thống xác thực JWT (login/register) và phân quyền người dùng",
+        "Thiết lập quy trình Git branching (feature branch + pull request) cho nhóm 6 thành viên trong 4 tháng",
+        "Tích hợp AI chatbot hỗ trợ góp ý CV và gợi ý việc làm cho ứng viên"
       ]
     },
     {
       "role": "Java Developer & Trưởng nhóm (Dự án nhóm)",
-      "description": "Dẫn dắt **đội 4 thành viên** xây dựng nền tảng thương mại điện tử hoàn chỉnh cho một tiệm bánh — bao gồm danh mục sản phẩm, quản lý đơn hàng, giỏ hàng và tài khoản khách hàng. Mình kiến trúc **backend Java Servlets**, thiết kế **schema database SQL Server**, và chia việc cho team theo sprint hàng tuần.\n\nCác điểm nổi bật gồm **chatbot AI** hỗ trợ khách hàng (tích hợp qua API), **Google Maps API** cho vị trí cửa hàng, và **Google OAuth** cho đăng nhập mạng xã hội. Frontend dùng **HTML/CSS/JavaScript** thuần, giữ cho hệ thống nhẹ và nhanh.\n\nĐây là dự án nhóm thật đầu tiên của mình, và nó dạy mình khá nhiều — cách xác định phạm vi tính năng cho hợp lý, cách xử lý merge conflict khi deadline đang gần kề, và cách thực sự giao được một sản phẩm hoàn chỉnh end-to-end.",
-      "challenge": "Dự án nhóm đầu tiên của mình — cần cùng xây một nền tảng thương mại điện tử đầy đủ (catalog, giỏ hàng, đơn hàng, tài khoản khách) cho một tiệm bánh, với đội 4 người, deadline cố định, và chưa có kinh nghiệm phối hợp team trước đó.",
+      "description": "Dẫn dắt nhóm 4 thành viên xây dựng website thương mại điện tử cho một tiệm bánh, gồm danh mục sản phẩm, giỏ hàng, quản lý đơn hàng và tài khoản khách hàng. Mình thiết kế backend Java Servlets, dựng schema SQL Server và chia công việc cho nhóm theo sprint hàng tuần.\n\nHệ thống tích hợp thêm chatbot AI tư vấn khách hàng qua API, Google Maps API chỉ đường đến cửa hàng và Google OAuth để đăng nhập nhanh. Phần giao diện viết bằng HTML/CSS/JavaScript thuần để trang tải nhẹ và dễ kiểm soát.\n\nĐây là dự án nhóm đầu tiên mình làm trưởng nhóm, giúp mình học được cách chia nhỏ tính năng vừa sức, xử lý merge conflict sát giờ nộp bài và hoàn thiện một sản phẩm chạy được từ đầu đến cuối.",
+      "challenge": "Dự án nhóm đầu tiên của mình: cần hoàn thiện một website bán hàng đầy đủ luồng (danh mục, giỏ hàng, đơn hàng, tài khoản) với nhóm 4 người trong thời gian cố định của môn học.",
       "highlights": [
-        "Kiến trúc backend bằng Java Servlets, tự thiết kế schema database SQL Server từ đầu",
-        "Dẫn dắt team 4 người, chia task theo sprint hàng tuần",
-        "Tích hợp AI chatbot hỗ trợ khách hàng, Google Maps API cho vị trí cửa hàng, Google OAuth cho đăng nhập mạng xã hội",
-        "Học cách giải quyết merge conflict dưới áp lực deadline và giao sản phẩm hoàn chỉnh end-to-end"
+        "Thiết kế backend bằng Java Servlets và dựng schema cơ sở dữ liệu SQL Server từ đầu",
+        "Điều phối nhóm 4 người, phân chia công việc theo sprint hàng tuần",
+        "Tích hợp AI chatbot hỗ trợ khách hàng, Google Maps API tìm cửa hàng và đăng nhập Google OAuth",
+        "Xử lý merge conflict và bàn giao sản phẩm hoàn chỉnh đúng hạn"
       ]
     },
     {
       "role": "Người sáng lập & Trưởng dự án",
-      "description": "Mình sáng lập và dẫn dắt **The Dreamers** — một tổ chức thiện nguyện do sinh viên vận hành tại Đại học FPT, hướng đến việc tạo ra tác động tích cực thật sự qua công nghệ và giáo dục. Tổ chức triển khai các chương trình thực tế mang **workshop lập trình, đào tạo kỹ năng giao tiếp và mentorship** trực tiếp đến trẻ mồ côi và thanh thiếu niên có hoàn cảnh khó khăn.\n\nVới vai trò người sáng lập, mình quản lý toàn bộ hoạt động: tuyển dụng và onboard thành viên, xác định roadmap dự án, phối hợp với các tổ chức đối tác, và điều hành các chiến dịch gây quỹ đã tài trợ cho nhiều chuyến thiện nguyện.\n\nCác sự kiện do The Dreamers tổ chức gồm **Tốt Hy Vọng**, **Vòng vào Mộng mơ**, **Dream High**, và **Charity Music Performance** — mỗi sự kiện đều đòi hỏi lên kế hoạch, hậu cần và điều phối team từ đầu đến cuối. Bọn mình cũng đang xây một nền tảng backend bằng **Java Spring Boot** để quản lý hoạt động thành viên và hồ sơ sự kiện.",
-      "challenge": "Xây dựng một tổ chức thiện nguyện sinh viên thực sự bền vững — không chỉ tổ chức sự kiện đơn lẻ, mà phải vận hành liên tục: tuyển thành viên, gây quỹ, và giờ đây là số hoá việc quản lý hoạt động/thành viên bằng một nền tảng backend riêng.",
+      "description": "Mình sáng lập và điều hành The Dreamers, một tổ chức thiện nguyện sinh viên tại Đại học FPT Đà Nẵng. Nhóm tổ chức các buổi học lập trình cơ bản, rèn kỹ năng giao tiếp và tặng quà cho trẻ mồ côi, trẻ em có hoàn cảnh khó khăn tại địa phương.\n\nMình phụ trách tuyển thành viên, lên kế hoạch hoạt động, làm việc với các mái ấm đối tác và quản lý thu chi cho các đợt gây quỹ.\n\nTừ khi thành lập, nhóm đã tổ chức các chương trình Tốt Hy Vọng, Vòng vào Mộng mơ, Dream High và đêm nhạc gây quỹ Charity Music Performance. Hiện tụi mình cũng đang viết thêm một hệ thống backend bằng Java Spring Boot để lưu trữ hồ sơ thành viên và lịch sử sự kiện.",
+      "challenge": "Duy trì một câu lạc bộ thiện nguyện sinh viên hoạt động đều đặn qua nhiều học kỳ: vừa tuyển quân, gây quỹ minh bạch, vừa số hóa việc quản lý thành viên và sự kiện bằng hệ thống riêng.",
       "highlights": [
-        "Sáng lập và điều hành toàn bộ hoạt động: tuyển thành viên, roadmap dự án, gây quỹ cho nhiều chiến dịch thiện nguyện",
-        "Tổ chức end-to-end 4 sự kiện lớn: Tốt Hy Vọng, Vòng vào Mộng mơ, Dream High, Charity Music Performance",
-        "Đang phát triển backend quản lý hoạt động và hồ sơ thành viên bằng Java Spring Boot"
+        "Sáng lập và điều hành hoạt động của hơn 30 thành viên: tuyển quân, lập kế hoạch và gây quỹ thiện nguyện",
+        "Tổ chức trọn vẹn 4 chương trình: Tốt Hy Vọng, Vòng vào Mộng mơ, Dream High và Charity Music Performance",
+        "Xây dựng backend quản lý hoạt động và hồ sơ thành viên bằng Java Spring Boot"
       ]
     },
     {
       "role": "Lập trình viên độc lập",
-      "description": "Một công cụ tiện ích gọn nhẹ, xây trong 10 ngày để tự động hoá việc gửi form web lặp đi lặp lại — loại bỏ nhập liệu thủ công cho các kịch bản nhập dữ liệu có cấu trúc, khối lượng lớn.\n\nHệ thống dùng **Node.js** ở backend để điều khiển tương tác form qua DOM scripting, cùng một **frontend React** nhẹ cho phép người dùng upload dữ liệu (CSV/JSON), xem trước các mục, và submit hàng loạt chỉ với một cú click. Mình xử lý luôn cả các trường hợp khó nhằn như độ trễ validation, field render động, và form được bảo vệ bởi CAPTCHA.\n\nDự án này giúp mình hiểu sâu hơn về hành vi DOM trình duyệt, các pattern scripting bất đồng bộ trong thực tế, và giới hạn thật sự của automation — nền tảng hữu ích cho QA, data tooling, và tự động hoá workflow nội bộ.",
-      "challenge": "Loại bỏ việc nhập liệu thủ công lặp lại cho các form web có khối lượng lớn, trong thời hạn gấp 10 ngày — và phải xử lý được các trường hợp khó như field render động và form có CAPTCHA.",
+      "description": "Một công cụ nhỏ mình viết trong 10 ngày để tự động hóa việc điền và gửi các biểu mẫu web lặp đi lặp lại, giúp tiết kiệm thời gian nhập liệu thủ công với dữ liệu lớn.\n\nHệ thống dùng Node.js điều khiển thao tác DOM kết hợp với giao diện React cho phép tải file CSV/JSON lên, xem trước danh sách bản ghi và chạy gửi hàng loạt. Mình cũng xử lý thêm cơ chế chờ khi form có độ trễ kiểm tra dữ liệu (validation delay) hoặc các trường chỉ xuất hiện động sau khi chọn mục trước.\n\nDự án giúp mình nắm rõ cách DOM trình duyệt phản hồi với script bất đồng bộ, phục vụ tốt cho việc viết kịch bản kiểm thử tự động (E2E testing) sau này.",
+      "challenge": "Tự động hóa việc nhập liệu hàng loạt cho biểu mẫu web trong vòng 10 ngày, xử lý gọn các trường hợp form render động và độ trễ kiểm tra hợp lệ trên trình duyệt.",
       "highlights": [
-        "Xây dựng engine điều khiển DOM bằng Node.js để tự động hoá tương tác form",
-        "Frontend React cho phép upload CSV/JSON, xem trước dữ liệu, và submit hàng loạt chỉ với 1 click",
-        "Xử lý các edge case: độ trễ validation, field render động, form có CAPTCHA",
-        "Hoàn thành toàn bộ solo trong 10 ngày"
+        "Viết bộ điều khiển DOM bằng Node.js để tự động điền và gửi biểu mẫu",
+        "Giao diện React hỗ trợ tải file CSV/JSON, kiểm tra trước dữ liệu và gửi hàng loạt",
+        "Xử lý các trường hợp độ trễ validation và trường dữ liệu render động",
+        "Hoàn thành độc lập từ đầu đến cuối trong 10 ngày"
       ]
     },
     {
       "role": "Full-Stack Developer",
-      "description": "Một cửa hàng sách thương mại điện tử hoàn chỉnh, xây dựng hoàn toàn trên **nền tảng low-code OutSystems** — một phần trong chương trình đào tạo thực tập tại **FPT Software**, nơi OutSystems được dùng thật trong các dự án khách hàng doanh nghiệp.\n\nỨng dụng bao phủ các luồng e-commerce cốt lõi: **danh mục sản phẩm có tìm kiếm/lọc**, **giỏ hàng**, **quản lý đơn hàng**, và một **admin panel** cơ bản để quản lý tồn kho. Xây hoàn toàn bằng OutSystems dạy mình cách tư duy về data model, UI logic, và tích hợp API trong một môi trường phát triển visual — kỹ năng áp dụng trực tiếp cho các dự án enterprise cần giao hàng nhanh.\n\nBản demo live có thể truy cập công khai trên OutSystems Cloud.",
-      "challenge": "Học và triển khai một ứng dụng thương mại điện tử đầy đủ hoàn toàn trong môi trường visual development (OutSystems) — kỹ năng áp dụng trực tiếp cho các dự án enterprise rapid-delivery tại FPT Software.",
+      "description": "Website bán sách trực tuyến được xây dựng trên nền tảng low-code OutSystems trong kỳ thực tập OJT tại FPT Software Đà Nẵng.\n\nỨng dụng có đầy đủ các luồng cơ bản của một trang thương mại điện tử: danh mục sách kèm tìm kiếm và bộ lọc, giỏ hàng, đặt hàng và trang quản trị tồn kho. Quá trình làm dự án này giúp mình quen với kiến trúc 4-Layer của OutSystems, cách thiết kế data model, phân tách logic giao diện và tích hợp REST API theo chuẩn dự án doanh nghiệp tại FSoft.\n\nBản demo hiện được triển khai công khai trên OutSystems Cloud.",
+      "challenge": "Làm quen và hoàn thiện một ứng dụng thương mại điện tử hoàn chỉnh trên nền tảng OutSystems theo đúng chuẩn kiến trúc 4-Layer trong kỳ thực tập tại FPT Software.",
       "highlights": [
-        "Xây dựng đầy đủ luồng e-commerce: catalog có search/filter, giỏ hàng, quản lý đơn hàng, admin panel quản lý tồn kho",
-        "Học cách tư duy data model, UI logic, và tích hợp API trong môi trường low-code",
-        "Demo live công khai trên OutSystems Cloud"
+        "Xây dựng trọn vẹn luồng mua sắm: danh mục có tìm kiếm/lọc, giỏ hàng, đơn hàng và trang quản lý kho",
+        "Áp dụng kiến trúc 4-Layer, thiết kế data model và tích hợp API trên OutSystems Reactive Web",
+        "Triển khai bản demo chạy trực tiếp trên OutSystems Cloud"
       ]
     },
     {
       "role": "Frontend Developer (Dự án luyện tập)",
-      "description": "Một bản sao chính xác đến từng pixel của giao diện web TikTok, xây dựng như một dự án luyện tập có cấu trúc qua **khoá học F8 React** — một trong những chương trình học frontend uy tín nhất Việt Nam.\n\nTrọng tâm là nắm vững thật chắc **kiến trúc component React**: tách giao diện TikTok thành các phần tái sử dụng, có thể kết hợp — Sidebar, VideoFeed, UserCard, ActionBar — mỗi phần tự quản lý props, state, và effect đúng chuẩn. Trong lúc làm, mình luyện thêm **custom hooks**, **React Router** cho điều hướng đa trang, **CSS Modules** cho styling có phạm vi, và xây responsive layout mà không dùng UI library nào.\n\nDự án này giúp mình củng cố chắc nền tảng React trước khi mang nó vào các dự án production như Job Finder và The MC Hub.",
-      "challenge": "Củng cố nền tảng React trước khi áp dụng vào các dự án production (Job Finder, The MC Hub) — bằng cách tái tạo chính xác một giao diện phức tạp, nhiều component tương tác thật (TikTok web).",
+      "description": "Bản dựng lại giao diện web TikTok, mình thực hiện khi học khóa React chuyên sâu tại F8.\n\nMục tiêu của dự án là rèn cách chia nhỏ giao diện phức tạp thành các component độc lập, dễ tái sử dụng (Sidebar, VideoFeed, UserCard, ActionBar) và quản lý props, state, side-effect rõ ràng. Trong quá trình viết, mình tự xây dựng các custom hooks (như `useDebounce` cho ô tìm kiếm), cấu hình React Router đa trang, dùng CSS Modules để không bị trùng lặp class và tự viết layout responsive mà không phụ thuộc thư viện UI có sẵn.\n\nDự án này là bước đệm giúp mình nắm chắc React trước khi bắt tay vào làm các hệ thống lớn hơn như Job Finder, The MC Hub hay Biensovip.",
+      "challenge": "Tự dựng lại giao diện nhiều thành phần tương tác của TikTok web bằng React thuần và CSS Modules mà không dùng thư viện UI dựng sẵn.",
       "highlights": [
-        "Tách UI thành các component tái sử dụng: Sidebar, VideoFeed, UserCard, ActionBar với props/state/effect quản lý đúng chuẩn",
-        "Thực hành custom hooks, React Router cho điều hướng đa trang, CSS Modules cho styling có phạm vi",
-        "Xây dựng responsive layout hoàn toàn không dùng UI library"
+        "Tách giao diện thành các component tái sử dụng: Sidebar, VideoFeed, UserCard, ActionBar",
+        "Viết custom hooks (`useDebounce`), tích hợp API tìm kiếm, cấu hình React Router và CSS Modules",
+        "Tự xây dựng bố cục responsive đa màn hình không dùng thư viện UI"
       ]
     },
     {
       "role": "Designer & Developer",
-      "description": "Portfolio này — chính là trang bạn đang xem. Thiết kế và xây dựng từ đầu, tập trung vào **thẩm mỹ sạch sẽ, hiệu năng, và nội dung thật** thay vì dùng template có sẵn.\n\nThiết kế theo **hệ màu monochrome + pastel** lấy cảm hứng từ xu hướng thiết kế Figma hiện đại: typography cỡ lớn, nút bo tròn dạng pill, khối màu pastel nhấn nhá, và spacing nhất quán xuyên suốt. Mỗi trang có **PageBanner** riêng, hiệu ứng vào trang bằng **Framer Motion**, và layout responsive đầy đủ xuống đến mobile.\n\nVề mặt kỹ thuật, đây là ứng dụng **React 19 (CRA)** với **React Router v6** cho điều hướng đa trang, inline styles cho thiết kế theo phạm vi component, và CSS media queries cho các breakpoint responsive. Nội dung được điều khiển bởi một file `data.js` trung tâm, giúp cập nhật dễ dàng mà không cần đụng vào logic component.",
-      "challenge": "Xây một portfolio thể hiện đúng chất lượng thật — tránh cảm giác template, tối ưu hiệu năng (code-splitting, lazy image), và giữ nội dung dễ cập nhật qua một data layer trung tâm thay vì sửa trực tiếp component.",
+      "description": "Chính là trang portfolio bạn đang xem. Mình tự thiết kế và viết code từ đầu theo phong cách **Robin Tactile Notebook & Pixel Scrapbook**: nền giấy kẻ ngang ấm (`#F9F6F1`), bảng tên chữ pixel cổ điển, thẻ ghim băng keo washi, nhãn dán màu vàng - xanh - hồng và các tập hồ sơ dự án (Folder Dossier).\n\nTrang được xây dựng bằng **React 19** kết hợp **React Router v6**, hỗ trợ chuyển đổi song ngữ Việt - Anh tức thời, tìm kiếm nhanh qua Command Palette (`Ctrl+K`), bộ lọc dự án theo kỹ năng và công cụ gợi ý hồ sơ cho nhà tuyển dụng.\n\nBên dưới giao diện, toàn bộ dữ liệu dự án, bài viết blog và chứng chỉ được tách riêng tại `src/data.js` và các file ngôn ngữ `vi.json` / `en.json`, đi kèm `SeoHeadManager` tự động sinh thẻ meta và dữ liệu có cấu trúc Schema.org JSON-LD cho từng đường dẫn.",
+      "challenge": "Thiết kế một trang hồ sơ năng lực mang cá tính riêng như một cuốn sổ tay kỹ thuật (Tactile Notebook), vừa chứa khối lượng lớn thông tin (30+ dự án, 48 chứng chỉ, 13 bài viết kỹ thuật) vừa tải nhanh và chuẩn SEO.",
       "highlights": [
-        "Thiết kế hệ thống màu monochrome + pastel block riêng, không dùng theme có sẵn",
-        "Kiến trúc data-driven: toàn bộ nội dung điều khiển bởi data.js, tách biệt khỏi component logic",
-        "Route-level code-splitting, tối ưu ảnh qua Cloudinary, i18n song ngữ Anh/Việt",
-        "Animation nhất quán toàn site bằng Framer Motion, tôn trọng prefers-reduced-motion"
+        "Thiết kế giao diện theo phong cách Robin Tactile Notebook & Pixel Scrapbook, không dùng template dựng sẵn",
+        "Kiến trúc dữ liệu tập trung tại data.js và hệ thống i18n song ngữ Việt/Anh đầy đủ",
+        "Tích hợp SeoHeadManager động, Schema.org JSON-LD (@graph), sitemap.xml và llms.txt",
+        "Chia nhỏ bundle theo route (code-splitting), tối ưu ảnh qua Cloudinary và hỗ trợ prefers-reduced-motion"
       ]
     },
     {
       "role": "Full-Stack Developer",
-      "description": "Một hệ thống quản lý nội bộ full-stack cho hoạt động tiệm bánh — làm như bài tập môn học nhưng có phạm vi giống dự án thật. Bao gồm **theo dõi tồn kho**, **ghi nhận doanh số**, **quản lý đơn hàng**, và **database khách hàng**, tất cả kết nối qua một lớp REST API.\n\nBackend là **Java Spring Boot** với **MySQL** để lưu trữ, phục vụ cho frontend **React** triển khai trên Vercel. Mình xử lý cả hai phía: thiết kế API, schema database, cấu trúc component React, và pipeline deployment.\n\nXây dựng solo dự án này giúp mình hiểu rõ hơn nhiều về toàn bộ vòng đời request — từ một cú click trên UI cho đến truy vấn database và quay lại — và cho mình sự tự tin để thiết kế hệ thống end-to-end mà không cần đồng đội bù đắp chỗ thiếu.",
-      "challenge": "Bài tập môn học yêu cầu phạm vi thật (tồn kho, doanh số, đơn hàng, database khách hàng) nhưng làm solo — nghĩa là mình phải tự thiết kế và triển khai toàn bộ hệ thống, từ database đến deployment, không có ai chia việc.",
+      "description": "Hệ thống quản lý nội bộ cho tiệm bánh, thực hiện độc lập trong khuôn khổ đồ án môn học nhưng được thiết kế đầy đủ các phân hệ như một phần mềm quản lý cửa hàng thực tế: theo dõi nguyên vật liệu tồn kho, ghi nhận doanh thu, xử lý đơn hàng và lưu trữ thông tin khách hàng.\n\nBackend viết bằng Java Spring Boot kết nối cơ sở dữ liệu MySQL, cung cấp REST API cho giao diện React triển khai trên Vercel. Mình tự đảm nhận toàn bộ các khâu từ thiết kế bảng dữ liệu, viết API đến làm giao diện và cấu hình deploy.\n\nViệc tự làm một mình từ đầu đến cuối giúp mình hiểu rõ luồng đi của dữ liệu qua từng tầng, từ lúc người dùng bấm nút trên màn hình cho tới câu truy vấn SQL bên dưới.",
+      "challenge": "Tự thiết kế và lập trình một mình toàn bộ hệ thống quản lý tiệm bánh (tồn kho, doanh số, đơn hàng, khách hàng) từ database MySQL, backend Spring Boot đến giao diện React.",
       "highlights": [
-        "Tự thiết kế API và schema database, không phụ thuộc teammate",
-        "Backend Java Spring Boot + MySQL, frontend React deploy trên Vercel",
-        "Tự vận hành toàn bộ pipeline: API design → database → component structure → deployment"
+        "Tự thiết kế REST API và lược đồ cơ sở dữ liệu MySQL cho 4 phân hệ quản lý",
+        "Phát triển backend Java Spring Boot kết hợp frontend React triển khai trên Vercel",
+        "Hoàn thiện trọn vẹn quy trình từ thiết kế DB, viết API, ghép giao diện đến triển khai"
       ]
     },
     {
       "role": "Tech Lead & CEO",
-      "description": "Ra mắt nền tảng luyện giọng MC (React 19 + Java Spring Boot 3.3) thương mại hóa ngay từ ngày đầu: 87 MC tham gia trong tháng đầu tiên, 20 giao dịch với doanh thu ~4 triệu VNĐ qua 2 gói dịch vụ (Basic/Full).\n\nXây dựng microservice AI phân tích giọng nói (Python FastAPI + Whisper) đánh giá phát âm, ngữ điệu, tốc độ, ngắt nghỉ — phục vụ 101 bài tập thực hành, 40 bài lý thuyết và 4 khóa học chuyên sâu theo 6 thể loại MC.\n\nDẫn dắt đội ngũ 6 người từ con số 0 lên production trong 6 tháng. Thiết lập quy trình CI/CD trên Vercel (frontend) + Render (backend), dùng Notion và Jira để quản lý dự án.",
-      "challenge": "Xây dựng và thương mại hóa nền tảng luyện giọng MC từ con số 0 lên production trong 6 tháng với team 6 người, tích hợp AI voice analysis đánh giá phát âm, ngữ điệu và ngắt nghỉ thời gian thực.",
+      "description": "Nền tảng luyện giọng nói và kỹ năng dẫn chương trình ứng dụng AI (React 19 + Java Spring Boot 3.3 + Python FastAPI), có doanh thu ngay từ tháng đầu ra mắt: 87 MC đăng ký sử dụng, 20 giao dịch trả phí (~4 triệu VNĐ) qua 2 gói Basic và Full.\n\nMình cùng nhóm xây dựng microservice phân tích giọng nói bằng Python FastAPI, Librosa và OpenAI Whisper để đo 10 chỉ số âm học (F0, HNR, Jitter, Shimmer, tốc độ nói, ngắt nghỉ, từ đệm...), phục vụ 101 bài luyện tập, 40 bài đọc lý thuyết và 4 khóa học theo 6 thể loại MC.\n\nMình dẫn dắt nhóm 6 thành viên phát triển sản phẩm từ con số 0 lên môi trường thực tế trong 6 tháng, viết 116 Atomic Functional Requirements và 139 sơ đồ Visual Paradigm.",
+      "challenge": "Xây dựng và đưa ra thị trường nền tảng luyện giọng MC có tích hợp chấm điểm âm học AI thời gian thực trong vòng 6 tháng cùng nhóm 6 kỹ sư.",
       "highlights": [
-        "Ra mắt nền tảng luyện giọng MC thương mại hoá từ ngày đầu: 87 MC tham gia tháng đầu, 20 giao dịch đạt ~4 triệu VNĐ doanh thu với 2 gói Basic/Full",
-        "Xây dựng microservice AI phân tích giọng nói (Python FastAPI + Whisper) đánh giá phát âm, ngữ điệu, tốc độ, ngắt nghỉ — phục vụ 101 bài tập, 40 bài lý thuyết, 4 khoá học",
-        "Dẫn dắt team 6 người từ con số 0 lên production trong 6 tháng với quy trình CI/CD Vercel + Render, quản lý qua Notion & Jira",
-        "Công nghệ: MongoDB, Python FastAPI + Whisper, Java SpringBoot, ReactJS, Redis"
+        "Đạt 87 người dùng MC và 20 giao dịch trả phí (~4 triệu VNĐ) ngay trong tháng đầu ra mắt",
+        "Xây dựng microservice Python FastAPI + Whisper + Librosa chấm điểm phát âm, ngữ điệu, tốc độ và ngắt nghỉ cho 101 bài tập",
+        "Điều phối nhóm 6 người từ giai đoạn đặc tả (116 Atomic FRs) đến triển khai CI/CD trên Vercel và Render",
+        "Công nghệ: Java 21 Spring Boot 3.3, React 19, Python FastAPI, Whisper, MongoDB, Redis"
       ]
     },
     {
       "role": "Full-Stack Developer (Dự án nhóm)",
-      "description": "**Chợ nông sản Việt Nam** kết nối nông dân, nhà cung cấp, và khách hàng — bao gồm đăng sản phẩm, đơn hàng, đánh giá, và thông báo. Ban đầu là đồ án học thuật (**PRM393**) với **app mobile Flutter** và backend **Express.js/MongoDB** bảo mật bằng JWT.\n\nSau đó dự án phát triển thêm một bản build production-grade song song, hướng tới khả năng khởi nghiệp thật: frontend **Next.js + TypeScript** (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo cho bản đồ vị trí nông trại) hỗ trợ bởi lớp service **NestJS + TypeORM**. Bước chuyển này — từ prototype học thuật sang kiến trúc chuẩn khởi nghiệp — thậm chí còn bao gồm cả việc soạn thảo một đề xuất khởi nghiệp chính thức bằng tiếng Việt.",
-      "challenge": "Bắt đầu là đồ án học thuật (PRM393) nhưng đội quyết định nâng lên kiến trúc production-grade hướng tới khả năng khởi nghiệp thật — nghĩa là phải thiết kế lại từ mobile-only sang một full stack đa nền tảng có khả năng mở rộng.",
+      "description": "Sàn kết nối nông dân, nhà cung cấp và người mua nông sản Việt Nam, hỗ trợ đăng bán mùa vụ, đặt hàng, đánh giá và nhận thông báo. Dự án khởi đầu là đồ án môn lập trình di động (PRM393) với ứng dụng Flutter và backend Express.js/MongoDB xác thực bằng JWT.\n\nSau khi kết thúc môn học, nhóm phát triển thêm một phiên bảb web và backend mở rộng để tham gia cuộc thi khởi nghiệp: giao diện Next.js + TypeScript (Radix UI, TanStack Query, Sentry, bản đồ vùng trồng bằng Mapbox/d3-geo) kết nối với tầng dịch vụ NestJS + TypeORM, đi kèm bản đề án kinh doanh hoàn chỉnh.",
+      "challenge": "Nâng cấp một đồ án môn học di động (PRM393) thành kiến trúc đa nền tảng (Web Next.js + Mobile Flutter + Backend NestJS) đủ điều kiện dự thi khởi nghiệp.",
       "highlights": [
-        "Track 1 (học thuật): mobile app Flutter + backend Express.js/MongoDB xác thực JWT",
-        "Track 2 (production-grade song song): frontend Next.js + TypeScript (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo cho bản đồ nông trại) + backend NestJS + TypeORM",
-        "Soạn thảo đề xuất khởi nghiệp chính thức bằng tiếng Việt cho mô hình sản phẩm"
+        "Phiên bản 1 (di động): Ứng dụng Flutter kết nối backend Express.js/MongoDB xác thực JWT",
+        "Phiên bản 2 (web mở rộng): Giao diện Next.js + TypeScript tích hợp bản đồ nông trại Mapbox/d3-geo và backend NestJS + TypeORM",
+        "Hoàn thiện hồ sơ đề án khởi nghiệp cho mô hình sàn nông sản trực tuyến"
       ]
     },
     {
       "role": "Tech Lead & Solutions Architect (Team 5 Kỹ Sư)",
-      "description": "Nền tảng **agency quản lý nội dung thương hiệu khách hàng** trên 5 mạng xã hội — Facebook, Instagram, TikTok, Threads, và Zalo — với workflow tạo/duyệt nội dung, AI học giọng điệu thương hiệu (Brand Voice), lên lịch chiến dịch, và tự động đăng đa nền tảng.\n\nXây dựng theo **kiến trúc 7 microservices phân tán**: **API Gateway** (Spring Cloud Gateway, WebFlux, JWT + Redis auth & rate-limiting), **business-service** (Spring Boot 3.3.5, Java 21) xử lý logic multi-tenant và campaign, **publisher-service** tiêu thụ từ **RabbitMQ với Dead Letter Queue (DLQ)** retry lũy thừa chống mất tin nhắn 100%, và **AI service** (Python FastAPI, RAG & GraphRAG với ChromaDB và Neo4j) cho sinh nội dung. Frontend là dashboard **React 18 + TypeScript + Vite**, kèm app mobile **Expo/React Native**, tất cả được orchestrate qua **Docker Compose** trên AWS EC2.",
-      "challenge": "Đăng nội dung đồng thời lên 5 mạng xã hội (Facebook, Instagram, TikTok, Threads, Zalo) với độ tin cậy tuyệt đối 100% — đòi hỏi kiến trúc 7 microservices phân tán chịu lỗi cao (RabbitMQ DLQ retry lũy thừa), bảo vệ gateway và AI RAG học giọng điệu thương hiệu.",
+      "description": "Nền tảng quản lý và xuất bản nội dung thương hiệu đa kênh cho agency trên 5 mạng xã hội (Facebook, Instagram, TikTok, Threads và Zalo), hỗ trợ quy trình soạn thảo, phê duyệt, AI học giọng văn thương hiệu (Brand Voice), lên lịch chiến dịch và tự động đăng bài.\n\nHệ thống được thiết kế theo kiến trúc 7 microservices: API Gateway (Spring Cloud Gateway, WebFlux, xác thực JWT + Redis rate-limiting), business-service (Spring Boot 3.3.5, Java 21) xử lý nghiệp vụ đa tổ chức (multi-tenant), publisher-service đọc hàng đợi RabbitMQ kèm Dead Letter Queue (DLQ) tự động thử lại theo cấp số nhân để không làm rơi lệnh đăng bài, và AI service (Python FastAPI, RAG & GraphRAG với ChromaDB và Neo4j). Đi kèm là dashboard React 18 + TypeScript, ứng dụng di động 79 màn hình Expo/React Native và bộ 2.500+ test cases.",
+      "challenge": "Đảm bảo việc xuất bản bài viết đồng thời lên 5 mạng xã hội không bị thất lạc dữ liệu khi API bên thứ ba chập chờn, đồng thời chuẩn hóa 109 yêu cầu thô thành 141 Atomic FRs cho nhóm 5 kỹ sư.",
       "highlights": [
-        "Kiến trúc tổng thể 7 Microservices: API Gateway (Spring Cloud Gateway, WebFlux, JWT+Redis), business-service (Java 21), publisher-service (RabbitMQ DLQ), AI service (FastAPI GraphRAG)",
-        "Thiết kế cơ chế Dead Letter Queue (DLQ) retry lũy thừa đảm bảo tỷ lệ mất tin nhắn khi xuất bản bằng 0%",
-        "Tích hợp RAG & GraphRAG (ChromaDB + Neo4j) học Brand Voice và phân tích quan hệ KOL/xu hướng",
-        "Frontend dashboard React 18 + TypeScript + Vite, mobile app Expo React Native, điều phối cụm Docker Compose"
+        "Thiết kế kiến trúc 7 Microservices: API Gateway (Spring Cloud Gateway), business-service (Java 21), publisher-service (RabbitMQ DLQ), AI service (FastAPI GraphRAG)",
+        "Cấu hình cơ chế Dead Letter Queue (DLQ) retry lũy thừa giúp tỷ lệ mất lệnh xuất bản giữ ở mức 0%",
+        "Ứng dụng RAG & GraphRAG (ChromaDB + Neo4j) để giữ nhất quán Brand Voice và gợi ý xu hướng",
+        "Phát triển dashboard React 18 + TypeScript, app di động 79 màn hình React Native và hơn 320 file Playwright E2E test"
       ]
     },
     {
       "role": "Lập trình viên độc lập",
-      "description": "**Trang giới thiệu du lịch** cho tỉnh Điện Biên Phủ, Việt Nam — chuyển đổi từ site HTML tĩnh sang ứng dụng **React 19 + Vite** hiện đại với ảnh lazy-load, duyệt nội dung theo card/modal, và render markdown an toàn qua **DOMPurify**.\n\nMột chi tiết **Three.js / React Three Fiber** thêm điểm nhấn 3D tinh tế cho phần hero, và **Framer Motion** điều khiển chuyển trang. Style bằng **Tailwind CSS 4** cho layout sạch, tải nhanh, hợp với nội dung du lịch.",
-      "challenge": "Chuyển đổi một site tĩnh HTML lỗi thời thành một trải nghiệm React hiện đại — vừa giữ nguyên nội dung du lịch phong phú, vừa đảm bảo render markdown an toàn và các trang nhiều ảnh vẫn tải nhanh.",
+      "description": "Website giới thiệu du lịch tỉnh Điện Biên, được nâng cấp từ một trang HTML tĩnh sang ứng dụng React 19 + Vite với tính năng tải ảnh lười (lazy-load), xem bài viết qua thẻ/modal và hiển thị nội dung Markdown an toàn bằng DOMPurify.\n\nPhần đầu trang (Hero) có thêm hiệu ứng 3D nhẹ viết bằng Three.js / React Three Fiber, kết hợp chuyển trang bằng Framer Motion và bố cục Tailwind CSS 4 gọn nhẹ.",
+      "challenge": "Chuyển đổi toàn bộ nội dung từ trang HTML tĩnh cũ sang ứng dụng React 19 hiện đại, giữ tốc độ tải nhanh dù trang có nhiều ảnh du lịch độ phân giải cao.",
       "highlights": [
-        "Migrate từ static HTML sang React 19 + Vite, lazy-load ảnh toàn site",
-        "Render markdown an toàn qua DOMPurify, tránh XSS từ nội dung động",
-        "Thêm điểm nhấn 3D nhẹ ở hero bằng Three.js/React Three Fiber",
-        "Page transition mượt bằng Framer Motion, styling Tailwind CSS 4"
+        "Chuyển đổi từ HTML tĩnh sang React 19 + Vite và tối ưu lazy-load hình ảnh toàn trang",
+        "Hiển thị bài viết Markdown an toàn qua DOMPurify để phòng tránh lỗi XSS",
+        "Tích hợp hiệu ứng 3D ở phần mở đầu bằng Three.js / React Three Fiber",
+        "Thiết kế giao diện responsive bằng Tailwind CSS 4 và hiệu ứng Framer Motion"
       ]
     },
     {
       "role": "Full-Stack Developer",
-      "description": "**Nền tảng học tập và tài liệu môn học** cho sinh viên Đại học FPT — có flashcard, quiz, dashboard, và quản lý tài liệu có cấu trúc, seed sẵn nội dung môn học thật (vd MLN111).\n\nBackend là REST API **Spring Boot 3.4.3 + MongoDB** chuẩn chỉnh với xác thực, middleware logging request, và một improvement log được duy trì ghi lại các fix thật (loại bỏ mock user ID hardcode, giải quyết N+1 query). Frontend là trang tài liệu **React 18 + TypeScript** với **Monaco Editor**, sơ đồ Mermaid, dashboard **Recharts**, và export PDF qua data fetching **TanStack Query**.",
-      "challenge": "Sinh viên FPT cần một nơi tập trung tài liệu môn học kèm công cụ ôn tập chủ động (flashcard, quiz) thay vì tài liệu rời rạc — và bản thân dự án cũng cần duy trì kỷ luật kỹ thuật tốt (log cải tiến, sửa lỗi thật) chứ không chỉ là demo.",
+      "description": "Nền tảng lưu trữ tài liệu môn học và ôn tập cho sinh viên Đại học FPT, tích hợp thẻ ghi nhớ (flashcard), trắc nghiệm (quiz), bảng thống kê tiến độ và trình đọc tài liệu (khởi tạo sẵn dữ liệu môn MLN111).\n\nBackend sử dụng Spring Boot 3.4.3 và MongoDB, có xác thực người dùng, middleware ghi log truy cập và sổ nhật ký kỹ thuật (improvement log) ghi lại quá trình gỡ bỏ mock user ID cố định cũng như xử lý lỗi truy vấn N+1. Giao diện viết bằng React 18 + TypeScript, tích hợp Monaco Editor, sơ đồ Mermaid, biểu đồ Recharts và xuất file PDF.",
+      "challenge": "Tạo một không gian học tập tập trung cho sinh viên FPT kèm công cụ tự kiểm tra (flashcard, quiz), đồng thời rèn kỷ luật ghi chép nhật ký tối ưu hiệu năng backend (sửa lỗi N+1 query, chuẩn hóa xác thực).",
       "highlights": [
-        "REST API Spring Boot 3.4.3 + MongoDB với middleware logging request, seed nội dung môn học thật (vd MLN111)",
-        "Duy trì improvement log ghi lại các fix thật: loại bỏ mock user ID hardcode, giải quyết N+1 query",
-        "Frontend React 18 + TypeScript với Monaco Editor, sơ đồ Mermaid, dashboard Recharts, export PDF"
+        "Xây dựng REST API bằng Spring Boot 3.4.3 + MongoDB kèm middleware ghi log và dữ liệu ôn tập thực tế",
+        "Ghi chép nhật ký cải tiến kỹ thuật: loại bỏ mock user ID hardcode và xử lý triệt để lỗi N+1 query",
+        "Giao diện React 18 + TypeScript tích hợp Monaco Editor, sơ đồ Mermaid, biểu đồ Recharts và xuất PDF"
       ]
     },
     {
       "role": "Lập trình viên độc lập",
-      "description": "**Giao diện automation chatbot theo phong cách Instagram**, tái tạo UI Instagram chính xác đến từng gradient thương hiệu và color token, làm tham chiếu thiết kế. Xây dựng như một scaffold React nhẹ, dự định phát triển tiếp thành công cụ tự động hoá chatbot đầy đủ cho workflow nhắn tin Instagram.",
-      "challenge": "Tái tạo chính xác ngôn ngữ thiết kế của Instagram (gradient, color token) làm nền tảng UI trước khi mở rộng thành công cụ tự động hoá chatbot messaging thật.",
+      "description": "Giao diện mẫu cho công cụ tự động hóa tin nhắn Instagram, tái tạo bảng màu gradient và hệ thống token màu sắc đặc trưng của Instagram trên nền React. Dự án đóng vai trò bộ khung giao diện (UI scaffold) để ghép nối với các luồng kịch bản trả lời tự động.",
+      "challenge": "Dựng chuẩn hệ thống màu sắc và bố cục hội thoại của Instagram làm nền tảng giao diện cho công cụ cấu hình kịch bản chatbot.",
       "highlights": [
-        "Scaffold React nhẹ, tái tạo chuẩn xác brand gradient và color token của Instagram",
-        "Thiết kế làm nền tảng cho tính năng tự động hoá chatbot messaging trong tương lai"
+        "Bộ khung giao diện React nhẹ, tái hiện đúng bảng màu gradient và token thiết kế của Instagram",
+        "Cấu trúc component sẵn sàng để ghép nối với trình dựng kịch bản nhắn tin tự động"
       ]
     },
     {
       "role": "Lập trình viên độc lập",
-      "description": "**Trang tư vấn du học** dành cho học sinh theo đuổi bậc sau đại học tại Úc — bao gồm thông tin chương trình, hướng dẫn nộp hồ sơ, và đặt lịch tư vấn, trình bày với data visualization phong phú giúp so sánh chương trình dễ dàng hơn.",
-      "challenge": "Trình bày thông tin so sánh chương trình học sau đại học phức tạp (học phí, thời lượng, yêu cầu) theo cách học sinh thực sự dễ tiếp thu, thay vì một bảng dữ liệu khô khan.",
+      "description": "Trang thông tin và tư vấn du học bậc sau đại học tại Úc, cung cấp lộ trình hồ sơ, biểu đồ so sánh chi phí - thời gian học giữa các trường và biểu mẫu đặt lịch hẹn tư vấn trực tiếp.",
+      "challenge": "Biểu diễn khối lượng thông tin so sánh chương trình học (học phí, thời lượng, điều kiện đầu vào) thành các biểu đồ trực quan, dễ tra cứu cho học sinh và phụ huynh.",
       "highlights": [
-        "Trực quan hoá dữ liệu so sánh chương trình học bằng Recharts",
-        "Giao diện MUI + Tailwind CSS 4, animation mượt bằng Framer Motion",
-        "Luồng đặt lịch tư vấn tích hợp trực tiếp trong trải nghiệm duyệt chương trình"
+        "Trực quan hóa bảng so sánh học phí và chương trình học bằng biểu đồ Recharts",
+        "Kết hợp thư viện MUI, Tailwind CSS 4 và hiệu ứng chuyển động Framer Motion",
+        "Tích hợp luồng đặt lịch hẹn tư vấn ngay trong màn hình tra cứu chương trình"
       ]
     },
     {
       "role": "Lập trình viên độc lập",
-      "description": "**Landing page nhà hàng** hoàn thiện cho Papa Steak, một steakhouse tại Đà Nẵng — theme thị giác dark/amber cao cấp, tích hợp **Google Maps** đa chi nhánh với chuyển đổi chỉ đường một chạm, menu overlay động, phần đánh giá khách hàng, và form đặt bàn có validate bằng **React Hook Form**.",
-      "challenge": "Xây dựng landing page nhà hàng cần truyền tải đúng cảm giác 'cao cấp' qua hình ảnh, đồng thời giải quyết một bài toán thực tế: nhà hàng có nhiều chi nhánh nên khách cần chuyển đổi chỉ đường dễ dàng.",
+      "description": "Landing page cho chuỗi nhà hàng bít tết Papa Steak tại Đà Nẵng, sử dụng tông màu tối kết hợp vàng hổ phách (dark/amber). Trang tích hợp bản đồ Google Maps cho phép chuyển đổi chỉ đường giữa các chi nhánh chỉ với một chạm, thực đơn dạng overlay, mục đánh giá của thực khách và biểu mẫu đặt bàn dùng React Hook Form.",
+      "challenge": "Thiết kế giao diện mang đúng không khí nhà hàng Âu ấm cúng, đồng thời giúp thực khách tìm đường đến đúng cơ sở gần nhất và đặt bàn nhanh trên điện thoại.",
       "highlights": [
-        "Thiết kế theme dark/amber cao cấp phù hợp thương hiệu steakhouse",
-        "Tích hợp Google Maps đa chi nhánh với chuyển đổi chỉ đường một chạm",
-        "Form đặt bàn có validate đầy đủ bằng React Hook Form, menu overlay động"
+        "Thiết kế giao diện tông màu dark/amber phù hợp với nhận diện thương hiệu steakhouse",
+        "Tích hợp Google Maps đa chi nhánh với nút chuyển đổi chỉ đường nhanh",
+        "Xây dựng form đặt bàn kiểm tra dữ liệu đầu vào bằng React Hook Form và thực đơn động"
       ]
     },
     {
       "role": "AI Engineer — RAG Pipeline, FastAPI Server, Static Analysis",
-      "description": "Fine-tuned LLM 1.5B tham số (Qwen2.5-Coder + QLoRA) vượt trội hơn GPT-3.5-turbo trong việc sửa lỗi concurrency JavaScript — 73.3% so với 65.0% trên 30 lỗi production thật, dù kích thước model nhỏ hơn ~125 lần.\n\nXây dựng pipeline RAG (BM25 + AST retrieval, cơ sở tri thức 2.050 tài liệu) kết hợp bộ phát hiện static race-condition chống hallucination.\n\nTriển khai microservice FastAPI production (JWT, Redis, MongoDB) phục vụ gợi ý sửa lỗi thời gian thực. Đồng tác giả bài báo nghiên cứu khoa học — đã nộp tại hội nghị quốc tế ICTA 2026.",
-      "challenge": "ESLint chỉ cảnh báo lỗi concurrency JavaScript mà không sửa được, còn gọi LLM lớn thì tốn chi phí và dễ ảo giác API. Cần một model 1.5B nhỏ gọn, chạy offline kết hợp pipeline retrieval chính xác tên hàm qua AST và BM25.",
+      "description": "Dự án nghiên cứu fine-tune mô hình ngôn ngữ 1.5B tham số (Qwen2.5-Coder + QLoRA) chuyên sửa lỗi bất đồng bộ (concurrency/race-condition) trong JavaScript. Mô hình đạt tỷ lệ sửa đúng 73.3% so với 65.0% của GPT-3.5-turbo trên bộ 30 lỗi thực tế từ các gói npm, dù kích thước nhỏ hơn khoảng 125 lần.\n\nMình trực tiếp xây dựng pipeline RAG (kết hợp tìm kiếm từ khóa BM25 với trích xuất cây cú pháp AST trên kho 2.050 tài liệu) và bộ phát hiện lỗi tĩnh để neo ngữ cảnh cho mô hình, hạn chế tối đa việc sinh tên hàm sai (hallucination).\n\nToàn bộ mô hình được đóng gói sau một microservice FastAPI (xác thực JWT, Redis, MongoDB) trả gợi ý sửa code theo thời gian thực. Kết quả nghiên cứu đã được chấp thuận tại hội nghị quốc tế ICTA 2026.",
+      "challenge": "Các công cụ như ESLint chỉ báo cảnh báo mà không tự sửa được lỗi race-condition, trong khi gọi LLM thương mại cỡ lớn lại tốn phí và dễ bịa tên hàm API. Nhóm cần một mô hình 1.5B chạy nội bộ kết hợp truy xuất AST + BM25 chính xác.",
       "highlights": [
-        "Fine-tuned LLM 1.5B tham số (Qwen2.5-Coder + QLoRA) vượt trội hơn GPT-3.5-turbo trong việc sửa lỗi concurrency JavaScript — 73.3% so với 65.0% trên 30 lỗi production thật",
-        "Xây dựng pipeline RAG (BM25 + AST retrieval, 2.050 tài liệu) kết hợp bộ phát hiện static race-condition chống hallucination",
-        "Triển khai microservice FastAPI production (JWT, Redis, MongoDB) phục vụ gợi ý sửa lỗi thời gian thực",
-        "Đồng tác giả bài báo nghiên cứu khoa học — đã nộp tại hội nghị ICTA 2026"
+        "Fine-tune mô hình 1.5B (Qwen2.5-Coder + QLoRA) đạt độ chính xác 73.3% (vượt GPT-3.5-turbo 65.0%) trên 30 lỗi thực tế",
+        "Thiết kế pipeline RAG (BM25 + phân tích AST trên 2.050 tài liệu) đi kèm bộ phát hiện race-condition tĩnh",
+        "Triển khai microservice FastAPI (JWT, Redis, MongoDB) cung cấp API gợi ý sửa code thời gian thực",
+        "Đồng tác giả bài báo khoa học được chấp thuận tại hội nghị quốc tế ICTA 2026"
       ]
     },
     {
       "role": "Frontend Developer (Dự án nhóm)",
-      "description": "Website chính thức của **Khoa Điều Dưỡng và Kỹ Thuật Y Học**, Đại học Y Dược Phan Châu Trinh — xây dựng cho khách hàng thật với team 6 người, bao gồm thông tin khoa, trang bộ môn (Điều Dưỡng, Kỹ Thuật Y Học), sơ đồ tổ chức, danh sách giảng viên, và nội dung song ngữ.\n\nXây dựng bằng **vanilla JavaScript Web Components** (không dùng framework) — component site-navbar, site-hero, site-footer, và các component nội dung tự viết — cùng một **router phía client** nhẹ và **hệ thống i18n data-driven** cho chuyển đổi nội dung Việt/Anh. Mình đóng góp **component sơ đồ tổ chức** (bố cục branch-connector responsive cho cấu trúc phân cấp khoa) và refactor các trang bộ môn để fetch nội dung động thay vì hardcode theo từng trang.",
-      "challenge": "Xây website khoa cho khách hàng thật (Đại học Y Dược Phan Châu Trinh) — team 6 người, không dùng framework, cần sơ đồ tổ chức phân cấp responsive và nội dung song ngữ dễ cập nhật mà không hardcode theo từng trang.",
+      "description": "Website chính thức của Khoa Điều Dưỡng và Kỹ Thuật Y Học, Đại học Y Dược Phan Châu Trinh, thực hiện cùng nhóm 6 người. Trang cung cấp thông tin giới thiệu khoa, chương trình đào tạo các bộ môn, sơ đồ cơ cấu tổ chức, danh sách giảng viên và hỗ trợ song ngữ Việt - Anh.\n\nDự án được viết hoàn toàn bằng JavaScript thuần với chuẩn Web Components (tự xây dựng các thẻ `site-navbar`, `site-hero`, `site-footer`), bộ định tuyến phía client (client-side router) và cơ chế đa ngôn ngữ đọc từ file dữ liệu. Mình phụ trách viết component sơ đồ tổ chức phân cấp responsive và cấu trúc lại các trang bộ môn để nạp dữ liệu động thay vì viết cứng từng trang HTML.",
+      "challenge": "Xây dựng website cho khách hàng trường đại học bằng JavaScript thuần (không dùng framework) cùng nhóm 6 người, đảm bảo sơ đồ tổ chức hiển thị tốt trên di động và nội dung song ngữ dễ bảo trì.",
       "highlights": [
-        "Xây dựng component sơ đồ tổ chức (org chart) với branch connector responsive cho cấu trúc khoa",
-        "Refactor các trang bộ môn sang fetch dữ liệu động thay vì hardcode nội dung mỗi trang",
-        "Toàn bộ site dùng vanilla JS Web Components, router và i18n tự viết, không dùng framework"
+        "Xây dựng component sơ đồ tổ chức (org chart) tự co giãn theo màn hình cho cơ cấu khoa",
+        "Chuyển đổi các trang bộ môn sang cơ chế nạp dữ liệu động thay vì viết cứng trong từng file",
+        "Sử dụng chuẩn Vanilla JS Web Components kèm bộ router và i18n tự viết"
       ]
     },
     {
       "role": "Solo Software Architect & Full-Stack Engineer",
-      "description": "Tự tay thiết kế, kiến trúc và lập trình trọn gói sàn giao dịch và định giá biển số đẹp độc bản từ con số 0 — .NET 8 / ASP.NET Core (Clean Architecture: Domain, Application, Infrastructure, API), 61 bảng thực thể trên PostgreSQL 16 với EF Core và React 19.\n\nĐưa ra và bảo vệ các quyết định kiến trúc chiến lược: chọn PostgreSQL thay vì MongoDB để đảm bảo tính toàn vẹn giao dịch ACID và tối ưu truy vấn lọc đa tiêu chí dưới 8ms bằng Composite và GIN Index. Tích hợp cổng cọc VietQR Webhook tự động khớp lệnh <0.5s với khóa phân tán Redis 15 phút triệt tiêu 100% rủi ro bán trùng. Bảo mật kép JWT (Access Token ngắn hạn + Refresh Token HttpOnly Cookie), DeepSeek AI chatbot tư vấn 24/7, Cloudinary, AWS SES và trực tiếp quản trị cụm VPS Linux độc lập bằng Docker & Nginx.",
-      "challenge": "Thiết kế và triển khai trọn gói sàn giao dịch biển số quy mô lớn solo từ con số 0 trong 30 ngày: giải quyết bài toán lọc đa tiêu chí siêu tốc giữa hàng chục nghìn biển số, khớp lệnh cọc thời gian thực không bán trùng, và loại bỏ hoàn toàn rủi ro chứng chỉ PCI-DSS.",
+      "description": "Tự phân tích nghiệp vụ, thiết kế kiến trúc và lập trình từ đầu sàn giao dịch, đấu giá biển số đẹp trên nền .NET 8 / ASP.NET Core (Clean Architecture: Domain, Application, Infrastructure, API), gồm 61 bảng thực thể PostgreSQL 16 với EF Core và giao diện React 19.\n\nMình chọn PostgreSQL thay vì MongoDB để đảm bảo tính toàn vẹn giao dịch ACID và tối ưu truy vấn lọc đa tiêu chí xuống dưới 8ms nhờ Composite và GIN Index trên tập dữ liệu hơn 1,1 triệu biển số VPA. Hệ thống tích hợp cổng thanh toán đặt cọc tự động qua VietQR Webhook (<0.5s) đi kèm khóa phân tán Redis 15 phút để tránh trùng lặp giao dịch, bảo mật kép JWT, trợ lý AI DeepSeek và triển khai trên cụm Linux VPS qua Docker & Nginx.",
+      "challenge": "Độc lập thiết kế và hoàn thiện sàn giao dịch biển số quy mô lớn: xử lý truy vấn lọc đa điều kiện dưới 8ms trên hơn 1,1 triệu bản ghi, khớp lệnh đặt cọc tự động không trùng lặp và vận hành ổn định trên VPS.",
       "highlights": [
-        "Kiến trúc độc lập toàn diện trên .NET 8 Clean Architecture với 61 bảng thực thể PostgreSQL và EF Core",
-        "Tối ưu truy vấn lọc đa tiêu chí GIN Index từ 350ms xuống dưới 8ms, phản hồi tức thời",
-        "Cổng cọc VietQR Webhook tự động khớp lệnh <0.5s kết hợp khóa phân tán Redis 15 phút triệt tiêu 100% rủi ro bán trùng",
-        "Bảo mật kép JWT, DeepSeek AI Chatbot tư vấn 24/7, Cloudinary, AWS SES và tự cấu hình vận hành Linux VPS"
+        "Thiết kế kiến trúc .NET 8 Clean Architecture với 61 bảng PostgreSQL và EF Core",
+        "Tối ưu truy vấn lọc đa tiêu chí bằng GIN Index từ 350ms xuống dưới 8ms",
+        "Tích hợp VietQR Webhook khớp lệnh đặt cọc <0.5s kết hợp khóa phân tán Redis 15 phút chống bán trùng",
+        "Xác thực kép JWT, trợ lý tư vấn DeepSeek AI, Cloudinary, AWS SES và quản trị Linux VPS bằng Docker"
       ]
     },
     {
       "role": "ML Engineer (Dự án nhóm)",
-      "description": "**CNN xây dựng từ đầu** để phân loại ảnh X-quang ngực NORMAL hoặc PNEUMONIA — bài tập nhóm giới hạn thời gian (3 tiếng) trên dataset 5,856 ảnh, chia thành sub-team phân tích dữ liệu và sub-team modeling.\n\nMình phụ trách phần **data/EDA**: phân tích mất cân bằng lớp giữa các tập train/test/val (74.3% PNEUMONIA trong training data), viết tài liệu data pipeline, và thiết kế **chiến lược data augmentation** đưa vào một CNN huấn luyện không dùng pre-trained weight (tự xây và tune từ đầu, không transfer learning) bằng **TensorFlow/Keras**.",
-      "challenge": "Xây CNN phân loại viêm phổi từ X-quang trong 3 tiếng với team 4 người — dataset mất cân bằng lớp khá nặng (74.3% PNEUMONIA), và một yêu cầu bắt buộc: không dùng pre-trained model, phải tự xây CNN từ đầu.",
+      "description": "Xây dựng mạng nơ-ron tích chập (CNN) từ đầu để phân loại ảnh X-quang ngực bình thường (NORMAL) hoặc viêm phổi (PNEUMONIA) trong bài thi nhóm giới hạn 3 giờ trên tập dữ liệu 5.856 ảnh.\n\nMình phụ trách nhánh phân tích dữ liệu (EDA) và tiền xử lý: khảo sát tỷ lệ lệch lớp giữa các tập train/test/val (74.3% ảnh train là PNEUMONIA), viết tài liệu pipeline dữ liệu và thiết kế bộ tăng cường dữ liệu (data augmentation) đầu vào cho mô hình CNN tự huấn luyện bằng TensorFlow/Keras (không dùng trọng số pre-trained).",
+      "challenge": "Huấn luyện mô hình CNN phân loại viêm phổi từ ảnh X-quang trong thời gian 3 tiếng cùng nhóm 4 người, xử lý tập dữ liệu bị lệch lớp nặng (74.3% PNEUMONIA) với quy định không được dùng pre-trained model.",
       "highlights": [
-        "Phân tích EDA: mất cân bằng lớp giữa các tập train/test/val (5,856 ảnh)",
-        "Thiết kế pipeline data augmentation cho CNN tự xây (không transfer learning)",
-        "Làm việc song song 2 sub-team trong deadline 3 tiếng, TensorFlow/Keras"
+        "Khảo sát EDA và xử lý mất cân bằng dữ liệu trên tập 5.856 ảnh X-quang ngực",
+        "Thiết kế pipeline data augmentation cho mạng CNN tự xây dựng từ đầu bằng TensorFlow/Keras",
+        "Phối hợp song song giữa nhóm dữ liệu và nhóm mô hình để hoàn thành bài thi trong 3 giờ"
       ]
     },
     {
       "role": "Kiến trúc sư Backend & Trưởng nhóm",
-      "description": "Nền tảng kể chuyện kỹ thuật số và luyện đọc tương tác dành cho trẻ em từ 3–12 tuổi. Thiết kế kiến trúc backend hiệu năng cao theo chuẩn Clean Architecture với **.NET 10** (ASP.NET Core Web API) và cơ sở dữ liệu **MongoDB** (30 collections) kết hợp xác thực Google OAuth, JWT, streaming audio qua AWS S3/CloudFront, lưu trữ media Cloudinary và xử lý thanh toán tự động qua **PayOS webhook**.\n\nXây dựng các module hoàn chỉnh: wizard hồ sơ bé, gamification tiến độ đọc sách và pipeline chuyển văn bản thành giọng nói (TTS) phục vụ luyện phát âm trực quan.",
-      "challenge": "Xây dựng nền tảng kể chuyện và luyện đọc đa kênh (Web/Mobile) cho trẻ em 3-12 tuổi với yêu cầu streaming audio tức thời, tích hợp cổng thanh toán PayOS webhook và quản lý dữ liệu 30 MongoDB collections theo chuẩn Clean Architecture.",
+      "description": "Nền tảng đọc truyện tương tác và luyện phát âm cho trẻ em từ 3–12 tuổi. Mình thiết kế backend theo chuẩn Clean Architecture trên .NET 10 (ASP.NET Core Web API) kết hợp cơ sở dữ liệu MongoDB (30 collections), xác thực Google OAuth + JWT, phát âm thanh qua AWS S3/CloudFront, lưu trữ ảnh trên Cloudinary và xử lý thanh toán gói gia đình tự động qua PayOS webhook.\n\nHệ thống bao gồm các phân hệ quản lý hồ sơ của bé, theo dõi chuỗi ngày đọc sách (gamification) và pipeline chuyển văn bản thành giọng đọc (TTS) hỗ trợ bé luyện phát âm.",
+      "challenge": "Xây dựng nền tảng đọc sách và nghe truyện đa thiết bị cho trẻ em 3–12 tuổi với độ trễ phát âm thanh thấp, tự động kích hoạt gói cước qua PayOS webhook và quản lý 30 collections MongoDB theo Clean Architecture.",
       "highlights": [
-        "Kiến trúc backend Clean Architecture trên .NET 10 (Domain / Application / Infrastructure / API) với 30 collections MongoDB",
-        "Tích hợp xác thực kép Google OAuth + JWT, Cloudinary quản lý ảnh, AWS S3 + CloudFront tối ưu streaming audio",
-        "Xây dựng pipeline thanh toán gói gia đình tự động qua PayOS webhook và hệ thống gamification tiến độ đọc",
-        "Thiết lập bộ test toàn diện: xUnit, NSubstitute, FluentAssertions và Mongo2Go integration tests"
+        "Thiết kế backend Clean Architecture trên .NET 10 (Domain / Application / Infrastructure / API) với 30 collections MongoDB",
+        "Tích hợp xác thực Google OAuth + JWT, lưu trữ Cloudinary và phát audio qua AWS S3 + CloudFront",
+        "Xử lý thanh toán tự động qua PayOS webhook và hệ thống thưởng huy hiệu khuyến khích trẻ đọc sách",
+        "Viết bộ kiểm thử tự động với xUnit, NSubstitute, FluentAssertions và Mongo2Go integration tests"
       ]
     },
     {
       "role": "Full-Stack & Mobile Developer (Dự án nhóm)",
-      "description": "Hệ sinh thái theo dõi thời tiết và cảnh báo thông minh đa nền tảng. Xây dựng ứng dụng di động **Flutter 3.x** hiệu năng cao (quản lý state Riverpod, GoRouter, bảng màu thời tiết thích ứng) kết hợp backend serverless **Firebase Cloud Functions (Node.js 24)** với Cloud Firestore, Firebase Auth, Cloud Storage và thông báo đẩy khẩn cấp qua **Firebase Cloud Messaging (FCM)**.",
-      "challenge": "Cung cấp thông tin dự báo thời tiết và cảnh báo thiên tai theo thời gian thực tới người dùng di động với độ trễ thấp và kiến trúc serverless tiết kiệm chi phí vận hành.",
+      "description": "Ứng dụng theo dõi thời tiết và gửi cảnh báo thiên tai đa nền tảng. Giao diện di động được viết bằng Flutter 3.x (quản lý trạng thái bằng Riverpod, điều hướng GoRouter, bảng màu tự động đổi theo thời tiết hiện tại), kết nối với backend serverless trên Firebase Cloud Functions (Node.js 24), Cloud Firestore và gửi thông báo đẩy khẩn cấp qua Firebase Cloud Messaging (FCM).",
+      "challenge": "Cập nhật dự báo thời tiết và đẩy cảnh báo mưa bão theo tọa độ người dùng với độ trễ thấp, đồng thời tối ưu chi phí vận hành nhờ kiến trúc serverless.",
       "highlights": [
-        "Xây dựng ứng dụng di động Flutter 3.x mượt mà với kiến trúc Riverpod và bảng màu thời tiết thích ứng",
-        "Backend serverless Node.js 24 trên Firebase Cloud Functions kết hợp Cloud Firestore phân tán",
-        "Hệ thống thông báo đẩy thời gian thực FCM gửi cảnh báo thời tiết cực đoan theo tọa độ địa lý"
+        "Phát triển ứng dụng di động Flutter 3.x với kiến trúc Riverpod và giao diện đổi màu theo thời tiết",
+        "Xây dựng backend serverless Node.js 24 trên Firebase Cloud Functions kết hợp Cloud Firestore",
+        "Tích hợp luồng thông báo đẩy FCM gửi cảnh báo thời tiết xấu theo vị trí địa lý"
       ]
     }
   ],
   "postItems": [
     {
       "title": "Dạy một model 1.5B tham số sửa lỗi concurrency JavaScript",
-      "excerpt": "Bên trong ThreadLearn: fine-tune Qwen2.5-Coder-1.5B bằng QLoRA, ghép RAG pipeline dựa trên BM25, và vì sao model nhỏ lại thắng GPT-3.5-turbo trên một domain hẹp.",
-      "content": "JavaScript chạy trên một luồng duy nhất — single-threaded event loop — nhưng lại xử lý hàng loạt tác vụ bất đồng bộ cùng lúc qua callback, Promise, async/await. Chính khoảng cách giữa \"một luồng\" và \"nhiều tác vụ chồng lấp\" đó tạo ra một lớp lỗi rất khó chịu: **concurrency bugs**. Theo nghiên cứu NodeCB (ASE 2017) phân tích 57 lỗi thực tế trên 53 dự án Node.js, 93% trong số đó gây hậu quả nghiêm trọng — crash server, sai dữ liệu, hoặc treo vĩnh viễn. Và chúng gần như không bao giờ lộ diện khi chạy test đơn lẻ.\n\nVí dụ kinh điển — hai request cùng đọc rồi cùng ghi:\n\n```javascript\nconst stock = await db.getStock(productId);   // cả 2 request đọc được stock = 1\nawait db.setStock(productId, stock - 1);       // cả 2 request đặt stock = 0\n// bán được 2 sản phẩm, kho chỉ có 1 — race condition\n```\n\nCông cụ tĩnh như ESLint chỉ báo lỗi, không sửa. Gọi GPT-4 thì tốn phí, cần internet, và không chuyên biệt cho domain này. **ThreadLearn** — đồ án môn WDP301 tại FPT University mình làm cùng hai bạn cùng nhóm — thử một hướng khác: fine-tune một model nhỏ (Qwen2.5-Coder-1.5B) để chuyên trị đúng một loại lỗi, rồi bù kiến thức còn thiếu bằng RAG.\n\n## Vì sao model nhỏ, không phải GPT-4\n\nBa lý do thực dụng: chi phí, độ trễ, và khả năng chạy offline trong môi trường doanh nghiệp có firewall. Nhóm chọn **Qwen2.5-Coder-1.5B** — đủ nhỏ để chạy trên GPU 8GB, đủ mạnh vì đã pretrain trên hàng trăm tỷ token code — rồi fine-tune bằng **QLoRA** (load model 4-bit NF4, chỉ train một adapter LoRA rank 16, tức khoảng 0.5% tổng tham số). Toàn bộ quá trình chạy trên 2×T4 miễn phí của Kaggle, khoảng 2 giờ.\n\nPhần fine-tuning (783 cặp code lỗi/đã sửa, dataset thu thập từ GitHub + viết tay) là công của bạn cùng nhóm Hà Văn Ân. Phần mình trực tiếp phụ trách là **RAG pipeline và API server** — chỗ đáng kể nhất về mặt kỹ thuật, nên đây là phần mình kể chi tiết.\n\n## RAG: vì sao BM25, không phải vector search\n\nVới JavaScript, người lập trình biết chính xác tên API cần tìm — `Promise.all`, `setTimeout`, `appendFile`. Đó là bài toán exact-keyword-match, không phải semantic similarity. Vector search (FAISS, Chroma) cần GPU để embed, cần model 500MB+, và đôi khi bỏ sót match chính xác vì tối ưu cho \"ý nghĩa gần giống\" chứ không phải \"đúng từ khóa\". **BM25** — thuật toán tìm kiếm dựa trên tần suất từ, cải tiến từ TF-IDF — build index cho 2050 tài liệu trong dưới 500ms, không cần GPU, và cho kết quả tốt hơn trên domain code.\n\nVấn đề là BM25 mặc định tokenize kém với code: `setTimeout` bị vỡ thành `[\"set\", \"timeout\"]`, `fetchAllUsers` thành `[\"fetch\", \"all\", \"users\"]`. Khi query chứa `setTimeout` nguyên vẹn, nó khớp yếu hơn với tài liệu đã bị tách vụn. Bản đầu mình viết regex tokenizer để tách CamelCase — chạy được nhưng vẫn làm vỡ tên API khi trích keyword từ code đầu vào.\n\nBản sửa sau dùng **esprima parse code thành AST**, rồi chỉ lấy token loại `Identifier` — tên hàm/biến do lập trình viên đặt — bỏ qua keyword ngôn ngữ (`async`, `await`, `for`):\n\n```python\nscript = esprima.parseScript(code, options={\"tolerant\": True, \"tokens\": True})\nfor tok in script.tokens:\n    if tok.type == \"Identifier\" and tok.value not in _JS_STOPWORDS:\n        result.append(tok.value)\n```\n\nSo sánh trực tiếp: `fs.appendFile(logPath, data)` qua regex tokenizer ra `\"fs append file path data\"` — appendFile bị vỡ. Qua AST extraction ra `\"fs appendFile logPath data\"` — nguyên vẹn. Tên API giữ nguyên nghĩa là BM25 score cao hơn với đúng tài liệu, và top-3 doc trả về chính xác hơn đáng kể.\n\n## Kết quả — và vì sao fine-tuning quan trọng hơn RAG\n\nĐánh giá trên 20 test case thủ công phủ 8 loại lỗi concurrency (race condition, event loop blocking, unhandled rejection, callback hell, zalgo, context loss...), chấm bằng Fix-Pattern Scoring (kiểm tra output chứa pattern fix đúng, không so khớp cứng với đáp án mẫu):\n\n| Phương pháp | Pass | Partial | Fail | Pass Rate |\n|---|---|---|---|---|\n| GPT-3.5-turbo zero-shot | 6 | 11 | 3 | 30% |\n| Qwen2.5-Coder-1.5B (base, chưa fine-tune) | 8 | 9 | 3 | 40% |\n| ThreadLearn RAW (fine-tune, không RAG) | 14 | 6 | 0 | 70% |\n| **ThreadLearn + RAG** | **15** | **5** | **0** | **75%** |\n\n![Ablation chart](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871855/my-website/assets/blog/threadlearn/fig_ablation.png)\n\n### Benchmark 2 — 30 case real-world (từ npm packages thật trên GitHub Issues)\n\nThreadLearn + pipeline đạt **73.3% (22/30)**, vượt GPT-3.5-turbo + pipeline **65.0%** (19.5/30). Chi tiết tại `server/tests/real_world/README.md`.\n\n### Phân tích\n\nFine-tuning đóng góp **+30pp** (40% → 70%), RAG **+5pp** (70% → 75%). 783 mẫu training đủ để model học pattern fix cụ thể; RAG giúp các case khó cần thêm ngữ cảnh ngoài training data. Không có case nào FAIL hoàn toàn — model luôn sinh ra code đọc được.\n\n**3 category còn yếu**: Zalgo (0/1), Double Callback (0/1), Buffer Leak (0/1) — pattern rất đặc thù, ít xuất hiện trong dataset.\n\nEvent Loop Blocking đạt **100% (5/5)** — training data phủ tốt nhất.\n\n![Per-category chi tiết](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871858/my-website/assets/blog/threadlearn/fig_category.png)\n\n## Bài học\n\nModel nhỏ (~1.5B), fine-tune trên domain hẹp, **vượt GPT-3.5 (175B) dù nhỏ hơn 125 lần** — không phải vì \"giỏi hơn\", mà vì không phải gánh kiến thức không liên quan. BM25 + AST extraction rẻ, nhanh, offline. Khi thiết kế retrieval cho code, exact keyword match quan trọng hơn semantic similarity.\n\n---\n\n*Vai trò nhóm: **Lê Trí Trung** (AI2 — RAG Pipeline, FastAPI Server, Race Detector) · Hà Văn Ân (AI1 — Dataset Collection, QLoRA Fine-tuning) · Nguyễn Thị Thúy Hoài (Đánh giá mô hình & viết báo cáo). FPT University, Da Nang.*\n\nCode, dataset, và bài nghiên cứu: [github.com/ThreadLearn/ThreadLearn_AI_Trainning](https://github.com/ThreadLearn/ThreadLearn_AI_Trainning). Bản PDF đầy đủ: `/d/FPT/threadlearn_paper-full.pdf`. Visual demo site: [github.com/ThreadLearn/ThreadLearn-AI-Visual](https://github.com/ThreadLearn/ThreadLearn-AI-Visual)."
+      "excerpt": "Bên trong ThreadLearn: fine-tune Qwen2.5-Coder-1.5B bằng QLoRA, ghép RAG pipeline dựa trên BM25, và lý do một model nhỏ đạt kết quả cao hơn GPT-3.5-turbo trên bài toán hẹp.",
+      "content": "JavaScript chạy trên một luồng duy nhất (single-threaded event loop), nhưng lại xử lý hàng loạt tác vụ bất đồng bộ cùng lúc qua callback, Promise và async/await. Chính khoảng cách giữa \"một luồng thực thi\" và \"nhiều tác vụ đan xen\" đó tạo ra một lớp lỗi rất khó chịu: **concurrency bugs**. Theo nghiên cứu NodeCB (ASE 2017) phân tích 57 lỗi thực tế trên 53 dự án Node.js, 93% trong số đó gây hậu quả nghiêm trọng như sập server, sai lệch dữ liệu hoặc treo tiến trình. Đáng nói hơn, chúng hiếm khi lộ diện khi chỉ chạy unit test đơn lẻ.\n\nVí dụ quen thuộc khi hai request cùng đọc rồi cùng ghi vào cơ sở dữ liệu:\n\n```javascript\nconst stock = await db.getStock(productId);   // cả 2 request đọc được stock = 1\nawait db.setStock(productId, stock - 1);       // cả 2 request đặt stock = 0\n// bán được 2 sản phẩm dù kho chỉ còn 1 (race condition)\n```\n\nCác công cụ phân tích tĩnh như ESLint chỉ dừng ở mức cảnh báo chứ không tự sửa code. Gọi API của các mô hình lớn như GPT-4 thì tốn chi phí, phụ thuộc mạng ngoài và chưa chắc hiểu sâu các mẫu khóa bất đồng bộ trong Node.js. Với **ThreadLearn** (đồ án môn WDP301 tại FPT University mình làm cùng hai bạn trong nhóm), tụi mình thử một hướng tiếp cận khác: fine-tune một mô hình nhỏ (Qwen2.5-Coder-1.5B) chuyên trị đúng nhóm lỗi bất đồng bộ, sau đó bổ sung ngữ cảnh API bằng RAG.\n\n## Vì sao chọn model 1.5B thay vì gọi GPT-4\n\nCó ba lý do thực tế: chi phí vận hành, độ trễ phản hồi và khả năng chạy offline ngay trong mạng nội bộ doanh nghiệp. Nhóm chọn **Qwen2.5-Coder-1.5B** vì mô hình này đủ gọn để chạy trên GPU 8GB VRAM nhưng đã được huấn luyện trước trên hàng trăm tỷ token mã nguồn. Tụi mình fine-tune bằng kỹ thuật **QLoRA** (nạp mô hình ở định dạng 4-bit NF4 và chỉ huấn luyện tầng adapter LoRA rank 16, chiếm khoảng 0.5% tổng tham số). Toàn bộ quá trình train chạy trên 2 GPU T4 miễn phí của Kaggle trong khoảng 2 giờ.\n\nPhần chuẩn bị tập dữ liệu (783 cặp code lỗi và code đã sửa thu thập từ GitHub cùng các mẫu viết tay) và chạy QLoRA do bạn Hà Văn Ân phụ trách. Phần mình trực tiếp thiết kế và viết code là **RAG pipeline, bộ phát hiện lỗi tĩnh và FastAPI server**.\n\n## Thiết kế RAG: Chọn BM25 và AST thay vì Vector Search\n\nKhi sửa code JavaScript, lập trình viên cần khớp chính xác tên hàm và đối tượng như `Promise.all`, `setTimeout` hay `fs.appendFile`. Đây là bài toán khớp từ khóa chính xác (exact keyword match). Nếu dùng Vector Search (FAISS, Chroma), hệ thống vừa phải gánh thêm một mô hình embedding vài trăm MB, vừa dễ bỏ sót tên hàm cụ thể vì vector ưu tiên độ tương đồng ngữ nghĩa chung chung. Ngược lại, thuật toán **BM25** lập chỉ mục cho 2.050 tài liệu chỉ mất chưa tới 500ms trên CPU và tìm đúng tên API rất nhạy.\n\nTuy nhiên, bộ tách từ (tokenizer) mặc định của BM25 lại xử lý tên hàm kiểu CamelCase khá tệ: `setTimeout` bị cắt thành `[\"set\", \"timeout\"]`, còn `fetchAllUsers` bị tách thành `[\"fetch\", \"all\", \"users\"]`. Ở phiên bản đầu, mình dùng biểu thức chính quy (regex) để tách từ nhưng vẫn làm vỡ cấu trúc tên hàm khi trích xuất truy vấn từ đoạn code lỗi.\n\nĐể khắc phục, mình chuyển sang dùng **esprima phân tích đoạn code thành cây cú pháp trừu tượng (AST)**, sau đó chỉ giữ lại các token thuộc kiểu `Identifier` (tên hàm, tên biến) và loại bỏ các từ khóa ngôn ngữ (`async`, `await`, `for`):\n\n```python\nscript = esprima.parseScript(code, options={\"tolerant\": True, \"tokens\": True})\nfor tok in script.tokens:\n    if tok.type == \"Identifier\" and tok.value not in _JS_STOPWORDS:\n        result.append(tok.value)\n```\n\nKhi thử nghiệm thực tế với câu lệnh `fs.appendFile(logPath, data)`, bộ tách từ regex trả về `\"fs append file path data\"` (làm mất từ khóa `appendFile`), trong khi bộ trích xuất AST giữ nguyên được `\"fs appendFile logPath data\"`. Nhờ giữ nguyên tên hàm, điểm BM25 khớp chính xác hơn hẳn với tài liệu hướng dẫn xử lý bất đồng bộ tương ứng.\n\n## Kết quả thực nghiệm\n\nNhóm đánh giá mô hình trên 20 kịch bản kiểm thử bao phủ 8 nhóm lỗi concurrency (race condition, event loop blocking, unhandled rejection, callback hell, zalgo, context loss...) bằng phương pháp chấm điểm theo mẫu sửa lỗi (Fix-Pattern Scoring):\n\n| Phương pháp | Pass | Partial | Fail | Pass Rate |\n|---|---|---|---|---|\n| GPT-3.5-turbo zero-shot | 6 | 11 | 3 | 30% |\n| Qwen2.5-Coder-1.5B (base, chưa fine-tune) | 8 | 9 | 3 | 40% |\n| ThreadLearn RAW (fine-tune, không RAG) | 14 | 6 | 0 | 70% |\n| **ThreadLearn + RAG** | **15** | **5** | **0** | **75%** |\n\n![Ablation chart](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871855/my-website/assets/blog/threadlearn/fig_ablation.png)\n\n### Benchmark trên 30 lỗi thực tế từ GitHub Issues\n\nKhi chạy thử nghiệm trên 30 lỗi bất đồng bộ lấy từ các thư viện npm thực tế, ThreadLearn kết hợp pipeline RAG đạt **73.3% (22/30)**, cao hơn mức **65.0% (19.5/30)** của GPT-3.5-turbo chạy cùng pipeline. Toàn bộ kịch bản test được lưu tại `server/tests/real_world/README.md`.\n\n### Nhìn lại số liệu\n\nBước fine-tuning bằng QLoRA giúp tỷ lệ sửa đúng tăng thêm **30 điểm phần trăm** (từ 40% lên 70%), còn RAG đóng góp thêm **5 điểm phần trăm** (lên 75%) ở những ca cần tra cứu cách dùng API cụ thể. Trong cả 20 kịch bản, mô hình đều sinh ra mã nguồn hợp lệ về mặt cú pháp.\n\n**Ba nhóm lỗi còn hạn chế** là Zalgo (0/1), Double Callback (0/1) và Buffer Leak (0/1) do số lượng mẫu trong tập huấn luyện còn ít. Ngược lại, nhóm lỗi Event Loop Blocking đạt **100% (5/5)**.\n\n![Per-category chi tiết](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871858/my-website/assets/blog/threadlearn/fig_category.png)\n\n## Đúc kết sau dự án\n\nMột mô hình nhỏ 1.5B tham số, khi được huấn luyện tập trung vào đúng một bài toán hẹp và có bộ truy xuất ngữ cảnh phù hợp, hoàn toàn có thể xử lý tác vụ chuyên biệt tốt hơn một mô hình đa dụng lớn hơn nó 125 lần. Với dữ liệu mã nguồn, việc kết hợp BM25 cùng phân tích cây cú pháp AST vừa nhẹ, vừa chạy offline tốt hơn nhiều so với tìm kiếm vector thuần túy.\n\n---\n\n*Phân công trong nhóm: **Lê Trí Trung** (AI2: Thiết kế RAG Pipeline, FastAPI Server, Static Race Detector) · Hà Văn Ân (AI1: Thu thập Dataset, QLoRA Fine-tuning) · Nguyễn Thị Thúy Hoài (Đánh giá mô hình & Viết báo cáo). Đại học FPT Đà Nẵng.*\n\nMã nguồn, tập dữ liệu và bài báo nghiên cứu: [github.com/ThreadLearn/ThreadLearn_AI_Trainning](https://github.com/ThreadLearn/ThreadLearn_AI_Trainning). Bản PDF đầy đủ: `/d/FPT/threadlearn_paper-full.pdf`. Trang demo trực quan: [github.com/ThreadLearn/ThreadLearn-AI-Visual](https://github.com/ThreadLearn/ThreadLearn-AI-Visual)."
     }
   ],
   "educationItems": [
@@ -920,223 +920,223 @@
     {
       "title": "Buổi Định Hướng Nghề Nghiệp Cho Cựu Học Sinh",
       "role": "Diễn Giả Khách Mời & Cố Vấn",
-      "description": "Được mời về trường cũ với vai trò **diễn giả khách mời** để chia sẻ với học sinh lớp 12 về con đường đại học và ngành công nghệ. Mình kể lại hành trình của chính mình từ phổ thông đến Đại học FPT và thực tập tại FPT Software — chương trình Khoa học Máy tính, lộ trình lập trình Java, và những điều thực sự quan trọng trong năm đầu sự nghiệp công nghệ. Giải đáp câu hỏi trực tiếp từ hơn 50 học sinh."
+      "description": "Được mời về trường cũ làm diễn giả khách mời chia sẻ với học sinh lớp 12 về chọn ngành đại học và công việc trong ngành phần mềm. Mình kể lại trải nghiệm học tập từ THPT Chuyên Phan Châu Trinh lên Đại học FPT và kỳ thực tập tại FPT Software, chương trình học Kỹ thuật Phần mềm, lộ trình Java và giải đáp thắc mắc trực tiếp cho hơn 50 bạn học sinh."
     },
     {
       "title": "Innocode Camp – Cuộc Thi Lập Trình",
       "role": "Trưởng Nhóm",
-      "description": "Dẫn dắt **đội 5 thành viên đa năng** qua toàn bộ vòng đời phát triển của Innocode Camp SU25 — từ phân tích bài toán, thiết kế hệ thống đến triển khai và thuyết trình chung kết. Nhóm xây dựng prototype nền tảng tìm kiếm việc làm sử dụng **React, Java Spring Boot, MySQL và Docker**. Mình điều phối sprint planning, quyết định kiến trúc backend và giữ tiến độ team theo deadline thi đấu. Nhóm vào **vòng chung kết**."
+      "description": "Dẫn dắt nhóm 5 thành viên tham gia cuộc thi Innocode Camp SU25 từ khâu phân tích đề bài, thiết kế hệ thống đến lập trình và bảo vệ ở vòng chung kết. Nhóm xây dựng bản mẫu nền tảng tìm kiếm việc làm bằng React, Java Spring Boot, MySQL và Docker. Mình phụ trách chia sprint, thiết kế kiến trúc backend và giữ tiến độ cho cả đội."
     },
     {
       "title": "CLB Mic Home & CLB FUM",
       "role": "Thành Viên Nòng Cốt & MC Sự Kiện",
-      "description": "Thành viên nòng cốt của hai câu lạc bộ sự kiện và diễn thuyết nổi bật nhất FPT University Đà Nẵng. Thường xuyên đảm nhận vai trò **MC và người dẫn chương trình** cho các sự kiện cấp trường — lễ khai giảng, lễ hội văn hóa, các cuộc thi học thuật — với khán giả trực tiếp **600 đến 1000+ người**. Nhờ đó mình có được sự tự tin trên sân khấu, kỹ năng xử lý tình huống bất ngờ, và khả năng dẫn dắt một đám đông lớn qua nhiều giờ chương trình."
+      "description": "Thành viên nòng cốt của hai câu lạc bộ dẫn chương trình và sự kiện tại Đại học FPT Đà Nẵng. Mình thường xuyên làm MC cho các lễ khai giảng, ngày hội văn hóa và cuộc thi học thuật với lượng khán giả trực tiếp từ 600 đến hơn 1.000 người, rèn khả năng làm chủ sân khấu và ứng biến khi kịch bản thay đổi."
     },
     {
       "title": "Dreamer ResFres – Hội Nghị Nghiên Cứu",
       "role": "Trưởng Nhóm",
-      "description": "Dẫn đội The Dreamers tham gia **Hội nghị Nghiên cứu Khoa học FPT (ResFres)** — cuộc thi học thuật nhiều vòng yêu cầu nghiên cứu gốc, viết báo cáo có cấu trúc và thuyết trình trước hội đồng chính thức. Mình phân công nhiệm vụ, giữ tiến độ nghiên cứu, và huấn luyện các bạn trong nhóm trình bày kết quả kỹ thuật rõ ràng trước ban giám khảo không chuyên. Đội vào **vòng chung kết liên cơ sở**."
+      "description": "Dẫn nhóm The Dreamers tham gia Hội nghị Nghiên cứu Khoa học FPT (ResFres), thực hiện đề tài nghiên cứu, viết báo cáo học thuật và thuyết trình trước hội đồng chấm thi. Mình chia đầu việc, theo sát tiến độ viết bài và cùng các bạn luyện tập phần trả lời phản biện để vào vòng chung kết liên cơ sở."
     },
     {
       "title": "Gala – Hồn Thiêng Đất Việt",
       "role": "Điều Phối Viên Chính & Đối Ngoại",
-      "description": "Đảm nhận vai trò **điều phối viên chính và phụ trách đối ngoại** cho gala văn hóa 'Hồn Thiên Đất Việt' — sự kiện đại học quy mô lớn tôn vinh di sản Việt Nam. Công việc gồm liên hệ đối tác và nhà tài trợ bên ngoài, điều phối hậu cần giữa các bộ phận, quản lý tiến trình sự kiện trong ngày, và xử lý sự cố ngay khi phát sinh. Đây là kinh nghiệm thực tế quý giá về ngoại giao sự kiện và phối hợp nhiều bên liên quan."
+      "description": "Phụ trách điều phối chung và làm việc với đối ngoại cho đêm gala văn hóa 'Hồn Thiêng Đất Việt' tại trường. Công việc bao gồm liên hệ nhà tài trợ, phối hợp hậu cần giữa các ban, canh thời gian chạy chương trình (timeline) trong đêm diễn và xử lý các tình huống phát sinh tại sân khấu."
     },
     {
       "title": "The Dreamers – Chiến Dịch Gây Quỹ Từ Thiện",
       "role": "Trưởng Dự Án & Thủ Quỹ",
-      "description": "Thiết kế và dẫn dắt chiến dịch gây quỹ cuối năm của The Dreamers — điều phối hoạt động bán hàng, theo dõi đóng góp, và quản lý ngân sách với vai trò **thủ quỹ**. Toàn bộ số tiền gây được chuyển thẳng vào các chuyến từ thiện đến trại trẻ mồ côi địa phương — bữa ăn, tài liệu học tập, workshop công nghệ. Chiến dịch đạt mục tiêu doanh thu nội bộ trong tháng và tạo ra một mô hình gây quỹ có thể lặp lại cho các chu kỳ sau."
+      "description": "Lên kế hoạch và điều phối chiến dịch gây quỹ cuối năm của The Dreamers kiêm quản lý sổ sách thu chi. Toàn bộ số tiền gây quỹ được dùng để chuẩn bị suất ăn, sách vở và tổ chức lớp học máy tính cơ bản cho trẻ em tại các mái ấm ở Đà Nẵng và Quảng Nam."
     },
     {
       "title": "Chuyến Từ Thiện – Hợp Tác AHT",
       "role": "Người Tham Gia & Tổ Chức",
-      "description": "Tham gia và hỗ trợ tổ chức nhiều chuyến từ thiện thực địa qua AHT Cooperation — thăm trại trẻ mồ côi, các chiến dịch gây quỹ cộng đồng, và sáng kiến 'Hành trình từ thiện ocean.zero6'. Công việc trải dài từ tình nguyện trực tiếp (phân phát đồ dùng, tổ chức mini-workshop cho trẻ em) đến hậu cần (điều phối vận chuyển, lập tài liệu và báo cáo sau sự kiện)."
+      "description": "Cùng nhóm AHT Cooperation tổ chức các chuyến đi thực tế đến mái ấm tình thương, vận động quyên góp và tham gia chương trình 'Hành trình từ thiện ocean.zero6', từ khâu chuẩn bị quà tặng, thuê xe di chuyển đến tổ chức trò chơi và lớp học nhỏ cho các em."
     },
     {
       "title": "MC Workshop – 'Make Your Image Better'",
       "role": "Người Dẫn Chương Trình",
-      "description": "Dẫn chương trình **workshop 'Make Your Image Better'** — buổi chia sẻ về xây dựng thương hiệu cá nhân, ngoại hình và phong thái chuyên nghiệp cho sinh viên chuẩn bị ra trường. Quản lý luồng chương trình, giới thiệu diễn giả, giữ khán giả tương tác, và duy trì năng lượng xuyên suốt nhiều phần của sự kiện. Đây là một trong nhiều workshop mình đã dẫn, dần xây dựng được hồ sơ dẫn chương trình chuyên nghiệp nhất quán."
+      "description": "Dẫn chương trình cho buổi workshop 'Make Your Image Better' hướng dẫn sinh viên năm cuối cách xây dựng hình ảnh cá nhân và tác phong khi đi phỏng vấn: giới thiệu diễn giả, điều phối phần hỏi đáp và giữ nhịp tương tác xuyên suốt buổi chia sẻ."
     },
     {
       "title": "Workshop Bình Đẳng Giới – MC Chương Trình",
       "role": "Người Dẫn Chương Trình",
-      "description": "Đảm nhận vai trò MC cho **workshop 'Bình Đẳng Giới tại Nơi Làm Việc'** — chủ đề nhạy cảm và quan trọng, đòi hỏi giọng điệu thận trọng, ngôn ngữ bao gồm, và khả năng điều hành một cuộc thảo luận mở suôn sẻ. Giới thiệu diễn giả, điều phối Q&A, và giữ không khí tôn trọng xuyên suốt. Kinh nghiệm này mở rộng khả năng dẫn chương trình của mình ra khỏi phạm vi giải trí, sang cả giáo dục xã hội."
+      "description": "Làm MC cho buổi tọa đàm 'Bình Đẳng Giới tại Nơi Làm Việc', giới thiệu khách mời và điều phối phần thảo luận mở giữa sinh viên với diễn giả sao cho cởi mở và tôn trọng các góc nhìn khác nhau."
     },
     {
       "title": "Cộng Tác Viên Sự Kiện Trường",
       "role": "Đại Diện Sinh Viên & Hướng Dẫn Viên",
-      "description": "Tham gia thường xuyên với vai trò **đại diện sinh viên và hướng dẫn viên sự kiện** trong nhiều hoạt động của Đại học FPT — lễ nhập học, ngày hội tuyển sinh, đợt tuyển tình nguyện viên, sự kiện hợp tác liên khoa. Luôn được tin tưởng để đại diện trực tiếp cho trường trước sinh viên tiềm năng và gia đình họ — công việc đòi hỏi giao tiếp rõ ràng, kiên nhẫn, và hiểu campus như lòng bàn tay."
+      "description": "Tham gia đón tiếp phụ huynh, học sinh và hỗ trợ tổ chức trong các ngày hội tuyển sinh (Open Day), tuần lễ định hướng tân sinh viên và các sự kiện giao lưu giữa các khoa tại Đại học FPT Đà Nẵng."
     },
     {
       "title": "Diễn Viên / Người Mẫu / Content Creator Sinh Viên",
       "role": "Diễn Viên, Người Mẫu & Vlogger",
-      "description": "Tích lũy kinh nghiệm truyền thông đa dạng qua ba vai trò: **Diễn viên quảng cáo** cho nội dung khuyến mãi của đại lý Honda Tiến Thủ; **Người mẫu** cho LenDoan Bridal và ảnh chính thức cùng tài liệu sự kiện của Đại học FPT; và **Vlogger/Content Creator** sản xuất và biên tập video cho các nền tảng mạng xã hội. Những trải nghiệm này giúp mình linh hoạt hơn, tự tin hơn trước camera, và có thêm kỹ năng sản xuất sáng tạo — một chiều khác biệt nhưng bổ trợ tốt cho công việc kỹ thuật."
+      "description": "Tham gia đóng video quảng cáo cho hệ thống Honda Tiến Thủ, làm mẫu ảnh cho LenDoan Bridal cùng bộ ảnh truyền thông của Đại học FPT, và tự quay dựng vlog chia sẻ đời sống sinh viên trên mạng xã hội."
     },
     {
       "title": "The Dreamers – Chiến Dịch Tuyển Thành Viên",
       "role": "Trưởng Ban Tuyển Dụng",
-      "description": "Thiết kế và dẫn dắt **chiến dịch tuyển thành viên vòng 2** của The Dreamers — soạn thảo tiêu chí tuyển dụng, tạo tài liệu ứng tuyển, tổ chức phỏng vấn, và chọn ứng viên phù hợp với sứ mệnh và văn hóa tổ chức. Thành công đưa vào một nhóm thành viên mới, những người sau đó đóng góp cho dự án Dream High và các chuyến từ thiện."
+      "description": "Phụ trách đợt tuyển thành viên đợt 2 của The Dreamers: lên tiêu chí chọn lọc, chuẩn bị biểu mẫu đăng ký, trực tiếp phỏng vấn và hướng dẫn các bạn mới hòa nhập để chuẩn bị cho dự án dài hạn Dream High."
     },
     {
       "title": "Sự Kiện Tốt Hy Vọng",
       "role": "Trưởng Ban Tổ Chức Sự Kiện",
-      "description": "Dẫn dắt toàn bộ quá trình lên kế hoạch và thực thi **'Tốt Hy Vọng'** — sự kiện từ thiện do The Dreamers tổ chức mang niềm vui, quà tặng và các hoạt động giáo dục đến trẻ em có hoàn cảnh khó khăn. Phân công tình nguyện viên, quản lý lịch trong ngày, xử lý tình huống bất ngờ tại chỗ, và giám sát tài liệu sau sự kiện. Một dự án nhắc lại đúng tinh thần của The Dreamers — dùng hành động cộng đồng để tạo ra khác biệt thật."
+      "description": "Lên kế hoạch và điều phối chương trình thiện nguyện 'Tốt Hy Vọng' của The Dreamers nhằm trao tặng quà và tổ chức các góc trò chơi học tập cho trẻ em có hoàn cảnh khó khăn: phân công tình nguyện viên, quản lý lịch trình trong ngày và tổng kết thu chi sau sự kiện."
     },
     {
       "title": "Sự Kiện Vòng Vào Mộng Mơ",
       "role": "Trưởng Ban Tổ Chức Sự Kiện",
-      "description": "Dẫn dắt đội tổ chức **'Vòng Vào Mộng Mơ'** — sáng kiến kéo dài một tuần của The Dreamers nhằm khơi dậy khát vọng và niềm tin vào bản thân cho các bạn trẻ, thông qua kể chuyện, buổi mentoring và workshop tương tác. Quản lý toàn bộ vòng đời sự kiện: phát triển ý tưởng, hậu cần, điều phối tình nguyện viên và tổng kết. Một dự án ý nghĩa, gắn sứ mệnh The Dreamers trực tiếp với việc trao quyền cho giới trẻ."
+      "description": "Phụ trách tổ chức tuần lễ hoạt động 'Vòng Vào Mộng Mơ' của The Dreamers gồm chuỗi buổi trò chuyện, định hướng và workshop kỹ năng dành cho học sinh - sinh viên, từ bước lên ý tưởng, chuẩn bị hậu cần đến điều phối tình nguyện viên."
     },
     {
       "title": "Dự Án Dream High",
       "role": "Trưởng Dự Án",
-      "description": "Dẫn dắt **Dream High** — dự án dài hạn chủ lực của The Dreamers, kéo dài 6 tháng, tập trung mang kiến thức công nghệ và phát triển bản thân đến trẻ em mồ côi qua các buổi học có cấu trúc hàng tuần. Với vai trò trưởng dự án, mình giám sát thiết kế chương trình học, lịch tình nguyện, điều phối đối tác, và theo dõi tiến độ. Dự án tổ chức workshop hai tuần một lần về khái niệm lập trình cơ bản, kỹ năng giao tiếp và đặt mục tiêu cho trẻ em 8–15 tuổi."
+      "description": "Điều hành Dream High, dự án kéo dài 6 tháng của The Dreamers nhằm mở các buổi học tin học cơ bản, rèn kỹ năng giao tiếp và đặt mục tiêu hai tuần một lần cho các em nhỏ từ 8–15 tuổi tại mái ấm: soạn giáo án, xếp lịch tình nguyện viên đứng lớp và làm việc với ban quản lý cơ sở bảo trợ."
     },
     {
       "title": "Cuộc Thi AI & Robotics – Trọng Tài Chính Thức",
       "role": "Trọng Tài Trưởng",
-      "description": "Được chọn làm **trọng tài trưởng** tại Cuộc thi AI & Robotics của Đại học FPT — cuộc thi kỹ thuật nơi các đội sinh viên lập trình robot và hệ thống AI để hoàn thành các thử thách. Trách nhiệm gồm thực thi quy tắc công bằng, đánh giá sự tuân thủ kỹ thuật của thiết kế robot, quản lý thời gian trong các vòng thi, và giải quyết tranh chấp giữa các đội. Được chọn vào vai trò này là một sự tin tưởng lớn từ giảng viên, cả về hiểu biết kỹ thuật lẫn cách ứng xử chuyên nghiệp."
+      "description": "Đảm nhận vai trò Trọng tài trưởng tại giải đấu FPTU AI & Robotics 2025: kiểm tra thông số kỹ thuật của robot trước trận, giám sát luật thi đấu trên sa bàn, bấm giờ và xử lý các khiếu nại kỹ thuật giữa các đội thi."
     },
     {
       "title": "Biểu Diễn Âm Nhạc Từ Thiện – Quản Lý Sự Kiện",
       "role": "Quản Lý Sự Kiện",
-      "description": "Quản lý **sự kiện biểu diễn âm nhạc từ thiện** của The Dreamers từ khâu lên kế hoạch đến thực hiện — điều phối nghệ sĩ biểu diễn, đặt địa điểm, xử lý hậu cần vé/quyên góp, và quản lý đội tình nguyện viên trong ngày. Buổi hòa nhạc gây quỹ hỗ trợ chương trình trại trẻ mồ côi. Đây là sản xuất lớn nhất The Dreamers từng tổ chức, đòi hỏi chuẩn bị nhiều tuần và giải quyết vấn đề thời gian thực ngay trong sự kiện."
+      "description": "Quản lý đêm nhạc gây quỹ từ thiện của The Dreamers: liên hệ các ban nhạc sinh viên, mượn địa điểm, phụ trách quầy vé/quyên góp và điều phối đội ngũ tình nguyện viên để gây quỹ cho các chuyến thăm mái ấm."
     },
     {
       "title": "Bộ Ảnh Kỷ Niệm Cách Mạng Tháng Tám",
       "role": "Người Mẫu Ảnh",
-      "description": "Được chọn làm **người mẫu ảnh** cho bộ ảnh kỷ niệm chính thức của Đại học FPT đánh dấu ngày kỷ niệm Cách mạng Tháng Tám. Cùng nhóm truyền thông của trường thực hiện các bức chân dung trang trọng và bố cục nhóm, được sử dụng trong truyền thông chính thức và trưng bày trong khuôn viên."
+      "description": "Tham gia làm mẫu ảnh cho bộ ảnh kỷ niệm Cách mạng Tháng Tám của đội ngũ truyền thông Đại học FPT, phục vụ trưng bày tại khuôn viên trường và đăng tải trên các kênh thông tin chính thức."
     }
   ],
   "certificateItems": [
     {
-      "description": "Đạt **tổng điểm 6.0** (Nghe 5.5, Đọc 6.5, Viết 5.5, Nói 6.0 · CEFR B2) trong kỳ thi IELTS Academic chính thức — thể hiện năng lực tiếng Anh học thuật vững vàng trên cả 4 kỹ năng. Được tổ chức và xác nhận chính thức bởi British Council / IDP."
+      "description": "Đạt tổng điểm 6.0 (Nghe 5.5, Đọc 6.5, Viết 5.5, Nói 6.0, tương đương CEFR B2) trong kỳ thi IELTS Academic do IDP Education tổ chức và cấp chứng chỉ."
     },
     {
-      "description": "Chứng nhận Linear Certificate từ **khóa IELTS 6.0 tại DOL English**, đánh dấu việc hoàn thành khóa học và tiến bộ hướng tới mục tiêu điểm số — cột mốc ôn luyện trước khi thi IELTS Academic chính thức."
+      "description": "Hoàn thành khóa luyện thi IELTS 6.0 tại DOL English theo phương pháp Linearthinking trước khi bước vào kỳ thi IELTS Academic chính thức."
     },
     {
-      "description": "Hoàn thành **Chương trình Trao đổi Sinh viên Quốc tế** của Đại học FPT tại Đại học Quản lý và Công nghệ Tunku Abdul Rahman (**TAR UMT**), **Kuala Lumpur, Malaysia**. Tích lũy kinh nghiệm học thuật quốc tế, giao tiếp đa văn hóa và mở rộng góc nhìn về giáo dục công nghệ khu vực Đông Nam Á."
+      "description": "Hoàn thành Chương trình Trao đổi Sinh viên Quốc tế của Đại học FPT tại Đại học Quản lý và Công nghệ Tunku Abdul Rahman (TAR UMT), Kuala Lumpur, Malaysia (12/2023)."
     },
     {
-      "description": "Chứng nhận tham gia và vào **vòng chung kết** Innocode Camp SU25 — cuộc thi lập trình theo dự án do FPT Education tổ chức dành cho sinh viên đại học. Nhóm xây dựng nền tảng tìm kiếm việc làm và cạnh tranh với các đội từ nhiều cơ sở FPT."
+      "description": "Chứng nhận tham gia và vào vòng chung kết toàn quốc Innocode Camp SU25 do FPT Education tổ chức, với sản phẩm nền tảng tìm kiếm việc làm phát triển cùng nhóm 5 thành viên."
     },
     {
-      "description": "Chứng nhận tham gia và đạt thành tích tại **Hội nghị Nghiên cứu Khoa học FPT (ResFres 2024)** — cuộc thi học thuật nhiều vòng bao gồm nghiên cứu gốc, báo cáo có cấu trúc và thuyết trình trước hội đồng. Đội The Dreamers vào vòng chung kết liên cơ sở."
+      "description": "Chứng nhận vào vòng chung kết liên cơ sở tại Hội nghị Nghiên cứu Khoa học Sinh viên FPT (ResFres 2024) với vai trò Trưởng nhóm The Dreamers."
     },
     {
-      "description": "Hoàn thành khóa đào tạo xây dựng **quy trình tự động hóa với AI** sử dụng n8n — bao gồm thiết kế agent, kết nối API, logic có điều kiện và tích hợp dịch vụ ngoài. Ứng dụng trực tiếp vào công việc tự động hóa trong thời gian thực tập tại FPT Software."
+      "description": "Hoàn thành khóa đào tạo xây dựng quy trình tự động hóa AI với n8n (thiết kế agent, kết nối API, phân nhánh điều kiện và tích hợp webhook), áp dụng trực tiếp vào công việc thực tập tại FPT Software."
     },
     {
-      "description": "Hoàn thành khóa **Lập trình với JavaScript** của Meta trên Coursera — thuộc chương trình Chứng chỉ Chuyên nghiệp Front-End Developer của Meta. Bao gồm cú pháp ES6+, hàm, đối tượng, mảng, xử lý lỗi và kiểm thử với Jest."
+      "description": "Hoàn thành khóa Programming with JavaScript của Meta trên Coursera: cú pháp ES6+, bất đồng bộ, thao tác mảng/đối tượng và viết unit test với Jest."
     },
     {
-      "description": "Hoàn thành khóa **Cơ bản về Phát triển Web & Lập trình** của Đại học Michigan — giới thiệu cách web hoạt động, cấu trúc HTML, CSS, JavaScript cơ bản và cách trình duyệt hiển thị trang web."
+      "description": "Hoàn thành khóa Web Development & Coding của Đại học Michigan: cấu trúc HTML, CSS, JavaScript cơ bản và cơ chế trình duyệt hiển thị trang web."
     },
     {
-      "description": "Hoàn thành khóa **HTML và CSS Chuyên sâu** của Meta — phần trong chứng chỉ Front-End Developer. Bao gồm HTML5 ngữ nghĩa, CSS selectors nâng cao, box model, Flexbox, Grid và các thực hành tốt về accessibility."
+      "description": "Hoàn thành khóa HTML and CSS in Depth của Meta: thẻ HTML5 ngữ nghĩa, Flexbox, CSS Grid và tiêu chuẩn khả năng tiếp cận (accessibility)."
     },
     {
-      "description": "Hoàn thành khóa **Tương tác với JavaScript** của Đại học Michigan — tập trung vào thao tác DOM, event listener, kiểm tra form và hiển thị nội dung động để xây dựng trang web phản hồi và tương tác."
+      "description": "Hoàn thành khóa Interactivity with JavaScript của Đại học Michigan: thao tác DOM, xử lý sự kiện, kiểm tra dữ liệu biểu mẫu và cập nhật giao diện động."
     },
     {
-      "description": "Hoàn thành khóa **Giới thiệu về Phát triển Front-End** của Meta — khóa nền tảng của chứng chỉ chuyên nghiệp Front-End Developer Meta. Bao gồm vai trò của lập trình viên front-end, công nghệ web cốt lõi và giới thiệu React."
+      "description": "Hoàn thành khóa Introduction to Front-End Development của Meta trên Coursera, nắm vững nền tảng công nghệ web và kiến trúc component trong React."
     },
     {
-      "description": "Hoàn thành khóa **Trực quan hóa Dữ liệu** của IBM trên Coursera — bao gồm nguyên tắc truyền đạt dữ liệu hiệu quả, lựa chọn biểu đồ và thực hành với các công cụ visualization để biến dữ liệu thô thành thông tin hữu ích."
+      "description": "Hoàn thành khóa Data Visualization của IBM trên Coursera: cách chọn loại biểu đồ phù hợp và trực quan hóa dữ liệu phục vụ phân tích."
     },
     {
-      "description": "Hoàn thành khóa **CSS3** của Đại học Michigan — bao gồm các tính năng nâng cao của CSS3: transition, animation, CSS custom properties, pseudo-element và kỹ thuật responsive design."
+      "description": "Hoàn thành khóa CSS3 của Đại học Michigan: hiệu ứng chuyển tiếp (transition), hoạt ảnh (animation), biến CSS và thiết kế đáp ứng đa màn hình."
     },
     {
-      "description": "Hoàn thành khóa **HTML5** của Đại học Michigan — nghiên cứu sâu về các phần tử ngữ nghĩa HTML5, nhúng đa phương tiện, biểu mẫu, thuộc tính accessibility và các thực hành tốt nhất cho tài liệu web hiện đại."
+      "description": "Hoàn thành khóa HTML5 của Đại học Michigan: cấu trúc tài liệu web ngữ nghĩa, nhúng đa phương tiện, biểu mẫu và thuộc tính hỗ trợ trình đọc màn hình."
     },
     {
-      "description": "Hoàn thành khóa **Thiết kế Web Responsive** của Đại học Michigan — bao gồm media query, lưới linh hoạt, hình ảnh co giãn và nguyên tắc thiết kế mobile-first để xây dựng giao diện thích nghi trên mọi kích thước màn hình."
+      "description": "Hoàn thành khóa Responsive Web Design của Đại học Michigan: sử dụng media query, lưới linh hoạt (fluid grid) và nguyên tắc thiết kế ưu tiên thiết bị di động (mobile-first)."
     },
     {
-      "description": "Hoàn thành chuyên ngành **Kỹ năng Học thuật cho Đại học** của Đại học Auckland — bao gồm đọc phân tích, viết học thuật, phương pháp nghiên cứu và chiến lược quản lý thời gian cho bậc đại học."
+      "description": "Hoàn thành chương trình Academic Skills for University Success của Đại học Auckland: đọc phân tích tài liệu khoa học, viết báo cáo học thuật và phương pháp nghiên cứu."
     },
     {
-      "description": "Hoàn thành khóa **Cơ bản về Thiết kế Đồ họa** của CalArts trên Coursera — bao gồm nguyên tắc thiết kế trực quan: typography, lý thuyết màu sắc, bố cục và sáng tạo hình ảnh. Ứng dụng vào tạo tài liệu truyền thông cho The Dreamers và các hoạt động FPT."
+      "description": "Hoàn thành khóa Fundamentals of Graphic Design của Học viện Nghệ thuật California (CalArts) trên Coursera: nghệ thuật chữ (typography), phối màu và bố cục thị giác."
     },
     {
-      "description": "Hoàn thành khóa **Information Technology Onboarding** tại F8 — giới thiệu các khái niệm CNTT cốt lõi, quy trình phát triển phần mềm và nền tảng cơ bản cho sinh viên mới bắt đầu học lập trình."
+      "description": "Hoàn thành khóa Information Technology Onboarding tại F8, nắm các khái niệm nền tảng về mạng máy tính, hệ điều hành và quy trình phát triển phần mềm."
     },
     {
-      "description": "Tham gia **Ban Tổ Chức** cuộc thi FPTU AI & Robotics Challenge 2025 — cuộc thi kỹ thuật nơi các đội sinh viên lập trình robot và hệ thống AI để hoàn thành thử thách. Chứng nhận đóng góp trong công tác tổ chức và vận hành cuộc thi."
+      "description": "Tham gia Ban Tổ Chức kiêm Trọng tài cuộc thi FPTU AI & Robotics Challenge 2025, phụ trách kiểm tra kỹ thuật và điều hành trận đấu."
     },
     {
-      "description": "Chứng nhận hoàn thành chính thức chương trình **Thực tập Sinh (On-the-Job Training)** tại Công ty TNHH Phần mềm FPT Miền Trung (FPT Software), diễn ra từ tháng 9 đến tháng 12/2025 — đợt thực tập được nhà trường công nhận, gắn với vai trò Thực tập sinh Software Developer."
+      "description": "Chứng nhận hoàn thành chương trình Thực tập Doanh nghiệp (On-the-Job Training) tại Công ty TNHH Phần mềm FPT Miền Trung (FPT Software) từ tháng 9 đến tháng 12/2025."
     },
     {
-      "description": "Hoàn thành khóa **Build RAG Applications: Get Started** của IBM trên Coursera — giới thiệu nền tảng Retrieval-Augmented Generation (RAG) để xây dựng ứng dụng AI có khả năng neo câu trả lời vào nguồn tri thức bên ngoài."
+      "description": "Hoàn thành khóa Build RAG Applications: Get Started của IBM trên Coursera: xây dựng pipeline Retrieval-Augmented Generation kết nối LLM với dữ liệu nội bộ."
     },
     {
-      "description": "Hoàn thành khóa **Fundamentals of AI Agents Using RAG and LangChain** của IBM trên Coursera — bao gồm các khái niệm cốt lõi về thiết kế AI agent, retrieval-augmented generation và điều phối LangChain để xây dựng agent thông minh, có ngữ cảnh."
+      "description": "Hoàn thành khóa Fundamentals of AI Agents Using RAG and LangChain của IBM trên Coursera: thiết kế AI Agent, quản lý ngữ cảnh và điều phối chuỗi tác vụ bằng LangChain."
     },
     {
-      "description": "Hoàn thành dự án Coursera của IBM về xây dựng **ứng dụng Generative AI sử dụng Retrieval-Augmented Generation (RAG) và LangChain** — bao gồm truy xuất vector, điều phối prompt và neo kết quả LLM vào nguồn dữ liệu bên ngoài."
+      "description": "Hoàn thành dự án thực hành xây dựng ứng dụng Generative AI với RAG và LangChain của IBM trên Coursera: lập chỉ mục vector và neo câu trả lời của mô hình vào tài liệu gốc."
     },
     {
-      "description": "Được công nhận là **Đại sứ Sinh viên** vì tích cực quảng bá sự kiện Mini Leadership Conference 2025 của AIESEC — hỗ trợ truyền thông và chiến dịch cho sự kiện lãnh đạo trẻ khu vực tại Đà Nẵng."
+      "description": "Chứng nhận Đại sứ Sinh viên đồng hành cùng chiến dịch truyền thông sự kiện Mini Leadership Conference 2025 của AIESEC tại Đà Nẵng."
     },
     {
-      "description": "Nhận **học bổng 10%** ngành Công nghệ Thông tin (chuyên ngành Kỹ thuật Phần mềm) tại Đại học FPT, dựa trên kỳ thi học bổng năm 2023 (Điểm trắc nghiệm 44/90, Điểm luận 8/15 — Tổng điểm 52/105)."
+      "description": "Đạt học bổng 10% toàn khóa ngành Kỹ thuật Phần mềm tại Đại học FPT qua kỳ thi học bổng đầu vào năm 2023 (tổng điểm 52/105)."
     },
     {
-      "description": "Hoàn thành chứng chỉ **Thuật toán và Cấu trúc Dữ liệu JavaScript** của freeCodeCamp — bao gồm các thuật toán cơ bản (sắp xếp, tìm kiếm), cấu trúc dữ liệu (mảng, đối tượng, danh sách liên kết, ngăn xếp, hàng đợi) và giải quyết bài toán bằng JavaScript."
+      "description": "Hoàn thành chứng chỉ JavaScript Algorithms and Data Structures của freeCodeCamp (300 giờ thực hành cấu trúc dữ liệu, giải thuật sắp xếp, tìm kiếm và lập trình hàm)."
     },
     {
-      "description": "Hoàn thành **khóa tự học Hiragana A1** trên JF Japanese e-Learning Minato của Quỹ Giao lưu Quốc tế Nhật Bản (Japan Foundation) — thành thạo bảng chữ cái âm tiết tiếng Nhật gồm 46 ký tự dùng cho từ gốc Nhật."
+      "description": "Hoàn thành khóa Hiragana A1 trên hệ thống Minato của Quỹ Giao lưu Quốc tế Nhật Bản (Japan Foundation)."
     },
     {
-      "description": "Hoàn thành **khóa tự học Katakana A1** trên JF Japanese e-Learning Minato của Quỹ Giao lưu Quốc tế Nhật Bản (Japan Foundation) — thành thạo 46 ký tự dùng cho từ vay mượn và thuật ngữ kỹ thuật trong tiếng Nhật."
+      "description": "Hoàn thành khóa Katakana A1 trên hệ thống Minato của Quỹ Giao lưu Quốc tế Nhật Bản (Japan Foundation)."
     },
     {
-      "description": "Chứng nhận tham gia sự kiện **'Non Xanh Nước Biếc'** do Đoàn Sinh viên Đại học FPT tổ chức — hoạt động cộng đồng nâng cao nhận thức về môi trường, lối sống xanh và gắn kết sinh viên trong khuôn viên."
+      "description": "Chứng nhận tham gia hoạt động môi trường 'Non Xanh Nước Biếc' do Đoàn Thanh niên Đại học FPT tổ chức."
     },
     {
-      "description": "Nhận **Giấy Chứng nhận Danh dự** từ The Dreamers, ghi nhận tầm nhìn lãnh đạo và sự cống hiến của mình với vai trò **Người sáng lập và Chủ tịch** của The Dreamers — tôn vinh đam mê và tâm huyết đã đặt nền móng cho hành trình của tổ chức."
+      "description": "Giấy chứng nhận từ tổ chức The Dreamers ghi nhận đóng góp trong vai trò Người sáng lập và Chủ tịch điều hành qua các đợt hoạt động thiện nguyện."
     },
     {
-      "description": "Hoàn thành khóa **Create and Lead an Ethical Data-Driven Organization** của CertNexus trên Coursera — thuộc chuyên đề về xây dựng năng lực quản trị và lãnh đạo có đạo đức cho các đội nhóm dữ liệu."
+      "description": "Hoàn thành khóa Create and Lead an Ethical Data-Driven Organization của CertNexus trên Coursera về quản trị dữ liệu minh bạch trong tổ chức."
     },
     {
-      "description": "Hoàn thành khóa **Detect and Mitigate Ethical Risks** của CertNexus trên Coursera — bao gồm phương pháp nhận diện, đánh giá và giảm thiểu rủi ro đạo đức trong hệ thống dữ liệu và AI."
+      "description": "Hoàn thành khóa Detect and Mitigate Ethical Risks của CertNexus trên Coursera: nhận diện và giảm thiểu rủi ro thiên lệch dữ liệu trong các hệ thống AI."
     },
     {
-      "description": "Hoàn thành khóa **Promote the Ethical Use of Data-Driven Technologies** của CertNexus trên Coursera — bao gồm chiến lược thúc đẩy việc sử dụng có trách nhiệm và đạo đức các công nghệ dữ liệu và AI trong tổ chức."
+      "description": "Hoàn thành khóa Promote the Ethical Use of Data-Driven Technologies của CertNexus trên Coursera về tiêu chuẩn sử dụng dữ liệu và AI có trách nhiệm."
     },
     {
-      "description": "Hoàn thành khóa **Turn Ethical Frameworks into Actionable Steps** của CertNexus trên Coursera — chuyển hóa các nguyên tắc đạo đức cấp cao thành thực hành cụ thể, khả thi cho tổ chức dựa trên dữ liệu."
+      "description": "Hoàn thành khóa Turn Ethical Frameworks into Actionable Steps của CertNexus trên Coursera: đưa các quy tắc bảo mật và đạo đức dữ liệu vào quy trình vận hành phần mềm."
     },
     {
-      "description": "Hoàn thành khóa **Communicate Effectively about Ethical Challenges in Data-Driven Technologies** của CertNexus trên Coursera — xây dựng kỹ năng trao đổi rõ ràng về các vấn đề đạo đức trong công nghệ AI và dữ liệu với nhiều bên liên quan."
+      "description": "Hoàn thành khóa Communicate Effectively about Ethical Challenges in Data-Driven Technologies của CertNexus trên Coursera."
     },
     {
-      "description": "Hoàn thành khóa **Preparing for Your CertNexus Certification Exam** của CertNexus trên Coursera — khóa tổng kết của chuyên đề đạo đức dữ liệu CertNexus, ôn tập các khái niệm chính và chiến lược ôn thi."
+      "description": "Hoàn thành khóa tổng kết Preparing for Your CertNexus Certification Exam trên Coursera, hệ thống hóa kiến thức quản trị rủi ro dữ liệu và AI."
     },
     {
-      "description": "Hoàn thành khóa **Ethics of Artificial Intelligence** của Politecnico di Milano trên Coursera — tìm hiểu các khía cạnh triết học, xã hội và kỹ thuật của việc thiết kế và triển khai AI có đạo đức."
+      "description": "Hoàn thành khóa Ethics of Artificial Intelligence của Đại học Bách khoa Milan (Politecnico di Milano) trên Coursera về khía cạnh kỹ thuật và xã hội khi triển khai AI."
     },
     {
-      "description": "Hoàn thành khóa **Initiating and Planning Projects** của UC Irvine trên Coursera — thuộc chuyên đề Quản lý Dự án, bao gồm điều lệ dự án, xác định phạm vi và các nguyên tắc lập kế hoạch giai đoạn đầu."
+      "description": "Hoàn thành khóa Initiating and Planning Projects của Đại học California, Irvine (UC Irvine) trên Coursera: lập điều lệ dự án (Project Charter) và xác định phạm vi công việc."
     },
     {
-      "description": "Hoàn thành khóa **Budgeting and Scheduling Projects** của UC Irvine trên Coursera — bao gồm ước tính chi phí, lập ngân sách và kỹ thuật xây dựng lịch trình cho quản lý dự án."
+      "description": "Hoàn thành khóa Budgeting and Scheduling Projects của UC Irvine trên Coursera: ước lượng chi phí, phân bổ nguồn lực và lập tiến độ dự án."
     },
     {
-      "description": "Hoàn thành khóa **Managing Project Risks and Changes** của UC Irvine trên Coursera — bao gồm nhận diện rủi ro, lập kế hoạch giảm thiểu và quản lý thay đổi xuyên suốt vòng đời dự án."
+      "description": "Hoàn thành khóa Managing Project Risks and Changes của UC Irvine trên Coursera: lập ma trận rủi ro và kiểm soát thay đổi yêu cầu trong quá trình làm dự án."
     },
     {
-      "description": "Hoàn thành dự án tổng kết **Project Management Project** của chuyên đề Quản lý Dự án UC Irvine trên Coursera — áp dụng kỹ năng khởi tạo, lập kế hoạch, lập ngân sách, lên lịch trình và quản lý rủi ro vào một mô phỏng dự án hoàn chỉnh."
+      "description": "Hoàn thành đồ án tổng kết Project Management Project của UC Irvine trên Coursera, thực hành lập kế hoạch, ngân sách, tiến độ và quản lý rủi ro cho một dự án mẫu."
     },
     {
-      "description": "Chứng nhận tham gia **Hackathon Computer Vision 2026** — cuộc thi hackathon quốc tế giữa Đại học FPT và Singapore Institute of Technology (SIT), tăng cường trao đổi học thuật giữa hai trường."
+      "description": "Chứng nhận tham gia và đạt giải tại cuộc thi Hackathon Computer Vision 2026 phối hợp giữa Đại học FPT và Học viện Công nghệ Singapore (SIT)."
     },
     {
-      "description": "Đạt danh hiệu **Sinh viên Danh dự trong Kỳ (Học kỳ Xuân 2026)** do Đại học FPT trao tặng, ghi nhận thành tích học tập và ý thức xuất sắc trong kỳ học."
+      "description": "Đạt danh hiệu Sinh viên Giỏi (Honorable Student of the Semester, Học kỳ Xuân 2026) tại Đại học FPT Đà Nẵng."
     }
   ]
 }

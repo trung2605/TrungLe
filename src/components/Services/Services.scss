@@ -106,19 +106,18 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 10px 18px;
+      padding: 12px 18px;
       margin: 0 auto 28px;
       max-width: 860px;
-      background: rgba(255, 85, 0, 0.04);
-      border: 1px solid rgba(255, 85, 0, 0.22);
-      border-radius: 16px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(255, 85, 0, 0.06);
-      transition: all 0.25s ease;
+      background: #FFFFFF;
+      border: 2px solid #18181B;
+      border-radius: 8px;
+      box-shadow: 4px 4px 0px #18181B;
+      transition: all 0.2s ease;
 
       &:hover {
-        border-color: rgba(255, 85, 0, 0.38);
-        box-shadow: 0 6px 24px rgba(255, 85, 0, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 6px 6px 0px #18181B;
       }
 
       .synap-brand-left {
@@ -268,22 +267,24 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 28px;
-      border-radius: 50px;
-      font-size: 15px;
-      font-weight: 650;
-      background: linear-gradient(135deg, #f9510d 0%, #ff6827 100%);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 18px rgba(249, 81, 13, 0.35);
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: #18181B;
+      color: #FAF8F3;
+      border: 2px solid #18181B;
+      box-shadow: 4px 4px 0px #F5C242;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
 
       &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 28px rgba(249, 81, 13, 0.48);
-        background: linear-gradient(135deg, #ff6827 0%, #f9510d 100%);
+        box-shadow: 6px 6px 0px #F5C242;
       }
 
       &:active {
@@ -295,20 +296,24 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 26px;
-      border-radius: 50px;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--color-ink);
-      background: var(--color-canvas);
-      border: 1px solid var(--color-hairline);
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #18181B;
+      background: #F5C242;
+      border: 2px solid #18181B;
+      box-shadow: 4px 4px 0px #18181B;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
 
       &:hover {
-        background: var(--color-surface-soft);
-        border-color: var(--color-ink);
+        transform: translateY(-2px);
+        box-shadow: 6px 6px 0px #18181B;
       }
 
       &:active {
@@ -457,19 +462,18 @@
 
   .flagship-summary-card {
     background: var(--color-canvas);
-    border: 1.5px solid var(--color-hairline);
-    border-radius: 20px;
+    border: 2px solid #18181B;
+    border-radius: 8px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    box-shadow: 5px 5px 0px #18181B;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 
     &:hover {
       transform: translateY(-4px);
-      border-color: var(--color-ink);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
+      box-shadow: 7px 7px 0px #18181B;
 
       .card-media-wrap .card-cover-img {
         transform: scale(1.03);
@@ -480,8 +484,8 @@
       }
 
       .btn-open-detail {
-        background: var(--color-ink);
-        color: var(--color-canvas);
+        background: #F5C242;
+        color: #18181B;
       }
     }
 

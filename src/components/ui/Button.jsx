@@ -12,19 +12,19 @@ const toMotion = (Component) => {
 };
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 rounded-pill font-medium transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed',
+  'inline-flex items-center justify-center gap-2 rounded-[6px] font-mono uppercase tracking-wide font-bold transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed',
   {
     variants: {
       variant: {
-        primary: 'bg-ink text-canvas hover:bg-[#1a1a1a] dark:bg-[color:var(--color-ink)] dark:text-[color:var(--color-canvas)]',
-        secondary: 'bg-canvas text-ink border border-hairline hover:bg-surface dark:bg-[color:var(--color-canvas)] dark:text-[color:var(--color-ink)] dark:border-[color:var(--color-hairline)] dark:hover:bg-[color:var(--color-surface-soft)]',
+        primary: 'bg-[#18181B] text-[#FAF8F3] border-[1.5px] border-[#18181B] shadow-[3px_3px_0px_#18181B] hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_#18181B] dark:bg-[#F5C242] dark:text-[#18181B] dark:border-[#F5C242]',
+        secondary: 'bg-[#FFFFFF] text-[#18181B] border-[1.5px] border-[#18181B] shadow-[2px_2px_0px_#18181B] hover:bg-[#F5C242] hover:-translate-y-0.5 dark:bg-[color:var(--color-surface)] dark:text-[color:var(--color-ink)] dark:border-[color:var(--color-border-strong)]',
         ghost: 'bg-transparent text-ink hover:bg-surface dark:text-[color:var(--color-ink)] dark:hover:bg-[color:var(--color-surface-soft)]',
       },
       size: {
-        sm: 'px-4 py-2 text-sm',
-        md: 'px-5 py-2.5 text-[15px]',
-        lg: 'px-7 py-3 text-[16px]',
-        icon: 'w-10 h-10 p-0',
+        sm: 'px-3.5 py-1.5 text-xs',
+        md: 'px-4 py-2 text-[13px]',
+        lg: 'px-6 py-2.5 text-[14px]',
+        icon: 'w-9 h-9 p-0',
       },
     },
     defaultVariants: {

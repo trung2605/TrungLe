@@ -10,8 +10,10 @@ import { post09 } from './post09_jobfinder_agile_jwt';
 import { post10 } from './post10_dreamers_social_impact';
 import { post11 } from './post11_servlets_to_springboot';
 import { post12 } from './post12_chest_xray_cnn';
+import { post13 } from './post13_ba_srs_wiegers';
 
 export const allPosts = [
+  post13,
   post01,
   post02,
   post03,

@@ -7,15 +7,15 @@ import { useTranslatedData } from '../../hooks/useTranslatedData';
 import { useTranslation } from 'react-i18next';
 
 const PAGE_META = {
-    '/about':        { color: '#dceeb1', decoration: FiCircle,          key: 'about' },
-    '/projects':     { color: '#c5b0f4', decoration: FiCode,            key: 'projects' },
-    '/achievements': { color: '#f3c9b6', decoration: FiAward,           key: 'achievements' },
-    '/activities':   { color: '#f4ecd6', decoration: FiUsers,           key: 'activities' },
-    '/blog':         { color: '#c8e6cd', decoration: FiEdit3,           key: 'blog' },
-    '/resume':       { color: '#dceeb1', decoration: FiFileText,        key: 'resume' },
-    '/contact':      { color: '#efd4d4', decoration: FiMail,            key: 'contact' },
-    '/dich-vu':      { color: '#dbeafe', decoration: FiLayers,          key: 'services' },
-    '/services':     { color: '#dbeafe', decoration: FiLayers,          key: 'services' },
+    '/about':        { color: '#F5C242', stampBg: '#A7E8BD', decoration: FiCircle,   key: 'about',        code: 'DOSSIER // 01' },
+    '/projects':     { color: '#2563EB', stampBg: '#FDE68A', decoration: FiCode,     key: 'projects',     code: 'CASE STUDIES // 02' },
+    '/achievements': { color: '#18A96B', stampBg: '#F5C242', decoration: FiAward,    key: 'achievements', code: 'MILESTONES // 03' },
+    '/activities':   { color: '#EC4899', stampBg: '#A7E8BD', decoration: FiUsers,    key: 'activities',   code: 'COMMUNITY // 04' },
+    '/blog':         { color: '#EA580C', stampBg: '#FDE68A', decoration: FiEdit3,    key: 'blog',         code: 'FIELD NOTES // 05' },
+    '/resume':       { color: '#18181B', stampBg: '#F5C242', decoration: FiFileText, key: 'resume',       code: 'CURRICULUM VITAE // 06' },
+    '/contact':      { color: '#EC4899', stampBg: '#F5C242', decoration: FiMail,     key: 'contact',      code: 'DIRECT LINE // 07' },
+    '/dich-vu':      { color: '#2563EB', stampBg: '#F5C242', decoration: FiLayers,   key: 'services',     code: 'SYNAPFORGE // 08' },
+    '/services':     { color: '#2563EB', stampBg: '#F5C242', decoration: FiLayers,   key: 'services',     code: 'SYNAPFORGE // 08' },
 };
 
 const PageBanner = () => {
@@ -32,6 +32,8 @@ const PageBanner = () => {
                 title:    t(`pageBanner.${meta.key}.title`),
                 subtitle: t(`pageBanner.${meta.key}.subtitle`),
                 color: meta.color,
+                stampBg: meta.stampBg,
+                code: meta.code,
                 decoration: meta.decoration,
             };
         }
@@ -45,7 +47,9 @@ const PageBanner = () => {
                     eyebrow: t('pageBanner.blog.eyebrow'),
                     title: post.title,
                     subtitle: post.excerpt,
-                    color: '#c8e6cd',
+                    color: '#EA580C',
+                    stampBg: '#FDE68A',
+                    code: 'ARTICLE // NOTEBOOK',
                     decoration: FiEdit3,
                     parentPath: '/blog',
                     parentLabel: t('pageBanner.blog.title'),
@@ -62,7 +66,9 @@ const PageBanner = () => {
                     eyebrow: t('pageBanner.projectDetail'),
                     title: project.title,
                     subtitle: project.role + ' · ' + project.duration,
-                    color: '#c5b0f4',
+                    color: '#2563EB',
+                    stampBg: '#F5C242',
+                    code: `PROJECT FILE // #${project.id}`,
                     decoration: FiCode,
                     parentPath: '/projects',
                     parentLabel: t('pageBanner.projects.title'),
@@ -134,176 +140,197 @@ const PageBanner = () => {
     return (
         <motion.div
             key={pathname}
-            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : -12 }}
+            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : -8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0.01 : 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: prefersReducedMotion ? 0.01 : 0.4, ease: [0.16, 1, 0.3, 1] }}
             style={{
-                backgroundColor: config.color,
-                borderRadius: '0 0 32px 32px',
-                marginLeft: 'calc(-50vw + 50%)',
-                marginRight: 'calc(-50vw + 50%)',
-                marginTop: '0',
-                marginBottom: '0',
-                padding: 'clamp(20px, 3.5vw, 44px) clamp(16px, 3vw, 32px)',
+                padding: 'clamp(22px, 3.2vw, 36px) clamp(16px, 3vw, 36px) 16px',
                 position: 'relative',
-                overflow: 'hidden',
             }}
         >
-            {/* Max-width wrapper */}
-            <div style={{ maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+            <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+                {/* Top Breadcrumb + Sticky Stamp Row */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
+                    <nav aria-label="Breadcrumb">
+                        <ol style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            margin: 0,
+                            padding: '5px 12px',
+                            listStyle: 'none',
+                            flexWrap: 'wrap',
+                            backgroundColor: 'var(--color-card-bg)',
+                            border: '1.5px solid var(--color-border-strong)',
+                            borderRadius: '4px',
+                            boxShadow: '2px 2px 0px #18181B',
+                        }}>
+                            <li style={{ display: 'inline-flex', alignItems: 'center' }}>
+                                <Link
+                                    to="/"
+                                    style={{
+                                        display: 'flex', alignItems: 'center', gap: '5px',
+                                        fontFamily: 'var(--font-mono)',
+                                        fontSize: '11px', letterSpacing: '0.05em',
+                                        textTransform: 'uppercase', color: 'var(--color-ink-soft)',
+                                        textDecoration: 'none',
+                                        fontWeight: 600,
+                                    }}
+                                >
+                                    <FaHome size={11} /> {t('pageBanner.home')}
+                                </Link>
+                            </li>
+                            {config.parentPath && (
+                                <>
+                                    <li aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                                        <FaChevronRight size={9} style={{ color: 'var(--color-ink-soft)' }} />
+                                    </li>
+                                    <li style={{ display: 'inline-flex', alignItems: 'center' }}>
+                                        <Link
+                                            to={config.parentPath}
+                                            style={{
+                                                fontFamily: 'var(--font-mono)',
+                                                fontSize: '11px', letterSpacing: '0.05em',
+                                                textTransform: 'uppercase', color: 'var(--color-ink-soft)',
+                                                textDecoration: 'none',
+                                                fontWeight: 600,
+                                            }}
+                                        >
+                                            {config.parentLabel}
+                                        </Link>
+                                    </li>
+                                </>
+                            )}
+                            <li aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                                <FaChevronRight size={9} style={{ color: 'var(--color-ink-soft)' }} />
+                            </li>
+                            <li style={{ display: 'inline-flex', alignItems: 'center' }}>
+                                <span
+                                    aria-current="page"
+                                    style={{
+                                        fontFamily: 'var(--font-mono)',
+                                        fontSize: '11px', letterSpacing: '0.05em',
+                                        textTransform: 'uppercase', color: 'var(--color-ink)',
+                                        fontWeight: 700,
+                                    }}
+                                >
+                                    {config.eyebrow}
+                                </span>
+                            </li>
+                        </ol>
+                    </nav>
 
-                {/* Breadcrumb Navigation */}
-                <motion.nav
-                    aria-label="Breadcrumb"
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.15, duration: 0.4 }}
-                    style={{ marginBottom: '10px' }}
-                >
-                    <ol style={{
+                    {/* Tilted Sticky Note Dossier Stamp */}
+                    <div
+                        className="sticky-note-tag"
+                        style={{
+                            backgroundColor: config.stampBg,
+                            transform: 'rotate(1.8deg)',
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: '11px',
+                            letterSpacing: '0.06em',
+                            textTransform: 'uppercase',
+                            padding: '5px 12px',
+                        }}
+                    >
+                        <span>★ {config.code}</span>
+                    </div>
+                </div>
+
+                {/* Main Dossier Header Card */}
+                <div
+                    style={{
                         display: 'flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        margin: 0,
-                        padding: 0,
-                        listStyle: 'none',
-                        flexWrap: 'wrap'
-                    }}>
-                        <li style={{ display: 'inline-flex', alignItems: 'center' }}>
-                            <Link
-                                to="/"
-                                style={{
-                                    display: 'flex', alignItems: 'center', gap: '5px',
-                                    fontFamily: 'JetBrains Mono, monospace',
-                                    fontSize: '12px', letterSpacing: '0.4px',
-                                    textTransform: 'uppercase', color: 'rgba(0,0,0,0.55)',
-                                    textDecoration: 'none', transition: 'color 0.15s ease',
-                                    fontWeight: 500,
-                                }}
-                                onMouseEnter={e => e.currentTarget.style.color = '#000000'}
-                                onMouseLeave={e => e.currentTarget.style.color = 'rgba(0,0,0,0.55)'}
-                            >
-                                <FaHome size={11} /> {t('pageBanner.home')}
-                            </Link>
-                        </li>
-                        {config.parentPath && (
-                            <>
-                                <li aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center' }}>
-                                    <FaChevronRight size={9} style={{ color: 'rgba(0,0,0,0.35)' }} />
-                                </li>
-                                <li style={{ display: 'inline-flex', alignItems: 'center' }}>
-                                    <Link
-                                        to={config.parentPath}
-                                        style={{
-                                            fontFamily: 'JetBrains Mono, monospace',
-                                            fontSize: '12px', letterSpacing: '0.4px',
-                                            textTransform: 'uppercase', color: 'rgba(0,0,0,0.55)',
-                                            textDecoration: 'none', transition: 'color 0.15s ease',
-                                            fontWeight: 500,
-                                        }}
-                                        onMouseEnter={e => e.currentTarget.style.color = '#000000'}
-                                        onMouseLeave={e => e.currentTarget.style.color = 'rgba(0,0,0,0.55)'}
-                                    >
-                                        {config.parentLabel}
-                                    </Link>
-                                </li>
-                            </>
-                        )}
-                        <li aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center' }}>
-                            <FaChevronRight size={9} style={{ color: 'rgba(0,0,0,0.35)' }} />
-                        </li>
-                        <li style={{ display: 'inline-flex', alignItems: 'center' }}>
-                            <span 
-                                aria-current="page"
-                                style={{
-                                    fontFamily: 'JetBrains Mono, monospace',
-                                    fontSize: '12px', letterSpacing: '0.4px',
-                                    textTransform: 'uppercase', color: 'rgba(0,0,0,0.85)',
-                                    fontWeight: 600,
-                                }}
-                            >
-                                {config.eyebrow}
-                            </span>
-                        </li>
-                    </ol>
-                </motion.nav>
-
-                {/* Title row */}
-                <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '24px', flexWrap: 'wrap' }}>
-                    <div>
-                        <motion.p
-                            initial={{ opacity: 0, y: 8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1, duration: 0.4 }}
+                        alignItems: 'flex-end',
+                        justifyContent: 'space-between',
+                        gap: '24px',
+                        flexWrap: 'wrap',
+                        paddingBottom: '18px',
+                    }}
+                >
+                    <div style={{ maxWidth: '820px' }}>
+                        {/* Handwritten script annotation */}
+                        <div
                             style={{
-                                fontFamily: 'JetBrains Mono, monospace',
-                                fontSize: '12px', letterSpacing: '0.60px',
-                                textTransform: 'uppercase', color: 'rgba(0,0,0,0.5)',
-                                marginBottom: '10px',
+                                fontFamily: 'var(--font-hand)',
+                                fontSize: '21px',
+                                fontWeight: 700,
+                                color: 'var(--color-ink-soft)',
+                                marginBottom: '4px',
+                                transform: 'rotate(-1deg)',
+                                display: 'inline-block',
                             }}
                         >
-                            {config.eyebrow}
-                        </motion.p>
+                            ✎ {config.eyebrow.toLowerCase()}
+                        </div>
 
-                        <motion.h1
-                            initial={{ opacity: 0, y: 16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.18, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        <h1
                             style={{
-                                fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
-                                fontSize: 'clamp(32px, 5vw, 64px)',
-                                fontWeight: '340',
-                                lineHeight: '1.05',
-                                letterSpacing: '-1.2px',
-                                color: '#000000',
-                                margin: 0,
+                                fontFamily: 'var(--font-heading)',
+                                fontSize: 'clamp(28px, 4.2vw, 48px)',
+                                fontWeight: 800,
+                                lineHeight: 1.1,
+                                letterSpacing: '-0.025em',
+                                color: 'var(--color-ink)',
+                                margin: '0 0 10px 0',
                             }}
                         >
                             {config.title}
-                        </motion.h1>
+                        </h1>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.28, duration: 0.4 }}
-                            style={{
-                                fontSize: 'clamp(14px, 2vw, 17px)',
-                                fontWeight: '330',
-                                lineHeight: '1.55',
-                                color: 'rgba(0,0,0,0.6)',
-                                marginTop: '12px',
-                                maxWidth: '480px',
-                            }}
-                        >
-                            {config.subtitle}
-                        </motion.p>
+                        {config.subtitle && (
+                            <p
+                                style={{
+                                    fontSize: 'clamp(14.5px, 1.8vw, 16.5px)',
+                                    fontWeight: 400,
+                                    lineHeight: 1.55,
+                                    color: 'var(--color-ink-soft)',
+                                    margin: 0,
+                                    maxWidth: '680px',
+                                }}
+                            >
+                                {config.subtitle}
+                            </p>
+                        )}
                     </div>
 
-                    {/* Decoration icon - Desktop only */}
-                    <motion.div
-                        className="hidden md:block"
-                        initial={{ opacity: 0, scale: 0.7, rotate: -20 }}
-                        animate={{ opacity: 0.15, scale: 1, rotate: 0 }}
-                        transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    {/* Postage Stamp Emblem on Desktop */}
+                    <div
+                        className="hidden md:flex"
                         style={{
-                            color: '#000000',
-                            userSelect: 'none',
+                            width: '64px',
+                            height: '64px',
+                            borderRadius: '8px',
+                            backgroundColor: config.color,
+                            color: config.color === '#F5C242' ? '#18181B' : '#FFFFFF',
+                            border: '2px solid #18181B',
+                            boxShadow: '3px 3px 0px #18181B',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            transform: 'rotate(-3deg)',
                             flexShrink: 0,
                         }}
                     >
-                        <config.decoration size={100} strokeWidth={1} aria-hidden="true" />
-                    </motion.div>
+                        <config.decoration size={28} strokeWidth={2} aria-hidden="true" />
+                    </div>
                 </div>
-            </div>
 
-            {/* Bottom fade strip for smooth transition into page */}
-            <div style={{
-                position: 'absolute',
-                bottom: 0, left: 0, right: 0,
-                height: '32px',
-                background: `linear-gradient(to bottom, transparent, ${config.color})`,
-                pointerEvents: 'none',
-            }} />
+                {/* Hand-Drawn SVG Arc Divider across the notebook sheet */}
+                <svg
+                    viewBox="0 0 1200 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ width: '100%', height: '18px', display: 'block', overflow: 'visible' }}
+                >
+                    <path
+                        d="M4 16 Q 600 2, 1196 14"
+                        stroke="var(--color-border-strong)"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        opacity="0.45"
+                    />
+                </svg>
+            </div>
         </motion.div>
     );
 };

@@ -110,21 +110,21 @@ const AchievementsPage = () => {
         marginTop: '64px',
         marginBottom: '48px',
         padding: '32px',
-        backgroundColor: 'var(--color-surface)',
-        borderRadius: '24px',
-        border: '1px solid var(--color-hairline)',
+        backgroundColor: '#F7E49A',
+        borderRadius: '8px',
+        border: '2px solid #18181B',
+        boxShadow: '6px 6px 0px #18181B',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         flexWrap: 'wrap',
         gap: '20px',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.03)'
       }}>
         <div>
-          <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--color-ink)', margin: '0 0 6px 0' }}>
+          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '19px', fontWeight: 700, color: '#18181B', margin: '0 0 6px 0' }}>
             {isEn ? "Translating Honors & Theory into Real-World Production" : "Ứng dụng thực tế từ kiến thức & giải thưởng"}
           </h3>
-          <p style={{ fontSize: '14.5px', color: 'var(--color-ink-soft)', margin: 0, maxWidth: '580px', lineHeight: '1.6' }}>
+          <p style={{ fontSize: '14.5px', color: '#27272A', fontWeight: 500, margin: 0, maxWidth: '580px', lineHeight: '1.6' }}>
             {isEn
               ? "Explore how competitive algorithmic thinking and academic research are channeled into high-performance software products and engineering services."
               : "Khám phá cách những thành tích thi đấu thuật toán và nghiên cứu khoa học được chuyển hóa thành các sản phẩm phần mềm thực chiến và dịch vụ công nghệ cho khách hàng."}
@@ -135,10 +135,11 @@ const AchievementsPage = () => {
             to="/projects"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
-              padding: '11px 22px', borderRadius: '50px',
-              backgroundColor: 'var(--color-ink)', color: 'var(--color-canvas)',
-              fontSize: '13.5px', fontWeight: 540, textDecoration: 'none',
-              transition: 'transform 0.15s ease'
+              padding: '10px 20px', borderRadius: '5px',
+              backgroundColor: '#18181B', color: '#FAF8F3',
+              border: '1.5px solid #18181B',
+              boxShadow: '3px 3px 0px rgba(0,0,0,0.35)',
+              fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none',
             }}
           >
             <span>{isEn ? "View Project Showcase" : "Xem Showcase Dự Án"}</span>
@@ -147,10 +148,11 @@ const AchievementsPage = () => {
             to="/dich-vu"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
-              padding: '11px 22px', borderRadius: '50px',
-              backgroundColor: '#ede5fb', color: '#6d3fc9',
-              fontSize: '13.5px', fontWeight: 600, textDecoration: 'none',
-              transition: 'transform 0.15s ease'
+              padding: '10px 20px', borderRadius: '5px',
+              backgroundColor: '#FFFFFF', color: '#18181B',
+              border: '1.5px solid #18181B',
+              boxShadow: '3px 3px 0px #18181B',
+              fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none',
             }}
           >
             <span>{isEn ? "Team 5 Devs Service" : "Dịch Vụ Team 5 Devs"}</span>

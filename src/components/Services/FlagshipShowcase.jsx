@@ -16,14 +16,14 @@ export const FlagshipShowcase = ({ isEn }) => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <div className="section-eyebrow">{isEn ? "SYNAPFORGE STUDIO FLAGSHIPS" : "DỰ ÁN TRỌNG ĐIỂM — SYNAPFORGE STUDIO"}</div>
+        <div className="section-eyebrow">{isEn ? "SYNAPFORGE STUDIO FLAGSHIPS" : "DỰ ÁN TRỌNG ĐIỂM • SYNAPFORGE STUDIO"}</div>
         <h2 className="section-heading">
           {isEn ? "Proven Production Delivery: High-Load E-Commerce & Microservices" : "Hai Sản Phẩm Trọng Điểm: Sàn Bán Hàng Tải Cao & Nền Tảng Microservices"}
         </h2>
         <p className="section-desc">
           {isEn 
-            ? "Directly explore the systems engineered by SynapForge Studio: The high-traffic commercial marketplace (Biensovip.com - 900+ to thousands of items, sub-8ms query, VietQR 0đ fee) and our microservices AI automation platform (BrandHub) — with 100% production transparency."
-            : "Khám phá trực tiếp năng lực kỹ nghệ thực tế của SynapForge Studio: Sàn thương mại điện tử thực tế vận hành cho doanh nghiệp (Biensovip.com - chịu tải 900+ đến hàng nghìn sản phẩm, lọc dưới 8ms, cổng VietQR 0đ phí) và Nền tảng tự động hóa Microservices & AI đa kênh (BrandHub)."}
+            ? "Explore two core systems engineered by SynapForge Studio: our commercial license plate marketplace (Biensovip.com: 1.1M+ VPA auction records, sub-8ms GIN queries, zero-fee VietQR webhook) and our 7-microservices AI publishing platform (BrandHub)."
+            : "Hai hệ thống trọng điểm do đội ngũ SynapForge Studio trực tiếp phát triển: Sàn thương mại biển số đang vận hành thực tế (Biensovip.com: 1,1 triệu bản ghi đấu giá, lọc dưới 8ms, cổng VietQR 0đ phí) và Nền tảng tự động hóa đa kênh 7 Microservices tích hợp AI (BrandHub)."}
         </p>
       </motion.div>
 

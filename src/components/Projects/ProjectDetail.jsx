@@ -88,28 +88,57 @@ const ProjectDetail = () => {
         if (ogImg) ogImg.setAttribute('content', project.image);
       }
 
-      // Breadcrumb JSON-LD Structured Data
-      const breadcrumbData = {
+      // Breadcrumb & SoftwareSourceCode / Product JSON-LD Structured Data
+      const cleanDesc = (desc || '').replace(/\*\*/g, '').replace(/\n+/g, ' ').slice(0, 280);
+      const structuredData = {
         "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
+        "@graph": [
           {
-            "@type": "ListItem",
-            "position": 1,
-            "name": isEn ? "Home" : "Trang Chủ",
-            "item": "https://trung2605.github.io/"
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": isEn ? "Home" : "Trang Chủ",
+                "item": "https://trung2605.github.io/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": fromServices ? (isEn ? "Services" : "Dịch Vụ") : (isEn ? "Projects" : "Dự Án"),
+                "item": fromServices ? "https://trung2605.github.io/dich-vu" : "https://trung2605.github.io/projects"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": project.title,
+                "item": `https://trung2605.github.io/projects/${project.id}`
+              }
+            ]
           },
           {
-            "@type": "ListItem",
-            "position": 2,
-            "name": fromServices ? (isEn ? "Services" : "Dịch Vụ") : (isEn ? "Projects" : "Dự Án"),
-            "item": fromServices ? "https://trung2605.github.io/dich-vu" : "https://trung2605.github.io/projects"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
+            "@type": ["SoftwareApplication", "SoftwareSourceCode"],
+            "@id": `https://trung2605.github.io/projects/${project.id}#software`,
             "name": project.title,
-            "item": `https://trung2605.github.io/projects/${project.id}`
+            "description": cleanDesc,
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web, Cloud, Linux, iOS, Android",
+            "url": project.liveUrl && project.liveUrl !== '#' ? project.liveUrl : `https://trung2605.github.io/projects/${project.id}`,
+            "codeRepository": project.githubUrl && project.githubUrl !== '#' ? project.githubUrl : "https://github.com/trung2605",
+            "programmingLanguage": project.techStack || [],
+            "image": project.image || "https://trung2605.github.io/og-image.png",
+            "author": {
+              "@type": "Person",
+              "@id": "https://trung2605.github.io/#person",
+              "name": "Lê Trí Trung",
+              "url": "https://trung2605.github.io"
+            },
+            "creator": {
+              "@type": "Organization",
+              "@id": "https://trung2605.github.io/#organization",
+              "name": "SynapForge Venture Studio",
+              "url": "https://www.synapforge.id.vn"
+            }
           }
         ]
       };
@@ -121,7 +150,7 @@ const ProjectDetail = () => {
         script.type = 'application/ld+json';
         document.head.appendChild(script);
       }
-      script.text = JSON.stringify(breadcrumbData);
+      script.text = JSON.stringify(structuredData);
 
       return () => {
         const existingScript = document.getElementById('project-breadcrumb-jsonld');
@@ -179,26 +208,25 @@ const ProjectDetail = () => {
           flexWrap: 'wrap',
           gap: '12px',
           marginBottom: '28px',
-          padding: '12px 18px',
-          backgroundColor: '#f8fafc',
-          borderRadius: '16px',
-          border: '1px solid #e2e8f0',
+          padding: '10px 16px',
+          backgroundColor: 'var(--color-surface)',
+          borderRadius: '6px',
+          border: '1.5px solid var(--color-border-strong)',
+          boxShadow: '3px 3px 0px #18181B',
         }}
       >
         <ol style={{ display: 'flex', alignItems: 'center', listStyle: 'none', margin: 0, padding: 0, gap: '8px', flexWrap: 'wrap' }}>
           <li style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
             <Link 
               to="/" 
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '13px', color: '#64748b', textDecoration: 'none', fontWeight: 500 }}
-              onMouseEnter={e => e.currentTarget.style.color = '#0f172a'}
-              onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--color-ink-soft)', textDecoration: 'none', fontWeight: 700, textTransform: 'uppercase' }}
             >
-              <FaHome size={12} />
+              <FaHome size={11} />
               <span>{isEn ? "Home" : "Trang chủ"}</span>
             </Link>
           </li>
 
-          <li style={{ color: '#94a3b8', fontSize: '11px', display: 'flex', alignItems: 'center' }}>
+          <li style={{ color: 'var(--color-ink-soft)', fontSize: '11px', display: 'flex', alignItems: 'center' }}>
             <FaChevronRight size={9} />
           </li>
 
@@ -206,9 +234,7 @@ const ProjectDetail = () => {
             <li style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
               <Link 
                 to="/dich-vu" 
-                style={{ fontSize: '13px', color: '#64748b', textDecoration: 'none', fontWeight: 500 }}
-                onMouseEnter={e => e.currentTarget.style.color = '#0f172a'}
-                onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
+                style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--color-ink-soft)', textDecoration: 'none', fontWeight: 700, textTransform: 'uppercase' }}
               >
                 {isEn ? "Services" : "Dịch vụ"}
               </Link>
@@ -217,16 +243,14 @@ const ProjectDetail = () => {
             <li style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
               <Link 
                 to="/projects" 
-                style={{ fontSize: '13px', color: '#64748b', textDecoration: 'none', fontWeight: 500 }}
-                onMouseEnter={e => e.currentTarget.style.color = '#0f172a'}
-                onMouseLeave={e => e.currentTarget.style.color = '#64748b'}
+                style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--color-ink-soft)', textDecoration: 'none', fontWeight: 700, textTransform: 'uppercase' }}
               >
                 {isEn ? "Projects" : "Dự án"}
               </Link>
             </li>
           )}
 
-          <li style={{ color: '#94a3b8', fontSize: '11px', display: 'flex', alignItems: 'center' }}>
+          <li style={{ color: 'var(--color-ink-soft)', fontSize: '11px', display: 'flex', alignItems: 'center' }}>
             <FaChevronRight size={9} />
           </li>
 
@@ -234,9 +258,11 @@ const ProjectDetail = () => {
             <span 
               aria-current="page"
               style={{ 
-                fontSize: '13px', 
-                color: '#0f172a', 
-                fontWeight: 650, 
+                fontFamily: 'var(--font-mono)',
+                fontSize: '12px', 
+                color: 'var(--color-ink)', 
+                fontWeight: 700, 
+                textTransform: 'uppercase',
                 maxWidth: '280px', 
                 overflow: 'hidden', 
                 textOverflow: 'ellipsis', 
@@ -256,17 +282,20 @@ const ProjectDetail = () => {
             alignItems: 'center',
             gap: '6px',
             padding: '6px 14px',
-            borderRadius: '50px',
-            backgroundColor: '#ffffff',
-            border: '1px solid #cbd5e1',
-            fontSize: '12.5px',
-            fontWeight: 550,
-            color: '#334155',
+            borderRadius: '4px',
+            backgroundColor: '#F5C242',
+            border: '1.5px solid #18181B',
+            boxShadow: '2px 2px 0px #18181B',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '11.5px',
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            color: '#18181B',
             cursor: 'pointer',
             transition: 'all 0.15s ease',
           }}
-          onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#0f172a'; e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.borderColor = '#0f172a'; }}
-          onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#ffffff'; e.currentTarget.style.color = '#334155'; e.currentTarget.style.borderColor = '#cbd5e1'; }}
+          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = 'none'; }}
         >
           <FaArrowLeft size={10} />
           <span>{fromServices ? (isEn ? "Back to Services" : "Về Trang Dịch Vụ") : (isEn ? "Back to Projects" : "Về Danh Sách Dự Án")}</span>
@@ -281,16 +310,17 @@ const ProjectDetail = () => {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         style={{
           position: 'relative',
-          borderRadius: '24px',
+          borderRadius: '8px',
           overflow: 'hidden',
-          backgroundColor: '#0f172a',
+          backgroundColor: '#18181B',
+          border: '2px solid #18181B',
           marginBottom: '28px',
           minHeight: '260px',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-end',
           padding: 'clamp(20px, 4vw, 36px)',
-          boxShadow: '0 12px 36px -12px rgba(0, 0, 0, 0.25)'
+          boxShadow: '6px 6px 0px #18181B'
         }}
       >
         <motion.img
@@ -524,29 +554,29 @@ const ProjectDetail = () => {
               {/* 1. BÀI TOÁN THỰC TẾ & THÁCH THỨC CẦN GIẢI QUYẾT (ĐƯA LÊN ĐẦU TIÊN) */}
               {project.challenge && (
                 <div style={{ 
-                  backgroundColor: '#fffbeb', 
-                  borderRadius: '20px', 
-                  border: '1.5px solid #fde68a', 
-                  padding: '26px', 
+                  backgroundColor: '#F7E49A', 
+                  borderRadius: '8px', 
+                  border: '1.5px solid #18181B', 
+                  padding: '24px', 
                   marginBottom: '24px',
-                  boxShadow: '0 4px 16px rgba(245, 158, 11, 0.06)'
+                  boxShadow: '4px 4px 0px #18181B'
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-                    <div style={{ width: '28px', height: '28px', borderRadius: '8px', backgroundColor: '#fef3c7', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ width: '28px', height: '28px', borderRadius: '4px', backgroundColor: '#18181B', color: '#F5C242', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <FaExclamationTriangle size={13} />
                     </div>
                     <span style={{
-                      fontFamily: 'JetBrains Mono, monospace', fontSize: '11.5px',
+                      fontFamily: 'var(--font-mono)', fontSize: '11.5px',
                       letterSpacing: '0.6px', textTransform: 'uppercase',
-                      color: '#b45309', fontWeight: 800,
+                      color: '#18181B', fontWeight: 700,
                     }}>
                       {isEn ? "1. Real-World Business Problem & Challenge" : "1. Bài Toán Nghiệp Vụ & Thách Thức Cần Giải Quyết"}
                     </span>
                   </div>
-                  <h4 style={{ fontSize: '17px', fontWeight: 700, color: '#78350f', margin: '0 0 10px 0', lineHeight: 1.4 }}>
+                  <h4 style={{ fontSize: '17px', fontWeight: 700, color: '#18181B', margin: '0 0 10px 0', lineHeight: 1.4 }}>
                     {isEn ? "The actual bottleneck requiring custom software engineering:" : "Nút thắt thực tế trong vận hành đòi hỏi phải xây dựng giải pháp phần mềm:"}
                   </h4>
-                  <p style={{ fontSize: '15px', lineHeight: '1.7', color: '#92400e', margin: 0, fontWeight: 450 }}>
+                  <p style={{ fontSize: '15px', lineHeight: '1.7', color: '#27272A', margin: 0, fontWeight: 500 }}>
                     {project.challenge}
                   </p>
                 </div>
@@ -555,25 +585,25 @@ const ProjectDetail = () => {
               {/* 2. KẾT QUẢ ĐẠT ĐƯỢC & GIẢI PHÁP ĐÃ GIẢI QUYẾT (HIGHLIGHTS THỰC TIỄN) */}
               {project.highlights && project.highlights.length > 0 && (
                 <div style={{ 
-                  backgroundColor: '#ffffff', 
-                  borderRadius: '20px', 
-                  border: '1.5px solid #e2e8f0', 
-                  padding: '28px', 
+                  backgroundColor: 'var(--color-surface)', 
+                  borderRadius: '8px', 
+                  border: '1.5px solid var(--color-border-strong)', 
+                  padding: '26px', 
                   marginBottom: '24px',
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.03)'
+                  boxShadow: '4px 4px 0px #18181B'
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-                    <div style={{ width: '28px', height: '28px', borderRadius: '8px', backgroundColor: '#ecfdf5', color: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ width: '28px', height: '28px', borderRadius: '4px', backgroundColor: '#B8E8D0', border: '1.5px solid #18181B', color: '#18181B', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <FaLightbulb size={14} />
                     </div>
-                    <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#0f172a', margin: 0 }}>
+                    <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--color-ink)', margin: 0 }}>
                       {isEn ? "2. Practical Solutions Delivered & Key Milestones" : "2. Giải Pháp Đã Hiện Thực & Giá Trị Thực Tế Đạt Được"}
                     </h3>
                   </div>
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '14px' }}>
                     {project.highlights.map((h, i) => (
-                      <li key={i} style={{ display: 'flex', gap: '12px', fontSize: '14.5px', lineHeight: '1.65', color: '#334155' }}>
-                        <FaCheckCircle style={{ color: '#10b981', flexShrink: 0, marginTop: '3px' }} size={16} />
+                      <li key={i} style={{ display: 'flex', gap: '12px', fontSize: '14.5px', lineHeight: '1.65', color: 'var(--color-ink)' }}>
+                        <FaCheckCircle style={{ color: '#22C55E', flexShrink: 0, marginTop: '3px' }} size={16} />
                         <span>{h}</span>
                       </li>
                     ))}
@@ -582,12 +612,12 @@ const ProjectDetail = () => {
               )}
 
               {/* 3. BỐI CẢNH & PHẠM VI XÂY DỰNG CHI TIẾT */}
-              <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', padding: '28px' }}>
-                <h3 style={{ fontSize: '17px', fontWeight: 650, color: '#0f172a', margin: '0 0 16px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <FaInfoCircle style={{ color: '#2563eb' }} size={16} />
+              <div style={{ backgroundColor: 'var(--color-surface)', borderRadius: '8px', border: '1.5px solid var(--color-border-strong)', boxShadow: '4px 4px 0px #18181B', padding: '26px' }}>
+                <h3 style={{ fontSize: '17px', fontWeight: 700, color: 'var(--color-ink)', margin: '0 0 16px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <FaInfoCircle style={{ color: '#2563EB' }} size={16} />
                   <span>{isEn ? "3. System Scope & Engineering Context" : "3. Bối Cảnh Hệ Thống & Phạm Vi Thực Hiện"}</span>
                 </h3>
-                <div style={{ fontSize: '15px', lineHeight: '1.75', color: '#475569' }}>
+                <div style={{ fontSize: '15px', lineHeight: '1.75', color: 'var(--color-ink-soft)' }}>
                   <ReactMarkdown>{project.description}</ReactMarkdown>
                 </div>
               </div>

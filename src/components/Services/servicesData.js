@@ -12,12 +12,12 @@ export const SYNAPFORGE_STUDIO_INFO = {
   iconUrl: "/branding/synapforge-icon.png",
   appIconUrl: "/branding/synapforge-app-icon.png",
   founder: "Lê Trí Trung",
-  leadRoleVi: "Founder & Head of Technology (Tech Lead / System Architect)",
-  leadRoleEn: "Founder & Head of Technology (Tech Lead / System Architect)",
-  locationVi: "Hải Châu, TP. Đà Nẵng, Việt Nam",
-  locationEn: "Da Nang City, Vietnam",
-  phone: "0912 158 715",
-  email: "contact@synapforge.dev",
+  leadRoleVi: "Founder, Head of Technology & Technical BA (System Architect)",
+  leadRoleEn: "Founder, Head of Technology & Technical BA (System Architect)",
+  locationVi: "Hải Châu & Ngũ Hành Sơn, TP. Đà Nẵng, Việt Nam",
+  locationEn: "Hai Chau & Ngu Hanh Son, Da Nang City, Vietnam",
+  phone: "(+84) 912 158 715",
+  email: "solutions@synapforge.id.vn",
   escrowPolicyVi: "Hợp đồng Dân sự Ký quỹ 40/60 (Chỉ thanh toán 60% khi nghiệm thu hài lòng 100%)",
   escrowPolicyEn: "40/60 Milestone Escrow (Final 60% paid only upon 100% satisfactory acceptance)",
   warrantyDays: 60,
@@ -182,8 +182,8 @@ export const OTHER_TEAM_PROJECTS = [
 export const TEAM_MEMBERS = [
   {
     name: "Lê Trí Trung",
-    roleVi: "Founder & Head of Technology — SynapForge Studio",
-    roleEn: "Founder & Head of Technology — SynapForge Studio",
+    roleVi: "Founder & Head of Technology • SynapForge Studio",
+    roleEn: "Founder & Head of Technology • SynapForge Studio",
     highlightVi: "Chủ nhiệm kỹ thuật SynapForge Studio & Trực tiếp làm việc 1-1 với khách hàng",
     highlightEn: "SynapForge Tech Lead & Direct 1-on-1 Client Engagement",
     eduVi: "Đại học FPT Đà Nẵng • Cựu Kỹ sư FPT Software",
@@ -678,7 +678,7 @@ export const SAAS_MODULES = [
     descEn: "Dispatches scheduled content to 5 social channels via RabbitMQ DLQ with zero message loss...",
     specsVi: [
       "Kết nối chính thức: Facebook, TikTok, Instagram, Threads, Zalo",
-      "Cơ chế tự động gửi lại nếu mạng chập chờn — Cam kết không mất bài"
+      "Cơ chế tự động gửi lại nếu mạng chập chờn, không lo rớt bài"
     ],
     specsEn: [
       "Unified OAuth gateway: Facebook, TikTok, Instagram, Threads, Zalo",

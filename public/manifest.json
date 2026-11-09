@@ -1,25 +1,30 @@
 {
-  "short_name": "Trung Le",
-  "name": "Le Tri Trung — Portfolio",
+  "short_name": "Lê Trí Trung",
+  "name": "Lê Trí Trung | Founder SynapForge, Full-Stack Architect & Technical BA",
+  "description": "Hồ sơ năng lực (Dossier), Dịch vụ Thiết kế Phần mềm Thực chiến (.NET 8, React/Next.js, AI Agent, WebSocket) & Phân tích Nghiệp vụ BA chuẩn Karl Wiegers của Lê Trí Trung.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "32x32 16x16",
-      "type": "image/x-icon"
+      "src": "favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
+      "src": "logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait-primary",
+  "theme_color": "#FAF8F3",
+  "background_color": "#FAF8F3",
+  "lang": "vi-VN",
+  "categories": ["business", "productivity", "developer tools", "education"]
 }

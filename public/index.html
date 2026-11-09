@@ -4,113 +4,331 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#FAF8F3" />
     <meta
       name="description"
-      content="Lê Trí Trung — Tech Lead & Full-Stack Engineer tại Đà Nẵng. Chuyên thiết kế Website thương mại, SaaS Automation, tích hợp AI Agent bán hàng và hệ thống Microservices chuẩn doanh nghiệp."
+      content="Lê Trí Trung — Founder, Head of Technology & Technical BA tại SynapForge Venture Studio Đà Nẵng. Chuyên sâu SRS Karl Wiegers (370+ Atomic FRs), Clean Architecture (.NET 8 & Java 21 Spring Boot 3), Biensovip.com (1.1M+ VPA records), BrandHub (7 Microservices) & The MC Hub."
     />
-    <meta name="keywords" content="Lê Trí Trung, Tech Lead Đà Nẵng, Full-Stack Engineer, thiết kế website, SaaS Automation, Biensovip, BrandHub, Java Spring Boot, React, AI Agent, VietQR đối soát" />
+    <meta
+      name="keywords"
+      content="Lê Trí Trung, Technical Business Analyst, Software Architect Đà Nẵng, Tech Lead Đà Nẵng, SynapForge Venture Studio, Karl Wiegers SRS, Biensovip.com, BrandHub, The MC Hub, .NET 8 Clean Architecture, Java 21 Spring Boot 3, VietQR Webhook, TikTok Live 3D Game, AI Engineer"
+    />
     <meta name="author" content="Lê Trí Trung" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="geo.region" content="VN-DN" />
+    <meta name="geo.placename" content="Đà Nẵng, Việt Nam" />
+    <meta name="geo.position" content="16.047079;108.206230" />
+    <meta name="ICBM" content="16.047079, 108.206230" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href="https://trung2605.github.io/" />
+    <link rel="alternate" hreflang="vi-VN" href="https://trung2605.github.io/" />
+    <link rel="alternate" hreflang="en-US" href="https://trung2605.github.io/" />
+    <link rel="alternate" hreflang="x-default" href="https://trung2605.github.io/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://trung2605.github.io/" />
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:site_name" content="Lê Trí Trung Portfolio" />
-    <meta property="og:title" content="Lê Trí Trung — Tech Lead & Full-Stack Engineer | Portfolio & Dịch Vụ SaaS" />
-    <meta property="og:description" content="Tech Lead dẫn dắt đội 5 kỹ sư tại Đà Nẵng — chuyên thiết kế Website kinh doanh, SaaS Automation, tích hợp AI Agent và vận hành sàn thương mại điện tử thực chiến." />
-    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+    <meta property="og:site_name" content="Lê Trí Trung — SynapForge Venture Studio" />
+    <meta
+      property="og:title"
+      content="Lê Trí Trung — Founder, Technical BA & Software Architect | SynapForge Studio"
+    />
+    <meta
+      property="og:description"
+      content="Founder, Head of Technology & Technical BA tại SynapForge Venture Studio Đà Nẵng — chuẩn hóa 370+ Atomic FRs (Karl Wiegers), kiến trúc Biensovip.com (1.1M+ VPA records), BrandHub (7 Microservices) & The MC Hub."
+    />
+    <meta property="og:image" content="https://trung2605.github.io/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Lê Trí Trung — Founder, Technical BA & Software Architect @ SynapForge Venture Studio" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Lê Trí Trung — Tech Lead & Full-Stack Engineer | Portfolio & Dịch Vụ SaaS" />
-    <meta property="twitter:description" content="Tech Lead dẫn dắt đội 5 kỹ sư tại Đà Nẵng — chuyên thiết kế Website kinh doanh, SaaS Automation, tích hợp AI Agent và vận hành sàn thương mại điện tử thực chiến." />
-    <meta property="twitter:image" content="%PUBLIC_URL%/og-image.png" />
-    
+    <meta
+      property="twitter:title"
+      content="Lê Trí Trung — Founder, Technical BA & Software Architect | SynapForge Studio"
+    />
+    <meta
+      property="twitter:description"
+      content="Founder, Head of Technology & Technical BA tại SynapForge Venture Studio Đà Nẵng — 370+ Atomic FRs (Karl Wiegers), Biensovip.com, BrandHub & The MC Hub."
+    />
+    <meta property="twitter:image" content="https://trung2605.github.io/og-image.png" />
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <!-- Structured Data: Person & ProfessionalService Schema (JSON-LD) -->
+    <!-- Structured Data: Schema.org 2026 Graph (Person, Organization, ProfessionalService, WebSite, Flagship SoftwareApplications) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@graph": [
           {
+            "@type": "WebSite",
+            "@id": "https://trung2605.github.io/#website",
+            "url": "https://trung2605.github.io/",
+            "name": "Lê Trí Trung — Portfolio & SynapForge Venture Studio",
+            "inLanguage": ["vi-VN", "en-US"],
+            "publisher": {
+              "@id": "https://trung2605.github.io/#person"
+            }
+          },
+          {
             "@type": "Person",
             "@id": "https://trung2605.github.io/#person",
             "name": "Lê Trí Trung",
-            "jobTitle": "Tech Lead & Full-Stack Software Engineer",
-            "url": "https://trung2605.github.io",
-            "sameAs": [
-              "https://github.com/trung2605",
-              "https://www.linkedin.com/in/trung-l%C3%AA-7ba564283/",
-              "https://www.facebook.com/trung.le.2605"
-            ],
-            "alumniOf": {
-              "@type": "CollegeOrUniversity",
-              "name": "FPT University Da Nang"
-            },
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Da Nang 5-Engineer Team"
-            },
-            "knowsAbout": [
-              "Java Spring Boot",
-              "Microservices Architecture",
-              "RabbitMQ & Dead Letter Queue",
-              "React & Next.js",
-              "SaaS Automation",
-              "VietQR Dynamic Settlement",
-              "Python FastAPI RAG & LangChain",
-              "PostgreSQL & Redis Caching"
-            ]
-          },
-          {
-            "@type": "ProfessionalService",
-            "@id": "https://trung2605.github.io/#service",
-            "name": "Dịch Vụ Thiết Kế Website & Tự Động Hóa SaaS — Team 5 Kỹ Sư Đà Nẵng",
-            "url": "https://trung2605.github.io/dich-vu",
+            "alternateName": "Le Tri Trung",
+            "birthDate": "2005-05-26",
+            "jobTitle": "Founder, Head of Technology, Technical Business Analyst & Software Architect",
+            "url": "https://trung2605.github.io/",
+            "image": "https://trung2605.github.io/og-image.png",
+            "email": "mailto:letritrung2605@gmail.com",
             "telephone": "+84912158715",
-            "priceRange": "11.500.000₫ - 32.500.000₫",
             "address": {
               "@type": "PostalAddress",
-              "addressLocality": "Ngũ Hành Sơn",
+              "addressLocality": "Hải Châu & Ngũ Hành Sơn",
               "addressRegion": "Đà Nẵng",
               "addressCountry": "VN"
             },
-            "areaServed": "VN",
-            "serviceType": [
-              "Thiết kế Website Doanh Nghiệp",
-              "Tự Động Hóa SaaS (SaaS Automation)",
-              "Tích Hợp VietQR Đối Soát Tự Động",
-              "Tích Hợp Trợ Lý AI CSKH 24/7",
-              "Xuất Bản Đa Kênh Tự Động Omnichannel"
+            "sameAs": [
+              "https://github.com/trung2605",
+              "https://www.linkedin.com/in/trung-l%C3%AA-7ba564283/",
+              "https://www.facebook.com/trung.le.2605",
+              "https://www.instagram.com/trung.le.2605/",
+              "https://www.synapforge.id.vn",
+              "https://biensovip.com",
+              "https://brandhub.id.vn"
+            ],
+            "alumniOf": [
+              {
+                "@type": "CollegeOrUniversity",
+                "name": "FPT University Da Nang",
+                "department": "Software Engineering (GPA 3.3/4.0)"
+              },
+              {
+                "@type": "EducationalOrganization",
+                "name": "Tunku Abdul Rahman University of Management and Technology (TAR UMT), Malaysia"
+              },
+              {
+                "@type": "HighSchool",
+                "name": "THPT Chuyên Phan Châu Trinh, Đà Nẵng (GPA 9.0/10.0)"
+              }
+            ],
+            "worksFor": {
+              "@id": "https://trung2605.github.io/#organization"
+            },
+            "award": [
+              "Winner (First Place) — Hackathon Computer Vision 2026 (FPT Education × SIT Singapore)",
+              "Co-Author — International Scientific Paper at ICTA 2026 (ThreadLearn 1.5B QLoRA + AST RAG)",
+              "National Finalist (Team Leader) — InnoCodeCamp 2025",
+              "National Finalist — FPT Research Festival (ResFres 2024)",
+              "Honorable Student of the Semester (Spring 2026) — FPT University"
+            ],
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "IELTS Academic 6.0 (CEFR B2)",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "British Council / IDP Education"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "On-the-Job Training Software Engineering Certificate",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "FPT Software Central Vietnam"
+                }
+              }
+            ],
+            "knowsAbout": [
+              "Technical Business Analysis (Karl Wiegers Software Requirements 3rd Edition)",
+              "Software Requirements Specification (SRS — 370+ Atomic Functional Requirements)",
+              ".NET 8 / ASP.NET Core Clean Architecture",
+              "Java 21 & Spring Boot 3 Microservices",
+              "RabbitMQ Dead Letter Queue (DLQ) & Redis Distributed Locking",
+              "PostgreSQL 16 GIN & Composite Indexing",
+              "Python FastAPI, OpenAI Whisper & 10-Metric Acoustic DSP",
+              "GraphRAG (Neo4j + ChromaDB) & QLoRA LLM Fine-tuning",
+              "React 19, TypeScript, Three.js WebGL 3D & Playwright E2E Automation",
+              "VietQR & PayOS HMAC-SHA256 Webhook Reconciliation"
             ]
+          },
+          {
+            "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
+            "@id": "https://trung2605.github.io/#organization",
+            "name": "SynapForge Venture Studio",
+            "legalName": "SynapForge Venture & Engineering Studio",
+            "url": "https://www.synapforge.id.vn",
+            "logo": "https://trung2605.github.io/synapforge-logo.png",
+            "image": "https://trung2605.github.io/og-image.png",
+            "founder": {
+              "@id": "https://trung2605.github.io/#person"
+            },
+            "telephone": "+84912158715",
+            "email": "solutions@synapforge.id.vn",
+            "priceRange": "11.500.000₫ - 32.500.000₫",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Quận Hải Châu & Quận Ngũ Hành Sơn",
+              "addressLocality": "Đà Nẵng",
+              "addressRegion": "Đà Nẵng",
+              "postalCode": "550000",
+              "addressCountry": "VN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 16.047079,
+              "longitude": 108.20623
+            },
+            "areaServed": ["VN", "SG", "AU", "US"],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "opens": "08:00",
+                "closes": "22:00"
+              }
+            ],
+            "sameAs": [
+              "https://www.synapforge.id.vn",
+              "https://biensovip.com",
+              "https://brandhub.id.vn",
+              "https://github.com/trung2605"
+            ],
+            "knowsOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Dịch Vụ Kiến Trúc Phần Mềm, SaaS Automation & Technical BA",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Thiết Kế Website Thương Mại & Sàn Đấu Giá Hiệu Năng Cao (.NET 8 / Spring Boot 3)"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Tích Hợp Cổng Thanh Toán VietQR & PayOS Webhook Tự Động (<0.5s, 0đ Phí Giao Dịch)"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Phân Tích Nghiệp Vụ Technical BA & Biên Soạn Hồ Sơ SRS Chuẩn Karl Wiegers"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Phát Triển AI Agent (RAG/GraphRAG), Voice DSP & Hệ Sinh Thái Game 3D TikTok Live"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://biensovip.com/#software",
+            "name": "Biensovip.com — Sàn Đấu Giá & Định Giá Biển Số Đẹp Quốc Gia",
+            "url": "https://biensovip.com",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web, iOS, Android",
+            "description": "Sàn giao dịch và định giá biển số đẹp trên nền .NET 8 Clean Architecture, 61 bảng PostgreSQL (<8ms GIN Index), đồng bộ 1,1+ triệu bản ghi đấu giá VPA Quốc gia, máy trạng thái 4-Tab FSM, công cụ TikTok Live 9:16 Studio và cổng đặt cọc VietQR Webhook <0.5s.",
+            "author": {
+              "@id": "https://trung2605.github.io/#person"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://brandhub.id.vn/#software",
+            "name": "BrandHub — MarTech & Multichannel AI Publishing Platform",
+            "url": "https://brandhub.id.vn",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web, iOS, Android (React Native 79 Screens)",
+            "description": "Hệ thống 7 Microservices quản trị thương hiệu và xuất bản đa kênh tự động bằng AI (Spring Cloud Gateway, Java 21, RabbitMQ DLQ 0% loss rate, Python FastAPI GraphRAG), chuẩn hóa 141 Atomic FRs và 2.500+ test cases / 320+ bộ Playwright E2E.",
+            "author": {
+              "@id": "https://trung2605.github.io/#person"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://mc-voice-training.vercel.app/#software",
+            "name": "The MC Hub — AI Voice & 10-Metric Acoustic DSP Training Platform",
+            "url": "https://mc-voice-training.vercel.app/",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web",
+            "description": "Nền tảng luyện giọng nói MC bằng AI thương mại hóa với 87 MC chuyên nghiệp trong tháng đầu, tích hợp 10-Metric Acoustic DSP & Whisper AI Engine, 116 Atomic FRs, 51 MongoDB Collections và 69 màn hình React 19.",
+            "author": {
+              "@id": "https://trung2605.github.io/#person"
+            }
           }
         ]
       }
     </script>
 
-    <!-- Fonts: Inter, Plus Jakarta Sans (Full Vietnamese glyphs) & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts: Inter, Plus Jakarta Sans, JetBrains Mono, Pixelify Sans & Caveat (Full Vietnamese glyphs) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Pixelify+Sans:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       media="print"
       onload="this.media='all'"
-    >
+    />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Pixelify+Sans:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      />
     </noscript>
 
-    <title>Lê Trí Trung — Tech Lead & Full-Stack Engineer | Portfolio & Dịch Vụ SaaS</title>
+    <title>Lê Trí Trung — Founder, Technical BA & Software Architect | SynapForge Studio</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <article style="max-width: 860px; margin: 2rem auto; padding: 1.5rem; font-family: sans-serif; line-height: 1.6;">
+        <h1>Lê Trí Trung — Founder, Head of Technology, Technical BA &amp; Software Architect</h1>
+        <p>
+          Founder &amp; Head of Technology tại <strong>SynapForge Venture Studio</strong> (Đà Nẵng, Việt Nam). Chuyên sâu phân tích nghiệp vụ phần mềm theo chuẩn quốc tế <strong>Karl Wiegers (370+ Atomic Functional Requirements)</strong>, kiến trúc hệ thống <strong>Clean Architecture (.NET 8 &amp; Java 21 Spring Boot 3)</strong>, <strong>SaaS Automation</strong> và <strong>AI Engineering</strong>.
+        </p>
+        <h2>Thành Tựu &amp; Học Vấn Nổi Bật</h2>
+        <ul>
+          <li>Quán quân (Winner) Hackathon Computer Vision 2026 (FPT Education × SIT Singapore)</li>
+          <li>Đồng tác giả bài báo khoa học quốc tế ICTA 2026 (ThreadLearn: Qwen2.5-Coder 1.5B QLoRA + BM25 AST RAG)</li>
+          <li>Cử nhân Kỹ thuật Phần mềm — Đại học FPT Đà Nẵng (GPA 3.3/4.0 · 8.2/10.0), IELTS Academic 6.0</li>
+          <li>Đại diện Trao đổi Sinh viên Quốc tế tại TAR UMT Kuala Lumpur, Malaysia (12/2023)</li>
+          <li>Cựu Thực tập sinh Kỹ sư Phần mềm tại FPT Software Đà Nẵng (OutSystems Reactive Web)</li>
+        </ul>
+        <h2>Các Dự Án Thực Chiến Chủ Lực</h2>
+        <ul>
+          <li><strong>Biensovip.com:</strong> Sàn đấu giá &amp; định giá biển số đẹp Quốc gia (.NET 8 Clean Architecture, 61 bảng PostgreSQL &lt;8ms GIN Index, 1,1+ triệu bản ghi đấu giá VPA, 4-Tab FSM, TikTok Live 9:16 Studio, VietQR Webhook &lt;0.5s, 57 Use Cases &amp; 85 Business Rules).</li>
+          <li><strong>BrandHub (brandhub.id.vn):</strong> Hệ thống 7 Microservices xuất bản đa kênh bằng AI (Spring Cloud Gateway, Java 21, RabbitMQ DLQ 0% loss rate, GraphRAG Neo4j + ChromaDB, 141 Atomic FRs, ứng dụng di động React Native 79 màn hình, 2.500+ Test Cases &amp; 320+ bộ Playwright E2E).</li>
+          <li><strong>The MC Hub:</strong> Nền tảng luyện giọng nói AI thương mại hóa từ tháng đầu (87 MC chuyên nghiệp, 10-Metric Acoustic DSP &amp; Whisper Engine, 116 Atomic FRs, 47 Controllers, 51 MongoDB Collections).</li>
+          <li><strong>Live TikTok 3D Interactive Game Ecosystem:</strong> Hệ sinh thái 12 game 3D tương tác TikTok Live 9:16 thời gian thực (Cúng Chùa Online 3D, Cuộc Đua Kỳ Thú 3D, AdminTong 21 biểu đồ ApexCharts, 193/193 bài kiểm thử tự động).</li>
+          <li><strong>Job Finder:</strong> Hệ sinh thái tuyển dụng AI 3 tầng (Spring Boot 3, Elasticsearch 8.x, PayOS Webhook, FastAPI BERT/Gemini, 56 Atomic FRs).</li>
+        </ul>
+        <p>Liên hệ trực tiếp: <a href="mailto:letritrung2605@gmail.com">letritrung2605@gmail.com</a> | Hotline/Zalo: <a href="tel:+84912158715">(+84) 912 158 715</a></p>
+      </article>
+    </noscript>
     <div id="root"></div>
   </body>
 </html>

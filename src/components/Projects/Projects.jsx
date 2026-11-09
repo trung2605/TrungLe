@@ -12,27 +12,28 @@ import { useTranslation } from 'react-i18next';
 import TechIcon from '../../common/TechIcon';
 import { Tabs, TabsList, TabsTrigger } from '../ui/Tabs';
 const STATUS_COLORS = {
-  'Active':         { bg: '#c8e6cd', color: '#000000' },
-  'In Development': { bg: '#dceeb1', color: '#000000' },
-  'Completed':      { bg: '#e6e6e6', color: '#000000' },
+  'Active':         { bg: '#22C55E', color: '#FFFFFF' },
+  'In Development': { bg: '#F5C242', color: '#18181B' },
+  'Completed':      { bg: '#1D4ED8', color: '#FFFFFF' },
 };
 
 const CATEGORY_COLORS = {
-  'fullstack':   '#c5b0f4',
-  'ecommerce':   '#c8e6cd',
-  'ai':          '#cde6f4',
-  'frontend':    '#efd4d4',
-  'automation':  '#f4ecd6',
-  'lowcode':     '#dceeb1',
-  'ngo':         '#f3c9b6',
+  'fullstack':   '#F5C242',
+  'ecommerce':   '#B8E8D0',
+  'ai':          '#2563EB',
+  'frontend':    '#EC4899',
+  'automation':  '#F7E49A',
+  'lowcode':     '#22C55E',
+  'ngo':         '#EF4444',
 };
 
 const STATUS_KEY = { 'Active': 'active', 'In Development': 'inDevelopment', 'Completed': 'completed' };
 
 const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
   const navigate = useNavigate();
-  const status = STATUS_COLORS[project.status] || { bg: '#f7f7f5', color: '#000000' };
+  const status = STATUS_COLORS[project.status] || { bg: '#FAF8F3', color: '#18181B' };
   const spotlight = useSpotlight();
+  const folderCode = `PROJECT ${String(index + 1).padStart(2, '0')}`;
 
   const handleCardClick = (e) => {
     // If the click came from an interactive element like a button or link, let that element handle it
@@ -46,35 +47,30 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ delay: index * 0.05, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -4 }}
       onClick={handleCardClick}
       className={featured ? 'card-spotlight bento-featured' : 'card-spotlight'}
       style={{
         display: 'flex',
         flexDirection: featured ? 'row' : 'column',
-        backgroundColor: 'var(--color-card-bg)',
-        border: featured ? '2px solid transparent' : '1px solid var(--color-card-border)',
-        backgroundImage: featured
-          ? 'linear-gradient(var(--color-card-bg), var(--color-card-bg)), linear-gradient(120deg, #ff8a3d, #c5b0f4, #6d3fc9)'
-          : undefined,
-        backgroundOrigin: featured ? 'border-box' : undefined,
-        backgroundClip: featured ? 'padding-box, border-box' : undefined,
-        borderRadius: '24px',
+        backgroundColor: featured ? '#18181B' : 'var(--color-card-bg)',
+        color: featured ? '#FFFFFF' : 'var(--color-ink)',
+        border: '2px solid #18181B',
+        borderRadius: '8px',
         overflow: 'hidden',
-        transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
         cursor: 'pointer',
         gridColumn: featured ? 'span 2' : undefined,
-        boxShadow: featured ? '0 12px 40px rgba(109,63,201,0.18)' : 'var(--shadow-soft)',
+        boxShadow: featured ? '6px 6px 0px #F5C242' : '4px 4px 0px #18181B',
+        position: 'relative',
       }}
       onMouseMove={spotlight.onMouseMove}
       onMouseEnter={e => {
-        if (!featured) e.currentTarget.style.borderColor = 'var(--color-ink)';
-        e.currentTarget.style.boxShadow = featured ? '0 16px 48px rgba(109,63,201,0.28)' : 'var(--shadow-hover)';
+        e.currentTarget.style.boxShadow = featured ? '8px 8px 0px #F5C242' : '6px 6px 0px #18181B';
       }}
       onMouseLeave={e => {
-        if (!featured) e.currentTarget.style.borderColor = 'var(--color-card-border)';
-        e.currentTarget.style.boxShadow = featured ? '0 12px 40px rgba(109,63,201,0.18)' : 'var(--shadow-soft)';
+        e.currentTarget.style.boxShadow = featured ? '6px 6px 0px #F5C242' : '4px 4px 0px #18181B';
       }}
     >
       {/* Image */}
@@ -82,10 +78,28 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         position: 'relative',
         overflow: 'hidden',
         backgroundColor: 'var(--color-surface-soft)',
+        borderBottom: featured ? 'none' : '1.5px solid #18181B',
+        borderRight: featured ? '2px solid #3F3F46' : 'none',
         ...(featured
           ? { width: '46%', flexShrink: 0 }
           : { aspectRatio: '16/10' }),
       }}>
+        {/* Top Folder Code Strip */}
+        <div style={{
+          position: 'absolute', top: '12px', left: '12px', zIndex: 3,
+          padding: '3px 10px',
+          backgroundColor: featured ? '#1D4ED8' : '#18181B',
+          color: '#FFFFFF',
+          border: '1.5px solid #18181B',
+          borderRadius: '4px',
+          fontFamily: 'var(--font-mono)',
+          fontSize: '10.5px',
+          fontWeight: 700,
+          letterSpacing: '0.06em',
+          boxShadow: '2px 2px 0px rgba(0,0,0,0.35)',
+        }}>
+          • {folderCode}
+        </div>
         <img
           src={project.image}
           alt={project.title}
@@ -98,20 +112,18 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundColor: 'rgba(15, 23, 42, 0.42)',
-            backdropFilter: 'blur(2px)',
-            WebkitBackdropFilter: 'blur(2px)',
+            backgroundColor: 'rgba(24, 24, 27, 0.55)',
             opacity: 0,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             gap: '8px',
-            color: '#ffffff',
-            fontFamily: 'JetBrains Mono, monospace',
+            color: '#18181B',
+            fontFamily: 'var(--font-mono)',
             fontSize: '12px',
-            fontWeight: '600',
+            fontWeight: 700,
             letterSpacing: '0.4px',
-            transition: 'opacity 0.25s ease',
+            transition: 'opacity 0.2s ease',
             pointerEvents: 'none',
           }}
         >
@@ -120,10 +132,11 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
             alignItems: 'center',
             gap: '6px',
             padding: '6px 14px',
-            borderRadius: '9999px',
-            backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            border: '1px solid rgba(255, 255, 255, 0.35)',
-            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.25)'
+            borderRadius: '4px',
+            backgroundColor: '#F5C242',
+            color: '#18181B',
+            border: '1.5px solid #18181B',
+            boxShadow: '3px 3px 0px #18181B'
           }}>
             <FaSearch size={11} />
             {t('projects.viewDetails', 'Xem Chi Tiết...')}
@@ -131,53 +144,58 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         </div>
         {/* Status badge */}
         <div style={{
-          position: 'absolute', top: '16px', right: '16px',
-          padding: '4px 12px',
-          borderRadius: '50px',
-          fontSize: '11px',
-          fontFamily: 'JetBrains Mono, monospace',
-          fontWeight: '500',
-          letterSpacing: '0.4px',
+          position: 'absolute', top: '12px', right: '12px', zIndex: 3,
+          padding: '3px 10px',
+          borderRadius: '4px',
+          fontSize: '10.5px',
+          fontFamily: 'var(--font-mono)',
+          fontWeight: 700,
+          letterSpacing: '0.05em',
           textTransform: 'uppercase',
           backgroundColor: status.bg,
           color: status.color,
+          border: '1.5px solid #18181B',
+          boxShadow: '2px 2px 0px #18181B',
         }}>
           {STATUS_KEY[project.status] ? t(`projects.statuses.${STATUS_KEY[project.status]}`) : project.status}
         </div>
         {featured && (
           <div style={{
-            position: 'absolute', top: '16px', left: '16px',
-            padding: '4px 14px',
-            borderRadius: '50px',
-            fontSize: '11px',
-            fontWeight: '600',
-            fontFamily: 'JetBrains Mono, monospace',
-            letterSpacing: '0.4px',
+            position: 'absolute', bottom: '12px', left: '12px', zIndex: 3,
+            padding: '4px 12px',
+            borderRadius: '4px',
+            fontSize: '10.5px',
+            fontWeight: 700,
+            fontFamily: 'var(--font-mono)',
+            letterSpacing: '0.05em',
             textTransform: 'uppercase',
-            backgroundImage: 'linear-gradient(120deg, #ff8a3d, #6d3fc9)',
-            color: '#ffffff',
-            boxShadow: '0 2px 10px rgba(109,63,201,0.4)',
+            backgroundColor: '#F5C242',
+            color: '#18181B',
+            border: '1.5px solid #18181B',
+            boxShadow: '2px 2px 0px #18181B',
           }}>
-            <FaCheckCircle size={10} style={{ marginRight: '6px' }} />
+            <FaCheckCircle size={10} style={{ marginRight: '6px', display: 'inline' }} />
             {t('projects.liveClientProject', 'Live Client Project')}
           </div>
         )}
       </div>
 
       {/* Content */}
-      <div style={{ padding: featured ? '28px' : '24px', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: featured ? 'center' : 'flex-start' }}>
+      <div style={{ padding: featured ? '28px' : '22px', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: featured ? 'center' : 'flex-start' }}>
         {/* Category + primary tech tag */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
           {project.category && (
             <span style={{
-              padding: '3px 10px',
-              borderRadius: '6px',
-              fontSize: '11px',
-              fontFamily: 'JetBrains Mono, monospace',
-              letterSpacing: '0.4px',
+              padding: '3px 9px',
+              borderRadius: '4px',
+              fontSize: '10.5px',
+              fontFamily: 'var(--font-mono)',
+              fontWeight: 700,
+              letterSpacing: '0.04em',
               textTransform: 'uppercase',
-              color: '#000000',
-              backgroundColor: CATEGORY_COLORS[project.category] || 'var(--color-surface-soft)',
+              color: ['ai', 'ngo'].includes(project.category) ? '#FFFFFF' : '#18181B',
+              backgroundColor: CATEGORY_COLORS[project.category] || '#F5C242',
+              border: '1.5px solid #18181B',
               width: 'fit-content',
             }}>
               {t(`projects.categories.${project.category}`, project.category)}
@@ -188,15 +206,16 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              padding: '3px 10px',
-              borderRadius: '50px',
-              fontSize: '11px',
-              fontFamily: 'JetBrains Mono, monospace',
-              letterSpacing: '0.4px',
+              padding: '3px 9px',
+              borderRadius: '4px',
+              fontSize: '10.5px',
+              fontFamily: 'var(--font-mono)',
+              fontWeight: 700,
+              letterSpacing: '0.04em',
               textTransform: 'uppercase',
-              color: 'var(--color-ink)',
-              backgroundColor: 'var(--color-surface-soft)',
-              border: '1px solid var(--color-hairline)',
+              color: featured ? '#FFFFFF' : 'var(--color-ink)',
+              backgroundColor: featured ? 'rgba(255,255,255,0.12)' : 'var(--color-surface-soft)',
+              border: featured ? '1px solid rgba(255,255,255,0.28)' : '1.5px solid var(--color-border-strong)',
               width: 'fit-content',
             }}>
               <TechIcon tech={project.techStack[0]} size={11} />
@@ -206,31 +225,31 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         </div>
 
         <h3 style={{
-          fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
-          fontSize: '20px',
-          fontWeight: '600',
-          lineHeight: '1.35',
-          letterSpacing: '-0.015em',
-          color: 'var(--color-ink)',
+          fontFamily: 'var(--font-heading)',
+          fontSize: featured ? '24px' : '19px',
+          fontWeight: 700,
+          lineHeight: '1.3',
+          letterSpacing: '-0.02em',
+          color: featured ? '#FFFFFF' : 'var(--color-ink)',
           margin: '0 0 8px 0',
         }}>
           {project.title}
         </h3>
 
-        <div style={{ display: 'flex', gap: '16px', marginBottom: '12px' }}>
-          <span style={{ fontSize: '13px', color: 'var(--color-ink-soft)', display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <FaUser size={11} /> {project.role}
+        <div style={{ display: 'flex', gap: '14px', marginBottom: '12px', flexWrap: 'wrap' }}>
+          <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: featured ? '#D4D4D8' : 'var(--color-ink-soft)', display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <FaUser size={10} /> {project.role}
           </span>
-          <span style={{ fontSize: '13px', color: 'var(--color-ink-soft)', display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <FaCalendarAlt size={11} /> {project.duration}
+          <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: featured ? '#D4D4D8' : 'var(--color-ink-soft)', display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <FaCalendarAlt size={10} /> {project.duration}
           </span>
         </div>
 
         <div style={{
-          fontSize: '14.5px',
-          fontWeight: '350',
+          fontSize: '14px',
+          fontWeight: 400,
           lineHeight: '1.6',
-          color: 'var(--color-ink-soft)',
+          color: featured ? '#D4D4D8' : 'var(--color-ink-soft)',
           marginBottom: '20px',
           flex: 1,
           maxHeight: '4.65em',
@@ -251,26 +270,29 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
               }}
               style={{
                 flex: 1,
-                padding: '9px 16px',
-                borderRadius: '9999px',
-                fontSize: '13.5px',
-                fontWeight: '600',
-                color: 'var(--color-canvas)',
-                backgroundColor: 'var(--color-ink)',
-                border: 'none',
+                padding: '9px 14px',
+                borderRadius: '5px',
+                fontSize: '12px',
+                fontFamily: 'var(--font-mono)',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.04em',
+                color: featured ? '#18181B' : 'var(--color-canvas)',
+                backgroundColor: featured ? '#F5C242' : '#18181B',
+                border: '1.5px solid #18181B',
                 cursor: 'pointer',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                boxShadow: '2px 2px 0px #18181B',
+                transition: 'all 0.15s ease',
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '6px'
               }}
-              onMouseEnter={e => { e.currentTarget.style.opacity = '0.9'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-              onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
             >
               <span>{t('projects.viewDetails')}</span>
-              <FaArrowRight size={11} />
+              <FaArrowRight size={10} />
             </button>
 
             {project.githubUrl && project.githubUrl !== '#' && (
@@ -280,20 +302,21 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
                 rel="noopener noreferrer"
                 aria-label="GitHub Repository"
                 style={{
-                  width: '38px', height: '38px',
+                  width: '36px', height: '36px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  borderRadius: '9999px',
-                  backgroundColor: 'var(--color-surface-soft)',
-                  color: 'var(--color-ink)',
-                  border: '1px solid var(--color-hairline)',
-                  transition: 'all 0.2s ease',
+                  borderRadius: '5px',
+                  backgroundColor: '#FFFFFF',
+                  color: '#18181B',
+                  border: '1.5px solid #18181B',
+                  boxShadow: '2px 2px 0px #18181B',
+                  transition: 'all 0.15s ease',
                   textDecoration: 'none',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--color-hairline)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#F5C242'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#FFFFFF'; e.currentTarget.style.transform = 'translateY(0)'; }}
                 onClick={e => e.stopPropagation()}
               >
-                <FaGithub size={15} />
+                <FaGithub size={14} />
               </a>
             )}
             {project.liveUrl && project.liveUrl !== '#' && (
@@ -303,20 +326,21 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
                 rel="noopener noreferrer"
                 aria-label="Live Project Website"
                 style={{
-                  width: '38px', height: '38px',
+                  width: '36px', height: '36px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  borderRadius: '9999px',
-                  backgroundColor: 'var(--color-surface-soft)',
-                  color: 'var(--color-ink)',
-                  border: '1px solid var(--color-hairline)',
-                  transition: 'all 0.2s ease',
+                  borderRadius: '5px',
+                  backgroundColor: '#22C55E',
+                  color: '#FFFFFF',
+                  border: '1.5px solid #18181B',
+                  boxShadow: '2px 2px 0px #18181B',
+                  transition: 'all 0.15s ease',
                   textDecoration: 'none',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--color-hairline)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
                 onClick={e => e.stopPropagation()}
               >
-                <FaExternalLinkAlt size={13} />
+                <FaExternalLinkAlt size={12} />
               </a>
             )}
           </div>
@@ -333,30 +357,28 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '6px',
-                padding: '7px 12px',
-                borderRadius: '8px',
-                fontSize: '12px',
-                fontWeight: '600',
-                color: 'var(--color-ink)',
-                backgroundColor: 'var(--color-surface-soft)',
-                border: '1px solid var(--color-hairline)',
+                padding: '6px 10px',
+                borderRadius: '4px',
+                fontSize: '11px',
+                fontFamily: 'var(--font-mono)',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                color: featured ? '#FFFFFF' : 'var(--color-ink)',
+                backgroundColor: featured ? 'rgba(255,255,255,0.1)' : 'var(--color-surface-soft)',
+                border: featured ? '1px solid rgba(255,255,255,0.25)' : '1.5px solid var(--color-border-strong)',
                 cursor: 'pointer',
-                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+                transition: 'all 0.15s ease'
               }}
               onMouseEnter={e => { 
-                e.currentTarget.style.backgroundColor = 'var(--color-ink)'; 
-                e.currentTarget.style.color = 'var(--color-canvas)';
-                e.currentTarget.style.borderColor = 'var(--color-ink)';
-                e.currentTarget.style.transform = 'translateY(-1px)';
+                e.currentTarget.style.backgroundColor = '#F5C242'; 
+                e.currentTarget.style.color = '#18181B';
               }}
               onMouseLeave={e => { 
-                e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; 
-                e.currentTarget.style.color = 'var(--color-ink)';
-                e.currentTarget.style.borderColor = 'var(--color-hairline)';
-                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.backgroundColor = featured ? 'rgba(255,255,255,0.1)' : 'var(--color-surface-soft)'; 
+                e.currentTarget.style.color = featured ? '#FFFFFF' : 'var(--color-ink)';
               }}
             >
-              <FaRocket size={10} style={{ color: '#8b5cf6' }} />
+              <FaRocket size={10} style={{ color: '#EF4444' }} />
               <span>Dịch Vụ</span>
             </button>
 
@@ -370,30 +392,28 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '6px',
-                padding: '7px 12px',
-                borderRadius: '8px',
-                fontSize: '12px',
-                fontWeight: '600',
-                color: 'var(--color-ink)',
-                backgroundColor: 'var(--color-surface-soft)',
-                border: '1px solid var(--color-hairline)',
+                padding: '6px 10px',
+                borderRadius: '4px',
+                fontSize: '11px',
+                fontFamily: 'var(--font-mono)',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                color: featured ? '#FFFFFF' : 'var(--color-ink)',
+                backgroundColor: featured ? 'rgba(255,255,255,0.1)' : 'var(--color-surface-soft)',
+                border: featured ? '1px solid rgba(255,255,255,0.25)' : '1.5px solid var(--color-border-strong)',
                 cursor: 'pointer',
-                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+                transition: 'all 0.15s ease'
               }}
               onMouseEnter={e => { 
-                e.currentTarget.style.backgroundColor = 'var(--color-ink)'; 
-                e.currentTarget.style.color = 'var(--color-canvas)';
-                e.currentTarget.style.borderColor = 'var(--color-ink)';
-                e.currentTarget.style.transform = 'translateY(-1px)';
+                e.currentTarget.style.backgroundColor = '#B8E8D0'; 
+                e.currentTarget.style.color = '#18181B';
               }}
               onMouseLeave={e => { 
-                e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)'; 
-                e.currentTarget.style.color = 'var(--color-ink)';
-                e.currentTarget.style.borderColor = 'var(--color-hairline)';
-                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.backgroundColor = featured ? 'rgba(255,255,255,0.1)' : 'var(--color-surface-soft)'; 
+                e.currentTarget.style.color = featured ? '#FFFFFF' : 'var(--color-ink)';
               }}
             >
-              <FaUser size={10} style={{ color: '#0ea5e9' }} />
+              <FaUser size={10} style={{ color: '#2563EB' }} />
               <span>Liên Hệ</span>
             </button>
           </div>
@@ -543,9 +563,10 @@ const Projects = () => {
         style={{
           marginTop: '64px',
           padding: '36px 32px',
-          borderRadius: '24px',
-          backgroundColor: '#f8fafc',
-          border: '1px solid #e2e8f0',
+          borderRadius: '8px',
+          backgroundColor: '#F5C242',
+          border: '2px solid #18181B',
+          boxShadow: '6px 6px 0px #18181B',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -554,13 +575,13 @@ const Projects = () => {
         }}
       >
         <div style={{ maxWidth: '640px' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', borderRadius: '50px', backgroundColor: '#ede5fb', color: '#6d3fc9', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', marginBottom: '12px' }}>
-            <FaRocket size={11} /> Team 5 Kỹ Sư Đà Nẵng
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', borderRadius: '4px', backgroundColor: '#18181B', color: '#FFFFFF', fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: 700, letterSpacing: '0.4px', textTransform: 'uppercase', marginBottom: '12px' }}>
+            <FaRocket size={11} style={{ color: '#F5C242' }} /> Team 5 Kỹ Sư Đà Nẵng
           </div>
-          <h3 style={{ fontSize: 'clamp(20px, 2.5vw, 24px)', fontWeight: '600', color: '#0f172a', margin: '0 0 8px 0', lineHeight: '1.3' }}>
+          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(20px, 2.5vw, 24px)', fontWeight: 700, color: '#18181B', margin: '0 0 8px 0', lineHeight: '1.3' }}>
             Bạn muốn xây dựng một hệ thống Website thương mại hoặc ứng dụng SaaS chất lượng cao?
           </h3>
-          <p style={{ fontSize: '15px', color: '#64748b', margin: 0, lineHeight: '1.6' }}>
+          <p style={{ fontSize: '15px', color: '#27272A', margin: 0, lineHeight: '1.6', fontWeight: 500 }}>
             Đội ngũ 5 kỹ sư công nghệ tại Đà Nẵng cung cấp dịch vụ phát triển website & SaaS trọn gói, tính giá theo Manday minh bạch, làm việc trực tiếp 1-1 với Tech Lead.
           </p>
         </div>
@@ -570,30 +591,32 @@ const Projects = () => {
             to="/dich-vu"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '12px 24px', borderRadius: '50px',
-              backgroundColor: '#6d3fc9', color: '#ffffff',
-              fontSize: '14px', fontWeight: '600', textDecoration: 'none',
-              boxShadow: '0 4px 14px rgba(109,63,201,0.25)',
-              transition: 'opacity 0.15s ease',
+              padding: '11px 22px', borderRadius: '6px',
+              backgroundColor: '#18181B', color: '#FFFFFF',
+              fontFamily: 'var(--font-mono)', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none',
+              border: '1.5px solid #18181B',
+              boxShadow: '3px 3px 0px rgba(0,0,0,0.35)',
+              transition: 'transform 0.15s ease',
             }}
-            onMouseEnter={e => e.currentTarget.style.opacity = '0.9'}
-            onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+            onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
+            onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
           >
             <span>Xem Bảng Giá & Dịch Vụ</span>
-            <FaArrowRight size={12} />
+            <FaArrowRight size={11} />
           </Link>
           <Link
             to="/blog"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '12px 24px', borderRadius: '50px',
-              backgroundColor: '#ffffff', color: '#1e293b',
-              fontSize: '14px', fontWeight: '500', textDecoration: 'none',
-              border: '1px solid #cbd5e1',
-              transition: 'all 0.15s ease',
+              padding: '11px 22px', borderRadius: '6px',
+              backgroundColor: '#FFFFFF', color: '#18181B',
+              fontFamily: 'var(--font-mono)', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none',
+              border: '1.5px solid #18181B',
+              boxShadow: '3px 3px 0px #18181B',
+              transition: 'transform 0.15s ease',
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = '#6d3fc9'; e.currentTarget.style.color = '#6d3fc9'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.color = '#1e293b'; }}
+            onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
+            onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
           >
             <FaNewspaper size={12} />
             <span>Đọc Kỹ Thuật Blog</span>

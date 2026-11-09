@@ -65,21 +65,21 @@ const Prizes = () => {
                 </p>
             </div>
 
-            {/* Stats — lime block */}
+            {/* Stats — Mustard stamp block */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                style={{ backgroundColor: '#dceeb1', borderRadius: '24px', padding: '32px 40px', marginBottom: '56px' }}
+                style={{ backgroundColor: '#F5C242', borderRadius: '8px', border: '2px solid #18181B', boxShadow: '6px 6px 0px #18181B', padding: '28px 32px', marginBottom: '56px' }}
             >
                 <div style={{
-                    fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
-                    color: '#444444', marginBottom: '20px',
+                    fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 700,
+                    color: '#18181B', marginBottom: '20px',
                     display: 'flex', gap: '6px', alignItems: 'center',
                 }}>
-                    <FaCheck size={11} style={{ color: '#1ea64a' }} />
+                    <FaCheck size={11} style={{ color: '#18181B' }} />
                     <span>npm run awards --list</span>
-                    <span style={{ color: '#666666', marginLeft: '8px' }}>{'// '}output: {prizes.length} achievements unlocked</span>
+                    <span style={{ color: '#3F3F46', marginLeft: '8px' }}>{'// '}output: {prizes.length} achievements unlocked</span>
                 </div>
                 <div className="stats-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
                     {[
@@ -88,8 +88,8 @@ const Prizes = () => {
                         { label: t('prizes.yearsActive'), value: totalYears, icon: <FaCalendarAlt /> },
                     ].map((s, i) => (
                         <div key={i}>
-                            <div style={{ fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: '340', lineHeight: '1.0', color: '#000000' }}>{s.value}</div>
-                            <div style={{ fontSize: '14px', fontWeight: '400', color: '#444444', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <div style={{ fontFamily: 'var(--font-pixel)', fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: 700, lineHeight: '1.0', color: '#18181B' }}>{s.value}</div>
+                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', color: '#18181B', marginTop: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                                 {s.icon} {s.label}
                             </div>
                         </div>
@@ -112,52 +112,55 @@ const Prizes = () => {
                             whileHover={{ y: -4 }}
                             onClick={() => setSelectedPrize(prize)}
                             style={{
-                                backgroundColor: '#ffffff',
-                                border: '1px solid #e6e6e6',
-                                borderRadius: '20px',
+                                backgroundColor: 'var(--color-card-bg)',
+                                border: '1.5px solid var(--color-border-strong)',
+                                borderRadius: '8px',
+                                boxShadow: '4px 4px 0px #18181B',
                                 overflow: 'hidden',
                                 cursor: 'pointer',
-                                transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                                 position: 'relative',
                             }}
-                            onMouseEnter={e => { e.currentTarget.style.borderColor = '#000000'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
-                            onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
+                            onMouseEnter={e => { e.currentTarget.style.boxShadow = '6px 6px 0px #18181B'; }}
+                            onMouseLeave={e => { e.currentTarget.style.boxShadow = '4px 4px 0px #18181B'; }}
                         >
                             {/* Color top bar */}
-                            <div style={{ height: '4px', backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length] }} />
+                            <div style={{ height: '6px', backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length], borderBottom: '1.5px solid #18181B' }} />
 
-                            <div style={{ padding: '24px' }}>
+                            <div style={{ padding: '22px' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
                                     <span style={{
-                                        padding: '4px 12px', borderRadius: '50px',
-                                        fontSize: '11px', fontFamily: 'JetBrains Mono, monospace',
+                                        padding: '3px 10px', borderRadius: '4px',
+                                        fontSize: '10.5px', fontFamily: 'var(--font-mono)', fontWeight: 700,
                                         letterSpacing: '0.4px', textTransform: 'uppercase',
-                                        backgroundColor: badge.bg, color: '#000000',
+                                        backgroundColor: badge.bg, color: '#18181B',
+                                        border: '1.5px solid #18181B',
                                     }}>
                                         {badge.label}
                                     </span>
                                     <span style={{
-                                        fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
-                                        color: '#888888', letterSpacing: '0.3px',
+                                        fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 700,
+                                        color: 'var(--color-ink-soft)', letterSpacing: '0.3px',
                                     }}>{prize.year}</span>
                                 </div>
 
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
                                     <div style={{
-                                        width: '40px', height: '40px', borderRadius: '9999px',
+                                        width: '40px', height: '40px', borderRadius: '6px',
                                         backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length],
+                                        border: '1.5px solid #18181B',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                                     }}>
-                                        <Icon size={16} style={{ color: '#000000' }} />
+                                        <Icon size={16} style={{ color: '#18181B' }} />
                                     </div>
-                                    <h3 style={{ fontSize: '17px', fontWeight: '540', color: '#000000', margin: 0, lineHeight: '1.35' }}>
+                                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '16.5px', fontWeight: 700, color: 'var(--color-ink)', margin: 0, lineHeight: '1.35' }}>
                                         {prize.title}
                                     </h3>
                                 </div>
 
-                                <p style={{ fontSize: '14px', fontWeight: '480', color: '#333333', marginBottom: '8px' }}>{prize.position}</p>
+                                <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--color-ink)', marginBottom: '8px' }}>{prize.position}</p>
 
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: '#888888' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', fontFamily: 'var(--font-mono)', color: 'var(--color-ink-soft)' }}>
                                     <FaBuilding size={11} /> {prize.organization}
                                 </div>
                             </div>

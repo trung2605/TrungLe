@@ -40,44 +40,45 @@ const Blog = () => {
                             whileHover={{ y: -4 }}
                             onClick={() => navigate(`/blog/${post.slug}`)}
                             style={{
-                                backgroundColor: 'var(--color-canvas)',
-                                border: '1px solid #e6e6e6',
-                                borderRadius: '24px',
+                                backgroundColor: 'var(--color-card-bg)',
+                                border: '1.5px solid var(--color-border-strong)',
+                                borderRadius: '8px',
+                                boxShadow: '4px 4px 0px #18181B',
                                 overflow: 'hidden',
                                 cursor: 'pointer',
-                                transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                             }}
-                            onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
-                            onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
+                            onMouseEnter={e => { e.currentTarget.style.boxShadow = '6px 6px 0px #18181B'; }}
+                            onMouseLeave={e => { e.currentTarget.style.boxShadow = '4px 4px 0px #18181B'; }}
                         >
-                            <div style={{ height: '4px', backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length] }} />
-                            <div style={{ padding: '28px' }}>
+                            <div style={{ height: '6px', backgroundColor: BLOCK_COLORS[i % BLOCK_COLORS.length], borderBottom: '1.5px solid #18181B' }} />
+                            <div style={{ padding: '24px' }}>
                                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
                                     {post.tags.slice(0, 3).map(tag => (
                                         <span key={tag} style={{
-                                            padding: '3px 10px', borderRadius: '50px',
-                                            fontSize: '11px', fontFamily: 'JetBrains Mono, monospace',
+                                            padding: '3px 9px', borderRadius: '4px',
+                                            fontSize: '10.5px', fontFamily: 'var(--font-mono)', fontWeight: 700,
                                             letterSpacing: '0.4px', textTransform: 'uppercase',
-                                            backgroundColor: '#f7f7f5', border: '1px solid #e6e6e6',
+                                            backgroundColor: '#F7E49A', color: '#18181B', border: '1.5px solid #18181B',
                                         }}>{tag}</span>
                                     ))}
                                 </div>
                                 <h3 style={{
-                                    fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
-                                    fontSize: '20px', fontWeight: '540', lineHeight: '1.35',
+                                    fontFamily: 'var(--font-heading)',
+                                    fontSize: '19px', fontWeight: 700, lineHeight: '1.35',
                                     color: 'var(--color-ink)', margin: '0 0 10px 0',
                                 }}>
                                     {post.title}
                                 </h3>
-                                <p style={{ fontSize: '15px', fontWeight: '330', lineHeight: '1.55', color: '#555555', margin: '0 0 20px 0' }}>
+                                <p style={{ fontSize: '14.5px', fontWeight: 400, lineHeight: '1.6', color: 'var(--color-ink-soft)', margin: '0 0 20px 0' }}>
                                     {post.excerpt}
                                 </p>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', color: '#888888' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--color-ink-soft)', paddingTop: '12px', borderTop: '1.5px dashed var(--color-rule-line)' }}>
                                     <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                                         <FaClock size={11} /> {post.readTime}
                                     </span>
-                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--color-ink)', fontWeight: '480' }}>
-                                        {t('blog.readMore')} <FaArrowRight size={11} />
+                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--color-ink)', textTransform: 'uppercase' }}>
+                                        {t('blog.readMore')} <FaArrowRight size={10} />
                                     </span>
                                 </div>
                             </div>

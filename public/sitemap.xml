@@ -1,196 +1,302 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Pages -->
   <url>
-    <loc>https://trung2605.github.io/</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/dich-vu</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/dich-vu</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/projects</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/about</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/about</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/achievements</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/contact</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/resume</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/threadlearn-javascript-concurrency-bugs</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/biensovip-postgresql-vs-mongodb-multi-filter</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/biensovip-solo-mvp-30-days-security-scope</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/the-mc-hub-ai-speech-analysis-microservice</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/the-mc-hub-high-concurrency-java21-virtual-threads</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/hackathon-first-prize-computer-vision-edge-optimization</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/brandhub-resilient-rabbitmq-dead-letter-retry-architecture</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/fpt-software-internship-outsystems-lowcode-vs-highcode-architecture</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/job-finder-team-leadership-git-flow-jwt-security</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/the-dreamers-engineering-transparency-non-profit-platforms</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/evolution-from-java-servlets-jdbc-to-spring-boot-clean-architecture</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/blog/chest-xray-pneumonia-cnn-class-imbalance-gradcam</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://trung2605.github.io/projects/26</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects/14</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://letritrung.id.vn/achievements</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects/24</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://letritrung.id.vn/blog</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects/25</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/resume</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects/5</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/contact</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Blog Posts & Engineering Case Studies (13 Articles) -->
+  <url>
+    <loc>https://letritrung.id.vn/blog/technical-ba-karl-wiegers-zero-manage-rule-visual-paradigm-automation</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects/1</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/blog/realtime-bidding-biensovip-redis-signalr-locks</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.88</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects/2</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/blog/brandhub-b2b-escrow-contract-state-machine</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.88</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects/3</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/blog/threadlearn-javascript-concurrency-bugs</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects/4</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/blog/ai-orchestrator-36-gemini-keys-circuit-breaker</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects/6</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/blog/xay-dung-ai-voice-coach-voi-gemini-25-flash-va-whisper</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects/7</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/blog/kien-truc-clean-architecture-trong-du-an-aspnet-core-thuc-te</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://trung2605.github.io/projects/8</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://letritrung.id.vn/blog/tich-hop-gemini-ai-vao-ung-dung-tuyen-dung-jobfinder</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/blog/Realtime-features-with-SignalR-in-ASPNET-Core</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/blog/xu-ly-anh-va-video-voi-cloudinary-trong-react-va-dotnet</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/blog/xac-thuc-va-phan-quyen-voi-jwt-va-oauth2-trong-aspnet-core</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/blog/trien-khai-ung-dung-fullstack-len-render-vercel-va-azure</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/blog/Prompt-Engineering-cho-Developers-Tu-Co-Ban-Den-Nang-Cao</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <!-- Flagship & Production Project Dossiers (28 Projects) -->
+  <url>
+    <loc>https://letritrung.id.vn/projects/26</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/14</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/11</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/30</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/24</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/1</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/28</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/31</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/32</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/3</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/13</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/2</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/7</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/18</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/25</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/29</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/33</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/34</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/35</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/4</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/5</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/6</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/10</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/17</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/19</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/21</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/22</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://letritrung.id.vn/projects/27</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
 </urlset>

@@ -1,0 +1,44 @@
+# Lê Trí Trung (trunglt) — Founder, Head of Technology & Technical Business Analyst @ SynapForge Venture Studio
+
+> Official Portfolio, Engineering Case Studies & Software Requirements Specification (SRS) Knowledge Hub at https://letritrung.id.vn
+
+## Identity & E-E-A-T Summary
+- **Full Name:** Lê Trí Trung (Le Tri Trung)
+- **Role:** Founder, Head of Technology (CTO), Full-Stack Solutions Architect (.NET 8/9, React 18/19, Next.js 16, Node.js, Python FastAPI) & Technical Business Analyst (Karl Wiegers IEEE 830 / ISO 29148 SRS Standard).
+- **Venture Studio:** SynapForge Venture Studio — Hải Châu & Ngũ Hành Sơn, Da Nang City, Vietnam.
+- **Education:** B.S. in Software Engineering, FPT University Da Nang (2022–2026) — **100% Full 4-Year Merit Scholarship** & Honorable Student of the Trimester.
+- **Professional Experience:** Backend & Technical BA Intern at **FPT Software (F-Complex Da Nang)**; Founder & Head of Technology at **SynapForge Venture Studio** (leading a 5-member cross-functional team).
+- **Verified Proof Metrics:** 25+ Production & Open-Source Software Systems, 42+ International Certificates (Coursera, CertNexus, Google, IBM, Meta, AWS, Cisco), 9+ National/University Awards & Startup Finalists, and 370+ Atomic Functional Requirements (FRs) across enterprise SRS documentation.
+
+## Core Services (`/dich-vu`)
+1. **MVP Build & Technical Co-founder Partnership:** End-to-end product architecture, database modeling, UI/UX engineering, and production deployment in 2–6 weeks.
+2. **Real-Time Auction, Marketplace & FinTech Escrow Systems:** Sub-second WebSocket/SignalR bidding, Redis Redlock distributed locks, PayOS/Stripe webhooks, and immutable double-entry ledger state machines.
+3. **Enterprise AI Integration & Multi-Key LLM Orchestration:** Gemini 2.5 Flash, OpenAI Whisper, RAG pipelines, and 36-key rotation circuit breakers with 99.9% uptime.
+4. **Technical Business Analysis (SRS Karl Wiegers 3rd Ed.):** Report 1–7 Capstone/Enterprise documentation, Zero-"Manage" rule enforcement, RTM traceability matrices, and Visual Paradigm CLI diagram automation.
+
+## Flagship Production Systems
+- **Biensovip.com (`https://biensovip.com` | `/projects/26`):** Real-time VIP License Plate, SIM & Collectibles Valuation + Live Bidding Marketplace. Built with Node.js, Express, Socket.IO, Redis Distributed Locks, Next.js, and Gemini AI valuation.
+- **BrandHub (`https://brandhub.id.vn` | `/projects/14`):** B2B Influencer Marketing, Booking & Milestone Escrow Payment Platform. Built with ASP.NET Core 8 Clean Architecture, Next.js, SignalR, PostgreSQL, and PayOS Escrow State Machine. Documented with 84 Use Cases and 183 Atomic Functional Requirements (`FR-001` to `FR-183`).
+- **The MC Hub (`https://mc-voice-training.vercel.app/` | `/projects/11`):** AI-Powered Public Speaking Coaching & Event MC Marketplace. Integrates Faster-Whisper ASR, Librosa acoustic prosody analysis, and Gemini 2.5 Flash coaching rubrics. **Top 20 Research Connect 2025 & Top 50 Open Innovation Day (OID) 2025**.
+- **TikTok Live 3D Interactive Game Ecosystem (`/projects/30`):** 5 real-time interactive livestream games (*Duck Race 3D*, *Bomb Relay*, *Lucky Wheel*, *Territory War*, *Tug of War*) using Three.js, Cannon-es physics, and TikTok-Live-Connector WebSockets.
+- **ThreadLearn AI (`/projects/24`):** Interactive Multi-Threaded Education SaaS with a custom 36-Key Gemini AI Rotation Pool, Circuit Breaker, and Token-Aware Smart Chunking.
+- **JobFinder AI (`/projects/1`):** Intelligent Recruitment & AI CV-JD Matching Platform built with ASP.NET Core 8 Web API, SignalR, React 18, SQL Server, and 188 Atomic Functional Requirements (`FR-001` to `FR-188`).
+
+## Engineering Blog & Case Studies (`/blog`)
+- **Technical BA & Karl Wiegers SRS Automation:** `https://letritrung.id.vn/blog/technical-ba-karl-wiegers-zero-manage-rule-visual-paradigm-automation`
+- **Real-Time Auction Engine & Redis Distributed Locks (Biensovip.com):** `https://letritrung.id.vn/blog/realtime-bidding-biensovip-redis-signalr-locks`
+- **B2B Escrow State Machine & Milestone Ledger (BrandHub):** `https://letritrung.id.vn/blog/brandhub-b2b-escrow-contract-state-machine`
+- **JavaScript Concurrency & Promise Race Conditions (ThreadLearn):** `https://letritrung.id.vn/blog/threadlearn-javascript-concurrency-bugs`
+- **36-Key Gemini AI Orchestrator & Circuit Breaker:** `https://letritrung.id.vn/blog/ai-orchestrator-36-gemini-keys-circuit-breaker`
+- **AI Voice Coach with Gemini 2.5 Flash & Whisper (The MC Hub):** `https://letritrung.id.vn/blog/xay-dung-ai-voice-coach-voi-gemini-25-flash-va-whisper`
+- **Clean Architecture & CQRS in ASP.NET Core 8:** `https://letritrung.id.vn/blog/kien-truc-clean-architecture-trong-du-an-aspnet-core-thuc-te`
+
+## Contact & Verification (NAP)
+- **Website:** https://letritrung.id.vn
+- **Services Page:** https://letritrung.id.vn/dich-vu
+- **Email:** solutions@synapforge.id.vn | letritrung2409@gmail.com
+- **Phone / Zalo:** (+84) 912 158 715
+- **Location:** Hai Chau & Ngu Hanh Son District, Da Nang City, Vietnam
+- **GitHub:** https://github.com/trunglt2409
+- **LinkedIn:** https://www.linkedin.com/in/trung-le-tri-35a080314/
+

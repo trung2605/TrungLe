@@ -17,11 +17,11 @@ const BlogPost = () => {
     const { posts, projects = [] } = useTranslatedData();
     const post = posts.find(p => p.slug === slug);
 
-    // Dynamic SEO for Blog Post (Always called unconditionally at top of component)
+    // Dynamic SEO & TechArticle JSON-LD for Blog Post (Always called unconditionally at top of component)
     useEffect(() => {
         if (post) {
             const postTitle = isEn ? (post.titleEn || post.titleVi) : (post.titleVi || post.titleEn);
-            const pageTitle = `${postTitle} | Lê Trí Trung Blog`;
+            const pageTitle = `${postTitle} | Lê Trí Trung Engineering Blog`;
             document.title = pageTitle;
 
             const postExcerpt = isEn ? (post.excerptEn || post.excerptVi) : (post.excerptVi || post.excerptEn);
@@ -32,6 +32,79 @@ const BlogPost = () => {
             if (ogTitle) ogTitle.setAttribute('content', pageTitle);
             const ogDesc = document.querySelector('meta[property="og:description"]');
             if (ogDesc) ogDesc.setAttribute('content', postExcerpt);
+
+            const canonicalUrl = `https://trung2605.github.io/blog/${post.slug}`;
+            const articleSchema = {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": isEn ? "Home" : "Trang Chủ",
+                                "item": "https://trung2605.github.io/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Blog",
+                                "item": "https://trung2605.github.io/blog"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": postTitle,
+                                "item": canonicalUrl
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "TechArticle",
+                        "@id": `${canonicalUrl}#article`,
+                        "headline": postTitle,
+                        "description": postExcerpt,
+                        "datePublished": post.date || "2026-11-06",
+                        "dateModified": post.date || "2026-11-09",
+                        "inLanguage": isEn ? "en-US" : "vi-VN",
+                        "url": canonicalUrl,
+                        "mainEntityOfPage": canonicalUrl,
+                        "keywords": (post.tags || []).join(", "),
+                        "author": {
+                            "@type": "Person",
+                            "@id": "https://trung2605.github.io/#person",
+                            "name": "Lê Trí Trung",
+                            "jobTitle": "Founder, Technical BA & Software Architect",
+                            "url": "https://trung2605.github.io"
+                        },
+                        "publisher": {
+                            "@type": "Organization",
+                            "@id": "https://trung2605.github.io/#organization",
+                            "name": "SynapForge Venture Studio",
+                            "url": "https://www.synapforge.id.vn",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://trung2605.github.io/synapforge-logo.png"
+                            }
+                        }
+                    }
+                ]
+            };
+
+            let script = document.getElementById('blog-article-jsonld');
+            if (!script) {
+                script = document.createElement('script');
+                script.id = 'blog-article-jsonld';
+                script.type = 'application/ld+json';
+                document.head.appendChild(script);
+            }
+            script.text = JSON.stringify(articleSchema);
+
+            return () => {
+                const existing = document.getElementById('blog-article-jsonld');
+                if (existing) existing.remove();
+            };
         }
     }, [post, isEn]);
 
@@ -52,9 +125,13 @@ const BlogPost = () => {
     const relatedProject = projects.find(proj => {
         const slugLower = (post?.slug || '').toLowerCase();
         const titleLower = (proj.title || '').toLowerCase();
+        if (slugLower.includes('wiegers') && titleLower.includes('brandhub')) return true;
+        if (slugLower.includes('brandhub') && titleLower.includes('brandhub')) return true;
         if (slugLower.includes('biensovip') && titleLower.includes('biensovip')) return true;
         if (slugLower.includes('threadlearn') && titleLower.includes('threadlearn')) return true;
+        if (slugLower.includes('mc-hub') && titleLower.includes('mc hub')) return true;
         if (slugLower.includes('mchub') && titleLower.includes('mc hub')) return true;
+        if (slugLower.includes('job-finder') && titleLower.includes('job finder')) return true;
         if (slugLower.includes('jobfinder') && titleLower.includes('job finder')) return true;
         if (slugLower.includes('servlets') && titleLower.includes('dola bakery')) return true;
         return false;
@@ -72,13 +149,15 @@ const BlogPost = () => {
                     to="/blog"
                     style={{
                         display: 'inline-flex', alignItems: 'center', gap: '8px',
-                        padding: '8px 18px', borderRadius: '50px',
-                        border: '1.5px solid var(--color-hairline)', fontSize: '14px',
-                        color: 'var(--color-ink)', backgroundColor: 'var(--color-canvas)',
+                        padding: '7px 16px', borderRadius: '5px',
+                        border: '1.5px solid #18181B', fontSize: '12px',
+                        fontFamily: 'var(--font-mono)', fontWeight: 700, textTransform: 'uppercase',
+                        color: '#18181B', backgroundColor: '#F5C242',
+                        boxShadow: '2px 2px 0px #18181B',
                         textDecoration: 'none',
                     }}
                 >
-                    <FaArrowLeft size={12} /> {t('blog.backToBlog')}
+                    <FaArrowLeft size={11} /> {t('blog.backToBlog')}
                 </Link>
             </motion.div>
 
@@ -86,12 +165,12 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                style={{ maxWidth: '780px', margin: '0 auto' }}
+                style={{ maxWidth: '820px', margin: '0 auto', backgroundColor: 'var(--color-surface)', border: '1.5px solid var(--color-border-strong)', borderRadius: '8px', boxShadow: '4px 4px 0px #18181B', padding: 'clamp(22px, 4vw, 40px)' }}
             >
                 <h1 style={{
-                    fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
-                    fontSize: 'clamp(28px, 4vw, 38px)',
-                    fontWeight: '700',
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: 'clamp(26px, 4vw, 36px)',
+                    fontWeight: 700,
                     lineHeight: '1.25',
                     color: 'var(--color-ink)',
                     marginBottom: '20px',
@@ -100,21 +179,21 @@ const BlogPost = () => {
                     {post.title}
                 </h1>
 
-                <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '40px', paddingBottom: '32px', borderBottom: '1px solid var(--color-hairline)' }}>
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '36px', paddingBottom: '24px', borderBottom: '1.5px dashed var(--color-rule-line)' }}>
                     {post.tags.map(tag => (
                         <span key={tag} style={{
-                            padding: '4px 12px', borderRadius: '50px',
-                            fontSize: '11px', fontFamily: 'JetBrains Mono, monospace',
+                            padding: '3px 10px', borderRadius: '4px',
+                            fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: 700,
                             letterSpacing: '0.4px', textTransform: 'uppercase',
-                            color: 'var(--color-ink)',
-                            backgroundColor: 'var(--color-surface-soft)', border: '1px solid var(--color-hairline)',
+                            color: '#18181B',
+                            backgroundColor: '#F7E49A', border: '1.5px solid #18181B',
                         }}>{tag}</span>
                     ))}
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '14px', color: 'var(--color-ink-soft)', marginLeft: 'auto' }}>
-                        <FaCalendarAlt size={12} /> {post.date}
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', fontFamily: 'var(--font-mono)', color: 'var(--color-ink-soft)', marginLeft: 'auto' }}>
+                        <FaCalendarAlt size={11} /> {post.date}
                     </span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '14px', color: 'var(--color-ink-soft)' }}>
-                        <FaClock size={12} /> {post.readTime}
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', fontFamily: 'var(--font-mono)', color: 'var(--color-ink-soft)' }}>
+                        <FaClock size={11} /> {post.readTime}
                     </span>
                 </div>
 

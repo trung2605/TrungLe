@@ -22,13 +22,13 @@
     "step1Of2": "Step 1 of 2",
     "step2Of2": "Step 2 of 2",
     "step1Title": "What role are you hiring for?",
-    "step1Desc": "Pick the closest match — I'll tailor the intro and projects below to it.",
+    "step1Desc": "Pick the closest match and I'll filter the intro and projects below for that role.",
     "step2Title": "Any specific skills you care about?",
-    "step2Desc": "Optional — pick up to 3. Leave blank to see my best overall match for this role.",
+    "step2Desc": "Optional, pick up to 3. Leave blank to see the best overall fit for this role.",
     "back": "Back",
     "seeMatch": "See my match",
     "skip": "Skip, show my match",
-    "resultGreeting": "Thanks for checking! Here's a quick rundown tailored to what you're looking for.",
+    "resultGreeting": "Thanks for checking. Here is a quick overview of the projects and experience relevant to what you're hiring for.",
     "matchingProjects": "Relevant projects",
     "relevantExperience": "Relevant experience",
     "downloadCV": "Download CV",
@@ -38,27 +38,27 @@
     "roles": {
       "backend": {
         "label": "Backend & System Architecture",
-        "blurb": "Specialized in Clean Architecture & Microservices with .NET 8 / ASP.NET Core and Java 21 Spring Boot 3 — architected 61 PostgreSQL database entities, RabbitMQ DLQ asynchronous queues, Redis distributed locking, and optimized high-scale queries under 8ms."
+        "blurb": "I build backend systems using Clean Architecture and Microservices with .NET 8 / ASP.NET Core and Java 21 Spring Boot 3: 61 PostgreSQL entity tables (<8ms GIN queries across 1.1M+ VPA auction records), RabbitMQ DLQ queues with 0% message loss, Redis distributed locks, and 370+ Atomic Functional Requirements."
       },
       "frontend": {
-        "label": "Frontend / UI & Experience",
-        "blurb": "Building modern, responsive web applications with React 19, Next.js, Vite, and TypeScript. Focused on high-end aesthetics, fluid animations with Framer Motion, SEO best practices, and Core Web Vitals optimization."
+        "label": "Frontend / UI & Realtime 3D",
+        "blurb": "I build web applications with React 19, Next.js, Vite, TypeScript, and Three.js WebGL 3D (12 real-time 9:16 TikTok Live games), focusing on clean interfaces, Framer Motion transitions, and fast Core Web Vitals."
       },
       "fullstack": {
-        "label": "Full-Stack & Venture Lead",
-        "blurb": "Founder & Tech Lead owning products end-to-end — from system architecture, backend, and frontend to Docker and Linux VPS orchestration. Shipped The MC Hub and biensovip.com from blueprints to live production with real revenue."
+        "label": "Full-Stack, Technical BA & Venture Lead",
+        "blurb": "Founder, Tech Lead, and Technical BA taking products from Karl Wiegers SRS specifications (370+ Atomic FRs) and system architecture through full-stack implementation and Docker/VPS deployment across Biensovip.com, BrandHub, and The MC Hub."
       },
       "ai-ml": {
-        "label": "AI Engineering & Machine Learning",
-        "blurb": "Winner of Hackathon Computer Vision 2026, co-author of international research paper at ICTA 2026. Hands-on experience fine-tuning LLMs via QLoRA, deploying Whisper AI voice evaluation microservices, and architecting GraphRAG (ChromaDB + Neo4j)."
+        "label": "AI Engineering & Acoustic DSP",
+        "blurb": "Winner of Hackathon Computer Vision 2026 and co-author of an ICTA 2026 research paper. Hands-on experience fine-tuning LLMs with QLoRA, building a 10-Metric Acoustic DSP and Whisper AI voice engine, and designing GraphRAG pipelines (ChromaDB + Neo4j)."
       },
       "lowcode": {
         "label": "Enterprise Delivery / FPT Software",
-        "blurb": "Completed high-performing OJT software engineering internship at FPT Software, delivering OutSystems Reactive Web enterprise applications within professional Agile/Scrum sprints."
+        "blurb": "Completed my OJT software engineering internship at FPT Software Da Nang, building OutSystems Reactive Web enterprise applications in Agile/Scrum sprints following 4-Layer Architecture."
       },
       "freelance": {
         "label": "Software Architect & Startup Founder",
-        "blurb": "Founder at SynapForge Venture Studio — working direct 1-on-1 with clients (No Middlemen), guaranteeing production-grade engineering, full documentation transparency, and absolute reliability."
+        "blurb": "Founder at SynapForge Venture Studio. I work directly 1-on-1 with clients without middlemen, delivering full source code, clear SRS documentation, and long-term maintenance."
       }
     }
   },
@@ -75,12 +75,12 @@
     "greeting": "Xin chào,",
     "roles": [
       "Founder & Tech Lead @ SynapForge",
+      "Technical BA & Product Architect (370+ FRs)",
       "Software Architect (.NET 8 & Java 21)",
-      "SaaS Automation & AI Engineer",
       "Hackathon CV 2026 Champion"
     ],
     "iAm": "I'm a",
-    "heroDesc": "Founder & Head of Technology at SynapForge Venture Studio. Specialized in Clean Architecture (.NET 8 & Java 21), SaaS Automation, and AI Engineering. Winner of Computer Vision Hackathon 2026, co-author of international research paper at ICTA 2026, and lead architect operating biensovip.com.",
+    "heroDesc": "Founder, Head of Technology & Technical BA at SynapForge Venture Studio. Specialized in Karl Wiegers SRS specification (370+ Atomic FRs), Clean Architecture (.NET 8 & Java 21), SaaS Automation, and AI Engineering. Winner of Computer Vision Hackathon 2026, co-author of ICTA 2026 paper, and lead architect operating biensovip.com & BrandHub.",
     "viewProjects": "View Projects",
     "downloadCV": "Download CV",
     "statsByNumbers": "By the numbers",
@@ -97,13 +97,13 @@
         "label": "Projects Built"
       },
       {
-        "label": "Certificates"
+        "label": "International Certificates"
       },
       {
-        "label": "Awards & Prizes"
+        "label": "Awards & Finals"
       },
       {
-        "label": "Activities"
+        "label": "Atomic FRs (Karl Wiegers SRS)"
       }
     ],
     "skillsLabel": "Skills & Expertise",
@@ -111,7 +111,7 @@
     "exploreLabel": "More About Me",
     "exploreTitle": "Explore my journey",
     "ctaLabel": "Let's build something",
-    "ctaTitle": "Open to internship & collaboration opportunities",
+    "ctaTitle": "Open to Technical BA, Software Engineering roles & project collaborations",
     "getInTouch": "Get in touch",
     "terminalRole": "Founder & Head of Technology @ SynapForge Venture Studio"
   },
@@ -121,7 +121,7 @@
     "location": "Location",
     "education": "Education",
     "specialization": "Specialization",
-    "educationValue": "FPT University Da Nang (Software Engineering — GPA 3.3/4.0)",
+    "educationValue": "FPT University Da Nang (Software Engineering, GPA 3.3/4.0)",
     "specializationValue": "Founder, Tech Lead & Software Architect (SynapForge)",
     "atAGlance": "At a glance",
     "experienceLabel": "Experience",
@@ -138,14 +138,14 @@
     "phoneLabel": "Phone / Zalo",
     "ecosystemLabel": "Ecosystem & Connections",
     "ecosystemTitle": "Explore Connected Work & Pages",
-    "ecosystemSubtitle": "Explore technology services by SynapForge Venture Studio, live production showcases, deep-dive engineering blogs, and certified achievements."
+    "ecosystemSubtitle": "Browse software development services by SynapForge Venture Studio, live production platforms, technical case studies, and verified credentials."
   },
   "contact": {
     "label": "Get in touch",
     "title": "Contact Me",
-    "desc": "Open to internship opportunities, freelance website projects, collaborations, or just a chat about technology.",
-    "freelanceTitle": "Need a website built?",
-    "freelanceDesc": "I take on freelance web projects — landing pages, business sites, small e-commerce platforms, internal tools — end to end, from design to deployment. Drop your details in the form below, or message me directly on Zalo for a faster reply.",
+    "desc": "Open to Technical BA and Software Engineer roles, custom software development projects, or technical collaborations.",
+    "freelanceTitle": "Need a website or software platform built?",
+    "freelanceDesc": "I take on web and SaaS projects from SRS specification and UI design through backend engineering and server deployment: landing pages, business sites, e-commerce platforms, and internal tools. Leave your details in the form below or message me directly on Zalo.",
     "freelanceZaloCta": "Chat on Zalo",
     "infoTitle": "Contact Information",
     "infoDesc": "Feel free to reach out. I typically respond within 24 hours.",
@@ -182,7 +182,7 @@
     "projects": {
       "eyebrow": "Portfolio",
       "title": "Projects",
-      "subtitle": "Things I've built — from side projects to real-world applications."
+      "subtitle": "Software systems and web applications I have designed, built, and shipped."
     },
     "education": {
       "eyebrow": "Academic Journey",
@@ -362,10 +362,10 @@
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Info",
     "letsConnect": "Let's Connect",
-    "builtWith": "Built with React & Framer Motion",
+    "builtWith": "Built with React 19 & Robin Notebook System",
     "backToTop": "Back to top",
-    "tagline": "Computer Science student at FPT University. Passionate about building clean, scalable applications with Java Spring Boot and React.",
-    "location": "Da Nang, Vietnam"
+    "tagline": "Founder, Head of Technology & Technical BA at SynapForge Venture Studio. Specialized in Karl Wiegers SRS (370+ Atomic FRs), Clean Architecture (.NET 8 & Java 21 Spring Boot 3), SaaS Automation, and AI Engineering.",
+    "location": "Hai Chau & Ngu Hanh Son, Da Nang, Vietnam"
   },
   "notFound": {
     "badge": "Error 404",
@@ -389,63 +389,63 @@
     {
       "title": "Hackathon Computer Vision 2026",
       "position": "Winner (First Place)",
-      "description": "Awarded **Winner (First Place)** at the **Hackathon Computer Vision 2026** organized by FPT Education (06/08/2026) — designing and developing high-accuracy computer vision and AI models under intense hackathon competition constraints."
+      "description": "Won First Place at the Hackathon Computer Vision 2026 organized by FPT Education and SIT Singapore (06/08/2026), building and tuning real-time computer vision detection and inference pipelines under competition time limits."
     },
     {
       "title": "Co-Author of International Scientific Paper (ICTA 2026)",
       "position": "Co-Author & Researcher",
-      "description": "Co-authored international research paper accepted and presented at **ICTA 2026** — presenting an AI fine-tuning model (Qwen2.5-Coder-1.5B + QLoRA + BM25 AST RAG) for automated race-condition vulnerability remediation in source code with 73.3% accuracy, outperforming GPT-3.5-turbo."
+      "description": "Co-authored an international research paper accepted at ICTA 2026 on fine-tuning Qwen2.5-Coder-1.5B with QLoRA and BM25 AST RAG to fix JavaScript race-condition bugs, reaching 73.3% accuracy (outperforming GPT-3.5-turbo at 65.0%)."
     },
     {
       "title": "Innocode Camp SU25",
       "position": "National Finalist (Team Leader)",
-      "description": "Advanced to the **National Final Round (08/07/2025)** of Innocode Camp 2025 as Team Leader — orchestrating the full-lifecycle delivery of a complete software platform using Java Spring Boot and MySQL."
+      "description": "Advanced to the National Final Round (08/07/2025) of Innocode Camp 2025 as Team Leader, leading backend architecture and full-stack development with Java Spring Boot and MySQL."
     },
     {
       "title": "Research Festival (ResFres 2024)",
       "position": "National Finalist",
-      "description": "Advanced to the **National Final Round (20/06/2024)** of the FPT University Research Festival — conducting original scientific research, structured academic reporting, and formal defense before national jury panels."
+      "description": "Advanced to the National Final Round (20/06/2024) of the FPT University Research Festival, conducting original research, writing the academic paper, and defending findings before the national jury."
     },
     {
       "title": "FPT ResFes 2024 – 5 Campus Scale",
       "position": "National Research Finalist",
-      "description": "Selected as a research finalist at the multi-campus nationwide scale of FPT ResFes 2024, competing against research teams across all 5 FPT University campuses."
+      "description": "Selected as a multi-campus research finalist at FPT ResFes 2024, competing against student research teams across all 5 FPT University campuses."
     },
     {
       "title": "FPT Code Talent Contest",
       "position": "Finalist",
-      "description": "Reached the **final round** of FPT Code Talent — one of FPT's premier annual programming competitions spanning algorithms, OOP system design, and complex problem solving."
+      "description": "Reached the final round of FPT Code Talent, FPT's annual programming competition covering data structures, OOP system design, and algorithmic problem solving."
     },
     {
       "title": "Code Mosaic Algorithm Contest",
       "position": "Finalist",
-      "description": "Advanced to the **final round** of Code Mosaic algorithmic competition organized by FPT Education — testing data structures, algorithmic complexity, and rapid problem-solving under strict time limits."
+      "description": "Advanced to the final round of the Code Mosaic algorithmic contest organized by FPT Education, solving data structure and time-complexity challenges under timed conditions."
     },
     {
       "title": "Talent Contest – Final Interview Round",
       "position": "Winner (First Place)",
-      "description": "Awarded **First Place** in the school-wide Talent Contest final interview round during high school — evaluated on performance, personal charisma, and interview agility; the foundation for hosting events with 1,000+ attendees."
+      "description": "Won First Place in the school-wide Talent Contest final interview round during high school through live stage performance and Q&A."
     },
     {
       "title": "Talent & Beauty Contest (Mister)",
       "position": "First Runner-up",
-      "description": "Awarded **First Runner-up (Mister)** in the annual Talent and Beauty Contest at Phan Chau Trinh High School."
+      "description": "Awarded First Runner-up (Mister) in the annual Talent and Beauty Contest at Phan Chau Trinh High School."
     }
   ],
   "personalInfo": {
     "storyTitle": "My Journey",
-    "storyContent": "I am **Lê Trí Trung** (born 2005) — Founder & Head of Technology (Tech Lead / Software Architect) at **SynapForge Venture Studio** in Da Nang, specializing in architecting and operating high-performance digital platforms, SaaS Automation, and AI Engineering for businesses.\n\nMy technical foundation is grounded in strong academics at **[FPT University Da Nang](/achievements?tab=education)** (Software Engineering major, **GPA 3.3/4.0 - 8.2/10.0**), having been selected as an **[International Student Exchange Representative](/achievements?tab=education)** in **Technology Kuala Lumpur, Malaysia** (12/2023), certified with **IELTS 6.0** (IDP Education issued 04/2026), and graduated from **Phan Chau Trinh Gifted High School** with a **GPA of 9.0/10.0**.\n\nIn terms of technological honors, I was awarded **[Winner (First Place) of the Hackathon Computer Vision 2026](/achievements?tab=prizes)** (FPT Education), reached the **[National Finals of InnoCodeCamp 2025](/achievements?tab=prizes)** as Team Leader, the **[National Finals of ResFres 2024](/achievements?tab=prizes)**, and co-authored an **[International Scientific Research Paper (ICTA 2026)](/achievements?tab=prizes)** on AI Fine-tuning for automated detection and remediation of race-condition vulnerabilities in codebases.\n\nIn real-world product delivery, I have led 3 core venture pillars:\n1. **[Biensovip.com](/projects/26) (Solo Software Architect):** Architected and coded end-to-end an exclusive license plate marketplace and valuation platform from scratch on .NET 8 / ASP.NET Core (Clean Architecture), 61 PostgreSQL entity tables optimized with GIN indexing (<8ms queries), VietQR Webhook auto-settlement (<0.5s), DeepSeek AI Chatbot, and Linux VPS orchestration.\n2. **[The MC Hub](/projects/11) (CEO & Tech Lead):** Led a 6-engineer team launching an AI voice training platform (React 19 + Spring Boot 3.3 + Python FastAPI & Whisper), successfully monetizing in month one with 87 professional MCs and 20 subscription transactions.\n3. **[BrandHub](/projects/14) (Tech Lead & Solutions Architect):** Architected a 7-microservice multi-channel brand management ecosystem (Spring Cloud Gateway, RabbitMQ DLQ exponential retry, Java 21, Python GraphRAG).\n\nBeyond software, I have served as a **professional MC hosting 50+ major events (600–1,000+ attendees)**, served as Head Referee for FPTU AI & Robotics 2025, and am the **[Founder of The Dreamers Charity Organization](/activities)** (30+ members) spreading technology education to underprivileged children.",
-    "title": "Founder, Head of Technology & Software Architect",
-    "intro": "Founder & Head of Technology at SynapForge Venture Studio. Specialized in Clean Architecture (.NET 8 & Java 21 Spring Boot 3), SaaS Automation, and AI Engineering. Winner of Computer Vision Hackathon 2026 (FPT Education), co-author of international paper at ICTA 2026, and lead architect operating biensovip.com & The MC Hub."
+    "storyContent": "I am **Lê Trí Trung** (born 2005), Founder, Head of Technology, and Technical Business Analyst at **SynapForge Venture Studio** in Da Nang. My day-to-day work combines software requirements engineering (Karl Wiegers 3rd Ed.) with hands-on system architecture and full-stack code across web platforms, SaaS automation, and AI applications.\n\nI study Software Engineering at **[FPT University Da Nang](/achievements?tab=education)** (**GPA 3.3/4.0 - 8.2/10.0**), represented the university in the **[International Student Exchange Programme](/achievements?tab=education)** at **TAR UMT Kuala Lumpur, Malaysia** (12/2023), hold an **IELTS 6.0** certificate (IDP Education, 04/2026), and graduated from **Phan Chau Trinh High School** with a **GPA of 9.0/10.0**.\n\nAlong the way, I won **[First Place at Hackathon Computer Vision 2026](/achievements?tab=prizes)** (FPT Education × SIT Singapore), reached the **[National Finals of InnoCodeCamp 2025](/achievements?tab=prizes)** as Team Leader and the **[National Finals of ResFres 2024](/achievements?tab=prizes)**, and co-authored an **[International Scientific Paper (ICTA 2026)](/achievements?tab=prizes)** on fine-tuning small code models to detect and patch race-condition bugs in JavaScript.\n\nFour production systems and Technical BA specifications represent the core of my recent work:\n1. **[Biensovip.com](/projects/26) (Solo Software Architect & Lead BA):** Wrote the full specification (57 Use Cases, 85 Business Rules) and built a national license plate marketplace from scratch on .NET 8 Clean Architecture. It runs on 61 PostgreSQL entity tables (<8ms GIN queries), a **1.1M+ National VPA Auction data pipeline**, a **4-Tab Finite State Machine (FSM)**, **TikTok Live 9:16 Safe-Zone Assistant & F1-F6 Soundboard**, VietQR Webhook deposit settlement (<0.5s), and a DeepSeek AI Chatbot.\n2. **[BrandHub](/projects/14) (Tech Lead, Solutions Architect & Lead BA):** Structured 109 raw agency requests into **141 Atomic Functional Requirements** (Karl Wiegers Zero-Manage Rule), designed a 7-microservice multichannel publishing platform (Spring Cloud Gateway, RabbitMQ DLQ with 0% message loss, Java 21, Python GraphRAG), a **79-screen React Native mobile app**, and **2,500+ test cases / 320+ Playwright E2E test suites** (live at `brandhub.id.vn`).\n3. **[The MC Hub](/projects/11) (CEO, Tech Lead & Lead BA):** Led a 6-engineer team building an AI voice training platform (React 19 + Spring Boot 3.3 + Python FastAPI & **10-Metric Acoustic DSP + Whisper Engine**), authored **116 Atomic FRs** and 139 Visual Paradigm UML diagrams, and onboarded 87 professional MCs with paid subscriptions in the first month.\n4. **[Live TikTok 3D Interactive Game Ecosystem](/projects/30) (`cungchuaonline`):** Built a 12-game real-time 9:16 3D TikTok Live suite (Cúng Chùa Online 3D, Cuộc Đua Kỳ Thú 3D, AdminTong with 21 ApexCharts) backed by 193/193 passing automated tests.\n\nOutside of software engineering, I have hosted **50+ university and tech events as an MC (600–1,000+ attendees)**, served as Head Referee for FPTU AI & Robotics 2025, and founded **[The Dreamers Charity Organization](/activities)** (30+ members) to run coding workshops and community programs for underprivileged children in Central Vietnam.",
+    "title": "Founder, Technical BA & Software Architect",
+    "intro": "Founder, Head of Technology & Technical BA at SynapForge Venture Studio. Focused on Karl Wiegers SRS specification (370+ Atomic FRs across 4 enterprise systems), Clean Architecture (.NET 8 & Java 21 Spring Boot 3), SaaS Automation, and AI Engineering. Winner of Computer Vision Hackathon 2026 (FPT Education), co-author of an ICTA 2026 research paper, and lead architect operating biensovip.com, BrandHub, and The MC Hub."
   },
   "highlights": [
     {
-      "title": "System Architecture & Clean Architecture",
-      "description": "Specialized in Clean Architecture (.NET 8 / C# 12) and Microservices (Java 21 / Spring Boot 3): 61 PostgreSQL database entities, RabbitMQ DLQ message queues, Redis distributed locking, and sub-8ms API latency."
+      "title": "Technical BA & Clean Architecture",
+      "description": "Authoring Karl Wiegers SRS specifications (370+ Atomic FRs) and building Clean Architecture (.NET 8) and Microservices (Java 21 Spring Boot 3) systems: 61 PostgreSQL tables, RabbitMQ DLQ queues, Redis locks, and sub-8ms GIN queries."
     },
     {
       "title": "Venture Builder & Production Systems",
-      "description": "Founder at SynapForge Venture Studio: Built and operating biensovip.com (100+ visits/day, VietQR Webhook <0.5s) and The MC Hub (87 MCs onboarded, 20 subscription transactions in month 1)."
+      "description": "Founder at SynapForge Venture Studio: Built and running biensovip.com (1.1M+ VPA auction records, VietQR Webhook <0.5s), BrandHub (141 FRs, 2.5K+ test cases), and The MC Hub (87 MCs in month one, 10-Metric Acoustic DSP)."
     },
     {
       "title": "Scientific Research & Honors",
@@ -453,59 +453,59 @@
     },
     {
       "title": "Tech Leadership & Social Impact",
-      "description": "Led engineering teams of 5–6 developers from inception to market launch. Founded The Dreamers Organization (30+ members, tech charity), professional MC hosting 50+ major events (600–1,000+ people)."
+      "description": "Coordinating teams of 5–6 developers from requirements discovery to production release. Founded The Dreamers Organization (30+ members), and hosted 50+ events as an MC (600–1,000+ attendees)."
     }
   ],
   "funFacts": [
     {
       "title": "Champion: Hackathon CV 2026",
-      "description": "Won 1st Prize at the Computer Vision Hackathon 2026 at FPT University — building real-time computer vision detection and inference pipelines."
+      "description": "Won 1st Prize at the Computer Vision Hackathon 2026 at FPT University, building real-time computer vision detection and inference pipelines."
     },
     {
       "title": "MC for 1,000+ Attendees",
-      "description": "Hosted major university ceremonies and conferences with live crowds exceeding 1,000 people — managing stage flow, improvisation, and dynamic crowd engagement."
+      "description": "Hosted over 50 university ceremonies and tech events with live audiences up to 1,000 people, which trained my stage presence and clear communication."
     },
     {
       "title": "Founded a Charity at 19",
-      "description": "Founded The Dreamers at age 19, scaling it to 30 active members and delivering 6+ community projects bringing tech literacy to underprivileged youth."
+      "description": "Started The Dreamers in my freshman year, growing it to 30+ members and running 6+ community projects that teach basic computing to children at local orphanages."
     },
     {
       "title": "5× Competition Finalist",
-      "description": "Reached national finals and won top honors across FPT Code Talent, Innocode Camp, ResFes (twice), and Code Mosaic while maintaining strong academic standing."
+      "description": "Reached the finals in FPT Code Talent, Innocode Camp, ResFes (twice), and Code Mosaic while keeping a 3.3/4.0 GPA."
     },
     {
-      "title": "Morning Athletics from 5:30 AM",
-      "description": "Committed to early-morning running and football before work begins. Physical endurance cultivates resilience, focus, and sharp decision-making during high-stakes project releases."
+      "title": "5:30 AM Running & Football",
+      "description": "I start most mornings with a run or a football match before sitting down to code. It keeps my head clear during long engineering sprints."
     },
     {
-      "title": "Continuous Learning & Languages",
-      "description": "Constantly learning cutting-edge AI frameworks, Cloud orchestration, and conversational Japanese — constantly embracing challenges beyond the comfort zone."
+      "title": "System Design Reading & Japanese",
+      "description": "Outside of project work, I spend my spare time reading system architecture papers, testing new AI tooling, and practicing basic Japanese."
     }
   ],
   "experience": [
     {
-      "role": "Founder & Head of Technology",
+      "role": "Founder, Head of Technology & Technical BA",
       "company": "SynapForge Venture Studio",
-      "type": "Founding / Leadership",
+      "type": "Founding / Architecture & BA",
       "duration": "01/2026 – Present",
       "status": "Current",
-      "description": "Co-founded SynapForge Venture Studio — a product-led tech studio where I serve as Head of Technology: owning system architecture, setting engineering standards, and leading a cross-functional team of 5–6 engineers from concept to production launch.\n• Tech stack: .NET 8 / ASP.NET Core, React, Python FastAPI, PostgreSQL, Redis, RabbitMQ, Docker, Linux VPS\n• Flagship products: Biensovip.com (license plate marketplace), The MC Hub (AI voice coaching platform), BrandHub (AI-powered social media SaaS)"
+      "description": "Founded SynapForge Venture Studio (synapforge.id.vn), leading system architecture, Karl Wiegers SRS specification (370+ Atomic FRs), and a team of 5–6 engineers from requirements discovery to production deployment.\n• Tech stack: .NET 8 / ASP.NET Core, Java 21 Spring Boot 3, React 19, Python FastAPI, PostgreSQL, Redis, RabbitMQ DLQ, Three.js 3D\n• Key products: Biensovip.com (1.1M+ VPA auction records), BrandHub (7 Microservices, 141 FRs, 2.5K+ test cases), The MC Hub (10-Metric Acoustic DSP), 12-Game TikTok Live 3D Ecosystem"
     },
     {
-      "role": "Solo Software Architect & Full-Stack Engineer",
+      "role": "Solo Software Architect, Lead BA & Full-Stack Engineer",
       "company": "Biensovip.com",
       "type": "Production Venture",
       "duration": "05/2026 – Present",
       "status": "Current",
-      "description": "Designed and developed end-to-end an exclusive license plate trading and valuation platform from scratch: .NET 8 / ASP.NET Core Clean Architecture, 61 PostgreSQL entities with GIN indexing (<8ms queries), VietQR Webhook instant settlement (<0.5s), dual JWT security, DeepSeek AI Chatbot, and self-managed Linux VPS."
+      "description": "Independently specified (57 Use Cases, 85 Business Rules) and built end-to-end a national license plate trading and auction intelligence platform from scratch: .NET 8 Clean Architecture, 61 PostgreSQL entities (<8ms GIN queries), 1.1M+ VPA auction data pipeline, 4-Tab FSM, TikTok Live 9:16 Safe-Zone Assistant & F1–F6 Soundboard, VietQR Webhook instant settlement (<0.5s), and DeepSeek AI Chatbot."
     },
     {
-      "role": "CEO & Tech Lead (Team of 6 Engineers)",
+      "role": "CEO, Tech Lead & Lead BA (Team of 6 Engineers)",
       "company": "The MC Hub",
       "type": "AI Commercial Venture",
-      "duration": "01/2026 – 07/2026",
-      "status": "Completed",
-      "description": "Led a team of 6 engineers launching an AI speech evaluation platform to production in 6 months. Onboarded 87 professional MCs in month one with real revenue across 20 paid subscription packages. Built Python FastAPI + Whisper microservice evaluating pronunciation, intonation, and pacing."
+      "duration": "01/2026 – 11/2026",
+      "status": "Current",
+      "description": "Led a team of 6 engineers launching an AI speech evaluation platform to production, onboarding 87 professional MCs and 20 paid subscriptions in month one. Built a 10-Metric Acoustic DSP & Whisper AI Engine (F0, HNR, Jitter, Shimmer, Timbre, Pauses, WPM, Filler) computing a 5-Pillar MC Score with baseline calibration, and authored 116 Atomic FRs + 139 Visual Paradigm UML diagrams."
     },
     {
       "role": "Software Developer Intern",
@@ -606,281 +606,281 @@
     {
       "name": "Vietnamese",
       "level": "Native",
-      "description": "Mother tongue — full professional and conversational fluency"
+      "description": "Native speaker, fluent in technical specification (SRS) and professional communication"
     },
     {
       "name": "English",
       "level": "Professional (IELTS 6.0)",
-      "description": "IELTS 6.0 (IDP Education 04/2026) — International student exchange in Malaysia, reading technical documentation"
+      "description": "IELTS 6.0 (IDP Education 04/2026), international student exchange in Malaysia, technical writing and documentation"
     },
     {
       "name": "Japanese",
       "level": "Beginner",
-      "description": "Hiragana & Katakana completed — self-studying conversational basics"
+      "description": "Completed Hiragana & Katakana (Japan Foundation), self-studying basic conversation"
     }
   ],
   "siteNavigation": [
     {
       "title": "About",
-      "desc": "Learn about my journey and passion"
+      "desc": "My academic background, work experience, and personal story"
     },
     {
       "title": "Projects",
-      "desc": "Software I've built and shipped"
+      "desc": "Software platforms and applications I have built and shipped"
     },
     {
       "title": "Achievements",
-      "desc": "Education, certificates, and prizes"
+      "desc": "Education, international certificates, and competition awards"
     },
     {
       "title": "Services",
-      "desc": "Turnkey website development for small shops"
+      "desc": "Web, SaaS, AI development and Technical BA / SRS consulting"
     },
     {
       "title": "Blog",
-      "desc": "Technical writing and project deep-dives"
+      "desc": "Technical case studies and architecture notes from real projects"
     },
     {
       "title": "Contact",
-      "desc": "Get in touch with me"
+      "desc": "Reach out via Email, Zalo, or book a call"
     }
   ],
   "projectItems": [
     {
       "role": "Backend Developer (Team Project)",
-      "description": "A full-stack **job search platform** built with a cross-functional Agile team of 6. I owned the **backend architecture** — designing and building RESTful APIs with **Java Spring Boot**, managing relational data in **SQL Server**, and wiring in an **AI-powered chatbot** to help job seekers with resume tips and job matching.\n\nMy main contributions were the **authentication system** (JWT-based login/register), the **job posting and application flow APIs**, and setting up a **Git branching strategy** (feature branches + pull requests) that kept the whole team's work clean across 4 months of development.\n\nThe platform is live on Vercel and still evolving, with real-time job alerts and an employer dashboard in the pipeline.",
-      "challenge": "We needed a job platform where seekers could search and apply while getting AI help (resume tips, job matching), all while a 6-person team stayed coordinated on one codebase for 4 months without stepping on each other's toes.",
+      "description": "A full-stack job search platform built with a 6-person Agile team. I handled the backend architecture: designing RESTful APIs in Java Spring Boot, managing relational data in SQL Server, and integrating an AI chatbot for resume feedback and job matching.\n\nMy main contributions included the JWT authentication flow (login/register), the job posting and application APIs, and the Git branching workflow (feature branches + pull requests) that kept our 6-person team's commits clean across 4 months of development.\n\nThe frontend is deployed on Vercel with job filtering and application tracking.",
+      "challenge": "Build a job platform where candidates can search and apply while getting AI resume feedback, while keeping a 6-person student team coordinated on a shared codebase over 4 months.",
       "highlights": [
-        "Designed and built the full RESTful API in Java Spring Boot, managing relational data in SQL Server",
-        "Built a JWT-based authentication system (login/register) from scratch",
-        "Set up a Git branching strategy (feature branch + pull request) that kept a 6-person team's work clean across 4 months",
-        "Integrated an AI chatbot to help job seekers with resume tips and job matching"
+        "Designed and built RESTful APIs in Java Spring Boot with relational data in SQL Server",
+        "Built JWT authentication (login/register) and role-based access from scratch",
+        "Set up a Git branching workflow (feature branch + pull request) across a 6-person team for 4 months",
+        "Integrated an AI chatbot to provide resume tips and job recommendations"
       ]
     },
     {
       "role": "Java Developer & Team Lead (Team Project)",
-      "description": "Led a **4-member team** in building a full e-commerce platform for a bakery — covering the product catalog, order management, shopping cart, and customer accounts. I architected the **Java Servlets backend**, designed the **SQL Server database schema**, and split up work across the team using weekly sprints.\n\nStandout pieces included an **AI-powered chatbot** for customer support (wired in via API), **Google Maps API** for store locations, and **Google OAuth** for social login. The frontend was plain **HTML/CSS/JavaScript**, which kept the whole thing light and fast.\n\nThis was my first real team project, and it taught me a lot — how to scope features realistically, how to work through merge conflicts when the deadline's looming, and how to actually ship a finished product end-to-end.",
-      "challenge": "My first team project — I needed to help build a complete e-commerce platform (catalog, cart, orders, customer accounts) for a bakery, with a 4-person team, a fixed deadline, and zero prior experience coordinating a team.",
+      "description": "Led a 4-person team to build an e-commerce website for a bakery, covering the product catalog, shopping cart, order management, and customer accounts. I built the Java Servlets backend, designed the SQL Server schema, and divided tasks across weekly sprints.\n\nWe also integrated an AI customer support chatbot via API, Google Maps API for store directions, and Google OAuth login. The frontend uses plain HTML, CSS, and JavaScript to keep pages fast and simple to debug.\n\nAs my first project as team lead, it taught me how to scope features for a fixed deadline, resolve merge conflicts before submission, and ship a working end-to-end application.",
+      "challenge": "My first team lead role: shipping a complete bakery e-commerce site (catalog, cart, orders, customer accounts) with a 4-person team on a fixed semester deadline.",
       "highlights": [
-        "Architected the backend in Java Servlets and designed the SQL Server database schema from scratch",
-        "Led a 4-person team, splitting tasks into weekly sprints",
-        "Integrated an AI chatbot for customer support, Google Maps API for store location, and Google OAuth for social login",
-        "Learned to resolve merge conflicts under deadline pressure and ship a complete product end-to-end"
+        "Built the backend in Java Servlets and designed the SQL Server database schema from scratch",
+        "Coordinated a 4-person team using weekly sprint task breakdowns",
+        "Integrated an AI support chatbot, Google Maps API store locator, and Google OAuth login",
+        "Resolved merge conflicts under deadline pressure and delivered the finished site on schedule"
       ]
     },
     {
       "role": "Founder & Project Lead",
-      "description": "I founded and lead **The Dreamers** — a student-run charity at FPT University focused on making a real difference through technology and education. The organization runs hands-on programs bringing **coding workshops, communication skills training, and mentorship** directly to orphaned children and underprivileged youth.\n\nAs founder, I handle the full operational picture: recruiting and onboarding members, setting the project roadmap, coordinating with partner organizations, and running fundraising campaigns that have funded multiple charity missions.\n\nEvents we've organized include **Tốt Hy Vọng**, **Vòng vào Mộng mơ**, **Dream High**, and a **Charity Music Performance** — each one requiring full planning, logistics, and team coordination from start to finish. We're also building a backend platform in **Java Spring Boot** to manage member activity and event records.",
-      "challenge": "Building a student charity that actually lasts — not just running one-off events, but keeping the whole thing running: recruiting members, fundraising, and now digitizing member and activity management with a dedicated backend platform.",
+      "description": "I founded and run The Dreamers, a student charity group at FPT University Da Nang. We organize basic coding workshops, communication sessions, and charity visits for orphaned children and underprivileged youth in Central Vietnam.\n\nI coordinate member recruitment, plan our semester roadmap, partner with local shelters, and manage accounting for our fundraising campaigns.\n\nSince launching, our team has organized Tốt Hy Vọng, Vòng vào Mộng mơ, Dream High, and a Charity Music Performance concert. We are also building an internal backend in Java Spring Boot to track member records and event history.",
+      "challenge": "Keeping a student charity group active across multiple semesters by recruiting new cohorts, running transparent fundraising, and building an internal backend to track members and events.",
       "highlights": [
-        "Founded and run the entire operation: member recruitment, project roadmap, and fundraising across multiple charity campaigns",
-        "Organized 4 major events end-to-end: Tot Hy Vong, Vong vao Mong mo, Dream High, Charity Music Performance",
-        "Currently building a backend to manage activities and member records in Java Spring Boot"
+        "Founded and coordinate 30+ members across recruitment, event planning, and charity fundraising",
+        "Organized 4 major community programs: Tốt Hy Vọng, Vòng vào Mộng mơ, Dream High, and Charity Music Performance",
+        "Building an internal Java Spring Boot backend to manage member and event records"
       ]
     },
     {
       "role": "Solo Developer",
-      "description": "A focused utility built in 10 days to automate repetitive web form submissions — cutting out manual data entry for structured, high-volume input work.\n\nThe backend uses **Node.js** to drive form interaction through DOM scripting, paired with a lightweight **React frontend** that lets users upload data (CSV/JSON), preview it, and fire off batch submissions with one click. I built it to handle the annoying edge cases too — validation delays, fields that render dynamically, and CAPTCHA-protected forms.\n\nThis one sharpened my sense of how the browser DOM actually behaves, how async scripting patterns hold up in practice, and where automation hits its real limits — useful groundwork for QA, data tooling, and internal workflow automation.",
-      "challenge": "Cut out repetitive manual data entry for high-volume web forms, on a tight 10-day deadline — and handle tricky cases like dynamic field rendering and CAPTCHA-protected forms along the way.",
+      "description": "A small utility built in 10 days to automate repetitive web form submissions and remove manual data entry for batch inputs.\n\nThe backend uses Node.js to drive form interactions via DOM scripting, paired with a React interface where users upload CSV or JSON files, preview rows, and trigger batch submissions. I also added handlers for validation delays and dynamically rendered form fields.\n\nBuilding this gave me practical experience with browser DOM timing and async scripting, which later proved useful when writing Playwright E2E test suites.",
+      "challenge": "Automate batch data entry for web forms within a 10-day timeline while handling validation delays and dynamically rendered input fields.",
       "highlights": [
-        "Built a Node.js DOM-control engine to automate form interaction",
-        "React frontend for uploading CSV/JSON, previewing entries, and batch-submitting with one click",
-        "Handled edge cases: validation delays, dynamic field rendering, CAPTCHA-protected forms",
-        "Shipped solo, start to finish, in 10 days"
+        "Built a Node.js DOM scripting engine to automate form filling and submission",
+        "Created a React interface for uploading CSV/JSON files, previewing rows, and running batch jobs",
+        "Handled validation delays and dynamically rendered form fields",
+        "Completed solo from start to finish in 10 days"
       ]
     },
     {
       "role": "Full-Stack Developer",
-      "description": "A complete e-commerce bookstore built entirely on the **OutSystems low-code platform** — part of my internship training at **FPT Software**, where OutSystems gets used in real enterprise client work.\n\nThe app covers the core e-commerce flows: **product catalog with search/filter**, **shopping cart**, **order management**, and a basic **admin panel** for inventory. Building it fully in OutSystems taught me how to think about data models, UI logic, and API integrations inside a visual dev environment — skills that translate directly to enterprise rapid-delivery work.\n\nThe live demo is publicly available on OutSystems Cloud.",
-      "challenge": "Learn and ship a full e-commerce app entirely inside a visual development environment (OutSystems) — a skillset that applies directly to enterprise rapid-delivery projects at FPT Software.",
+      "description": "An online bookstore built on the OutSystems low-code platform during my OJT internship at FPT Software Da Nang.\n\nThe application covers standard e-commerce flows: a searchable and filterable book catalog, shopping cart, order checkout, and an inventory admin panel. Working in OutSystems taught me how to structure data models, UI logic, and REST integrations using FSoft's 4-Layer Architecture standard.\n\nThe live demo is hosted on OutSystems Cloud.",
+      "challenge": "Learn OutSystems Reactive Web and ship a complete e-commerce application following 4-Layer Architecture during my internship training at FPT Software.",
       "highlights": [
-        "Built the full e-commerce flow: catalog with search/filter, cart, order management, admin panel for inventory",
-        "Learned to reason about data models, UI logic, and API integrations in a low-code environment",
-        "Live demo publicly accessible on OutSystems Cloud"
+        "Built the full bookstore flow: catalog with search and filter, cart, order management, and inventory admin panel",
+        "Applied OutSystems 4-Layer Architecture for data modeling, UI logic, and API integration",
+        "Deployed a public live demo on OutSystems Cloud"
       ]
     },
     {
       "role": "Frontend Developer (Practice Project)",
-      "description": "A pixel-accurate clone of the TikTok web interface, built as a structured practice project through the **F8 React course** — one of Vietnam's most respected frontend learning programs.\n\nThe goal was to really nail **React component architecture**: breaking the TikTok UI into reusable, composable pieces — Sidebar, VideoFeed, UserCard, ActionBar — each one handling its own props, state, and effects properly. Along the way I practiced **custom hooks**, **React Router** for multi-page navigation, **CSS Modules** for scoped styling, and building a fully responsive layout with no UI library.\n\nThis project locked in my React fundamentals before I carried them into production work like Job Finder and The MC Hub.",
-      "challenge": "Solidify my React fundamentals before carrying them into production projects (Job Finder, The MC Hub) — by precisely rebuilding a complex, highly interactive real-world UI (TikTok web).",
+      "description": "A frontend clone of the TikTok web interface built during the F8 React course.\n\nMy goal was to practice breaking a complex UI into reusable React components (Sidebar, VideoFeed, UserCard, ActionBar) with clear props, state, and side-effect boundaries. While building it, I wrote custom hooks (such as `useDebounce` for search), configured multi-page routing with React Router, used CSS Modules for scoped styling, and wrote responsive layouts without a UI component library.\n\nThis project gave me a solid React foundation before moving on to larger systems like Job Finder, The MC Hub, and Biensovip.",
+      "challenge": "Rebuild the interactive TikTok web interface from scratch using React and CSS Modules without relying on pre-built UI component libraries.",
       "highlights": [
-        "Split the UI into reusable components — Sidebar, VideoFeed, UserCard, ActionBar — with properly managed props/state/effects",
-        "Practiced custom hooks, React Router for multi-page navigation, CSS Modules for scoped styling",
-        "Built a fully responsive layout with zero UI library"
+        "Structured the interface into reusable components: Sidebar, VideoFeed, UserCard, and ActionBar",
+        "Wrote custom hooks (`useDebounce`), wired search API calls, and used React Router with CSS Modules",
+        "Built a responsive layout across screen sizes without external UI libraries"
       ]
     },
     {
       "role": "Designer & Developer",
-      "description": "This portfolio — the site you're on right now. Designed and built from scratch, with the focus on **clean aesthetics, performance, and real content** rather than a template.\n\nThe design follows a **monochrome + pastel color system** inspired by modern Figma trends: oversized type, pill-shaped buttons, pastel accent blocks, and consistent spacing throughout. Every page gets a custom **PageBanner**, animated entries via **Framer Motion**, and layouts that hold up fully responsive down to mobile.\n\nUnder the hood it's a **React 19 (CRA)** app using **React Router v6** for navigation, inline styles for component-scoped design, and CSS media queries for responsive breakpoints. Content flows from a central `data.js` file, so updates are simple without touching component logic.",
-      "challenge": "Build a portfolio that actually feels like quality work — avoiding that templated look, keeping performance tight (code-splitting, lazy images), and making content easy to update through a central data layer instead of editing components directly.",
+      "description": "This portfolio website. I designed and coded it from scratch around the **Robin Tactile Notebook & Pixel Scrapbook** aesthetic: warm lined notebook paper (`#F9F6F1`), a retro pixel-art nameplate, washi-taped polaroid frames, yellow/green/pink stickers, and tabbed folder dossiers.\n\nThe app runs on **React 19** and **React Router v6**, with instant Vietnamese/English switching, a `Ctrl+K` Command Palette, interactive skill filtering, and a Recruiter Match widget.\n\nAll project entries, blog posts, and certificates are decoupled into `src/data.js` and locale files (`vi.json` / `en.json`), paired with a custom `SeoHeadManager` that injects dynamic meta tags and Schema.org `@graph` JSON-LD per route.",
+      "challenge": "Design a personal portfolio that feels like a tactile engineering notebook while organizing 30+ projects, 48 certificates, and 13 technical blog posts with fast load times and clean SEO.",
       "highlights": [
-        "Designed a custom monochrome + pastel block color system instead of grabbing an off-the-shelf theme",
-        "Data-driven architecture: all content flows from data.js, decoupled from component logic",
-        "Route-level code-splitting, image optimization via Cloudinary, bilingual EN/VI i18n",
-        "Consistent Framer Motion animation across the site, respecting prefers-reduced-motion"
+        "Custom Robin Tactile Notebook & Pixel Scrapbook design system built without off-the-shelf templates",
+        "Data-driven content architecture in data.js with full Vietnamese and English localization",
+        "Dynamic SeoHeadManager, Schema.org JSON-LD (@graph), sitemap.xml, and llms.txt",
+        "Route-level code-splitting, Cloudinary image optimization, and prefers-reduced-motion support"
       ]
     },
     {
       "role": "Full-Stack Developer",
-      "description": "A full-stack internal management system for bakery operations — built as a course assignment, but scoped like a real product. Covers **inventory tracking**, **sales recording**, **order management**, and a **customer database**, all wired together through a REST API layer.\n\nThe backend is **Java Spring Boot** with **MySQL** for persistence, feeding a **React** frontend deployed on Vercel. I handled both sides myself: API design, database schema, React component structure, and the deployment pipeline.\n\nBuilding this solo really cemented my understanding of the full request lifecycle — from a click in the UI down to a database query and back — and gave me the confidence to design a system end-to-end without teammates to lean on.",
-      "challenge": "A course assignment with real-world scope (inventory, sales, orders, customer database), but done solo — meaning I had to design and ship the entire system myself, from database to deployment, with no one to split the work with.",
+      "description": "A full-stack internal management web app for a bakery, built solo for a university course with the scope of a real store back-office: ingredient inventory tracking, sales logs, order processing, and a customer list connected via REST APIs.\n\nThe backend uses Java Spring Boot and MySQL, serving a React frontend deployed on Vercel. I handled the database schema, REST endpoints, React components, and deployment configuration myself.\n\nBuilding the entire stack solo helped me trace how data moves from a UI form submission down to SQL queries and back.",
+      "challenge": "Design and build a complete bakery back-office system (inventory, sales, orders, customers) solo, covering MySQL schema design, Spring Boot APIs, and the React frontend.",
       "highlights": [
-        "Designed the API and database schema entirely solo",
-        "Java Spring Boot + MySQL backend, React frontend deployed on Vercel",
-        "Owned the full pipeline solo: API design → database → component structure → deployment"
+        "Designed the REST API and MySQL relational schema solo across 4 management modules",
+        "Built the Java Spring Boot backend and React frontend deployed on Vercel",
+        "Handled the full workflow from database modeling to API integration and deployment"
       ]
     },
     {
       "role": "Tech Lead & CEO",
-      "description": "Launched voice training platform (React 19 + Java Spring Boot 3.3) monetized from day one: 87 MCs onboarded in first month, 20 transactions with ~4M VND revenue across 2 subscription tiers (Basic/Full).\n\nBuilt AI voice analysis microservice (Python FastAPI + Whisper) evaluating pronunciation, intonation, pace, pauses — powering 101 practice exercises, 40 theory readings, and 4 structured courses across 6 MC categories.\n\nLed team of 6 from zero to production in 6 months. CI/CD on Vercel (frontend) + Render (backend), using Notion and Jira to manage workflow.",
-      "challenge": "Build and monetize an AI voice training platform from zero to production in 6 months with a 6-person team, integrating real-time speech analysis (pronunciation, intonation, cadence).",
+      "description": "An AI voice and public speaking training platform (React 19 + Java Spring Boot 3.3 + Python FastAPI) that generated revenue in its first month: 87 MCs onboarded and 20 paid subscriptions (~4M VND) across Basic and Full tiers.\n\nWe built a Python FastAPI, Librosa, and OpenAI Whisper microservice that extracts 10 acoustic metrics (F0 pitch, HNR, Jitter, Shimmer, speaking pace, pauses, filler words) to score 101 practice exercises, 40 theory lessons, and 4 courses across 6 MC categories.\n\nI led our 6-person team from initial specification (116 Atomic FRs and 139 Visual Paradigm diagrams) to production in 6 months.",
+      "challenge": "Build and launch a commercial AI voice training platform with real-time acoustic scoring in 6 months with a 6-person engineering team.",
       "highlights": [
-        "Launched voice training platform monetized from day one: 87 MCs onboarded in first month, 20 transactions with ~4M VND revenue across 2 subscription tiers (Basic/Full)",
-        "Built AI voice analysis microservice (Python FastAPI + Whisper) evaluating pronunciation, intonation, pace, pauses — powering 101 practice exercises, 40 theory readings, and 4 structured courses",
-        "Led team of 6 from zero to production in 6 months with CI/CD on Vercel + Render, managed via Notion & Jira",
-        "Tech stack: MongoDB, Python FastAPI + Whisper, Java Spring Boot 3.3, React 19, Redis"
+        "Onboarded 87 MCs and recorded 20 paid transactions (~4M VND) in the first month after launch",
+        "Built a Python FastAPI + Whisper + Librosa microservice evaluating pronunciation, intonation, pace, and pauses across 101 exercises",
+        "Led a 6-person team from Karl Wiegers SRS specification (116 Atomic FRs) to CI/CD deployment on Vercel and Render",
+        "Tech stack: Java 21 Spring Boot 3.3, React 19, Python FastAPI, Whisper, MongoDB, Redis"
       ]
     },
     {
       "role": "Full-Stack Developer (Team Project)",
-      "description": "A **Vietnamese agricultural marketplace** connecting farmers, suppliers, and customers — covering listings, orders, reviews, and notifications. It started as an academic project (**PRM393**) with a **Flutter mobile app** and an **Express.js/MongoDB** backend secured with JWT.\n\nIt later grew into a more production-grade parallel build aimed at real startup viability: a **Next.js + TypeScript** frontend (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo for farm location mapping) backed by a **NestJS + TypeORM** service layer. That shift — from academic prototype to startup-grade architecture — even included drafting a formal Vietnamese startup proposal document.",
-      "challenge": "It started as an academic project (PRM393), but the team decided to push it into production-grade architecture aimed at real startup viability — which meant redesigning it from mobile-only into a scalable, multi-platform full stack.",
+      "description": "A Vietnamese agricultural marketplace connecting farmers, suppliers, and buyers with product listings, orders, reviews, and notifications. It began as a mobile course project (PRM393) using a Flutter app and an Express.js/MongoDB backend with JWT auth.\n\nAfter the course, our team built an expanded web and backend version for a startup competition: a Next.js + TypeScript frontend (Radix UI, TanStack Query, Sentry, and Mapbox/d3-geo farm maps) paired with a NestJS + TypeORM backend and a formal Vietnamese business proposal.",
+      "challenge": "Evolve a semester mobile project (PRM393) into a multi-platform web and mobile architecture (Next.js + Flutter + NestJS) ready for a university startup competition.",
       "highlights": [
-        "Track 1 (academic): Flutter mobile app + Express.js/MongoDB backend with JWT auth",
-        "Track 2 (parallel production-grade build): Next.js + TypeScript frontend (Radix UI, TanStack Query, Sentry, Mapbox/d3-geo for farm location mapping) + NestJS + TypeORM backend",
-        "Drafted a formal Vietnamese startup proposal for the product model"
+        "Track 1 (mobile): Flutter mobile app with an Express.js/MongoDB backend and JWT authentication",
+        "Track 2 (web expansion): Next.js + TypeScript frontend with Mapbox/d3-geo farm mapping and a NestJS + TypeORM backend",
+        "Prepared a full Vietnamese startup proposal for the agricultural marketplace model"
       ]
     },
     {
       "role": "Tech Lead & Solutions Architect (Team of 5 Engineers)",
-      "description": "An **agency platform for managing client brand content** across 5 social networks — Facebook, Instagram, TikTok, Threads, and Zalo — with content creation/approval workflows, AI Brand Voice modeling, campaign scheduling, and automated multi-platform publishing.\n\nArchitected as a **distributed 7-microservices system**: **API Gateway** (Spring Cloud Gateway, WebFlux, JWT + Redis auth & rate-limiting), **business-service** (Spring Boot 3.3.5, Java 21) handling multi-tenant logic and campaigns, **publisher-service** consuming from **RabbitMQ with Dead Letter Queue (DLQ)** exponential backoff ensuring 0% message loss, and an **AI service** (Python FastAPI, RAG & GraphRAG with ChromaDB and Neo4j) for brand voice learning and trend analysis. The frontend is a **React 18 + TypeScript + Vite** dashboard with an **Expo/React Native** companion app, fully orchestrated via **Docker Compose** on AWS EC2.",
-      "challenge": "Simultaneously publishing content across 5 social networks (Facebook, Instagram, TikTok, Threads, Zalo) with 100% mission-critical reliability — requiring a 7-microservice fault-tolerant architecture (RabbitMQ DLQ exponential retry), gateway rate-limiting, and AI GraphRAG modeling brand voice.",
+      "description": "A multichannel brand content management platform for agencies publishing across 5 social networks (Facebook, Instagram, TikTok, Threads, and Zalo), supporting content drafting, approval workflows, AI Brand Voice modeling, campaign scheduling, and automated publishing.\n\nBuilt on a 7-microservice architecture: API Gateway (Spring Cloud Gateway, WebFlux, JWT + Redis auth and rate-limiting), business-service (Spring Boot 3.3.5, Java 21) for multi-tenant workspaces and campaigns, publisher-service consuming from RabbitMQ with Dead Letter Queue (DLQ) exponential backoff to prevent dropped posts, and an AI service (Python FastAPI, RAG & GraphRAG with ChromaDB and Neo4j). Includes a React 18 + TypeScript dashboard, a 79-screen Expo/React Native mobile app, and 2,500+ test cases.",
+      "challenge": "Publish scheduled posts across 5 social networks without losing messages when third-party APIs fail, while structuring 109 raw agency requests into 141 Atomic FRs for a 5-engineer team.",
       "highlights": [
-        "Overall architecture of 7 distributed microservices: API Gateway (Spring Cloud Gateway, WebFlux, JWT+Redis), business-service (Java 21), publisher-service (RabbitMQ DLQ), AI service (FastAPI GraphRAG)",
-        "Engineered Dead Letter Queue (DLQ) exponential retry mechanism guaranteeing 0% message loss during publishing outages",
-        "Integrated RAG & GraphRAG (ChromaDB + Neo4j) to learn Brand Voice and analyze influencer/trend graph relations",
-        "React 18 + TypeScript + Vite dashboard frontend, Expo React Native mobile app, orchestrated with Docker Compose"
+        "Designed a 7-microservice architecture: API Gateway (Spring Cloud Gateway), business-service (Java 21), publisher-service (RabbitMQ DLQ), and AI service (FastAPI GraphRAG)",
+        "Configured Dead Letter Queue (DLQ) exponential retry to keep message loss at 0% during social API outages",
+        "Used RAG & GraphRAG (ChromaDB + Neo4j) to model Brand Voice and surface campaign trends",
+        "Shipped a React 18 + TypeScript dashboard, a 79-screen React Native mobile app, and 320+ Playwright E2E test files"
       ]
     },
     {
       "role": "Solo Developer",
-      "description": "A **travel showcase website** for Điện Biên Phủ province, Vietnam — converted from a static HTML site into a modern **React 19 + Vite** app with lazy-loaded images, card/modal-based browsing, and markdown content rendered safely via **DOMPurify**.\n\nA **Three.js / React Three Fiber** touch adds a subtle 3D flourish to the hero section, and **Framer Motion** handles page transitions. Styled with **Tailwind CSS 4** for a clean, fast-loading layout that suits tourism content well.",
-      "challenge": "Turn a dated static HTML site into a modern React experience — keeping all the rich tourism content while making sure markdown renders safely and the image-heavy pages still load fast.",
+      "description": "A tourism showcase website for Điện Biên Phủ province, migrated from an older static HTML site to a React 19 + Vite application with lazy-loaded images, card and modal browsing, and sanitized Markdown rendering via DOMPurify.\n\nThe hero section uses Three.js / React Three Fiber for a subtle 3D scene, paired with Framer Motion page transitions and Tailwind CSS 4 styling.",
+      "challenge": "Migrate a content-heavy static HTML tourism site into a modern React 19 application while keeping Markdown rendering safe and image-heavy pages fast.",
       "highlights": [
-        "Migrated from static HTML to React 19 + Vite, lazy-loading images site-wide",
-        "Safely renders markdown via DOMPurify, guarding against XSS from dynamic content",
-        "Added a subtle 3D touch to the hero using Three.js/React Three Fiber",
-        "Smooth page transitions via Framer Motion, styled with Tailwind CSS 4"
+        "Migrated from static HTML to React 19 + Vite with site-wide image lazy-loading",
+        "Sanitized dynamic Markdown content with DOMPurify to prevent XSS issues",
+        "Added a lightweight 3D hero element using Three.js and React Three Fiber",
+        "Styled responsive layouts with Tailwind CSS 4 and Framer Motion transitions"
       ]
     },
     {
       "role": "Full-Stack Developer",
-      "description": "A **study and course-document platform** for FPT University students — flashcards, quizzes, dashboards, and structured document management, seeded with real course content (e.g. MLN111).\n\nThe backend is a proper **Spring Boot 3.4.3 + MongoDB** REST API with authentication, request-logging middleware, and a maintained improvement log tracking real fixes (removing a hardcoded mock user ID, resolving N+1 query issues). The frontend is a **React 18 + TypeScript** docs site with a **Monaco Editor**, Mermaid diagrams, **Recharts** dashboards, and PDF export via **TanStack Query** data fetching.",
-      "challenge": "FPT students need one place for course documents plus active-recall study tools (flashcards, quizzes) instead of scattered materials — and the project itself needed real engineering discipline (improvement logs, real fixes), not just a demo.",
+      "description": "A study and course-material platform for FPT University students featuring flashcards, quizzes, progress charts, and structured study guides seeded with real course content (such as MLN111).\n\nThe backend is a Spring Boot 3.4.3 + MongoDB REST API with authentication, request-logging middleware, and an engineering improvement log documenting real bug fixes (such as removing hardcoded mock user IDs and fixing N+1 queries). The frontend is a React 18 + TypeScript app with Monaco Editor, Mermaid diagrams, Recharts dashboards, and PDF export.",
+      "challenge": "Give FPT students a single hub for course notes and active-recall practice (flashcards and quizzes) while maintaining a clear engineering log of backend fixes (auth cleanup, N+1 query resolution).",
       "highlights": [
-        "Spring Boot 3.4.3 + MongoDB REST API with request-logging middleware, seeded with real course content (e.g. MLN111)",
-        "Maintains an improvement log documenting real fixes: removing a hardcoded mock user ID, resolving N+1 queries",
-        "React 18 + TypeScript frontend with Monaco Editor, Mermaid diagrams, Recharts dashboards, PDF export"
+        "Built a Spring Boot 3.4.3 + MongoDB REST API with request logging and real course content (e.g. MLN111)",
+        "Maintained an engineering improvement log tracking fixes for hardcoded user IDs and N+1 queries",
+        "Built a React 18 + TypeScript frontend with Monaco Editor, Mermaid diagrams, Recharts, and PDF export"
       ]
     },
     {
       "role": "Solo Developer",
-      "description": "An **Instagram-styled chatbot automation interface**, recreating Instagram's UI down to the exact brand gradients and color tokens as a design reference. Built as a lightweight React scaffold, meant to grow into a full chatbot automation tool for Instagram messaging.",
-      "challenge": "Precisely recreate Instagram's design language (gradients, color tokens) as a UI foundation, before expanding it into a real chatbot messaging automation tool.",
+      "description": "An Instagram-styled chatbot automation interface that recreates Instagram's brand gradients, color tokens, and messaging layout in React as a UI scaffold for configuring automated DM workflows.",
+      "challenge": "Recreate Instagram's messaging layout and color tokens in React as a clean UI foundation for a chatbot workflow builder.",
       "highlights": [
-        "Lightweight React scaffold precisely recreating Instagram's brand gradient and color tokens",
-        "Designed as the foundation for future chatbot messaging automation features"
+        "Built a lightweight React UI scaffold matching Instagram's gradient tokens and DM layout",
+        "Structured components to plug into automated messaging rule builders"
       ]
     },
     {
       "role": "Solo Developer",
-      "description": "A **study-abroad consulting website** for students pursuing postgraduate study in Australia — program information, application guidance, and consultation booking, with rich data visualizations to make comparing programs easier.",
-      "challenge": "Present dense postgraduate program comparison data (tuition, duration, requirements) in a way students can actually digest, instead of a dry data table.",
+      "description": "A study-abroad consulting site for students applying to postgraduate programs in Australia, combining program guides, tuition/duration comparison charts, and an integrated consultation booking form.",
+      "challenge": "Turn dense postgraduate program data (tuition, duration, entry requirements) into readable visual comparisons with a straightforward booking flow.",
       "highlights": [
-        "Visualized program comparison data with Recharts",
-        "MUI + Tailwind CSS 4 interface, smooth animation via Framer Motion",
-        "Consultation booking flow integrated directly into the program-browsing experience"
+        "Built interactive program comparison charts using Recharts",
+        "Styled the interface with MUI, Tailwind CSS 4, and Framer Motion transitions",
+        "Embedded the consultation booking form directly into the program comparison flow"
       ]
     },
     {
       "role": "Solo Developer",
-      "description": "A polished **restaurant landing page** for Papa Steak, a steakhouse in Đà Nẵng — a dark/amber premium visual theme, multi-branch **Google Maps** integration with one-click navigation switching, a dynamic menu overlay, a customer review section, and a validated reservation form built with **React Hook Form**.",
-      "challenge": "Build a restaurant landing page that actually feels premium visually, while also solving a real problem — the restaurant has multiple branches, so guests need an easy way to switch directions.",
+      "description": "A restaurant landing page for Papa Steak in Đà Nẵng, featuring a dark and amber visual theme, multi-branch Google Maps integration with one-tap direction switching, a dynamic menu overlay, customer reviews, and a reservation form validated with React Hook Form.",
+      "challenge": "Design an inviting steakhouse landing page that makes it easy for diners on mobile to switch map directions between multiple restaurant branches and book a table.",
       "highlights": [
-        "Designed a premium dark/amber theme fitting the steakhouse brand",
+        "Designed a dark and amber visual theme suited to the Papa Steak brand",
         "Integrated multi-branch Google Maps with one-tap direction switching",
-        "Fully validated reservation form via React Hook Form, dynamic menu overlay"
+        "Built a validated table reservation form with React Hook Form and an interactive menu overlay"
       ]
     },
     {
       "role": "AI Engineer — RAG Pipeline, FastAPI Server, Static Analysis",
-      "description": "Fine-tuned a 1.5B-parameter LLM (Qwen2.5-Coder + QLoRA) that outperforms GPT-3.5-turbo at fixing JavaScript concurrency bugs — 73.3% vs 65.0% on 30 real production bugs, despite a ~125x smaller model.\n\nBuilt a RAG pipeline (BM25 + AST retrieval, 2,050-doc knowledge base) paired with a custom static race-condition detector to ground the model's fixes and cut hallucination.\n\nShipped a production FastAPI microservice (JWT, Redis, MongoDB) serving real-time fix suggestions. Co-authored a research paper submitted at ICTA 2026.",
-      "challenge": "ESLint only flags JavaScript concurrency bugs without fixing them, while calling general LLMs costs money and hallucinates APIs. Needed a lightweight, offline-capable 1.5B model paired with precise AST and BM25 retrieval for zero-hallucination fixes.",
+      "description": "Fine-tuned a 1.5B-parameter code model (Qwen2.5-Coder + QLoRA) to fix JavaScript concurrency and race-condition bugs, reaching 73.3% accuracy compared to GPT-3.5-turbo's 65.0% on 30 real-world npm bugs despite being ~125x smaller.\n\nI built the RAG pipeline (combining BM25 keyword retrieval with esprima AST identifier extraction over a 2,050-document knowledge base) and a static race-condition detector to ground the model's patches and prevent hallucinated API names.\n\nThe model runs behind a FastAPI microservice (JWT, Redis, MongoDB) serving real-time code fix suggestions. Our paper was accepted at ICTA 2026.",
+      "challenge": "Linters like ESLint only warn about concurrency bugs without fixing them, while large cloud LLMs cost money and often hallucinate API names. We needed a compact 1.5B model capable of running offline with exact AST + BM25 retrieval.",
       "highlights": [
-        "Fine-tuned 1.5B LLM (Qwen2.5-Coder + QLoRA) outperforming GPT-3.5-turbo at fixing JavaScript concurrency bugs (73.3% vs 65.0% on 30 real production bugs)",
-        "Built RAG pipeline (BM25 + AST retrieval, 2,050-doc knowledge base) with custom static race-condition detector",
-        "Shipped production FastAPI microservice (JWT, Redis, MongoDB) serving real-time fix suggestions",
-        "Co-authored research paper submitted at ICTA 2026"
+        "Fine-tuned a 1.5B LLM (Qwen2.5-Coder + QLoRA) that scored 73.3% vs GPT-3.5-turbo's 65.0% on 30 real-world JavaScript concurrency bugs",
+        "Built a RAG pipeline (BM25 + AST identifier extraction over 2,050 docs) and a static race-condition detector",
+        "Deployed a FastAPI microservice (JWT, Redis, MongoDB) serving real-time patch suggestions",
+        "Co-authored the research paper accepted at the ICTA 2026 international conference"
       ]
     },
     {
       "role": "Frontend Developer (Team Project)",
-      "description": "The official **department website for the Faculty of Nursing and Medical Technology** at Phan Chau Trinh University — built for a real academic client with a 6-person team, covering faculty info, department pages (Nursing, Medical Technology), an organizational chart, teaching staff listings, and bilingual content.\n\nBuilt with **vanilla JavaScript Web Components** (no framework) — a custom site-navbar, site-hero, site-footer, and content components — plus a lightweight **client-side router** and a **data-driven i18n system** for switching between Vietnamese and English. I contributed the **organizational chart component** (a responsive branch-connector layout for the department hierarchy) and refactored the department pages to pull content dynamically instead of hardcoding it page by page.",
-      "challenge": "Build a real client website (Phan Chau Trinh University) with a 6-person team, no framework — and needed a responsive organizational chart plus bilingual content that's easy to keep updated, not hardcoded per page.",
+      "description": "The official website for the Faculty of Nursing and Medical Technology at Phan Chau Trinh University, built with a 6-person team. It covers faculty introductions, department curricula (Nursing and Medical Technology), an organizational chart, staff directories, and bilingual Vietnamese/English content.\n\nWe built the site using vanilla JavaScript Web Components (`site-navbar`, `site-hero`, `site-footer`), a custom client-side router, and a JSON-driven i18n loader without external UI frameworks. I built the responsive organizational chart component and refactored the department pages to load data dynamically instead of hardcoding HTML per page.",
+      "challenge": "Deliver a production university faculty website with a 6-person team using vanilla JavaScript Web Components, including a responsive organizational hierarchy chart and maintainable bilingual content.",
       "highlights": [
-        "Built the organizational chart component with a responsive branch-connector layout for the department hierarchy",
-        "Refactored department pages to fetch content dynamically instead of hardcoding it per page",
-        "Entire site runs on vanilla JS Web Components with a hand-built router and i18n system, no framework"
+        "Built a responsive branch-connector organizational chart component for the faculty hierarchy",
+        "Refactored department pages to render dynamic JSON content instead of hardcoded HTML",
+        "Shipped entirely on vanilla JS Web Components with a custom client-side router and i18n loader"
       ]
     },
     {
       "role": "Solo Software Architect & Full-Stack Engineer",
-      "description": "Architected, designed, and coded end-to-end an exclusive license plate trading and valuation marketplace from scratch — .NET 8 / ASP.NET Core (Clean Architecture: Domain, Application, Infrastructure, API), 61 PostgreSQL 16 entity tables with EF Core, and React 19.\n\nMade and defended strategic architecture decisions: selected PostgreSQL over MongoDB for ACID transaction integrity and sub-8ms multi-criteria filtering via Composite and GIN Indexing. Integrated automated VietQR Webhook deposit matching in <0.5s paired with 15-minute Redis distributed locking eliminating 100% duplicate-booking risks. Implemented dual JWT security (short-lived Access Tokens + HttpOnly Cookie Refresh Tokens), 24/7 DeepSeek AI sales chatbot, Cloudinary, AWS SES, and self-managed Linux VPS via Docker & Nginx.",
-      "challenge": "Solely architecting and shipping a full-scale e-commerce marketplace from ground zero within 30 days: solving real-time multi-criteria filtering across tens of thousands of items, instant conflict-free deposit matching, and eliminating PCI-DSS compliance risks.",
+      "description": "Specified, architected, and built a license plate trading and valuation marketplace from scratch using .NET 8 / ASP.NET Core (Clean Architecture: Domain, Application, Infrastructure, API), 61 PostgreSQL 16 entity tables with EF Core, and React 19.\n\nI chose PostgreSQL over MongoDB for ACID transaction safety and tuned multi-criteria search queries to under 8ms using Composite and GIN indexes across 1.1M+ VPA auction records. The platform includes automated VietQR Webhook deposit settlement (<0.5s) paired with a 15-minute Redis distributed lock to prevent double-booking, dual JWT auth, a DeepSeek AI assistant, and Docker/Nginx deployment on a Linux VPS.",
+      "challenge": "Build and ship a full-scale license plate marketplace solo: achieving sub-8ms multi-criteria filtering across 1.1M+ records, instant conflict-free deposit settlement, and self-managed VPS deployment.",
       "highlights": [
-        "Comprehensive solo architecture on .NET 8 Clean Architecture with 61 PostgreSQL entity tables and EF Core",
-        "Optimized multi-criteria search queries via GIN Indexing from 350ms down to sub-8ms instant response",
-        "VietQR Webhook automated deposit settlement in <0.5s with 15-minute Redis distributed mutex lock eliminating double-selling",
-        "Dual JWT security, 24/7 DeepSeek AI consulting chatbot, Cloudinary, AWS SES, and autonomous Linux VPS management"
+        "Solo architecture on .NET 8 Clean Architecture with 61 PostgreSQL entity tables and EF Core",
+        "Cut multi-criteria search query latency from 350ms to under 8ms using PostgreSQL GIN Indexes",
+        "Integrated VietQR Webhook deposit settlement (<0.5s) with a 15-minute Redis distributed lock to prevent double-selling",
+        "Implemented dual JWT auth, DeepSeek AI chatbot, Cloudinary, AWS SES, and Docker/Nginx deployment on Linux VPS"
       ]
     },
     {
       "role": "ML Engineer (Team Project)",
-      "description": "A **CNN built from scratch** to classify chest X-ray images as NORMAL or PNEUMONIA — a timeboxed (3-hour) team exercise on a dataset of 5,856 images, split between a data-analysis sub-team and a modeling sub-team.\n\nI worked the **data/EDA side**: profiling the class imbalance across train/test/val splits (74.3% PNEUMONIA in the training data), documenting the data pipeline, and designing the **data augmentation strategy** feeding into a CNN trained without pre-trained weights (built and tuned entirely from scratch, no transfer learning) in **TensorFlow/Keras**.",
-      "challenge": "Build a CNN classifying pneumonia from chest X-rays in 3 hours with a 4-person team — with a heavily class-imbalanced dataset (74.3% PNEUMONIA) and a hard rule: no pre-trained models, the CNN had to be built from scratch.",
+      "description": "A Convolutional Neural Network (CNN) trained from scratch to classify chest X-ray images as NORMAL or PNEUMONIA during a 3-hour timed team challenge on a 5,856-image dataset.\n\nI handled the exploratory data analysis (EDA) and preprocessing pipeline: profiling the class imbalance across train/test/val splits (74.3% PNEUMONIA in training), documenting the pipeline, and configuring data augmentation for our TensorFlow/Keras CNN trained without pre-trained weights.",
+      "challenge": "Train a CNN from scratch (no transfer learning allowed) to classify pneumonia from chest X-rays within a 3-hour deadline on a heavily imbalanced dataset (74.3% PNEUMONIA).",
       "highlights": [
-        "EDA: class imbalance analysis across train/test/val splits (5,856 images)",
-        "Designed the data augmentation pipeline for a from-scratch CNN (no transfer learning)",
-        "Parallel work across 2 sub-teams under a 3-hour deadline, TensorFlow/Keras"
+        "Analyzed class imbalance across train, validation, and test splits (5,856 chest X-ray images)",
+        "Configured the data augmentation pipeline for a custom CNN built from scratch in TensorFlow/Keras",
+        "Coordinated between data and modeling sub-teams to finish within the 3-hour limit"
       ]
     },
     {
       "role": "Backend Architect & Team Lead (Team Project)",
-      "description": "A comprehensive digital storytelling and reading practice platform designed for children aged 3–12. Architected a high-throughput, clean-architecture backend using **.NET 10** (ASP.NET Core Web API) and **MongoDB** (30 collections) paired with Google OAuth, JWT authentication, AWS S3/CloudFront audio streaming, Cloudinary media storage, and **PayOS webhook** payment processing.\n\nDesigned modular subsystems covering Kid Profile wizards, reading gamification with achievement tracking, and AI-powered text-to-speech audio pipelines for interactive pronunciation practice.",
-      "challenge": "Build an omni-channel storytelling and reading platform (Web/Mobile) for children aged 3–12 with ultra-low latency audio streaming, automated PayOS webhook payments, and a 30-collection MongoDB database following Clean Architecture.",
+      "description": "An interactive digital storytelling and reading practice platform for children aged 3–12. I designed the Clean Architecture backend in .NET 10 (ASP.NET Core Web API) with MongoDB (30 collections), Google OAuth + JWT authentication, AWS S3/CloudFront audio streaming, Cloudinary media storage, and automated PayOS webhook subscription billing.\n\nThe backend powers kid profile onboarding, reading streak gamification, and text-to-speech (TTS) audio pipelines for pronunciation practice.",
+      "challenge": "Build a web and mobile storytelling platform for children aged 3–12 with low-latency audio streaming, automated PayOS webhook billing, and 30 MongoDB collections organized under Clean Architecture.",
       "highlights": [
-        "Clean Architecture backend on .NET 10 (Domain / Application / Infrastructure / API) with 30 MongoDB collections",
-        "Dual authentication (Google OAuth + JWT), Cloudinary media management, and AWS S3 + CloudFront audio streaming",
-        "Automated family subscription billing via PayOS webhook and reading gamification progress engine",
-        "Comprehensive testing: xUnit, NSubstitute, FluentAssertions, and Mongo2Go integration tests"
+        "Designed a .NET 10 Clean Architecture backend (Domain / Application / Infrastructure / API) with 30 MongoDB collections",
+        "Integrated Google OAuth + JWT auth, Cloudinary media storage, and AWS S3 + CloudFront audio streaming",
+        "Built automated family plan billing via PayOS webhooks and a reading progress gamification engine",
+        "Wrote unit and integration test suites using xUnit, NSubstitute, FluentAssertions, and Mongo2Go"
       ]
     },
     {
       "role": "Full-Stack & Mobile Developer (Team Project)",
-      "description": "A cross-platform smart weather monitoring and alerting ecosystem. Built with a high-performance **Flutter 3.x** mobile client (Riverpod state management, GoRouter, adaptive weather color palettes) backed by a serverless **Firebase Cloud Functions (Node.js 24)** backend with Cloud Firestore, Firebase Authentication, Cloud Storage, and real-time **Firebase Cloud Messaging (FCM)** push alerts.",
-      "challenge": "Provide real-time weather forecasts and extreme disaster alerts to mobile users with minimal latency using a cost-effective serverless cloud architecture.",
+      "description": "A cross-platform weather monitoring and severe-weather alert system. Built with a Flutter 3.x mobile app (Riverpod state management, GoRouter, weather-adaptive color themes) connected to a serverless Firebase Cloud Functions (Node.js 24) backend, Cloud Firestore, and real-time Firebase Cloud Messaging (FCM) push alerts.",
+      "challenge": "Deliver real-time weather forecasts and location-based severe weather push alerts to mobile users with low latency on a serverless Firebase backend.",
       "highlights": [
-        "Crafted a fluid Flutter 3.x mobile client using Riverpod architecture and adaptive weather styling",
-        "Node.js 24 serverless backend on Firebase Cloud Functions with distributed Cloud Firestore",
-        "Real-time emergency push notification pipeline via FCM triggered by geographic weather anomalies"
+        "Built a Flutter 3.x mobile client using Riverpod state management and weather-adaptive themes",
+        "Developed a Node.js 24 serverless backend on Firebase Cloud Functions with Cloud Firestore",
+        "Configured real-time FCM push notifications triggered by geographic weather anomalies"
       ]
     }
   ],
   "postItems": [
     {
       "title": "Teaching a 1.5B-Parameter Model to Fix JavaScript Concurrency Bugs",
-      "excerpt": "Inside ThreadLearn: fine-tuning Qwen2.5-Coder-1.5B with QLoRA, pairing it with a BM25-based RAG pipeline, and why a small model beats GPT-3.5-turbo on a narrow domain.",
-      "content": "JavaScript runs on a single thread — a single-threaded event loop — yet handles a mountain of asynchronous tasks at once via callbacks, Promises, and async/await. That gap between \"one thread\" and \"many overlapping tasks\" creates a particularly nasty class of bug: **concurrency bugs**. According to the NodeCB study (ASE 2017), which analyzed 57 real-world bugs across 53 Node.js projects, 93% of them caused serious consequences — server crashes, data corruption, or permanent hangs. And they almost never surface when running tests in isolation.\n\nA classic example — two requests reading then writing at the same time:\n\n```javascript\nconst stock = await db.getStock(productId);   // both requests read stock = 1\nawait db.setStock(productId, stock - 1);       // both requests set stock = 0\n// 2 units sold, but inventory only had 1 — race condition\n```\n\nStatic tools like ESLint only flag the bug, they don't fix it. Calling GPT-4 costs money, requires internet, and isn't specialized for this domain. **ThreadLearn** — a WDP301 course project at FPT University I built with two teammates — took a different approach: fine-tune a small model (Qwen2.5-Coder-1.5B) to specialize in exactly one class of bug, then fill the knowledge gap with RAG.\n\n## Why a small model, not GPT-4\n\nThree practical reasons: cost, latency, and the ability to run offline inside a firewalled enterprise environment. The team picked **Qwen2.5-Coder-1.5B** — small enough to run on an 8GB GPU, yet capable since it's pretrained on hundreds of billions of code tokens — then fine-tuned it with **QLoRA** (loading the model in 4-bit NF4, training only a rank-16 LoRA adapter, roughly 0.5% of total parameters). The whole process ran on Kaggle's free 2×T4 GPUs in about 2 hours.\n\nThe fine-tuning side (783 buggy/fixed code pairs, dataset collected from GitHub plus hand-written examples) was my teammate Ha Van An's work. What I directly owned was the **RAG pipeline and API server** — the most technically substantial part, so that's what I'll detail here.\n\n## RAG: why BM25, not vector search\n\nWith JavaScript, a developer knows exactly which API name they're looking for — `Promise.all`, `setTimeout`, `appendFile`. That's an exact-keyword-match problem, not semantic similarity. Vector search (FAISS, Chroma) needs a GPU to embed, needs a 500MB+ model, and sometimes misses exact matches because it's optimized for \"roughly similar meaning\" rather than \"the exact keyword.\" **BM25** — a frequency-based search algorithm, an improvement over TF-IDF — builds an index over 2,050 documents in under 500ms, needs no GPU, and produces better results on the code domain.\n\nThe catch is BM25's default tokenizer handles code poorly: `setTimeout` gets split into `[\"set\", \"timeout\"]`, `fetchAllUsers` into `[\"fetch\", \"all\", \"users\"]`. When a query contains `setTimeout` intact, it matches more weakly against documents that got fragmented. My first version wrote a regex tokenizer to split CamelCase — it worked, but still fragmented API names when extracting keywords from input code.\n\nThe fix uses **esprima to parse code into an AST**, then only keeps tokens of type `Identifier` — function/variable names the developer chose — skipping language keywords (`async`, `await`, `for`):\n\n```python\nscript = esprima.parseScript(code, options={\"tolerant\": True, \"tokens\": True})\nfor tok in script.tokens:\n    if tok.type == \"Identifier\" and tok.value not in _JS_STOPWORDS:\n        result.append(tok.value)\n```\n\nDirect comparison: `fs.appendFile(logPath, data)` through the regex tokenizer becomes `\"fs append file path data\"` — appendFile gets fragmented. Through AST extraction it becomes `\"fs appendFile logPath data\"` — intact. Keeping API names intact means a higher BM25 score against the right document, and the top-3 retrieved docs come back noticeably more accurate.\n\n## Results — and why fine-tuning matters more than RAG\n\nEvaluated on 20 hand-crafted test cases covering 8 concurrency bug categories (race conditions, event loop blocking, unhandled rejection, callback hell, zalgo, context loss, etc.), scored with Fix-Pattern Scoring (checking whether the output contains the correct fix pattern, not a hard match against a sample answer):\n\n| Method | Pass | Partial | Fail | Pass Rate |\n|---|---|---|---|---|\n| GPT-3.5-turbo zero-shot | 6 | 11 | 3 | 30% |\n| Qwen2.5-Coder-1.5B (base, no fine-tune) | 8 | 9 | 3 | 40% |\n| ThreadLearn RAW (fine-tuned, no RAG) | 14 | 6 | 0 | 70% |\n| **ThreadLearn + RAG** | **15** | **5** | **0** | **75%** |\n\n![Ablation chart](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871855/my-website/assets/blog/threadlearn/fig_ablation.png)\n\n### Benchmark 2 — 30 real-world cases (from real npm packages on GitHub Issues)\n\nThreadLearn + pipeline scored **73.3% (22/30)**, beating GPT-3.5-turbo + pipeline's **65.0%** (19.5/30). Full details in `server/tests/real_world/README.md`.\n\n### Analysis\n\nFine-tuning contributed **+30pp** (40% → 70%), RAG added **+5pp** (70% → 75%). 783 training samples were enough for the model to learn concrete fix patterns; RAG helps the harder cases that need context beyond the training data. No case FAILED outright — the model always produced readable code.\n\n**3 categories still weak**: Zalgo (0/1), Double Callback (0/1), Buffer Leak (0/1) — very niche patterns, rarely represented in the dataset.\n\nEvent Loop Blocking hit **100% (5/5)** — best-covered category in the training data.\n\n![Per-category breakdown](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871858/my-website/assets/blog/threadlearn/fig_category.png)\n\n## Takeaways\n\nA small model (~1.5B), fine-tuned on a narrow domain, **beats GPT-3.5 (175B) despite being 125x smaller** — not because it's \"smarter,\" but because it doesn't carry irrelevant knowledge. BM25 + AST extraction is cheap, fast, and offline. When designing retrieval for code, exact keyword matching matters more than semantic similarity.\n\n---\n\n*Team roles: **Le Tri Trung** (AI2 — RAG Pipeline, FastAPI Server, Race Detector) · Ha Van An (AI1 — Dataset Collection, QLoRA Fine-tuning) · Nguyen Thi Thuy Hoai (Model Evaluation & Report Writing). FPT University, Da Nang.*\n\nCode, dataset, and research paper: [github.com/ThreadLearn/ThreadLearn_AI_Trainning](https://github.com/ThreadLearn/ThreadLearn_AI_Trainning). Full PDF: `/d/FPT/threadlearn_paper-full.pdf`. Visual demo site: [github.com/ThreadLearn/ThreadLearn-AI-Visual](https://github.com/ThreadLearn/ThreadLearn-AI-Visual)."
+      "excerpt": "Inside ThreadLearn: fine-tuning Qwen2.5-Coder-1.5B with QLoRA, pairing it with a BM25 + AST RAG pipeline, and why a small model beat GPT-3.5-turbo on a focused domain.",
+      "content": "JavaScript runs on a single-threaded event loop while handling overlapping asynchronous tasks through callbacks, Promises, and async/await. That gap between a single execution thread and interleaved I/O tasks creates a stubborn class of defects: **concurrency bugs**. In the NodeCB study (ASE 2017), which examined 57 real-world bugs across 53 Node.js repositories, 93% caused severe failures such as server crashes, corrupted state, or hung processes. Worse, they rarely show up in isolated unit tests.\n\nA classic example is two requests reading and updating inventory at the same time:\n\n```javascript\nconst stock = await db.getStock(productId);   // both requests read stock = 1\nawait db.setStock(productId, stock - 1);       // both requests write stock = 0\n// 2 units sold when inventory only had 1 (race condition)\n```\n\nStatic linters like ESLint can flag suspicious patterns, but they don't generate patches. Calling large commercial APIs like GPT-4 adds per-request cost, requires external network access, and still hallucinates Node.js concurrency primitives. For **ThreadLearn** (our WDP301 capstone project at FPT University), my two teammates and I took a more targeted route: fine-tune a compact 1.5B model (`Qwen2.5-Coder-1.5B`) specifically on JavaScript concurrency fixes, then ground its API usage with a lightweight RAG pipeline.\n\n## Why a 1.5B model instead of GPT-4\n\nWe had three practical constraints: inference cost, latency, and running offline inside firewalled company networks. We chose **Qwen2.5-Coder-1.5B** because it fits comfortably in 8GB of GPU VRAM while already knowing JavaScript syntax from pretraining. We fine-tuned it with **QLoRA** (loading weights in 4-bit NF4 and training a rank-16 LoRA adapter, roughly 0.5% of total parameters) on two free Kaggle T4 GPUs in about two hours.\n\nMy teammate Ha Van An curated the 783 buggy/fixed code pairs from GitHub and ran the QLoRA training. I owned the **RAG retrieval pipeline, static race-condition detector, and FastAPI inference server**.\n\n## Designing RAG for code: BM25 + AST over Vector Search\n\nWhen patching JavaScript, developers care about exact API identifiers like `Promise.all`, `setTimeout`, or `fs.appendFile`. Vector databases (FAISS, Chroma) require a 500MB+ embedding model and often rank loosely related prose above the exact function signature. By contrast, **BM25** indexes our 2,050-document knowledge base in under 500ms on CPU and excels at exact token matching.\n\nThe catch is that standard BM25 tokenizers split CamelCase identifiers poorly: `setTimeout` turns into `[\"set\", \"timeout\"]` and `fetchAllUsers` becomes `[\"fetch\", \"all\", \"users\"]`. My first attempt used regex splitting, which still mangled method names when extracting search queries from buggy code.\n\nTo fix that, I used **esprima to parse the input JavaScript into an Abstract Syntax Tree (AST)** and extracted only `Identifier` tokens (function and variable names), ignoring language keywords (`async`, `await`, `for`):\n\n```python\nscript = esprima.parseScript(code, options={\"tolerant\": True, \"tokens\": True})\nfor tok in script.tokens:\n    if tok.type == \"Identifier\" and tok.value not in _JS_STOPWORDS:\n        result.append(tok.value)\n```\n\nOn `fs.appendFile(logPath, data)`, the regex tokenizer produced `\"fs append file path data\"` (losing `appendFile`), whereas AST extraction preserved `\"fs appendFile logPath data\"`. Keeping exact API identifiers intact noticeably improved top-3 document retrieval.\n\n## Evaluation Results\n\nWe evaluated the system on 20 hand-crafted test cases spanning 8 concurrency bug categories (race conditions, event loop blocking, unhandled rejections, callback hell, zalgo, context loss, etc.) using Fix-Pattern Scoring:\n\n| Method | Pass | Partial | Fail | Pass Rate |\n|---|---|---|---|---|\n| GPT-3.5-turbo zero-shot | 6 | 11 | 3 | 30% |\n| Qwen2.5-Coder-1.5B (base, no fine-tune) | 8 | 9 | 3 | 40% |\n| ThreadLearn RAW (fine-tuned, no RAG) | 14 | 6 | 0 | 70% |\n| **ThreadLearn + RAG** | **15** | **5** | **0** | **75%** |\n\n![Ablation chart](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871855/my-website/assets/blog/threadlearn/fig_ablation.png)\n\n### Benchmark 2: 30 real-world bugs from GitHub Issues\n\nOn 30 real concurrency bugs collected from production npm packages, ThreadLearn + RAG scored **73.3% (22/30)**, compared to **65.0% (19.5/30)** for GPT-3.5-turbo running with the same retrieval pipeline. Full test cases are documented in `server/tests/real_world/README.md`.\n\n### What the numbers show\n\nQLoRA fine-tuning drove a **+30 percentage point** jump (40% to 70%), teaching the model structural fix patterns from 783 examples. Adding AST + BM25 RAG contributed another **+5 percentage points** (70% to 75%) on cases requiring specific Node.js API signatures. Across all 20 cases, the model produced syntactically valid code.\n\n**Remaining weak spots** were Zalgo (0/1), Double Callback (0/1), and Buffer Leak (0/1), which had very few examples in our training set. Event Loop Blocking reached **100% (5/5)**.\n\n![Per-category breakdown](https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1783871858/my-website/assets/blog/threadlearn/fig_category.png)\n\n## Key Takeaways\n\nA 1.5B model fine-tuned on a narrow task and paired with AST-aware keyword retrieval can beat a general-purpose model 125x its size on that specific task, while running locally on consumer hardware. For source code retrieval, BM25 + AST identifier extraction is faster, simpler, and more accurate than dense vector embeddings.\n\n---\n\n*Team contributions: **Le Tri Trung** (AI2: RAG Pipeline, FastAPI Server, Static Race Detector) · Ha Van An (AI1: Dataset Collection, QLoRA Fine-tuning) · Nguyen Thi Thuy Hoai (Model Evaluation & Paper Writing). FPT University Da Nang.*\n\nCode, dataset, and paper: [github.com/ThreadLearn/ThreadLearn_AI_Trainning](https://github.com/ThreadLearn/ThreadLearn_AI_Trainning). Full PDF: `/d/FPT/threadlearn_paper-full.pdf`. Visual demo: [github.com/ThreadLearn/ThreadLearn-AI-Visual](https://github.com/ThreadLearn/ThreadLearn-AI-Visual)."
     }
   ],
   "educationItems": [
@@ -920,223 +920,223 @@
     {
       "title": "Alumni Career Guidance Talk",
       "role": "Guest Speaker & Mentor",
-      "description": "Invited back to my alma mater as a **guest speaker** to talk to 12th-graders about university pathways and careers in tech. I shared my own path from high school to FPT University and the FPT Software internship — the CS curriculum, the Java development roadmap, and what actually matters in your first year in tech. Fielded live Q&A from over 50 students."
+      "description": "Invited back to Phan Chau Trinh High School as a guest speaker to talk to 12th-grade students about university majors and software careers. I shared my experience moving from high school to FPT University and interning at FPT Software, covering the Software Engineering curriculum, Java learning paths, and live Q&A with over 50 students."
     },
     {
       "title": "Innocode Camp – Coding Competition",
       "role": "Team Leader",
-      "description": "Led a **5-member cross-functional team** through the full development lifecycle of Innocode Camp SU25 — from problem analysis and system design to implementation and the final presentation. We built a job search platform prototype using **React, Java Spring Boot, MySQL, and Docker**. I ran sprint planning, made the backend architecture calls, and kept the team on schedule under the competition deadline. We made the **final round**."
+      "description": "Led a 5-member team through Innocode Camp SU25 from problem analysis and database design to coding and the final jury defense. We built a job search platform prototype using React, Java Spring Boot, MySQL, and Docker. I managed sprint tasks, backend architecture, and our competition timeline to reach the National Final Round."
     },
     {
       "title": "Mic Home Club & FUM Club",
       "role": "Core Member & Event Host",
-      "description": "Active core member of two of FPT University Da Nang's most prominent event and public speaking clubs. I regularly served as **MC and host** for university-scale events — orientation ceremonies, cultural festivals, academic competitions — in front of live audiences of **600 to 1000+ people**. Built up real stage presence, the ability to recover when things go sideways, and a feel for reading and guiding a big crowd through a multi-hour program."
+      "description": "Core member of two event hosting and public speaking clubs at FPT University Da Nang. I regularly served as MC for orientation ceremonies, cultural festivals, and academic contests with live audiences of 600 to 1,000+ students."
     },
     {
       "title": "Dreamer ResFres – Research Festival",
       "role": "Team Leader",
-      "description": "Led The Dreamers team through **FPT's Research Festival (ResFres)** — a multi-stage academic competition requiring original research, a structured report, and formal panel presentations. I split up tasks across the team, kept the research timeline on track, and coached teammates on presenting technical findings clearly to a non-technical jury. We advanced to the **multi-campus final round**."
+      "description": "Led The Dreamers research team in FPT University's Research Festival (ResFres), conducting original research, writing the paper, and defending our findings before the faculty panel to advance to the multi-campus final round."
     },
     {
       "title": "Gala – Hon Thien Dat Viet",
       "role": "External Relations & Main Coordinator",
-      "description": "Served as **main coordinator and external relations lead** for the 'Hon Thien Dat Viet' cultural gala — a large-scale university event celebrating Vietnamese heritage. That meant liaising with outside partners and sponsors, coordinating logistics across departments, running the event timeline on the day, and troubleshooting whatever came up live. Good practical lessons in high-stakes event diplomacy and juggling multiple stakeholders."
+      "description": "Served as main coordinator and external relations lead for the 'Hồn Thiêng Đất Việt' cultural gala at FPT University, working with external sponsors, coordinating logistics across student teams, and running the live stage timeline."
     },
     {
       "title": "The Dreamers – Charity Fundraising Campaign",
       "role": "Project Leader & Treasurer",
-      "description": "Designed and led The Dreamers' end-of-year fundraising campaign — coordinating sales, tracking contributions, and managing the budget as **treasurer**. Every dollar raised went straight to charity missions at local orphanages — meals, educational materials, and technology workshops. The campaign hit its internal revenue target within the month and gave us a repeatable model for future fundraising cycles."
+      "description": "Planned and led The Dreamers' year-end fundraising campaign while managing the budget as treasurer. All proceeds funded meals, school supplies, and basic computing classes at local orphanages in Da Nang and Quang Nam."
     },
     {
       "title": "Charity Missions – AHT Cooperation",
       "role": "Participant & Organizer",
-      "description": "Took part in and helped organize several charity field missions through AHT Cooperation — orphanage visits, community fundraising drives, and the 'Hanh trinh tu thien ocean.zero6' initiative. My work ranged from hands-on volunteering (handing out supplies, running mini-workshops for kids) to the logistics side (transport coordination, documentation, post-event reporting)."
+      "description": "Helped organize field charity trips with AHT Cooperation, including orphanage visits, community fundraising drives, and the 'Hành trình từ thiện ocean.zero6' program, handling transport logistics, supply distribution, and mini-workshops for children."
     },
     {
       "title": "Workshop MC – 'Make Your Image Better'",
       "role": "Master of Ceremonies",
-      "description": "Hosted the **'Make Your Image Better'** university workshop — a session on personal branding, appearance, and professional presence for students about to enter the job market. Ran the program flow, introduced speakers, kept the audience engaged, and kept the energy up across a multi-segment event. One of several workshops I've hosted, building a solid track record in professional event facilitation."
+      "description": "Hosted the 'Make Your Image Better' university workshop on personal branding and interview preparation for graduating students, managing the stage schedule, speaker introductions, and audience Q&A."
     },
     {
       "title": "Gender Equality Workshop – Program MC",
       "role": "Master of Ceremonies",
-      "description": "MC'd the **'Gender Equality in the Workplace'** workshop — a sensitive, important topic that called for careful tone, inclusive language, and the ability to keep an open discussion running smoothly. Introduced panelists, moderated Q&A, and made sure the room stayed respectful throughout. This one stretched my hosting range beyond entertainment into social education."
+      "description": "Hosted the 'Gender Equality in the Workplace' student workshop, introducing guest speakers and moderating the open panel discussion and audience Q&A."
     },
     {
       "title": "University Event Collaborator",
       "role": "Student Representative & Guide",
-      "description": "Ongoing work as a **student representative and event guide** across a range of FPT University activities — new student orientation, admission open days, volunteer recruitment drives, and inter-department collaboration events. Consistently trusted to be the face of the university for prospective students and their families, which takes clear communication, patience, and knowing the campus inside out."
+      "description": "Served as a student representative and campus guide during FPT University orientation weeks, admission open days, and inter-departmental events for prospective students and parents."
     },
     {
       "title": "Student Actor / Model / Content Creator",
       "role": "Actor, Model & Vlogger",
-      "description": "Picked up a mix of media experience across three roles: **Commercial Actor** for Honda Tien Thu dealership promotional content; **Model** for LenDoan Bridal and FPT University's official photography and event materials; and **Vlogger/Content Creator** producing and editing video for social platforms. These built up my adaptability, camera confidence, and creative production chops — a different but complementary side to the technical work."
+      "description": "Worked as a commercial actor for Honda Tien Thu promotional videos, a photo model for LenDoan Bridal and FPT University campus campaigns, and a student vlogger filming and editing short-form videos."
     },
     {
       "title": "The Dreamers – Member Recruitment Drive",
       "role": "Recruitment Leader",
-      "description": "Designed and led The Dreamers' **second-round member recruitment campaign** — drafting the recruitment criteria, putting together application materials, running interviews, and picking candidates who fit the organization's mission and culture. Successfully brought in a new cohort of members who went on to contribute to the Dream High project and our charity missions."
+      "description": "Organized The Dreamers' second-round member recruitment drive: writing evaluation criteria, preparing application forms, interviewing candidates, and onboarding new volunteers for the Dream High project."
     },
     {
       "title": "Tot Hy Vong Event",
       "role": "Event Leader",
-      "description": "Led the full planning and execution of **'Tot Hy Vong'** — a charity event organized by The Dreamers bringing joy, gifts, and educational activities to underprivileged children. Coordinated volunteer assignments, managed the day-of schedule, handled whatever came up on-site, and oversaw post-event documentation. A good reminder of what The Dreamers is really about — using community action to make a tangible difference."
+      "description": "Planned and coordinated 'Tốt Hy Vọng', a community event by The Dreamers bringing gifts and educational games to underprivileged children, covering volunteer assignments, day-of scheduling, and post-event accounting."
     },
     {
       "title": "Vong vao Mong mo Event",
       "role": "Event Leader",
-      "description": "Led the organizing team for **'Vong vao Mong mo'** — a week-long initiative by The Dreamers designed to inspire ambition and self-belief in young participants through storytelling, mentorship sessions, and interactive workshops. Handled the full arc: concept, logistics, volunteer coordination, and wrap-up. A meaningful project that tied The Dreamers' mission directly to youth empowerment."
+      "description": "Led the organizing team for 'Vòng Vào Mộng Mơ', a week-long student program by The Dreamers featuring mentorship talks and interactive skill workshops from initial planning to on-site coordination."
     },
     {
       "title": "Dream High Project",
       "role": "Project Leader",
-      "description": "Led **Dream High** — The Dreamers' flagship long-term project, running 6 months, focused on bringing technology literacy and personal development to orphaned children through structured weekly sessions. As project leader, I oversaw curriculum design, volunteer scheduling, partner coordination, and progress tracking. The project ran bi-weekly workshops on basic coding concepts, communication skills, and goal-setting for kids aged 8–15."
+      "description": "Led Dream High, a 6-month program by The Dreamers running bi-weekly classes on basic computer skills, communication, and goal-setting for orphaned children aged 8–15, managing lesson plans, volunteer rosters, and shelter partnerships."
     },
     {
       "title": "AI & Robotics Competition – Official Referee",
       "role": "Head Referee",
-      "description": "Selected as **head referee** for FPT University's AI & Robotics Competition — a technical contest where student teams program robots and AI systems to complete set challenges. Responsibilities included enforcing the rules fairly, checking technical compliance of robot designs, managing timekeeping during rounds, and settling disputes between teams. Being trusted with this role reflected the faculty's confidence in both my technical understanding and my professional conduct."
+      "description": "Served as Head Referee at the FPTU AI & Robotics 2025 Competition, inspecting robot hardware compliance, enforcing match rules, managing round timers, and adjudicating technical disputes."
     },
     {
       "title": "Charity Music Performance – Event Manager",
       "role": "Event Manager",
-      "description": "Managed The Dreamers' **charity music performance event** from planning through execution — coordinating performers, securing the venue, handling ticket and donation logistics, and managing the volunteer teams on the day. The concert raised funds for orphanage support programs. This was the biggest production The Dreamers had put on, requiring weeks of prep and a lot of real-time problem solving during the live event."
+      "description": "Managed The Dreamers' charity concert from planning to live show: booking student bands and the venue, managing ticket and donation desks, and coordinating volunteers to raise funds for orphanage programs."
     },
     {
       "title": "August Revolution Commemorative Photoshoot",
       "role": "Photo Model",
-      "description": "Selected as a **photo model** for FPT University's official commemorative photo series marking the anniversary of the August Revolution. Worked with the university's media team on formal portraits and group shots used in official communications and campus displays — part of an ongoing involvement with FPT's visual media and branding work."
+      "description": "Selected as a photo model for FPT University's commemorative photo series marking the August Revolution anniversary for campus exhibitions and official media channels."
     }
   ],
   "certificateItems": [
     {
-      "description": "Scored an **overall band of 6.0** (Listening 5.5, Reading 6.5, Writing 5.5, Speaking 6.0 · CEFR B2) on the Academic IELTS — solid academic English across all four skills. Officially administered and verified by the British Council / IDP."
+      "description": "Achieved an overall band score of 6.0 (Listening 5.5, Reading 6.5, Writing 5.5, Speaking 6.0, CEFR B2) on the official Academic IELTS exam administered by IDP Education."
     },
     {
-      "description": "Linear Certificate from **DOL English's IELTS 6.0 course**, marking course completion and progress toward the target band score — a prep milestone ahead of sitting the official IELTS Academic test."
+      "description": "Completed the IELTS 6.0 preparation course at DOL English using the Linearthinking method ahead of sitting the official Academic IELTS test."
     },
     {
-      "description": "Completed the **FPT University Inbound Mobility Programme** hosted at Tunku Abdul Rahman University of Management and Technology in **Kuala Lumpur, Malaysia**. Came away with international academic exposure, cross-cultural communication experience, and a broader view of technology education across Southeast Asia."
+      "description": "Completed the FPT University International Student Exchange Programme hosted at Tunku Abdul Rahman University of Management and Technology (TAR UMT) in Kuala Lumpur, Malaysia (12/2023)."
     },
     {
-      "description": "Certificate recognizing participation and advancing to the **final round** of Innocode Camp SU25 — a project-based coding competition organized by FPT Education for university students. Our team built a job search platform and went up against finalists from multiple FPT campuses."
+      "description": "Certificate recognizing participation and advancing to the National Final Round of Innocode Camp SU25 organized by FPT Education with our 5-member team's job platform project."
     },
     {
-      "description": "Certificate of participation and achievement at the **FPT Research Festival (ResFres 2024)** — a multi-stage academic competition covering original research, structured reporting, and a formal panel presentation. Advanced to the multi-campus final round representing The Dreamers team."
+      "description": "Certificate of achievement at the FPT University Research Festival (ResFres 2024), advancing to the multi-campus final round as Team Leader of The Dreamers."
     },
     {
-      "description": "Completed training on building **AI-powered automation workflows** using n8n — agent design, API chaining, conditional logic, and integrating with external services. Put it to use directly on workflow automation tasks during the FPT Software internship."
+      "description": "Completed training on building AI automation workflows with n8n (agent design, API chaining, conditional branching, and webhooks), applied during my FPT Software internship."
     },
     {
-      "description": "Completed Meta's **Programming with JavaScript** course on Coursera — part of the Meta Front-End Developer Professional Certificate. Covers ES6+ syntax, functions, objects, arrays, error handling, and testing fundamentals with Jest."
+      "description": "Completed Meta's Programming with JavaScript course on Coursera: ES6+ syntax, async patterns, arrays/objects, and unit testing with Jest."
     },
     {
-      "description": "Completed the University of Michigan's **Basics of Web Development & Coding** course — an intro to how the web works, covering HTML structure, CSS styling, basic JavaScript interactivity, and browser rendering."
+      "description": "Completed the University of Michigan's Web Development & Coding course covering HTML structure, CSS styling, JavaScript basics, and browser rendering."
     },
     {
-      "description": "Completed Meta's **HTML and CSS in Depth** course — part of the Front-End Developer certificate. Deep dive on semantic HTML5, advanced CSS selectors, the box model, Flexbox, Grid, and accessibility best practices."
+      "description": "Completed Meta's HTML and CSS in Depth course covering semantic HTML5, Flexbox, CSS Grid, and web accessibility practices."
     },
     {
-      "description": "Completed the University of Michigan's **Interactivity with JavaScript** course — DOM manipulation, event listeners, form validation, and dynamic content rendering for responsive, interactive web pages."
+      "description": "Completed the University of Michigan's Interactivity with JavaScript course covering DOM manipulation, event listeners, form validation, and dynamic UI updates."
     },
     {
-      "description": "Completed Meta's **Introduction to Front-End Development** — the foundational course of the Meta Front-End Developer Professional Certificate. Covers what front-end developers actually do, core web technologies, and an intro to React."
+      "description": "Completed Meta's Introduction to Front-End Development course on Coursera, covering core web technologies and React component fundamentals."
     },
     {
-      "description": "Completed IBM's **Data Visualization** course on Coursera — principles of effective data communication, chart selection, and hands-on practice with visualization tools to turn raw data into clear, useful insights."
+      "description": "Completed IBM's Data Visualization course on Coursera covering chart selection and turning raw datasets into readable visual reports."
     },
     {
-      "description": "Completed the University of Michigan's **CSS3** course — advanced CSS3 features including transitions, animations, custom properties (CSS variables), pseudo-elements, and responsive design techniques."
+      "description": "Completed the University of Michigan's CSS3 course covering transitions, animations, CSS custom properties, and responsive layouts."
     },
     {
-      "description": "Completed the University of Michigan's **HTML5** course — in-depth look at HTML5 semantic elements, multimedia embedding, forms, accessibility attributes, and best practices for structuring modern web documents."
+      "description": "Completed the University of Michigan's HTML5 course covering semantic document structure, multimedia tags, forms, and screen-reader accessibility attributes."
     },
     {
-      "description": "Completed the University of Michigan's **Responsive Web Design** course — media queries, fluid grids, flexible images, and mobile-first design principles for layouts that adapt across screen sizes."
+      "description": "Completed the University of Michigan's Responsive Web Design course covering media queries, fluid grids, and mobile-first layouts."
     },
     {
-      "description": "Completed the University of Auckland's **Academic Skills for University Success** specialization — critical reading, academic writing, research methodology, and time management for university-level study."
+      "description": "Completed the University of Auckland's Academic Skills for University Success specialization covering critical reading, academic writing, and research methods."
     },
     {
-      "description": "Completed CalArts' **Fundamentals of Graphic Design** course on Coursera — visual design principles including typography, color theory, composition, and image-making. Applied it to visual materials for The Dreamers events and FPT activities."
+      "description": "Completed CalArts' Fundamentals of Graphic Design course on Coursera covering typography, color theory, and layout composition."
     },
     {
-      "description": "Completed F8's **Information Technology Onboarding** course — an intro to core IT concepts, development workflows, and foundational practices for students starting out in software development."
+      "description": "Completed F8's Information Technology Onboarding course covering core networking, OS concepts, and software development workflows."
     },
     {
-      "description": "Served on the **Organizing Committee** of the FPTU AI & Robotics Challenge 2025 — a technical competition where student teams program robots and AI systems to complete engineering challenges. Certificate awarded for helping run the competition and its operations."
+      "description": "Served on the Organizing Committee and as Head Referee for the FPTU AI & Robotics Challenge 2025, overseeing technical compliance and match operations."
     },
     {
-      "description": "Officially certified completion of the **On-the-Job Training program** at Công ty TNHH Phần mềm FPT Miền Trung (FPT Software), covering September–December 2025 — the university-recognized internship placement underlying my FPT Software Developer Intern role."
+      "description": "Official certificate of completion for the On-the-Job Training (OJT) Software Engineering Internship at FPT Software Central Vietnam (September–December 2025)."
     },
     {
-      "description": "Completed IBM's **Build RAG Applications: Get Started** course on Coursera — an intro to Retrieval-Augmented Generation (RAG) fundamentals for building AI applications that ground responses in external knowledge sources."
+      "description": "Completed IBM's Build RAG Applications: Get Started course on Coursera, building Retrieval-Augmented Generation pipelines that ground LLM responses in external documents."
     },
     {
-      "description": "Completed IBM's **Fundamentals of AI Agents Using RAG and LangChain** course on Coursera — core concepts of AI agent design, retrieval-augmented generation, and LangChain orchestration for building context-aware agents."
+      "description": "Completed IBM's Fundamentals of AI Agents Using RAG and LangChain course on Coursera, covering agent architecture, context retrieval, and LangChain chains."
     },
     {
-      "description": "Completed an IBM-authored Coursera project building **Generative AI applications using Retrieval-Augmented Generation (RAG) and LangChain** — vector retrieval, prompt orchestration, and grounding LLM outputs in external data sources."
+      "description": "Completed IBM's guided project on Coursera building Generative AI applications with RAG and LangChain, including vector indexing and prompt grounding."
     },
     {
-      "description": "Recognized as a **Student Ambassador** for actively promoting AIESEC's Mini Leadership Conference 2025 — helping with outreach and campaign efforts for the regional youth leadership event in Da Nang."
+      "description": "Recognized as a Student Ambassador supporting outreach for AIESEC's Mini Leadership Conference 2025 in Da Nang."
     },
     {
-      "description": "Awarded a **10% scholarship** for the Information Technology program (Software Engineering major) at FPT University, based on the university's 2023 scholarship exam (Điểm trắc nghiệm 44/90, Điểm luận 8/15 — Tổng điểm 52/105)."
+      "description": "Awarded a 10% tuition scholarship for the Software Engineering program at FPT University based on the 2023 national entrance scholarship exam (total score 52/105)."
     },
     {
-      "description": "Completed freeCodeCamp's **JavaScript Algorithms and Data Structures** certification — fundamental algorithms (sorting, searching), data structures (arrays, objects, linked lists, stacks, queues), and algorithmic problem solving in pure JavaScript."
+      "description": "Completed freeCodeCamp's JavaScript Algorithms and Data Structures certification (300 hours of practice in data structures, sorting/searching algorithms, and functional programming)."
     },
     {
-      "description": "Completed the **Hiragana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — got through the full 46-character Japanese phonetic alphabet used for native Japanese words."
+      "description": "Completed the Hiragana A1 Self-Study Course on JF Japanese e-Learning Minato by the Japan Foundation."
     },
     {
-      "description": "Completed the **Katakana A1 Self-Study Course** on JF Japanese e-Learning Minato, run by the Japan Foundation — the 46-character syllabary used for foreign loanwords and technical terms in Japanese."
+      "description": "Completed the Katakana A1 Self-Study Course on JF Japanese e-Learning Minato by the Japan Foundation."
     },
     {
-      "description": "Certificate of participation in the **'Non Xanh Nuoc Biec'** environmental awareness event organized by FPT University's Student Union — a campus initiative promoting sustainability, green living, and student community engagement."
+      "description": "Certificate of participation in the 'Non Xanh Nước Biếc' campus environmental campaign organized by the FPT University Student Union."
     },
     {
-      "description": "Presented with **The Dreamers' Certificate of Honor**, recognizing my leadership and dedication as **Founder and President** of The Dreamers — honoring the passion and commitment that got the organization off the ground."
+      "description": "Certificate of Honor from The Dreamers recognizing my work as Founder and President leading our community charity projects."
     },
     {
-      "description": "Completed CertNexus's **Create and Lead an Ethical Data-Driven Organization** course on Coursera — part of a specialization on ethical governance and leadership for data-driven teams."
+      "description": "Completed CertNexus's Create and Lead an Ethical Data-Driven Organization course on Coursera on data governance practices."
     },
     {
-      "description": "Completed CertNexus's **Detect and Mitigate Ethical Risks** course on Coursera — methods to identify, assess, and reduce ethical risks in data-driven and AI-powered systems."
+      "description": "Completed CertNexus's Detect and Mitigate Ethical Risks course on Coursera on identifying and reducing data bias and AI system risks."
     },
     {
-      "description": "Completed CertNexus's **Promote the Ethical Use of Data-Driven Technologies** course on Coursera — strategies for advocating responsible, ethical adoption of data and AI technologies within organizations."
+      "description": "Completed CertNexus's Promote the Ethical Use of Data-Driven Technologies course on Coursera on responsible data and AI adoption."
     },
     {
-      "description": "Completed CertNexus's **Turn Ethical Frameworks into Actionable Steps** course on Coursera — translating high-level ethical principles into concrete, implementable practices for data-driven organizations."
+      "description": "Completed CertNexus's Turn Ethical Frameworks into Actionable Steps course on Coursera, applying data privacy and governance rules to engineering workflows."
     },
     {
-      "description": "Completed CertNexus's **Communicate Effectively about Ethical Challenges in Data-Driven Technologies** course on Coursera — building skills to clearly discuss and navigate ethical issues in AI and data technologies with diverse stakeholders."
+      "description": "Completed CertNexus's Communicate Effectively about Ethical Challenges in Data-Driven Technologies course on Coursera."
     },
     {
-      "description": "Completed CertNexus's **Preparing for Your CertNexus Certification Exam** course on Coursera — the capstone course of the CertNexus ethical data specialization, reviewing key concepts and exam prep strategies."
+      "description": "Completed the CertNexus Ethical Data specialization capstone prep course on Coursera."
     },
     {
-      "description": "Completed Politecnico di Milano's **Ethics of Artificial Intelligence** course on Coursera — the philosophical, social, and technical dimensions of ethical AI design and deployment."
+      "description": "Completed Politecnico di Milano's Ethics of Artificial Intelligence course on Coursera covering technical and societal considerations in AI deployment."
     },
     {
-      "description": "Completed UC Irvine's **Initiating and Planning Projects** course on Coursera — part of a Project Management specialization, covering project charters, scope definition, and early-stage planning fundamentals."
+      "description": "Completed UC Irvine's Initiating and Planning Projects course on Coursera covering project charters, stakeholder alignment, and scope definition."
     },
     {
-      "description": "Completed UC Irvine's **Budgeting and Scheduling Projects** course on Coursera — cost estimation, budget planning, and schedule development techniques for managing projects."
+      "description": "Completed UC Irvine's Budgeting and Scheduling Projects course on Coursera covering cost estimation, resource allocation, and critical-path scheduling."
     },
     {
-      "description": "Completed UC Irvine's **Managing Project Risks and Changes** course on Coursera — risk identification, mitigation planning, and change management practices throughout the project lifecycle."
+      "description": "Completed UC Irvine's Managing Project Risks and Changes course on Coursera covering risk matrices, mitigation plans, and change control."
     },
     {
-      "description": "Completed the capstone **Project Management Project** for UC Irvine's Project Management specialization on Coursera — applying initiation, planning, budgeting, scheduling, and risk management skills to a full project simulation."
+      "description": "Completed UC Irvine's Project Management capstone project on Coursera, creating a full charter, schedule, budget, and risk register for a simulated project."
     },
     {
-      "description": "Certificate of participation in **Hackathon Computer Vision 2026** — an international hackathon between FPT University and Singapore Institute of Technology (SIT), strengthening academic exchange between the two schools."
+      "description": "Certificate of participation and award at Hackathon Computer Vision 2026 organized jointly by FPT University and Singapore Institute of Technology (SIT)."
     },
     {
-      "description": "Awarded **Honorable Student of the Semester (Spring 2026)** by FPT University in recognition of strong academic performance and conduct during the semester."
+      "description": "Named Honorable Student of the Semester (Spring 2026) by FPT University Da Nang for academic performance."
     }
   ]
 }

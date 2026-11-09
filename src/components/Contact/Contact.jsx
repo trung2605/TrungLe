@@ -228,28 +228,28 @@ const Contact = () => {
         <div 
           style={{
             backgroundColor: 'var(--color-surface)',
-            border: '1px solid var(--color-hairline)',
-            borderRadius: '16px',
+            border: '1.5px solid var(--color-border-strong)',
+            borderRadius: '8px',
+            boxShadow: '4px 4px 0px #18181B',
             padding: '20px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             transition: 'all 0.2s ease',
-            boxShadow: '0 4px 16px rgba(0,0,0,0.02)'
           }}
           className="hover-card-elevation"
         >
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-              <div style={{ width: '42px', height: '42px', borderRadius: '12px', backgroundColor: 'rgba(0, 104, 255, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: '42px', height: '42px', borderRadius: '6px', backgroundColor: '#DBEAFE', border: '1.5px solid #18181B', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <ZaloIcon size={24} />
               </div>
-              <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10.5px', fontWeight: 600, color: '#0284c7', backgroundColor: 'rgba(2, 132, 199, 0.1)', padding: '3px 8px', borderRadius: '9999px' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10.5px', fontWeight: 700, color: '#18181B', backgroundColor: '#F5C242', border: '1.5px solid #18181B', padding: '3px 8px', borderRadius: '4px' }}>
                 <FaBolt size={9} style={{ display: 'inline', marginRight: '4px' }} />
                 {isEn ? 'Fastest' : 'Nhanh nhất'}
               </span>
             </div>
-            <h3 style={{ fontSize: '16px', fontWeight: 600, margin: '0 0 4px', color: 'var(--color-ink)' }}>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '16px', fontWeight: 700, margin: '0 0 4px', color: 'var(--color-ink)' }}>
               {isEn ? 'Zalo Instant Chat' : 'Nhắn tin qua Zalo'}
             </h3>
             <p style={{ fontSize: '13px', color: 'var(--color-ink-soft)', margin: '0 0 16px', lineHeight: 1.5 }}>
@@ -266,17 +266,21 @@ const Contact = () => {
               justifyContent: 'center',
               gap: '8px',
               padding: '10px 16px',
-              borderRadius: '10px',
-              backgroundColor: '#0068FF',
-              color: '#ffffff',
-              fontSize: '13.5px',
-              fontWeight: 540,
+              borderRadius: '5px',
+              backgroundColor: '#1D4ED8',
+              color: '#FFFFFF',
+              border: '1.5px solid #18181B',
+              boxShadow: '2px 2px 0px #18181B',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '12px',
+              fontWeight: 700,
+              textTransform: 'uppercase',
               textDecoration: 'none',
               transition: 'all 0.15s ease'
             }}
           >
             <span>{isEn ? 'Open Zalo Chat' : 'Mở Zalo nhắn ngay'}</span>
-            <FaArrowRight size={11} />
+            <FaArrowRight size={10} />
           </a>
         </div>
 
@@ -284,31 +288,31 @@ const Contact = () => {
         <div 
           style={{
             backgroundColor: 'var(--color-surface)',
-            border: '1px solid var(--color-hairline)',
-            borderRadius: '16px',
+            border: '1.5px solid var(--color-border-strong)',
+            borderRadius: '8px',
+            boxShadow: '4px 4px 0px #18181B',
             padding: '20px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             transition: 'all 0.2s ease',
-            boxShadow: '0 4px 16px rgba(0,0,0,0.02)'
           }}
           className="hover-card-elevation"
         >
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-              <div style={{ width: '42px', height: '42px', borderRadius: '12px', backgroundColor: 'rgba(34, 197, 94, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#16a34a' }}>
-                <FaPhoneAlt size={18} />
+              <div style={{ width: '42px', height: '42px', borderRadius: '6px', backgroundColor: '#B8E8D0', border: '1.5px solid #18181B', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#18181B' }}>
+                <FaPhoneAlt size={16} />
               </div>
-              <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10.5px', fontWeight: 600, color: '#16a34a', backgroundColor: 'rgba(34, 197, 94, 0.1)', padding: '3px 8px', borderRadius: '9999px' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10.5px', fontWeight: 700, color: '#18181B', backgroundColor: '#B8E8D0', border: '1.5px solid #18181B', padding: '3px 8px', borderRadius: '4px' }}>
                 <FaClock size={9} style={{ display: 'inline', marginRight: '4px' }} />
                 8:00 - 22:00
               </span>
             </div>
-            <h3 style={{ fontSize: '16px', fontWeight: 600, margin: '0 0 4px', color: 'var(--color-ink)' }}>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '16px', fontWeight: 700, margin: '0 0 4px', color: 'var(--color-ink)' }}>
               {isEn ? 'Direct Phone Call' : 'Hotline Kỹ thuật'}
             </h3>
-            <p style={{ fontSize: '13px', color: 'var(--color-ink-soft)', margin: '0 0 16px', lineHeight: 1.5 }}>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', fontWeight: 700, color: 'var(--color-ink)', margin: '0 0 16px', lineHeight: 1.5 }}>
               {rawPhone}
             </p>
           </div>
@@ -322,15 +326,19 @@ const Contact = () => {
                 justifyContent: 'center',
                 gap: '8px',
                 padding: '10px 14px',
-                borderRadius: '10px',
-                backgroundColor: 'var(--color-ink)',
-                color: 'var(--color-canvas)',
-                fontSize: '13px',
-                fontWeight: 540,
+                borderRadius: '5px',
+                backgroundColor: '#18181B',
+                color: '#FFFFFF',
+                border: '1.5px solid #18181B',
+                boxShadow: '2px 2px 0px #18181B',
+                fontFamily: 'var(--font-mono)',
+                fontSize: '12px',
+                fontWeight: 700,
+                textTransform: 'uppercase',
                 textDecoration: 'none'
               }}
             >
-              <FaPhoneAlt size={11} /> {isEn ? 'Call' : 'Gọi ngay'}
+              <FaPhoneAlt size={10} /> {isEn ? 'Call' : 'Gọi ngay'}
             </a>
             <button
               onClick={() => handleCopy(rawPhone, 'phone')}
@@ -338,10 +346,11 @@ const Contact = () => {
               style={{
                 width: '40px',
                 height: '40px',
-                borderRadius: '10px',
-                border: '1px solid var(--color-hairline)',
-                backgroundColor: 'var(--color-surface-soft)',
-                color: 'var(--color-ink)',
+                borderRadius: '5px',
+                border: '1.5px solid #18181B',
+                boxShadow: '2px 2px 0px #18181B',
+                backgroundColor: '#F5C242',
+                color: '#18181B',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
@@ -358,30 +367,30 @@ const Contact = () => {
         <div 
           style={{
             backgroundColor: 'var(--color-surface)',
-            border: '1px solid var(--color-hairline)',
-            borderRadius: '16px',
+            border: '1.5px solid var(--color-border-strong)',
+            borderRadius: '8px',
+            boxShadow: '4px 4px 0px #18181B',
             padding: '20px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             transition: 'all 0.2s ease',
-            boxShadow: '0 4px 16px rgba(0,0,0,0.02)'
           }}
           className="hover-card-elevation"
         >
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-              <div style={{ width: '42px', height: '42px', borderRadius: '12px', backgroundColor: 'rgba(239, 68, 68, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#dc2626' }}>
-                <FaEnvelope size={18} />
+              <div style={{ width: '42px', height: '42px', borderRadius: '6px', backgroundColor: '#FCE7F3', border: '1.5px solid #18181B', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#18181B' }}>
+                <FaEnvelope size={16} />
               </div>
-              <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10.5px', fontWeight: 600, color: '#dc2626', backgroundColor: 'rgba(239, 68, 68, 0.1)', padding: '3px 8px', borderRadius: '9999px' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10.5px', fontWeight: 700, color: '#FFFFFF', backgroundColor: '#EC4899', border: '1.5px solid #18181B', padding: '3px 8px', borderRadius: '4px' }}>
                 24/7
               </span>
             </div>
-            <h3 style={{ fontSize: '16px', fontWeight: 600, margin: '0 0 4px', color: 'var(--color-ink)' }}>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '16px', fontWeight: 700, margin: '0 0 4px', color: 'var(--color-ink)' }}>
               {isEn ? 'Direct Inbox' : 'Email Trực Tiếp'}
             </h3>
-            <p style={{ fontSize: '12.5px', color: 'var(--color-ink-soft)', margin: '0 0 16px', lineHeight: 1.5, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--color-ink-soft)', margin: '0 0 16px', lineHeight: 1.5, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {targetEmail}
             </p>
           </div>
@@ -395,15 +404,19 @@ const Contact = () => {
                 justifyContent: 'center',
                 gap: '8px',
                 padding: '10px 14px',
-                borderRadius: '10px',
-                backgroundColor: 'var(--color-ink)',
-                color: 'var(--color-canvas)',
-                fontSize: '13px',
-                fontWeight: 540,
+                borderRadius: '5px',
+                backgroundColor: '#18181B',
+                color: '#FFFFFF',
+                border: '1.5px solid #18181B',
+                boxShadow: '2px 2px 0px #18181B',
+                fontFamily: 'var(--font-mono)',
+                fontSize: '12px',
+                fontWeight: 700,
+                textTransform: 'uppercase',
                 textDecoration: 'none'
               }}
             >
-              <FaEnvelope size={11} /> {isEn ? 'Open Mail' : 'Mở Mail'}
+              <FaEnvelope size={10} /> {isEn ? 'Open Mail' : 'Mở Mail'}
             </a>
             <button
               onClick={() => handleCopy(targetEmail, 'email')}
@@ -411,10 +424,11 @@ const Contact = () => {
               style={{
                 width: '40px',
                 height: '40px',
-                borderRadius: '10px',
-                border: '1px solid var(--color-hairline)',
-                backgroundColor: 'var(--color-surface-soft)',
-                color: 'var(--color-ink)',
+                borderRadius: '5px',
+                border: '1.5px solid #18181B',
+                boxShadow: '2px 2px 0px #18181B',
+                backgroundColor: '#F5C242',
+                color: '#18181B',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
@@ -431,27 +445,27 @@ const Contact = () => {
         <div 
           style={{
             backgroundColor: 'var(--color-surface)',
-            border: '1px solid var(--color-hairline)',
-            borderRadius: '16px',
+            border: '1.5px solid var(--color-border-strong)',
+            borderRadius: '8px',
+            boxShadow: '4px 4px 0px #18181B',
             padding: '20px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             transition: 'all 0.2s ease',
-            boxShadow: '0 4px 16px rgba(0,0,0,0.02)'
           }}
           className="hover-card-elevation"
         >
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-              <div style={{ width: '42px', height: '42px', borderRadius: '12px', backgroundColor: 'rgba(147, 51, 234, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9333ea' }}>
-                <FaMapMarkerAlt size={18} />
+              <div style={{ width: '42px', height: '42px', borderRadius: '6px', backgroundColor: '#F7E49A', border: '1.5px solid #18181B', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#18181B' }}>
+                <FaMapMarkerAlt size={16} />
               </div>
-              <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10.5px', fontWeight: 600, color: '#9333ea', backgroundColor: 'rgba(147, 51, 234, 0.1)', padding: '3px 8px', borderRadius: '9999px' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10.5px', fontWeight: 700, color: '#18181B', backgroundColor: '#F7E49A', border: '1.5px solid #18181B', padding: '3px 8px', borderRadius: '4px' }}>
                 Đà Nẵng
               </span>
             </div>
-            <h3 style={{ fontSize: '16px', fontWeight: 600, margin: '0 0 4px', color: 'var(--color-ink)' }}>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '16px', fontWeight: 700, margin: '0 0 4px', color: 'var(--color-ink)' }}>
               {isEn ? 'Work Location' : 'Địa Điểm Làm Việc'}
             </h3>
             <p style={{ fontSize: '13px', color: 'var(--color-ink-soft)', margin: '0 0 16px', lineHeight: 1.5 }}>
@@ -460,11 +474,13 @@ const Contact = () => {
           </div>
           <div style={{
             padding: '9px 12px',
-            borderRadius: '10px',
-            backgroundColor: 'var(--color-surface-soft)',
-            border: '1px solid var(--color-hairline)',
-            fontSize: '12px',
-            color: 'var(--color-ink-soft)',
+            borderRadius: '5px',
+            backgroundColor: '#F7E49A',
+            border: '1.5px solid #18181B',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '11px',
+            fontWeight: 700,
+            color: '#18181B',
             textAlign: 'center'
           }}>
             🤝 {isEn ? 'Available for In-Person or Remote' : 'Gặp gỡ trực tiếp hoặc Online Meet'}
@@ -472,18 +488,19 @@ const Contact = () => {
         </div>
       </motion.div>
 
-      {/* ── 3. FORM CONTAINER VỚI LIME BLOCK NÂNG CẤP ── */}
+      {/* ── 3. FORM CONTAINER VỚI MUSTARD STAMP BLOCK ── */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         style={{
-          backgroundColor: '#dceeb1',
-          borderRadius: '24px',
+          backgroundColor: '#F7E49A',
+          borderRadius: '8px',
           padding: '36px 32px',
           marginBottom: '36px',
-          border: '1px solid rgba(0,0,0,0.06)'
+          border: '2px solid #18181B',
+          boxShadow: '6px 6px 0px #18181B'
         }}
       >
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '36px' }}>

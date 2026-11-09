@@ -8,55 +8,96 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
-    --border: 214 32% 91%;
+    --background: 43 33% 97%;
+    --foreground: 240 6% 10%;
+    --border: 36 15% 84%;
 
-    /* Shell theme tokens — light (warm clean white, slate ink) */
-    --color-canvas: #fcfcfd;
-    --color-ink: #0f172a;
-    --color-ink-soft: #475569;
-    --color-surface-soft: #f8fafc;
-    --color-hairline: #e2e8f0;
-    --color-accent-emerald: #10b981;
-    --color-accent-emerald-dark: #059669;
-    --color-card-bg: #ffffff;
-    --color-card-border: rgba(15, 23, 42, 0.08);
-    --shadow-soft: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-    --shadow-hover: 0 12px 32px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
-    --font-heading: 'Plus Jakarta Sans', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    /* ============================================================
+       ROBIN TACTILE NOTEBOOK & PIXEL SCRAPBOOK DESIGN TOKENS
+       ============================================================ */
+    --mat-bg: #848482;
+    --mat-grid-line: rgba(255, 255, 255, 0.24);
+    --color-canvas: #FAF8F3;
+    --color-rule-line: #E6E3DC;
+    --color-ink: #18181B;
+    --color-ink-soft: #4B5563;
+    --color-surface-soft: #F3EFE6;
+    --color-hairline: #D8D3C8;
+    --color-border-strong: #18181B;
+    --color-card-bg: #FFFFFF;
+    --color-card-border: #18181B;
+
+    /* Tactile Stationery Accents */
+    --color-mustard: #F5C242;
+    --color-mustard-soft: #FDE68A;
+    --color-mint: #A7E8BD;
+    --color-emerald-stamp: #18A96B;
+    --color-accent-emerald: #18A96B;
+    --color-accent-emerald-dark: #128050;
+    --color-pink-stamp: #EC4899;
+    --color-cobalt-tab: #2563EB;
+    --color-coral-border: #E06D53;
+    --color-orange-ring: #EA580C;
+    --color-charcoal-folder: #18181B;
+
+    /* Masking Tape Tokens */
+    --tape-blue: rgba(147, 197, 253, 0.68);
+    --tape-yellow: rgba(253, 230, 138, 0.78);
+    --tape-grey: rgba(228, 228, 231, 0.68);
+
+    /* Tactile Shadows */
+    --shadow-soft: 3px 3px 0px rgba(24, 24, 27, 0.14);
+    --shadow-hover: 5px 5px 0px #18181B;
+    --shadow-hard-sm: 2px 2px 0px #18181B;
+    --shadow-hard-md: 4px 4px 0px #18181B;
+    --shadow-polaroid: 0 10px 24px -6px rgba(24, 24, 27, 0.16), 0 2px 6px rgba(24, 24, 27, 0.08);
+
+    /* 4-Voice Typography (100% Vietnamese Diacritic Safe) */
+    --font-pixel: 'Pixelify Sans', 'JetBrains Mono', monospace;
+    --font-hand: 'Caveat', 'Plus Jakarta Sans', cursive;
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
   }
 
   html.dark {
-    /* Shell theme tokens — dark. Deep tinted slate/obsidian (#0b0c10) instead of flat black */
-    --color-canvas: #0b0c10;
-    --color-ink: #f8fafc;
-    --color-ink-soft: #94a3b8;
-    --color-surface-soft: #14161f;
-    --color-hairline: #1e2230;
-    --color-accent-emerald: #34d399;
-    --color-accent-emerald-dark: #10b981;
-    --color-card-bg: #12141c;
-    --color-card-border: rgba(255, 255, 255, 0.08);
-    --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
-    --shadow-hover: 0 12px 32px -4px rgba(0, 0, 0, 0.6), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+    --mat-bg: #090A0F;
+    --mat-grid-line: rgba(255, 255, 255, 0.07);
+    --color-canvas: #12131A;
+    --color-rule-line: rgba(255, 255, 255, 0.055);
+    --color-ink: #F4F4F5;
+    --color-ink-soft: #A1A1AA;
+    --color-surface-soft: #1B1D28;
+    --color-hairline: #2E3244;
+    --color-border-strong: #52525B;
+    --color-card-bg: #181A24;
+    --color-card-border: #3F3F46;
+    --color-accent-emerald: #34D399;
+    --color-accent-emerald-dark: #10B981;
+    --shadow-soft: 3px 3px 0px rgba(0, 0, 0, 0.55);
+    --shadow-hover: 5px 5px 0px rgba(0, 0, 0, 0.85);
+    --shadow-hard-sm: 2px 2px 0px rgba(0, 0, 0, 0.75);
+    --shadow-hard-md: 4px 4px 0px rgba(0, 0, 0, 0.85);
+    --shadow-polaroid: 0 12px 28px -6px rgba(0, 0, 0, 0.65);
   }
 
   html {
-    /* Smooth scrolling handled cleanly */
     font-feature-settings: "kern" 1, "cv02", "cv03", "cv04", "cv11";
   }
 
   body {
     @apply font-sans antialiased;
     font-family: var(--font-body);
-    font-size: 17px;
+    font-size: 16.5px;
     font-weight: 400;
-    line-height: 1.55;
+    line-height: 1.58;
     letter-spacing: -0.1px;
-    background-color: var(--color-canvas);
+    background-color: var(--mat-bg);
+    background-image:
+      linear-gradient(to right, var(--mat-grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--mat-grid-line) 1px, transparent 1px);
+    background-size: 36px 36px;
+    background-attachment: fixed;
     color: var(--color-ink);
     transition: background-color 0.25s ease, color 0.25s ease;
   }
@@ -507,15 +548,15 @@
   padding: 0 16px !important;
 }
 .layout-main.is-home {
-  padding: 74px 16px 0 !important;
+  padding: 8px 16px 0 !important;
 }
 
 @media (min-width: 640px) {
   .layout-main {
-    padding: 0 32px !important;
+    padding: 0 36px !important;
   }
   .layout-main.is-home {
-    padding: 74px 32px 0 !important;
+    padding: 12px 36px 0 !important;
   }
 }
 
@@ -692,6 +733,286 @@ body::before {
     box-shadow: none !important;
     break-inside: avoid;
   }
+}
+
+/* ============================================================
+   ROBIN TACTILE NOTEBOOK & SCRAPBOOK COMPONENT SYSTEM
+   ============================================================ */
+
+/* Outer Cutting Mat wrapper */
+.cutting-mat-shell {
+  min-height: 100vh;
+  padding: 20px 18px 48px;
+}
+
+@media (max-width: 768px) {
+  .cutting-mat-shell {
+    padding: 8px 6px 24px;
+  }
+}
+
+/* Inner Ruled Notebook Sheet */
+.notebook-sheet {
+  max-width: 1240px;
+  margin: 0 auto;
+  background-color: var(--color-canvas);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 27px,
+    var(--color-rule-line) 27px,
+    var(--color-rule-line) 28px
+  );
+  border: 1.5px solid var(--color-border-strong);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow-x: clip;
+}
+
+/* Boxed Notebook Label (like "what's up" in reference) */
+.notebook-boxed-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 18px;
+  background-color: var(--color-card-bg);
+  border: 1.5px solid var(--color-border-strong);
+  box-shadow: 2px 2px 0px var(--color-border-strong);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+
+/* Coral-Bordered Pixel Nameplate */
+.pixel-nameplate-box {
+  display: inline-block;
+  background-color: var(--color-card-bg);
+  border: 2.5px solid var(--color-coral-border);
+  border-radius: 6px;
+  padding: 12px 36px 8px;
+  transform: rotate(-0.8deg);
+  box-shadow: 0 8px 24px rgba(24, 24, 27, 0.07);
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pixel-nameplate-box:hover {
+  transform: rotate(0deg) scale(1.01);
+}
+.pixel-nameplate-text {
+  font-family: var(--font-pixel);
+  font-size: clamp(50px, 9vw, 96px);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 0.96;
+  color: var(--color-ink);
+  text-transform: uppercase;
+  display: block;
+}
+
+/* Sticky Note Tag */
+.sticky-note-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(24, 24, 27, 0.22);
+  box-shadow: 2px 3px 0px rgba(24, 24, 27, 0.14);
+  font-family: var(--font-hand);
+  font-size: 18px;
+  font-weight: 700;
+  color: #18181B;
+  line-height: 1.15;
+}
+
+/* Polaroid Frame + Washi Masking Tape */
+.polaroid-frame {
+  background: #FFFFFF;
+  padding: 10px 10px 30px 10px;
+  border: 1.5px solid #18181B;
+  border-radius: 4px;
+  box-shadow: var(--shadow-polaroid);
+  position: relative;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+}
+.polaroid-frame:hover {
+  transform: rotate(0deg) translateY(-4px) scale(1.02) !important;
+  z-index: 15;
+  box-shadow: 6px 8px 0px #18181B;
+}
+.polaroid-caption {
+  font-family: var(--font-hand);
+  font-size: 17px;
+  font-weight: 700;
+  color: #3F3F46;
+  text-align: center;
+  margin-top: 8px;
+  line-height: 1.1;
+}
+
+/* Washi Tape Corner Strips */
+.washi-tape-tl {
+  position: absolute;
+  top: -11px;
+  left: -14px;
+  width: 64px;
+  height: 20px;
+  background: var(--tape-blue);
+  transform: rotate(-32deg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+  z-index: 5;
+}
+.washi-tape-tr {
+  position: absolute;
+  top: -11px;
+  right: -14px;
+  width: 64px;
+  height: 20px;
+  background: var(--tape-yellow);
+  transform: rotate(28deg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+  z-index: 5;
+}
+.washi-tape-grey-tl {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  width: 68px;
+  height: 20px;
+  background: var(--tape-grey);
+  transform: rotate(-16deg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 5;
+}
+.washi-tape-grey-tr {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  width: 68px;
+  height: 20px;
+  background: var(--tape-grey);
+  transform: rotate(15deg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Perforated Postage-Stamp / Ticket-Stub Skill Badge */
+.postage-stamp-tag {
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: 5px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14px;
+  position: relative;
+  box-shadow: 0 3px 0 rgba(24, 24, 27, 0.22);
+  border: 1.5px solid #18181B;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.postage-stamp-tag:hover {
+  transform: translateY(-2px) rotate(-0.8deg);
+  box-shadow: 0 5px 0 #18181B;
+}
+.postage-stamp-label {
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+}
+.postage-stamp-stub {
+  padding: 8px 11px;
+  border-left: 2px dashed rgba(24, 24, 27, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Manilla File-Folder Tab & Card */
+.folder-tab-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 28px 0 22px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  clip-path: polygon(0% 0%, 88% 0%, 100% 100%, 0% 100%);
+  cursor: pointer;
+  border: none;
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+.folder-tab-trigger:hover {
+  filter: brightness(1.06);
+}
+.folder-tab-center {
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  padding: 0 30px;
+}
+
+/* Tactile 3D Button (Robin "CONTACT ME" style) */
+.btn-robin-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px 9px 10px;
+  background-color: #18181B;
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1.5px solid #18181B;
+  box-shadow: 0 3px 0 #000000;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-robin-dark:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 #000000;
+}
+.btn-robin-dark:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #000000;
+}
+.btn-robin-dark .plus-box {
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  background-color: #2563EB;
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Crisp Notebook Card */
+.notebook-card {
+  background-color: var(--color-card-bg);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 8px;
+  box-shadow: var(--shadow-hard-md);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+.notebook-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px var(--color-border-strong);
 }
 
 /* Shared spin animation — page loader, submit-button spinner */

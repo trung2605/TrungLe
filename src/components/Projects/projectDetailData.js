@@ -112,14 +112,64 @@ export const PROJECT_MILESTONE_MAP = {
     color: "#0284c7",
     bg: "#f0f9ff",
     border: "#bae6fd"
+  },
+  30: {
+    milestoneId: 1,
+    titleVi: "SynapForge Venture Studio (Live TikTok 3D Ecosystem)",
+    titleEn: "SynapForge Venture Studio (Live TikTok 3D Ecosystem)",
+    roleVi: "Lead 3D Game & Realtime Systems Architect",
+    roleEn: "Lead 3D Game & Realtime Systems Architect",
+    color: "#d97706",
+    bg: "#fffbeb",
+    border: "#fde68a"
+  },
+  31: {
+    milestoneId: 1,
+    titleVi: "SynapForge Venture Studio & AI Film Platform",
+    titleEn: "SynapForge Venture Studio & AI Film Platform",
+    roleVi: "Founder, Tech Lead & Technical BA",
+    roleEn: "Founder, Tech Lead & Technical BA",
+    color: "#7c3aed",
+    bg: "#faf5ff",
+    border: "#ddd6fe"
+  },
+  32: {
+    milestoneId: 1,
+    titleVi: "Career Studio & JD Intelligence Engine",
+    titleEn: "Career Studio & JD Intelligence Engine",
+    roleVi: "Creator & Technical Business Analyst",
+    roleEn: "Creator & Technical Business Analyst",
+    color: "#059669",
+    bg: "#ecfdf5",
+    border: "#a7f3d0"
+  },
+  33: {
+    milestoneId: 1,
+    titleVi: "AHTS Da Nang International Terminal Portal",
+    titleEn: "AHTS Da Nang International Terminal Portal",
+    roleVi: "Frontend & Data Model Architect",
+    roleEn: "Frontend & Data Model Architect",
+    color: "#2563eb",
+    bg: "#eff6ff",
+    border: "#bfdbfe"
+  },
+  1: {
+    milestoneId: 3,
+    titleVi: "Đại học FPT Đà Nẵng (JobFinder AI Ecosystem)",
+    titleEn: "FPT University Da Nang (JobFinder AI Ecosystem)",
+    roleVi: "Lead Backend Architect & Senior BA (56 Atomic FRs)",
+    roleEn: "Lead Backend Architect & Senior BA (56 Atomic FRs)",
+    color: "#0891b2",
+    bg: "#ecfeff",
+    border: "#a5f3fc"
   }
 };
 
 export const BRANDHUB_METRICS = [
-  { value: "07", labelVi: "Microservices & Modules", labelEn: "Microservices & Modules", subVi: "Độc lập phân tán", subEn: "Distributed Services" },
-  { value: "32", labelVi: "Tuần phát triển (16 Sprints)", labelEn: "Weeks (16 Agile Sprints)", subVi: "Quy trình FSoft chuẩn", subEn: "Standard Agile / Scrum" },
-  { value: "430+", labelVi: "Tasks Jira hoàn thành", labelEn: "Completed Jira Tasks", subVi: "Spec → Plan → Code → Test", subEn: "Spec → Plan → Code → Test" },
-  { value: "05", labelVi: "Mạng xã hội tích hợp", labelEn: "Social Platforms Synced", subVi: "FB, TikTok, Insta, Threads, Zalo", subEn: "FB, TikTok, Insta, Threads, Zalo" },
+  { value: "141", labelVi: "Atomic FRs & Use Cases", labelEn: "Atomic FRs & Use Cases", subVi: "Chuẩn Karl Wiegers SRS", subEn: "Karl Wiegers SRS Standard" },
+  { value: "2.5K+", labelVi: "Test Cases & 320+ E2E", labelEn: "Test Cases & 320+ E2E", subVi: "Playwright Automation", subEn: "Playwright Automation" },
+  { value: "79", labelVi: "Màn hình Mobile App", labelEn: "Mobile App Screens", subVi: "React Native + Web", subEn: "React Native + Web" },
+  { value: "04", labelVi: "Nền tảng MXH Xuất bản", labelEn: "Social Platforms Synced", subVi: "FB, IG, TikTok, Threads", subEn: "FB, IG, TikTok, Threads" },
   { value: "0%", labelVi: "Tỷ lệ mất tin nhắn (DLQ)", labelEn: "Publishing Loss Rate", subVi: "RabbitMQ Retry lũy thừa", subEn: "Exponential Backoff DLQ" }
 ];
 
@@ -288,17 +338,24 @@ export const BRANDHUB_TEAM_ROLES = [
 export const BIENSOVIP_SPECS = [
   {
     icon: FaSearch,
-    titleVi: "Lọc đa tiêu chí dưới 8ms (PostgreSQL GIN Index)",
-    titleEn: "Sub-8ms Multi-filter Query (PostgreSQL GIN Index)",
-    descVi: "Tìm kiếm tức thời giữa hàng chục nghìn biển số theo định dạng ngũ quý, sảnh tiến, lộc phát và dải giá, phản hồi dưới 8ms không giật lag.",
-    descEn: "Instant search across tens of thousands of plates by lucky numbers and price ranges with sub-8ms response."
+    titleVi: "Pipeline 1,1 Triệu Bản Ghi Đấu Giá VPA & Lọc <8ms",
+    titleEn: "1.1M+ VPA Auction Records & Sub-8ms GIN Index Query",
+    descVi: "Đồng bộ và chuẩn hóa hơn 1,1 triệu bản ghi đấu giá quốc gia (830K+ biển số, 290K+ lượt trả giá); tối ưu 61 bảng PostgreSQL với GIN Index phản hồi dưới 8ms.",
+    descEn: "Synchronized and normalized 1.1M+ national auction records (830K+ plates, 290K+ bids); 61 PostgreSQL tables with GIN Indexing responding under 8ms."
   },
   {
     icon: FaQrcode,
-    titleVi: "Cổng cọc VietQR tự động & Khóa độc bản",
-    titleEn: "Automated VietQR Deposit & Concurrency Lock",
-    descVi: "Khớp lệnh cọc qua Webhook ngân hàng dưới 0.5s với 0đ phí cổng trung gian. Khóa phân tán Redis 15 phút triệt tiêu 100% rủi ro bán trùng.",
-    descEn: "Matches deposits in <0.5s via bank webhook with 0% fee. 15-minute Redis distributed lock prevents concurrent double deposits."
+    titleVi: "Máy Trạng Thái FSM 4-Tab & Cọc Tự Động VietQR",
+    titleEn: "4-Tab Finite State Machine & Automated VietQR Deposit",
+    descVi: "Mô hình hóa vòng đời biển số bằng FSM 4-tab; khớp lệnh cọc qua Webhook ngân hàng dưới 0.5s kết hợp khóa phân tán Redis 15 phút chống bán trùng 100%.",
+    descEn: "4-tab FSM lifecycle modeling; matches deposits in <0.5s via bank webhook with 15-minute Redis distributed lock preventing concurrent double deposits."
+  },
+  {
+    icon: FaShareAlt,
+    titleVi: "Trợ Lý Livestream TikTok 9:16 & Bàn Phím Tắt VFX/SFX",
+    titleEn: "TikTok Live 9:16 Safe-Zone Assistant & VFX/SFX Soundboard",
+    descVi: "Overlay khung dọc 9:16 né vùng chết comment TikTok, tra cứu comment thông minh <30ms và phím tắt F1–F6 kích hoạt hiệu ứng Pháo hoa / Lửa Rồng / Mưa Tiền Vàng.",
+    descEn: "Vertical 9:16 Safe-Zone overlay avoiding TikTok comment dead-zones, <30ms smart comment lookup, and F1–F6 hotkeys triggering dual-audio VFX/SFX."
   },
   {
     icon: FaEnvelope,
@@ -315,25 +372,18 @@ export const BIENSOVIP_SPECS = [
     descEn: "Instant push notification when matching inventory arrives; 1-click bulk campaign broadcasts."
   },
   {
-    icon: FaShareAlt,
-    titleVi: "Nhúng Video TikTok/Reels & Sinh ảnh Mockup AI",
-    titleEn: "Social Video Embeds & Batch Mockup Generator",
-    descVi: "Gán video thực tế sản phẩm từ TikTok/Reels tăng uy tín, kèm công cụ 1-click sinh hàng loạt ảnh mockup sản phẩm chuẩn kích thước MXH.",
-    descEn: "Embeds authentic short videos with 1-click batch rendering of multi-ratio social media cards."
-  },
-  {
     icon: FaBalanceScale,
-    titleVi: "Phong thủy 4 trụ & Ma trận so sánh đa biển",
-    titleEn: "4-Pillar Numerology & Side-by-Side Comparison",
-    descVi: "Công cụ chấm điểm hợp mệnh theo ngũ hành và ngày sinh; ma trận đối chiếu 3 biển số song song giúp tăng 35% tỷ lệ chốt cọc.",
-    descEn: "Interactive numerology affinity score plus side-by-side spec comparison matrix lifting conversion by 35%."
+    titleVi: "Phong thủy 4 trụ (80 số Cát/Hung) & So sánh đa biển",
+    titleEn: "4-Pillar Numerology (80-Number Rules) & Comparison Matrix",
+    descVi: "Thuật toán chấm điểm hợp mệnh theo Bát tự / Ngũ hành & 80 số Cát/Hung; ma trận đối chiếu 3 biển số song song giúp tăng 35% tỷ lệ chốt cọc.",
+    descEn: "Interactive Bazi/Five-Elements & 80-number numerology engine plus side-by-side comparison matrix lifting conversion by 35%."
   },
   {
     icon: FaUsers,
-    titleVi: "Cổng Mạng Lưới 14 Cộng Tác Viên (CTV)",
-    titleEn: "Affiliate Portal with 14 Live Brokers",
-    descVi: "Cấp link UTM định danh riêng, ví hoa hồng tự động ghi nhận khi khách cọc và quy trình duyệt lệnh rút tiền minh bạch 1-click.",
-    descEn: "Unique UTM referral attribution, automated wallet commission ledger, and 1-click payout verification."
+    titleVi: "Cổng Mạng Lưới 14 Cộng Tác Viên (CTV) & Chống Gian Lận",
+    titleEn: "Affiliate Portal (14 Live Brokers) & Fraud Risk Scoring",
+    descVi: "Cấp link UTM định danh riêng, công thức hoa hồng bậc thang tự động, chấm điểm rủi ro CTV (Risk Score) và duyệt lệnh rút tiền minh bạch.",
+    descEn: "Unique UTM referral attribution, tiered commission ledger, automated CTV fraud risk scoring, and 1-click payout verification."
   }
 ];
 

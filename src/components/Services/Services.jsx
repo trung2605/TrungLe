@@ -97,7 +97,7 @@ const Services = () => {
   };
 
   return (
-    <div className="services-page" style={{ paddingTop: '124px' }}>
+    <div className="services-page" style={{ paddingTop: '72px' }}>
       <ServicesSubnav />
       {/* TERMINAL PROMPT HEADER - Desktop only */}
       <div className="terminal-prompt hidden md:flex">

@@ -27,7 +27,7 @@ const STATUS_KEY = {
 
 const ActivityCard = ({ act, index, onSelect, t }) => {
     const spotlight = useSpotlight();
-    const statusStyle = STATUS_STYLE[act.status] || { bg: '#f7f7f5', color: '#000000' };
+    const statusStyle = STATUS_STYLE[act.status] || { bg: '#F7E49A', color: '#18181B' };
     const statusLabel = STATUS_KEY[act.status] ? t(`activities.statuses.${STATUS_KEY[act.status]}`) : act.status;
 
     return (
@@ -40,37 +40,38 @@ const ActivityCard = ({ act, index, onSelect, t }) => {
             whileHover={{ y: -4 }}
             className="card-spotlight"
             style={{
-                backgroundColor: 'var(--color-canvas)',
-                border: '1px solid #e6e6e6',
-                borderRadius: '24px',
-                padding: '24px',
+                backgroundColor: 'var(--color-card-bg)',
+                border: '1.5px solid var(--color-border-strong)',
+                borderRadius: '8px',
+                boxShadow: '4px 4px 0px #18181B',
+                padding: '22px',
                 cursor: 'pointer',
-                transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                 position: 'relative',
                 overflow: 'hidden',
             }}
             onMouseMove={spotlight.onMouseMove}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-ink)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = '#e6e6e6'; e.currentTarget.style.boxShadow = 'none'; }}
+            onMouseEnter={e => { e.currentTarget.style.boxShadow = '6px 6px 0px #18181B'; }}
+            onMouseLeave={e => { e.currentTarget.style.boxShadow = '4px 4px 0px #18181B'; }}
             onClick={() => onSelect(act)}
         >
             {/* Color accent top bar */}
-            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: BLOCK_COLORS[index % BLOCK_COLORS.length], borderRadius: '24px 24px 0 0' }} />
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '6px', backgroundColor: BLOCK_COLORS[index % BLOCK_COLORS.length], borderBottom: '1.5px solid #18181B' }} />
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px', marginTop: '8px' }}>
-                <span style={{ padding: '4px 12px', borderRadius: '50px', fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: statusStyle.bg, color: statusStyle.color }}>
+                <span style={{ padding: '3px 10px', borderRadius: '4px', fontSize: '10.5px', fontFamily: 'var(--font-mono)', fontWeight: 700, letterSpacing: '0.4px', textTransform: 'uppercase', backgroundColor: statusStyle.bg, color: statusStyle.color, border: '1.5px solid #18181B' }}>
                     {statusLabel}
                 </span>
-                <FaEye size={14} style={{ color: '#aaaaaa' }} />
+                <FaEye size={14} style={{ color: 'var(--color-ink-soft)' }} />
             </div>
 
-            <h3 style={{ fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif', fontSize: '17px', fontWeight: '540', color: 'var(--color-ink)', margin: '0 0 8px 0', lineHeight: '1.35' }}>{act.title}</h3>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '17px', fontWeight: 700, color: 'var(--color-ink)', margin: '0 0 8px 0', lineHeight: '1.35' }}>{act.title}</h3>
 
-            <div style={{ fontSize: '13px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.3px', textTransform: 'uppercase', color: '#666666', marginBottom: '8px' }}>
+            <div style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', fontWeight: 700, letterSpacing: '0.3px', textTransform: 'uppercase', color: 'var(--color-ink-soft)', marginBottom: '8px' }}>
                 {act.organization}
             </div>
 
-            <div style={{ display: 'flex', gap: '16px', fontSize: '13px', color: '#888888', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '16px', fontSize: '12.5px', color: 'var(--color-ink-soft)', flexWrap: 'wrap' }}>
                 <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                     <FaCalendarAlt size={11} /> {act.duration}
                 </span>
@@ -148,15 +149,15 @@ const Activities = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                style={{ backgroundColor: '#c8e6cd', borderRadius: '24px', padding: '32px 28px', marginBottom: '48px' }}
+                style={{ backgroundColor: '#B8E8D0', borderRadius: '8px', border: '2px solid #18181B', boxShadow: '6px 6px 0px #18181B', padding: '28px 32px', marginBottom: '48px' }}
             >
                 <div style={{
-                    fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
-                    color: '#444444', marginBottom: '20px',
+                    fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 700,
+                    color: '#18181B', marginBottom: '20px',
                 }}>
-                    <span style={{ color: '#1ea64a' }}>{'> '}</span>
+                    <span style={{ color: '#18181B' }}>{'> '}</span>
                     <span>activities.filter(a =&gt; a.isActive).length</span>
-                    <span style={{ color: '#555555', marginLeft: '8px' }}>{'// '}{activities.filter(a => a.status === 'Active' || a.status === 'In Progress').length} running</span>
+                    <span style={{ color: '#3F3F46', marginLeft: '8px' }}>{'// '}{activities.filter(a => a.status === 'Active' || a.status === 'In Progress').length} running</span>
                 </div>
                 <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
                     {[
@@ -166,8 +167,8 @@ const Activities = () => {
                         { label: t('activities.organizations'), value: organizations.length - 1, icon: <FaBuilding /> },
                     ].map((s, i) => (
                         <div key={i}>
-                            <div style={{ fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: '340', lineHeight: '1.0', color: '#000000' }}>{s.value}</div>
-                            <div style={{ fontSize: '14px', fontWeight: '400', color: '#444444', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <div style={{ fontFamily: 'var(--font-pixel)', fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: 700, lineHeight: '1.0', color: '#18181B' }}>{s.value}</div>
+                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', color: '#18181B', marginTop: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                                 {s.icon} {s.label}
                             </div>
                         </div>

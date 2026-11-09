@@ -7,16 +7,17 @@ const TabsList = ({ className, ...props }) => (
   <RadixTabs.List className={cn('flex gap-2 flex-wrap', className)} {...props} />
 );
 
-// Pill-shaped trigger matching the site's existing filter-button look —
-// active state driven by Radix's data-state attribute instead of manual useState comparisons.
+// Tactile notebook stamp/tab trigger matching the Robin design system —
+// active state driven by Radix's data-state attribute.
 const TabsTrigger = ({ className, count, children, ...props }) => (
   <RadixTabs.Trigger
     className={cn(
-      'inline-flex items-center gap-1.5 px-[18px] py-2 rounded-pill text-[15px] cursor-pointer',
-      'border-[1.5px] border-hairline bg-canvas text-ink transition-all duration-150',
-      'dark:border-[color:var(--color-hairline)] dark:bg-[color:var(--color-canvas)] dark:text-[color:var(--color-ink)]',
-      'data-[state=active]:bg-ink data-[state=active]:text-canvas data-[state=active]:border-ink data-[state=active]:font-medium',
-      'dark:data-[state=active]:bg-[color:var(--color-ink)] dark:data-[state=active]:text-[color:var(--color-canvas)]',
+      'inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[5px] text-[12px] font-mono font-bold uppercase tracking-wide cursor-pointer',
+      'border-[1.5px] border-[#18181B] bg-[#FFFFFF] text-[#18181B] shadow-[2px_2px_0px_#18181B] transition-all duration-150',
+      'hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#18181B]',
+      'dark:border-[color:var(--color-border-strong)] dark:bg-[color:var(--color-surface)] dark:text-[color:var(--color-ink)]',
+      'data-[state=active]:bg-[#F5C242] data-[state=active]:text-[#18181B] data-[state=active]:border-[#18181B]',
+      'dark:data-[state=active]:bg-[#F5C242] dark:data-[state=active]:text-[#18181B] dark:data-[state=active]:border-[#F5C242]',
       'group',
       className
     )}
@@ -24,7 +25,7 @@ const TabsTrigger = ({ className, count, children, ...props }) => (
   >
     {children}
     {count !== undefined && (
-      <span className="text-[11px] font-mono px-1.5 py-0.5 rounded-pill bg-black/10 group-data-[state=active]:bg-white/20 dark:bg-white/10">
+      <span className="text-[11px] font-mono px-1.5 py-0.5 rounded-[3px] bg-black/10 group-data-[state=active]:bg-black/15 dark:bg-white/10 dark:group-data-[state=active]:bg-black/20">
         {count}
       </span>
     )}

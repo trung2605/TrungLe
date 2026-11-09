@@ -74,10 +74,14 @@ export const useTranslatedData = () => {
     },
   };
 
-  const certificates = rawCertificates.map((c, i) => ({
-    ...c,
-    description: t(`certificateItems.${i}.description`),
-  }));
+  const certificates = rawCertificates.map((c, i) => {
+    const isEn = lang === 'en';
+    const fallbackDesc = isEn ? (c.descriptionEn || c.description) : (c.descriptionVi || c.description);
+    return {
+      ...c,
+      description: (isEn ? c.descriptionEn : c.descriptionVi) || t(`certificateItems.${i}.description`, { defaultValue: fallbackDesc }),
+    };
+  });
 
   const education = rawEducation.map((e, i) => ({
     ...e,
@@ -104,13 +108,16 @@ export const useTranslatedData = () => {
     description: t(`prizeItems.${i}.description`),
   }));
 
-  const projects = rawProjects.map((p, i) => ({
-    ...p,
-    role: t(`projectItems.${i}.role`),
-    description: t(`projectItems.${i}.description`),
-    challenge: t(`projectItems.${i}.challenge`),
-    highlights: t(`projectItems.${i}.highlights`, { returnObjects: true }),
-  }));
+  const projects = rawProjects.map((p, i) => {
+    const isEn = lang === 'en';
+    return {
+      ...p,
+      role: (isEn ? p.roleEn : p.roleVi) || t(`projectItems.${i}.role`, { defaultValue: p.role }),
+      description: (isEn ? p.descriptionEn : p.descriptionVi) || t(`projectItems.${i}.description`, { defaultValue: p.description }),
+      challenge: (isEn ? p.challengeEn : p.challengeVi) || t(`projectItems.${i}.challenge`, { defaultValue: p.challenge }),
+      highlights: (isEn ? p.highlightsEn : p.highlightsVi) || t(`projectItems.${i}.highlights`, { returnObjects: true, defaultValue: p.highlights }),
+    };
+  });
 
   const posts = rawPosts.map((p, i) => {
     const isEn = lang === 'en';

@@ -1,5 +1,39 @@
+# Robots.txt — Lê Trí Trung Portfolio & SynapForge Venture Studio
+# Optimized for Google Search, Bing, and AI Search Engines (GEO / AEO 2026)
+
 User-agent: *
 Allow: /
 
-# Sitemaps
+# Explicitly allow AI Search & Answer Engine crawlers for Passage Citability (GEO)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemaps & AI Knowledge Index
 Sitemap: https://trung2605.github.io/sitemap.xml

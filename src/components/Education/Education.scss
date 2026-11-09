@@ -7,9 +7,9 @@
 
   .dossier-card {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 20px;
-    box-shadow: 0 12px 32px -12px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.02);
+    border: 2px solid #18181B;
+    border-radius: 8px;
+    box-shadow: 6px 6px 0px #18181B;
     overflow: hidden;
     color: #0f172a;
     transition: all 0.3s ease;
@@ -17,9 +17,9 @@
 
   /* Top Bar */
   .dossier-topbar {
-    background: #f8fafc;
+    background: #F5C242;
     padding: 12px 24px;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 2px solid #18181B;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,16 +30,18 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 12.5px;
-      font-weight: 500;
-      color: #334155;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #18181B;
 
       .live-dot {
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background-color: #10b981;
-        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        background-color: #22C55E;
+        border: 1px solid #18181B;
         animation: pulseLive 2s infinite;
       }
     }
@@ -47,13 +49,16 @@
     .dossier-counter {
       display: inline-flex;
       align-items: center;
-      font-size: 12px;
-      font-weight: 600;
-      color: #059669;
-      background: #ecfdf5;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #18181B;
+      background: #FFFFFF;
       padding: 4px 12px;
-      border-radius: 50px;
-      border: 1px solid #a7f3d0;
+      border-radius: 4px;
+      border: 1.5px solid #18181B;
+      box-shadow: 2px 2px 0px #18181B;
     }
   }
 

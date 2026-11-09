@@ -10,11 +10,12 @@ const getSocialIcon = (name) => {
     return icons[name.toLowerCase()] || FaEnvelope;
 };
 
+const COIN_COLORS = ['#F5C242', '#EC4899', '#18A96B', '#2563EB', '#EA580C'];
+
 const Footer = () => {
     const { t } = useTranslation();
     const { siteNavigation } = useTranslatedData();
     const scrollToTop = () => {
-        // Lenis (see App.js) hijacks scroll, so window.scrollTo alone won't reach 0 — use its API when active.
         if (window.__lenis) {
             window.__lenis.scrollTo(0, { duration: 1.1 });
         } else {
@@ -24,57 +25,73 @@ const Footer = () => {
 
     return (
         <footer style={{
-            backgroundColor: 'var(--color-canvas)',
-            borderTop: '1px solid var(--color-hairline)',
-            padding: '56px 32px',
-            marginTop: '0',
+            backgroundColor: 'var(--color-surface-soft)',
+            borderTop: '2px solid var(--color-border-strong)',
+            padding: '48px 36px 36px',
+            marginTop: '32px',
+            position: 'relative',
         }}>
-            <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 <div
                     className="footer-grid"
-                    style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '48px', marginBottom: '40px' }}
+                    style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '40px', marginBottom: '36px' }}
                 >
-                    {/* Brand */}
+                    {/* Brand Stamp Box */}
                     <div>
                         <Link
                             to="/"
                             onClick={scrollToTop}
-                            style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', marginBottom: '16px' }}
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', textDecoration: 'none', marginBottom: '14px' }}
                         >
                             <div style={{
-                                width: '32px', height: '32px', borderRadius: '6px',
-                                backgroundColor: '#000000', color: '#ffffff',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                fontSize: '13px', fontWeight: '700', letterSpacing: '-0.5px',
-                            }}>LT</div>
-                            <span style={{ fontSize: '16px', fontWeight: '540', color: 'var(--color-ink)', letterSpacing: '-0.2px' }}>
-                                Lê Trí Trung
+                                padding: '4px 12px',
+                                borderRadius: '4px',
+                                backgroundColor: 'var(--color-card-bg)',
+                                border: '2px solid #E06D53',
+                                boxShadow: '2px 2px 0px #18181B',
+                                fontFamily: 'var(--font-pixel)',
+                                fontSize: '20px',
+                                fontWeight: 700,
+                                color: 'var(--color-ink)',
+                                letterSpacing: '0.04em',
+                                transform: 'rotate(-1deg)',
+                            }}>
+                                TRUNG LÊ
+                            </div>
+                            <span style={{
+                                fontFamily: 'var(--font-hand)',
+                                fontSize: '20px',
+                                fontWeight: 700,
+                                color: 'var(--color-ink-soft)',
+                            }}>
+                                ✎ software architect
                             </span>
                         </Link>
                         <p style={{
-                            fontSize: '15px', fontWeight: '330', lineHeight: '1.6',
-                            color: 'var(--color-ink-soft)', maxWidth: '320px', marginBottom: '20px',
+                            fontSize: '14.5px', fontWeight: 400, lineHeight: 1.6,
+                            color: 'var(--color-ink-soft)', maxWidth: '340px', marginBottom: '20px',
                         }}>
                             {t('footer.tagline')}
                         </p>
-                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                             {socialLinks.map((social, i) => {
                                 const Icon = getSocialIcon(social.name);
+                                const coinBg = COIN_COLORS[i % COIN_COLORS.length];
                                 return (
                                     <motion.a
                                         key={i}
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        whileHover={{ y: -2 }}
-                                        className="hover-surface"
+                                        whileHover={{ y: -2, rotate: -4 }}
                                         style={{
                                             width: '36px', height: '36px',
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                                             borderRadius: '9999px',
-                                            backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)',
-                                            border: '1px solid var(--color-hairline)',
-                                            transition: 'background-color 0.15s ease',
+                                            backgroundColor: coinBg,
+                                            color: coinBg === '#F5C242' ? '#18181B' : '#FFFFFF',
+                                            border: '1.5px solid #18181B',
+                                            boxShadow: '2px 2px 0px #18181B',
                                             textDecoration: 'none',
                                         }}
                                     >
@@ -88,11 +105,12 @@ const Footer = () => {
                     {/* Explore links */}
                     <div>
                         <p style={{
-                            fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
-                            letterSpacing: '0.60px', textTransform: 'uppercase',
-                            color: 'var(--color-ink-soft)', marginBottom: '16px',
-                        }}>{t('footer.quickLinks')}</p>
-                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                            fontFamily: 'var(--font-mono)', fontSize: '11px',
+                            fontWeight: 700,
+                            letterSpacing: '0.08em', textTransform: 'uppercase',
+                            color: 'var(--color-ink)', marginBottom: '14px',
+                        }}>★ {t('footer.quickLinks')}</p>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '9px' }}>
                             {siteNavigation.map((item) => (
                                 <li key={item.path}>
                                     <Link
@@ -100,12 +118,14 @@ const Footer = () => {
                                         onClick={scrollToTop}
                                         className="hover-ink"
                                         style={{
-                                            fontSize: '15px', fontWeight: '330',
+                                            fontFamily: 'var(--font-mono)',
+                                            fontSize: '12.5px', fontWeight: 600,
+                                            textTransform: 'uppercase',
                                             color: 'var(--color-ink-soft)', textDecoration: 'none',
                                             transition: 'color 0.15s ease',
                                         }}
                                     >
-                                        {item.title}
+                                        → {item.title}
                                     </Link>
                                 </li>
                             ))}
@@ -115,31 +135,32 @@ const Footer = () => {
                     {/* Contact */}
                     <div>
                         <p style={{
-                            fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
-                            letterSpacing: '0.60px', textTransform: 'uppercase',
-                            color: 'var(--color-ink-soft)', marginBottom: '16px',
-                        }}>{t('footer.contactInfo')}</p>
+                            fontFamily: 'var(--font-mono)', fontSize: '11px',
+                            fontWeight: 700,
+                            letterSpacing: '0.08em', textTransform: 'uppercase',
+                            color: 'var(--color-ink)', marginBottom: '14px',
+                        }}>♥ {t('footer.contactInfo')}</p>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', color: 'var(--color-ink-soft)' }}>
-                                <FaMapMarkerAlt size={13} style={{ marginTop: '2px', flexShrink: 0 }} />
+                                <FaMapMarkerAlt size={13} style={{ marginTop: '3px', flexShrink: 0, color: '#EA580C' }} />
                                 {t('footer.location')}
                             </li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
-                                <FaPhoneAlt size={13} style={{ flexShrink: 0 }} />
+                                <FaPhoneAlt size={13} style={{ flexShrink: 0, color: '#18A96B' }} />
                                 <a
                                     href="tel:+84912158715"
                                     className="hover-ink"
-                                    style={{ color: 'var(--color-ink-soft)', textDecoration: 'none', transition: 'color 0.15s ease' }}
+                                    style={{ color: 'var(--color-ink-soft)', textDecoration: 'none', fontWeight: 500 }}
                                 >
                                     +84 912158715 (Zalo)
                                 </a>
                             </li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
-                                <FaEnvelope size={13} style={{ flexShrink: 0 }} />
+                                <FaEnvelope size={13} style={{ flexShrink: 0, color: '#2563EB' }} />
                                 <a
                                     href="mailto:letritrung2605@gmail.com"
                                     className="hover-ink"
-                                    style={{ color: 'var(--color-ink-soft)', textDecoration: 'none', transition: 'color 0.15s ease', wordBreak: 'break-all' }}
+                                    style={{ color: 'var(--color-ink-soft)', textDecoration: 'none', wordBreak: 'break-all', fontWeight: 500 }}
                                 >
                                     letritrung2605@gmail.com
                                 </a>
@@ -150,33 +171,34 @@ const Footer = () => {
 
                 {/* Bottom bar */}
                 <div style={{
-                    paddingTop: '20px',
-                    borderTop: '1px solid var(--color-hairline)',
+                    paddingTop: '18px',
+                    borderTop: '1.5px dashed var(--color-hairline)',
                     display: 'flex', alignItems: 'center',
                     justifyContent: 'space-between',
                     flexWrap: 'wrap', gap: '10px',
                 }}>
-                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', color: 'var(--color-ink-soft)', margin: 0 }}>
-                        © {new Date().getFullYear()} LÊ TRÍ TRUNG — ALL RIGHTS RESERVED
+                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.06em', color: 'var(--color-ink-soft)', margin: 0 }}>
+                        © {new Date().getFullYear()} LÊ TRÍ TRUNG · NOTEBOOK EDITION v2.0
                     </p>
-                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.4px', color: 'var(--color-ink-soft)', margin: 0 }}>
+                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.05em', color: 'var(--color-ink-soft)', margin: 0 }}>
                         {t('footer.builtWith').toUpperCase()}
                     </p>
                 </div>
             </div>
 
-            {/* Scroll to top */}
+            {/* Tactile Scroll to top button */}
             <motion.button
                 onClick={scrollToTop}
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.95 }}
+                aria-label="Scroll to top"
                 style={{
                     position: 'fixed', bottom: '28px', right: '28px',
-                    width: '44px', height: '44px', borderRadius: '9999px',
-                    backgroundColor: '#000000', color: '#ffffff',
-                    border: 'none', display: 'flex', alignItems: 'center',
+                    width: '44px', height: '44px', borderRadius: '6px',
+                    backgroundColor: '#18181B', color: '#FFFFFF',
+                    border: '2px solid #18181B', display: 'flex', alignItems: 'center',
                     justifyContent: 'center', cursor: 'pointer',
-                    zIndex: 40, boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
+                    zIndex: 40, boxShadow: '3px 3px 0px #F5C242',
                 }}
             >
                 <FaArrowUp size={14} />
