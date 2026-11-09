@@ -193,7 +193,7 @@ const ProjectDetail = () => {
   }
 
   return (
-    <div style={{ paddingTop: '28px', paddingBottom: '96px', maxWidth: '1160px', margin: '0 auto', paddingLeft: '16px', paddingRight: '16px' }}>
+    <div style={{ paddingTop: '28px', paddingBottom: '96px', width: '100%', maxWidth: '100%', margin: '0 auto' }}>
 
       {/* 1. PROFESSIONAL BREADCRUMB & BACK ACTION */}
       <motion.nav 

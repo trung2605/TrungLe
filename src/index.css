@@ -266,7 +266,8 @@
   /* Section container with responsive padding */
   .section-container {
     @apply mx-auto px-6 sm:px-8;
-    max-width: 1240px;
+    width: 100%;
+    max-width: 100%;
     padding-top: 80px;
     padding-bottom: 80px;
   }
@@ -542,9 +543,11 @@
 }
 
 /* ============================================================
-   MOBILE RESPONSIVE SYSTEM (< 640px)
+   MOBILE & FLUID VIEWPORT RESPONSIVE SYSTEM
    ============================================================ */
 .layout-main {
+  width: 100%;
+  max-width: 100% !important;
   padding: 0 16px !important;
 }
 .layout-main.is-home {
@@ -553,10 +556,10 @@
 
 @media (min-width: 640px) {
   .layout-main {
-    padding: 0 36px !important;
+    padding: 0 clamp(22px, 2.8vw, 52px) !important;
   }
   .layout-main.is-home {
-    padding: 12px 36px 0 !important;
+    padding: 12px clamp(22px, 2.8vw, 52px) 0 !important;
   }
 }
 
@@ -739,10 +742,25 @@ body::before {
    ROBIN TACTILE NOTEBOOK & SCRAPBOOK COMPONENT SYSTEM
    ============================================================ */
 
-/* Outer Cutting Mat wrapper */
+:root {
+  --side-stream-w: clamp(220px, 14.5vw, 320px);
+  --side-stream-gap: clamp(10px, 1vw, 22px);
+}
+
+/* Outer Cutting Mat wrapper — fluidly adapts to viewport & zoom level */
 .cutting-mat-shell {
   min-height: 100vh;
-  padding: 20px 18px 48px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(14px, 1.5vw, 28px) clamp(14px, 2.2vw, 44px) 48px;
+  transition: padding 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (min-width: 1201px) {
+  body.has-side-streams .cutting-mat-shell {
+    padding-left: calc(var(--side-stream-w) + (var(--side-stream-gap) * 2) + 6px);
+    padding-right: calc(var(--side-stream-w) + (var(--side-stream-gap) * 2) + 6px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -751,9 +769,10 @@ body::before {
   }
 }
 
-/* Inner Ruled Notebook Sheet */
+/* Inner Ruled Notebook Sheet — Sculpted Rounded Sheet that scales 100% proportionally */
 .notebook-sheet {
-  max-width: 1240px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   background-color: var(--color-canvas);
   background-image: repeating-linear-gradient(
@@ -764,23 +783,31 @@ body::before {
     var(--color-rule-line) 28px
   );
   border: 1.5px solid var(--color-border-strong);
+  border-radius: 32px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.08);
   position: relative;
   overflow-x: clip;
 }
 
-/* Boxed Notebook Label (like "what's up" in reference) */
+@media (max-width: 768px) {
+  .notebook-sheet {
+    border-radius: 22px;
+  }
+}
+
+/* Boxed Notebook Label (like "what's up" in reference, now pill/soft-rounded) */
 .notebook-boxed-label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 5px 18px;
+  padding: 6px 20px;
   background-color: var(--color-card-bg);
   border: 1.5px solid var(--color-border-strong);
-  box-shadow: 2px 2px 0px var(--color-border-strong);
+  border-radius: 999px;
+  box-shadow: 2px 3px 0px var(--color-border-strong);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--color-ink);
   letter-spacing: -0.01em;
 }
@@ -790,15 +817,16 @@ body::before {
   display: inline-block;
   background-color: var(--color-card-bg);
   border: 2.5px solid var(--color-coral-border);
-  border-radius: 6px;
-  padding: 12px 36px 8px;
+  border-radius: 18px;
+  padding: 12px 38px 8px;
   transform: rotate(-0.8deg);
-  box-shadow: 0 8px 24px rgba(24, 24, 27, 0.07);
+  box-shadow: 0 10px 28px rgba(24, 24, 27, 0.09);
   position: relative;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
 }
 .pixel-nameplate-box:hover {
-  transform: rotate(0deg) scale(1.01);
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 6px 6px 0px var(--color-coral-border);
 }
 .pixel-nameplate-text {
   font-family: var(--font-pixel);
@@ -816,10 +844,10 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 14px;
-  border-radius: 4px;
-  border: 1.5px solid rgba(24, 24, 27, 0.22);
-  box-shadow: 2px 3px 0px rgba(24, 24, 27, 0.14);
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(24, 24, 27, 0.28);
+  box-shadow: 2px 3px 0px rgba(24, 24, 27, 0.16);
   font-family: var(--font-hand);
   font-size: 18px;
   font-weight: 700;
@@ -832,13 +860,13 @@ body::before {
   background: #FFFFFF;
   padding: 10px 10px 30px 10px;
   border: 1.5px solid #18181B;
-  border-radius: 4px;
+  border-radius: 20px;
   box-shadow: var(--shadow-polaroid);
   position: relative;
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
 }
 .polaroid-frame:hover {
-  transform: rotate(0deg) translateY(-4px) scale(1.02) !important;
+  transform: rotate(0deg) translateY(-6px) scale(1.03) !important;
   z-index: 15;
   box-shadow: 6px 8px 0px #18181B;
 }
@@ -860,6 +888,7 @@ body::before {
   width: 64px;
   height: 20px;
   background: var(--tape-blue);
+  border-radius: 4px;
   transform: rotate(-32deg);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   pointer-events: none;
@@ -872,6 +901,7 @@ body::before {
   width: 64px;
   height: 20px;
   background: var(--tape-yellow);
+  border-radius: 4px;
   transform: rotate(28deg);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   pointer-events: none;
@@ -884,6 +914,7 @@ body::before {
   width: 68px;
   height: 20px;
   background: var(--tape-grey);
+  border-radius: 4px;
   transform: rotate(-16deg);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   pointer-events: none;
@@ -896,6 +927,7 @@ body::before {
   width: 68px;
   height: 20px;
   background: var(--tape-grey);
+  border-radius: 4px;
   transform: rotate(15deg);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   pointer-events: none;
@@ -906,7 +938,7 @@ body::before {
 .postage-stamp-tag {
   display: inline-flex;
   align-items: stretch;
-  border-radius: 5px;
+  border-radius: 999px;
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 14px;
@@ -914,19 +946,19 @@ body::before {
   box-shadow: 0 3px 0 rgba(24, 24, 27, 0.22);
   border: 1.5px solid #18181B;
   overflow: hidden;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease;
 }
 .postage-stamp-tag:hover {
-  transform: translateY(-2px) rotate(-0.8deg);
+  transform: translateY(-3px) rotate(-1deg) scale(1.02);
   box-shadow: 0 5px 0 #18181B;
 }
 .postage-stamp-label {
-  padding: 8px 15px;
+  padding: 8px 16px;
   display: flex;
   align-items: center;
 }
 .postage-stamp-stub {
-  padding: 8px 11px;
+  padding: 8px 13px;
   border-left: 2px dashed rgba(24, 24, 27, 0.35);
   display: flex;
   align-items: center;
@@ -941,32 +973,34 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  height: 40px;
+  height: 42px;
   padding: 0 28px 0 22px;
   font-family: var(--font-mono);
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  clip-path: polygon(0% 0%, 88% 0%, 100% 100%, 0% 100%);
+  border-radius: 16px 16px 0 0;
   cursor: pointer;
-  border: none;
-  transition: transform 0.18s ease, filter 0.18s ease;
+  border: 2px solid #18181B;
+  border-bottom: none;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), filter 0.22s ease;
 }
 .folder-tab-trigger:hover {
-  filter: brightness(1.06);
+  filter: brightness(1.08);
+  transform: translateY(-2px);
 }
 .folder-tab-center {
-  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
-  padding: 0 30px;
+  border-radius: 18px 18px 0 0;
+  padding: 0 32px;
 }
 
-/* Tactile 3D Button (Robin "CONTACT ME" style) */
+/* Tactile 3D Pill Button (Robin + giaimamanhai hybrid) */
 .btn-robin-dark {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 18px 9px 10px;
+  padding: 9px 22px 9px 10px;
   background-color: #18181B;
   color: #FFFFFF;
   font-family: var(--font-mono);
@@ -974,45 +1008,571 @@ body::before {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-radius: 5px;
+  border-radius: 999px;
   border: 1.5px solid #18181B;
-  box-shadow: 0 3px 0 #000000;
+  box-shadow: 0 4px 0 #000000;
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, background-color 0.22s ease;
 }
 .btn-robin-dark:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 0 #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #000000;
 }
 .btn-robin-dark:active {
   transform: translateY(2px);
   box-shadow: 0 1px 0 #000000;
 }
 .btn-robin-dark .plus-box {
-  width: 22px;
-  height: 22px;
-  border-radius: 3px;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
   background-color: #2563EB;
   color: #FFFFFF;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
 }
 
-/* Crisp Notebook Card */
+/* Crisp Sculpted Notebook Card */
 .notebook-card {
   background-color: var(--color-card-bg);
   border: 1.5px solid var(--color-border-strong);
-  border-radius: 8px;
+  border-radius: 24px;
   box-shadow: var(--shadow-hard-md);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
 }
 .notebook-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: 6px 6px 0px var(--color-border-strong);
+}
+
+/* ============================================================
+   GIAIMAMANHAI-INSPIRED MOTION, ROUNDED ARCHES & SCULPTED UI
+   ============================================================ */
+
+/* 1. Custom Context-Aware Follower Cursor */
+.gmmn-cursor {
+  display: none;
+  pointer-events: none;
+  z-index: 9999;
+}
+@media (hover: hover) and (pointer: fine) {
+  .gmmn-cursor {
+    display: block;
+  }
+}
+.gmmn-cursor-dot,
+.gmmn-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 9999;
+}
+.gmmn-cursor.is-on .gmmn-cursor-dot,
+.gmmn-cursor.is-on .gmmn-cursor-ring {
+  opacity: 1;
+}
+.gmmn-cursor-dot {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background-color: #F5C242;
+  border: 1px solid #18181B;
+  transition: opacity 0.2s ease;
+}
+.gmmn-cursor-ring {
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+  border: 1.5px solid #18181B;
+  background-color: rgba(245, 194, 66, 0.12);
+  display: grid;
+  place-items: center;
+  transition:
+    opacity 0.25s ease,
+    width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    margin 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+.gmmn-cursor.is-link .gmmn-cursor-ring {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  background-color: rgba(245, 194, 66, 0.28);
+  border-color: #18181B;
+}
+.gmmn-cursor.is-label .gmmn-cursor-ring {
+  width: 92px;
+  height: 92px;
+  margin: -46px 0 0 -46px;
+  background-color: #F5C242;
+  border: 2px solid #18181B;
+  box-shadow: 3px 3px 0px #18181B;
+}
+.gmmn-cursor.is-label .gmmn-cursor-dot {
+  opacity: 0;
+}
+.gmmn-cursor-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #18181B;
+  text-align: center;
+  line-height: 1.15;
+  padding: 0 6px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.gmmn-cursor.is-label .gmmn-cursor-label {
+  opacity: 1;
+}
+
+/* 2. Spinning SVG Stamp Sticker & Floating Action Bubble */
+.gmmn-sticker-spin {
+  transform-box: view-box;
+  transform-origin: 60px 60px;
+  animation: spin 18s linear infinite;
+}
+.gmmn-floating-bubble {
+  position: fixed;
+  bottom: clamp(16px, 2.2vw, 28px);
+  right: clamp(16px, 2.2vw, 28px);
+  z-index: 45;
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: rotate(-30deg) scale(0.4);
+  filter: drop-shadow(3px 4px 0px #18181B);
+  transition:
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gmmn-floating-bubble.is-on {
+  opacity: 1;
+  pointer-events: auto;
+  transform: rotate(0deg) scale(1);
+}
+.gmmn-floating-bubble.is-on:hover {
+  transform: rotate(6deg) scale(1.08);
+}
+@media (max-width: 768px) {
+  .gmmn-floating-bubble {
+    display: none;
+  }
+}
+
+/* 3. Word-by-Word Masked Stagger Reveal */
+.gmmn-w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin: -0.14em -0.02em -0.1em;
+  padding: 0.14em 0.02em 0.1em;
+}
+.gmmn-w-in {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* 4. Multi-Image Ken-Burns Slideshow (.gmmn-slides) */
+.gmmn-slides {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: #18181B;
+  border: 2.5px solid #18181B;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+.gmmn-slide-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 3.8s linear;
+}
+.gmmn-slide-img.is-on {
+  opacity: 1;
+  transform: scale(1);
+}
+.gmmn-slides-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(250, 248, 243, 0.92);
+  color: #18181B;
+  border: 1.5px solid #18181B;
+  box-shadow: 2px 2px 0px #18181B;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 4;
+  transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gmmn-slides-arrow:hover {
+  background-color: #F5C242;
+  transform: translateY(-50%) scale(1.08);
+}
+.gmmn-slides-arrow:active {
+  transform: translateY(-50%) scale(0.92);
+}
+.gmmn-slides-arrow.is-prev {
+  left: 12px;
+}
+.gmmn-slides-arrow.is-next {
+  right: 12px;
+}
+.gmmn-slides-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  z-index: 4;
+}
+.gmmn-slides-dots button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.gmmn-slides-dots button::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FAF8F3;
+  border: 1px solid #18181B;
+  opacity: 0.65;
+  transition: transform 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
+}
+.gmmn-slides-dots button[aria-pressed='true']::before {
+  background-color: #F5C242;
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+/* 5. Sculpted Arch Photo Frame & Asymmetric Pill Callouts */
+.arch-photo-frame {
+  background-color: #FFFFFF;
+  padding: 12px 12px 26px 12px;
+  border: 2px solid #18181B;
+  border-radius: 999px 999px 26px 26px;
+  box-shadow: 5px 6px 0px #18181B;
+  position: relative;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.38s ease;
+}
+.arch-photo-frame:hover {
+  transform: rotate(0deg) translateY(-6px) scale(1.03) !important;
+  box-shadow: 8px 10px 0px #18181B;
+  z-index: 15;
+}
+.arch-photo-inner {
+  width: 100%;
+  aspect-ratio: 4/4.5;
+  border-radius: 999px 999px 16px 16px;
+  overflow: hidden;
+  border: 1.5px solid #18181B;
+  background-color: #F3EFE6;
+  position: relative;
+}
+.arch-photo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.arch-photo-frame:hover .arch-photo-inner img {
+  transform: scale(1.08);
+}
+
+/* Asymmetric Pill Callout (like .about-survey in giaimamanhai) */
+.pill-callout-right {
+  background-color: #18181B;
+  color: #FAF8F3;
+  border: 2px solid #18181B;
+  border-radius: 16px 999px 999px 16px;
+  padding: 16px 28px 16px 22px;
+  box-shadow: 4px 4px 0px #F5C242;
+}
+
+/* 6. Decode Portal Window Stage (like .decode-stage + .decode-window in giaimamanhai) */
+.decode-portal-stage {
+  --r: clamp(95px, 9.5vw, 138px);
+  position: relative;
+  padding-left: var(--r);
+}
+.decode-portal-window {
+  position: absolute;
+  top: 50%;
+  left: var(--r);
+  transform: translate(-50%, -50%);
+  width: calc((var(--r) - 10px) * 2);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid #F5C242;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.38), 0 0 0 4px #18181B;
+  overflow: hidden;
+  z-index: 3;
+  background-color: #18181B;
+}
+.decode-portal-window img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.decode-portal-panel {
+  background-color: var(--color-card-bg);
+  color: var(--color-ink);
+  border: 2px solid #18181B;
+  border-radius: 28px;
+  box-shadow: 6px 6px 0px #18181B;
+  padding: 36px 36px 36px calc(var(--r) + 28px);
+  position: relative;
+}
+@media (max-width: 900px) {
+  .decode-portal-stage {
+    padding-left: 0;
+    padding-top: 90px;
+  }
+  .decode-portal-window {
+    width: 176px;
+    top: 88px;
+    left: 50%;
+  }
+  .decode-portal-panel {
+    padding: 106px 22px 28px;
+  }
+}
+
+/* 7. Interactive Themes Accordion + Floating Peek Lens (like .themes in giaimamanhai) */
+.theme-accordion-row {
+  cursor: pointer;
+  border-bottom: 2px solid var(--color-border-strong);
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  column-gap: 28px;
+  padding-top: clamp(28px, 3.5vw, 44px);
+  padding-bottom: 20px;
+  position: relative;
+  transition: background-color 0.25s ease;
+}
+.theme-accordion-row:hover {
+  background-color: rgba(245, 194, 66, 0.08);
+}
+.theme-giant-num {
+  font-family: var(--font-pixel);
+  font-weight: 800;
+  font-size: clamp(4.8rem, 4rem + 5.5vw, 8.2rem);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, var(--color-ink) 25%, #F5C242 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: block;
+  margin-top: 12px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.theme-accordion-row:hover .theme-giant-num,
+.theme-accordion-item.is-open .theme-giant-num {
+  transform: translateY(-8%);
+}
+.theme-plus-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border-strong);
+  background-color: var(--color-card-bg);
+  box-shadow: 2px 2px 0px #18181B;
+  position: absolute;
+  top: clamp(28px, 3.5vw, 44px);
+  right: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-ink);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease;
+}
+.theme-accordion-row:hover .theme-plus-btn {
+  background-color: #F5C242;
+  color: #18181B;
+}
+.theme-accordion-item.is-open .theme-plus-btn {
+  transform: rotate(135deg);
+  background-color: #18181B;
+  color: #F5C242;
+}
+.tp-rounded-drawer {
+  background-color: #18181B;
+  color: #FAF8F3;
+  border: 2px solid #18181B;
+  border-radius: 0 0 28px 28px;
+  padding: clamp(22px, 3vw, 36px);
+  margin: 0 0 32px 0;
+  box-shadow: 6px 6px 0px #F5C242;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 0.78fr);
+  gap: clamp(18px, 2.2vw, 28px);
+}
+.tp-arch-callout {
+  background-color: #F5C242;
+  color: #18181B;
+  border: 2px solid #18181B;
+  border-radius: 999px 999px 24px 24px;
+  padding: 28px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.theme-peek-lens {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 210px;
+  height: 210px;
+  margin: -105px 0 0 -105px;
+  border-radius: 50%;
+  border: 5px solid #FAF8F3;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.38), 0 0 0 2px #18181B;
+  pointer-events: none;
+  z-index: 42;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity 0.28s ease,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.theme-peek-lens.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.theme-peek-lens img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 960px) {
+  .theme-accordion-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .tp-rounded-drawer {
+    grid-template-columns: 1fr;
+  }
+  .theme-peek-lens {
+    display: none;
+  }
+}
+
+/* 8. Sculpted Real-Photo Cards (.act--hole, .act--arch, .act--curve) */
+.act-sculpted-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.act-sculpted-card {
+  position: relative;
+  border: 2px solid #18181B;
+  border-radius: 28px;
+  overflow: hidden;
+  background-color: #18181B;
+  box-shadow: 5px 5px 0px #18181B;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 430px;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+.act-sculpted-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 8px 8px 0px #F5C242;
+}
+.act-sculpted-card.is-arch {
+  border-radius: 999px 999px 28px 28px;
+}
+.act-sculpted-photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.act-sculpted-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+}
+.act-sculpted-card:hover .act-sculpted-photo img {
+  transform: scale(1.08);
+}
+.act-sculpted-overlay {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(250, 248, 243, 0.96);
+  color: #18181B;
+  border-top: 2px solid #18181B;
+  padding: 22px 24px;
+  backdrop-filter: blur(6px);
+}
+.act-sculpted-card.is-hole .act-sculpted-overlay {
+  margin: 0 22px 18px 0;
+  border-right: 2px solid #18181B;
+  border-bottom: 2px solid #18181B;
+  border-radius: 0 999px 999px 0;
+  padding: 20px 34px 20px 22px;
+  box-shadow: 4px 4px 0px #18181B;
+}
+.act-sculpted-card.is-curve .act-sculpted-overlay {
+  margin: 0 14px 14px 14px;
+  border: 2px solid #18181B;
+  border-radius: 22px;
+  box-shadow: 4px 4px 0px #18181B;
+}
+.act-sculpted-card.is-arch .act-sculpted-overlay {
+  text-align: center;
+  border-radius: 26px 26px 0 0;
+}
+@media (max-width: 960px) {
+  .act-sculpted-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Shared spin animation — page loader, submit-button spinner */

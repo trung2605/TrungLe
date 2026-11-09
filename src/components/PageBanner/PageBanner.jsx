@@ -144,11 +144,11 @@ const PageBanner = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0.01 : 0.4, ease: [0.16, 1, 0.3, 1] }}
             style={{
-                padding: 'clamp(22px, 3.2vw, 36px) clamp(16px, 3vw, 36px) 16px',
+                padding: 'clamp(22px, 2.8vw, 36px) clamp(16px, 2.8vw, 52px) 16px',
                 position: 'relative',
             }}
         >
-            <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+            <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto', position: 'relative', zIndex: 1 }}>
                 {/* Top Breadcrumb + Sticky Stamp Row */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
                     <nav aria-label="Breadcrumb">
@@ -248,7 +248,7 @@ const PageBanner = () => {
                         paddingBottom: '18px',
                     }}
                 >
-                    <div style={{ maxWidth: '820px' }}>
+                    <div style={{ maxWidth: '1080px' }}>
                         {/* Handwritten script annotation */}
                         <div
                             style={{

@@ -165,7 +165,7 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                style={{ maxWidth: '820px', margin: '0 auto', backgroundColor: 'var(--color-surface)', border: '1.5px solid var(--color-border-strong)', borderRadius: '8px', boxShadow: '4px 4px 0px #18181B', padding: 'clamp(22px, 4vw, 40px)' }}
+                style={{ width: '100%', maxWidth: '1180px', margin: '0 auto', backgroundColor: 'var(--color-surface)', border: '1.5px solid var(--color-border-strong)', borderRadius: '24px', boxShadow: '4px 4px 0px #18181B', padding: 'clamp(24px, 3.8vw, 48px)' }}
             >
                 <h1 style={{
                     fontFamily: 'var(--font-heading)',

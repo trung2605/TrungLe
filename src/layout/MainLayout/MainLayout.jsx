@@ -12,6 +12,7 @@ import CommandPalette from '../../components/ui/CommandPalette';
 import InstallPrompt from '../../common/InstallPrompt';
 import RecruiterMatch from '../../components/RecruiterMatch/RecruiterMatch';
 import SideStreams from '../../components/ui/SideStreams/SideStreams';
+import { CustomFollowerCursor, FloatingActionBubble } from '../../animations/InteractiveEffects';
 
 const MainLayout = () => {
     const { pathname } = useLocation();
@@ -31,18 +32,21 @@ const MainLayout = () => {
             }}
         >
             <SeoHeadManager />
+            <CustomFollowerCursor />
+            <FloatingActionBubble />
             <ScrollProgressBar />
             <CommandPalette />
             <InstallPrompt />
             {!isServicesPage && <SideStreams />}
             <RecruiterMatch open={recruiterMatchOpen} onOpenChange={setRecruiterMatchOpen} />
 
-            {/* Tactile Notebook Stamp Floating Button for Recruiters */}
+            {/* Tactile Pill Stamp Floating Button for Recruiters */}
             <motion.button
                 onClick={() => setRecruiterMatchOpen(true)}
-                whileHover={{ y: -3, rotate: -1 }}
+                whileHover={{ y: -3, rotate: -1, scale: 1.03 }}
                 whileTap={{ scale: 0.96 }}
                 aria-label={t('recruiterMatch.widgetLabel')}
+                data-cursor="Match JD"
                 className="hidden md:flex recruiter-floating-btn"
                 style={{
                     position: 'fixed',
@@ -50,8 +54,8 @@ const MainLayout = () => {
                     left: '28px',
                     alignItems: 'center',
                     gap: '8px',
-                    padding: '10px 18px',
-                    borderRadius: '6px',
+                    padding: '11px 22px',
+                    borderRadius: '999px',
                     backgroundColor: '#F5C242',
                     color: '#18181B',
                     border: '2px solid #18181B',
@@ -62,7 +66,7 @@ const MainLayout = () => {
                     letterSpacing: '0.05em',
                     textTransform: 'uppercase',
                     zIndex: 40,
-                    boxShadow: '3px 3px 0px #18181B',
+                    boxShadow: '3px 4px 0px #18181B',
                 }}
             >
                 <FaBriefcase size={13} /> <span>{t('recruiterMatch.widgetLabel')}</span>
@@ -105,7 +109,8 @@ const MainLayout = () => {
                     id="main-content"
                     className={`layout-main ${isHome ? 'is-home' : ''}`}
                     style={{
-                        maxWidth: '1200px',
+                        width: '100%',
+                        maxWidth: '100%',
                         margin: '0 auto',
                         paddingTop: isHome ? '12px' : '0px',
                     }}

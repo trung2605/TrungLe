@@ -319,6 +319,18 @@ const SideStreams = () => {
     }
   };
 
+  // Sync body class so .cutting-mat-shell and .notebook-sheet expand/scale seamlessly between side streams
+  useEffect(() => {
+    if (isVisible) {
+      document.body.classList.add('has-side-streams');
+    } else {
+      document.body.classList.remove('has-side-streams');
+    }
+    return () => {
+      document.body.classList.remove('has-side-streams');
+    };
+  }, [isVisible]);
+
   const handlePackageClick = () => {
     navigate('/dich-vu');
     setTimeout(() => {

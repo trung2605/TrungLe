@@ -48,8 +48,9 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.05, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={{ y: -4 }}
+      whileHover={{ y: -5 }}
       onClick={handleCardClick}
+      data-cursor={t('projects.viewDetails', 'Xem Dự Án')}
       className={featured ? 'card-spotlight bento-featured' : 'card-spotlight'}
       style={{
         display: 'flex',
@@ -57,7 +58,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         backgroundColor: featured ? '#18181B' : 'var(--color-card-bg)',
         color: featured ? '#FFFFFF' : 'var(--color-ink)',
         border: '2px solid #18181B',
-        borderRadius: '8px',
+        borderRadius: '24px',
         overflow: 'hidden',
         transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
         cursor: 'pointer',
@@ -87,11 +88,11 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         {/* Top Folder Code Strip */}
         <div style={{
           position: 'absolute', top: '12px', left: '12px', zIndex: 3,
-          padding: '3px 10px',
+          padding: '3px 12px',
           backgroundColor: featured ? '#1D4ED8' : '#18181B',
           color: '#FFFFFF',
           border: '1.5px solid #18181B',
-          borderRadius: '4px',
+          borderRadius: '999px',
           fontFamily: 'var(--font-mono)',
           fontSize: '10.5px',
           fontWeight: 700,
@@ -131,8 +132,8 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            padding: '6px 14px',
-            borderRadius: '4px',
+            padding: '7px 16px',
+            borderRadius: '999px',
             backgroundColor: '#F5C242',
             color: '#18181B',
             border: '1.5px solid #18181B',
@@ -145,8 +146,8 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         {/* Status badge */}
         <div style={{
           position: 'absolute', top: '12px', right: '12px', zIndex: 3,
-          padding: '3px 10px',
-          borderRadius: '4px',
+          padding: '3px 11px',
+          borderRadius: '999px',
           fontSize: '10.5px',
           fontFamily: 'var(--font-mono)',
           fontWeight: 700,
@@ -163,7 +164,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
           <div style={{
             position: 'absolute', bottom: '12px', left: '12px', zIndex: 3,
             padding: '4px 12px',
-            borderRadius: '4px',
+            borderRadius: '999px',
             fontSize: '10.5px',
             fontWeight: 700,
             fontFamily: 'var(--font-mono)',
@@ -186,8 +187,8 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
           {project.category && (
             <span style={{
-              padding: '3px 9px',
-              borderRadius: '4px',
+              padding: '3px 11px',
+              borderRadius: '999px',
               fontSize: '10.5px',
               fontFamily: 'var(--font-mono)',
               fontWeight: 700,
@@ -206,8 +207,8 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              padding: '3px 9px',
-              borderRadius: '4px',
+              padding: '3px 11px',
+              borderRadius: '999px',
               fontSize: '10.5px',
               fontFamily: 'var(--font-mono)',
               fontWeight: 700,
@@ -270,8 +271,8 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
               }}
               style={{
                 flex: 1,
-                padding: '9px 14px',
-                borderRadius: '5px',
+                padding: '9px 16px',
+                borderRadius: '999px',
                 fontSize: '12px',
                 fontFamily: 'var(--font-mono)',
                 fontWeight: 700,
@@ -304,7 +305,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
                 style={{
                   width: '36px', height: '36px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  borderRadius: '5px',
+                  borderRadius: '999px',
                   backgroundColor: '#FFFFFF',
                   color: '#18181B',
                   border: '1.5px solid #18181B',
@@ -328,7 +329,7 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
                 style={{
                   width: '36px', height: '36px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  borderRadius: '5px',
+                  borderRadius: '999px',
                   backgroundColor: '#22C55E',
                   color: '#FFFFFF',
                   border: '1.5px solid #18181B',
@@ -357,8 +358,8 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '6px',
-                padding: '6px 10px',
-                borderRadius: '4px',
+                padding: '6px 12px',
+                borderRadius: '999px',
                 fontSize: '11px',
                 fontFamily: 'var(--font-mono)',
                 fontWeight: 700,
@@ -392,8 +393,8 @@ const ProjectCard = ({ project, onClick, index, t, featured = false }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '6px',
-                padding: '6px 10px',
-                borderRadius: '4px',
+                padding: '6px 12px',
+                borderRadius: '999px',
                 fontSize: '11px',
                 fontFamily: 'var(--font-mono)',
                 fontWeight: 700,
@@ -563,7 +564,7 @@ const Projects = () => {
         style={{
           marginTop: '64px',
           padding: '36px 32px',
-          borderRadius: '8px',
+          borderRadius: '28px',
           backgroundColor: '#F5C242',
           border: '2px solid #18181B',
           boxShadow: '6px 6px 0px #18181B',
@@ -575,7 +576,7 @@ const Projects = () => {
         }}
       >
         <div style={{ maxWidth: '640px' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', borderRadius: '4px', backgroundColor: '#18181B', color: '#FFFFFF', fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: 700, letterSpacing: '0.4px', textTransform: 'uppercase', marginBottom: '12px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', borderRadius: '999px', backgroundColor: '#18181B', color: '#FFFFFF', fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: 700, letterSpacing: '0.4px', textTransform: 'uppercase', marginBottom: '12px' }}>
             <FaRocket size={11} style={{ color: '#F5C242' }} /> Team 5 Kỹ Sư Đà Nẵng
           </div>
           <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(20px, 2.5vw, 24px)', fontWeight: 700, color: '#18181B', margin: '0 0 8px 0', lineHeight: '1.3' }}>
@@ -589,9 +590,10 @@ const Projects = () => {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
           <Link
             to="/dich-vu"
+            data-cursor="Báo giá"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '11px 22px', borderRadius: '6px',
+              padding: '11px 22px', borderRadius: '999px',
               backgroundColor: '#18181B', color: '#FFFFFF',
               fontFamily: 'var(--font-mono)', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none',
               border: '1.5px solid #18181B',
@@ -606,9 +608,10 @@ const Projects = () => {
           </Link>
           <Link
             to="/blog"
+            data-cursor="Blog Kỹ Thuật"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '11px 22px', borderRadius: '6px',
+              padding: '11px 22px', borderRadius: '999px',
               backgroundColor: '#FFFFFF', color: '#18181B',
               fontFamily: 'var(--font-mono)', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', textDecoration: 'none',
               border: '1.5px solid #18181B',

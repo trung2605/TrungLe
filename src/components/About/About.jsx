@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Markdown from "react-markdown";
 import ImageSlider from "./ImageSlider";
 import NewAvatar from "../../assets/information/image.png";
+import { WordReveal, KenBurnsSlides } from "../../animations/InteractiveEffects";
 import {
   FaBirthdayCake,
   FaMapMarkerAlt,
@@ -70,7 +71,7 @@ const About = () => {
       {/* ── STORY + POLAROID & PERSONAL DOSSIER ── */}
       <div
         className="grid-2col"
-        style={{ display: 'grid', gridTemplateColumns: '1.15fr 0.85fr', gap: '36px', marginBottom: '64px' }}
+        style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.5fr) minmax(310px, 0.9fr)', gap: '32px', alignItems: 'start', marginBottom: '64px' }}
       >
         {/* Story Card */}
         <motion.div
@@ -133,9 +134,10 @@ const About = () => {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '24px', paddingTop: '18px', borderTop: '1.5px dashed var(--color-hairline)' }}>
             <Link
               to="/dich-vu"
+              data-cursor="SynapForge"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '6px',
-                padding: '6px 12px', borderRadius: '4px',
+                padding: '7px 14px', borderRadius: '999px',
                 backgroundColor: '#F5C242', color: '#18181B',
                 border: '1.5px solid #18181B', boxShadow: '2px 2px 0px #18181B',
                 fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 700, textDecoration: 'none',
@@ -145,9 +147,10 @@ const About = () => {
             </Link>
             <Link
               to="/projects/26"
+              data-cursor="Biensovip.com"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '6px',
-                padding: '6px 12px', borderRadius: '4px',
+                padding: '7px 14px', borderRadius: '999px',
                 backgroundColor: '#DBEAFE', color: '#18181B',
                 border: '1.5px solid #18181B', boxShadow: '2px 2px 0px #18181B',
                 fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 700, textDecoration: 'none',
@@ -157,9 +160,10 @@ const About = () => {
             </Link>
             <Link
               to="/achievements?tab=prizes"
+              data-cursor="Hackathon"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '6px',
-                padding: '6px 12px', borderRadius: '4px',
+                padding: '7px 14px', borderRadius: '999px',
                 backgroundColor: '#A7E8BD', color: '#18181B',
                 border: '1.5px solid #18181B', boxShadow: '2px 2px 0px #18181B',
                 fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 700, textDecoration: 'none',
@@ -169,9 +173,10 @@ const About = () => {
             </Link>
             <Link
               to="/contact"
+              data-cursor="Contact"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '6px',
-                padding: '6px 12px', borderRadius: '4px',
+                padding: '7px 14px', borderRadius: '999px',
                 backgroundColor: '#FCE7F3', color: '#18181B',
                 border: '1.5px solid #18181B', boxShadow: '2px 2px 0px #18181B',
                 fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 700, textDecoration: 'none',
@@ -182,15 +187,26 @@ const About = () => {
           </div>
         </motion.div>
 
-        {/* Right Column: Taped Polaroid + Personal Dossier Card */}
+        {/* Right Column: Sculpted Arch Dome Portrait Slideshow + Personal Dossier Card */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {/* Taped Polaroid Portrait */}
+          {/* Sculpted Arch Dome Portrait */}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div className="polaroid-frame" style={{ width: '240px', transform: 'rotate(1.8deg)' }}>
+            <div className="arch-photo-frame" style={{ width: '255px', transform: 'rotate(1.6deg)' }}>
               <div className="washi-tape-tl" />
               <div className="washi-tape-tr" />
-              <div style={{ width: '100%', aspectRatio: '4/4.2', overflow: 'hidden', backgroundColor: '#F3EFE6' }}>
-                <img src={NewAvatar} alt="Lê Trí Trung" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="arch-photo-inner" style={{ aspectRatio: '4/4.5' }}>
+                <KenBurnsSlides
+                  images={[
+                    NewAvatar,
+                    "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962693/my-website/assets/educationMemories/Malaysia_Memory.jpg",
+                    "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579587/my-website/assets/prizes/2026_1_HackathonCV_1.jpg",
+                  ]}
+                  alt="Lê Trí Trung"
+                  aspectRatio="4/4.5"
+                  borderRadius="999px 999px 18px 18px"
+                  intervalMs={3700}
+                  cursorLabel={isEn ? 'Next Photo' : 'Đổi ảnh'}
+                />
               </div>
               <div className="polaroid-caption">Lê Trí Trung • Tech Lead</div>
             </div>
@@ -218,7 +234,7 @@ const About = () => {
                   style={{
                     display: 'flex', alignItems: 'center', gap: '12px',
                     padding: '10px 14px',
-                    backgroundColor: 'var(--color-card-bg)', borderRadius: '6px',
+                    backgroundColor: 'var(--color-card-bg)', borderRadius: '16px',
                     border: '1.5px solid var(--color-border-strong)',
                     boxShadow: '2px 2px 0px #18181B',
                   }}
@@ -236,6 +252,63 @@ const About = () => {
               ))}
             </div>
           </div>
+
+          {/* Real Fieldwork & Activity Highlights Card — balances right column height with real photos */}
+          <div
+            className="notebook-card"
+            style={{ backgroundColor: 'var(--color-card-bg)', padding: '22px' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px', gap: '8px' }}>
+              <span style={{
+                fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 700,
+                letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--color-ink)',
+              }}>
+                ★ {isEn ? 'FIELDWORK & MILESTONES' : 'HÌNH ẢNH HOẠT ĐỘNG THỰC TẾ'}
+              </span>
+              <span className="sticky-note-tag" style={{ backgroundColor: '#A7E8BD', fontSize: '13px', padding: '2px 10px' }}>
+                2024 – 2026
+              </span>
+            </div>
+
+            <div style={{ borderRadius: '18px', overflow: 'hidden', border: '1.5px solid #18181B', marginBottom: '14px' }}>
+              <KenBurnsSlides
+                images={[
+                  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579587/my-website/assets/prizes/2026_1_HackathonCV_1.jpg",
+                  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962693/my-website/assets/educationMemories/Malaysia_Memory.jpg",
+                  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962688/my-website/assets/educationMemories/FPT_University.jpg",
+                  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962564/my-website/assets/activities/FPTU_To_Chuc_Su_Kien.jpg",
+                ]}
+                alt="Lê Trí Trung Fieldwork & Milestones"
+                aspectRatio="16/10"
+                borderRadius="16px"
+                intervalMs={3800}
+                cursorLabel={isEn ? 'Next Memory' : 'Đổi ảnh'}
+              />
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+              {[
+                { badge: '🏆 Champion', text: isEn ? 'Hackathon CV 2026' : 'Quán Quân CV 2026', bg: '#FDE68A' },
+                { badge: '📄 Co-Author', text: isEn ? 'Springer ICTA 2026' : 'Bài báo ICTA 2026', bg: '#DBEAFE' },
+                { badge: '✈️ Global', text: isEn ? 'TAR UMT Malaysia' : 'Giao lưu Malaysia', bg: '#A7E8BD' },
+                { badge: '🎤 Founder', text: isEn ? 'SynapForge Studio' : 'SynapForge Studio', bg: '#FCE7F3' },
+              ].map((m, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    padding: '8px 10px',
+                    borderRadius: '14px',
+                    backgroundColor: m.bg,
+                    border: '1.5px solid #18181B',
+                    boxShadow: '2px 2px 0px #18181B',
+                  }}
+                >
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9.5px', fontWeight: 700, color: '#18181B' }}>{m.badge}</div>
+                  <div style={{ fontSize: '12px', fontWeight: 800, color: '#18181B', marginTop: '2px' }}>{m.text}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -244,7 +317,7 @@ const About = () => {
         <div
           style={{
             backgroundColor: '#F5C242',
-            borderRadius: '8px',
+            borderRadius: '28px',
             border: '2px solid #18181B',
             boxShadow: '5px 5px 0px #18181B',
             padding: '32px',
@@ -264,8 +337,8 @@ const About = () => {
                 style={{
                   backgroundColor: '#FFFFFF',
                   border: '1.5px solid #18181B',
-                  borderRadius: '6px',
-                  padding: '16px 18px',
+                  borderRadius: '20px',
+                  padding: '18px 20px',
                   boxShadow: '3px 3px 0px #18181B',
                 }}
               >
@@ -287,7 +360,7 @@ const About = () => {
               ▤ {t('about.experienceLabel')}
             </span>
             <h2 style={{ fontSize: 'clamp(24px, 3.2vw, 36px)', fontWeight: 800, lineHeight: 1.15, letterSpacing: '-0.02em', color: 'var(--color-ink)', margin: '8px 0 0 0' }}>
-              {t('about.experienceTitle')}
+              <WordReveal text={t('about.experienceTitle')} />
             </h2>
           </div>
 
@@ -308,7 +381,7 @@ const About = () => {
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px', flexWrap: 'wrap' }}>
                         <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--color-ink)', margin: 0 }}>{exp.role}</h3>
                         <span style={{
-                          padding: '3px 10px', borderRadius: '4px',
+                          padding: '3px 10px', borderRadius: '999px',
                           fontSize: '10.5px', fontFamily: 'var(--font-mono)', fontWeight: 700,
                           letterSpacing: '0.05em', textTransform: 'uppercase',
                           backgroundColor: statusStyle.bg, color: statusStyle.color,
@@ -324,7 +397,7 @@ const About = () => {
                         <FaCalendarAlt size={10} /> {exp.duration}
                       </span>
                       <span style={{
-                        padding: '3px 9px', borderRadius: '4px',
+                        padding: '3px 10px', borderRadius: '999px',
                         fontSize: '10px', fontFamily: 'var(--font-mono)', fontWeight: 700,
                         textTransform: 'uppercase',
                         backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)',
@@ -342,7 +415,7 @@ const About = () => {
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {exp.skills.map((skill, si) => (
                       <span key={si} style={{
-                        padding: '4px 10px', borderRadius: '4px',
+                        padding: '4px 12px', borderRadius: '999px',
                         fontFamily: 'var(--font-mono)', fontSize: '11.5px', fontWeight: 600,
                         backgroundColor: 'var(--color-surface-soft)', color: 'var(--color-ink)',
                         border: '1px solid var(--color-border-strong)',
@@ -359,7 +432,7 @@ const About = () => {
         </section>
       )}
 
-      {/* ── HIGHLIGHTS (STICKY NOTE CARDS) ── */}
+      {/* ── HIGHLIGHTS (SCULPTED ROUNDED STICKY CARDS) ── */}
       {highlights && highlights.length > 0 && (
         <section style={{ marginBottom: '64px' }}>
           <div style={{ marginBottom: '28px' }}>
@@ -367,7 +440,7 @@ const About = () => {
               ✦ {t('about.highlightsLabel')}
             </span>
             <h2 style={{ fontSize: 'clamp(24px, 3.2vw, 38px)', fontWeight: 800, lineHeight: 1.15, color: 'var(--color-ink)', margin: '8px 0 0 0' }}>
-              {t('about.highlightsTitle')}
+              <WordReveal text={t('about.highlightsTitle')} />
             </h2>
           </div>
           <div
@@ -379,7 +452,7 @@ const About = () => {
                 key={i}
                 style={{
                   backgroundColor: HIGHLIGHT_COLORS[i % HIGHLIGHT_COLORS.length],
-                  borderRadius: '6px',
+                  borderRadius: '24px',
                   border: '1.5px solid #18181B',
                   boxShadow: '4px 4px 0px #18181B',
                   padding: '24px',
@@ -403,7 +476,7 @@ const About = () => {
               ⚡ {t('about.skillsLabel')}
             </span>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, lineHeight: 1.15, color: 'var(--color-ink)', margin: '8px 0 0 0' }}>
-              {t('about.skillsTitle')}
+              <WordReveal text={t('about.skillsTitle')} />
             </h2>
           </div>
 
@@ -416,7 +489,7 @@ const About = () => {
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px', paddingBottom: '10px', borderBottom: '1.5px dashed var(--color-hairline)' }}>
                   <div style={{
-                    width: '12px', height: '12px', borderRadius: '3px',
+                    width: '12px', height: '12px', borderRadius: '999px',
                     backgroundColor: BLOCK_COLORS[ci % BLOCK_COLORS.length],
                     border: '1.5px solid #18181B',
                     flexShrink: 0,
@@ -440,7 +513,7 @@ const About = () => {
                         </span>
                         <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11.5px', fontWeight: 700, color: 'var(--color-ink-soft)' }}>{skill.level}%</span>
                       </div>
-                      <div style={{ height: '7px', backgroundColor: 'var(--color-surface-soft)', border: '1px solid var(--color-border-strong)', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ height: '7px', backgroundColor: 'var(--color-surface-soft)', border: '1px solid var(--color-border-strong)', borderRadius: '999px', overflow: 'hidden' }}>
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
@@ -465,7 +538,7 @@ const About = () => {
       <div
         style={{
           backgroundColor: '#A7E8BD',
-          borderRadius: '8px',
+          borderRadius: '28px',
           border: '2px solid #18181B',
           boxShadow: '5px 5px 0px #18181B',
           padding: '32px',
@@ -484,7 +557,7 @@ const About = () => {
               key={i}
               style={{
                 backgroundColor: '#FFFFFF',
-                borderRadius: '6px',
+                borderRadius: '20px',
                 padding: '20px',
                 border: '1.5px solid #18181B',
                 boxShadow: '3px 3px 0px #18181B',

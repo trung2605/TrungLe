@@ -14,6 +14,13 @@ import { useTranslation } from "react-i18next";
 import CountUp from "../../animations/CountUp";
 import GitHubStats from "./GitHubStats";
 import Testimonials from "./Testimonials";
+import InteractiveDecodeShowcase from "./InteractiveDecodeShowcase";
+import {
+  SpinningStickerBadge,
+  WordReveal,
+  MagneticWrap,
+  KenBurnsSlides,
+} from "../../animations/InteractiveEffects";
 
 const TECH_MARQUEE = [
   "Java Spring Boot", ".NET 8 Clean Architecture", "PostgreSQL", "React 18", "Docker",
@@ -25,6 +32,10 @@ const MALAYSIA_PHOTO =
   "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962693/my-website/assets/educationMemories/Malaysia_Memory.jpg";
 const FPT_PHOTO =
   "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962692/my-website/assets/educationMemories/FPT_Memory_1.jpg";
+const HACKATHON_PHOTO =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579587/my-website/assets/prizes/2026_1_HackathonCV_1.jpg";
+const MC_STAGE_PHOTO =
+  "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1769962626/my-website/assets/about/Img1.jpg";
 
 const FLAGSHIP_FOLDERS = [
   {
@@ -40,8 +51,14 @@ const FLAGSHIP_FOLDERS = [
     folderColor: "#FFFFFF",
     subColor: "#A1A1AA",
     metaColor: "#D4D4D8",
-    shot1: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353578/my-website/assets/projects/screenshots/biensovip_1_home.png",
-    shot2: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789353581/my-website/assets/projects/screenshots/biensovip_2_detail.png",
+    shot1: "/docs/images/biensovip_home_real.png",
+    shot2: "/docs/images/biensovip_real_dashboard.png",
+    slides: [
+      "/docs/images/biensovip_home_real.png",
+      "/docs/images/biensovip_real_plates.png",
+      "/docs/images/biensovip_real_dashboard.png",
+      "/docs/images/biensovip_real_fengshui.png",
+    ],
     liveUrl: "https://biensovip.com",
     metrics: ["1.1M+ VPA Records", "< 8ms GIN Query", "57 UCs & 85 BRs"],
   },
@@ -58,8 +75,14 @@ const FLAGSHIP_FOLDERS = [
     folderColor: "#FFFFFF",
     subColor: "#DBEAFE",
     metaColor: "#EFF6FF",
-    shot1: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579601/my-website/assets/projects/screenshots/DA-D19-01.png",
-    shot2: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579603/my-website/assets/projects/screenshots/DA-D19-02.png",
+    shot1: "/docs/images/DA-D19-01.png",
+    shot2: "/docs/images/DA-D19-03.png",
+    slides: [
+      "/docs/images/DA-D19-01.png",
+      "/docs/images/DA-D19-03.png",
+      "/docs/images/DA-D19-04.png",
+      "/docs/images/DA-D19-12.png",
+    ],
     liveUrl: "https://brandhub.id.vn",
     metrics: ["141 Atomic FRs", "2.5K+ Test Cases", "79 Mobile Screens"],
   },
@@ -78,6 +101,12 @@ const FLAGSHIP_FOLDERS = [
     metaColor: "#18181B",
     shot1: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579575/my-website/assets/projects/screenshots/01-landing.png",
     shot2: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579578/my-website/assets/projects/screenshots/01-dashboard-full.png",
+    slides: [
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579575/my-website/assets/projects/screenshots/01-landing.png",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579578/my-website/assets/projects/screenshots/01-dashboard-full.png",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579581/my-website/assets/projects/screenshots/02-voice-analyzer.png",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579583/my-website/assets/projects/screenshots/05-ai-coach.png",
+    ],
     liveUrl: "https://mc-voice-training.vercel.app/",
     metrics: ["10-Metric DSP", "87 MCs Onboarded", "116 Atomic FRs"],
   },
@@ -96,6 +125,11 @@ const FLAGSHIP_FOLDERS = [
     metaColor: "#D1FAE5",
     shot1: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579605/my-website/assets/projects/screenshots/slide_07_pipeline.png",
     shot2: "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579607/my-website/assets/projects/screenshots/slide_11_main_results.png",
+    slides: [
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579605/my-website/assets/projects/screenshots/slide_07_pipeline.png",
+      "https://res.cloudinary.com/dvwt6npcl/image/upload/f_auto,q_auto/v1789579607/my-website/assets/projects/screenshots/slide_11_main_results.png",
+      HACKATHON_PHOTO,
+    ],
     liveUrl: "/blog/threadlearn-javascript-concurrency-bugs",
     metrics: ["1.5B QLoRA", "73.3% Fix Rate", "ICTA 2026 Paper"],
   },
@@ -113,7 +147,12 @@ const FLAGSHIP_FOLDERS = [
     subColor: "#A1A1AA",
     metaColor: "#D4D4D8",
     shot1: "/docs/images/tiktok_live_3d.jpg",
-    shot2: "/docs/images/tiktok_live_3d.jpg",
+    shot2: "/docs/images/biensovip_real_fengshui.png",
+    slides: [
+      "/docs/images/tiktok_live_3d.jpg",
+      "/docs/images/biensovip_real_fengshui.png",
+      "/docs/images/DA-D19-06.png",
+    ],
     liveUrl: null,
     metrics: ["12 Live 3D Games", "21 ApexCharts", "193/193 Tests Pass"],
   },
@@ -150,6 +189,15 @@ const Home = () => {
   const isEn = (i18n?.language || 'vi').startsWith('en');
   const { skills } = useTranslatedData();
   const [activeFolderIndex, setActiveFolderIndex] = useState(0);
+  const [heroParallax, setHeroParallax] = useState({ x: 0, y: 0 });
+
+  const handleHeroPointerMove = (e) => {
+    if (prefersReducedMotion) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const nx = (e.clientX - rect.left) / rect.width - 0.5;
+    const ny = (e.clientY - rect.top) / rect.height - 0.5;
+    setHeroParallax({ x: nx, y: ny });
+  };
 
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: prefersReducedMotion ? 0 : 18 },
@@ -163,19 +211,45 @@ const Home = () => {
   return (
     <div>
       {/* ============================================================
-          1. ROBIN CENTERPIECE HERO SECTION
+          1. ROBIN CENTERPIECE HERO SECTION + MOUSE DEPTH PARALLAX
          ============================================================ */}
-      <section style={{ paddingTop: '36px', paddingBottom: '56px', position: 'relative' }}>
+      <section
+        onPointerMove={handleHeroPointerMove}
+        onPointerLeave={() => setHeroParallax({ x: 0, y: 0 })}
+        style={{ paddingTop: '36px', paddingBottom: '56px', position: 'relative' }}
+      >
+        {/* Floating Spinning SVG Stamp Sticker (giaimamanhai.vercel.app Ul style) */}
+        <div
+          className="hidden lg:block"
+          style={{
+            position: 'absolute',
+            top: '12px',
+            right: '18px',
+            zIndex: 4,
+            transform: `translate3d(${heroParallax.x * -18}px, ${heroParallax.y * -14}px, 0)`,
+            transition: 'transform 0.25s ease-out',
+          }}
+        >
+          <SpinningStickerBadge
+            text="SYNAPFORGE STUDIO • ĐÀ NẴNG • REAL PRODUCTS • "
+            centerText="25+"
+            size={108}
+            bg="#F5C242"
+            color="#18181B"
+          />
+        </div>
+
         <div
           style={{
-            maxWidth: '940px',
+            width: '100%',
+            maxWidth: '100%',
             margin: '0 auto',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             textAlign: 'center',
             position: 'relative',
-            padding: '8px 12px',
+            padding: '8px 4px',
           }}
         >
           {/* Top Row: Left Mint Pill + Handwritten "my name is" + Right Butter Pill */}
@@ -183,7 +257,7 @@ const Home = () => {
             {...fadeUp(0.05)}
             style={{
               width: '100%',
-              maxWidth: '640px',
+              maxWidth: '820px',
               display: 'flex',
               alignItems: 'flex-end',
               justifyContent: 'space-between',
@@ -255,8 +329,16 @@ const Home = () => {
           </motion.div>
 
           {/* Centerpiece: Coral-Bordered Pixel Nameplate Box */}
-          <motion.div {...fadeUp(0.12)} style={{ margin: '4px 0 14px', position: 'relative' }}>
-            <div className="pixel-nameplate-box">
+          <motion.div
+            {...fadeUp(0.12)}
+            style={{
+              margin: '4px 0 14px',
+              position: 'relative',
+              transform: `translate3d(${heroParallax.x * 10}px, ${heroParallax.y * 8}px, 0)`,
+              transition: 'transform 0.2s ease-out',
+            }}
+          >
+            <div className="pixel-nameplate-box" data-cursor="Lê Trí Trung">
               <span className="pixel-nameplate-text">TRUNG LÊ</span>
             </div>
           </motion.div>
@@ -266,7 +348,7 @@ const Home = () => {
             {...fadeUp(0.18)}
             style={{
               width: '100%',
-              maxWidth: '720px',
+              maxWidth: '880px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -304,6 +386,10 @@ const Home = () => {
                 textTransform: 'uppercase',
                 color: 'var(--color-ink)',
                 margin: '0 auto',
+                padding: '5px 14px',
+                borderRadius: '999px',
+                backgroundColor: 'var(--color-card-bg)',
+                border: '1.5px solid var(--color-border-strong)',
               }}
             >
               <span
@@ -345,6 +431,7 @@ const Home = () => {
             {...fadeUp(0.24)}
             style={{
               width: '100%',
+              maxWidth: '1080px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -354,18 +441,20 @@ const Home = () => {
           >
             {/* Left Floating Circular Photo Sticker */}
             <motion.div
-              whileHover={{ scale: 1.08, rotate: -6 }}
+              whileHover={{ scale: 1.1, rotate: -6 }}
               className="hidden md:block"
+              data-cursor={isEn ? 'Tech Lead' : 'Chân dung'}
               style={{
-                width: '68px',
-                height: '68px',
+                width: '74px',
+                height: '74px',
                 borderRadius: '9999px',
                 border: '3px solid #EA580C',
                 boxShadow: '3px 3px 0px #18181B',
                 overflow: 'hidden',
                 flexShrink: 0,
                 backgroundColor: '#FFFFFF',
-                transform: 'rotate(-4deg) translateY(-10px)',
+                transform: `rotate(-4deg) translate3d(${heroParallax.x * -16}px, ${-10 + heroParallax.y * -12}px, 0)`,
+                transition: 'transform 0.22s ease-out',
               }}
             >
               <img
@@ -469,18 +558,20 @@ const Home = () => {
 
             {/* Right Floating Circular Photo Sticker */}
             <motion.div
-              whileHover={{ scale: 1.08, rotate: 6 }}
+              whileHover={{ scale: 1.1, rotate: 6 }}
               className="hidden md:block"
+              data-cursor={isEn ? 'TAR UMT Malaysia' : 'Trao đổi Quốc tế'}
               style={{
-                width: '68px',
-                height: '68px',
+                width: '74px',
+                height: '74px',
                 borderRadius: '9999px',
                 border: '3px solid #EA580C',
                 boxShadow: '3px 3px 0px #18181B',
                 overflow: 'hidden',
                 flexShrink: 0,
                 backgroundColor: '#FFFFFF',
-                transform: 'rotate(5deg) translateY(8px)',
+                transform: `rotate(5deg) translate3d(${heroParallax.x * 16}px, ${8 + heroParallax.y * 12}px, 0)`,
+                transition: 'transform 0.22s ease-out',
               }}
             >
               <img
@@ -491,7 +582,7 @@ const Home = () => {
             </motion.div>
           </motion.div>
 
-          {/* Primary 3D Tactile Button Row (Robin "[+] CONTACT ME" + Services + CV) */}
+          {/* Primary 3D Tactile Button Row (Magnetic Pull + Rounded Pill Geometry) */}
           <motion.div
             {...fadeUp(0.3)}
             style={{
@@ -503,70 +594,82 @@ const Home = () => {
               marginBottom: '28px',
             }}
           >
-            <Link to="/contact" className="btn-robin-dark">
-              <span className="plus-box">+</span>
-              <span>{isEn ? 'CONTACT ME' : 'LIÊN HỆ TRỰC TIẾP'}</span>
-            </Link>
+            <MagneticWrap>
+              <Link
+                to="/contact"
+                className="btn-robin-dark"
+                data-cursor={isEn ? "Let's Talk" : 'Kết nối ngay'}
+              >
+                <span className="plus-box">+</span>
+                <span>{isEn ? 'CONTACT ME' : 'LIÊN HỆ TRỰC TIẾP'}</span>
+              </Link>
+            </MagneticWrap>
 
-            <Link
-              to="/dich-vu"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '9px 16px',
-                backgroundColor: '#F5C242',
-                color: '#18181B',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11.5px',
-                fontWeight: 700,
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                borderRadius: '5px',
-                border: '1.5px solid #18181B',
-                boxShadow: '0 3px 0 #18181B',
-                textDecoration: 'none',
-              }}
-            >
-              <FaRocket size={12} />
-              <span>{isEn ? 'WEB SERVICES & PRICING' : 'BÁO GIÁ WEBSITE & SAAS'}</span>
-            </Link>
+            <MagneticWrap>
+              <Link
+                to="/dich-vu"
+                data-cursor={isEn ? '3 Packages' : 'Xem 3 gói giá'}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '9px 18px',
+                  backgroundColor: '#F5C242',
+                  color: '#18181B',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '11.5px',
+                  fontWeight: 700,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  borderRadius: '999px',
+                  border: '1.5px solid #18181B',
+                  boxShadow: '0 3px 0 #18181B',
+                  textDecoration: 'none',
+                }}
+              >
+                <FaRocket size={12} />
+                <span>{isEn ? 'WEB SERVICES & PRICING' : 'BÁO GIÁ WEBSITE & SAAS'}</span>
+              </Link>
+            </MagneticWrap>
 
-            <a
-              href={personalInfo.cv}
-              download="Le_Tri_Trung_CV.pdf"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '7px',
-                padding: '9px 15px',
-                backgroundColor: 'var(--color-card-bg)',
-                color: 'var(--color-ink)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11.5px',
-                fontWeight: 700,
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                borderRadius: '5px',
-                border: '1.5px solid var(--color-border-strong)',
-                boxShadow: '0 3px 0 #18181B',
-                textDecoration: 'none',
-              }}
-            >
-              <FaDownload size={11} />
-              <span>{t('home.downloadCV')}</span>
-            </a>
+            <MagneticWrap>
+              <a
+                href={personalInfo.cv}
+                download="Le_Tri_Trung_CV.pdf"
+                data-cursor="PDF CV"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '7px',
+                  padding: '9px 18px',
+                  backgroundColor: 'var(--color-card-bg)',
+                  color: 'var(--color-ink)',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '11.5px',
+                  fontWeight: 700,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  borderRadius: '999px',
+                  border: '1.5px solid var(--color-border-strong)',
+                  boxShadow: '0 3px 0 #18181B',
+                  textDecoration: 'none',
+                }}
+              >
+                <FaDownload size={11} />
+                <span>{t('home.downloadCV')}</span>
+              </a>
+            </MagneticWrap>
           </motion.div>
 
-          {/* Quick Audience Ticket Stubs (Client / Recruiter / Engineer) */}
+          {/* Quick Audience Ticket Stubs (Sculpted Rounded 20px Cards) */}
           <motion.div
             {...fadeUp(0.36)}
             style={{
               width: '100%',
-              maxWidth: '860px',
+              maxWidth: '100%',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '12px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '14px',
               textAlign: 'left',
             }}
           >
@@ -596,21 +699,22 @@ const Home = () => {
               <Link
                 key={idx}
                 to={item.to}
+                data-cursor={isEn ? 'Open ↗' : 'Mở xem ↗'}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   gap: '10px',
-                  padding: '10px 14px',
+                  padding: '12px 16px',
                   backgroundColor: 'var(--color-card-bg)',
                   border: '1.5px solid var(--color-border-strong)',
-                  borderRadius: '6px',
-                  boxShadow: '2px 2px 0px #18181B',
+                  borderRadius: '20px',
+                  boxShadow: '3px 3px 0px #18181B',
                   textDecoration: 'none',
                   color: 'var(--color-ink)',
-                  transition: 'transform 0.15s ease',
+                  transition: 'transform 0.18s ease',
                 }}
-                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
+                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-3px)'}
                 onMouseLeave={e => e.currentTarget.style.transform = 'none'}
               >
                 <div>
@@ -618,18 +722,19 @@ const Home = () => {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '5px',
-                    padding: '2px 7px',
-                    borderRadius: '3px',
+                    padding: '3px 10px',
+                    borderRadius: '999px',
                     backgroundColor: item.bg,
                     color: '#18181B',
+                    border: '1px solid #18181B',
                     fontFamily: 'var(--font-mono)',
                     fontSize: '9.5px',
                     fontWeight: 700,
-                    marginBottom: '4px',
+                    marginBottom: '5px',
                   }}>
                     {item.icon} {item.tag}
                   </div>
-                  <div style={{ fontSize: '13px', fontWeight: 700, color: 'var(--color-ink)' }}>
+                  <div style={{ fontSize: '13.5px', fontWeight: 700, color: 'var(--color-ink)' }}>
                     {item.title}
                   </div>
                 </div>
@@ -641,7 +746,7 @@ const Home = () => {
       </section>
 
       {/* ============================================================
-          2. HAND-DRAWN ARC DIVIDER + "WHAT'S UP / ABOUT ME" SCRAPBOOK
+          2. HAND-DRAWN ARC DIVIDER + "WHAT'S UP / ABOUT ME" ARCH FRAMES
          ============================================================ */}
       <section style={{ paddingTop: '8px', paddingBottom: '68px', position: 'relative' }}>
         {/* Hand-sketched SVG Arc across the ruled notebook */}
@@ -683,37 +788,41 @@ const Home = () => {
           </span>
         </div>
 
-        {/* 3-Column Scrapbook Spread: Left Polaroid + Center Handwritten Bio + Right Polaroid */}
+        {/* 3-Column Scrapbook Spread: Left Arch Dome Slideshow + Center Bio + Right Arch Dome Slideshow */}
         <div
+          className="grid-3col"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gridTemplateColumns: 'minmax(220px, 265px) minmax(320px, 1fr) minmax(220px, 265px)',
             gap: '28px',
             alignItems: 'center',
-            maxWidth: '1080px',
-            margin: '0 auto 36px',
+            width: '100%',
+            maxWidth: '100%',
+            margin: '0 auto 30px',
           }}
         >
-          {/* Left Taped Polaroid Photo */}
+          {/* Left Sculpted Arch Dome Frame with Real Portrait & Stage Photos */}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div
-              className="polaroid-frame"
+              className="arch-photo-frame"
               style={{
-                width: '230px',
-                transform: 'rotate(-2.5deg)',
+                width: '245px',
+                transform: 'rotate(-2deg)',
               }}
             >
               <div className="washi-tape-tl" />
               <div className="washi-tape-tr" />
-              <div style={{ width: '100%', aspectRatio: '4/4.3', overflow: 'hidden', backgroundColor: '#F3EFE6' }}>
-                <img
-                  src={NewAvatar}
-                  alt="Lê Trí Trung Portrait"
-                  loading="lazy"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              <div className="arch-photo-inner" style={{ aspectRatio: '4/4.6' }}>
+                <KenBurnsSlides
+                  images={[NewAvatar, HACKATHON_PHOTO, MC_STAGE_PHOTO]}
+                  alt="Lê Trí Trung Real Moments"
+                  aspectRatio="4/4.6"
+                  borderRadius="999px 999px 18px 18px"
+                  intervalMs={3600}
+                  cursorLabel={isEn ? 'Real Photo' : 'Ảnh thật'}
                 />
               </div>
-              <div className="polaroid-caption">2026 • Đà Nẵng</div>
+              <div className="polaroid-caption">2026 • Đà Nẵng & Hackathon</div>
             </div>
           </div>
 
@@ -740,7 +849,7 @@ const Home = () => {
               )}
             </p>
 
-            {/* Perforated Postage-Stamp / Ticket-Stub Skill Badges (2x2 Grid like Robin) */}
+            {/* Perforated Postage-Stamp / Pill Skill Badges */}
             <div
               style={{
                 display: 'flex',
@@ -769,38 +878,51 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Right Taped Polaroid Photo */}
+          {/* Right Sculpted Arch Dome Frame with Malaysia & FPT Photos */}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div
-              className="polaroid-frame"
+              className="arch-photo-frame"
               style={{
-                width: '230px',
-                transform: 'rotate(2.2deg)',
+                width: '245px',
+                transform: 'rotate(2deg)',
               }}
             >
               <div className="washi-tape-tl" />
               <div className="washi-tape-tr" />
-              <div style={{ width: '100%', aspectRatio: '4/4.3', overflow: 'hidden', backgroundColor: '#F3EFE6' }}>
-                <img
-                  src={FPT_PHOTO}
-                  alt="FPT University & Team Workspace"
-                  loading="lazy"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              <div className="arch-photo-inner" style={{ aspectRatio: '4/4.6' }}>
+                <KenBurnsSlides
+                  images={[FPT_PHOTO, MALAYSIA_PHOTO, "/docs/images/biensovip_home_real.png"]}
+                  alt="FPT University & Global Exchange"
+                  aspectRatio="4/4.6"
+                  borderRadius="999px 999px 18px 18px"
+                  intervalMs={4100}
+                  cursorLabel={isEn ? 'Next Memory' : 'Đổi ảnh'}
                 />
               </div>
               <div className="polaroid-caption">
-                {isEn ? 'my workspace & team' : 'đội ngũ & giảng đường'}
+                {isEn ? 'FPT Uni & Malaysia Exchange' : 'FPT Uni & Giao lưu Malaysia'}
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Asymmetric Rounded Pill Callout Bar (giaimamanhai .decode-callout inspired) */}
+        <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto' }}>
+          <div className="pill-callout-right">
+            <span style={{ fontSize: '14px', fontWeight: 600, lineHeight: 1.5 }}>
+              {isEn
+                ? '💡 Every system on this site is backed by live production URLs, Karl Wiegers atomic SRS specs, and automated E2E test suites.'
+                : '💡 Mọi dự án trên trang đều đi kèm link vận hành thực tế, tài liệu đặc tả SRS chuẩn Karl Wiegers và bộ kiểm thử E2E tự động.'}
+            </span>
           </div>
         </div>
       </section>
 
       {/* ============================================================
-          3. STACKED MANILLA FILE-FOLDER PROJECTS SHOWCASE (ROBIN SIGNATURE)
+          3. STACKED MANILLA FILE-FOLDER PROJECTS SHOWCASE (ROUNDED 28PX)
          ============================================================ */}
       <section style={{ paddingBottom: '68px' }}>
-        <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
+        <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto' }}>
           {/* Folder Top Tabs Row (• PROJECT 01 | • PROJECT 02 | • PROJECT 03 | • PROJECT 04) */}
           <div
             style={{
@@ -818,6 +940,7 @@ const Home = () => {
                   key={folder.num}
                   onClick={() => setActiveFolderIndex(idx)}
                   className="folder-tab-trigger"
+                  data-cursor={`Project ${folder.num}`}
                   style={{
                     backgroundColor: isSelected ? '#2563EB' : '#18181B',
                     color: '#FFFFFF',
@@ -841,12 +964,12 @@ const Home = () => {
             style={{
               backgroundColor: '#18181B',
               color: '#FFFFFF',
-              borderRadius: '0 10px 0 0',
+              borderRadius: '0 28px 28px 28px',
               border: '2px solid #18181B',
               padding: 'clamp(28px, 4vw, 48px) clamp(20px, 4vw, 44px) clamp(56px, 6vw, 76px)',
               position: 'relative',
               zIndex: 3,
-              boxShadow: '0 12px 32px rgba(0, 0, 0, 0.22)',
+              boxShadow: '0 14px 36px rgba(0, 0, 0, 0.24)',
             }}
           >
             <div
@@ -891,7 +1014,7 @@ const Home = () => {
                     lineHeight: 1.6,
                     color: '#A1A1AA',
                     margin: '0 0 20px 0',
-                    maxWidth: '440px',
+                    maxWidth: '580px',
                   }}
                 >
                   {isEn ? activeFolder.subtitleEn : activeFolder.subtitleVi}
@@ -903,10 +1026,10 @@ const Home = () => {
                     <span
                       key={i}
                       style={{
-                        padding: '4px 10px',
-                        borderRadius: '4px',
+                        padding: '4px 12px',
+                        borderRadius: '999px',
                         backgroundColor: 'rgba(255,255,255,0.1)',
-                        border: '1px solid rgba(255,255,255,0.2)',
+                        border: '1px solid rgba(255,255,255,0.22)',
                         fontFamily: 'var(--font-mono)',
                         fontSize: '11px',
                         fontWeight: 600,
@@ -921,6 +1044,7 @@ const Home = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
                   <Link
                     to={`/projects/${activeFolder.id}`}
+                    data-cursor={isEn ? 'Case Study' : 'Xem hồ sơ'}
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -945,6 +1069,7 @@ const Home = () => {
                       href={activeFolder.liveUrl}
                       target={activeFolder.liveUrl.startsWith('http') ? '_blank' : undefined}
                       rel="noopener noreferrer"
+                      data-cursor="Live Production"
                       style={{
                         display: 'inline-flex',
                         alignItems: 'center',
@@ -963,13 +1088,13 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* Right Column: White-Framed Project Screenshot Taped with Translucent Masking Tape */}
+              {/* Right Column: Multi-Image Ken-Burns Slideshow of Real Production Screenshots */}
               <div style={{ position: 'relative', padding: '6px' }}>
                 <div
                   style={{
                     backgroundColor: '#1F2937',
                     border: '3px solid #FFFFFF',
-                    borderRadius: '4px',
+                    borderRadius: '20px',
                     overflow: 'hidden',
                     position: 'relative',
                     boxShadow: '0 14px 30px rgba(0, 0, 0, 0.45)',
@@ -977,17 +1102,13 @@ const Home = () => {
                 >
                   <div className="washi-tape-grey-tl" />
                   <div className="washi-tape-grey-tr" />
-                  <img
-                    src={activeFolder.shot1}
+                  <KenBurnsSlides
+                    images={activeFolder.slides || [activeFolder.shot1, activeFolder.shot2]}
                     alt={activeFolder.title}
-                    loading="lazy"
-                    style={{
-                      width: '100%',
-                      height: '270px',
-                      objectFit: 'cover',
-                      objectPosition: 'top',
-                      display: 'block',
-                    }}
+                    aspectRatio="16/10"
+                    borderRadius="17px"
+                    intervalMs={3500}
+                    cursorLabel={isEn ? 'Next Screen' : 'Xem màn hình'}
                   />
                 </div>
               </div>
@@ -1016,7 +1137,7 @@ const Home = () => {
               style={{
                 backgroundColor: '#F5C242',
                 color: '#18181B',
-                borderRadius: '8px',
+                borderRadius: '28px',
                 border: '2px solid #18181B',
                 padding: 'clamp(28px, 4vw, 44px)',
                 boxShadow: '0 14px 34px rgba(24, 24, 27, 0.18)',
@@ -1063,7 +1184,7 @@ const Home = () => {
                       lineHeight: 1.6,
                       color: '#27272A',
                       margin: '0 0 22px 0',
-                      maxWidth: '440px',
+                      maxWidth: '580px',
                     }}
                   >
                     {isEn ? secondaryFolder.subtitleEn : secondaryFolder.subtitleVi}
@@ -1072,6 +1193,7 @@ const Home = () => {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
                     <Link
                       to={`/projects/${secondaryFolder.id}`}
+                      data-cursor="The MC Hub"
                       style={{
                         display: 'inline-flex',
                         alignItems: 'center',
@@ -1093,12 +1215,13 @@ const Home = () => {
 
                     <Link
                       to="/projects"
+                      data-cursor={isEn ? 'All 25+ Projects' : 'Tất cả dự án'}
                       style={{
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '6px',
-                        padding: '7px 14px',
-                        borderRadius: '4px',
+                        padding: '8px 16px',
+                        borderRadius: '999px',
                         backgroundColor: '#18181B',
                         color: '#FFFFFF',
                         fontFamily: 'var(--font-mono)',
@@ -1112,13 +1235,13 @@ const Home = () => {
                   </div>
                 </div>
 
-                {/* Taped Screenshot on Mustard Folder */}
+                {/* Taped Ken-Burns Slideshow on Mustard Folder */}
                 <div style={{ position: 'relative', padding: '6px' }}>
                   <div
                     style={{
                       backgroundColor: '#FFFFFF',
                       border: '3px solid #FFFFFF',
-                      borderRadius: '4px',
+                      borderRadius: '20px',
                       overflow: 'hidden',
                       position: 'relative',
                       boxShadow: '0 12px 26px rgba(0, 0, 0, 0.2)',
@@ -1126,17 +1249,13 @@ const Home = () => {
                   >
                     <div className="washi-tape-grey-tl" />
                     <div className="washi-tape-grey-tr" />
-                    <img
-                      src={secondaryFolder.shot1}
+                    <KenBurnsSlides
+                      images={secondaryFolder.slides || [secondaryFolder.shot1, secondaryFolder.shot2]}
                       alt={secondaryFolder.title}
-                      loading="lazy"
-                      style={{
-                        width: '100%',
-                        height: '250px',
-                        objectFit: 'cover',
-                        objectPosition: 'top',
-                        display: 'block',
-                      }}
+                      aspectRatio="16/10"
+                      borderRadius="17px"
+                      intervalMs={3900}
+                      cursorLabel={isEn ? 'Slide Photo' : 'Đổi màn hình'}
                     />
                   </div>
                 </div>
@@ -1147,7 +1266,7 @@ const Home = () => {
       </section>
 
       {/* ============================================================
-          4. TECH MARQUEE TAPE STRIP
+          4. TECH MARQUEE TAPE STRIP (PILL ROUNDED)
          ============================================================ */}
       <div
         className="marquee-strip"
@@ -1155,13 +1274,13 @@ const Home = () => {
           width: '100%',
           backgroundColor: '#18181B',
           border: '2px solid #18181B',
-          borderRadius: '6px',
+          borderRadius: '999px',
           color: '#FFFFFF',
-          height: '42px',
+          height: '44px',
           overflow: 'hidden',
           display: 'flex',
           alignItems: 'center',
-          marginBottom: '60px',
+          marginBottom: '68px',
           boxShadow: '4px 4px 0px #F5C242',
         }}
       >
@@ -1198,6 +1317,12 @@ const Home = () => {
       </div>
 
       {/* ============================================================
+          4B. INTERACTIVE DECODE PORTAL + 4 PILLARS ACCORDION + REAL MOMENTS
+          (Modeled after giaimamanhai.vercel.app interactive motion & rounded geometry)
+         ============================================================ */}
+      <InteractiveDecodeShowcase isEn={isEn} />
+
+      {/* ============================================================
           5. VERIFIED NUMBERS — POSTAGE STAMP COUNTER CARDS
          ============================================================ */}
       <section style={{ paddingBottom: '64px' }}>
@@ -1231,18 +1356,19 @@ const Home = () => {
                 key={i}
                 to={stat.link}
                 onClick={handleStatClick}
+                data-cursor={isEn ? stat.hintEn : stat.hintVi}
                 style={{
                   display: 'block',
                   textDecoration: 'none',
                   color: stat.text,
-                  padding: '20px',
-                  borderRadius: '6px',
+                  padding: '22px',
+                  borderRadius: '22px',
                   backgroundColor: stat.bg,
                   border: '2px solid #18181B',
                   boxShadow: '4px 4px 0px #18181B',
                   transition: 'transform 0.18s ease',
                 }}
-                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-3px) rotate(-0.8deg)'}
+                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-4px) rotate(-0.8deg)'}
                 onMouseLeave={e => e.currentTarget.style.transform = 'none'}
               >
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
@@ -1273,6 +1399,7 @@ const Home = () => {
           style={{
             backgroundColor: 'var(--color-card-bg)',
             padding: 'clamp(24px, 3.5vw, 36px)',
+            borderRadius: '28px',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '24px' }}>
@@ -1286,7 +1413,7 @@ const Home = () => {
                 lineHeight: 1.15, letterSpacing: '-0.02em',
                 color: 'var(--color-ink)', margin: '6px 0 0 0',
               }}>
-                {t('home.skillsTitle')}
+                <WordReveal text={t('home.skillsTitle')} />
               </h2>
             </div>
           </div>
@@ -1300,8 +1427,8 @@ const Home = () => {
                 key={ci}
                 style={{
                   backgroundColor: 'var(--color-canvas)',
-                  borderRadius: '6px',
-                  padding: '20px',
+                  borderRadius: '22px',
+                  padding: '22px',
                   border: '1.5px solid var(--color-border-strong)',
                   boxShadow: '3px 3px 0px #18181B',
                 }}
@@ -1317,14 +1444,14 @@ const Home = () => {
             ))}
           </div>
 
-          {/* Perforated Tech Tags */}
+          {/* Perforated Pill Tech Tags */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '24px' }}>
             {allSkillsData.map((tech, i) => (
               <span
                 key={i}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: '6px',
-                  padding: '5px 11px', borderRadius: '4px',
+                  padding: '5px 13px', borderRadius: '999px',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '12px', fontWeight: 600, color: 'var(--color-ink)',
                   backgroundColor: 'var(--color-surface-soft)',
@@ -1356,7 +1483,9 @@ const Home = () => {
               fontSize: 'clamp(24px, 3.4vw, 38px)', fontWeight: 800,
               lineHeight: 1.15, letterSpacing: '-0.02em',
               color: 'var(--color-ink)', margin: '8px 0 0 0',
-            }}>{t('home.exploreTitle')}</h2>
+            }}>
+              <WordReveal text={t('home.exploreTitle')} />
+            </h2>
           </div>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 700, color: 'var(--color-ink-soft)' }}>
             {isEn ? '6 NOTEBOOK SECTIONS' : '6 HỒ SƠ CHUYÊN BIỆT'}
@@ -1439,17 +1568,19 @@ const Home = () => {
               key={i}
               to={item.path}
               className="notebook-card"
+              data-cursor={item.cta}
               style={{
                 display: 'flex', flexDirection: 'column',
                 justifyContent: 'space-between',
-                height: '100%', minHeight: '190px', padding: '22px',
+                height: '100%', minHeight: '190px', padding: '24px',
+                borderRadius: '24px',
                 textDecoration: 'none', color: 'var(--color-ink)',
               }}
             >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
                   <div style={{
-                    width: '36px', height: '36px', borderRadius: '6px',
+                    width: '40px', height: '40px', borderRadius: '14px',
                     backgroundColor: item.badgeBg, color: '#18181B',
                     border: '1.5px solid #18181B',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -1464,8 +1595,8 @@ const Home = () => {
                     color: '#18181B',
                     backgroundColor: item.badgeBg,
                     border: '1px solid #18181B',
-                    padding: '3px 8px',
-                    borderRadius: '4px',
+                    padding: '3px 10px',
+                    borderRadius: '999px',
                     letterSpacing: '0.05em',
                   }}>
                     {item.badge}
@@ -1507,7 +1638,7 @@ const Home = () => {
       </section>
 
       {/* ============================================================
-          8. BOTTOM CONTACT CTA — CHARCOAL FOLDER BLOCK
+          8. BOTTOM CONTACT CTA — CHARCOAL ROUNDED FOLDER BLOCK
          ============================================================ */}
       <section style={{ paddingBottom: '48px' }}>
         <div
@@ -1515,7 +1646,7 @@ const Home = () => {
           style={{
             backgroundColor: '#18181B',
             border: '2px solid #18181B',
-            borderRadius: '8px',
+            borderRadius: '28px',
             padding: '44px 40px',
             display: 'flex', alignItems: 'center',
             justifyContent: 'space-between',
@@ -1545,58 +1676,67 @@ const Home = () => {
           </div>
 
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-            <Link
-              to="/contact"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '8px',
-                padding: '11px 22px', borderRadius: '5px',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '12px', fontWeight: 700,
-                textTransform: 'uppercase',
-                color: '#18181B', backgroundColor: '#F5C242',
-                border: '1.5px solid #18181B',
-                boxShadow: '3px 3px 0px #FFFFFF',
-                textDecoration: 'none',
-              }}
-            >
-              {t('home.getInTouch')} <FaArrowRight size={12} />
-            </Link>
+            <MagneticWrap>
+              <Link
+                to="/contact"
+                data-cursor={isEn ? 'Contact Now' : 'Liên hệ ngay'}
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  padding: '12px 24px', borderRadius: '999px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '12px', fontWeight: 700,
+                  textTransform: 'uppercase',
+                  color: '#18181B', backgroundColor: '#F5C242',
+                  border: '1.5px solid #18181B',
+                  boxShadow: '3px 3px 0px #FFFFFF',
+                  textDecoration: 'none',
+                }}
+              >
+                {t('home.getInTouch')} <FaArrowRight size={12} />
+              </Link>
+            </MagneticWrap>
 
-            <Link
-              to="/dich-vu#pricing-section"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '8px',
-                padding: '11px 20px', borderRadius: '5px',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '12px', fontWeight: 700,
-                textTransform: 'uppercase',
-                color: '#FFFFFF',
-                backgroundColor: '#2563EB',
-                border: '1.5px solid #FFFFFF',
-                textDecoration: 'none',
-              }}
-            >
-              <FaRocket size={12} />
-              <span>{isEn ? "View 3 Service Packages" : "Xem Báo Giá 3 Gói Dịch Vụ"}</span>
-            </Link>
+            <MagneticWrap>
+              <Link
+                to="/dich-vu#pricing-section"
+                data-cursor={isEn ? 'Pricing' : 'Bảng giá'}
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  padding: '12px 22px', borderRadius: '999px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '12px', fontWeight: 700,
+                  textTransform: 'uppercase',
+                  color: '#FFFFFF',
+                  backgroundColor: '#2563EB',
+                  border: '1.5px solid #FFFFFF',
+                  textDecoration: 'none',
+                }}
+              >
+                <FaRocket size={12} />
+                <span>{isEn ? "View 3 Service Packages" : "Xem Báo Giá 3 Gói Dịch Vụ"}</span>
+              </Link>
+            </MagneticWrap>
 
-            <a
-              href={personalInfo.contact?.github || 'https://github.com/trung2605'}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '8px',
-                padding: '11px 18px', borderRadius: '5px',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '12px', fontWeight: 700,
-                color: '#FFFFFF',
-                backgroundColor: 'transparent',
-                border: '1.5px solid rgba(255,255,255,0.35)',
-                textDecoration: 'none',
-              }}
-            >
-              <FaGithub size={14} /> GITHUB
-            </a>
+            <MagneticWrap>
+              <a
+                href={personalInfo.contact?.github || 'https://github.com/trung2605'}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="GitHub"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  padding: '12px 20px', borderRadius: '999px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '12px', fontWeight: 700,
+                  color: '#FFFFFF',
+                  backgroundColor: 'transparent',
+                  border: '1.5px solid rgba(255,255,255,0.35)',
+                  textDecoration: 'none',
+                }}
+              >
+                <FaGithub size={14} /> GITHUB
+              </a>
+            </MagneticWrap>
           </div>
         </div>
       </section>

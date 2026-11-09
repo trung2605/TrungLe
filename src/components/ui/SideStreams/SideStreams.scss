@@ -10,30 +10,20 @@
 
   .side-stream {
     position: fixed;
-    top: 88px;
-    bottom: 84px;
-    width: 260px;
+    top: 84px;
+    bottom: 78px;
+    width: var(--side-stream-w, clamp(220px, 14.5vw, 320px));
     z-index: 25;
     display: flex;
     flex-direction: column;
     pointer-events: none;
 
-    @media (max-width: 1480px) {
-      width: 220px;
-    }
-
     &.left-stream {
-      left: 16px;
-      @media (max-width: 1480px) {
-        left: 8px;
-      }
+      left: var(--side-stream-gap, clamp(10px, 1vw, 22px));
     }
 
     &.right-stream {
-      right: 16px;
-      @media (max-width: 1480px) {
-        right: 8px;
-      }
+      right: var(--side-stream-gap, clamp(10px, 1vw, 22px));
     }
 
     .stream-header {

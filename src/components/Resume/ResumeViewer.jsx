@@ -62,14 +62,14 @@ const ResumeViewer = () => {
     const [activeCvId, setActiveCvId] = useState('en_ba');
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
-    const [pageWidth, setPageWidth] = useState(() => Math.min(760, Math.max(280, (typeof window !== 'undefined' ? window.innerWidth : 760) - 48)));
+    const [pageWidth, setPageWidth] = useState(() => Math.min(1040, Math.max(280, (typeof window !== 'undefined' ? window.innerWidth : 960) - 96)));
     const [failed, setFailed] = useState(false);
 
     const activeCv = CV_VERSIONS.find(v => v.id === activeCvId) || CV_VERSIONS[0];
 
     useEffect(() => {
         const handleResize = () => {
-            setPageWidth(Math.min(760, Math.max(280, window.innerWidth - 48)));
+            setPageWidth(Math.min(1040, Math.max(280, window.innerWidth - 96)));
         };
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);

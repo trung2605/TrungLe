@@ -27,11 +27,11 @@ const Footer = () => {
         <footer style={{
             backgroundColor: 'var(--color-surface-soft)',
             borderTop: '2px solid var(--color-border-strong)',
-            padding: '48px 36px 36px',
+            padding: '48px clamp(16px, 2.8vw, 52px) 36px',
             marginTop: '32px',
             position: 'relative',
         }}>
-            <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto' }}>
                 <div
                     className="footer-grid"
                     style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '40px', marginBottom: '36px' }}
